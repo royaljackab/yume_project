@@ -2,7 +2,7 @@
 
 #include "ecs.h"
 
-#include <cstdint>
+#include <stdint.h>
 #include <string.h>
 
 #define DEFINE_COMPONENT_MANAGER(Type, Number)                                 \
