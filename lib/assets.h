@@ -4,6 +4,8 @@
 #include "raylib.h"
 #include "raymath.h"
 
+#define MAX_TEXTURES 200
+
 enum {
     BULLET_SPRITESHEET,
     BOSS_SPRITESHEET,
@@ -14,5 +16,7 @@ enum {
 
 void AssetsLoad();
 void AssetsUnload();
+
+extern Texture2D textures[MAX_TEXTURES];
 
 #endif

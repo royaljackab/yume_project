@@ -1,6 +1,5 @@
 //NOTE: La mise a mort de ce ficher ne saurait tarder...
-#ifndef GLOBALS_H
-#define GLOBALS_H
+#pragma once
 
 #define DRAW_MARGIN 500   // 80
 #define SCREEN_WIDTH 1280 // 1280
@@ -11,14 +10,3 @@
 #define PANEL_UP SCREEN_HEIGHT / 45       // 20
 #define PANEL_HEIGHT SCREEN_HEIGHT * 0.95 // 820
 
-#define MAX_TEXTURES 200
-#define MAX_OBJECTS 10000
-
-#include "obj.h"
-#include "sprite.h"
-
-extern Texture2D textures[MAX_TEXTURES];
-extern Sprite bulletSprites[MAX_TEXTURES];
-extern Object objects[MAX_OBJECTS];
-
-#endif
