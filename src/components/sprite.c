@@ -1,5 +1,5 @@
-#include "../lib/components/sprite.h"
-#include "../lib/globals.h"
+#include "../../lib/components/sprite.h"
+#include "../../lib/globals.h"
 
 void SetTexture(Sprite* sprite, int textureID) {
     sprite->textureID = textureID;

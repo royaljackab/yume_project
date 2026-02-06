@@ -3,7 +3,7 @@
 
 #include "../include/raylib.h"
 #include <stdbool.h>
-#include "component.h"
+#include "../component.h"
 #include "assets.h"
 
 typedef struct {
