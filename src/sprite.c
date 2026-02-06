@@ -1,4 +1,4 @@
-#include "../lib/sprite.h"
+#include "../lib/components/sprite.h"
 #include "../lib/globals.h"
 
 void SetTexture(Sprite* sprite, int textureID) {
@@ -11,26 +11,6 @@ void SetTexture(Sprite* sprite, int textureID) {
     sprite->scale = (Vector2){1,1};
 }
 
-void SetSourceRect(Sprite* sprite, float x, float y, float width, float height) {
-    sprite->srcRect = (Rectangle){x,y,width,height};
-    sprite->center = (Vector2){width/2, height/2};
-}
-
-void SetCenter(Sprite* sprite, float x, float y) {
-    sprite->center = (Vector2){x,y}; 
-}
-
-void SetRotation(Sprite* sprite, float rotation) {
-    sprite->rotation = rotation;
-}
-
-void SetScale(Sprite* sprite, float x, float y) {
-    sprite->scale = (Vector2){x,y};
-}
-
-void SetColor(Sprite* sprite, Color color) {
-    sprite->color = color;
-}
 
 void SetAnimation(Sprite* sprite, int frameCount, int delay) {
     sprite->isAnimated = true;
@@ -42,10 +22,6 @@ void SetAnimation(Sprite* sprite, int frameCount, int delay) {
     sprite->animSpeed = delay;
     sprite->animTimer = 0;
     sprite->currentFrame = 0;
-}
-
-void SetCollisionRadius(Sprite* sprite, float radius) {
-    sprite->hitboxRadius = radius;
 }
 
 void UpdateAnimation(Sprite* sprite) {

@@ -1,3 +1,6 @@
+//TODO: Eliminer le fichier décadent obj.c et intégrer les fonctions dans le pool et/ou les systèmes concernés
+
+
 #include "../lib/obj.h"
 #include "../lib/globals.h"
 #include <stdio.h>

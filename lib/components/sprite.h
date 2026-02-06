@@ -3,7 +3,7 @@
 
 #include "../include/raylib.h"
 #include <stdbool.h>
-
+#include "component.h"
 #include "assets.h"
 
 typedef struct {
@@ -24,17 +24,26 @@ typedef struct {
     float rotation;
     Vector2 animStart;
 
-    float hitboxRadius;
 } Sprite;
 
-void SetTexture        (Sprite* sprite, int textureID);
+DEFINE_COMPONENT_MANAGER(Sprite, MAX_ENTITIES)
+DECLARE_SETTER_GETTER(Sprite, int, textureID)
+DECLARE_SETTER_GETTER(Sprite, Rectangle, srcRect)
+DECLARE_SETTER_GETTER(Sprite, Vector2, center)
+DECLARE_SETTER_GETTER(Sprite, float, rotation)
+DECLARE_SETTER_GETTER(Sprite, Vector2, scale)
+DECLARE_SETTER_GETTER(Sprite, Color, color)
+DECLARE_SETTER_GETTER(Sprite, int, renderPriority)
+DECLARE_SETTER_GETTER(Sprite, bool, isAnimated)
+DECLARE_SETTER_GETTER(Sprite, int, animFrameCount)
+DECLARE_SETTER_GETTER(Sprite, int, animSpeed)
+DECLARE_SETTER_GETTER(Sprite, int, animTimer)
+DECLARE_SETTER_GETTER(Sprite, int, currentFrame)
+DECLARE_SETTER_GETTER(Sprite, int, frameWidth)
+DECLARE_SETTER_GETTER(Sprite, Vector2, animStart)
+
 void SetSourceRect     (Sprite* sprite, float x, float y, float width, float height);
-void SetCenter         (Sprite* sprite, float x, float y);
-void SetRotation       (Sprite* sprite, float rotation);
-void SetScale          (Sprite* sprite, float x, float y);
-void SetColor          (Sprite* sprite, Color color);
 void SetAnimation      (Sprite* sprite, int frameCount, int delay);
-void SetCollisionRadius(Sprite* sprite, float radius);
 void UpdateAnimation   (Sprite* sprite);
 void DrawSprite        (Sprite sprite, Vector2 pos);
 
