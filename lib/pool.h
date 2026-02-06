@@ -3,11 +3,13 @@
 #include "common.h"
 #include "component.h"
 #include "components/physics.h"
+#include "components/sprite.h"
 #include "ecs.h"
 
 typedef struct Pool {
   PositionManager position;
   PhysicsManager physics;
+  SpriteManager sprite;
 
   Entity next_id;
 } Pool;

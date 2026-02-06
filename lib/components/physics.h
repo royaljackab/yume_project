@@ -10,4 +10,7 @@ typedef struct Physics {
   float angVel;
 } Physics;
 
-DEFINE_COMPONENT_MANAGER(Physics, MAX_ENTITIES);
+DEFINE_COMPONENT_MANAGER(Physics, MAX_ENTITIES)
+
+DECLARE_SETTER_GETTER(Physics, float, speed)
+DECLARE_SETTER_GETTER(Physics, float, angle)

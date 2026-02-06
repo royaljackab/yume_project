@@ -49,3 +49,15 @@
     mgr->sparse[last_e] = id;                                                  \
     mgr->sparse[e] = NULL_INDEX;                                               \
   }
+
+#define DECLARE_GETTER(Component, type, champ)                                 \
+  static inline type Component##_get_##champ(Component *p) { return p->champ; }
+
+#define DECLARE_SETTER(Component, type, champ)                                 \
+  static inline void Component##_get_##champ(Component *p, type champ) {       \
+    p->champ = champ;                                                          \
+  }
+
+#define DECLARE_SETTER_GETTER(Component, type, champ)                          \
+  DECLARE_SETTER(Component, type, champ)                                       \
+  DECLARE_GETTER(Component, type, champ)
