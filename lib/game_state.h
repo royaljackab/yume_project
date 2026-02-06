@@ -32,20 +32,20 @@ struct GameContext {
   StateID nextStateID;
   GameState *currentState;
 
+  /* Systemes */
   InputSystem input;
-
   ButtonSystem button;
 
   int debug;
   int pause;
 };
 
-extern void gamestate_initialize(GameContext * ctx, StateID state);
+extern void gamestate_initialize(GameContext *ctx, StateID state);
 extern void gamestate_update(GameContext *ctx);
 void pauseListener(GameContext *ctx);
 void pauseMenu();
 
-extern void gamestate_change_state(GameContext * ctx, StateID stateID);
+extern void gamestate_change_state(GameContext *ctx, StateID stateID);
 
 extern GameState state_menu_title;
 extern GameState state_menu_keybinds;
