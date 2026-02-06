@@ -13,6 +13,7 @@ typedef struct {
     Vector2 scale;
     Color color;
     int renderPriority; //Pour afficher devant/derriere d'autres..
+    int display;
 
     //Pour l'animation
     bool isAnimated;
@@ -34,6 +35,7 @@ DECLARE_SETTER_GETTER(Sprite, float, rotation)
 DECLARE_SETTER_GETTER(Sprite, Vector2, scale)
 DECLARE_SETTER_GETTER(Sprite, Color, color)
 DECLARE_SETTER_GETTER(Sprite, int, renderPriority)
+DECLARE_SETTER_GETTER(Sprite, int, display)
 DECLARE_SETTER_GETTER(Sprite, bool, isAnimated)
 DECLARE_SETTER_GETTER(Sprite, int, animFrameCount)
 DECLARE_SETTER_GETTER(Sprite, int, animSpeed)
@@ -48,3 +50,5 @@ void UpdateAnimation   (Sprite* sprite);
 void DrawSprite        (Sprite sprite, Vector2 pos);
 
 #endif
+
+

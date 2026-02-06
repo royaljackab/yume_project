@@ -7,6 +7,8 @@ void pool_init(Pool *p) {
   Position_init(&p->position);
   Physics_init(&p->physics);
   Sprite_init(&p->sprite);
+  Collision_circle_init(&p->collision_circle);
+  Collision_rectangle_init(&p->collision_circle);
 }
 
 Entity pool_create_entity(Pool *p) {
