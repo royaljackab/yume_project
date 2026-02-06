@@ -2,10 +2,12 @@
 
 #include "common.h"
 #include "component.h"
+#include "components/physics.h"
 #include "ecs.h"
 
 typedef struct Pool {
   PositionManager position;
+  PhysicsManager physics;
 
   Entity next_id;
 } Pool;

@@ -5,6 +5,7 @@ void pool_init(Pool *p) {
 
   /* Initialisation des composantes */
   Position_init(&p->position);
+  Physics_init(&p->physics);
 }
 
 Entity pool_create_entity(Pool *p) {
