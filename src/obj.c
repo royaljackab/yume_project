@@ -1,4 +1,5 @@
-//TODO: Eliminer le fichier décadent obj.c et intégrer les fonctions dans le pool et/ou les systèmes concernés
+//TODO: Eliminer le fichier décadent
+////// DEPRECATED //////
 
 
 #include "../lib/obj.h"

@@ -1,3 +1,6 @@
+//TODO: Eliminer le fichier décadent
+////// DEPRECATED //////
+
 #include "../lib/bullet_sprites.h"
 #include "../lib/globals.h"
 
