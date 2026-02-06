@@ -9,3 +9,5 @@ CMakeFiles/
 CMakeCache.txt
 CMake_install.cmake 
 *.cmake
+html/
+latex/
