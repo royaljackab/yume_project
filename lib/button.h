@@ -4,38 +4,36 @@
 // #include "../include/raylib.h"
 #include "globals.h"
 #include "input.h"
+#include <raylib.h>
 
 #define MAX_BUTTONS 30
 #define NO_BUTTON -1
 
-typedef struct{
-    Vector2 pos;
-    int buttonLeft;
-    int buttonRight;
-    int validated;
-
-    //ces champs ont vocation a disparaitre
-    char * text;
-    int size;
-    Color color;
+typedef struct Button{
+  Vector2 pos;
+  int buttonLeft;
+  int buttonRight;
+  int validated;
 } Button;
 
-typedef struct{
-    Button buttons[MAX_BUTTONS];
-    int selection;
-    int nbButtons;
+typedef struct ButtonSystem{
+  Button buttons[MAX_BUTTONS];
+  int selection;
+  int nbButtons;
 } ButtonSystem;
 
-int button_is_validated             (ButtonSystem *buttonSystem);
-void button_update                  (ButtonSystem *buttonSystem, InputState *inputState);
-void button_create                  (ButtonSystem *buttonSystem, int x, int y);
-void button_create_ex               (ButtonSystem *buttonSystem, int x, int y, int left, int right);
-void button_create_text             (ButtonSystem *buttonSystem, int x, int y, char * text, int size, Color color);
-void button_create_text_ex          (ButtonSystem *buttonSystem, int x, int y, char * text, int size, Color color, int left, int right);
-ButtonSystem button_system_init     ();
+extern void button_system_init(ButtonSystem *buttonSystem);
+extern void button_update(ButtonSystem *buttonSystem, InputSystem *inputState);
 
-void button_create_text             (ButtonSystem *buttonSystem, int x, int y, char * text, int size, Color color);
-void draw_cursor                    (ButtonSystem *buttonSystem);
-void draw_text                      (ButtonSystem *buttonSystem);
+extern int button_is_validated(ButtonSystem *buttonSystem);
+extern int button_is_button_validated(ButtonSystem * buttonSystem, int buttonID);
+extern void button_create(ButtonSystem *buttonSystem, int x, int y);
+extern void button_create_ex(ButtonSystem *buttonSystem, int x, int y, int left, int right);
 
+extern int button_get_current_buttonID(ButtonSystem * buttonSystem);
+extern Button button_get_current_button(ButtonSystem * buttonSystem);
+extern Vector2 button_get_button_position(ButtonSystem * buttonSystem, int buttonID);
+
+extern void button_draw_button_text(ButtonSystem * buttonSystem, int buttonID, char * text, int fontSize, Color color);
+extern void button_draw_selector_text(ButtonSystem * buttonSystem, int x_offset, int y_offset, char * text, int fontSize, Color color);
 #endif

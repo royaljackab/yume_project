@@ -21,7 +21,7 @@ typedef struct KeyState {
 } KeyState;
 
 // Permet de savoir a tout instant chaque etat des touches interessantes
-typedef struct InputState {
+typedef struct InputSystem {
   // NOTE: gardez les memes noms de key pour config et State !
   InputConfig keybinds;
 
@@ -32,14 +32,14 @@ typedef struct InputState {
   KeyState skip;
   KeyState pause;
   KeyState validate;
-} InputState;
+} InputSystem;
 
 /* Fonctions */
-extern void input_initialize(InputState * input);
-extern void input_update(InputState * input);
+extern void input_initialize(InputSystem *input);
+extern void input_update(InputSystem *input);
 
 extern int isPressed(KeyState key);
 extern int isDown(KeyState key);
 extern int isReleased(KeyState key);
 
-extern void input_change_keybind(KeyboardKey * key, KeyboardKey new_key);
+extern void input_change_keybind(KeyboardKey *key, KeyboardKey new_key);

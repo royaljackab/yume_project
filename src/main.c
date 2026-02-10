@@ -8,9 +8,9 @@ int main() {
   SetTargetFPS(60);
 
   GameContext ctx;
-  ctx.currentStateID = STATE_MENU_TITLE;
-  ctx.currentState = get_state_pointer(ctx.currentStateID);
+  gamestate_initialize(&ctx, STATE_MENU_TITLE);
   ctx.pause = 0;
+  
   input_initialize(&ctx.input);
   load_settings(&ctx);
 
@@ -30,7 +30,7 @@ int main() {
 
   while (!WindowShouldClose()) {
     input_update(&ctx.input);
-    gamestate_process_state_change(&ctx);
+    gamestate_update(&ctx);
 
     if (ctx.currentStateID > __END_MENU__) {
       pauseListener(&ctx);

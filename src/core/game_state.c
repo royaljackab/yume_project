@@ -1,7 +1,7 @@
 #include "../../lib/game_state.h"
-#include <stddef.h>
 #include "../../lib/input.h"
-#include "../../lib/title_screen.h"
+
+#include <stddef.h>
 #include <stdio.h>
 
 
@@ -23,7 +23,17 @@ GameState *get_state_pointer(StateID state) {
   }
 }
 
-void gamestate_process_state_change(GameContext *ctx) {
+void gamestate_initialize(GameContext *ctx, StateID init_state) {
+  /*** Initialise le Game System à un state
+   *
+   */
+
+  ctx->nextStateID = STATE_NONE;
+  ctx->currentStateID = init_state;
+  ctx->currentState = get_state_pointer(init_state);
+}
+
+void gamestate_update(GameContext *ctx) {
   /***
    * Appelée a chaque frame pour effectuer le changement d'état (s'il a lieu)
    */
@@ -49,6 +59,14 @@ void gamestate_process_state_change(GameContext *ctx) {
 
   // Reset trigger
   ctx->nextStateID = STATE_NONE;
+}
+
+void gamestate_change_state(GameContext * ctx, StateID stateID) {
+  /*** 
+  * A utiliser pour changer d'état
+  */
+
+  ctx->nextStateID = stateID;
 }
 
 void pauseListener(GameContext *ctx){
