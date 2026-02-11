@@ -1,3 +1,9 @@
+/**
+ * @file assets.c
+ * @author jack abribat
+ * description blah blah
+ */
+
 #include "../lib/assets.h"
 #include "../lib/globals.h"
 
