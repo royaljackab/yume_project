@@ -1,9 +1,11 @@
 #include "pool.h"
+#include "common.h"
 #include "raylib.h"
 
 void pool_init(Pool *p) {
   /* Initialisation des composantes */
-  Common_init(&p->position);
+  Position_init(&p->position);
+  Tag_init(&p->tag);
   Physics_init(&p->physics);
 
   /* Remplissage de la pile d'indices libres */
@@ -15,8 +17,8 @@ void pool_init(Pool *p) {
 
 Entity pool_create_entity(Pool *p) {
   if (p->free_top <= 0) {
-    // Plus d'indices disponibles 
-    return NULL_INDEX; 
+    // Plus d'indices disponibles
+    return NULL_INDEX;
   }
 
   // On décrémente et on rend l'ID qui était au sommet
