@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../component.h"
+#include "component.h"
 
 typedef struct Physics {
   float speed;

@@ -1,6 +1,6 @@
-#include "../../lib/content/ui/title_screen.h"
-#include "../../lib/systems/button.h"
-#include "../../lib/core/game_state.h"
+#include "title_screen.h"
+#include "button.h"
+#include "game_state.h"
 #include <raylib.h>
 #include <stdio.h>
 

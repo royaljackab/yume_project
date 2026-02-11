@@ -1,9 +1,9 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#include "../include/raylib.h"
+#include "raylib.h"
 #include <stdbool.h>
-#include "../component.h"
+#include "component.h"
 #include "assets.h"
 
 typedef struct {

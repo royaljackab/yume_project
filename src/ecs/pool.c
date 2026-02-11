@@ -1,4 +1,4 @@
-#include "../../lib/ecs/pool.h"
+#include "pool.h"
 #include "raylib.h"
 void pool_init(Pool *p) {
   p->next_id = 0;

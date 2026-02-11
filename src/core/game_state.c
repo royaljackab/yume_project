@@ -1,5 +1,5 @@
-#include "../../lib/core/game_state.h"
-#include "../../lib/core/input.h"
+#include "game_state.h"
+#include "input.h"
 
 #include <stddef.h>
 #include <stdio.h>

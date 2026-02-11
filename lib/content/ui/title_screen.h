@@ -1,4 +1,5 @@
 #pragma once
+
 #include "game_state.h"
 
 void state_menu_title_update    (GameContext *ctx);

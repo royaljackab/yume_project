@@ -1,5 +1,5 @@
-#include "../../lib/core/task.h"
-#include "../../lib/test_task.h"
+#include "task.h"
+#include "test_task.h"
 
 #define bossX objects[bossID].pos.x
 #define bossY objects[bossID].pos.y

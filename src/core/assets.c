@@ -1,4 +1,4 @@
-#include "../../lib/core/assets.h"
+#include "assets.h"
 
 Texture2D textures[MAX_TEXTURES];
 

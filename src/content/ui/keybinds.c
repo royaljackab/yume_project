@@ -1,9 +1,9 @@
-#include "../../lib/content/ui/keybinds.h"
-#include "../../lib/systems/button.h"
-#include "../../lib/core/settings.h"
-#include "../../lib/core/game_state.h"
-#include "../../lib/core/input.h"
-#include "../../lib/core/globals.h"
+#include "keybinds.h"
+#include "button.h"
+#include "settings.h"
+#include "game_state.h"
+#include "input.h"
+#include "globals.h"
 
 #include <raylib.h>
 #include <stdio.h>

@@ -2,8 +2,8 @@
 
 #include "common.h"
 #include "component.h"
-#include "components/physics.h"
-#include "components/sprite.h"
+#include "physics.h"
+#include "sprite.h"
 #include "ecs.h"
 
 typedef struct Pool {
