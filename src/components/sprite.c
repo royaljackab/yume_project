@@ -51,7 +51,7 @@ void DrawSprite(Sprite sprite, Vector2 pos) {
     DrawTexturePro(tex, sprite.srcRect, destRec, sprite.center, sprite.rotation, sprite.color);
 }
 
-void drawAll(SpriteManager * spriteManager, PositionManager * commonManager){
+void drawAll(SpriteManager * spriteManager, PositionManager * positionManager) {
     
     Vector2 pos;
     int lookup;
@@ -62,7 +62,7 @@ void drawAll(SpriteManager * spriteManager, PositionManager * commonManager){
             sprite = spriteManager->dense[i];
             lookup = spriteManager->entity_lookup[i];
             if (sprite.renderPriority == layer){
-                pos = PositionManager->dense[lookup];
+                pos = positionManager->dense[lookup].pos;
                 if (sprite.display)         
                    DrawSprite(sprite, pos);
             }

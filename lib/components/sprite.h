@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include "component.h"
 #include "assets.h"
+#include "common.h"
 
 typedef struct {
     int textureID;
