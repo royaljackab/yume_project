@@ -1,7 +1,6 @@
 /**
  * @file assets.c
  * @author jack abribat
- * description blah blah
  */
 
 #include "assets.h"
