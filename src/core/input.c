@@ -1,4 +1,4 @@
-#include "../../lib/input.h"
+#include "input.h"
 #include <raylib.h>
 
 /* Macros */

@@ -1,8 +1,9 @@
-//TODO: Eliminer le fichier décadent obj.c et intégrer les fonctions dans le pool et/ou les systèmes concernés
+//TODO: Eliminer le fichier décadent
+////// DEPRECATED //////
 
 
-#include "../lib/obj.h"
-#include "../lib/globals.h"
+#include "obj.h"
+#include "globals.h"
 #include <stdio.h>
 
 #define o objects[i]

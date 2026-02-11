@@ -1,5 +1,22 @@
-*.o
-*.exe
 include/*
-bin/*
 settings.txt
+
+# Compilation et binaire
+build/
+bin/
+*.o
+*.out
+*.exe
+
+# VS Code et OS
+.vscode/
+.DS_Store
+
+# Documentation générée (Doxygen)
+latex/
+
+# Fichiers temporaires CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile

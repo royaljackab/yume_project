@@ -1,9 +1,10 @@
-#include "../lib/game_state.h"
-#include "../lib/settings.h"
+#include "game_state.h"
+#include "settings.h"
 #include <stddef.h>
 #include <stdio.h>
 
 int main() {
+  InitAudioDevice();
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Night of nights");
   SetTargetFPS(60);
 
@@ -29,6 +30,8 @@ int main() {
   ctx.currentState->init(&ctx);
 
   while (!WindowShouldClose()) {
+    UpdateMusicStream(playlist[BGM_FAST_DANGER]);
+    
     input_update(&ctx.input);
     gamestate_update(&ctx);
 
@@ -48,6 +51,7 @@ int main() {
   }
 
   AssetsUnload();
+  CloseAudioDevice();
   CloseWindow();
 }
 

@@ -1,18 +1,31 @@
-#include "../../lib/pool.h"
+#include "pool.h"
 #include "raylib.h"
-void pool_init(Pool *p) {
-  p->next_id = 0;
 
+void pool_init(Pool *p) {
   /* Initialisation des composantes */
-  Position_init(&p->position);
+  Common_init(&p->position);
   Physics_init(&p->physics);
-  Sprite_init(&p->sprite);
-  Collision_circle_init(&p->collision_circle);
-  Collision_rectangle_init(&p->collision_circle);
+
+  /* Remplissage de la pile d'indices libres */
+  for (int i = 0; i < MAX_ENTITIES; i++) {
+    p->free_indices[i] = (Entity)(MAX_ENTITIES - 1 - i);
+  }
+  p->free_top = MAX_ENTITIES; // La pile est pleine au début
 }
 
 Entity pool_create_entity(Pool *p) {
-  // TODO: Gestion du recyclage d'indice
+  if (p->free_top <= 0) {
+    // Plus d'indices disponibles 
+    return NULL_INDEX; 
+  }
 
-  return p->next_id++;
+  // On décrémente et on rend l'ID qui était au sommet
+  return p->free_indices[--p->free_top];
+}
+
+void pool_destroy_entity(Pool *p, Entity e) {
+  if (p->free_top < MAX_ENTITIES) {
+    // On remet l'ID dans la pile pour le réutiliser plus tard
+    p->free_indices[p->free_top++] = e;
+  }
 }

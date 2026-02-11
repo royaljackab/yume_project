@@ -1,5 +1,8 @@
-#include "../lib/bullet_shot.h"
-#include "../lib/globals.h"
+//TODO: Eliminer le fichier décadent
+////// DEPRECATED //////
+
+#include "bullet_shot.h"
+#include "globals.h"
 
 ObjID CreateShotType(ObjType type, float x, float y, float speed, float angle, BulletGraphic graphic, int delay) {
     int id = Obj_Create(type);
