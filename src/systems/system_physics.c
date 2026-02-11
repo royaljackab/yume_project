@@ -1,4 +1,4 @@
-#include "../../lib/components/common.h"
+#include "common.h"
 #include "physics.h"
 #include <raylib.h>
 #include <raymath.h>
