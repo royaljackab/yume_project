@@ -121,3 +121,39 @@ void Sprite_draw_all(Pool *p) {
     }
   }
 }
+
+void drawStraightLaser(Straight_laser *laser, Position * pos, Sprite * sprite){
+    /**
+     * Affiche un laser droit selon sa largeur et sa longueur, à sa position et avec la couleur de son sprite
+     * 
+     */
+    int textureID = sprite->textureID;
+
+    Rectangle source = sprite->srcRect;
+
+    Rectangle dest = {
+        pos->x,
+        pos->y,
+        laser->laserWidth,
+        laser->laserLength
+    };
+
+    Vector2 origin = {laser->laserWidth/2.0, 0};
+
+    DrawTexturePro(textures[textureID], source, dest, origin, /*angle,*/ sprite->color);
+}
+
+drawAllStraightLasers(Straight_laserManager *laserManager, PositionManager * positionManager, SpriteManager * spriteManager) {
+    /**
+     * Affiche tous les lasers droits actifs
+     */
+    Straight_laser *laser;
+    Position pos;
+    Sprite sprite;
+    for (int i=0; i < laserManager->count; i++) {
+        laser = &laserManager->dense[i];
+        pos = positionManager->dense[laserManager->entity_lookup[i]];
+        sprite = spriteManager->dense[laserManager->entity_lookup[i]];
+        drawStraightLaser(laser, &pos, &sprite);
+    }
+}

@@ -14,14 +14,15 @@
 
 #pragma once
 
-#include "components/collision_circle.h"
-#include "components/collision_rectangle.h"
-#include "components/common.h"
-#include "components/life.h"
-#include "components/physics.h"
-#include "components/sprite.h"
+#include "collision_circle.h"
+#include "collision_rectangle.h"
+#include "common.h"
+#include "life.h"
+#include "physics.h"
+#include "sprite.h"
 #include "ecs/ecs.h"
 #include "player.h"
+#include "straight_laser.h"
 
 typedef struct Pool {
   PositionManager position;
@@ -33,7 +34,9 @@ typedef struct Pool {
   LifeManager life;
   PlayerManager player;
   WeaponManager weapon;
-  
+  Straight_laserManager straightLaser;
+  TimerManager timer;
+
   // Nouvelle gestion des indices
   Entity free_indices[MAX_ENTITIES]; // Le tableau qui stocke les IDs dispos
   int free_top; // L'index du sommet de la pile (si il est a 5000 la pile est
