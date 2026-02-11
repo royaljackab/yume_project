@@ -1,5 +1,6 @@
 #include "sprite.h"
 #include "assets.h"
+#include "screen.h"
 
 #define MIN_LAYER 0
 #define MAX_LAYER 100
@@ -29,6 +30,9 @@ void SetAnimation(Sprite* sprite, int frameCount, int delay) {
 }
 
 void UpdateAnimation(Sprite* sprite) {
+    /***
+     * Update l'animation d'un sprite a partir de son source Rectangle, et de ses informations de frame.
+     */
     sprite->animTimer++;
 
     if(sprite->animTimer >= sprite->animSpeed) {
@@ -39,6 +43,9 @@ void UpdateAnimation(Sprite* sprite) {
 }
 
 void DrawSprite(Sprite sprite, Vector2 pos) {
+    /***
+     * Dessine un sprite a une position donnée en utilisant DrawTexturePro de raylib
+     */
     Texture2D tex = textures[sprite.textureID];
 
     Rectangle destRec = {
@@ -51,8 +58,33 @@ void DrawSprite(Sprite sprite, Vector2 pos) {
     DrawTexturePro(tex, sprite.srcRect, destRec, sprite.center, sprite.rotation, sprite.color);
 }
 
+static bool IsOutOfDrawBounds(Vector2 pos, Sprite sprite) {
+    /***
+     * Retourne si le sprite au vector2 pos est hors de la fenêtre de dessin ou pas
+     */
+
+    return (pos.x + sprite.srcRect.width < PANEL_LEFT || pos.x - sprite.srcRect.width > PANEL_LEFT + PANEL_WIDTH 
+        || pos.y + sprite.srcRect.height < PANEL_UP || pos.y - sprite.srcRect.height > PANEL_UP + PANEL_HEIGHT);
+        
+}
+
+static bool IsOutOfBounds(Vector2 pos) {
+    /***
+     * Retourne si le Vector2 pos est hors limites ou pas
+     */
+
+     return (pos.x < - DRAW_MARGIN || pos.x > PANEL_WIDTH + PANEL_LEFT + DRAW_MARGIN
+        || pos.y < -DRAW_MARGIN || pos.y > PANEL_UP + PANEL_HEIGHT + DRAW_MARGIN);
+}
+
+
+
 void drawAll(SpriteManager * spriteManager, PositionManager * positionManager) {
-    
+    /***
+     * Dessine tous les sprites du spriteManager en parametre a la position donné par le positionManager en faisant attention à la couche dont il doit être dessiné.
+     * les sprites ne sont dessinés uniquement si ils doivent être afficher (sprite.display et DrawBounds). 
+     */
+
     Vector2 pos;
     int lookup;
     Sprite sprite;
@@ -63,7 +95,8 @@ void drawAll(SpriteManager * spriteManager, PositionManager * positionManager) {
             lookup = spriteManager->entity_lookup[i];
             if (sprite.renderPriority == layer){
                 pos = positionManager->dense[lookup].pos;
-                if (sprite.display)         
+
+                if (sprite.display && IsOutOfDrawBounds(pos, sprite))         
                    DrawSprite(sprite, pos);
             }
         }
