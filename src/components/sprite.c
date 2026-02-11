@@ -1,6 +1,10 @@
 #include "sprite.h"
 #include "assets.h"
 
+#define MIN_LAYER 0
+#define MAX_LAYER 100
+
+
 void SetTexture(Sprite* sprite, int textureID) {
     sprite->textureID = textureID;
     sprite->srcRect = (Rectangle){0,0,textures[textureID].width, textures[textureID].height};
@@ -45,4 +49,23 @@ void DrawSprite(Sprite sprite, Vector2 pos) {
     };
 
     DrawTexturePro(tex, sprite.srcRect, destRec, sprite.center, sprite.rotation, sprite.color);
+}
+
+void drawAll(SpriteManager * spriteManager, PositionManager * positionManager) {
+    
+    Vector2 pos;
+    int lookup;
+    Sprite sprite;
+    for (int layer = MIN_LAYER; layer <= MAX_LAYER; layer++){
+        for (int i=0; i < spriteManager->count; i++)
+        {
+            sprite = spriteManager->dense[i];
+            lookup = spriteManager->entity_lookup[i];
+            if (sprite.renderPriority == layer){
+                pos = positionManager->dense[lookup].pos;
+                if (sprite.display)         
+                   DrawSprite(sprite, pos);
+            }
+        }
+    }
 }

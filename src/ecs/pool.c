@@ -7,6 +7,9 @@ void pool_init(Pool *p) {
   Position_init(&p->position);
   Tag_init(&p->tag);
   Physics_init(&p->physics);
+  Sprite_init(&p->sprite);
+  Collision_circle_init(&p->collision_circle);
+  Collision_rectangle_init(&p->collision_rectangle);
 
   
   /* Remplissage de la pile d'indices libres */

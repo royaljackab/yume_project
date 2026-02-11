@@ -5,12 +5,17 @@
 #include "ecs.h"
 #include "physics.h"
 #include "sprite.h"
+#include "ecs.h"
+#include "collision_circle.h"
+#include "collision_rectangle.h"
 
 typedef struct Pool {
   PositionManager position;
   TagManager tag;
   PhysicsManager physics;
   SpriteManager sprite;
+  Collision_circleManager collision_circle;
+  Collision_rectangleManager collision_rectangle;
 
   // Nouvelle gestion des indices
   Entity free_indices[MAX_ENTITIES]; // Le tableau qui stocke les IDs dispos
