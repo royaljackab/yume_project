@@ -345,36 +345,36 @@ void ObjSprite2D_SetCollisionToShot(ObjID id, float radius) {
     SetCollisionRadius(&objects[id].sprite, radius);
 }
 
-void UpdateAnimations() {
-    for(int i=0; i<MAX_OBJECTS; i++) {
-        if (objects[i].active && objects[i].sprite.isAnimated) {
-            UpdateAnimation(&objects[i].sprite);
-        }
-    }
-}
+// void UpdateAnimations() {
+//     for(int i=0; i<MAX_OBJECTS; i++) {
+//         if (objects[i].active && objects[i].sprite.isAnimated) {
+//             UpdateAnimation(&objects[i].sprite);
+//         }
+//     }
+// }
 
 void DrawObjects() {
     for(int i=0; i<MAX_OBJECTS; i++) {
         if(objects[i].active && objects[i].timer >= objects[i].delay && !IsOutOfDrawBounds(objects[i].pos, objects[i].sprite)) {
 
-            //straight laser
-            if (objects[i].type == OBJ_ENEMY_LASER || objects[i].type == OBJ_PLAYER_LASER) {
-                int textureID = objects[i].sprite.textureID;
+            // //straight laser
+            // if (objects[i].type == OBJ_ENEMY_LASER || objects[i].type == OBJ_PLAYER_LASER) {
+            //     int textureID = objects[i].sprite.textureID;
 
-                Rectangle source = objects[i].sprite.srcRect;
+            //     Rectangle source = objects[i].sprite.srcRect;
 
-                Rectangle dest = {
-                    objects[i].pos.x,
-                    objects[i].pos.y,
-                    objects[i].laserWidth,
-                    objects[i].laserLength
-                };
+            //     Rectangle dest = {
+            //         objects[i].pos.x,
+            //         objects[i].pos.y,
+            //         objects[i].laserWidth,
+            //         objects[i].laserLength
+            //     };
 
-                Vector2 origin = {objects[i].laserWidth/2.0, 0};
+            //     Vector2 origin = {objects[i].laserWidth/2.0, 0};
 
-                DrawTexturePro(textures[textureID], source, dest, origin, objects[i].angle, objects[i].sprite.color);
-                continue;
-            }
+            //     DrawTexturePro(textures[textureID], source, dest, origin, objects[i].angle, objects[i].sprite.color);
+            //     continue;
+            // }
 
             // Affichage LOOSE LASER
             if (objects[i].type == OBJ_LOOSE_LASER) {

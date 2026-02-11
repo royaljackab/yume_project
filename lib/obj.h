@@ -40,25 +40,33 @@ typedef struct {
     bool active;
     ObjType type;
 
+    //position
     Vector2 pos;
+
+    //physique
     float speed;
     float angle; //en degrés
     float accel;
     float maxSpd;
     float angVel;
-    Vector2 force;
 
+    //enemy
     float life;
     float maxLife;
+
+    //Playerbullet
     int damage;
 
+    //flags
+    bool disappearOnHit;
+
+    //sprite
     Sprite sprite;
 
     bool movingToDest;
     Vector2 destPos;
 
-    int delay;
-    int timer;
+
 
     //straight Laser
     float laserLength;
@@ -82,10 +90,8 @@ typedef struct {
     // File de patterns
     MovePattern patterns[MAX_PATTERNS];
     int patternCount;
-
-    // Flags
-    bool disappearOnHit; // L'objet disparaît lorsque collision avec un ennemi
-    bool disappearOnDeath; // L'objet disparaît lorsque life=0
+    int delay;
+    int timer;
 } Object;
 
 ObjID Obj_Create (ObjType type);
