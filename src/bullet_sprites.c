@@ -1,8 +1,8 @@
 //TODO: Eliminer le fichier décadent
 ////// DEPRECATED //////
 
-#include "../lib/bullet_sprites.h"
-#include "../lib/globals.h"
+#include "bullet_sprites.h"
+#include "globals.h"
 
 Sprite bulletSprites[MAX_TEXTURES];
 

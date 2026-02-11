@@ -53,15 +53,26 @@
 TARGET = jeu
 CFLAGS = -Wall
 
-# Recherche récursive de tous les fichiers .c, en excluant ANY ../bin/ ou include/ directories
-SRC = $(shell find src -type f -name "*.c" ! -path "*/../bin/*" ! -path "*/include/*")
+# Recherche récursive de tous les fichiers .c dans src/
+SRC = $(shell find . -type f -name "*.c" ! -path "../bin/*")
 
 # Convertir les chemins sources en chemins objets dans le dossier ../bin
-OBJ = $(patsubst src/%.c, ../bin/%.o, $(SRC))
+OBJ = $(patsubst %.c, ../bin/%.o, $(SRC))
 
 # --- CHEMINS D'INCLUDE ---
-# Ajouter tous les répertoires qui contiennent des .h (lib, src, etc.)
-INCLUDE_DIRS = lib lib/components lib/content lib/content/stages lib/content/ui lib/core lib/ecs lib/systems
+# Ajouter tous les répertoires qui contiennent des .h depuis ../lib/
+LIB_DIR = ../lib
+RAYLIB_INCLUDE = ../include  # Ajout du chemin vers raylib.h
+INCLUDE_DIRS = $(LIB_DIR) \
+               $(LIB_DIR)/components \
+               $(LIB_DIR)/content \
+               $(LIB_DIR)/content/stages \
+               $(LIB_DIR)/content/ui \
+               $(LIB_DIR)/core \
+               $(LIB_DIR)/ecs \
+               $(LIB_DIR)/systems \
+               $(RAYLIB_INCLUDE)
+
 CFLAGS += $(addprefix -I, $(INCLUDE_DIRS))
 
 # --- DÉTECTION AUTOMATIQUE DE L'OS ---
@@ -70,11 +81,9 @@ UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
     # CONFIGURATION LINUX
     LIBS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
-	# On lit raylib, OpenGL, Math, Pthread, et X11/Wayland
 else
     # CONFIGURATION WINDOWS
-	# On garde ton ancienne config (assurant que libraylib.a est dans include/ ou lib/)
-    LIBS = -Linclude -lraylib -lopengl32 -lgdi32 -lwinmm
+    LIBS = -L$(LIB_DIR)/../include -lraylib -lopengl32 -lgdi32 -lwinmm
 endif
 
 all: ../bin/$(TARGET)
@@ -84,8 +93,7 @@ all: ../bin/$(TARGET)
 	gcc $(OBJ) -o $@ $(LIBS)
 
 # Règle générique pour compiler les fichiers .c en .o
-# Note: la source est dans src/, l'objet dans ../bin/
-../bin/%.o: src/%.c
+../bin/%.o: %.c
 	@mkdir -p $(dir $@)
 	@echo "Compiling $<..."
 	gcc $(CFLAGS) -c $< -o $@
@@ -104,3 +112,4 @@ debug:
 	@echo "Sources: $(SRC)"
 	@echo "Objects: $(OBJ)"
 	@echo "Include dirs: $(INCLUDE_DIRS)"
+	@echo "Lib dir: $(LIB_DIR)"

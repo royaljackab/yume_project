@@ -1,9 +1,9 @@
 //TODO: Eliminer le fichier décadent
 ////// DEPRECATED //////
 
-#include "../lib/player.h"
-#include "../lib/input.h"
-#include "../lib/game_state.h"
+#include "player.h"
+#include "input.h"
+#include "game_state.h"
 
 Player player;
 

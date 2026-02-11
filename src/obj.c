@@ -2,8 +2,8 @@
 ////// DEPRECATED //////
 
 
-#include "../lib/obj.h"
-#include "../lib/globals.h"
+#include "obj.h"
+#include "globals.h"
 #include <stdio.h>
 
 #define o objects[i]
