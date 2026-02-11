@@ -1,0 +1,24 @@
+[
+  {
+    "file": "content/test_task.c",
+    "arguments": [
+      "gcc",
+      "-Wall",
+      "-I../lib",
+      "-I../lib/components",
+      "-I../lib/content",
+      "-I../lib/content/stages",
+      "-I../lib/content/ui",
+      "-I../lib/core",
+      "-I../lib/ecs",
+      "-I../lib/systems",
+      "-I../include",
+      "-c",
+      "content/test_task.c",
+      "-o",
+      "../bin/./content/test_task.o"
+    ],
+    "directory": "/home/jck/touhou_c/src",
+    "output": "../bin/./content/test_task.o"
+  }
+]
