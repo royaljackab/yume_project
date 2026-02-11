@@ -1,4 +1,4 @@
-//NOTE: La mise a mort de ce ficher ne saurait tarder...
+//FICHIER QUI DEFINIE LA TAILLE DES DIFFERENTES PARTIES DE L'ECRAN
 #pragma once
 
 #define DRAW_MARGIN 500   // 80

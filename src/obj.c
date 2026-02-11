@@ -51,25 +51,6 @@ static void ApplyMoveParams(Object* obj, MovePattern* p) {
     if (p->maxSpd != NO_CHANGE) obj->maxSpd = p->maxSpd;
 }
 
-static bool IsOutOfDrawBounds(Vector2 pos, Sprite sprite) {
-    /***
-     * Retourne si le sprite à la position pos est hors de la fenêtre de dessin
-     */
-
-    //grossier
-    return (pos.x + sprite.srcRect.width < PANEL_LEFT || pos.x - sprite.srcRect.width > PANEL_LEFT + PANEL_WIDTH 
-        || pos.y + sprite.srcRect.height < PANEL_UP || pos.y - sprite.srcRect.height > PANEL_UP + PANEL_HEIGHT);
-        
-}
-
-static bool IsOutOfBounds(Vector2 pos) {
-    /***
-     * Retourne si l'objet est hors limites ou pas
-     */
-
-     return (pos.x < - DRAW_MARGIN || pos.x > PANEL_WIDTH + PANEL_LEFT + DRAW_MARGIN
-        || pos.y < -DRAW_MARGIN || pos.y > PANEL_UP + PANEL_HEIGHT + DRAW_MARGIN);
-}
 
 /* Fonctions globales */
 void ObjMove_AddPattern(ObjID id, int frameDelay, float speed, float angle, float accel, float maxSpd, float angVel) {
