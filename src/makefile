@@ -39,7 +39,7 @@ else
 endif
 
 
-all: build/$(TARGET)
+all: ../bin/$(TARGET)
 
 ../bin/$(TARGET): $(OBJ)
 	@echo "Linking..."
