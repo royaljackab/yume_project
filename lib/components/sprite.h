@@ -51,6 +51,9 @@ void UpdateAnimation   (Sprite* sprite);
 void DrawSprite        (Sprite sprite, Vector2 pos);
 void drawAll           (SpriteManager * spriteManager, PositionManager * commonManager);
 
+static bool IsOutOfDrawBounds(Vector2 pos, Sprite sprite);
+static bool IsOutOfBounds(Vector2 pos);
+
 #endif
 
 
