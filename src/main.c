@@ -1,4 +1,5 @@
 #include "game_state.h"
+#include "pool.h"
 #include "settings.h"
 #include <stddef.h>
 #include <stdio.h>
@@ -11,7 +12,7 @@ int main() {
   GameContext ctx;
   gamestate_initialize(&ctx, STATE_MENU_TITLE);
   ctx.pause = 0;
-  
+
   input_initialize(&ctx.input);
   load_settings(&ctx);
 
@@ -22,16 +23,13 @@ int main() {
   // AssetsLoad();
   // initialize();
 
-  
-  
-
   void *moonlightState = NULL;
 
   ctx.currentState->init(&ctx);
 
   while (!WindowShouldClose()) {
     UpdateMusicStream(playlist[BGM_FAST_DANGER]);
-    
+
     input_update(&ctx.input);
     gamestate_update(&ctx);
 
@@ -50,7 +48,7 @@ int main() {
     }
   }
 
-  AssetsUnload();
+  // AssetsUnload();
   CloseAudioDevice();
   CloseWindow();
 }

@@ -1,9 +1,10 @@
 #include "pool.h"
 #include "common.h"
-#include "raylib.h"
+#include "ecs.h"
 
 void pool_init(Pool *p) {
   /* Initialisation des composantes */
+  // NOTE: Pour chaque composante, ajouter le init ici
   Position_init(&p->position);
   Tag_init(&p->tag);
   Physics_init(&p->physics);
@@ -11,12 +12,12 @@ void pool_init(Pool *p) {
   Collision_circle_init(&p->collision_circle);
   Collision_rectangle_init(&p->collision_rectangle);
 
-  
   /* Remplissage de la pile d'indices libres */
   for (int i = 0; i < MAX_ENTITIES; i++) {
     p->free_indices[i] = (Entity)(MAX_ENTITIES - 1 - i);
   }
   p->free_top = MAX_ENTITIES; // La pile est pleine au début
+  p->kill_count = 0;          // Personne a tuer
 }
 
 Entity pool_create_entity(Pool *p) {
@@ -29,9 +30,35 @@ Entity pool_create_entity(Pool *p) {
   return p->free_indices[--p->free_top];
 }
 
-void pool_destroy_entity(Pool *p, Entity e) {
-  if (p->free_top < MAX_ENTITIES) {
-    // On remet l'ID dans la pile pour le réutiliser plus tard
+// NOTE: Cette fonction DOIT être utilisée dans le while du main lorsqu'il
+// utilise une pool
+void pool_kill_convicts(Pool *p) {
+  /***
+   * Détruit toutes les entités dans la kill_queue
+   */
+  Entity e;
+  for (int i = 0; i < p->kill_count; i++) {
+    // NOTE: Pour chaque composante, ajouter le destroy ici
+    e = p->kill_queue[i];
+    Position_remove(&p->position, e);
+    Tag_remove(&p->tag, e);
+    Physics_remove(&p->physics, e);
+    Sprite_remove(&p->sprite, e);
+    Collision_circle_remove(&p->collision_circle, e);
+    Collision_rectangle_remove(&p->collision_rectangle, e);
+
+    // Ajout de l'entité dans la pile libre
     p->free_indices[p->free_top++] = e;
+  }
+
+  p->kill_count = 0;
+}
+
+void pool_kill_entity(Pool *p, Entity e) {
+  /***
+   * Ajoute l'entité dans le kill_queue
+   */
+  if (p->kill_count < MAX_ENTITIES) {
+    p->kill_queue[p->kill_count++] = e;
   }
 }
