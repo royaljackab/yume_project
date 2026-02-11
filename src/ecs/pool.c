@@ -5,6 +5,9 @@ void pool_init(Pool *p) {
   /* Initialisation des composantes */
   Common_init(&p->position);
   Physics_init(&p->physics);
+  Sprite_init(&p->sprite);
+  Collision_circle_init(&p->collision_circle);
+  Collision_rectangle_init(&p->collision_rectangle);
 
   
   /* Remplissage de la pile d'indices libres */

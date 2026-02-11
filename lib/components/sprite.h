@@ -48,6 +48,7 @@ void SetSourceRect     (Sprite* sprite, float x, float y, float width, float hei
 void SetAnimation      (Sprite* sprite, int frameCount, int delay);
 void UpdateAnimation   (Sprite* sprite);
 void DrawSprite        (Sprite sprite, Vector2 pos);
+void drawAll           (SpriteManager * spriteManager, PositionManager * commonManager);
 
 #endif
 
