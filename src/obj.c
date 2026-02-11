@@ -304,6 +304,7 @@ void UpdateObjects() {
     }
 }
 
+
 void Obj_SetTexture(ObjID id, int textureID) {
     if(id == ID_INVALID) return;
     SetTexture(&objects[id].sprite, textureID);

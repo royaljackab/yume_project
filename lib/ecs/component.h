@@ -60,6 +60,8 @@
   }
 //Sprite_set_textureID(&textureID);
 
+
+
 #define DECLARE_SETTER_GETTER(Component, type, champ)                          \
   DECLARE_SETTER(Component, type, champ)                                       \
   DECLARE_GETTER(Component, type, champ)
