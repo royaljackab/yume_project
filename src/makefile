@@ -10,7 +10,7 @@ OBJ = $(patsubst %.c, ../bin/%.o, $(SRC))
 # --- CHEMINS D'INCLUDE ---
 # Ajouter tous les répertoires qui contiennent des .h depuis ../lib/
 LIB_DIR = ../lib
-RAYLIB_INCLUDE = ../include  # Ajout du chemin vers raylib.h
+RAYLIB_INCLUDE = ../raylib/src  # Ajout du chemin vers raylib.h
 INCLUDE_DIRS = $(LIB_DIR) \
                $(LIB_DIR)/components \
                $(LIB_DIR)/content \
