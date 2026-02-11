@@ -1,5 +1,5 @@
 #pragma once
-#include "../component.h"
+#include "../ecs/component.h"
 
 typedef struct {
     float width;

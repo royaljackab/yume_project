@@ -6,6 +6,7 @@ void pool_init(Pool *p) {
   Common_init(&p->position);
   Physics_init(&p->physics);
 
+  
   /* Remplissage de la pile d'indices libres */
   for (int i = 0; i < MAX_ENTITIES; i++) {
     p->free_indices[i] = (Entity)(MAX_ENTITIES - 1 - i);
