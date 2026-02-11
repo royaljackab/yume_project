@@ -13,7 +13,6 @@ bin/
 .DS_Store
 
 # Documentation générée (Doxygen)
-html/
 latex/
 
 # Fichiers temporaires CMake
