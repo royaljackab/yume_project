@@ -1,5 +1,9 @@
-#include "../lib/obj.h"
-#include "../lib/globals.h"
+//TODO: Eliminer le fichier décadent
+////// DEPRECATED //////
+
+
+#include "obj.h"
+#include "globals.h"
 #include <stdio.h>
 
 #define o objects[i]

@@ -1,8 +1,9 @@
-#include "../../lib/pool.h"
+#include "pool.h"
+#include "raylib.h"
 
 void pool_init(Pool *p) {
   /* Initialisation des composantes */
-  Position_init(&p->position);
+  Common_init(&p->position);
   Physics_init(&p->physics);
 
   /* Remplissage de la pile d'indices libres */
