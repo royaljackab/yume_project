@@ -16,9 +16,15 @@ typedef enum {
   ENT_LOOSE_LASER
 } EntityType;
 
-typedef Vector2 Position;
+typedef struct Position {
+  Vector2 pos;
+  float angle;
+} Position;
 
 typedef EntityType Tag;
 
 DEFINE_COMPONENT_MANAGER(Position, MAX_ENTITIES);
+DECLARE_SETTER_GETTER(Position, Vector2, pos);
+DECLARE_SETTER_GETTER(Position, float, angle);
+
 DEFINE_COMPONENT_MANAGER(Tag, MAX_ENTITIES);
