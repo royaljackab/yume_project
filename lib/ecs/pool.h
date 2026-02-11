@@ -7,6 +7,9 @@
 #include "ecs.h"
 #include "physics.h"
 #include "sprite.h"
+#include "player_bullet.h"
+#include "life.h"
+#include "straight_laser.h"
 
 typedef struct Pool {
   PositionManager position;
@@ -15,6 +18,10 @@ typedef struct Pool {
   SpriteManager sprite;
   Collision_circleManager collision_circle;
   Collision_rectangleManager collision_rectangle;
+  PlayerBulletManager playerBullet;
+  LifeManager life;
+  Straight_laserManager straightLaser;
+  TimerManager timer;
 
   // Nouvelle gestion des indices
   Entity free_indices[MAX_ENTITIES]; // Le tableau qui stocke les IDs dispos
