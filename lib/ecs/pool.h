@@ -22,6 +22,7 @@
 #include "sprite.h"
 #include "ecs/ecs.h"
 #include "player.h"
+#include "life.h"
 #include "straight_laser.h"
 
 typedef struct Pool {
