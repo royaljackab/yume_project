@@ -1,3 +1,33 @@
+/********************************************************************************
+ * @file physics.h
+ * @brief Composante de Cinématique (Mouvement)
+ *
+ * Ce module gère l'intégration du mouvement pour les entités.
+ * Il s'occupe exclusivement du déplacement et NON des collisions.
+ *
+ * SYSTÈME D'UNITÉS :
+ * - Distance     : Pixels
+ * - Temps        : Secondes (dépend du Delta Time)
+ * - Vitesse      : Pixels / Seconde
+ * - Accélération : Pixels / Seconde²
+ * - Angles       : Degrés (0° = Droite, 90° = Bas, Sens Horaire)
+ *
+ * DONNÉES GÉRÉES :
+ * - velocity (Vector2) : Vecteur de déplacement calculé à chaque frame.
+ * - speed (float)      : Scalaire de la vitesse
+ * - accel (float)      : Taux de changement de la vitesse (pour
+ * accél/freinage).
+ * - angVel (float)     : Vitesse angulaire en degrés/seconde.
+ *
+ * DÉPENDANCES :
+ * - [READ/WRITE] Position ( Pos(x, y), angle)
+ *
+ * NOTE :
+ * - La vélocité scale avec la valeur absolue de speed -> speed PEUT être
+ * négative Dans ce cas, l'angle est incrémenté de 180° (demi-tour)
+ *
+ ********************************************************************************/
+
 #pragma once
 
 #include "ecs/component.h"

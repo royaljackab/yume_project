@@ -11,7 +11,8 @@ static void update_velocity(Physics *phy, Position *pos) {
    */
   float rad = DEG2RAD * pos->angle;
 
-  phy->velocity = Vector2Scale((Vector2){cosf(rad), sinf(rad)}, phy->speed);
+  phy->velocity =
+      Vector2Scale((Vector2){cosf(rad), sinf(rad)}, fabsf(phy->speed));
 }
 
 static void update_speed(Physics *phy, Position *pos) {
@@ -23,14 +24,15 @@ static void update_speed(Physics *phy, Position *pos) {
    */
 
   // Acceleration
-  phy->speed += phy->accel;
+  float new_speed = phy->speed + phy->accel;
 
-  // On s'assure que la vitesse reste positive
-  if (phy->speed < 0) {
-    phy->speed *= -1;
+  // cohérence pour la vitesse et l'angle
+  if (phy->speed * new_speed < 0) {
     // On change de sens
     pos->angle += 180.0f;
   }
+
+  phy->speed = new_speed;
 
   // MaxSpeed
   if (phy->maxSpd != NO_MAX_SPEED && phy->speed > phy->maxSpd) {
