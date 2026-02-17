@@ -1,6 +1,6 @@
-#include "pool.h"
-#include "common.h"
-#include "ecs.h"
+#include "ecs/pool.h"
+#include "components/common.h"
+#include "ecs/ecs.h"
 
 void pool_init(Pool *p) {
   /* Initialisation des composantes */

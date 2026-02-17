@@ -1,5 +1,5 @@
-#include "button.h"
-#include "input.h"
+#include "systems/button.h"
+#include "core/input.h"
 
 #include <raylib.h>
 #include <raymath.h>

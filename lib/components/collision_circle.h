@@ -1,8 +1,8 @@
 #pragma once
-#include "component.h"
+#include "ecs/component.h"
 
 typedef struct {
-    float radius;
+  float radius;
 } Collision_circle;
 
 DEFINE_COMPONENT_MANAGER(Collision_circle, MAX_ENTITIES);

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "button.h"
-#include "input.h"
+#include "core/input.h"
+#include "systems/button.h"
 
 typedef enum StateID {
   STATE_NONE,

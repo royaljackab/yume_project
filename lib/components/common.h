@@ -1,8 +1,8 @@
 #pragma once
 
-#include "component.h"
-#include "ecs.h"
-#include "raylib.h"
+#include "ecs/component.h"
+#include "ecs/ecs.h"
+#include <raylib.h>
 
 typedef enum {
   ID_INVALID = -1,

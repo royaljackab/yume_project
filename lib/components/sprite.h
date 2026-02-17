@@ -1,30 +1,30 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#include "raylib.h"
-#include <stdbool.h>
-#include "component.h"
-#include "assets.h"
 #include "common.h"
+#include "core/assets.h"
+#include "ecs/component.h"
+#include <raylib.h>
+#include <stdbool.h>
 
 typedef struct {
-    int textureID;
-    Rectangle srcRect;
-    Vector2 center;
-    Vector2 scale;
-    Color color;
-    int renderPriority; //Pour afficher devant/derriere d'autres..
-    int display;
+  int textureID;
+  Rectangle srcRect;
+  Vector2 center;
+  Vector2 scale;
+  Color color;
+  int renderPriority; // Pour afficher devant/derriere d'autres..
+  int display;
 
-    //Pour l'animation
-    bool isAnimated;
-    int animFrameCount;
-    int animSpeed;
-    int animTimer;
-    int currentFrame;
-    int frameWidth;
-    float rotation;
-    Vector2 animStart;
+  // Pour l'animation
+  bool isAnimated;
+  int animFrameCount;
+  int animSpeed;
+  int animTimer;
+  int currentFrame;
+  int frameWidth;
+  float rotation;
+  Vector2 animStart;
 
 } Sprite;
 
@@ -45,15 +45,13 @@ DECLARE_SETTER_GETTER(Sprite, int, currentFrame)
 DECLARE_SETTER_GETTER(Sprite, int, frameWidth)
 DECLARE_SETTER_GETTER(Sprite, Vector2, animStart)
 
-void SetSourceRect     (Sprite* sprite, float x, float y, float width, float height);
-void SetAnimation      (Sprite* sprite, int frameCount, int delay);
-void UpdateAnimation   (Sprite* sprite);
-void DrawSprite        (Sprite sprite, Vector2 pos);
-void drawAll           (SpriteManager * spriteManager, PositionManager * commonManager);
+void SetSourceRect(Sprite *sprite, float x, float y, float width, float height);
+void SetAnimation(Sprite *sprite, int frameCount, int delay);
+void UpdateAnimation(Sprite *sprite);
+void DrawSprite(Sprite sprite, Vector2 pos);
+void drawAll(SpriteManager *spriteManager, PositionManager *commonManager);
 
 static bool IsOutOfDrawBounds(Vector2 pos, Sprite sprite);
 static bool IsOutOfBounds(Vector2 pos);
 
 #endif
-
-

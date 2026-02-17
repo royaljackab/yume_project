@@ -1,6 +1,6 @@
-#include "game_state.h"
-#include "pool.h"
-#include "settings.h"
+#include "core/game_state.h"
+#include "core/screen.h"
+#include "core/settings.h"
 #include <stddef.h>
 #include <stdio.h>
 
@@ -23,12 +23,11 @@ int main() {
   // AssetsLoad();
   // initialize();
 
-  void *moonlightState = NULL;
-
   ctx.currentState->init(&ctx);
 
   while (!WindowShouldClose()) {
-    UpdateMusicStream(playlist[BGM_FAST_DANGER]);
+    // WARNING: D'ou vient ca???? Je ne trouve pas le fichier a include
+    // UpdateMusicStream(playlist[BGM_FAST_DANGER]);
 
     input_update(&ctx.input);
     gamestate_update(&ctx);

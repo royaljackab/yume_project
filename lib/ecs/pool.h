@@ -1,12 +1,12 @@
 #pragma once
 
-#include "collision_circle.h"
-#include "collision_rectangle.h"
-#include "common.h"
-#include "component.h"
-#include "ecs.h"
-#include "physics.h"
-#include "sprite.h"
+#include "components/collision_circle.h"
+#include "components/collision_rectangle.h"
+#include "components/common.h"
+#include "components/physics.h"
+#include "components/sprite.h"
+#include "ecs/component.h"
+#include "ecs/ecs.h"
 
 typedef struct Pool {
   PositionManager position;

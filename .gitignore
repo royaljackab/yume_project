@@ -7,7 +7,7 @@ bin/
 *.o
 *.out
 *.exe
-
+*.cache/*
 # VS Code et OS
 .vscode/
 .DS_Store

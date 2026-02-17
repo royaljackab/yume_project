@@ -4,263 +4,298 @@
     "arguments": [
       "gcc",
       "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
       "-I../lib",
       "-I../lib/components",
       "-I../lib/content",
-      "-I../lib/content/stages",
       "-I../lib/content/ui",
       "-I../lib/core",
       "-I../lib/ecs",
       "-I../lib/systems",
-      "-I../include",
       "-c",
       "core/assets.c",
       "-o",
-      "../bin/./core/assets.o"
+      "core/assets.o"
     ],
     "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./core/assets.o"
+    "output": "core/assets.o"
   },
   {
     "file": "core/game_state.c",
     "arguments": [
       "gcc",
       "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
       "-I../lib",
       "-I../lib/components",
       "-I../lib/content",
-      "-I../lib/content/stages",
       "-I../lib/content/ui",
       "-I../lib/core",
       "-I../lib/ecs",
       "-I../lib/systems",
-      "-I../include",
       "-c",
       "core/game_state.c",
       "-o",
-      "../bin/./core/game_state.o"
+      "core/game_state.o"
     ],
     "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./core/game_state.o"
+    "output": "core/game_state.o"
   },
   {
     "file": "core/input.c",
     "arguments": [
       "gcc",
       "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
       "-I../lib",
       "-I../lib/components",
       "-I../lib/content",
-      "-I../lib/content/stages",
       "-I../lib/content/ui",
       "-I../lib/core",
       "-I../lib/ecs",
       "-I../lib/systems",
-      "-I../include",
       "-c",
       "core/input.c",
       "-o",
-      "../bin/./core/input.o"
+      "core/input.o"
     ],
     "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./core/input.o"
+    "output": "core/input.o"
   },
   {
     "file": "core/settings.c",
     "arguments": [
       "gcc",
       "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
       "-I../lib",
       "-I../lib/components",
       "-I../lib/content",
-      "-I../lib/content/stages",
       "-I../lib/content/ui",
       "-I../lib/core",
       "-I../lib/ecs",
       "-I../lib/systems",
-      "-I../include",
       "-c",
       "core/settings.c",
       "-o",
-      "../bin/./core/settings.o"
+      "core/settings.o"
     ],
     "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./core/settings.o"
+    "output": "core/settings.o"
   },
   {
-    "file": "systems/button.c",
+    "file": "components/looseLaser.c",
     "arguments": [
       "gcc",
       "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
       "-I../lib",
       "-I../lib/components",
       "-I../lib/content",
-      "-I../lib/content/stages",
       "-I../lib/content/ui",
       "-I../lib/core",
       "-I../lib/ecs",
       "-I../lib/systems",
-      "-I../include",
       "-c",
-      "systems/button.c",
+      "components/looseLaser.c",
       "-o",
-      "../bin/./systems/button.o"
+      "components/looseLaser.o"
     ],
     "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./systems/button.o"
-  },
-  {
-    "file": "systems/system_physics.c",
-    "arguments": [
-      "gcc",
-      "-Wall",
-      "-I../lib",
-      "-I../lib/components",
-      "-I../lib/content",
-      "-I../lib/content/stages",
-      "-I../lib/content/ui",
-      "-I../lib/core",
-      "-I../lib/ecs",
-      "-I../lib/systems",
-      "-I../include",
-      "-c",
-      "systems/system_physics.c",
-      "-o",
-      "../bin/./systems/system_physics.o"
-    ],
-    "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./systems/system_physics.o"
-  },
-  {
-    "file": "components/physics.c",
-    "arguments": [
-      "gcc",
-      "-Wall",
-      "-I../lib",
-      "-I../lib/components",
-      "-I../lib/content",
-      "-I../lib/content/stages",
-      "-I../lib/content/ui",
-      "-I../lib/core",
-      "-I../lib/ecs",
-      "-I../lib/systems",
-      "-I../include",
-      "-c",
-      "components/physics.c",
-      "-o",
-      "../bin/./components/physics.o"
-    ],
-    "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./components/physics.o"
+    "output": "components/looseLaser.o"
   },
   {
     "file": "components/sprite.c",
     "arguments": [
       "gcc",
       "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
       "-I../lib",
       "-I../lib/components",
       "-I../lib/content",
-      "-I../lib/content/stages",
       "-I../lib/content/ui",
       "-I../lib/core",
       "-I../lib/ecs",
       "-I../lib/systems",
-      "-I../include",
       "-c",
       "components/sprite.c",
       "-o",
-      "../bin/./components/sprite.o"
+      "components/sprite.o"
     ],
     "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./components/sprite.o"
+    "output": "components/sprite.o"
+  },
+  {
+    "file": "components/physics.c",
+    "arguments": [
+      "gcc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
+      "-I../lib",
+      "-I../lib/components",
+      "-I../lib/content",
+      "-I../lib/content/ui",
+      "-I../lib/core",
+      "-I../lib/ecs",
+      "-I../lib/systems",
+      "-c",
+      "components/physics.c",
+      "-o",
+      "components/physics.o"
+    ],
+    "directory": "/home/jck/touhou_c/src",
+    "output": "components/physics.o"
   },
   {
     "file": "ecs/pool.c",
     "arguments": [
       "gcc",
       "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
       "-I../lib",
       "-I../lib/components",
       "-I../lib/content",
-      "-I../lib/content/stages",
       "-I../lib/content/ui",
       "-I../lib/core",
       "-I../lib/ecs",
       "-I../lib/systems",
-      "-I../include",
       "-c",
       "ecs/pool.c",
       "-o",
-      "../bin/./ecs/pool.o"
+      "ecs/pool.o"
     ],
     "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./ecs/pool.o"
-  },
-  {
-    "file": "content/ui/keybinds.c",
-    "arguments": [
-      "gcc",
-      "-Wall",
-      "-I../lib",
-      "-I../lib/components",
-      "-I../lib/content",
-      "-I../lib/content/stages",
-      "-I../lib/content/ui",
-      "-I../lib/core",
-      "-I../lib/ecs",
-      "-I../lib/systems",
-      "-I../include",
-      "-c",
-      "content/ui/keybinds.c",
-      "-o",
-      "../bin/./content/ui/keybinds.o"
-    ],
-    "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./content/ui/keybinds.o"
+    "output": "ecs/pool.o"
   },
   {
     "file": "content/ui/title_screen.c",
     "arguments": [
       "gcc",
       "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
       "-I../lib",
       "-I../lib/components",
       "-I../lib/content",
-      "-I../lib/content/stages",
       "-I../lib/content/ui",
       "-I../lib/core",
       "-I../lib/ecs",
       "-I../lib/systems",
-      "-I../include",
       "-c",
       "content/ui/title_screen.c",
       "-o",
-      "../bin/./content/ui/title_screen.o"
+      "content/ui/title_screen.o"
     ],
     "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./content/ui/title_screen.o"
+    "output": "content/ui/title_screen.o"
   },
   {
-    "file": "content/test_task.c",
+    "file": "content/ui/keybinds.c",
     "arguments": [
       "gcc",
       "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
       "-I../lib",
       "-I../lib/components",
       "-I../lib/content",
-      "-I../lib/content/stages",
       "-I../lib/content/ui",
       "-I../lib/core",
       "-I../lib/ecs",
       "-I../lib/systems",
-      "-I../include",
       "-c",
-      "content/test_task.c",
+      "content/ui/keybinds.c",
       "-o",
-      "../bin/./content/test_task.o"
+      "content/ui/keybinds.o"
     ],
     "directory": "/home/jck/touhou_c/src",
-    "output": "../bin/./content/test_task.o"
+    "output": "content/ui/keybinds.o"
+  },
+  {
+    "file": "systems/button.c",
+    "arguments": [
+      "gcc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
+      "-I../lib",
+      "-I../lib/components",
+      "-I../lib/content",
+      "-I../lib/content/ui",
+      "-I../lib/core",
+      "-I../lib/ecs",
+      "-I../lib/systems",
+      "-c",
+      "systems/button.c",
+      "-o",
+      "systems/button.o"
+    ],
+    "directory": "/home/jck/touhou_c/src",
+    "output": "systems/button.o"
+  },
+  {
+    "file": "draw_all.c",
+    "arguments": [
+      "gcc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
+      "-I../lib",
+      "-I../lib/components",
+      "-I../lib/content",
+      "-I../lib/content/ui",
+      "-I../lib/core",
+      "-I../lib/ecs",
+      "-I../lib/systems",
+      "-c",
+      "draw_all.c",
+      "-o",
+      "draw_all.o"
+    ],
+    "directory": "/home/jck/touhou_c/src",
+    "output": "draw_all.o"
+  },
+  {
+    "file": "main.c",
+    "arguments": [
+      "gcc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-I.",
+      "-I../lib",
+      "-I../lib/components",
+      "-I../lib/content",
+      "-I../lib/content/ui",
+      "-I../lib/core",
+      "-I../lib/ecs",
+      "-I../lib/systems",
+      "-c",
+      "main.c",
+      "-o",
+      "main.o"
+    ],
+    "directory": "/home/jck/touhou_c/src",
+    "output": "main.o"
   }
 ]

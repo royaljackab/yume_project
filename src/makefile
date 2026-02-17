@@ -1,68 +1,45 @@
-TARGET = jeu
-CFLAGS = -Wall
+# Nom de l'exécutable
+TARGET_NAME = jeu
+# Dossier de destination (à la racine du projet)
+BIN_DIR = ../bin
+# Chemin complet de l'exécutable
+TARGET = $(BIN_DIR)/$(TARGET_NAME)
 
-# Recherche récursive de tous les fichiers .c dans src/
-SRC = $(shell find . -type f -name "*.c" ! -path "../bin/*")
+CC = gcc
 
-# Convertir les chemins sources en chemins objets dans le dossier ../bin
-OBJ = $(patsubst %.c, ../bin/%.o, $(SRC))
+# Recherche des dossiers de header dans ../lib
+LIB_DIRS = $(shell find ../lib -type d)
+# Inclusion des headers : src/ + tous les sous-dossiers de lib/
+INCLUDES = -I. $(addprefix -I,$(LIB_DIRS))
 
-# --- CHEMINS D'INCLUDE ---
-# Ajouter tous les répertoires qui contiennent des .h depuis ../lib/
-LIB_DIR = ../lib
-RAYLIB_INCLUDE = ../include  # Ajout du chemin vers raylib.h
-INCLUDE_DIRS = $(LIB_DIR) \
-               $(LIB_DIR)/components \
-               $(LIB_DIR)/content \
-               $(LIB_DIR)/content/stages \
-               $(LIB_DIR)/content/ui \
-               $(LIB_DIR)/core \
-               $(LIB_DIR)/ecs \
-               $(LIB_DIR)/systems \
-               $(RAYLIB_INCLUDE)
+# Flags de compilation
+CFLAGS = -Wall -Wextra -g $(INCLUDES)
 
-CFLAGS += $(addprefix -I, $(INCLUDE_DIRS))
+# Recherche de tous les fichiers .c dans src/ et ../lib/
+SRC = $(shell find . -type f -name "*.c") $(shell find ../lib -type f -name "*.c")
+# Génération des noms de fichiers objets (.o) correspondants
+OBJ = $(SRC:.c=.o)
 
-# --- DÉTECTION AUTOMATIQUE DE L'OS ---
-UNAME_S := $(shell uname -s)
+# La règle par défaut : créer le dossier bin puis l'exécutable
+all: $(BIN_DIR) $(TARGET)
 
-ifeq ($(UNAME_S),Linux)
-    # CONFIGURATION LINUX
-    LIBS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
-else ifeq ($(UNAME_S),Darwin)
-    # CONFIGURATION MACOS (:p)
-    # On utilise les frameworks natifs d'Apple pour OpenGL
-    LIBS = -L/opt/homebrew/lib -lraylib -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL
-else
-    # CONFIGURATION WINDOWS
-    LIBS = -L$(LIB_DIR)/../include -lraylib -lopengl32 -lgdi32 -lwinmm
-endif
+# Création du dossier bin s'il n'existe pas
+$(BIN_DIR):
+	mkdir -p $(BIN_DIR)
 
+# Compilation de l'exécutable dans le dossier bin
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^ -lraylib -lm -lpthread -ldl -lrt -lX11
 
-all: ../bin/$(TARGET)
+# Règle générique pour transformer les .c en .o
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-../bin/$(TARGET): $(OBJ)
-	@echo "Linking..."
-	gcc $(OBJ) -o $@ $(LIBS)
-
-# Règle générique pour compiler les fichiers .c en .o
-../bin/%.o: %.c
-	@mkdir -p $(dir $@)
-	@echo "Compiling $<..."
-	gcc $(CFLAGS) -c $< -o $@
-
-# Créer le dossier ../bin si nécessaire
-../bin:
-	mkdir -p ../bin
-
+# Nouvelle directive "run" pour lancer le jeu
 run: all
-	./../bin/$(TARGET)
+	$(TARGET)
 
+# Nettoyage des fichiers .o et du dossier bin
 clean:
-	rm -rf ../bin/
-
-debug:
-	@echo "Sources: $(SRC)"
-	@echo "Objects: $(OBJ)"
-	@echo "Include dirs: $(INCLUDE_DIRS)"
-	@echo "Lib dir: $(LIB_DIR)"
+	rm -f $(OBJ)
+	rm -rf $(BIN_DIR)

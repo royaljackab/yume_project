@@ -1,9 +1,9 @@
-#include "game_state.h"
-#include "input.h"
+#include "core/game_state.h"
+#include "core/input.h"
+#include "core/screen.h"
 
 #include <stddef.h>
 #include <stdio.h>
-
 
 GameState *get_state_pointer(StateID state) {
   /***
@@ -61,21 +61,21 @@ void gamestate_update(GameContext *ctx) {
   ctx->nextStateID = STATE_NONE;
 }
 
-void gamestate_change_state(GameContext * ctx, StateID stateID) {
-  /*** 
-  * A utiliser pour changer d'état
-  */
+void gamestate_change_state(GameContext *ctx, StateID stateID) {
+  /***
+   * A utiliser pour changer d'état
+   */
 
   ctx->nextStateID = stateID;
 }
 
-void pauseListener(GameContext *ctx){
-    if(isPressed(ctx->input.pause)){
-        ctx->pause = !ctx->pause;
-    }
+void pauseListener(GameContext *ctx) {
+  if (isPressed(ctx->input.pause)) {
+    ctx->pause = !ctx->pause;
+  }
 }
 
-void pauseMenu(){
-    DrawText("PAUSE", 100, 300, 50, RED);
-    DrawRectangleLines(50, 50, PANEL_WIDTH - 100, PANEL_HEIGHT - 100, WHITE);
+void pauseMenu() {
+  DrawText("PAUSE", 100, 300, 50, RED);
+  DrawRectangleLines(50, 50, PANEL_WIDTH - 100, PANEL_HEIGHT - 100, WHITE);
 }
