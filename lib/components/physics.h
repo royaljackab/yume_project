@@ -15,6 +15,7 @@
  * DONNÉES GÉRÉES :
  * - velocity (Vector2) : Vecteur de déplacement calculé à chaque frame.
  * - speed (float)      : Scalaire de la vitesse
+ * - min/maxSpd (float) : Bornes pour la vitesse
  * - accel (float)      : Taux de changement de la vitesse (pour
  * accél/freinage).
  * - angVel (float)     : Vitesse angulaire en degrés/seconde.
