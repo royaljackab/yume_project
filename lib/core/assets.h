@@ -12,15 +12,15 @@ typedef enum {
   BGM_WAITING,
   MAX_BGM // Pour savoir combien on en a
 } BGMId;
-#define MAX_TEXTURES 200
 
-enum {
+typedef enum {
   BULLET_SPRITESHEET,
   BOSS_SPRITESHEET,
   ANIM_TEST_SPRITESHEET,
   REIMU_SPRITESHEET,
-  HITBOX_SPRITESHEET
-};
+  HITBOX_SPRITESHEET,
+  MAX_TEXTURES
+} TextureID;
 
 void AssetsLoad();
 void AssetsUnload();
