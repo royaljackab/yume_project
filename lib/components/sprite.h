@@ -1,11 +1,29 @@
-#ifndef SPRITE_H
-#define SPRITE_H
+/************************************************************
+ * @file sprite.h
+ * @brief Composante du sprite
+ *
+ * Ce module gère l'affectation d'un sprite a un objet,
+ * et son affichage.
+ *
+ * DONNÉES :
+ *  - textureID : ID définies dans assets.h
+ *  - srcRect : Rectangle définissant le sprite
+ *  - center : Point du srcRect représentant son centre. (pour hitbox et la
+ * rotation)
+ *  - scale : Agrandissement de l'image
+ *  - color : Couleur d'affichage raylib
+ *  - renderPriority : Priorité d'affichage (1 - 100) -> z bas <=> affiché en
+ * fond
+ *  - display : activation de l'affichage
+ *************************************************************/
 
-#include "common.h"
-#include "core/assets.h"
+#pragma once
+
 #include "ecs/component.h"
 #include <raylib.h>
 #include <stdbool.h>
+
+typedef struct Pool Pool;
 
 typedef struct {
   int textureID;
@@ -14,7 +32,7 @@ typedef struct {
   Vector2 scale;
   Color color;
   int renderPriority; // Pour afficher devant/derriere d'autres..
-  int display;
+  bool display;
 
   // Pour l'animation
   bool isAnimated;
@@ -45,13 +63,22 @@ DECLARE_SETTER_GETTER(Sprite, int, currentFrame)
 DECLARE_SETTER_GETTER(Sprite, int, frameWidth)
 DECLARE_SETTER_GETTER(Sprite, Vector2, animStart)
 
-void SetSourceRect(Sprite *sprite, float x, float y, float width, float height);
-void SetAnimation(Sprite *sprite, int frameCount, int delay);
+/**
+ * @brief Ajoute une texture avec les valeurs pas défauts
+ * @param sprite Composante du sprite
+ * @param textureID ID de la texture a utiliser (assets.h)
+ *
+ * VALEURS PAR DEFAUT :
+ *  - srcRect : texture entière
+ *  - center : centre de la texture
+ *  - scale : 1x1
+ *  - rotation : 0
+ *  - non animé // TODO:  faire un autre systeme?
+ */
+extern void Sprite_set_texture(Sprite *sprite, int textureID);
+
+void Sprite_set_animation(Sprite *sprite, int frameCount, int delay);
+
 void UpdateAnimation(Sprite *sprite);
-void DrawSprite(Sprite sprite, Vector2 pos);
-void drawAll(SpriteManager *spriteManager, PositionManager *commonManager);
 
-static bool IsOutOfDrawBounds(Vector2 pos, Sprite sprite);
-static bool IsOutOfBounds(Vector2 pos);
-
-#endif
+void Sprite_draw_all(Pool *pool);
