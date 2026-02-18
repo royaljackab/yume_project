@@ -1,6 +1,7 @@
 #include "ecs/pool.h"
 #include "components/common.h"
 #include "ecs/ecs.h"
+#include "life.h"
 
 void pool_init(Pool *p) {
   /* Initialisation des composantes */
@@ -11,6 +12,7 @@ void pool_init(Pool *p) {
   Sprite_init(&p->sprite);
   Collision_circle_init(&p->collision_circle);
   Collision_rectangle_init(&p->collision_rectangle);
+  Life_init(&p->life);
 
   /* Remplissage de la pile d'indices libres */
   for (int i = 0; i < MAX_ENTITIES; i++) {
@@ -46,6 +48,7 @@ void pool_kill_convicts(Pool *p) {
     Sprite_remove(&p->sprite, e);
     Collision_circle_remove(&p->collision_circle, e);
     Collision_rectangle_remove(&p->collision_rectangle, e);
+    Life_remove(&p->life, e);
 
     // Ajout de l'entité dans la pile libre
     p->free_indices[p->free_top++] = e;

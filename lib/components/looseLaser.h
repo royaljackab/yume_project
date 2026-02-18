@@ -1,8 +1,8 @@
 #pragma once
 #define MAX_LOOSE_NODES 200
 
+#include "components/common.h"
 #include "ecs/component.h"
-#include "ecs/pool.h"
 
 #include <raymath.h>
 
