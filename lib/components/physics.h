@@ -1,5 +1,5 @@
-/********************************************************************************
- * @file physics.h
+/**
+ * @file
  * @brief Composante de Cinématique (Mouvement)
  *
  * Ce module gère l'intégration du mouvement pour les entités.
@@ -27,7 +27,7 @@
  * - La vélocité scale avec la valeur absolue de speed -> speed PEUT être
  * négative Dans ce cas, l'angle est incrémenté de 180° (demi-tour)
  *
- ********************************************************************************/
+ */
 
 #pragma once
 

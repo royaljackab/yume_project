@@ -1,5 +1,4 @@
-/************************************************************
- * @file sprite.h
+/** * @file
  * @brief Composante du sprite
  *
  * Ce module gère l'affectation d'un sprite a un objet,
@@ -15,7 +14,7 @@
  *  - renderPriority : Priorité d'affichage (1 - 100) -> z bas <=> affiché en
  * fond
  *  - display : activation de l'affichage
- *************************************************************/
+ */
 
 #pragma once
 

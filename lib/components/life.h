@@ -1,5 +1,5 @@
-/**********************************************************************
- * @file life.h
+/**
+ * @file
  * @brief Composante de l'HP
  *
  * Ce module s'occupe de la gestion des points de vie SIMPLE des objets.
@@ -14,7 +14,7 @@
  * - Différent de la gestion de la vie pour un boss ?
  * - Différent de la gestion de vie du joueur !
  *
- ***********************************************************************/
+ */
 
 #pragma once
 

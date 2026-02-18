@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pause_0',['PAUSE',['../keybinds_8c.html#a313889f749b29149a39b64dc73bc7475a56b36d0d0bb01b339cf1041adc08e262',1,'keybinds.c']]]
+  ['hitbox_5fspritesheet_0',['HITBOX_SPRITESHEET',['../assets_8h.html#aac8c8e4db184e4a83ec51cdec293c11da01a09cd065de534261c978cf62edad59',1,'assets.h']]]
 ];
