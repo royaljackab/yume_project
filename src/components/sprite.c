@@ -79,7 +79,7 @@ static bool IsOutOfDrawBounds(Position pos, Sprite sprite) {
 }
 
 void Sprite_draw_all(Pool *p) {
-  /***
+  /**
    * Dessine tous les sprites du spriteManager en parametre a la position donné
    * par le positionManager en faisant attention à la couche dont il doit être
    * dessiné. les sprites ne sont dessinés uniquement si ils doivent être
@@ -103,8 +103,12 @@ void Sprite_draw_all(Pool *p) {
 
       if (sprite->renderPriority == layer) {
 
-        if (sprite->display)
+        if (sprite->display) {
           Sprite_draw_sprite(sprite, pos);
+          if (sprite->isAnimated) {
+            UpdateAnimation(sprite);
+          }
+        }
       }
     }
   }
