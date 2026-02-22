@@ -72,6 +72,11 @@ static void Physics_update(Physics *phy, Position *pos) {
 }
 
 /* Extern functions */
+Physics Physics_create_speed(float speed) {
+  Physics phy = {speed, 0, NO_MAX_SPEED, NO_MIN_SPEED, 0, {0, 0}};
+  return phy;
+}
+
 void Physics_update_all(Pool *p) {
   /***
    * Met a jour la physique pour la Pool

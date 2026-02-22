@@ -61,6 +61,16 @@ DECLARE_SETTER_GETTER(Physics, float, minSpd)
 DECLARE_SETTER_GETTER(Physics, float, angVel)
 
 /**
+ * @brief Crée une composante physique avec uniquement la speed
+ *
+ * Toutes les autres valeurs sont initialisées à 0 et NO_MAX/MIN_SPEED
+ *
+ * @param speed : Vitesse
+ * @return Composante physique associée
+ */
+extern Physics Physics_create_speed(float speed);
+
+/**
  * @brief Met a jour toutes les composantes physiques
  *
  * @param p La pool d'objet a updater
