@@ -11,6 +11,8 @@ Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle,
   Position pos = {{x, y}, angle};
   Physics phy = Physics_create_speed(speed);
   Sprite sprite;
+
+  // TODO: A CHANGER !!!!!!!
   Sprite_set_texture(&sprite, texture);
 
   Position_add(&p->position, e, pos);
