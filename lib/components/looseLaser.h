@@ -9,6 +9,7 @@ typedef struct {
     int looseNodeCount;                  // Nombre actuel de noeuds
     float looseTargetLength;             // Longueur visée (le laser grandit jusqu'à cette taille)
     float looseWidth;                    // Épaisseur du laser
+    int duration;                        // Durée max du laser en frames
 
 } Loose_laser;
 
@@ -20,5 +21,5 @@ DECLARE_SETTER_GETTER(Loose_laser, int, looseNodeCount)
 DECLARE_SETTER_GETTER(Loose_laser, float, looseTargetLength)
 DECLARE_SETTER_GETTER(Loose_laser, float, looseWidth)
 
-void updateLooseLaser(Loose_laser laser, Vector2 pos);
-void updateAllLooseLasers(Loose_laserManager * laserManager, PositionManager * positionManager);
+bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer);
+void updateAllLooseLasers(Pool *ctx);

@@ -2,7 +2,7 @@
 #define MENU_H
 
 // #include "../include/raylib.h"
-#include "globals.h"
+#include "screen.h"
 #include "input.h"
 #include <raylib.h>
 

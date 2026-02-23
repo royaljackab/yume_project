@@ -40,13 +40,29 @@ void pool_kill_convicts(Pool *p) {
   for (int i = 0; i < p->kill_count; i++) {
     // NOTE: Pour chaque composante, ajouter le destroy ici
     e = p->kill_queue[i];
+
+    //commons
     Position_remove(&p->position, e);
     Tag_remove(&p->tag, e);
+    Timer_remove(&p->timer, e);
+
     Physics_remove(&p->physics, e);
     Sprite_remove(&p->sprite, e);
+
+    //collisions
     Collision_circle_remove(&p->collision_circle, e);
     Collision_rectangle_remove(&p->collision_rectangle, e);
 
+    //lasers
+    Straight_laser_remove(&p->straightLaser, e);
+    Loose_laser_remove(&p->looseLaser, e);
+
+    PlayerBullet_remove(&p->playerBullet, e);
+    Life_remove(&p->life, e);
+
+
+
+    
     // Ajout de l'entité dans la pile libre
     p->free_indices[p->free_top++] = e;
   }

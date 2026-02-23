@@ -1,5 +1,8 @@
 #pragma once
 #include "component.h"
+#include "pool.h"
+#include "common.h"
+
 typedef struct {
     float laserLength;
     float laserWidth;                 //taille actuelle affichée
@@ -24,3 +27,6 @@ DECLARE_SETTER_GETTER(Straight_laser, int, laserState)
 DECLARE_SETTER_GETTER(Straight_laser, int, warningTimer)
 DECLARE_SETTER_GETTER(Straight_laser, int, growingTimer)
 DECLARE_SETTER_GETTER(Straight_laser, int, laserDuration)
+
+bool updateStraightLaser(Straight_laser *laser, Timer *timer);
+void updateAllStraightLasers(Pool *ctx);

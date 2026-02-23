@@ -96,7 +96,7 @@ void drawAll(SpriteManager * spriteManager, PositionManager * positionManager) {
             sprite = spriteManager->dense[i];
             lookup = spriteManager->entity_lookup[i];
             if (sprite.renderPriority == layer){
-                pos = positionManager->dense[lookup].pos;
+                pos = positionManager->dense[lookup].coord;
 
                 if (sprite.display && IsOutOfDrawBounds(pos, sprite))         
                    DrawSprite(sprite, pos);
@@ -115,15 +115,15 @@ void drawStraightLaser(Straight_laser *laser, Position * pos, Sprite * sprite){
     Rectangle source = sprite->srcRect;
 
     Rectangle dest = {
-        pos->x,
-        pos->y,
+        pos->coord.x,
+        pos->coord.y,
         laser->laserWidth,
         laser->laserLength
     };
 
     Vector2 origin = {laser->laserWidth/2.0, 0};
 
-    DrawTexturePro(textures[textureID], source, dest, origin, /*angle,*/ sprite->color);
+    DrawTexturePro(textures[textureID], source, dest, origin, pos->angle, sprite->color);
 }
 
 drawAllStraightLasers(Straight_laserManager *laserManager, PositionManager * positionManager, SpriteManager * spriteManager) {

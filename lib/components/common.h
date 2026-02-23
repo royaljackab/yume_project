@@ -17,7 +17,7 @@ typedef enum {
 } EntityType;
 
 typedef struct Position {
-  Vector2 pos;
+  Vector2 coord;
   float angle;
 } Position;
 
@@ -25,9 +25,8 @@ typedef EntityType Tag;
 typedef unsigned long Timer;
 
 DEFINE_COMPONENT_MANAGER(Position, MAX_ENTITIES);
-DECLARE_SETTER_GETTER(Position, Vector2, pos);
+DECLARE_SETTER_GETTER(Position, Vector2, coord);
 DECLARE_SETTER_GETTER(Position, float, angle);
-typedef unsigned long Timer;
 
 DEFINE_COMPONENT_MANAGER(Tag, MAX_ENTITIES)
 DEFINE_COMPONENT_MANAGER(Timer, MAX_ENTITIES)
