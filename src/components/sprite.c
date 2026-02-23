@@ -133,15 +133,15 @@ void drawStraightLaser(Straight_laser *laser, Position * pos, Sprite * sprite){
     Rectangle source = sprite->srcRect;
 
     Rectangle dest = {
-        pos->x,
-        pos->y,
+        pos->coord.x,
+        pos->coord.y,
         laser->laserWidth,
         laser->laserLength
     };
 
     Vector2 origin = {laser->laserWidth/2.0, 0};
 
-    DrawTexturePro(textures[textureID], source, dest, origin, /*angle,*/ sprite->color);
+    DrawTexturePro(textures[textureID], source, dest, origin, pos->angle, sprite->color);
 }
 
 drawAllStraightLasers(Straight_laserManager *laserManager, PositionManager * positionManager, SpriteManager * spriteManager) {

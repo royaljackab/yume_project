@@ -24,14 +24,25 @@
 #include "player.h"
 #include "life.h"
 #include "straight_laser.h"
+#include "looseLaser.h"
 
 typedef struct Pool {
+  //common
   PositionManager position;
   TagManager tag;
+  TimerManager timer;
+
   PhysicsManager physics;
   SpriteManager sprite;
+
+  //collisions
   Collision_circleManager collision_circle;
   Collision_rectangleManager collision_rectangle;
+
+  //lasers
+  Straight_laserManager straightLaser;
+  Loose_laserManager looseLaser;
+
   LifeManager life;
   PlayerManager player;
   WeaponManager weapon;
@@ -43,6 +54,7 @@ typedef struct Pool {
   int free_top; // L'index du sommet de la pile (si il est a 5000 la pile est
                 // pleine et si il est a zero jeu saturé)
 
+  //Toute entité devant être détruite est ajoutée à cette file d'attente. L'entité est détruite en fin de tour du game loop.
   Entity kill_queue[MAX_ENTITIES];
   int kill_count;
 } Pool;

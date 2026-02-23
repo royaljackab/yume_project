@@ -2,8 +2,8 @@
 #define MENU_H
 
 // #include "../include/raylib.h"
-
-#include "core/input.h"
+#include "screen.h"
+#include "input.h"
 #include <raylib.h>
 
 #define MAX_BUTTONS 30

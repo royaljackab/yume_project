@@ -1,13 +1,12 @@
 #include "straight_laser.h"
 #include "common.h"
+#include "pool.h"
 #include "collision_rectangle.h"
 
 bool updateStraightLaser(Straight_laser *laser, Timer *timer) {   
     /***
      * Met à jour un laser droit en fonction de son timer
      * @return true si le laser doit continuer à exister, false s'il doit être supprimé
-     * 
-     * 
      * 
      * 
      */         
@@ -30,16 +29,25 @@ bool updateStraightLaser(Straight_laser *laser, Timer *timer) {
     }
     else {
         laser->laserWidth -= laser->laserMaxWidth / laser->growingTimer;
+
+        //le laser doit être détruit
         if(laser->laserWidth <= 0) {
             return false;
         }
     }
+    //le laser continue d'exister
     return true;
 }
-void updateAllStraightLasers(Straight_laserManager *laserManager) {
+void updateAllStraightLasers(Pool *ctx) {
+    /***
+     * Met à jour tout les laser droits et les ajoute à la kill queue s'ils sont finis
+     * 
+     */ 
     Straight_laser *laser;
-    for (int i=0; i < laserManager->count; i++) {
-        laser = &laserManager->dense[i];
-        //TODO: détruire
+    for (int i=0; i < ctx->straightLaser.count; i++) {
+        laser = &ctx->straightLaser.dense[i];
+        if(!updateStraightLaser(laser, &ctx->timer.dense[ctx->straightLaser.entity_lookup[i]])) {
+            pool_kill_entity(ctx, ctx->straightLaser.entity_lookup[i]);
+        }
     }
 }
