@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core/input.h"
+#include "ecs/pool.h"
 #include "systems/button.h"
 
 typedef enum StateID {
@@ -14,6 +15,7 @@ typedef enum StateID {
 
   __END_MENU__,
 
+  STATE_MOONLIGHT,
   STATE_TEST,
   STATE_EXTRA
 } StateID;
@@ -36,6 +38,8 @@ struct GameContext {
   InputSystem input;
   ButtonSystem button;
 
+  Pool * pool;
+
   int debug;
   int pause;
 };
@@ -50,3 +54,4 @@ extern void gamestate_change_state(GameContext *ctx, StateID stateID);
 extern GameState state_menu_title;
 extern GameState state_menu_keybinds;
 extern GameState state_test;
+extern GameState state_moonlight;

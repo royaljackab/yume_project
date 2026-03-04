@@ -47,7 +47,7 @@ void state_menu_title_update(GameContext *ctx) {
     case BEGIN_GAME:
       break;
     case MOONLIGHT_TEST:
-      gamestate_change_state(ctx, STATE_TEST);
+      gamestate_change_state(ctx, STATE_MOONLIGHT);
       break;
     case KEYBINDS:
       gamestate_change_state(ctx, STATE_MENU_KEYBINDS);

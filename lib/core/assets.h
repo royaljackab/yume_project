@@ -4,6 +4,8 @@
 #include <raylib.h>
 #include <raymath.h>
 
+#include "components/sprite.h"
+
 // Audio : background music for now
 typedef enum {
   BGM_FAST_DANGER,
@@ -22,9 +24,23 @@ typedef enum {
   MAX_TEXTURES
 } TextureID;
 
-void AssetsLoad();
-void AssetsUnload();
+typedef enum {
+  BALL_M_BLACK,
+  ANIM_TEST,
+
+  REIMU_IDLE,
+  REIMU_RIGHT,
+  REIMU_LEFT,
+  REIMU_PINK_AMULET,
+  
+  MAX_SPRITES
+} SpriteID;
+
+extern void AssetsLoad();
+extern void AssetsUnload();
+extern void SpritesLoad();
 
 extern Texture2D textures[MAX_TEXTURES];
+extern Sprite sprites[MAX_SPRITES];
 
 #endif

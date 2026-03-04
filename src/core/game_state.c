@@ -16,8 +16,9 @@ GameState *get_state_pointer(StateID state) {
     return &state_menu_title;
   case STATE_MENU_KEYBINDS:
     return &state_menu_keybinds;
-  case STATE_TEST:
-    // return &state_test;
+  case STATE_MOONLIGHT:
+    return &state_moonlight;
+  
   default:
     return 0;
   }

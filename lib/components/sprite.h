@@ -65,6 +65,7 @@ DECLARE_SETTER_GETTER(Sprite, Vector2, animStart)
 /**
  * @brief Ajoute une texture avec les valeurs pas défauts
  * @param sprite Composante du sprite
+ * @param renderPriority Layer a laquelle on affiche le sprite
  * @param textureID ID de la texture a utiliser (assets.h)
  *
  * VALEURS PAR DEFAUT :
@@ -74,10 +75,12 @@ DECLARE_SETTER_GETTER(Sprite, Vector2, animStart)
  *  - rotation : 0
  *  - non animé // TODO:  faire un autre systeme?
  */
-extern void Sprite_set_texture(Sprite *sprite, int textureID);
+extern void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID);
 
-void Sprite_set_animation(Sprite *sprite, int frameCount, int delay);
+extern void Sprite_set_animation(Sprite *sprite, int frameCount, int delay);
+extern void Sprite_set_SourceRect(Sprite *sprite, float x, float y, float width, float height);
 
 void UpdateAnimation(Sprite *sprite);
 
-void Sprite_draw_all(Pool *pool);
+extern void Sprite_draw_all(Pool *pool);
+

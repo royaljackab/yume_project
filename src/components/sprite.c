@@ -3,11 +3,12 @@
 #include "core/assets.h"
 #include "core/screen.h"
 #include "ecs/pool.h"
+#include <raylib.h>
 
 #define MIN_LAYER 0
 #define MAX_LAYER 100
 
-void Sprite_set_texture(Sprite *sprite, int textureID) {
+void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
   sprite->textureID = textureID;
   sprite->srcRect =
       (Rectangle){0, 0, textures[textureID].width, textures[textureID].height};
@@ -17,7 +18,9 @@ void Sprite_set_texture(Sprite *sprite, int textureID) {
   sprite->isAnimated = false;
   sprite->color = WHITE;
   sprite->rotation = 0;
+  sprite->renderPriority = renderPriority;
   sprite->scale = (Vector2){1, 1};
+  sprite->display = true;
 }
 
 void Sprite_set_animation(Sprite *sprite, int frameCount, int delay) {
@@ -33,6 +36,11 @@ void Sprite_set_animation(Sprite *sprite, int frameCount, int delay) {
   sprite->currentFrame = 0;
 }
 
+void Sprite_set_SourceRect(Sprite *sprite, float x, float y, float width, float height) {
+  sprite->srcRect = (Rectangle){x,y,width,height};
+  sprite->center = (Vector2){sprite->srcRect.width / 2, sprite->srcRect.height / 2};
+}
+
 void UpdateAnimation(Sprite *sprite) {
   /***
    * Update l'animation d'un sprite a partir de son source Rectangle, et de ses
@@ -43,8 +51,7 @@ void UpdateAnimation(Sprite *sprite) {
   if (sprite->animTimer >= sprite->animSpeed) {
     sprite->animTimer = 0;
     sprite->currentFrame = (sprite->currentFrame + 1) % sprite->animFrameCount;
-    sprite->srcRect.x =
-        sprite->animStart.x + sprite->frameWidth * sprite->currentFrame;
+    sprite->srcRect.x = sprite->animStart.x + sprite->frameWidth * sprite->currentFrame;
   }
 }
 
@@ -97,8 +104,9 @@ void Sprite_draw_all(Pool *p) {
       lookup = spriteManager->entity_lookup[i];
       pos = &positionManager->dense[lookup];
 
+
       if (IsOutOfDrawBounds(*pos, *sprite)) {
-        sprite->display = false;
+        continue;
       }
 
       if (sprite->renderPriority == layer) {

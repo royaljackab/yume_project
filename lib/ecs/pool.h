@@ -21,6 +21,7 @@
 #include "components/physics.h"
 #include "components/sprite.h"
 #include "ecs/ecs.h"
+#include "player.h"
 
 typedef struct Pool {
   PositionManager position;
@@ -30,7 +31,9 @@ typedef struct Pool {
   Collision_circleManager collision_circle;
   Collision_rectangleManager collision_rectangle;
   LifeManager life;
-
+  PlayerManager player;
+  WeaponManager weapon;
+  
   // Nouvelle gestion des indices
   Entity free_indices[MAX_ENTITIES]; // Le tableau qui stocke les IDs dispos
   int free_top; // L'index du sommet de la pile (si il est a 5000 la pile est

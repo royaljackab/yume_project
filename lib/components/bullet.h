@@ -10,6 +10,7 @@
 
 #include "core/assets.h"
 #include "ecs/ecs.h"
+#include "core/assets.h"
 #include "pool.h"
 
 /**
@@ -23,5 +24,7 @@
  */
 // TODO: J'ai mis TextureID prc que le systeme de sprite est codé avec le cul!
 // A changer au plus vite svp
-extern Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle,
-                           TextureID texture);
+extern Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle,
+                    SpriteID graphic);
+extern Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
+                    SpriteID graphic);
