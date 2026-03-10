@@ -1,8 +1,6 @@
 #include "looseLaser.h"
 #include "common.h"
-#include "pool.h"
-#include "common.h"
-#include "pool.h"
+ #include "pool.h"
 
 bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer){
     /***
@@ -64,16 +62,9 @@ void updateAllLooseLasers(Pool *ctx){
     Position * pos;
     Timer * timer;
 
-    Loose_laserManager * laserManager = &ctx->looseLaser;
-    PositionManager * positionManager = &ctx->position;
-    TimerManager * timerManager = &ctx->timer;
-
-    Position * pos;
-    Timer * timer;
-
-    Loose_laserManager * laserManager = &ctx->looseLaser;
-    PositionManager * positionManager = &ctx->position;
-    TimerManager * timerManager = &ctx->timer;
+    Loose_laserManager * laserManager = &(ctx->looseLaser);
+    PositionManager * positionManager = &(ctx->position);
+    TimerManager * timerManager = &(ctx->timer);
 
     for (int i=0; i < laserManager->count; i++)
     {
@@ -94,28 +85,28 @@ void updateAllLooseLasers(Pool *ctx){
 
 }
 
-Entity CreateLooseLaser(Pool *ctx, float x, float y, float speed, float angle, float length, float width, Color color, int duration) {
-    Entity id = pool_create_entity(ctx);
+// Entity CreateLooseLaser(Pool *ctx, float x, float y, float speed, float angle, float length, float width, Color color, int duration) {
+//     Entity id = pool_create_entity(ctx);
 
-    Vector2 vect = {x, y};
-    Loose_laser loose = {
-        vect,
-        1,
-        length,
-        width,
-        duration
-    };
+//     Vector2 vect = {x, y};
+//     Loose_laser loose = {
+//         vect,
+//         1,
+//         length,
+//         width,
+//         duration
+//     };
 
     
-    // objects[id].looseTargetLength = length;
-    // objects[id].looseWidth = width;
+//     // objects[id].looseTargetLength = length;
+//     // objects[id].looseWidth = width;
     
-    // // Initialise le premier noeud à la position de départ pour éviter un glitch à la frame 1
-    // objects[id].looseNodes[0] = (Vector2){x, y};
-    // objects[id].looseNodeCount = 1;
+//     // // Initialise le premier noeud à la position de départ pour éviter un glitch à la frame 1
+//     // objects[id].looseNodes[0] = (Vector2){x, y};
+//     // objects[id].looseNodeCount = 1;
 
-    // ObjSprite2D_SetColor(id, color);
-    // Obj_SetDelay(id, delay);
+//     // ObjSprite2D_SetColor(id, color);
+//     // Obj_SetDelay(id, delay);
 
-    return id;
-}
+//     return id;
+// }

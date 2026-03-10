@@ -7,10 +7,29 @@ TARGET = $(BIN_DIR)/$(TARGET_NAME)
 
 CC = gcc
 
+# Détection de l'OS
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+    # Linux
+    LIBS = -lraylib -lm -lpthread -ldl -lrt -lX11
+    LIBPATH =   # pas de -L nécessaire si raylib est installé dans le système
+    NEED_RAYLIB_BUILD = false
+else ifeq ($(UNAME_S),Darwin)
+    # macOS (exemple, à adapter selon votre installation)
+    LIBS = -lraylib -lm -lpthread -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL
+    LIBPATH = 
+    NEED_RAYLIB_BUILD = false
+else
+    # Windows (MSYS2, MinGW)
+    LIBS = -lraylib -lm -lpthread -lopengl32 -lgdi32 -lwinmm
+    LIBPATH = -L../raylib/src
+    NEED_RAYLIB_BUILD = true
+endif
+
 # Recherche des dossiers de header dans ../lib
 LIB_DIRS = $(shell find ../lib -type d)
-# Inclusion des headers : src/ + tous les sous-dossiers de lib/
-INCLUDES = -I. $(addprefix -I,$(LIB_DIRS))
+# Inclusion des headers : src/ + tous les sous-dossiers de lib/ + le dossier raylib/src
+INCLUDES = -I. $(addprefix -I,$(LIB_DIRS)) -I../raylib/src
 
 # Flags de compilation
 CFLAGS = -Wall -Wextra -g $(INCLUDES)
@@ -20,6 +39,16 @@ SRC = $(shell find . -type f -name "*.c") $(shell find ../lib -type f -name "*.c
 # Génération des noms de fichiers objets (.o) correspondants
 OBJ = $(SRC:.c=.o)
 
+# Sous Windows, on vérifie si la bibliothèque raylib est déjà compilée
+ifeq ($(NEED_RAYLIB_BUILD),true)
+RAYLIB_A = ../raylib/src/libraylib.a
+$(RAYLIB_A):
+	@echo "Raylib library not found, compiling it..."
+	cd ../raylib/src && make PLATFORM=PLATFORM_DESKTOP
+else
+RAYLIB_A = 
+endif
+
 # La règle par défaut : créer le dossier bin puis l'exécutable
 all: $(BIN_DIR) $(TARGET)
 
@@ -28,8 +57,8 @@ $(BIN_DIR):
 	mkdir -p $(BIN_DIR)
 
 # Compilation de l'exécutable dans le dossier bin
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ -lraylib -lm -lpthread -ldl -lrt -lX11
+$(TARGET): $(OBJ) $(RAYLIB_A)
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBPATH) $(LIBS)
 
 # Règle générique pour transformer les .c en .o
 %.o: %.c

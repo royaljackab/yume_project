@@ -6,7 +6,7 @@
  *  1) Créer les fichiers.h et .c décrivant votre composante
  *  2) Dans le .h, utiliser les macros DEFINE_COMPONENT_MANAGER
  *  et DECLARE_SETTER_GETTER dans ecs/component.h
- *  3) Rajouter votre ComponentManger ici, dans la structure Pool
+ *  3) Rajouter votre ComponentManager ici, dans la structure Pool
  *  4) Ajouter la fonction Component_init dans Pool_init (ecs/pool.c)
  *  5) Ajouter la fonction Component_remove dans pool_kill_entity (ecs/pool.c)
  *
@@ -28,17 +28,12 @@
 
 typedef struct Pool {
   //common
-  //common
   PositionManager position;
   TagManager tag;
   TimerManager timer;
-
-  TimerManager timer;
-
   PhysicsManager physics;
   SpriteManager sprite;
 
-  //collisions
 
   //collisions
   Collision_circleManager collision_circle;
@@ -51,8 +46,6 @@ typedef struct Pool {
   LifeManager life;
   PlayerManager player;
   WeaponManager weapon;
-  Straight_laserManager straightLaser;
-  TimerManager timer;
 
   // Nouvelle gestion des indices
   Entity free_indices[MAX_ENTITIES]; // Le tableau qui stocke les IDs dispos

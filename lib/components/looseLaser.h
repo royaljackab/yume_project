@@ -3,7 +3,6 @@
 
 #include "components/common.h"
 #include "ecs/component.h"
-
 #include <raymath.h>
 
 typedef struct {
@@ -12,7 +11,7 @@ typedef struct {
     int looseNodeCount;                  // Nombre actuel de noeuds
     float looseTargetLength;             // Longueur visée (le laser grandit jusqu'à cette taille)
     float looseWidth;                    // Épaisseur du laser
-    int duration;                        // Durée max du laser en frames
+    unsigned int duration;               // Durée max du laser en frames
 
 } Loose_laser;
 
@@ -24,4 +23,4 @@ DECLARE_SETTER_GETTER(Loose_laser, float, looseTargetLength)
 DECLARE_SETTER_GETTER(Loose_laser, float, looseWidth)
 
 bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer);
-void updateAllLooseLasers(Pool *ctx);
+//void updateAllLooseLasers(Pool *ctx);

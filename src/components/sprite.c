@@ -1,10 +1,12 @@
 #include "components/sprite.h"
 #include "components/common.h"
+#include "components/straight_laser.h"
 #include "core/assets.h"
 #include "core/screen.h"
 #include "ecs/pool.h"
 #include <raylib.h>
-#include "straight_laser.h"
+
+
 
 #define MIN_LAYER 0
 #define MAX_LAYER 100
@@ -144,7 +146,7 @@ void drawStraightLaser(Straight_laser *laser, Position * pos, Sprite * sprite){
     DrawTexturePro(textures[textureID], source, dest, origin, pos->angle, sprite->color);
 }
 
-drawAllStraightLasers(Straight_laserManager *laserManager, PositionManager * positionManager, SpriteManager * spriteManager) {
+void drawAllStraightLasers(Straight_laserManager *laserManager, PositionManager * positionManager, SpriteManager * spriteManager) {
     /**
      * Affiche tous les lasers droits actifs
      */

@@ -1,6 +1,6 @@
 #pragma once
 #include "component.h"
-#include "pool.h"
+typedef struct Pool Pool;
 #include "common.h"
 
 typedef struct {
