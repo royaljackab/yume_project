@@ -133,8 +133,8 @@ void drawStraightLaser(Straight_laser *laser, Position * pos, Sprite * sprite){
     Rectangle source = sprite->srcRect;
 
     Rectangle dest = {
-        pos->coord.x,
-        pos->coord.y,
+        pos->pos.x,
+        pos->pos.y,
         laser->laserWidth,
         laser->laserLength
     };

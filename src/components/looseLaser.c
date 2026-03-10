@@ -5,7 +5,6 @@
 #include "pool.h"
 
 bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer){
-bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer){
     /***
     * Update d'un loose laser sur 1 frame 
     * pos est l'ancienne position du laser
@@ -19,8 +18,8 @@ bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer){
   }
 
     // ajout de la position actuelle en tête
-    laser->looseNodes[0] = pos->coord;
-    laser->looseNodes[0] = pos->coord;
+    laser->looseNodes[0] = pos->pos;
+    laser->looseNodes[0] = pos->pos;
 
   if (laser->looseNodeCount < MAX_LOOSE_NODES) {
     laser->looseNodeCount++;
@@ -56,11 +55,6 @@ bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer){
 }
 
 
-
-void updateAllLooseLasers(Pool *ctx){
-    /***
-     * Met à jour tout les loose lasers et les ajoute à la kill queue s'ils sont finis
-     */
 void updateAllLooseLasers(Pool *ctx){
     /***
      * Met à jour tout les loose lasers et les ajoute à la kill queue s'ils sont finis
@@ -105,7 +99,7 @@ Entity CreateLooseLaser(Pool *ctx, float x, float y, float speed, float angle, f
 
     Vector2 vect = {x, y};
     Loose_laser loose = {
-        Vector2,
+        vect,
         1,
         length,
         width,
