@@ -33,14 +33,12 @@ enum {
 void state_menu_keybinds_init(GameContext *ctx) {
   button_system_init(&ctx->button);
 
-  button_create(&ctx->button, 50, 400);
-
   int button_y = 450;
   for (int i = 0; i < NB_KEYBINDS_BUTTONS; i++) {
     button_create(&ctx->button, 60, button_y);
     button_y += 20;
   }
-  button_create(&ctx->button, 250, 400);
+
 }
 
 void state_menu_keybinds_draw(GameContext *ctx) {

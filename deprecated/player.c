@@ -1,6 +1,3 @@
-//TODO: Eliminer le fichier décadent
-////// DEPRECATED //////
-
 #include "player.h"
 #include "input.h"
 #include "game_state.h"

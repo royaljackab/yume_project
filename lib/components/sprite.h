@@ -19,6 +19,7 @@
 #pragma once
 
 #include "ecs/component.h"
+#include "components/straight_laser.h"
 #include <raylib.h>
 #include <stdbool.h>
 
@@ -83,4 +84,6 @@ extern void Sprite_set_SourceRect(Sprite *sprite, float x, float y, float width,
 void UpdateAnimation(Sprite *sprite);
 
 extern void Sprite_draw_all(Pool *pool);
+extern void drawStraightLaser(Straight_laser *laser, Position * pos, Sprite * sprite);
+extern void drawAllStraightLasers(Straight_laserManager *laserManager, PositionManager * positionManager, SpriteManager * spriteManager);
 

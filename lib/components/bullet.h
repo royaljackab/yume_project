@@ -11,7 +11,7 @@
 #include "core/assets.h"
 #include "ecs/ecs.h"
 #include "core/assets.h"
-#include "pool.h"
+typedef struct Pool Pool;
 
 /**
  * @brief Spawn un bullet avec une position, un angle et une vitesse initiale
