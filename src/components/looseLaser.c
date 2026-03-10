@@ -1,11 +1,15 @@
 #include "looseLaser.h"
 #include "common.h"
 #include "pool.h"
+#include "common.h"
+#include "pool.h"
 
+bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer){
 bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer){
     /***
     * Update d'un loose laser sur 1 frame 
     * pos est l'ancienne position du laser
+    * @return true si le laser doit continuer à exister, false s'il doit être supprimé
     * @return true si le laser doit continuer à exister, false s'il doit être supprimé
     */
 
@@ -15,6 +19,7 @@ bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer){
   }
 
     // ajout de la position actuelle en tête
+    laser->looseNodes[0] = pos->coord;
     laser->looseNodes[0] = pos->coord;
 
   if (laser->looseNodeCount < MAX_LOOSE_NODES) {
@@ -40,10 +45,22 @@ bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer){
 
     //le laser continue d'exister
     return true; 
+
+    //le laser doit être détruit
+    if(*timer > laser->duration) {
+        return false; 
+    }
+
+    //le laser continue d'exister
+    return true; 
 }
 
 
 
+void updateAllLooseLasers(Pool *ctx){
+    /***
+     * Met à jour tout les loose lasers et les ajoute à la kill queue s'ils sont finis
+     */
 void updateAllLooseLasers(Pool *ctx){
     /***
      * Met à jour tout les loose lasers et les ajoute à la kill queue s'ils sont finis
@@ -57,10 +74,20 @@ void updateAllLooseLasers(Pool *ctx){
     PositionManager * positionManager = &ctx->position;
     TimerManager * timerManager = &ctx->timer;
 
+    Position * pos;
+    Timer * timer;
+
+    Loose_laserManager * laserManager = &ctx->looseLaser;
+    PositionManager * positionManager = &ctx->position;
+    TimerManager * timerManager = &ctx->timer;
+
     for (int i=0; i < laserManager->count; i++)
     {
         laser = &laserManager->dense[i];
         lookup = laserManager->entity_lookup[i];
+
+        pos = &positionManager->dense[lookup];
+        timer = &timerManager->dense[lookup];
 
         pos = &positionManager->dense[lookup];
         timer = &timerManager->dense[lookup];
