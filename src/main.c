@@ -1,4 +1,4 @@
-#include "assets.h"
+#include "core/assets.h"
 #include "core/game_state.h"
 #include "core/screen.h"
 #include "core/settings.h"
@@ -27,6 +27,11 @@ int main() {
     // UpdateMusicStream(playlist[BGM_FAST_DANGER]);
 
     input_update(&ctx.input);
+    
+    // Mise à jour du stream audio
+    for (int i = 0; i < MAX_BGM; i++) {
+        UpdateMusicStream(playlist[i]);
+    }
     gamestate_update(&ctx);
 
     if (ctx.currentStateID > __END_MENU__) {

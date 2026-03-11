@@ -3,6 +3,7 @@
 #include "systems/button.h"
 #include <raylib.h>
 #include <stdio.h>
+#include "core/assets.h"
 
 /* Enum */
 typedef enum TitleButtons { BEGIN_GAME, MOONLIGHT_TEST, KEYBINDS } TitleButtons;
@@ -17,6 +18,8 @@ void state_menu_title_init(GameContext *ctx) {
   button_create(&ctx->button, 50, 400);
   button_create(&ctx->button, 50, 500);
   button_create(&ctx->button, 50, 600);
+
+  PlayMusicStream(playlist[BGM_WAITING]);
 }
 
 void state_menu_title_draw(GameContext *ctx) {
