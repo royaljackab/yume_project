@@ -32,7 +32,6 @@ typedef enum {
   REIMU_RIGHT,
   REIMU_LEFT,
   REIMU_PINK_AMULET,
-  
   MAX_SPRITES
 } SpriteID;
 
@@ -42,5 +41,6 @@ extern void SpritesLoad();
 
 extern Texture2D textures[MAX_TEXTURES];
 extern Sprite sprites[MAX_SPRITES];
+extern Music playlist[MAX_BGM];             
 
 #endif

@@ -23,17 +23,19 @@ void AssetsLoad() {
   textures[REIMU_SPRITESHEET] =
       LoadTexture("../Assets/Sprites/reimu_spritesheet.png");
   textures[HITBOX_SPRITESHEET] = LoadTexture("../Assets/Sprites/hitbox.png");
+  textures[FAIRY_BLUE_STILL_SPRITESHEET] =
+      LoadTexture("../Assets/Sprites/fairy_s_blue_still.png");
 
   // Chargement de la Musique
   // NOTE: On utilise LoadMusicStream pour les fichiers longs comme les BGM ok
   playlist[BGM_FAST_DANGER] =
-      LoadMusicStream("../Assets/Audio/BGM/fast-danger.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/fast-danger.mp3");
   playlist[BGM_QUIRKY_GOOFY] =
-      LoadMusicStream("../Assets/Audio/BGM/quirky-goofyr.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/quirky-goofy.mp3");
   playlist[BGM_TO_BE_NAMED] =
-      LoadMusicStream("../Assets/Audio/BGM/tobenamedlater.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/tobenamedlater.mp3");
   playlist[BGM_WAITING] =
-      LoadMusicStream("../Assets/Audio/BGM/waiting-settingstype.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/waiting-settingstype.mp3");
 }
 
 void SpritesLoad() {
@@ -60,6 +62,10 @@ void SpritesLoad() {
     Sprite_set_SourceRect(&sprites[REIMU_PINK_AMULET], 138, 178, 56, 14);
     Sprite_set_center(&sprites[REIMU_PINK_AMULET], (Vector2){46,6});
     Sprite_set_rotation(&sprites[REIMU_PINK_AMULET], -90);
+
+    Sprite_set_texture(&sprites[FAIRY_BLUE_STILL], 0, FAIRY_BLUE_STILL_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[FAIRY_BLUE_STILL], 0, 0, 192, 32);
+    Sprite_set_animation(&sprites[FAIRY_BLUE_STILL], 4, 8);
 }
 
 void AssetsUnload() {
