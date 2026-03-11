@@ -29,13 +29,13 @@ void AssetsLoad() {
   // Chargement de la Musique
   // NOTE: On utilise LoadMusicStream pour les fichiers longs comme les BGM ok
   playlist[BGM_FAST_DANGER] =
-      LoadMusicStream("../Assets/Audio/BGM/fast-danger.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/fast-danger.wav");
   playlist[BGM_QUIRKY_GOOFY] =
-      LoadMusicStream("../Assets/Audio/BGM/quirky-goofyr.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/quirky-goofy.wav");
   playlist[BGM_TO_BE_NAMED] =
-      LoadMusicStream("../Assets/Audio/BGM/tobenamedlater.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/tobenamedlater.wav");
   playlist[BGM_WAITING] =
-      LoadMusicStream("../Assets/Audio/BGM/waiting-settingstype.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/waiting-settingstype.wav");
 }
 
 void SpritesLoad() {
