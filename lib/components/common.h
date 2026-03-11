@@ -13,6 +13,7 @@ typedef enum {
   ENT_PLAYER_SHOT,
   ENT_ENEMY_LASER,
   ENT_PLAYER_LASER,
+  ENT_PARTICLE,
   ENT_LOOSE_LASER
 } EntityType;
 
