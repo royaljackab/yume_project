@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "components/enemy.h"
+
 void state_moonlight_init(GameContext *ctx) {
     ctx->pool = malloc(sizeof(Pool));
     if (!ctx->pool) {
@@ -20,6 +22,10 @@ void state_moonlight_init(GameContext *ctx) {
 
     pool_init(ctx->pool);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
+
+    Enemy_spawn(ctx->pool, 200, -30, 2.0f, ENEMY_FAIRY_BLUE, PATTERN_STRAIGHT_DOWN, 3);
+    Enemy_spawn(ctx->pool, 400, -60, 2.0f, ENEMY_FAIRY_BLUE, PATTERN_ZIGZAG, 3);
+    Enemy_spawn(ctx->pool, 600, -90, 2.0f, ENEMY_FAIRY_BLUE, PATTERN_CIRCLE_IN, 3);
 
     float angleT = 90;
     for (int i=0; i < 10; i++) {
@@ -31,6 +37,7 @@ void state_moonlight_init(GameContext *ctx) {
 void state_moonlight_update(GameContext *ctx) {
     Player_update(ctx);
     Physics_update_all(ctx->pool);
+    Enemy_update_all(ctx->pool);
     pool_kill_convicts(ctx->pool);
 }
 

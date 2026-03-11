@@ -21,6 +21,7 @@ typedef enum {
   ANIM_TEST_SPRITESHEET,
   REIMU_SPRITESHEET,
   HITBOX_SPRITESHEET,
+  FAIRY_BLUE_STILL_SPRITESHEET,  // ajout 1
   MAX_TEXTURES
 } TextureID;
 
@@ -32,7 +33,7 @@ typedef enum {
   REIMU_RIGHT,
   REIMU_LEFT,
   REIMU_PINK_AMULET,
-  
+  FAIRY_BLUE_STILL, // ajout 2
   MAX_SPRITES
 } SpriteID;
 

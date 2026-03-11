@@ -16,6 +16,7 @@ void pool_init(Pool *p) {
   Life_init(&p->life);
   Player_init(&p->player);
   Weapon_init(&p->weapon);
+  Enemy_init(&p->enemy);
 
   /* Remplissage de la pile d'indices libres */
   for (int i = 0; i < MAX_ENTITIES; i++) {
@@ -66,7 +67,7 @@ void pool_kill_convicts(Pool *p) {
     Loose_laser_remove(&p->looseLaser, e);
     Life_remove(&p->life, e);
 
-
+    Enemy_remove(&p->enemy, e); // enemy
 
     
     // Ajout de l'entité dans la pile libre
