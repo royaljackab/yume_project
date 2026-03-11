@@ -1,6 +1,21 @@
 #pragma once
 
 #include "component.h"
+#include "collision_circle.h"
+#include "assets.h"
+#include "bullet.h"
+#include "common.h"
+#include "game_state.h"
+#include "input.h"
+#include "life.h"
+#include "physics.h"
+#include "pool.h"
+#include "sprite.h"
+#include "screen.h"
+#include <complex.h>
+#include <raylib.h>
+#include <raymath.h>
+
 
 typedef struct GameContext GameContext;
 typedef struct Pool Pool;
@@ -42,6 +57,8 @@ DECLARE_SETTER_GETTER(Player, int, bombs);
 DECLARE_SETTER_GETTER(Player, float, speed);
 DECLARE_SETTER_GETTER(Player, float, focusSpeed);
 
+extern Position * Player_get_position(Pool *p, Player player);
+extern Collision_circle * Player_get_collision(Pool *p, Player player);
 extern void Player_start(Pool *p, PlayerName name, PatternType type);
 extern void Player_update(GameContext *ctx);
 

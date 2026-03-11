@@ -1,17 +1,5 @@
 #include "player.h"
-#include "assets.h"
-#include "bullet.h"
-#include "common.h"
-#include "game_state.h"
-#include "input.h"
-#include "life.h"
-#include "physics.h"
-#include "pool.h"
-#include "sprite.h"
-#include "screen.h"
-#include <complex.h>
-#include <raylib.h>
-#include <raymath.h>
+
 
 /* Macros definitions */
 #define CREATE_PLAYER(nbLives, nbBombs, speed, focusSpeed, name) (Player){nbLives, nbLives, nbBombs, nbBombs, speed, focusSpeed, name}
@@ -116,6 +104,23 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
     }
     
 }
+
+extern Position * Player_get_position(Pool *p, Player player){
+  PositionManager *positionManager = &p->position;
+  int lookup = positionManager->entity_lookup[0];
+  return &positionManager->dense[lookup];
+  //int lookup = positionManager->entity_lookup[0];
+  //return Position_get_pos(&positionManager->dense[lookup]);
+}
+
+extern Collision_circle * Player_get_collision(Pool *p, Player player){
+  Collision_circleManager *collision_circleManager = &p->collision_circle;
+  int lookup = collision_circleManager->entity_lookup[0];
+  return &collision_circleManager->dense[lookup];
+}
+
+
+
 
 /* Extern functions */
 void Player_start(Pool *p, PlayerName name, PatternType type) {
