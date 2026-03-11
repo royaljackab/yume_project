@@ -27,6 +27,10 @@ void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
 }
 
 void Sprite_set_animation(Sprite *sprite, int frameCount, int delay) {
+/*
+Crée l'animation pour un spritesheet de type sprite.
+Prend le nombre de frame de l'animation et le delai en frame de jeu entre chaque frame de l'animation 
+*/
   sprite->isAnimated = true;
   sprite->animFrameCount = frameCount;
   sprite->srcRect.width = sprite->srcRect.width / frameCount;
@@ -40,6 +44,7 @@ void Sprite_set_animation(Sprite *sprite, int frameCount, int delay) {
 }
 
 void Sprite_set_SourceRect(Sprite *sprite, float x, float y, float width, float height) {
+    //x, y le coin en haut a gauche
   sprite->srcRect = (Rectangle){x,y,width,height};
   sprite->center = (Vector2){sprite->srcRect.width / 2, sprite->srcRect.height / 2};
 }

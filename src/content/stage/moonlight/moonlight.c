@@ -23,7 +23,7 @@ void state_moonlight_init(GameContext *ctx) {
 
     float angleT = 90;
     for (int i=0; i < 10; i++) {
-        Bullet_enemy_spawn(ctx->pool, 100, 100, 3, angleT, ANIM_TEST);
+        Bullet_enemy_spawn(ctx->pool, 100, 100, 3, angleT, BULLET_FIRE_BLUE);
         angleT += 36;
     }
 }
