@@ -22,6 +22,18 @@ void state_moonlight_init(GameContext *ctx) {
     
     pool_init(ctx->pool);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
+<<<<<<< HEAD
+=======
+
+    float angleT = 90;
+    for (int i=0; i < 10; i++) {
+        Bullet_enemy_spawn(ctx->pool, 100, 100, 3, angleT, BULLET_FIRE_BLUE);
+        angleT += 36;
+    }
+
+    StopMusicStream(playlist[BGM_WAITING]);
+    PlayMusicStream(playlist[BGM_FAST_DANGER]);
+>>>>>>> origin/main
 }
 
 Define_Static_Task(fireRing, PARAMS(GameContext * gctx, int nb_ring, float angleT));

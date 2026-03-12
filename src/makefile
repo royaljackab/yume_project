@@ -17,7 +17,7 @@ ifeq ($(UNAME_S),Linux)
 else ifeq ($(UNAME_S),Darwin)
     # macOS (exemple, à adapter selon votre installation)
     LIBS = -lraylib -lm -lpthread -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL
-    LIBPATH = 
+    LIBPATH = -L/opt/homebrew/lib
     NEED_RAYLIB_BUILD = false
 else
     # Windows (MSYS2, MinGW)
