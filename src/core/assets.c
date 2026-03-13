@@ -16,6 +16,8 @@ void AssetsLoad() {
   // Chargement des Textures existantes
   textures[BULLET_SPRITESHEET] =
       LoadTexture("../Assets/Sprites/bullet_spritesheet.png");
+  textures[ENEMY_SPRITESHEET] =
+      LoadTexture("../Assets/Sprites/enemies.png");
   textures[BOSS_SPRITESHEET] =
       LoadTexture("../Assets/Sprites/boss_spritesheet.png");
   textures[ANIM_TEST_SPRITESHEET] =
@@ -27,21 +29,19 @@ void AssetsLoad() {
   // Chargement de la Musique
   // NOTE: On utilise LoadMusicStream pour les fichiers longs comme les BGM ok
   playlist[BGM_FAST_DANGER] =
-      LoadMusicStream("../Assets/Audio/BGM/fast-danger.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/fast-danger.wav");
   playlist[BGM_QUIRKY_GOOFY] =
-      LoadMusicStream("../Assets/Audio/BGM/quirky-goofyr.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/quirky-goofy.wav");
   playlist[BGM_TO_BE_NAMED] =
-      LoadMusicStream("../Assets/Audio/BGM/tobenamedlater.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/tobenamedlater.wav");
   playlist[BGM_WAITING] =
-      LoadMusicStream("../Assets/Audio/BGM/waiting-settingstype.m4a");
+      LoadMusicStream("../Assets/Audio/BGM/waiting-settingstype.wav");
 }
 
 void SpritesLoad() {
     Sprite_set_texture(&sprites[BALL_M_BLACK], 0, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BALL_M_BLACK], 0, 0, 0, 0);
 
-    Sprite_set_texture(&sprites[BALL_M_BLACK], 0, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[BALL_M_BLACK], 5, 54, 16, 16);
 
     Sprite_set_texture(&sprites[ANIM_TEST], 0, ANIM_TEST_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[ANIM_TEST], 0,0,256,16);
@@ -63,7 +63,208 @@ void SpritesLoad() {
     Sprite_set_SourceRect(&sprites[REIMU_PINK_AMULET], 138, 178, 56, 14);
     Sprite_set_center(&sprites[REIMU_PINK_AMULET], (Vector2){46,6});
     Sprite_set_rotation(&sprites[REIMU_PINK_AMULET], -90);
+
+
+    BulletsSpritesLoad();
 }
+
+void BulletsSpritesLoad() {
+    /**
+     *  Fonction intermediaire pour load tous les assets du jeu.
+     *  Load toutes les bullets.
+     **/
+    Sprite_set_texture(&sprites[BALL_M_BLACK], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BALL_M_BLACK], 5, 54, 16, 16);
+
+    // SMALL BULLETS (16x16)
+
+    Sprite_set_texture(&sprites[BULLET_SMALL_RED], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_SMALL_RED], 6, 6, 16, 16);
+
+    Sprite_set_texture(&sprites[BULLET_SMALL_BLUE], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_SMALL_BLUE], 38, 6, 16, 16);
+
+    Sprite_set_texture(&sprites[BULLET_SMALL_GREEN], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_SMALL_GREEN], 70, 6, 16, 16);
+
+    Sprite_set_texture(&sprites[BULLET_SMALL_YELLOW], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_SMALL_YELLOW], 102, 6, 16, 16);
+
+
+    // RING BULLETS
+
+    Sprite_set_texture(&sprites[BULLET_RING_RED], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_RING_RED], 8, 210, 32, 32);
+
+    Sprite_set_texture(&sprites[BULLET_RING_BLUE], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_RING_BLUE], 44, 210, 32, 32);
+
+    Sprite_set_texture(&sprites[BULLET_RING_GREEN], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_RING_GREEN], 80, 210, 32, 32);
+
+
+    // STAR BULLETS
+
+    Sprite_set_texture(&sprites[BULLET_STAR_RED], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_STAR_RED], 6, 330, 32, 32);
+
+    Sprite_set_texture(&sprites[BULLET_STAR_BLUE], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_STAR_BLUE], 42, 330, 32, 32);
+
+
+    // BIG BALL BULLETS
+
+    Sprite_set_texture(&sprites[BULLET_BIG_RED], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_BIG_RED], 310, 40, 64, 64);
+
+    Sprite_set_texture(&sprites[BULLET_BIG_BLUE], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_BIG_BLUE], 378, 40, 64, 64);
+
+
+
+    // FIRE BULLETS
+
+    Sprite_set_texture(&sprites[BULLET_FIRE_RED], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_FIRE_RED], 240, 260, 64, 64);
+
+    Sprite_set_texture(&sprites[BULLET_FIRE_BLUE], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_FIRE_BLUE], 310, 260, 64, 64);
+
+    Sprite_set_texture(&sprites[BULLET_FIRE_GREEN], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_FIRE_GREEN], 380, 260, 64, 64);
+
+
+    // GRADIENT BULLETS
+
+    Sprite_set_texture(&sprites[BULLET_BLACK_GRADIENT], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_BLACK_GRADIENT], 8, 470, 64, 64);
+
+    Sprite_set_texture(&sprites[BULLET_PURPLE_GRADIENT], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_PURPLE_GRADIENT], 78, 470, 64, 64);
+
+    Sprite_set_texture(&sprites[BULLET_GREEN_GRADIENT], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_GREEN_GRADIENT], 148, 470, 64, 64);
+
+    Sprite_set_texture(&sprites[BULLET_YELLOW_GRADIENT], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_YELLOW_GRADIENT], 218, 470, 64, 64);
+
+}
+
+
+void EnemiesSpritesLoad()
+{
+
+    // =========================
+    // BLUE FAIRY
+    // =========================
+
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_BLUE_IDLE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_BLUE_IDLE], 0, 0, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_FAIRY_BLUE_IDLE], 4, 5);
+
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_BLUE_MOVE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_BLUE_MOVE], 0, 32, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_FAIRY_BLUE_MOVE], 4, 5);
+
+
+    // =========================
+    // RED FAIRY
+    // =========================
+
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_RED_IDLE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_RED_IDLE], 128, 0, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_FAIRY_RED_IDLE], 4, 5);
+
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_RED_MOVE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_RED_MOVE], 128, 32, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_FAIRY_RED_MOVE], 4, 5);
+
+
+    // =========================
+    // CYAN FAIRY
+    // =========================
+
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_CYAN_IDLE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_CYAN_IDLE], 256, 0, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_FAIRY_CYAN_IDLE], 4, 5);
+
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_CYAN_MOVE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_CYAN_MOVE], 256, 32, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_FAIRY_CYAN_MOVE], 4, 5);
+
+
+    // =========================
+    // GREEN FAIRY
+    // =========================
+
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_GREEN_IDLE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_GREEN_IDLE], 384, 0, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_FAIRY_GREEN_IDLE], 4, 5);
+
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_GREEN_MOVE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_GREEN_MOVE], 384, 32, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_FAIRY_GREEN_MOVE], 4, 5);
+
+
+    // =========================
+    // YELLOW FAIRY
+    // =========================
+
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_YELLOW_IDLE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_YELLOW_IDLE], 0, 64, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_FAIRY_YELLOW_IDLE], 4, 5);
+
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_YELLOW_MOVE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_YELLOW_MOVE], 0, 96, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_FAIRY_YELLOW_MOVE], 4, 5);
+
+
+    // =========================
+    // BUTTERFLY BLUE
+    // =========================
+
+    Sprite_set_texture(&sprites[ENEMY_BUTTERFLY_BLUE_IDLE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_BUTTERFLY_BLUE_IDLE], 128, 256, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_BUTTERFLY_BLUE_IDLE], 4, 6);
+
+    Sprite_set_texture(&sprites[ENEMY_BUTTERFLY_BLUE_MOVE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_BUTTERFLY_BLUE_MOVE], 128, 288, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_BUTTERFLY_BLUE_MOVE], 4, 6);
+
+
+    // =========================
+    // BUTTERFLY RED
+    // =========================
+
+    Sprite_set_texture(&sprites[ENEMY_BUTTERFLY_RED_IDLE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_BUTTERFLY_RED_IDLE], 256, 256, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_BUTTERFLY_RED_IDLE], 4, 6);
+
+    Sprite_set_texture(&sprites[ENEMY_BUTTERFLY_RED_MOVE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_BUTTERFLY_RED_MOVE], 256, 288, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_BUTTERFLY_RED_MOVE], 4, 6);
+
+
+    // =========================
+    // BIG FAIRY
+    // =========================
+
+    Sprite_set_texture(&sprites[ENEMY_BIG_FAIRY_IDLE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_BIG_FAIRY_IDLE], 0, 512, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_BIG_FAIRY_IDLE], 4, 4);
+
+    Sprite_set_texture(&sprites[ENEMY_BIG_FAIRY_MOVE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ENEMY_BIG_FAIRY_MOVE], 0, 544, 128, 32);
+    Sprite_set_animation(&sprites[ENEMY_BIG_FAIRY_MOVE], 4, 4);
+
+}
+
+
+
+
+
+
+
 
 void AssetsUnload() {
   // Déchargement des textures
