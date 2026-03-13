@@ -1,17 +1,17 @@
 #pragma once
 #define MAX_LOOSE_NODES 200
 
-#include "components/common.h"
+#include "systems/timer.h"
 #include "ecs/component.h"
 #include <raymath.h>
 
 typedef struct {
     //loose laser
-    Vector2 looseNodes[MAX_LOOSE_NODES]; // Historique des positions
+    Entity *looseNodes;                  // Historique des positions
     int looseNodeCount;                  // Nombre actuel de noeuds
     float looseTargetLength;             // Longueur visée (le laser grandit jusqu'à cette taille)
     float looseWidth;                    // Épaisseur du laser
-    unsigned int duration;               // Durée max du laser en frames
+    Timer * looseTimer;                  // Timer pour la durée de vie du laser
 
 } Loose_laser;
 
@@ -22,5 +22,5 @@ DECLARE_SETTER_GETTER(Loose_laser, int, looseNodeCount)
 DECLARE_SETTER_GETTER(Loose_laser, float, looseTargetLength)
 DECLARE_SETTER_GETTER(Loose_laser, float, looseWidth)
 
-bool updateLooseLaser(Loose_laser *laser, Position *pos, Timer *timer);
-//void updateAllLooseLasers(Pool *ctx);
+bool loose_laser_update(Loose_laser *laser, Position *pos, Timer *timer);
+//void updateAllLooseLasers(Pool *pool);

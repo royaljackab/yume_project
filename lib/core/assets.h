@@ -25,6 +25,7 @@ typedef enum {
 } TextureID;
 
 typedef enum {
+  NULL_SPRITE,
   BALL_M_BLACK,
   ANIM_TEST,
 
