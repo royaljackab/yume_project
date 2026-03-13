@@ -9,7 +9,6 @@ void pool_init(Pool *p) {
   // NOTE: Pour chaque composante, ajouter le init ici
   Position_init(&p->position);
   Tag_init(&p->tag);
-  Timer_init(&p->timer);
 
   Physics_init(&p->physics);
   Sprite_init(&p->sprite);
@@ -21,8 +20,8 @@ void pool_init(Pool *p) {
   Player_init(&p->player);
   Weapon_init(&p->weapon);
 
-  Straight_laser_init(&p->straightLaser);
-  Loose_laser_init(&p->looseLaser);
+  // Straight_laser_init(&p->straightLaser);
+  // Loose_laser_init(&p->looseLaser);
   
 
   /* Remplissage de la pile d'indices libres */
@@ -57,7 +56,6 @@ void pool_kill_convicts(Pool *p) {
     //commons
     Position_remove(&p->position, e);
     Tag_remove(&p->tag, e);
-    Timer_remove(&p->timer, e);
 
     Physics_remove(&p->physics, e);
     Sprite_remove(&p->sprite, e);
@@ -71,7 +69,7 @@ void pool_kill_convicts(Pool *p) {
 
     //lasers
     Straight_laser_remove(&p->straightLaser, e);
-    Loose_laser_destroy(&p->looseLaser, e);
+    Loose_laser_destroy(p, e);
     Life_remove(&p->life, e);
 
 
