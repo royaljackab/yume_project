@@ -109,7 +109,7 @@ void Sprite_draw_all(Pool *p) {
     for (int i = 0; i < spriteManager->count; i++) {
       sprite = &spriteManager->dense[i];
       lookup = spriteManager->entity_lookup[i];
-      pos = &positionManager->dense[lookup];
+      pos = Position_get(positionManager,lookup);
 
 
       if (IsOutOfDrawBounds(*pos, *sprite)) {

@@ -24,11 +24,13 @@ void state_moonlight_init(GameContext *ctx) {
 
     float angleT = 90;
     for (int i=0; i < 10; i++) {
-        Bullet_enemy_spawn(ctx->pool, 100, 100, 3, angleT, BULLET_FIRE_BLUE);
-        
+        Bullet_enemy_spawn(ctx->pool, 100, 100, 3, angleT, BULLET_BIG_RED);
         angleT += 36;
     }
-    loose_laser_create(ctx->pool, 100,100, 3, 50, 10, 1000, BLUE); //Amori
+    Entity entity = loose_laser_create(ctx->pool, 200,200, 2, 500, 10, DURATION_ETERNAL, WHITE); //Amori
+    Physics_set_angVel(Physics_get(&ctx->pool->physics,Loose_laser_get(&ctx->pool->looseLaser,entity)->looseNodes[0]), 1);
+
+
 
     StopMusicStream(playlist[BGM_WAITING]);
     PlayMusicStream(playlist[BGM_FAST_DANGER]);

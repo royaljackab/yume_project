@@ -20,8 +20,8 @@ void pool_init(Pool *p) {
   Player_init(&p->player);
   Weapon_init(&p->weapon);
 
-  // Straight_laser_init(&p->straightLaser);
-  // Loose_laser_init(&p->looseLaser);
+  Straight_laser_init(&p->straightLaser);
+  Loose_laser_init(&p->looseLaser);
   
 
   /* Remplissage de la pile d'indices libres */

@@ -1,6 +1,7 @@
 #pragma once
 
-#define MAX_LOOSE_NODES 200
+#define MAX_LOOSE_NODES 1000
+#define DURATION_ETERNAL 20000
 
 
 #include "systems/timer.h"

@@ -53,7 +53,6 @@ typedef struct Pool {
                 // pleine et si il est a zero jeu saturé)
 
   //Toute entité devant être détruite est ajoutée à cette file d'attente. L'entité est détruite en fin de tour du game loop.
-  //Toute entité devant être détruite est ajoutée à cette file d'attente. L'entité est détruite en fin de tour du game loop.
   Entity kill_queue[MAX_ENTITIES];
   int kill_count;
 } Pool;

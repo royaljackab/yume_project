@@ -11,8 +11,6 @@ bool updateStraightLaser(Straight_laser *laser) {
     /***
      * Met à jour un laser droit en fonction de son timer
      * @return true si le laser doit continuer à exister, false s'il doit être supprimé
-     * 
-     * 
      */
 
     int warning = 0;
@@ -38,7 +36,6 @@ bool updateStraightLaser(Straight_laser *laser) {
     }
 
     //mise a jour du timer
-    ///TODO: Je ne sais pas comment gêrer les loops
     laser->timer.chrono++;
 
     //le laser continue d'exister

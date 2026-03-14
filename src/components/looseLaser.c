@@ -24,7 +24,7 @@ bool loose_laser_update(Pool *pool, Loose_laser *laser){
         laser->looseNodes[laser->looseNodeCount] = node_create(pool, lastCoord.x, lastCoord.y);
         laser->looseNodeCount++;
     }
-    printf("nb_node: %d\n",laser->looseNodeCount);
+    // printf("nb_node: %d\n",laser->looseNodeCount);
 
     // shifting (Chaque node copie la pos du node devant lui)
     // Le node 0 est le plus à l'avant. Les autres nodes copient ses précédentes positions
@@ -55,7 +55,7 @@ bool loose_laser_update(Pool *pool, Loose_laser *laser){
 
 
     //le laser doit être détruit si le timer a atteint son dernier temps (seul temps: duration)
-    if(timer_current_time(&laser->looseTimer) == laser->looseTimer.nbTime - 1) {
+    if(timer_current_time(&laser->looseTimer) == 0) {
         return false; 
     }
 
@@ -75,9 +75,7 @@ void loose_lasers_update_all(Pool *pool){
     for (int i=0; i < laserManager->count; i++)
     {
         laser = &(laserManager->dense[i]);
-        printf("mise à jour du laser %d \n", laserManager->entity_lookup[i]);
         if (!loose_laser_update(pool, laser)) {
-            printf("laser %d mis à la casse\n",laserManager->entity_lookup[i]);
             pool_kill_entity(pool, laserManager->entity_lookup[i]);
         }
     }
@@ -93,7 +91,7 @@ Entity loose_laser_create(Pool * pool, int x, int y, float speed, float length, 
     Entity * nodes = malloc(sizeof(Entity) * MAX_LOOSE_NODES);
 
     //création de la tête du laser
-    Entity bulletId = Bullet_enemy_spawn(pool, x, y, speed, 0, BALL_M_BLACK);
+    Entity bulletId = Bullet_enemy_spawn(pool, x, y, speed, 0, NULL_SPRITE);
 
     //valeurs initiales
     timer.chrono = 0;
@@ -109,10 +107,8 @@ Entity loose_laser_create(Pool * pool, int x, int y, float speed, float length, 
     loose.looseNodes[0] = bulletId;
 
     Loose_laser_add(&pool->looseLaser, id, loose);
-    
     Tag_add(&pool->tag, id, ENT_LOOSE_LASER);
-    printf("laser cree\n");
-    printf("nombre de loose lasers: %d\n", pool->looseLaser.count);
+
     return id;
 }
 
@@ -133,13 +129,19 @@ void Loose_laser_destroy(Pool * pool, Entity id){
     /***
      * Détruit un loose_laser dans la pool (y compris on libérant tout ce qui le compose, contrairement à loose_laser_remove)
      */
+
+
     Loose_laser * laser = Loose_laser_get(&pool->looseLaser,id);
+
+    if(!laser){
+        return;
+    }
+
     for(int i = 0; i < laser->looseNodeCount; i++){
         pool_kill_entity(pool, laser->looseNodes[i]);
     }
     free(laser->looseNodes);
     Loose_laser_remove(&pool->looseLaser, id);
-    printf("laser %d détruit",id);
 }
 
 void draw_loose_laser(Loose_laser *laser, PositionManager *positionManager){

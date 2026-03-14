@@ -15,3 +15,4 @@ typedef struct{
 void timer_add_time(Timer *timer, int time);
 int timer_current_time(Timer *timer);
 bool timer_loop(Timer *timer, int max);
+Timer timer_create();
