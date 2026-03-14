@@ -26,6 +26,7 @@ typedef enum {
 } TextureID;
 
 typedef enum {
+  NULL_SPRITE,
 
   // Player
   
@@ -109,5 +110,6 @@ extern void SpritesLoad();
 
 extern Texture2D textures[MAX_TEXTURES];
 extern Sprite sprites[MAX_SPRITES];
+extern Music playlist[MAX_BGM];             
 
 #endif

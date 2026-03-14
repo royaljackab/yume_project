@@ -39,36 +39,36 @@
 
 ////////// JACK DEPECHE TOI DE CODER CA EN ECS //////////
 /* Fonctions statiques */
-static void ShiftPatterns(Object* obj) {
-    for (int i=0; i < obj->patternCount - 1; i++) {
-        obj->patterns[i] = obj->patterns[i+1];
-    }
-    obj->patternCount--;
-}
+// static void ShiftPatterns(Object* obj) {
+//     for (int i=0; i < obj->patternCount - 1; i++) {
+//         obj->patterns[i] = obj->patterns[i+1];
+//     }
+//     obj->patternCount--;
+// }
 
-static void ApplyMoveParams(Object* obj, MovePattern* p) {
-    if (p->speed != NO_CHANGE) obj->speed = p->speed;
-    if (p->angle != NO_CHANGE) obj->angle = p->angle;
-    if (p->accel != NO_CHANGE) obj->accel = p->accel;
-    if (p->angVel != NO_CHANGE) obj->angVel = p->angVel;
-    if (p->maxSpd != NO_CHANGE) obj->maxSpd = p->maxSpd;
-}
+// static void ApplyMoveParams(Object* obj, MovePattern* p) {
+//     if (p->speed != NO_CHANGE) obj->speed = p->speed;
+//     if (p->angle != NO_CHANGE) obj->angle = p->angle;
+//     if (p->accel != NO_CHANGE) obj->accel = p->accel;
+//     if (p->angVel != NO_CHANGE) obj->angVel = p->angVel;
+//     if (p->maxSpd != NO_CHANGE) obj->maxSpd = p->maxSpd;
+// }
 
-/* Fonctions globales */
-void ObjMove_AddPattern(ObjID id, int frameDelay, float speed, float angle, float accel, float maxSpd, float angVel) {
-    if (id==ID_INVALID) return;
-    if (objects[id].patternCount >= MAX_PATTERNS) return;
+// /* Fonctions globales */
+// void ObjMove_AddPattern(ObjID id, int frameDelay, float speed, float angle, float accel, float maxSpd, float angVel) {
+//     if (id==ID_INVALID) return;
+//     if (objects[id].patternCount >= MAX_PATTERNS) return;
 
-    int i = objects[id].patternCount;
-    objects[id].patterns[i].delay = frameDelay;
-    objects[id].patterns[i].speed = speed;
-    objects[id].patterns[i].angle = angle;
-    objects[id].patterns[i].maxSpd = maxSpd;
-    objects[id].patterns[i].accel = accel;
-    objects[id].patterns[i].angVel = angVel;
+//     int i = objects[id].patternCount;
+//     objects[id].patterns[i].delay = frameDelay;
+//     objects[id].patterns[i].speed = speed;
+//     objects[id].patterns[i].angle = angle;
+//     objects[id].patterns[i].maxSpd = maxSpd;
+//     objects[id].patterns[i].accel = accel;
+//     objects[id].patterns[i].angVel = angVel;
 
-    objects[id].patternCount++;
-}
+//     objects[id].patternCount++;
+// }
 /////////////////////////////////////////////////////////
 
 
@@ -174,69 +174,69 @@ void ObjMove_AddPattern(ObjID id, int frameDelay, float speed, float angle, floa
 //     objects[id].life -= hp;
 // }
 
-void UpdateObjects() {
-    for (int i=0; i<MAX_OBJECTS; i++) {
-        if(!objects[i].active) continue;
+// void UpdateObjects() {
+//     for (int i=0; i<MAX_OBJECTS; i++) {
+//         if(!objects[i].active) continue;
 
-        if( (objects[i].type != OBJ_LOOSE_LASER && IsOutOfBounds(objects[i].pos)) || (objects[i].disappearOnDeath && objects[i].life <= 0) )
-            objects[i].active=false;
-        if (objects[i].type == OBJ_LOOSE_LASER && IsOutOfBounds(objects[i].looseNodes[objects[i].looseNodeCount-1]))
-            objects[i].active=false;
-        objects[i].timer++;
+//         if( (objects[i].type != OBJ_LOOSE_LASER && IsOutOfBounds(objects[i].pos)) || (objects[i].disappearOnDeath && objects[i].life <= 0) )
+//             objects[i].active=false;
+//         if (objects[i].type == OBJ_LOOSE_LASER && IsOutOfBounds(objects[i].looseNodes[objects[i].looseNodeCount-1]))
+//             objects[i].active=false;
+//         objects[i].timer++;
 
-        //Gestion patterns
-        // ??????????????????????????????????????????????????????????????
-        if(objects[i].patternCount > 0) {
-            MovePattern* currPat = objects[i].patterns;
-            currPat->delay--;
+//         //Gestion patterns
+//         // ??????????????????????????????????????????????????????????????
+//         if(objects[i].patternCount > 0) {
+//             MovePattern* currPat = objects[i].patterns;
+//             currPat->delay--;
 
-            if (currPat->delay <= 0) {
-                ApplyMoveParams(&objects[i], currPat);
-                ShiftPatterns(&objects[i]);
-            }
-        }
+//             if (currPat->delay <= 0) {
+//                 ApplyMoveParams(&objects[i], currPat);
+//                 ShiftPatterns(&objects[i]);
+//             }
+//         }
 
-        //Physique
-        objects[i].angle += objects[i].angVel;
+//         //Physique
+//         objects[i].angle += objects[i].angVel;
 
-        //Acceleration
-        if (objects[i].accel != 0) {
-            objects[i].speed += objects[i].accel;
-        }
-        if (objects[i].maxSpd != NO_LIMIT) {
-            if(objects[i].accel > 0 && objects[i].speed > objects[i].maxSpd) objects[i].speed = objects[i].maxSpd;
-            else if(objects[i].accel < 0 && objects[i].speed < objects[i].maxSpd) objects[i].speed = objects[i].maxSpd;
-        }
+//         //Acceleration
+//         if (objects[i].accel != 0) {
+//             objects[i].speed += objects[i].accel;
+//         }
+//         if (objects[i].maxSpd != NO_LIMIT) {
+//             if(objects[i].accel > 0 && objects[i].speed > objects[i].maxSpd) objects[i].speed = objects[i].maxSpd;
+//             else if(objects[i].accel < 0 && objects[i].speed < objects[i].maxSpd) objects[i].speed = objects[i].maxSpd;
+//         }
 
-        //Force
-        if(objects[i].force.x != 0 || objects[i].force.y != 0) {
-            float rad = objects[i].angle * DEG2RAD;
+//         //Force
+//         if(objects[i].force.x != 0 || objects[i].force.y != 0) {
+//             float rad = objects[i].angle * DEG2RAD;
 
-            float vx = cosf(rad) * objects[i].speed;
-            float vy = sinf(rad) * objects[i].speed;
+//             float vx = cosf(rad) * objects[i].speed;
+//             float vy = sinf(rad) * objects[i].speed;
 
-            vx += objects[i].force.x;
-            vy += objects[i].force.y;
+//             vx += objects[i].force.x;
+//             vy += objects[i].force.y;
 
-            objects[i].speed = sqrtf(vx*vx + vy*vy);
-            objects[i].angle = atan2f(vy,vx) * RAD2DEG;
-        }
+//             objects[i].speed = sqrtf(vx*vx + vy*vy);
+//             objects[i].angle = atan2f(vy,vx) * RAD2DEG;
+//         }
 
-        if(objects[i].movingToDest) {
-            float distRemaining = Vector2Distance(objects[i].pos, objects[i].destPos);
+//         if(objects[i].movingToDest) {
+//             float distRemaining = Vector2Distance(objects[i].pos, objects[i].destPos);
 
-            if (distRemaining <= objects[i].speed) {
-                objects[i].pos = objects[i].destPos;
-                objects[i].speed = 0;
-                objects[i].movingToDest = false;
-                continue;
-            }
-        }
+//             if (distRemaining <= objects[i].speed) {
+//                 objects[i].pos = objects[i].destPos;
+//                 objects[i].speed = 0;
+//                 objects[i].movingToDest = false;
+//                 continue;
+//             }
+//         }
 
-        //Direction
-        float rad = objects[i].angle * DEG2RAD;
-        Vector2 velocity = Vector2Scale((Vector2){cosf(rad), sinf(rad)}, objects[i].speed);
-        objects[i].pos = Vector2Add(objects[i].pos, velocity);
+//         //Direction
+//         float rad = objects[i].angle * DEG2RAD;
+//         Vector2 velocity = Vector2Scale((Vector2){cosf(rad), sinf(rad)}, objects[i].speed);
+//         objects[i].pos = Vector2Add(objects[i].pos, velocity);
 
         // //Straight laser
         // if(objects[i].type == OBJ_ENEMY_LASER || objects[i].type == OBJ_PLAYER_LASER) {

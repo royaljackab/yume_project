@@ -1,5 +1,4 @@
-#ifndef MENU_H
-#define MENU_H
+#pragma once
 
 // #include "../include/raylib.h"
 #include "screen.h"
@@ -41,4 +40,3 @@ extern void button_draw_button_text(ButtonSystem *buttonSystem, int buttonID,
 extern void button_draw_selector_text(ButtonSystem *buttonSystem, int x_offset,
                                       int y_offset, char *text, int fontSize,
                                       Color color);
-#endif

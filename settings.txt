@@ -1,4 +1,4 @@
-keybind_move_left=81
+keybind_move_left=263
 keybind_move_right=262
 keybind_move_down=264
 keybind_move_up=265

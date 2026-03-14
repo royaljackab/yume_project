@@ -1,5 +1,5 @@
 #include "content/stage/moonlight/moonlight.h"
-#include "assets.h"
+#include "core/assets.h"
 #include "game_state.h"
 #include "physics.h"
 #include "player.h"
@@ -26,6 +26,9 @@ void state_moonlight_init(GameContext *ctx) {
         Bullet_enemy_spawn(ctx->pool, 100, 100, 3, angleT, BULLET_FIRE_BLUE);
         angleT += 36;
     }
+
+    StopMusicStream(playlist[BGM_WAITING]);
+    PlayMusicStream(playlist[BGM_FAST_DANGER]);
 }
 
 void state_moonlight_update(GameContext *ctx) {
@@ -42,6 +45,7 @@ void state_moonlight_draw(GameContext *ctx) {
 }
 
 void state_moonlight_cleanup(GameContext *ctx) {
+    StopMusicStream(playlist[BGM_FAST_DANGER]);
     free(ctx->pool);
 }
 
