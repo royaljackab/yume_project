@@ -1,8 +1,11 @@
 #include "systems/timer.h"
-#include "straight_laser.h"
-#include "common.h"
+#include "components/straight_laser.h"
+#include "components/sprite.h"
+#include "components/collision_rectangle.h"
+#include "components/common.h"
+#include "assets.h"
 #include "pool.h"
-#include "collision_rectangle.h"
+
 
 bool updateStraightLaser(Straight_laser *laser) {   
     /***
@@ -53,5 +56,41 @@ void updateAllStraightLasers(Pool *pool) {
         if(!updateStraightLaser(laser)) {
             pool_kill_entity(pool, pool->straightLaser.entity_lookup[i]);
         }
+    }
+}
+
+void draw_straight_laser(Straight_laser *laser, Position * pos, Sprite * sprite){
+    /**
+     * Affiche un laser droit selon sa largeur et sa longueur, à sa position et avec la couleur de son sprite
+     * 
+     */
+    int textureID = sprite->textureID;
+
+    Rectangle source = sprite->srcRect;
+
+    Rectangle dest = {
+        pos->pos.x,
+        pos->pos.y,
+        laser->laserWidth,
+        laser->laserLength
+    };
+
+    Vector2 origin = {laser->laserWidth/2.0, 0};
+
+    DrawTexturePro(textures[textureID], source, dest, origin, pos->angle, sprite->color);
+}
+
+void draw_all_straight_lasers(Straight_laserManager *laserManager, PositionManager * positionManager, SpriteManager * spriteManager) {
+    /**
+     * Affiche tous les lasers droits actifs
+     */
+    Straight_laser *laser;
+    Position pos;
+    Sprite sprite;
+    for (int i=0; i < laserManager->count; i++) {
+        laser = &laserManager->dense[i];
+        pos = positionManager->dense[laserManager->entity_lookup[i]];
+        sprite = spriteManager->dense[laserManager->entity_lookup[i]];
+        draw_straight_laser(laser, &pos, &sprite);
     }
 }

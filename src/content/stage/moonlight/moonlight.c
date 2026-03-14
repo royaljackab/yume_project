@@ -6,6 +6,7 @@
 #include "pool.h"
 #include "sprite.h"
 #include "components/bullet.h"
+#include "components/looseLaser.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -24,8 +25,10 @@ void state_moonlight_init(GameContext *ctx) {
     float angleT = 90;
     for (int i=0; i < 10; i++) {
         Bullet_enemy_spawn(ctx->pool, 100, 100, 3, angleT, BULLET_FIRE_BLUE);
+        
         angleT += 36;
     }
+    loose_laser_create(ctx->pool, 100,100, 3, 50, 10, 1000, BLUE); //Amori
 
     StopMusicStream(playlist[BGM_WAITING]);
     PlayMusicStream(playlist[BGM_FAST_DANGER]);
@@ -34,6 +37,7 @@ void state_moonlight_init(GameContext *ctx) {
 void state_moonlight_update(GameContext *ctx) {
     Player_update(ctx);
     Physics_update_all(ctx->pool);
+    loose_lasers_update_all(ctx->pool); //Amori
     pool_kill_convicts(ctx->pool);
 }
 
@@ -41,6 +45,9 @@ void state_moonlight_draw(GameContext *ctx) {
     ClearBackground(BLACK);
 
     Sprite_draw_all(ctx->pool);
+    draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); //Amori
+
+
     DrawText("coucou", 30, 30, 50, WHITE);
 }
 

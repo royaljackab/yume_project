@@ -2,8 +2,11 @@
 
 #include "systems/timer.h"
 #include "component.h"
+
+#include "components/common.h"
+#include "components/sprite.h"
+
 typedef struct Pool Pool;
-#include "common.h"
 
 typedef struct {
     float laserLength;
@@ -33,3 +36,5 @@ DECLARE_SETTER_GETTER(Straight_laser, int, laserDuration)
 
 bool updateStraightLaser(Straight_laser *laser);
 void updateAllStraightLasers(Pool *ctx);
+void draw_straight_laser(Straight_laser *laser, Position * pos, Sprite * sprite);
+void draw_all_straight_lasers(Straight_laserManager *laserManager, PositionManager * positionManager, SpriteManager * spriteManager);
