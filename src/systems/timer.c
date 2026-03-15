@@ -6,6 +6,7 @@
 //      */
 //     Timer timer;
 //     timer.chrono = 0;
+//     timer.nbTime = 0;
 //     return timer;
 // }
 
@@ -53,9 +54,15 @@ int timer_current_time(Timer *timer) {
      * Retourne l'index du temps actuel du timer
      */
     for(int i = 0; i < timer->nbTime; i++) {
-        if(timer->chrono >= timer->time[i]) {
-            return i;
+        if(i < timer->nbTime - 1){
+            if(timer->chrono >= timer->time[i] && timer->chrono < timer->time[i+1]) {
+                return i;
+            }
         }
+        else if(timer->chrono >= timer->time[i]) {
+                return i;
+            }           
+
     }
     return -1;
 }

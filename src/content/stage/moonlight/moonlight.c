@@ -7,6 +7,7 @@
 #include "sprite.h"
 #include "components/bullet.h"
 #include "components/looseLaser.h"
+#include "components/straight_laser.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -25,11 +26,13 @@ void state_moonlight_init(GameContext *ctx) {
     float angleT = 90;
     for (int i=0; i < 10; i++) {
         Bullet_enemy_spawn(ctx->pool, 100, 100, 3, angleT, BULLET_BIG_RED);
+        straight_laser_create(ctx->pool, 200,200, angleT, 500, 10, 120, 240, 840, BALL_M_BLACK);
         angleT += 36;
     }
     Entity entity = loose_laser_create(ctx->pool, 200,200, 2, 500, 10, DURATION_ETERNAL, WHITE); //Amori
     Physics_set_angVel(Physics_get(&ctx->pool->physics,Loose_laser_get(&ctx->pool->looseLaser,entity)->looseNodes[0]), 1);
 
+    
 
 
     StopMusicStream(playlist[BGM_WAITING]);
@@ -40,6 +43,7 @@ void state_moonlight_update(GameContext *ctx) {
     Player_update(ctx);
     Physics_update_all(ctx->pool);
     loose_lasers_update_all(ctx->pool); //Amori
+    straight_lasers_update_all(ctx->pool); //Amori
     pool_kill_convicts(ctx->pool);
 }
 
@@ -48,7 +52,7 @@ void state_moonlight_draw(GameContext *ctx) {
 
     Sprite_draw_all(ctx->pool);
     draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); //Amori
-
+    straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); //Amori
 
     DrawText("coucou", 30, 30, 50, WHITE);
 }

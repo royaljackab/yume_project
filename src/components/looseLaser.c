@@ -95,6 +95,7 @@ Entity loose_laser_create(Pool * pool, int x, int y, float speed, float length, 
 
     //valeurs initiales
     timer.chrono = 0;
+    timer.nbTime = 0;
     timer_add_time(&timer, duration);
     Loose_laser loose ={
         .looseNodes = nodes,
