@@ -20,6 +20,10 @@ bool Player_is_hit_by_bullet(Pool *p, Player player) {
   /**
    * Verifie si le joueur est touchés par une balle ennemis
    */
+<<<<<<< HEAD
+=======
+  Player player = p->player.dense[0];
+>>>>>>> 1751a59 (Debut collision laser)
   bool is_hit = false;
 
   Collision_circleManager *collision_circle_manager = &p->collision_circle;
