@@ -4,9 +4,11 @@
 #include <math.h>
 #include <raylib.h>
 #include <raymath.h>
+#include <stdbool.h>
+
 /* Static Functions */
 static void update_velocity(Physics *phy, Position *pos) {
-  /***
+  /**
    * Met a jour la vélocité (repère orienté vers le bas)
    */
   float rad = DEG2RAD * pos->angle;
@@ -16,7 +18,7 @@ static void update_velocity(Physics *phy, Position *pos) {
 }
 
 static void update_speed(Physics *phy, Position *pos) {
-  /***
+  /**
    * Met a jour la vitesse :
    *  - Acceleration
    *  - MaxSpeed
@@ -46,7 +48,7 @@ static void update_speed(Physics *phy, Position *pos) {
 }
 
 static void update_angle(Physics *phy, Position *pos) {
-  /***
+  /**
    * Met a jour l'angle :
    *  - Vélocité Angulaire
    */
@@ -91,5 +93,11 @@ void Physics_update_all(Pool *p) {
     pos = Position_get(&p->position, pm->entity_lookup[i]);
 
     Physics_update(phy, pos);
+
+    // TODO: Rajouter flag pour ce comportement par défaut
+    // Si l'objet est hors du cadre, on le tue
+    if (Position_is_out_of_bounds(pos)) {
+      pool_kill_entity(p, pm->entity_lookup[i]);
+    }
   }
 }

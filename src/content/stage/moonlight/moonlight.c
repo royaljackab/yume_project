@@ -43,8 +43,8 @@ void state_moonlight_init(GameContext *ctx) {
 
 Define_Static_Task(fireRing, PARAMS(GameContext * gctx, int nb_ring, float angleT));
     for (int i=0; i < nb_ring; i++) {
-        Bullet_enemy_spawn(gctx->pool, 1920 / 4, 100, 5, angleT, ANIM_TEST);
-        angleT += 360.0 / nb_ring;  
+        Bullet_enemy_spawn(gctx->pool, 1920 / 4, 100, 5, angleT, BALL_M_BLACK);
+        angleT += 360.0 / nb_ring;
     }
 End_Task;
 
@@ -70,7 +70,6 @@ Define_Task(moonlight_task, PARAMS(GameContext *gctx), void * spiral_ctx; void *
     while(1) {
         spiral(&ctx->spiral_ctx, gctx, 3, 90, 30, 4);
         spiral(&ctx->spiral_ctx_2, gctx, -2, 90, 30, 4);
-
         yield;
     }
 End_Task;
