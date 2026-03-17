@@ -7,6 +7,9 @@
 #include "sprite.h"
 #include "components/bullet.h"
 #include "core/task.h"
+#include "components/looseLaser.h"
+#include "components/straight_laser.h"
+
 #include <raylib.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -62,6 +65,8 @@ void state_moonlight_update(GameContext *ctx) {
 
     Player_update(ctx);
     Physics_update_all(ctx->pool);
+    loose_lasers_update_all(ctx->pool); //Amori
+    straight_lasers_update_all(ctx->pool); //Amori
     pool_kill_convicts(ctx->pool);
 }
 
@@ -69,6 +74,9 @@ void state_moonlight_draw(GameContext *ctx) {
     ClearBackground(BLACK);
 
     Sprite_draw_all(ctx->pool);
+    draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); //Amori
+    straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); //Amori
+
     DrawText("coucou", 30, 30, 50, WHITE);
 }
 

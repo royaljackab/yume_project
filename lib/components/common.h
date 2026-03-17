@@ -26,14 +26,13 @@ typedef struct Position {
 } Position;
 
 typedef EntityType Tag;
-typedef unsigned long Timer;
+
 
 DEFINE_COMPONENT_MANAGER(Position, MAX_ENTITIES)
 DECLARE_SETTER_GETTER(Position, Vector2, pos)
 DECLARE_SETTER_GETTER(Position, float, angle)
 
 DEFINE_COMPONENT_MANAGER(Tag, MAX_ENTITIES)
-DEFINE_COMPONENT_MANAGER(Timer, MAX_ENTITIES)
 
 /**
  * @brief Renvoie si la position est dans le cadre du jeu

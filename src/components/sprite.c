@@ -1,6 +1,5 @@
 #include "components/sprite.h"
 #include "components/common.h"
-#include "components/straight_laser.h"
 #include "core/assets.h"
 #include "core/screen.h"
 #include "ecs/pool.h"
