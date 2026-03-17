@@ -64,10 +64,6 @@ void pool_kill_convicts(Pool *p) {
     //lasers
     Straight_laser_remove(&p->straightLaser, e);
     Loose_laser_remove(&p->looseLaser, e);
-    Life_remove(&p->life, e);
-
-
-
     
     // Ajout de l'entité dans la pile libre
     p->free_indices[p->free_top++] = e;
@@ -77,6 +73,14 @@ void pool_kill_convicts(Pool *p) {
 }
 
 void pool_kill_entity(Pool *p, Entity e) {
+
+  // On vérifie que l'objet n'est pas déjà dans la kill queue
+  for (int i = 0; i < p->kill_count; i++) {
+    if (p->kill_queue[i] == e) {
+      return; 
+    }
+  }
+
   /***
    * Ajoute l'entité dans le kill_queue
    */

@@ -104,13 +104,14 @@ void Sprite_draw_all(Pool *p) {
   PositionManager *positionManager = &p->position;
 
   Position *pos;
-  int lookup;
+  Entity e;
   Sprite *sprite;
   for (int layer = MIN_LAYER; layer <= MAX_LAYER; layer++) {
     for (int i = 0; i < spriteManager->count; i++) {
       sprite = &spriteManager->dense[i];
-      lookup = spriteManager->entity_lookup[i];
-      pos = &positionManager->dense[lookup];
+      e = Sprite_get_entity(spriteManager, i);
+      
+      pos = Position_get(positionManager, e);
 
 
       if (IsOutOfDrawBounds(*pos, *sprite)) {
@@ -156,12 +157,15 @@ void drawAllStraightLasers(Straight_laserManager *laserManager, PositionManager 
      * Affiche tous les lasers droits actifs
      */
     Straight_laser *laser;
-    Position pos;
-    Sprite sprite;
+    Position *pos;
+    Sprite *sprite;
+    Entity e;
     for (int i=0; i < laserManager->count; i++) {
         laser = &laserManager->dense[i];
-        pos = positionManager->dense[laserManager->entity_lookup[i]];
-        sprite = spriteManager->dense[laserManager->entity_lookup[i]];
-        drawStraightLaser(laser, &pos, &sprite);
+        e = Straight_laser_get_entity(laserManager, i);
+        pos = Position_get(positionManager, e);
+        sprite = Sprite_get(spriteManager, e);
+
+        drawStraightLaser(laser, pos, sprite);
     }
 }

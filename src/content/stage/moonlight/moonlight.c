@@ -1,5 +1,5 @@
 #include "content/stage/moonlight/moonlight.h"
-#include "assets.h"
+#include "core/assets.h"
 #include "game_state.h"
 #include "physics.h"
 #include "player.h"
@@ -22,24 +22,12 @@ void state_moonlight_init(GameContext *ctx) {
     
     pool_init(ctx->pool);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
-<<<<<<< HEAD
-=======
-
-    float angleT = 90;
-    for (int i=0; i < 10; i++) {
-        Bullet_enemy_spawn(ctx->pool, 100, 100, 3, angleT, BULLET_FIRE_BLUE);
-        angleT += 36;
-    }
-
-    StopMusicStream(playlist[BGM_WAITING]);
-    PlayMusicStream(playlist[BGM_FAST_DANGER]);
->>>>>>> origin/main
 }
 
 Define_Static_Task(fireRing, PARAMS(GameContext * gctx, int nb_ring, float angleT));
     for (int i=0; i < nb_ring; i++) {
-        Bullet_enemy_spawn(gctx->pool, 1920 / 4, 100, 5, angleT, ANIM_TEST);
-        angleT += 360.0 / nb_ring;  
+        Bullet_enemy_spawn(gctx->pool, 1920 / 4, 100, 5, angleT, BALL_M_BLACK);
+        angleT += 360.0 / nb_ring;
     }
 End_Task;
 
@@ -65,7 +53,6 @@ Define_Task(moonlight_task, PARAMS(GameContext *gctx), void * spiral_ctx; void *
     while(1) {
         spiral(&ctx->spiral_ctx, gctx, 3, 90, 30, 4);
         spiral(&ctx->spiral_ctx_2, gctx, -2, 90, 30, 4);
-
         yield;
     }
 End_Task;
@@ -86,6 +73,7 @@ void state_moonlight_draw(GameContext *ctx) {
 }
 
 void state_moonlight_cleanup(GameContext *ctx) {
+    StopMusicStream(playlist[BGM_FAST_DANGER]);
     free(ctx->pool);
 }
 

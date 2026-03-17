@@ -47,6 +47,11 @@
  * * * mgr  : le manager de la composante
  * * * e    : l'ID de l'instance à détruire
  * 
+ * static inline Entity Type##_get_entity(Type##Manager *mgr, int dense_id)
+ * Renvoie l'entité correspondante a la donnée considérée
+ * Params:
+ * * * mgr  : le manager de la composante
+ * * * dense_id    : l'emplacement dans le tableau dense de la donnée
 */
 
 #define DEFINE_COMPONENT_MANAGER(Type, Number)                                 \
@@ -92,6 +97,10 @@
     mgr->entity_lookup[id] = last_e;                                           \
     mgr->sparse[last_e] = id;                                                  \
     mgr->sparse[e] = NULL_INDEX;                                               \
+  } \
+ \
+  static inline Entity Type##_get_entity(Type##Manager *mgr, int dense_id) { \
+    return mgr->entity_lookup[dense_id]; \
   }
 
 #define DECLARE_GETTER(Component, type, champ)                                 \
