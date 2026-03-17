@@ -26,6 +26,7 @@ typedef enum {
 } TextureID;
 
 typedef enum {
+  NULL_SPRITE,
 
   // Player
   
