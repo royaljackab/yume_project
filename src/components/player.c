@@ -143,4 +143,5 @@ void Player_update(GameContext *ctx) {
 
     Player_move(input, p, player);
     Player_shoot(input, p, player);
+    Player_is_hit(p, player);
 }
