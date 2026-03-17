@@ -10,10 +10,9 @@
 
 bool Player_is_hit(Pool *p, Player entity){
     /**
-     * Verifie si le joueur est touchés par une balle ennemis ou un laser droit
+     * Verifie si le joueur est touchés par une attaque ennemis
      */
     return Player_is_hit_by_bullet(p, entity) || Player_is_hit_by_staight_laser(p, entity);
-
 }
 
 
@@ -70,19 +69,47 @@ bool Player_is_hit_by_staight_laser(Pool *p, Player player){
   int lookup;
 
   for (int i = 0; i < laser_manager->count; i++) {
-
     lookup = laser_manager->entity_lookup[i];
-    collision = Collision_rectangle_get(rectangleManager, lookup);
-    pos = Position_get(positionManager, lookup);
-    //rect = {}
+
     if (*Tag_get(tagManager, lookup) == ENT_ENEMY_LASER){
-        //if (CheckCollisionCircles(playerPos, playerRadius, Position_get_pos(pos), Collision_circle_get_radius(collision))){
-          //CheckCollisionCircleRec(*playerPos, playerRadius, rect);
-            DrawText("TU ES TOUCH2S MON DIEU 9A MARCHe!!!!! (laser straight)", 70, 30, 50, RED);
-            is_hit = true;
-       // }
+      collision = Collision_rectangle_get(rectangleManager, lookup);
+      pos = Position_get(positionManager, lookup);
+      if (CheckCircleRotatedRect(playerPos, playerRadius, Position_get_pos(pos), Collision_rectangle_get_width(collision), Collision_rectangle_get_length(collision), Position_get_angle(pos)) ){
+          DrawText("TU ES TOUCH2S MON DIEU 9A MARCHe!!!!! (laser straight)", 70, 30, 50, RED);
+          is_hit = true;
+      }
+
     }
   }
   return is_hit;
 
+}
+
+
+
+bool CheckCircleRotatedRect(Vector2 cPos, float radius,
+                            Vector2 rPos, float w, float h, float angle)
+{
+    /**
+    * Fonction pour verifier la collision entre un rectangle avec un angle et un cercle
+    */
+
+    float rad = -angle * DEG2RAD;
+
+    // déplacer le cercle dans l'espace du rectangle
+    float dx = cPos.x - rPos.x;
+    float dy = cPos.y - rPos.y;
+
+    // rotation inverse
+    float localX = dx * cosf(rad) - dy * sinf(rad);
+    float localY = dx * sinf(rad) + dy * cosf(rad);
+
+    // clamp au rectangle (centré)
+    float closestX = fmaxf(-w/2, fminf(localX, w/2));
+    float closestY = fmaxf(-h/2, fminf(localY, h/2));
+
+    float distX = localX - closestX;
+    float distY = localY - closestY;
+
+    return (distX*distX + distY*distY) <= radius*radius;
 }
