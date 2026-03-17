@@ -103,13 +103,14 @@ void Sprite_draw_all(Pool *p) {
   PositionManager *positionManager = &p->position;
 
   Position *pos;
-  int lookup;
+  Entity e;
   Sprite *sprite;
   for (int layer = MIN_LAYER; layer <= MAX_LAYER; layer++) {
     for (int i = 0; i < spriteManager->count; i++) {
       sprite = &spriteManager->dense[i];
-      lookup = spriteManager->entity_lookup[i];
-      pos = Position_get(positionManager,lookup);
+      e = Sprite_get_entity(spriteManager, i);
+      
+      pos = Position_get(positionManager, e);
 
 
       if (IsOutOfDrawBounds(*pos, *sprite)) {
@@ -129,3 +130,41 @@ void Sprite_draw_all(Pool *p) {
   }
 }
 
+void drawStraightLaser(Straight_laser *laser, Position * pos, Sprite * sprite){
+    /**
+     * Affiche un laser droit selon sa largeur et sa longueur, à sa position et avec la couleur de son sprite
+     * 
+     */
+    int textureID = sprite->textureID;
+
+    Rectangle source = sprite->srcRect;
+
+    Rectangle dest = {
+        pos->pos.x,
+        pos->pos.y,
+        laser->laserWidth,
+        laser->laserLength
+    };
+
+    Vector2 origin = {laser->laserWidth/2.0, 0};
+
+    DrawTexturePro(textures[textureID], source, dest, origin, pos->angle, sprite->color);
+}
+
+void drawAllStraightLasers(Straight_laserManager *laserManager, PositionManager * positionManager, SpriteManager * spriteManager) {
+    /**
+     * Affiche tous les lasers droits actifs
+     */
+    Straight_laser *laser;
+    Position *pos;
+    Sprite *sprite;
+    Entity e;
+    for (int i=0; i < laserManager->count; i++) {
+        laser = &laserManager->dense[i];
+        e = Straight_laser_get_entity(laserManager, i);
+        pos = Position_get(positionManager, e);
+        sprite = Sprite_get(spriteManager, e);
+
+        drawStraightLaser(laser, pos, sprite);
+    }
+}
