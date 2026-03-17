@@ -53,8 +53,8 @@ void straight_laser_create(Pool *pool, int x, int y, int angle, int length, int 
     timer.chrono = 0;
     timer.nbTime = 0;
     timer_add_time(&timer, warning);
-    timer_add_time(&timer, growing);
-    timer_add_time(&timer, duration);
+    timer_add_time(&timer, warning+growing);
+    timer_add_time(&timer, warning+growing+duration);
 
     Straight_laser laser = {
         .laserLength = length,
