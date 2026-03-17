@@ -6,12 +6,12 @@
 
 Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic) {
-  Bullet_spawn(p, x, y, speed, angle, ENT_ENEMY, graphic);
+  return Bullet_spawn(p, x, y, speed, angle, ENT_ENEMY, graphic);
 }
 
 Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic) {
-  Bullet_spawn(p, x, y, speed, angle, ENT_PLAYER_SHOT, graphic);
+  return Bullet_spawn(p, x, y, speed, angle, ENT_PLAYER_SHOT, graphic);
 }
 
 Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, Tag tag, 
