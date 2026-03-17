@@ -34,7 +34,9 @@ void Player_is_hit_by_bullet(Pool *p, Player player) {
     pos = Position_get(positionManager, lookup);
 
     if (&pos != Player_get_position(p, player)){
-        if (CheckCollisionCircles(*playerPos, playerRadius, Position_get_pos(pos), Collision_circle_get_radius(&collision)));
+        if (CheckCollisionCircles(*playerPos, playerRadius, Position_get_pos(pos), Collision_circle_get_radius(&collision))){
             DrawText("TU ES TOUCH2S MON DIEU 9A MARCHe!!!!!", 70, 30, 50, RED);
+        }
     }
+  }
 }
