@@ -24,7 +24,10 @@ typedef struct Pool Pool;
  */
 // TODO: J'ai mis TextureID prc que le systeme de sprite est codé avec le cul!
 // A changer au plus vite svp
-extern Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle,
+Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic);
-extern Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
+Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
+                    SpriteID graphic);
+
+Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, Tag tag, 
                     SpriteID graphic);
