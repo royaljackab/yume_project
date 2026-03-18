@@ -17,7 +17,8 @@ typedef enum {
   ENT_PLAYER_SHOT,
   ENT_ENEMY_LASER,
   ENT_PLAYER_LASER,
-  ENT_LOOSE_LASER
+  ENT_LOOSE_LASER,
+  ENT_PARTICLE,
 } EntityType;
 
 typedef struct Position {

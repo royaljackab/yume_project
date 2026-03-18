@@ -117,6 +117,17 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
     
 }
 
+static
+void Player_focus(InputSystem *input, Pool *p, Entity player) {
+    Player *player_p = Player_get(&p->player, player);
+    if(input->focus.isDown) {
+        player_p->speed = player_p->focusSpeed;
+        
+    } else {
+        player_p->speed = test_player.speed;
+    }
+}
+
 /* Extern functions */
 void Player_start(Pool *p, PlayerName name, PatternType type) {
     Player player = Player_create(name);
@@ -135,7 +146,8 @@ void Player_update(GameContext *ctx) {
     InputSystem *input = &ctx->input;
 
     Entity player = p->player.entity_lookup[0];
-
+    
     Player_move(input, p, player);
     Player_shoot(input, p, player);
+    Player_focus(input, p, player);
 }

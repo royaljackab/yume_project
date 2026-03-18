@@ -45,3 +45,5 @@ DECLARE_SETTER_GETTER(Player, float, focusSpeed);
 extern void Player_start(Pool *p, PlayerName name, PatternType type);
 extern void Player_update(GameContext *ctx);
 
+
+
