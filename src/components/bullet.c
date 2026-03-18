@@ -14,7 +14,7 @@ Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
   return Bullet_spawn(p, x, y, speed, angle, ENT_PLAYER_SHOT, graphic);
 }
 
-Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, Tag tag, 
+Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityType tag, 
                     SpriteID graphic) {
   
   Entity e = pool_create_entity(p);

@@ -11,7 +11,7 @@ Entity Particle_spawn(Pool *p, float x, float y, float speed, float angle,
 
   Position pos = {{x, y}, angle};
   Physics phy = Physics_create_speed(speed);
-  Tag tag = ENT_PARTICLE;
+  EntityType tag = ENT_PARTICLE;
 
   Position_add(&p->position, e, pos);
   Physics_add(&p->physics, e, phy);
