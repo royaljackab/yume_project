@@ -116,3 +116,39 @@ bool CheckCircleRotatedRect(Vector2 cPos, float radius,
 
 
 
+bool Player_is_hit_by_loose_laser(Pool *p, Player player){
+  /**
+   * Verifie si le joueur est touchés par un laser loose ennemis
+   */
+
+  bool is_hit = false;
+
+  Straight_laserManager *laser_manager = &p->straightLaser;
+  PositionManager *positionManager = &p->position;
+  TagManager * tagManager = &p->tag;
+  Collision_rectangleManager * rectangleManager = &p->collision_rectangle;
+
+  Position * pos;
+  Vector2 playerPos = Position_get_pos(Player_get_position(p, player));
+  Collision_rectangle * collision;
+  Rectangle rect;
+  float playerRadius = Collision_circle_get_radius(Player_get_collision(p, player));
+  int lookup;
+
+  for (int i = 0; i < laser_manager->count; i++) {
+    lookup = laser_manager->entity_lookup[i];
+
+    if (*Tag_get(tagManager, lookup) == ENT_ENEMY_LASER){
+      collision = Collision_rectangle_get(rectangleManager, lookup);
+      pos = Position_get(positionManager, lookup);
+      if (CheckCircleRotatedRect(playerPos, playerRadius, Position_get_pos(pos), Collision_rectangle_get_width(collision), Collision_rectangle_get_length(collision), Position_get_angle(pos)) ){
+          DrawText("TU ES TOUCH2S MON DIEU 9A MARCHe!!!!! (laser straight)", 70, 30, 50, RED);
+          is_hit = true;
+      }
+
+    }
+  }
+  return is_hit;
+
+}
+

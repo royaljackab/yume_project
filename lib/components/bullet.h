@@ -11,6 +11,8 @@
 #include "core/assets.h"
 #include "ecs/ecs.h"
 #include "core/assets.h"
+#include "common.h"
+
 typedef struct Pool Pool;
 
 /**
@@ -29,5 +31,5 @@ Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle,
 Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic);
 
-Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, Tag tag, 
+Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityType tag, 
                     SpriteID graphic);
