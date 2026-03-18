@@ -36,8 +36,8 @@ CFLAGS = -Wall -Wextra -g $(INCLUDES)
 
 # Recherche de tous les fichiers .c dans src/ et ../lib/
 SRC = $(shell find . -type f -name "*.c") $(shell find ../lib -type f -name "*.c")
-# Génération des noms de fichiers objets (.o) correspondants
-OBJ = $(SRC:.c=.o)
+# Génération des noms de fichiers objets (.o) dans le dossier bin
+OBJ = $(addprefix $(BIN_DIR)/, $(notdir $(SRC:.c=.o)))
 
 # Sous Windows, on vérifie si la bibliothèque raylib est déjà compilée
 ifeq ($(NEED_RAYLIB_BUILD),true)
@@ -60,8 +60,11 @@ $(BIN_DIR):
 $(TARGET): $(OBJ) $(RAYLIB_A)
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBPATH) $(LIBS)
 
-# Règle générique pour transformer les .c en .o
-%.o: %.c
+# Recherche automatique des .c dans tous les sous-dossiers (src/ et lib/)
+VPATH = $(sort $(dir $(shell find . -type f -name "*.c") $(shell find ../lib -type f -name "*.c")))
+
+# Règle générique : compile un .c et place le .o dans bin/
+$(BIN_DIR)/%.o: %.c | $(BIN_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Nouvelle directive "run" pour lancer le jeu
@@ -70,5 +73,4 @@ run: all
 
 # Nettoyage des fichiers .o et du dossier bin
 clean:
-	rm -f $(OBJ)
 	rm -rf $(BIN_DIR)
