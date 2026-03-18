@@ -12,7 +12,7 @@ bool Player_is_hit(Pool *p, Player entity){
     /**
      * Verifie si le joueur est touchés par une attaque ennemis
      */
-    return Player_is_hit_by_bullet(p, entity) || Player_is_hit_by_staight_laser(p, entity);
+    return Player_is_hit_by_bullet(p, entity) || Player_is_hit_by_staight_laser(p, entity) || Player_is_hit_by_loose_laser(p, entity);
 }
 
 
