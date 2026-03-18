@@ -10,7 +10,9 @@
 
 #include "content/assets.h"
 #include "ecs/ecs.h"
-#include "content/assets.h"
+#include "core/assets.h"
+#include "common.h"
+
 typedef struct Pool Pool;
 
 /**
@@ -25,5 +27,10 @@ typedef struct Pool Pool;
 
 extern Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic);
-extern Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
+Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic);
+
+Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityType tag, 
+                    SpriteID graphic);
+
+                    
