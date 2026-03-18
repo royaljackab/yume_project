@@ -113,3 +113,6 @@ bool CheckCircleRotatedRect(Vector2 cPos, float radius,
 
     return (distX*distX + distY*distY) <= radius*radius;
 }
+
+
+
