@@ -7,15 +7,17 @@
 
 
 /** 
- * Créer un composant dans l'ECS.
+ * Créé un composant dans l'ECS.
  * Params:
  * * * Type   : Le nom de la composante à créer
  * * * Number : Doit être égal à MAX_ENTITIES (sauf si la composante est très lourde)
  * 
  * Ce composant est une structure contenant:
  * - tableau "dense"          : contenant toutes les instances du composant défini
- * - tableau "sparse"         : renvoie l'ID d'un élément dans le tableau sparse à partir de l'ID d'un élément dans le tableau dense
- * - tableau "entity_lookup"  : renvoie l'ID d'un élément dans le tableau dense à partir de l'ID d'un élément dans le tableau sparse
+ * - tableau "sparse"         : renvoie l'ID d'un élément dans le tableau sparse à partir de l'ID d'un élément dans le tableau dense 
+ *                              (en pratique on le l'utilise pas directement, privilégier get)
+ * - tableau "entity_lookup"  : renvoie l'ID d'un élément dans le tableau dense à partir de l'ID d'un élément dans le tableau  
+ *                              (c'est une Entity.)
  * - count                    : Le nombre d'éléments actuels du composant 
  * 
  * Ce composant dispose de 4 fonctions:
@@ -47,6 +49,11 @@
  * * * mgr  : le manager de la composante
  * * * e    : l'ID de l'instance à détruire
  * 
+ * static inline Entity Type##_get_entity(Type##Manager *mgr, int dense_id)
+ * Renvoie l'entité correspondante a la donnée considérée
+ * Params:
+ * * * mgr  : le manager de la composante
+ * * * dense_id    : l'emplacement dans le tableau dense de la donnée
 */
 
 #define DEFINE_COMPONENT_MANAGER(Type, Number)                                 \
@@ -92,6 +99,10 @@
     mgr->entity_lookup[id] = last_e;                                           \
     mgr->sparse[last_e] = id;                                                  \
     mgr->sparse[e] = NULL_INDEX;                                               \
+  } \
+ \
+  static inline Entity Type##_get_entity(Type##Manager *mgr, int dense_id) { \
+    return mgr->entity_lookup[dense_id]; \
   }
 
 #define DECLARE_GETTER(Component, type, champ)                                 \

@@ -6,7 +6,7 @@
 
 #define NULL_INDEX 0xFFFFFFFF
 
-#define MAX_ENTITIES 5000
+#define MAX_ENTITIES 50000
 
 
 // Une entité est un indice

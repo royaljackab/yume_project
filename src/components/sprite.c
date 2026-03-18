@@ -1,6 +1,5 @@
 #include "components/sprite.h"
 #include "components/common.h"
-#include "components/straight_laser.h"
 #include "core/assets.h"
 #include "core/screen.h"
 #include "ecs/pool.h"
@@ -27,6 +26,10 @@ void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
 }
 
 void Sprite_set_animation(Sprite *sprite, int frameCount, int delay) {
+/*
+Crée l'animation pour un spritesheet de type sprite.
+Prend le nombre de frame de l'animation et le delai en frame de jeu entre chaque frame de l'animation 
+*/
   sprite->isAnimated = true;
   sprite->animFrameCount = frameCount;
   sprite->srcRect.width = sprite->srcRect.width / frameCount;
@@ -40,6 +43,7 @@ void Sprite_set_animation(Sprite *sprite, int frameCount, int delay) {
 }
 
 void Sprite_set_SourceRect(Sprite *sprite, float x, float y, float width, float height) {
+    //x, y le coin en haut a gauche
   sprite->srcRect = (Rectangle){x,y,width,height};
   sprite->center = (Vector2){sprite->srcRect.width / 2, sprite->srcRect.height / 2};
 }
@@ -99,13 +103,14 @@ void Sprite_draw_all(Pool *p) {
   PositionManager *positionManager = &p->position;
 
   Position *pos;
-  int lookup;
+  Entity e;
   Sprite *sprite;
   for (int layer = MIN_LAYER; layer <= MAX_LAYER; layer++) {
     for (int i = 0; i < spriteManager->count; i++) {
       sprite = &spriteManager->dense[i];
-      lookup = spriteManager->entity_lookup[i];
-      pos = &positionManager->dense[lookup];
+      e = Sprite_get_entity(spriteManager, i);
+      
+      pos = Position_get(positionManager, e);
 
 
       if (IsOutOfDrawBounds(*pos, *sprite)) {
@@ -151,12 +156,15 @@ void drawAllStraightLasers(Straight_laserManager *laserManager, PositionManager 
      * Affiche tous les lasers droits actifs
      */
     Straight_laser *laser;
-    Position pos;
-    Sprite sprite;
+    Position *pos;
+    Sprite *sprite;
+    Entity e;
     for (int i=0; i < laserManager->count; i++) {
         laser = &laserManager->dense[i];
-        pos = positionManager->dense[laserManager->entity_lookup[i]];
-        sprite = spriteManager->dense[laserManager->entity_lookup[i]];
-        drawStraightLaser(laser, &pos, &sprite);
+        e = Straight_laser_get_entity(laserManager, i);
+        pos = Position_get(positionManager, e);
+        sprite = Sprite_get(spriteManager, e);
+
+        drawStraightLaser(laser, pos, sprite);
     }
 }
