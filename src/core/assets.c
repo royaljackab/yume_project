@@ -39,9 +39,7 @@ void AssetsLoad() {
 }
 
 void SpritesLoad() {
-    Sprite_set_texture(&sprites[BALL_M_BLACK], 0, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[BALL_M_BLACK], 0, 0, 0, 0);
-
+    
 
     Sprite_set_texture(&sprites[ANIM_TEST], 0, ANIM_TEST_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[ANIM_TEST], 0,0,256,16);
@@ -73,6 +71,10 @@ void BulletsSpritesLoad() {
      *  Fonction intermediaire pour load tous les assets du jeu.
      *  Load toutes les bullets.
      **/
+    Sprite_set_texture(&sprites[NULL_SPRITE], 0, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[NULL_SPRITE], 0, 0, 0, 0);
+
+
     Sprite_set_texture(&sprites[BALL_M_BLACK], 0, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BALL_M_BLACK], 5, 54, 16, 16);
 

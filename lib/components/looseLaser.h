@@ -1,11 +1,15 @@
 #pragma once
 
-#define MAX_LOOSE_NODES 200
+#define MAX_LOOSE_NODES 1000
+#define DURATION_ETERNAL 20000
 
-#include "components/common.h"
+
 #include "systems/timer.h"
 #include "ecs/component.h"
 #include <raymath.h>
+
+#include "components/sprite.h"
+#include "components/common.h"
 
 typedef struct Pool Pool;
 
@@ -37,5 +41,5 @@ void loose_lasers_update_all(Pool *pool);
 Entity loose_laser_create(Pool * pool, int x, int y, float speed, float length, float width, int duration, Color color);
 Entity node_create(Pool * pool, float x, float y);
 void Loose_laser_destroy(Pool * pool, Entity id);
-void drawLooseLaser(Loose_laser *laser, PositionManager *positionManager);
-void drawAllLooseLasers(Loose_laserManager *looseManager, PositionManager *positionManager);
+void draw_loose_laser(Loose_laser *laser, PositionManager *positionManager);
+void draw_all_loose_lasers(Loose_laserManager *looseManager, PositionManager *positionManager);

@@ -1,5 +1,15 @@
 #include "timer.h"
 
+// Timer timer_create() {
+//     /***
+//      * créé un nouveau timer;
+//      */
+//     Timer timer;
+//     timer.chrono = 0;
+//     timer.nbTime = 0;
+//     return timer;
+// }
+
 bool timer_loop(Timer *timer, int max) {
     /***
      * Remet un timer à 0 si il a atteint sa valeur Max.
@@ -10,7 +20,6 @@ bool timer_loop(Timer *timer, int max) {
     }
     return false;
 }
-
 
 
 void timer_add_time(Timer *timer, int time) {
@@ -34,14 +43,26 @@ void timer_add_time(Timer *timer, int time) {
     }
 }
 
+
+bool timer_over_time(Timer *timer, int time){
+    return timer_current_time(timer) >= time;
+}
+
+
 int timer_current_time(Timer *timer) {
     /***
      * Retourne l'index du temps actuel du timer
      */
     for(int i = 0; i < timer->nbTime; i++) {
-        if(timer->chrono < timer->time[i]) {
-            return i;
+        if(i < timer->nbTime - 1){
+            if(timer->chrono >= timer->time[i] && timer->chrono < timer->time[i+1]) {
+                return i;
+            }
         }
+        else if(timer->chrono >= timer->time[i]) {
+                return i;
+            }           
+
     }
     return -1;
 }
