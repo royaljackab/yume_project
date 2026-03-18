@@ -111,6 +111,10 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
         if (weapon->cooldown == 0) {
             Bullet_player_spawn(p, pos->pos.x - 7, pos->pos.y, 40, -90, REIMU_PINK_AMULET);
             Bullet_player_spawn(p, pos->pos.x + 7, pos->pos.y, 40, -90, REIMU_PINK_AMULET);
+            // Son de tir
+            if (!IsSoundPlaying(sfx[SFX_SHOOT])) {
+                PlaySound(sfx[SFX_SHOOT]);
+            }
         }
         weapon->cooldown = (weapon->cooldown + 1) % weapon->fire_rate;
     }

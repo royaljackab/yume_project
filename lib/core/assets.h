@@ -41,6 +41,16 @@ extern void SpritesLoad();
 
 extern Texture2D textures[MAX_TEXTURES];
 extern Sprite sprites[MAX_SPRITES];
-extern Music playlist[MAX_BGM];             
+extern Music playlist[MAX_BGM];      
+
+// Effets sonores
+typedef enum {
+    SFX_SHOOT,
+    SFX_ENEMY_DEATH,
+    SFX_MENU_NAV,
+    MAX_SFX
+} SFXID;
+
+extern Sound sfx[MAX_SFX];
 
 #endif

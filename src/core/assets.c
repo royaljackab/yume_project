@@ -11,29 +11,34 @@
 Sprite sprites[MAX_SPRITES];
 Texture2D textures[MAX_TEXTURES];
 Music playlist[MAX_BGM]; // Nouveau tableau pour la musique
+Sound sfx[MAX_SFX]; // Effets sonores
 
 void AssetsLoad() {
-  // Chargement des Textures existantes
-  textures[BULLET_SPRITESHEET] =
+    // Chargement des Textures existantes
+    textures[BULLET_SPRITESHEET] =
       LoadTexture("../Assets/Sprites/bullet_spritesheet.png");
-  textures[BOSS_SPRITESHEET] =
+    textures[BOSS_SPRITESHEET] =
       LoadTexture("../Assets/Sprites/boss_spritesheet.png");
-  textures[ANIM_TEST_SPRITESHEET] =
+    textures[ANIM_TEST_SPRITESHEET] =
       LoadTexture("../Assets/Sprites/anim_test.png");
-  textures[REIMU_SPRITESHEET] =
+    textures[REIMU_SPRITESHEET] =
       LoadTexture("../Assets/Sprites/reimu_spritesheet.png");
-  textures[HITBOX_SPRITESHEET] = LoadTexture("../Assets/Sprites/hitbox.png");
+    textures[HITBOX_SPRITESHEET] = LoadTexture("../Assets/Sprites/hitbox.png");
 
-  // Chargement de la Musique
-  // NOTE: On utilise LoadMusicStream pour les fichiers longs comme les BGM ok
-  playlist[BGM_FAST_DANGER] =
+    // Chargement de la Musique
+    playlist[BGM_FAST_DANGER] =
       LoadMusicStream("../Assets/Audio/BGM/fast-danger.wav");
-  playlist[BGM_QUIRKY_GOOFY] =
+    playlist[BGM_QUIRKY_GOOFY] =
       LoadMusicStream("../Assets/Audio/BGM/quirky-goofy.wav");
-  playlist[BGM_TO_BE_NAMED] =
+    playlist[BGM_TO_BE_NAMED] =
       LoadMusicStream("../Assets/Audio/BGM/tobenamedlater.wav");
-  playlist[BGM_WAITING] =
+    playlist[BGM_WAITING] =
       LoadMusicStream("../Assets/Audio/BGM/waiting-settingstype.wav");
+
+    // Chargement des effets sonores
+    sfx[SFX_SHOOT] = LoadSound("../Assets/Audio/SFX/shoot.wav");
+    sfx[SFX_ENEMY_DEATH] = LoadSound("../Assets/Audio/SFX/enemy_death.wav");
+    sfx[SFX_MENU_NAV] = LoadSound("../Assets/Audio/SFX/menu_nav.wav");
 }
 
 void SpritesLoad() {
@@ -63,11 +68,15 @@ void SpritesLoad() {
 }
 
 void AssetsUnload() {
-  // Déchargement des textures
+    // Déchargement des textures
   for (int i = 0; i < MAX_TEXTURES; i++)
     UnloadTexture(textures[i]);
 
-  // Déchargement des musiques (Libère la RAM de ton Mac/PC ok)
+    // Déchargement des musiques (Libère la RAM de ton Mac/PC ok)
   for (int i = 0; i < MAX_BGM; i++)
     UnloadMusicStream(playlist[i]);
+
+    // Déchargement des effets sonores
+  for (int i = 0; i < MAX_SFX; i++)
+    UnloadSound(sfx[i]);
 }
