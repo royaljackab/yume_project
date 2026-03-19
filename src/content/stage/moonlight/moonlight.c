@@ -9,6 +9,7 @@
 #include "core/task.h"
 #include "components/looseLaser.h"
 #include "components/straight_laser.h"
+#include "systems/hud.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -74,6 +75,7 @@ void state_moonlight_draw(GameContext *ctx) {
     ClearBackground(BLACK);
 
     Sprite_draw_all(ctx->pool);
+    HUD_draw(ctx, "Stage 1 - Moonlight");
     draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); //Amori
     straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); //Amori
 
