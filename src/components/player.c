@@ -195,8 +195,11 @@ void Player_update(GameContext *ctx) {
 }
 
 
-
 extern Position * Player_get_position(Pool *p, Player player){
+    /**
+     * Récupère la position a partir d'un joueur
+     * Actuellement, renvoie celle du joueur de base, pas du paramètre
+     */
   PositionManager *positionManager = &p->position;
   int lookup = positionManager->entity_lookup[0];
   return &positionManager->dense[lookup];
@@ -204,6 +207,10 @@ extern Position * Player_get_position(Pool *p, Player player){
 }
 
 extern Collision_circle * Player_get_collision(Pool *p, Player player){
+    /**
+     * Récupère le cercle de collision a partir d'un joueur
+     * Actuellement, renvoie celle du joueur de base, pas du paramètre
+     */
   Collision_circleManager *collision_circleManager = &p->collision_circle;
   int lookup = collision_circleManager->entity_lookup[0];
   return &collision_circleManager->dense[lookup];
