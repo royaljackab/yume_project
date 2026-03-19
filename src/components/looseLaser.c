@@ -124,7 +124,7 @@ Entity node_create(Pool * pool, float x, float y, float radius) {
     Position pos = {.pos = vect, .angle = 0};
     Position_add(&pool->position, id, pos);
     Collision_circle circle = {.radius = radius};
-    Collision_add(&pool->collision_circle, id, circle);
+    Collision_circle_add(&pool->collision_circle, id, circle);
     return id;
 }
 
