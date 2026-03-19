@@ -25,6 +25,10 @@ void state_moonlight_init(GameContext *ctx) {
         return;
     }
     
+    // Change the beat bruv
+    StopMusicStream(playlist[BGM_WAITING]);
+    PlayMusicStream(playlist[BGM_FAST_DANGER]);
+
     pool_init(ctx->pool);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
 
@@ -73,7 +77,7 @@ void state_moonlight_update(GameContext *ctx) {
     loose_lasers_update_all(ctx->pool); //Amori
     straight_lasers_update_all(ctx->pool); //Amori
     pool_kill_convicts(ctx->pool);
-    
+
     Enemy_update_all(ctx->pool);
 }
 
