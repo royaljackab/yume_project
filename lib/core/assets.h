@@ -107,6 +107,7 @@ extern void AssetsLoad();
 extern void AssetsUnload();
 void BulletsSpritesLoad();
 extern void SpritesLoad();
+void EnemiesSpritesLoad();
 
 extern Texture2D textures[MAX_TEXTURES];
 extern Sprite sprites[MAX_SPRITES];

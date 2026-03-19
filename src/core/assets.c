@@ -41,6 +41,9 @@ void AssetsLoad() {
     sfx[SFX_SHOOT] = LoadSound("../Assets/Audio/SFX/shoot.wav");
     sfx[SFX_ENEMY_DEATH] = LoadSound("../Assets/Audio/SFX/enemy_death.wav");
     sfx[SFX_MENU_NAV] = LoadSound("../Assets/Audio/SFX/menu_nav.wav");
+
+    // Load dem enemies up
+    EnemiesSpritesLoad();
 }
 
 void SpritesLoad() {

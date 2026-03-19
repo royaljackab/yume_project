@@ -10,6 +10,7 @@
 #include "components/looseLaser.h"
 #include "components/straight_laser.h"
 #include "systems/hud.h"
+#include "components/enemy.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -26,6 +27,9 @@ void state_moonlight_init(GameContext *ctx) {
     
     pool_init(ctx->pool);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
+
+    Enemy_spawn(ctx->pool, 480, 200, 0, 0, 5, 20,
+        ENEMY_TYPE_FAIRY, ENEMY_FAIRY_BLUE_IDLE);
 }
 
 Define_Static_Task(fireRing, PARAMS(GameContext * gctx, int nb_ring, float angleT));
@@ -69,6 +73,8 @@ void state_moonlight_update(GameContext *ctx) {
     loose_lasers_update_all(ctx->pool); //Amori
     straight_lasers_update_all(ctx->pool); //Amori
     pool_kill_convicts(ctx->pool);
+    
+    Enemy_update_all(ctx->pool);
 }
 
 void state_moonlight_draw(GameContext *ctx) {
