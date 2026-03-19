@@ -25,6 +25,7 @@
 #include "life.h"
 #include "straight_laser.h"
 #include "looseLaser.h"
+#include "enemy.h"
 
 typedef struct Pool {
   //common
@@ -34,6 +35,7 @@ typedef struct Pool {
   PhysicsManager physics;
   SpriteManager sprite;
 
+  EnemyManager enemy;
 
   //collisions
   Collision_circleManager collision_circle;

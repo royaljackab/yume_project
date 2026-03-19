@@ -20,6 +20,8 @@ void pool_init(Pool *p) {
   Player_init(&p->player);
   Weapon_init(&p->weapon);
 
+  Enemy_init(&p->enemy);
+
   Straight_laser_init(&p->straightLaser);
   Loose_laser_init(&p->looseLaser);
   
@@ -72,8 +74,7 @@ void pool_kill_convicts(Pool *p) {
     Loose_laser_destroy(p, e);
     Life_remove(&p->life, e);
 
-
-
+    Enemy_remove(&p->enemy, e);
     
     // Ajout de l'entité dans la pile libre
     p->free_indices[p->free_top++] = e;
