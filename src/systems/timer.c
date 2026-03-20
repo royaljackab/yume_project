@@ -1,14 +1,14 @@
 #include "timer.h"
 
-// Timer timer_create() {
-//     /***
-//      * créé un nouveau timer;
-//      */
-//     Timer timer;
-//     timer.chrono = 0;
-//     timer.nbTime = 0;
-//     return timer;
-// }
+Timer timer_create() {
+    /***
+     * créé un nouveau timer;
+     */
+    Timer timer;
+    timer.chrono = 0;
+    timer.nbTime = 0;
+    return timer;
+}
 
 bool timer_loop(Timer *timer, int max) {
     /***

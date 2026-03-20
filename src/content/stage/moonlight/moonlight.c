@@ -105,7 +105,7 @@ void state_moonlight_init(GameContext *ctx) {
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
 
     Enemy_spawn(ctx->pool, 480, 200, 0, 0, 5, 20,
-        ENEMY_TYPE_FAIRY, ENEMY_FAIRY_BLUE_IDLE);
+        ENEMY_TYPE_FAIRY, ENEMY_FAIRY_BLUE_IDLE, NO_WAVE);
 
     cosched_init(&ctx->sched, ctx->pool);
 

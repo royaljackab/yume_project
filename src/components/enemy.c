@@ -14,9 +14,11 @@
 #include "content/assets.h"
 #include "ecs/pool.h"
 
+
+
 Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                    int life, float hitboxRadius,
-                   EnemyType type, SpriteID graphic) {
+                   EnemyType type, SpriteID graphic, int spawn_wave) {
 
     Entity e = pool_create_entity(p);
 
@@ -25,7 +27,7 @@ Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
     Life l = {life, life};
     Collision_circle col = {hitboxRadius};
     Tag tag = ENT_ENEMY;
-    Enemy enemy = {type};
+    Enemy enemy = {type, spawn_wave};
 
     Position_add(&p->position, e, pos);
     Physics_add(&p->physics, e, phy);

@@ -14,7 +14,6 @@ static void input_update_key(KeyState *keyState, KeyboardKey key) {
 /* Extern functions */
 
 void input_initialize(InputSystem *input) {
-  // TODO: Remplir avec settings.txt s'il existe
   input->keybinds.up = KEY_UP;
   input->keybinds.down = KEY_DOWN;
   input->keybinds.left = KEY_LEFT;
