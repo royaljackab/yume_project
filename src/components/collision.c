@@ -11,7 +11,6 @@ bool Player_is_hit(Pool *p, Player entity){
     /**
      * Verifie si le joueur est touchés par une attaque ennemis
      */
-    DrawText("appel is hit", 10, 70, 50, YELLOW);
     return Player_is_hit_by_bullet(p, entity) || Player_is_hit_by_staight_laser(p, entity) || Player_is_hit_by_loose_laser(p, entity);
 }
 
@@ -38,7 +37,7 @@ bool Player_is_hit_by_bullet(Pool *p, Player player) {
     pos = Position_get(positionManager, lookup);
     if (*Tag_get(tagManager, lookup) == ENT_ENEMY_SHOT){
         if (CheckCollisionCircles(playerPos, playerRadius, Position_get_pos(pos), Collision_circle_get_radius(collision))){
-            DrawText("TU ES TOUCH2S MON DIEU 9A MARCHe!!!!! (bullet)", 50, 500, 50, RED);
+            DrawText("touchés (bullet)", 30, 500, 20, RED);
             is_hit = true;
         }
     }
@@ -74,7 +73,7 @@ bool Player_is_hit_by_staight_laser(Pool *p, Player player){
       collision = Collision_rectangle_get(rectangleManager, lookup);
       pos = Position_get(positionManager, lookup);
       if (CheckCircleRotatedRect(playerPos, playerRadius, Position_get_pos(pos), Collision_rectangle_get_width(collision), Collision_rectangle_get_length(collision), Position_get_angle(pos)) ){
-          DrawText("TU ES TOUCH2S MON DIEU 9A MARCHe!!!!! (laser straight)", 50, 600, 50, RED);
+          DrawText("TU ES TOUCH2S MON DIEU 9A MARCHe!!!!! (laser straight)", 30, 600, 20, RED);
           is_hit = true;
       }
 
@@ -146,7 +145,7 @@ bool Player_is_hit_by_loose_laser(Pool *p, Player player){
       for (int j = 0; j < NodeCount; j++){
         pos = Position_get(positionManager, lookup);
         if (CheckCollisionCircles(playerPos, playerRadius, Position_get_pos(pos), Collision_circle_get_radius(collision))){
-            DrawText("TU ES TOUCH2S MON DIEU 9A MARCHe!!!!! (laser loose)", 50, 60, 50, RED);
+            DrawText("TU ES TOUCH2S MON DIEU 9A MARCHe!!!!! (laser loose)", 50, 700, 20, RED);
             is_hit = true;
         }
       }
