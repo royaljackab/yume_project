@@ -1,6 +1,6 @@
 #include "systems/button.h"
 #include "core/input.h"
-#include "core/assets.h"
+#include "content/assets.h"
 
 #include <raylib.h>
 #include <raymath.h>

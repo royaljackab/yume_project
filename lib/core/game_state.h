@@ -1,8 +1,10 @@
 #pragma once
 
 #include "core/input.h"
+#include "systems/stage.h"
 #include "ecs/pool.h"
 #include "systems/button.h"
+
 
 typedef enum StateID {
   STATE_NONE,
@@ -37,6 +39,7 @@ struct GameContext {
   /* Systemes */
   InputSystem input;
   ButtonSystem button;
+  StageSystem stage;
 
   Pool * pool;
 

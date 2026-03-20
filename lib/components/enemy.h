@@ -12,7 +12,9 @@
 #pragma once
 
 #include "ecs/component.h"
-#include "core/assets.h"
+#include "content/assets.h"
+
+#include "stage.h"
 
 typedef struct Pool Pool;
 
@@ -33,6 +35,7 @@ typedef enum {
  */
 typedef struct {
     EnemyType type; /**< Type de l'ennemi */
+    int spawn_wave; /**< Vague de spawn (pour les stages) */
 } Enemy;
 
 DEFINE_COMPONENT_MANAGER(Enemy, MAX_ENTITIES)
@@ -56,7 +59,7 @@ DEFINE_COMPONENT_MANAGER(Enemy, MAX_ENTITIES)
  */
 extern Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                           int life, float hitboxRadius,
-                          EnemyType type, SpriteID graphic);
+                          EnemyType type, SpriteID graphic, int spawn_wave);
 
 /**
  * @brief Met à jour tous les ennemis et supprime ceux à 0 PV

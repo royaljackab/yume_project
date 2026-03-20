@@ -1,12 +1,28 @@
-#include "stage.h"
+#include "systems/stage.h"
+
 #include "components/looseLaser.h"
 #include "components/straight_laser.h"
 #include "components/bullet.h"
 #include "components/player.h"
+
 #include "core/game_state.h"
+#include "core/task.h"
 
+#include <stdbool.h>
+#include <stdio.h>
 
-void state_generic_init(GameContext *ctx, PlayerName player, PatternType type) {
+bool wave_over(Pool *pool, int wave) {
+    for(int i =0; i < pool->enemy.count; i++) {
+        Entity e = pool->enemy.entity_lookup[i];
+        Enemy *enemy = Enemy_get(&pool->enemy, e);
+        if(enemy && enemy->spawn_wave == wave) {
+            return false;
+        }
+    }
+    return true;
+}  
+
+void stage_generic_init(GameContext *ctx, PlayerName player, PatternType type) {
     ctx->pool = malloc(sizeof(Pool));
     if (!ctx->pool) {
         printf("FATAL ERROR: generic pool allocation failed\n");
@@ -14,6 +30,7 @@ void state_generic_init(GameContext *ctx, PlayerName player, PatternType type) {
     }
     
     pool_init(ctx->pool);
+    ctx->stage.current_wave = DOWNTIME;
     Player_start(ctx->pool, player, type);
 }
 
