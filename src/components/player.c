@@ -10,12 +10,10 @@
 #include "pool.h"
 #include "sprite.h"
 #include "screen.h"
+#include "collision.h"
 #include <complex.h>
 #include <raylib.h>
 #include <raymath.h>
-
-
-
 
 /* Macros definitions */
 #define CREATE_PLAYER(nbLives, nbBombs, speed, focusSpeed, name) (Player){nbLives, nbLives, nbBombs, nbBombs, speed, focusSpeed, name}
@@ -142,8 +140,10 @@ void Player_update(GameContext *ctx) {
 
     Player_move(input, p, player);
     Player_shoot(input, p, player);
-}
 
+    
+    Player_is_hit(p, *Player_get(&p->player, 0) );
+}
 
 extern Position * Player_get_position(Pool *p, Player player){
     /**
