@@ -21,3 +21,4 @@ run: all
 
 clean:
 	rm -f test_life test_physics
+	rm -rf *.dSYM
