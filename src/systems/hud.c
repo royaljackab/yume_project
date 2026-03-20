@@ -1,3 +1,10 @@
+/**
+ * @file hud.c
+ * @brief Implémentation du HUD (Heads-Up Display)
+ *
+ * @author Amy
+ */
+
 #include "systems/hud.h"
 #include "core/screen.h"
 #include "components/player.h"
@@ -6,20 +13,30 @@
 #include <raylib.h>
 #include <stdio.h>
 
-/* Position et taille du cadre HUD */
+/** @brief Position x du cadre HUD */
 #define HUD_X (PANEL_RIGHT + 40)
+/** @brief Position y du cadre HUD */
 #define HUD_Y (PANEL_UP + 20)
+/** @brief Largeur du cadre HUD */
 #define HUD_WIDTH 350
+/** @brief Hauteur du cadre HUD */
 #define HUD_HEIGHT 250
+/** @brief Marge intérieure du cadre HUD */
 #define HUD_PADDING 15
 
-/* Couleurs */
-#define HUD_BG       (Color){0, 0, 0, 180}  /* Fond semi-transparent */
+/** @brief Couleur de fond du HUD (semi-transparent) */
+#define HUD_BG       (Color){0, 0, 0, 180}
+/** @brief Couleur de la bordure du HUD */
 #define HUD_BORDER   WHITE
+/** @brief Couleur du titre */
 #define HUD_TITLE_COL WHITE
+/** @brief Couleur des labels */
 #define HUD_LABEL_COL GRAY
+/** @brief Couleur des valeurs */
 #define HUD_VALUE_COL WHITE
+/** @brief Couleur des vies */
 #define HUD_LIFE_COL  RED
+/** @brief Couleur des bombes */
 #define HUD_BOMB_COL  YELLOW
 
 void HUD_draw(GameContext *ctx, const char *stage_name) {
@@ -49,11 +66,11 @@ void HUD_draw(GameContext *ctx, const char *stage_name) {
 
     /* Score */
     char score_text[30];
-    sprintf(score_text, "SCORE   %09d", 0);  /* TODO: vrai score */
+    sprintf(score_text, "SCORE   %09d", 0); /* TODO: vrai score */
     DrawText(score_text, cx, cy, 20, HUD_VALUE_COL);
     cy += 35;
 
-    /* Vies */
+    /* Vies : cercles rouges pleins si vie restante, contour sinon */
     DrawText("LIVES", cx, cy, 18, HUD_LABEL_COL);
     for (int i = 0; i < player->nbLives; i++) {
         int lx = cx + 80 + (i * 28);
@@ -65,7 +82,7 @@ void HUD_draw(GameContext *ctx, const char *stage_name) {
     }
     cy += 35;
 
-    /* Bombes */
+    /* Bombes : carrés jaunes pleins si bombe restante, contour sinon */
     DrawText("BOMBS", cx, cy, 18, HUD_LABEL_COL);
     for (int i = 0; i < player->nbBombs; i++) {
         int bx = cx + 80 + (i * 28);

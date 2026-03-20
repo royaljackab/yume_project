@@ -1,4 +1,11 @@
-#include "enemy.h"
+/**
+ * @file enemy.c
+ * @brief Implémentation du composant Enemy
+ *
+ * @author Amy
+ */
+
+#include "components/enemy.h"
 #include "components/common.h"
 #include "components/life.h"
 #include "components/collision_circle.h"
@@ -42,8 +49,7 @@ void Enemy_update_all(Pool *p) {
         Life *life = Life_get(&p->life, e);
 
         if (life && Life_is_dead(life)) {
-            // TODO: jouer SFX mort ennemi
-            // PlaySound(sfx[SFX_ENEMY_DEATH]);
+            PlaySound(sfx[SFX_ENEMY_DEATH]);
             pool_kill_entity(p, e);
         }
     }

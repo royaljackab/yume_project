@@ -1,3 +1,8 @@
+/**
+ * @file physics.c
+ * @brief Implémentation du composant Physics
+ */
+
 #include "components/physics.h"
 #include "components/common.h"
 #include "ecs/pool.h"

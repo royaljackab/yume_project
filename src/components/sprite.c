@@ -5,8 +5,6 @@
 #include "ecs/pool.h"
 #include <raylib.h>
 
-
-
 #define MIN_LAYER 0
 #define MAX_LAYER 100
 

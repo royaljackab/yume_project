@@ -16,7 +16,7 @@
 #include "core/game_state.h"
 
 /**
- * @brief Dessine le HUD complet (score, vies, bombes, séparateur)
+ * @brief Dessine le HUD
  * @param ctx Le contexte du jeu
  * @param stage_name Nom du stage affiché en haut du HUD
  */
