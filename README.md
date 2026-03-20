@@ -26,9 +26,9 @@ make run
 ## Architecture
 Le projet utilise un ECS (Entity Component System) avec Sparse Set.
 
-- `src/` — code source (core, components, systems, content)
-- `lib/` — headers
-- `Assets/` — sprites, musiques et effets sonores
+- `src/` - code source (core, components, systems, content)
+- `lib/` - headers
+- `Assets/` - sprites, musiques et effets sonores
 
 ## Contrôles
 | Touche | Action |
@@ -47,7 +47,7 @@ Le projet est organisé en 3 phases :
 - Phase 2 (semaines 4-6) : Contenu — ennemis, boss, spellcards, vagues, sprites, musiques
 - Phase 3 (semaines 6-9) : Documentation, tests, rapport, soutenance
 
-Rendu : 10 avril 2026 — Présentation : 17 avril 2026
+Rendu : 10 avril 2026 - Présentation : 17 avril 2026
 
 ## Documentation
 La documentation technique est générée avec Doxygen.
