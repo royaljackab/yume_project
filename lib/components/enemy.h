@@ -12,7 +12,7 @@
 #pragma once
 
 #include "ecs/component.h"
-#include "core/assets.h"
+#include "content/assets.h"
 
 typedef struct Pool Pool;
 

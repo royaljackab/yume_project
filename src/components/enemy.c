@@ -11,7 +11,7 @@
 #include "components/collision_circle.h"
 #include "components/physics.h"
 #include "components/sprite.h"
-#include "core/assets.h"
+#include "content/assets.h"
 #include "ecs/pool.h"
 
 Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
