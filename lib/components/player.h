@@ -1,20 +1,8 @@
 #pragma once
 
 #include "component.h"
-#include "assets.h"
-#include "bullet.h"
+#include "collision_circle.h"
 #include "common.h"
-#include "game_state.h"
-#include "input.h"
-#include "life.h"
-#include "physics.h"
-#include "pool.h"
-#include "sprite.h"
-#include "screen.h"
-#include <complex.h>
-#include <raylib.h>
-#include <raymath.h>
-
 
 typedef struct GameContext GameContext;
 typedef struct Pool Pool;

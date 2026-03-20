@@ -8,7 +8,7 @@
 
 #include "stdio.h"
 
-bool straight_laser_update(Straight_laser *laser) {   
+bool straight_laser_update(Pool *p, Straight_laser *laser) {   
     /***
      * Met à jour un laser droit
      * @return true si le laser doit continuer à exister, false s'il doit être supprimé
@@ -36,6 +36,10 @@ bool straight_laser_update(Straight_laser *laser) {
             return false;
         }
     }
+    //mise a jour de la hitbox 
+    Collision_rectangle * collision = Straight_laser_get_collision(p, laser);
+    collision->width = laser->laserWidth;
+    collision->length = laser->laserLength;
 
     //mise a jour du timer
     laser->timer.chrono++;
@@ -66,6 +70,9 @@ void straight_laser_create(Pool *pool, int x, int y, int angle, int length, int 
     Position_add(&pool->position, id, pos);
     Sprite_add(&pool->sprite,id,sprites[graphic]);
 
+    Collision_rectangle collision = {0 , 0};
+    Collision_rectangle_add(&pool->collision_rectangle, id, collision);
+
     printf("Laser cree\n");
     for(int i = 0; i < timer.nbTime; i++){
         printf("temps a: %d\n",timer.time[i]);
@@ -81,7 +88,7 @@ void straight_lasers_update_all(Pool *pool) {
     for (int i=0; i < pool->straightLaser.count; i++) {
         laser = &pool->straightLaser.dense[i];
         // printf("mise a jour du laser %d\n",pool->straightLaser.entity_lookup[i]);
-        if(!straight_laser_update(laser)) {
+        if(!straight_laser_update(pool, laser)) {
             printf("mise a la casse du laser %d\n",pool->straightLaser.entity_lookup[i]);
             pool_kill_entity(pool, pool->straightLaser.entity_lookup[i]);
         }
@@ -122,4 +129,16 @@ void straight_lasers_draw_all(Straight_laserManager *laserManager, PositionManag
         sprite = Sprite_get(spriteManager,laserManager->entity_lookup[i]);
         straight_laser_draw(laser, pos, sprite);
     }
+}
+
+extern Collision_rectangle * Straight_laser_get_collision(Pool *p, Straight_laser * laser){
+    /**
+     * Récupère la collision d'un laser
+     * Actuellement ne fonctionne pas
+     */
+
+    Collision_rectangleManager *manager = &p->collision_rectangle;
+    int lookup = manager->entity_lookup[0];
+    return &manager->dense[lookup];
+
 }
