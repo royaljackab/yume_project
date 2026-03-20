@@ -4,7 +4,7 @@
  * description blah blah
  */
 
-#include "core/assets.h"
+#include "content/assets.h"
 #include "sprite.h"
 #include <raylib.h>
 
@@ -25,7 +25,8 @@ void AssetsLoad() {
       LoadTexture("../Assets/Sprites/anim_test.png");
     textures[REIMU_SPRITESHEET] =
       LoadTexture("../Assets/Sprites/reimu_spritesheet.png");
-    textures[HITBOX_SPRITESHEET] = LoadTexture("../Assets/Sprites/hitbox.png");
+  textures[HITBOX_SPRITESHEET] = 
+      LoadTexture("../Assets/Sprites/hitbox.png");
 
     // Chargement de la Musique
     playlist[BGM_FAST_DANGER] =
@@ -49,26 +50,30 @@ void AssetsLoad() {
 void SpritesLoad() {
     
 
-    Sprite_set_texture(&sprites[ANIM_TEST], 0, ANIM_TEST_SPRITESHEET);
+    Sprite_set_texture(&sprites[ANIM_TEST], 10, ANIM_TEST_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[ANIM_TEST], 0,0,256,16);
     Sprite_set_animation(&sprites[ANIM_TEST], 16, 2);
 
-    Sprite_set_texture(&sprites[REIMU_IDLE], 0, REIMU_SPRITESHEET);
+    Sprite_set_texture(&sprites[REIMU_IDLE], 10, REIMU_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[REIMU_IDLE], 0, 0, 256, 48);
     Sprite_set_animation(&sprites[REIMU_IDLE], 8, 5);
 
-    Sprite_set_texture(&sprites[REIMU_LEFT], 0, REIMU_SPRITESHEET);
+    Sprite_set_texture(&sprites[REIMU_LEFT], 10, REIMU_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[REIMU_LEFT], 0, 48, 256, 48);
     Sprite_set_animation(&sprites[REIMU_LEFT], 8, 5);
 
-    Sprite_set_texture(&sprites[REIMU_RIGHT], 0, REIMU_SPRITESHEET);
+    Sprite_set_texture(&sprites[REIMU_RIGHT], 10, REIMU_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[REIMU_RIGHT], 0, 96, 256, 48);
     Sprite_set_animation(&sprites[REIMU_RIGHT], 8, 5);
 
-    Sprite_set_texture(&sprites[REIMU_PINK_AMULET], 0, REIMU_SPRITESHEET);
+    Sprite_set_texture(&sprites[REIMU_PINK_AMULET], 10, REIMU_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[REIMU_PINK_AMULET], 138, 178, 56, 14);
     Sprite_set_center(&sprites[REIMU_PINK_AMULET], (Vector2){46,6});
     Sprite_set_rotation(&sprites[REIMU_PINK_AMULET], -90);
+
+    Sprite_set_texture(&sprites[HITBOX], 11, HITBOX_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[HITBOX], 0, 0, 64, 64);
+    Sprite_set_rotation(&sprites[HITBOX], 0);
 
 
     BulletsSpritesLoad();

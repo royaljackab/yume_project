@@ -31,6 +31,8 @@ typedef struct Pool {
   //common
   PositionManager position;
   TagManager tag;
+  OwnerManager owner;
+
   // TimerManager timer;
   PhysicsManager physics;
   SpriteManager sprite;

@@ -9,6 +9,7 @@ void pool_init(Pool *p) {
   // NOTE: Pour chaque composante, ajouter le init ici
   Position_init(&p->position);
   Tag_init(&p->tag);
+  Owner_init(&p->owner);
 
   Physics_init(&p->physics);
   Sprite_init(&p->sprite);
@@ -58,6 +59,7 @@ void pool_kill_convicts(Pool *p) {
     //commons
     Position_remove(&p->position, e);
     Tag_remove(&p->tag, e);
+    Owner_remove(&p->owner, e);
 
     Physics_remove(&p->physics, e);
     Sprite_remove(&p->sprite, e);

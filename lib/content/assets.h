@@ -37,6 +37,8 @@ typedef enum {
   REIMU_LEFT,
   REIMU_PINK_AMULET,
 
+  HITBOX,
+
   //BULLETS 
   BALL_M_BLACK,
 
@@ -101,6 +103,8 @@ typedef enum {
 
   MAX_SPRITES
 } SpriteID;
+
+
 
 
 extern void AssetsLoad();

@@ -1,6 +1,6 @@
 #include "components/sprite.h"
 #include "components/common.h"
-#include "core/assets.h"
+#include "content/assets.h"
 #include "core/screen.h"
 #include "ecs/pool.h"
 #include <raylib.h>
@@ -60,7 +60,7 @@ void UpdateAnimation(Sprite *sprite) {
   }
 }
 
-static void Sprite_draw_sprite(Sprite *sprite, Position *pos) {
+void Sprite_draw_sprite(Sprite *sprite, Position *pos) {
   /**
    * Dessine un sprite a une position donnée en utilisant DrawTexturePro de
    * raylib

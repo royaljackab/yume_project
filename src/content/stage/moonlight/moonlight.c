@@ -1,5 +1,5 @@
 #include "content/stage/moonlight/moonlight.h"
-#include "core/assets.h"
+#include "content/assets.h"
 #include "game_state.h"
 #include "physics.h"
 #include "player.h"
@@ -74,8 +74,9 @@ void state_moonlight_update(GameContext *ctx) {
 
     Player_update(ctx);
     Physics_update_all(ctx->pool);
-    loose_lasers_update_all(ctx->pool); //Amori
-    straight_lasers_update_all(ctx->pool); //Amori
+    loose_lasers_update_all(ctx->pool); 
+    straight_lasers_update_all(ctx->pool);
+    Owner_update(ctx->pool); 
     pool_kill_convicts(ctx->pool);
 
     Enemy_update_all(ctx->pool);
@@ -86,8 +87,9 @@ void state_moonlight_draw(GameContext *ctx) {
 
     Sprite_draw_all(ctx->pool);
     HUD_draw(ctx, "Stage 1 - Moonlight");
-    draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); //Amori
-    straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); //Amori
+    draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); 
+    straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); 
+    
 
     DrawText("coucou", 30, 30, 50, WHITE);
 }
