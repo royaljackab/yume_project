@@ -63,7 +63,7 @@ void SpritesLoad() {
     Sprite_set_center(&sprites[REIMU_PINK_AMULET], (Vector2){46,6});
     Sprite_set_rotation(&sprites[REIMU_PINK_AMULET], -90);
 
-    Sprite_set_texture(&sprites[HITBOX], 9, HITBOX_SPRITESHEET);
+    Sprite_set_texture(&sprites[HITBOX], 11, HITBOX_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[HITBOX], 0, 0, 64, 64);
     Sprite_set_rotation(&sprites[HITBOX], 0);
 

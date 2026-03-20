@@ -4,7 +4,7 @@
 #include "pool.h"
 #include "sprite.h"
 
-Entity Particle_spawn(Pool *p, float x, float y, float speed, float angle,
+Entity particle_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic) {
   
   Entity e = pool_create_entity(p);
@@ -21,17 +21,16 @@ Entity Particle_spawn(Pool *p, float x, float y, float speed, float angle,
   return e;
 }
 
-void Particle_bind(Pool *p, Entity PositionId, Entity ParticleId){
-    /**
-     * Cette fonction permet d'ajouter un owner à une entité, notamment une particule.
-     */
-    Owner_add(&p->owner,ParticleId,PositionId);
+Entity particle_bound(Pool *p, SpriteID graphic, Entity owner){
+    Entity e = pool_create_entity(p);
+    Position pos;
+    Tag tag = ENT_PARTICLE;
+
+    Position_add(&p->position, e, pos);
+    Sprite_add(&p->sprite, e, sprites[graphic]);
+    Tag_add(&p->tag, e, tag);
+    Owner_add(&p->owner,e , owner);
+    return e;
 }
 
-void Owner_update(Pool *p){
-  for(int i; i< p->owner.count; i++){
-    Entity ownedId = Owner_get_entity(&p->owner, i); //l'id de la propriété
-    Entity ownerId = p->owner.dense[i]; //l'id du propriétaire
-    *Position_get(&p->position, ownedId) = * Position_get(&p->position, ownerId); //la position de la propriété copie tout le temps celle de l'owner
-  }
-}
+

@@ -1,20 +1,25 @@
-#include "player.h"
-#include "assets.h"
-#include "bullet.h"
-#include "common.h"
-#include "game_state.h"
-#include "input.h"
-#include "life.h"
-#include "physics.h"
-#include "pool.h"
-#include "sprite.h"
-#include "screen.h"
+#include "components/player.h"
+#include "components/bullet.h"
+#include "components/common.h"
+#include "components/life.h"
+#include "components/physics.h"
+#include "components/sprite.h"
+#include "components/particle.h"
+
+#include "ecs/pool.h"
+
+#include "content/assets.h"
+
+#include "core/game_state.h"
+#include "core/input.h"
+#include "core/screen.h"
+
 #include <complex.h>
 #include <raylib.h>
 #include <raymath.h>
 
 /* Macros definitions */
-#define CREATE_PLAYER(nbLives, nbBombs, speed, focusSpeed, name) (Player){nbLives, nbLives, nbBombs, nbBombs, speed, focusSpeed, name}
+#define CREATE_PLAYER(nbLives, nbBombs, speed, focusSpeed, name) (Player){nbLives, nbLives, nbBombs, nbBombs, speed, focusSpeed, -1, name}
 #define GET_SPRITE_MOVEMENT(SpriteRootName, movement) sprites[SpriteRootName##_##movement]
 
 /* Structures definitions */
@@ -120,12 +125,38 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
 static
 void Player_focus(InputSystem *input, Pool *p, Entity player) {
     Player *player_p = Player_get(&p->player, player);
+    Sprite * hitboxSprite = Sprite_get(&p->sprite,player_p->hitboxId);
+    if(input->focus.isPressed){
+        hitboxSprite->color.a = 0;
+    }
     if(input->focus.isDown) {
         player_p->speed = player_p->focusSpeed;
+        hitboxSprite->display = true;
+        hitboxSprite->color.a = Clamp(hitboxSprite->color.a + 40, 0, 255);
         
-    } else {
+    } 
+
+    else {
         player_p->speed = test_player.speed;
+        hitboxSprite->display = false;
+        hitboxSprite->color.a = Clamp(hitboxSprite->color.a - 40, 0, 255);
     }
+
+    
+
+
+//       if (isPressed(ctx->input.focus)) {
+//     playerSprites[HITBOX].color.a = 0;
+//   }
+//   if (isDown(ctx->input.focus)) {
+//     speed = player.focusSpeed;
+//     playerSprites[HITBOX].color.a =
+//         Clamp(playerSprites[HITBOX].color.a + 40, 0, 255);
+//   }
+//   if (isReleased(ctx->input.focus)) {
+//     playerSprites[HITBOX].color.a =
+//         Clamp(playerSprites[HITBOX].color.a - 40, 0, 255);
+//   }
 }
 
 /* Extern functions */
@@ -135,10 +166,14 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     Sprite sprite = sprites[REIMU_IDLE];
     
     Entity e = pool_create_entity(p);
+    Entity hitbox = particle_bound(p, HITBOX, e);
+
     Player_add(&p->player, e, player);
     Weapon_add(&p->weapon, e, weapon);
     Position_add(&p->position, e, (Position){{0,0}, 0});
     Sprite_add(&p->sprite, e, sprite);
+
+    Player_set_hitboxId(Player_get(&p->player,e),hitbox);
 }
 
 void Player_update(GameContext *ctx) {
