@@ -1,4 +1,4 @@
-#include "core/assets.h"
+#include "content/assets.h"
 #include "core/game_state.h"
 #include "core/screen.h"
 #include "core/settings.h"

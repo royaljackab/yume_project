@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include "components/common.h"
+
 #include "ecs/component.h"
 #include <raylib.h>
 #include <stdbool.h>
@@ -82,5 +84,6 @@ extern void Sprite_set_SourceRect(Sprite *sprite, float x, float y, float width,
 
 void UpdateAnimation(Sprite *sprite);
 
+void Sprite_draw_sprite(Sprite *sprite, Position *pos);
 extern void Sprite_draw_all(Pool *pool);
 
