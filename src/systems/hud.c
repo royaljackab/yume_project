@@ -2,7 +2,7 @@
  * @file hud.c
  * @brief Implémentation du HUD (Heads-Up Display)
  *
- * @author Amy
+ * @author @amyelalem
  */
 
 #include "systems/hud.h"

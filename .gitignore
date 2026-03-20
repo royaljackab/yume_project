@@ -23,4 +23,9 @@ cmake_install.cmake
 # MacOS
 .DS_Store/
 
+# test
+test/test_life
+test/test_physics
+test/*.dSYM
+
 

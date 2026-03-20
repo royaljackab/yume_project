@@ -6,7 +6,7 @@
  * Un ennemi est une entité ECS avec les composants suivants :
  * - Position, Physics, Sprite, Life, Collision_circle, Tag, Enemy
  *
- * @author Amy
+ * @author @amyelalem
  */
 
 #pragma once

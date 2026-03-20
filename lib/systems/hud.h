@@ -9,6 +9,8 @@
  * - Bombes restantes
  *
  * Le HUD est dessiné à droite de la zone de jeu (PANEL_RIGHT)
+ * 
+ * @author @amyelalem
  */
 
 #pragma once

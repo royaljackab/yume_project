@@ -2,7 +2,7 @@
  * @file enemy.c
  * @brief Implémentation du composant Enemy
  *
- * @author Amy
+ * @author @amyelalem
  */
 
 #include "components/enemy.h"
