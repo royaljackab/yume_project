@@ -131,14 +131,12 @@ void straight_lasers_draw_all(Straight_laserManager *laserManager, PositionManag
     }
 }
 
+
 extern Collision_rectangle * Straight_laser_get_collision(Pool *p, Straight_laser * laser){
     /**
-     * Récupère la collision d'un laser
-     * Actuellement ne fonctionne pas
+     * Récupère le rectangle de collision d'un laser droit
      */
-
-    Collision_rectangleManager *manager = &p->collision_rectangle;
-    int lookup = manager->entity_lookup[0];
+    Collision_rectangleManager * manager = &p->collision_rectangle;
+    int lookup = manager->entity_lookup[(int)(p->straightLaser.entity_lookup[manager->entity_lookup[laser - p->straightLaser.dense]])];
     return &manager->dense[lookup];
-
 }
