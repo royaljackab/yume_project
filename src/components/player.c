@@ -27,8 +27,12 @@
 #include "pool.h"
 #include "sprite.h"
 #include "screen.h"
+<<<<<<< HEAD
 #include "collision.h"
 >>>>>>> 2d14569 (Ajout des collisions aux lasers et bullets)
+=======
+#include "collision_entity.h"
+>>>>>>> f8d1133 (Fix get elements. Attention Seg fault)
 #include <complex.h>
 #include <raylib.h>
 #include <raymath.h>
@@ -205,8 +209,7 @@ void Player_update(GameContext *ctx) {
     Player_shoot(input, p, player);
     Player_focus(input, p, player);
 
-    
-    Player_is_hit(p, *Player_get(&p->player, 0) );
+    Entity_is_hit(p, player, (Tag[]){ENT_ENEMY_SHOT, ENT_LOOSE_LASER ,ENT_ENEMY_LASER} );
 }
 
 extern Position * Player_get_position(Pool *p, Player player){
