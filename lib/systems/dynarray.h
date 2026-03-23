@@ -3,6 +3,9 @@
 #include <assert.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
+#include "core/macro.h"
 
 typedef uint32_t dynarray_size_t;
 
@@ -42,7 +45,7 @@ typedef DYNAMIC_ARRAY_BASE(void) DynamicArray;
 /**
  * @brief Renvoie pointeur vers le tableau générique
  */
-#define DYNARRAY_CAST_TO_BASE(darr) &darr->din_array;
+#define DYNARRAY_CAST_TO_BASE(darr) &(darr)->din_array
 
 /**
  * @brief Renvoie la taille d'un élément du tableau
@@ -93,8 +96,6 @@ dynarray_size_t _dynarray_prepare_append_min_capacity(dynarray_size_t sizeof_ele
  * @brief Renvoie le pointeur vers data[idx]
  */
 #define dynarray_get_ptr(darr, idx) ({ \
-    assert(idx >= 0); \
-    assert(idx < darr->num_elements); \
     (darr)->data + idx; \
 })
 
@@ -146,3 +147,67 @@ void _dynarray_compact(dynarray_size_t sizeof_element, DynamicArray *darr);
 void _dynarray_set_elements(dynarray_size_t sizeof_element, DynamicArray *darr, dynarray_size_t num_elements, void *elements);
 // TODO: Failsafe si ce n'est pas le bon type d'éléments ? ou je vous fais confiance :)
 #define dynarray_set_elements(darr, num_elements, elements) _dynarray_func(set_elements, darr, num_elements, elements)
+
+/**
+ * @brief Fonction qui filtre un tableau
+ */
+typedef bool (*dynarray_filter_t)(const void *elem_p, void *userdata);
+
+/**
+ * @brief Modifie un tableau pour ne garder que les valeurs respectant le filtre
+ * 
+ * @param sizeof_element 
+ * @param darr 
+ * @param filter 
+ * @param userdata 
+ */
+void _dynarray_filter(dynarray_size_t sizeof_element, DynamicArray *darr, dynarray_filter_t predicate, void *userdata);
+#define dynarray_filter(darr, predicate, userdata) _dynarray_func(filter, darr, predicate, userdata)
+
+/**
+ * @brief Renvoie l'indice d'elem dans le tableau
+ */
+#define dynarray_indexof(darr, elem_p) ({ \
+    int idx = (int)(elem_p - darr->data;) \
+    (dynarray_size_t)idx; \
+})
+
+/**
+ * @brief Pour créer des variables itérables a priori uniques
+ * (sinon les boucles imbriquées flop)
+ */
+#define _dynarray_foreach_iter MACRO_ADDLINENUM(dynarray_foreach_iter)
+#define _dynarray_foreach_temp MACRO_ADDLINENUM(dynarray_foreach_temp)
+
+/**
+ * @brief Boucle sur le tableau avec var = id, elem_var = pointeur sur data[idx]
+ */
+#define dynarray_foreach(darr, var, elem_var, ...) do { \
+    for (dynarray_size_t _dynarray_foreach_iter = 0; \
+        _dynarray_foreach_iter < (darr)->num_elements; _dynarray_foreach_iter++) { \
+            dynarray_size_t var = _dynarray_foreach_iter; \
+            elem_var = dynarray_get_ptr(darr, var); \
+            __VA_ARGS__; \
+        } \
+} while(0)
+
+/**
+ * @brief boucle sur le tableau avec elem_var = pointeur sur les éléments
+ */
+#define dynarray_foreach_elem(darr, elem_var, ...) \
+    dynarray_foreach(darr, \
+        _dynarray_foreach_temp, \
+        elem_var, \
+        __VA_ARGS__ \
+    )
+
+/**
+ * @brief boucle sur le tableau avec var = id
+ */
+#define dynarray_foreach_idx(darr, var, ...) \
+    dynarray_foreach(darr, \
+        var, \
+        _dynarray_foreach_temp, \
+        __VA_ARGS__ \
+    )
+
