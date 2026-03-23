@@ -8,12 +8,13 @@
 
 #include "stdio.h"
 
-bool straight_laser_update(Pool *p, Straight_laser *laser) {   
+bool straight_laser_update(Pool *p, Entity laserID) {   
     /***
      * Met à jour un laser droit
      * @return true si le laser doit continuer à exister, false s'il doit être supprimé
      */
 
+    Straight_laser *laser = Straight_laser_get(&p->straightLaser, laserID);
     int warning = -1;
     int growing = 0;
     int duration = 1;
@@ -37,7 +38,7 @@ bool straight_laser_update(Pool *p, Straight_laser *laser) {
         }
     }
     //mise a jour de la hitbox 
-    Collision_rectangle * collision = Straight_laser_get_collision(p, laser);
+    Collision_rectangle * collision = Collision_rectangle_get(&p->collision_rectangle, laserID);
     collision->width = laser->laserWidth;
     collision->length = laser->laserLength;
 
@@ -88,7 +89,7 @@ void straight_lasers_update_all(Pool *pool) {
     for (int i=0; i < pool->straightLaser.count; i++) {
         laser = &pool->straightLaser.dense[i];
         // printf("mise a jour du laser %d\n",pool->straightLaser.entity_lookup[i]);
-        if(!straight_laser_update(pool, laser)) {
+        if(!straight_laser_update(pool, pool->straightLaser.entity_lookup[i])) {
             printf("mise a la casse du laser %d\n",pool->straightLaser.entity_lookup[i]);
             pool_kill_entity(pool, pool->straightLaser.entity_lookup[i]);
         }
@@ -131,12 +132,3 @@ void straight_lasers_draw_all(Straight_laserManager *laserManager, PositionManag
     }
 }
 
-
-extern Collision_rectangle * Straight_laser_get_collision(Pool *p, Straight_laser * laser){
-    /**
-     * Récupère le rectangle de collision d'un laser droit
-     */
-    Collision_rectangleManager * manager = &p->collision_rectangle;
-    int lookup = manager->entity_lookup[(int)(p->straightLaser.entity_lookup[manager->entity_lookup[laser - p->straightLaser.dense]])];
-    return &manager->dense[lookup];
-}

@@ -10,7 +10,7 @@
 #include "pool.h"
 #include "sprite.h"
 #include "screen.h"
-#include "collision.h"
+#include "collision_entity.h"
 #include <complex.h>
 #include <raylib.h>
 #include <raymath.h>
@@ -141,8 +141,7 @@ void Player_update(GameContext *ctx) {
     Player_move(input, p, player);
     Player_shoot(input, p, player);
 
-    
-    Player_is_hit(p, *Player_get(&p->player, 0) );
+    Entity_is_hit(p, player, (Tag[]){ENT_ENEMY_SHOT, ENT_LOOSE_LASER ,ENT_ENEMY_LASER} );
 }
 
 extern Position * Player_get_position(Pool *p, Player player){
