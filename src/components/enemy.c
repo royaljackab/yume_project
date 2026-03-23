@@ -6,7 +6,7 @@
 #include "sprite.h"
 #include "enemy.h"
 
-Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle, int healthPoints,
+Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle, int healthPoints, Weapon weapon,
                     SpriteID graphic) {
   
   Entity e = pool_create_entity(p);
@@ -19,5 +19,6 @@ Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle, int heal
   Sprite_add(&p->sprite, e, sprites[graphic]);
   Tag_add(&p->tag, e, ENT_ENEMY);
   Life_add(&p->life, e, life);
+  Weapon_add(&p->weapon, e, weapon);
   return e;
 }
