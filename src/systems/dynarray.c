@@ -1,6 +1,7 @@
 #include "systems/dynarray.h"
 
 #include <assert.h>
+#include <string.h>
 
 void _dynarray_free_data(dynarray_size_t sizeof_element, DynamicArray *darr) {
     free(darr->data);
@@ -57,3 +58,30 @@ void _dynarray_compact(dynarray_size_t sizeof_element, DynamicArray *darr) {
         _dynarray_resize(sizeof_element, darr, newsize);
     }
 }
+
+void _dynarray_set_elements(dynarray_size_t sizeof_element, DynamicArray *darr, dynarray_size_t num_elements, void *elements) {
+    _dynarray_ensure_capacity(sizeof_element, darr,num_elements);
+    memcpy(darr->data, elements, sizeof_element * num_elements);
+    darr->num_elements = num_elements;
+}
+
+void _dynarray_filter(dynarray_size_t sizeof_element, DynamicArray *darr, dynarray_filter_t filter, void *userdata) {
+    if(!darr->data)
+        return;
+
+    char *p = darr->data;
+    char *end = p + darr->num_elements * sizeof_element;
+    dynarray_size_t shift = 0;
+
+    while (p < end) {
+        if (!filter(p, userdata)) {
+            shift += sizeof_element;
+            darr->num_elements--;
+        } else if (shift) {
+            memmove(p - shift, p, sizeof_element);
+        }
+
+        p += sizeof_element;
+    }
+}
+
