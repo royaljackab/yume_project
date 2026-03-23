@@ -6,24 +6,9 @@
 
 
 
-bool Entity_is_hit(Pool *p, Entity entity, Tag * BulletTypes){
-    /**
-     * Verifie si l'entité est touchés par une attaque d'un des types spécifiés dans bulletTypes
-     */
-    return Entity_is_hit_circle(p, entity, BulletTypes) || Entity_is_hit_by_rectangle(p, entity, BulletTypes); 
-}
 
 
-
-bool Entity_is_hit(Pool *p, Entity entity, Tag * bulletTypes){
-    /**
-     * Verifie si le joueur est touchés par une attaque d'un des types spécifiés dans bulletTypes
-     */
-    return Entity_is_hit_by_bullet(p, entity, bulletTypes);  //|| Entity_is_hit_by_staight_laser(p, entity) || Entity_is_hit_by_loose_laser(p, entity);
-}
-
-
-bool Entity_is_hit_circle(Pool *p, Entity entity, Tag * BulletTypes) {
+bool Entity_is_hit_by_circle(Pool *p, Entity entity, Tag * BulletTypes) {
   /**
    * Verifie si l'enité est touchés par une collision circulaire ayant un des tag de BulletTypes
    */
@@ -92,6 +77,13 @@ bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, Tag * LaserTypes){
 
 
 
+
+extern bool Entity_is_hit(Pool *p, Entity entity, Tag * BulletTypes){
+    /**
+     * Verifie si l'entité est touchés par une attaque d'un des types spécifiés dans bulletTypes
+     */
+    return Entity_is_hit_circle(p, entity, BulletTypes) || Entity_is_hit_by_rectangle(p, entity, BulletTypes); 
+}
 
 
 
