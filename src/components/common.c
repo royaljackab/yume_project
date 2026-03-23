@@ -33,3 +33,11 @@ void Owner_update(Pool *p){
     *Position_get(&p->position, ownedId) = * Position_get(&p->position, ownerId); //la position de la propriété copie tout le temps celle de l'owner
   }
 }
+bool Tag_in_array(Tag * tag, Tag * array, int size) {
+    for (int i = 0; i < size; i++) {
+        if (*tag == array[i]) {
+            return true;
+        }
+    }
+    return false;
+}

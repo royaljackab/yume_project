@@ -1,29 +1,19 @@
 
-#include "components/common.h"
-#include "components/collision_rectangle.h"
-#include "ecs/pool.h"
-#include "player.h"
-#include <raylib.h>
-#include "components/collision.h"
+
+#include "components/collision_entity.h"
 
 
 
 
 
-
-bool Entity_is_hit_by_straight_laser(Pool *p, Entity entity, Tag * LaserTypes);
-extern Collision_circle * Entity_get_collision(Pool *p,  Entity entity);
-extern Position * Entity_get_position(Pool *p, Entity entity);
-bool Entity_is_hit_by_bullet(Pool *p, Entity entity, Tag * BulletTypes);
-
-bool Tag_in_array(Tag * tag, Tag * array, int size) {
-    for (int i = 0; i < size; i++) {
-        if (*tag == array[i]) {
-            return true;
-        }
-    }
-    return false;
+bool Entity_is_hit(Pool *p, Entity entity, Tag * BulletTypes){
+    /**
+     * Verifie si l'entité est touchés par une attaque d'un des types spécifiés dans bulletTypes
+     */
+    return Entity_is_hit_circle(p, entity, BulletTypes) || Entity_is_hit_by_rectangle(p, entity, BulletTypes); 
 }
+
+
 
 bool Entity_is_hit(Pool *p, Entity entity, Tag * bulletTypes){
     /**
@@ -33,9 +23,9 @@ bool Entity_is_hit(Pool *p, Entity entity, Tag * bulletTypes){
 }
 
 
-bool Entity_is_hit_by_bullet(Pool *p, Entity entity, Tag * BulletTypes) {
+bool Entity_is_hit_circle(Pool *p, Entity entity, Tag * BulletTypes) {
   /**
-   * Verifie si le joueur est touchés par une balle ennemis
+   * Verifie si l'enité est touchés par une collision circulaire ayant un des tag de BulletTypes
    */
   bool is_hit = false;
 
@@ -61,12 +51,53 @@ bool Entity_is_hit_by_bullet(Pool *p, Entity entity, Tag * BulletTypes) {
     }
   }
   return is_hit;
-
 }
 
 
 
-bool Entity_is_hit_by_staight_laser(Pool *p, Entity entity, Tag * LaserTypes);
+bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, Tag * LaserTypes){
+    /**
+     * Verifie si l'enité est touchés par une collision rectangulaire ayant un des tag de LaserTypes
+     */
+    bool is_hit = false;
+    
+    Collision_rectangleManager *collision_rectangle_manager = &p->collision_rectangle;
+    PositionManager *positionManager = &p->position;
+    TagManager * tagManager = &p->tag;
+    
+    Position * pos;
+    Vector2 entityPos = Position_get_pos(Entity_get_position(p, entity));
+    Collision_rectangle * collision;
+    float entityRadius = Collision_circle_get_radius(Entity_get_collision(p, entity));
+    int lookup;
+    
+    for (int i = 0; i < collision_rectangle_manager->count; i++) {
+        collision = &collision_rectangle_manager->dense[i];
+        lookup = collision_rectangle_manager->entity_lookup[i];
+        pos = Position_get(positionManager, lookup);
+        if (Tag_in_array(Tag_get(tagManager, lookup), LaserTypes, sizeof(LaserTypes)/sizeof(Tag))) {
+            if (CheckCircleRotatedRect(entityPos, entityRadius, Position_get_pos(pos), Collision_rectangle_get_width(collision), Collision_rectangle_get_length(collision), Position_get_angle(pos))){
+                DrawText("Entité touchés rectangle", 50, 500, 50, RED);
+                is_hit = true;
+            }
+        }
+    }
+    return is_hit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 extern Position * Entity_get_position(Pool *p, Entity entity){
     /**
      * Récupère la position a partir d'une entité
