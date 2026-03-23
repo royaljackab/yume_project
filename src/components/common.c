@@ -12,3 +12,13 @@ bool Position_is_out_of_bounds(Position *pos) {
 void Position_set_position(Position *pos, float x, float y) {
     pos->pos = (Vector2){x,y};
 }
+
+
+bool Tag_in_array(Tag * tag, Tag * array, int size) {
+    for (int i = 0; i < size; i++) {
+        if (*tag == array[i]) {
+            return true;
+        }
+    }
+    return false;
+}
