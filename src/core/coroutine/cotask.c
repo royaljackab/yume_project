@@ -171,7 +171,7 @@ void cotask_free(CoTask *task) {
 }
 
 CoTask *cotask_active(void) {
-    if (koishi_active() != co_main) {
+    if (koishi_active() == co_main) {
         return NULL;
     }
 
@@ -331,7 +331,7 @@ CoWaitResult cotask_wait_event_internal(CoEvent *evt, bool once) {
         return (CoWaitResult) { .event_status = CO_EVENT_SIGNALED };
     }
 
-    coevent_add_subscribers(evt, task);
+    coevent_add_subscriber(evt, task);
 
     cotask_wait_init(task_data, COTASK_WAIT_EVENT);
     task_data->wait.event.p_event = evt;
@@ -384,7 +384,6 @@ CoSched *cotask_get_sched(CoTask *task) {
 
 Entity cotask_bind_to_entity(CoTask *task, Entity ent) {
     CoTaskData *task_data = cotask_get_data(task);
-    if (task_data->bound_ent.id == NULL_INDEX) return NULL_INDEX;
 
     if (ent == NULL_INDEX) {
         cotask_cancel(task);

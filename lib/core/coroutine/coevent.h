@@ -79,7 +79,7 @@ void coevent_cleanup_subscribers(CoEvent *evt);
  * @param evt 
  * @param task 
  */
-void coevent_add_subscribers(CoEvent *evt, CoTask *task);
+void coevent_add_subscriber(CoEvent *evt, CoTask *task);
 
 /**
  * @brief Signale l'evenement et reveille ses enfants

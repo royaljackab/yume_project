@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 #include "ecs.h"
-#include "koishi.h"
+#include "../include/koishi.h"
 #include "list.h"
 #include "common.h"
 

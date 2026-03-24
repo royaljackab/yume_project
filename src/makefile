@@ -32,7 +32,7 @@ LIB_DIRS = $(shell find ../lib -type d)
 INCLUDES = -I. $(addprefix -I,$(LIB_DIRS)) -I../include
 
 # Flags de compilation
-CFLAGS = -Wall -Wextra -g $(INCLUDES)
+CFLAGS = -g $(INCLUDES)
 
 # Recherche de tous les fichiers .c dans src/ et ../lib/
 SRC = $(shell find . -type f -name "*.c") $(shell find ../lib -type f -name "*.c")

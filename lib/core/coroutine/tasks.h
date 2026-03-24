@@ -4,9 +4,11 @@
 #include "coroutine/coevent.h"
 #include "coroutine/cosched.h"
 
+#include <limits.h>
 #include "macro.h"
 
-#define TASK_ARG_TYPE(name) COARGS_##name
+
+#define TASK_ARGS_TYPE(name) COARGS_##name
 
 #define TASK_ARGSDELAY_NAME(name) COARGSDELAY_##name
 #define TASK_ARGSDELAY(name) struct TASK_ARGSDELAY_NAME(name)
@@ -33,7 +35,7 @@
     } TASK_IFACE_ARGS_SIZED_PTR_TYPE(iface); \
     typedef struct { \
         CoTaskFunc _cotask_##iface##_thunk; \
-    } TASk_INDIRECT_TYPE(iface)
+    } TASK_INDIRECT_TYPE(iface)
 
 #define DEFINE_TASK_INTERFACE_WITH_BASE(iface, ibase, argstruct) \
 	typedef struct { \
@@ -67,7 +69,7 @@
     static void COTASK_##name(TASK_ARGS_TYPE(name) *_cotask_args)
 
 #define TASK_COMMON_DECLARATIONS(name, argstype, handletype, linkage) \
-    linkage char COTASK_UNUSED_TASKS_##name; \
+    linkage char COTASK_UNUSED_CHECK_##name; \
     typedef handletype TASK_INDIRECT_TYPE_ALIAS(name); \
     typedef argstype TASK_ARGS_TYPE(name); \
     struct TASK_ARGSDELAY_NAME(name) { \
@@ -77,13 +79,13 @@
     struct TASK_ARGSCOND_NAME(name) { \
         CoEvent *event; \
         bool unconditional; \
-        TASK_ARGS_TYPEt(name) real_args; \
+        TASK_ARGS_TYPE(name) real_args; \
     }; \
     linkage void *COTASKTHUNK_##name(void *arg, size_t arg_size); \
     linkage void *COTASKTHUNK_DELAYED_##name(void *arg, size_t arg_size); \
     linkage void *COTASKTHUNK_COND_##name(void *arg, size_t arg_size) \
 
-#define TASK_COMMON_THUNK_DECLARATIONS(name, linkage) \
+#define TASK_COMMON_THUNK_DEFINITIONS(name, linkage) \
     linkage void *COTASKTHUNK_##name(void *arg, size_t arg_size) { \
         TASK_ARGS_TYPE(name) args_copy = { }; \
         memcpy(&args_copy, arg, arg_size); \
@@ -101,7 +103,7 @@
     linkage void *COTASKTHUNKCOND_##name(void *arg, size_t arg_size) { \
         TASK_ARGSCOND(name) args_copy = { }; \
         memcpy(&args_copy, arg, arg_size); \
-        if (WAIT_EVENT(args_copy.event).event_status == COEVENT_SIGNALED || args_copy.unconditional) { \
+        if (WAIT_EVENT(args_copy.event).event_status == CO_EVENT_SIGNALED || args_copy.unconditional) { \
             COTASK_##name(&args_copy.real_args); \
         } \
         return NULL; \
@@ -115,7 +117,7 @@
 
 #define DEFINE_TASK_EXPLICIT(name, linkage) \
     TASK_COMMON_PRIVATE_DECLARATIONS(name); \
-    TASK_COMMON_THUNK_DEFINITIONS(name, linkage) \
+    TASK_COMMON_THUNK_DEFINITIONS(name, linkage); \
     TASK_COMMON_BEGIN_BODY_DEFINITION(name, linkage)
 
 #define DECLARE_TASK(name, ...) \
@@ -165,8 +167,7 @@
 		sched, \
 		COTASKTHUNK_##name, \
 		(&(TASK_ARGS_TYPE(name)) { __VA_ARGS__ }), \
-		sizeof(TASK_ARGS_TYPE(name)), \
-		#name \
+		sizeof(TASK_ARGS_TYPE(name)) \
 	) \
 )
 
@@ -186,8 +187,7 @@
 			.real_args = { __VA_ARGS__ }, \
 			.delay = (_delay) \
 		}), \
-		sizeof(TASK_ARGSDELAY(name)), \
-		#name \
+		sizeof(TASK_ARGSDELAY(name)) \
 	) \
 )
 
@@ -215,8 +215,7 @@
 			.event = (_event), \
 			.unconditional = is_unconditional \
 		}), \
-		sizeof(TASK_ARGSCOND(name)), \
-		#name \
+		sizeof(TASK_ARGSCOND(name)) \
 	) \
 )
 
@@ -240,8 +239,7 @@ DECLARE_EXTERN_TASK(_cancel_task_helper, { BoxedTask task; });
 		sched, \
 		taskhandle._cotask_##iface##_thunk, \
 		(&(TASK_IFACE_ARGS_TYPE(iface)) { __VA_ARGS__ }), \
-		sizeof(TASK_IFACE_ARGS_TYPE(iface)), \
-		"<indirect:"#iface">" \
+		sizeof(TASK_IFACE_ARGS_TYPE(iface)) \
 	) \
 )
 
@@ -252,11 +250,33 @@ DECLARE_EXTERN_TASK(_cancel_task_helper, { BoxedTask task; });
 #define INVOKE_SUBTASK_INDIRECT(_iface, _handle, ...) \
 	INVOKE_TASK_INDIRECT_(THIS_SCHED, cosched_new_subtask, iface, _handle, ##__VA_ARGS__)
 
-#define THIS_TASK         cotask_box(cotask_active_unsafe())
+#define THIS_TASK         cotask_box(cotask_active())
 #define TASK_EVENTS(task) cotask_get_events(cotask_unbox(task))
-#define TASK_MALLOC(size) cotask_malloc(cotask_active_unsafe(), size)
+#define TASK_MALLOC(size) cotask_malloc(cotask_active(), size)
 
-#define THIS_SCHED        cotask_get_sched(cotask_active_unsafe())
+#define THIS_SCHED        cotask_get_sched(cotask_active())
 
 #define TASK_HOST_ENT() \
     cotask_host_entity(cotask_active())
+#define TASK_HOST_EVENTS(events_array) ({ \
+	(events_array) = cotask_malloc(cotask_active(), sizeof(*(events_array))); \
+	cotask_host_events(cotask_active(), sizeof(*events_array)/sizeof(CoEvent), &((events_array)->_first_event_)); \
+})
+
+#define YIELD cotask_yield(NULL)
+#define WAIT(delay) cotask_wait(delay)
+#define WAIT_EVENT(e) cotask_wait_event(e)
+#define WAIT_EVENT_OR_DIE(e) cotask_wait_event_or_die(e)
+#define WAIT_EVENT_ONCE(e) cotask_wait_event_once(e)
+#define STALL cotask_wait(INT_MAX)
+#define AWAIT_SUBTASKS cotask_wait_substasks()
+
+#define NOT_NULL_OR_DIE(expr) ({ \
+	auto _not_null_ptr = (expr); \
+	if (_not_null_ptr == NULL) { \
+		cotask_cancel(cotask_active()); \
+	} \
+})
+
+#define TASK_BIND(ent) \
+	cotask_bind_to_entity(cotask_active(), (ent))
