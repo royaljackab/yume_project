@@ -15,6 +15,14 @@ void Position_set_position(Position *pos, float x, float y) {
     pos->pos = (Vector2){x,y};
 }
 
+
+bool Tag_in_array(Tag * tag, Tag * array, int size) {
+    for (int i = 0; i < size; i++) {
+        if (*tag == array[i]) {
+            return true;
+        }
+    }
+    return false;
 void Owner_bind(Pool *p, Entity OwnerId, Entity ServantId){
     /**
      * Cette fonction permet d'ajouter un owner à une entité. Une entité servante copie la position de son owner.

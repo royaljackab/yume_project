@@ -14,25 +14,6 @@
 #include "core/input.h"
 #include "core/screen.h"
 
-<<<<<<< HEAD
-=======
-#include "player.h"
-#include "assets.h"
-#include "bullet.h"
-#include "common.h"
-#include "game_state.h"
-#include "input.h"
-#include "life.h"
-#include "physics.h"
-#include "pool.h"
-#include "sprite.h"
-#include "screen.h"
-<<<<<<< HEAD
-#include "collision.h"
->>>>>>> 2d14569 (Ajout des collisions aux lasers et bullets)
-=======
-#include "collision_entity.h"
->>>>>>> f8d1133 (Fix get elements. Attention Seg fault)
 #include <complex.h>
 #include <raylib.h>
 #include <raymath.h>
@@ -207,7 +188,7 @@ void Player_update(GameContext *ctx) {
     
     Player_move(input, p, player);
     Player_shoot(input, p, player);
-    Player_focus(input, p, player);
+<<<<<<< HEAD
 
     Entity_is_hit(p, player, (Tag[]){ENT_ENEMY_SHOT, ENT_LOOSE_LASER ,ENT_ENEMY_LASER} );
 }
@@ -232,3 +213,34 @@ extern Collision_circle * Player_get_collision(Pool *p, Player player){
   int lookup = collision_circleManager->entity_lookup[0];
   return &collision_circleManager->dense[lookup];
 }
+=======
+    Player_focus(input, p, player);
+<<<<<<< HEAD
+
+    Entity_is_hit(p, player, (Tag[]){ENT_ENEMY_SHOT, ENT_LOOSE_LASER ,ENT_ENEMY_LASER} );
+}
+
+extern Position * Player_get_position(Pool *p, Player player){
+    /**
+     * Récupère la position a partir d'un joueur
+     * Actuellement, renvoie celle du joueur de base, pas du paramètre
+     */
+  PositionManager *positionManager = &p->position;
+  int lookup = positionManager->entity_lookup[0];
+  return &positionManager->dense[lookup];
+
+}
+
+extern Collision_circle * Player_get_collision(Pool *p, Player player){
+    /**
+     * Récupère le cercle de collision a partir d'un joueur
+     * Actuellement, renvoie celle du joueur de base, pas du paramètre
+     */
+  Collision_circleManager *collision_circleManager = &p->collision_circle;
+  int lookup = collision_circleManager->entity_lookup[0];
+  return &collision_circleManager->dense[lookup];
+}
+=======
+}
+>>>>>>> origin/main
+>>>>>>> faa13610e59dcc64661214c3e48fcaa970b7dcbb
