@@ -3,7 +3,7 @@
 #include "systems/button.h"
 #include <raylib.h>
 #include <stdio.h>
-#include "core/assets.h"
+#include "content/assets.h"
 
 /* Enum */
 typedef enum TitleButtons { BEGIN_GAME, MOONLIGHT_TEST, KEYBINDS } TitleButtons;

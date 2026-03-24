@@ -19,4 +19,14 @@ latex/
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
-Makefile
+
+# MacOS
+.DS_Store/
+
+# test
+test/test_life
+test/test_physics
+test/*.dSYM
+
+
+
