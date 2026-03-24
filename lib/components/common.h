@@ -15,6 +15,7 @@
 #include "ecs/ecs.h"
 #include <raylib.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 #define BOUNDS_X 100 /**< Marge pour la largeur du cadre de jeu*/
 #define BOUNDS_Y 50  /**< Marge pour la hauteur du cadre de jeu*/
@@ -42,6 +43,14 @@ typedef struct Position {
   Vector2 pos;
   float angle; /**< Angle de direction, en degrés*/
 } Position;
+
+typedef EntityType Tag;
+
+typedef struct {
+  uint32_t unique_id;
+} Uid;
+
+
 DEFINE_COMPONENT_MANAGER(Position, MAX_ENTITIES)
 DECLARE_SETTER_GETTER(Position, Vector2, pos)
 DECLARE_SETTER_GETTER(Position, float, angle)
@@ -55,6 +64,8 @@ typedef Entity* Servants;
 
 //Note: Pour avoir un owner, il faut que celui-ci ait une position et que l'entitée possédée ait une position (dans l'ECS);
 DEFINE_COMPONENT_MANAGER(Owner, MAX_ENTITIES)
+
+DEFINE_COMPONENT_MANAGER(Uid, MAX_ENTITIES);
 
 /**
  * @brief Renvoie si la position est dans le cadre du jeu

@@ -11,28 +11,28 @@ CC = gcc
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
     # Linux
-    LIBS = -lraylib -lm -lpthread -ldl -lrt -lX11
-    LIBPATH =   # pas de -L nécessaire si raylib est installé dans le système
+    LIBS = -lraylib -lm -lpthread -ldl -lrt -lX11 -lkoishi
+    LIBPATH =   -L../lib # pas de -L nécessaire si raylib est installé dans le système
     NEED_RAYLIB_BUILD = false
 else ifeq ($(UNAME_S),Darwin)
     # macOS (exemple, à adapter selon votre installation)
-    LIBS = -lraylib -lm -lpthread -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL
-    LIBPATH = -L/opt/homebrew/lib
+    LIBS = -lraylib -lm -lpthread -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL -lkoishi
+    LIBPATH = -L/opt/homebrew/lib -L../lib
     NEED_RAYLIB_BUILD = false
 else
     # Windows (MSYS2, MinGW)
-    LIBS = -lraylib -lm -lpthread -lopengl32 -lgdi32 -lwinmm
-    LIBPATH = -L../raylib/src
+    LIBS = -lraylib -lm -lpthread -lopengl32 -lgdi32 -lwinmm -lkoishi
+    LIBPATH = -L../include/src -L../lib
     NEED_RAYLIB_BUILD = true
 endif
 
 # Recherche des dossiers de header dans ../lib
 LIB_DIRS = $(shell find ../lib -type d)
 # Inclusion des headers : src/ + tous les sous-dossiers de lib/ + le dossier raylib/src
-INCLUDES = -I. $(addprefix -I,$(LIB_DIRS)) -I../raylib/src
+INCLUDES = -I. $(addprefix -I,$(LIB_DIRS)) -I../include
 
 # Flags de compilation
-CFLAGS = -Wall -Wextra -g $(INCLUDES)
+CFLAGS = -g $(INCLUDES)
 
 # Recherche de tous les fichiers .c dans src/ et ../lib/
 SRC = $(shell find . -type f -name "*.c") $(shell find ../lib -type f -name "*.c")
@@ -41,7 +41,7 @@ OBJ = $(addprefix $(BIN_DIR)/, $(notdir $(SRC:.c=.o)))
 
 # Sous Windows, on vérifie si la bibliothèque raylib est déjà compilée
 ifeq ($(NEED_RAYLIB_BUILD),true)
-RAYLIB_A = ../raylib/src/libraylib.a
+RAYLIB_A = ../include/src/libraylib.a
 $(RAYLIB_A):
 	@echo "Raylib library not found, compiling it..."
 	cd ../raylib/src && make PLATFORM=PLATFORM_DESKTOP

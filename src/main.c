@@ -2,6 +2,7 @@
 #include "core/game_state.h"
 #include "core/screen.h"
 #include "core/settings.h"
+#include "cotask_data.h"
 #include <stddef.h>
 #include <stdio.h>
 
@@ -12,6 +13,8 @@ int main() {
 
   AssetsLoad();
   SpritesLoad();
+
+  cotask_global_init();
 
   GameContext ctx;
   gamestate_initialize(&ctx, STATE_MENU_TITLE);
@@ -52,5 +55,7 @@ int main() {
 
   // AssetsUnload();
   CloseAudioDevice();
+
+  cotask_global_shutdown();
   CloseWindow();
 }

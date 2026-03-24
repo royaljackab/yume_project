@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core/input.h"
+#include "coroutine/cosched.h"
 #include "ecs/pool.h"
 #include "systems/button.h"
 
@@ -39,6 +40,8 @@ struct GameContext {
   ButtonSystem button;
 
   Pool * pool;
+
+  CoSched sched;
 
   int debug;
   int pause;
