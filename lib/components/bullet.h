@@ -10,7 +10,6 @@
 
 #include "content/assets.h"
 #include "ecs/ecs.h"
-#include "core/assets.h"
 #include "common.h"
 
 typedef struct Pool Pool;
