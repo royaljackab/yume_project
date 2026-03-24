@@ -3,6 +3,7 @@
 #include "core/assets.h"
 #include "cosched.h"
 #include "ecs.h"
+#include "content/assets.h"
 #include "game_state.h"
 #include "physics.h"
 #include "player.h"
@@ -13,6 +14,8 @@
 #include "core/coroutine/tasks.h"
 #include "components/looseLaser.h"
 #include "components/straight_laser.h"
+#include "systems/hud.h"
+#include "components/enemy.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -106,8 +109,16 @@ void state_moonlight_init(GameContext *ctx) {
         return;
     }
     
+    // Change the beat bruv
+    StopMusicStream(playlist[BGM_WAITING]);
+    PlayMusicStream(playlist[BGM_FAST_DANGER]);
+
     pool_init(ctx->pool);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
+
+    Enemy_spawn(ctx->pool, 480, 200, 0, 0, 5, 20,
+        ENEMY_TYPE_FAIRY, ENEMY_FAIRY_BLUE_IDLE);
+}
 
     cosched_init(&ctx->sched, ctx->pool);
 
@@ -121,17 +132,22 @@ void state_moonlight_update(GameContext *ctx) {
 
     Player_update(ctx);
     Physics_update_all(ctx->pool);
-    loose_lasers_update_all(ctx->pool); //Amori
-    straight_lasers_update_all(ctx->pool); //Amori
+    loose_lasers_update_all(ctx->pool); 
+    straight_lasers_update_all(ctx->pool);
+    Owner_update(ctx->pool); 
     pool_kill_convicts(ctx->pool);
+
+    Enemy_update_all(ctx->pool);
 }
 
 void state_moonlight_draw(GameContext *ctx) {
     ClearBackground(BLACK);
 
     Sprite_draw_all(ctx->pool);
-    draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); //Amori
-    straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); //Amori
+    HUD_draw(ctx, "Stage 1 - Moonlight");
+    draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); 
+    straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); 
+    
 
     DrawText("coucou", 30, 30, 50, WHITE);
 }

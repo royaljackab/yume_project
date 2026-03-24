@@ -18,6 +18,7 @@ typedef struct Player {
 
     float speed;
     float focusSpeed;
+    Entity hitboxId;
 
     PlayerName name;
 } Player;
@@ -41,7 +42,11 @@ DECLARE_SETTER_GETTER(Player, int, nbBombs);
 DECLARE_SETTER_GETTER(Player, int, bombs);
 DECLARE_SETTER_GETTER(Player, float, speed);
 DECLARE_SETTER_GETTER(Player, float, focusSpeed);
+DECLARE_SETTER_GETTER(Player, Entity, hitboxId);
+
 
 extern void Player_start(Pool *p, PlayerName name, PatternType type);
 extern void Player_update(GameContext *ctx);
+
+
 

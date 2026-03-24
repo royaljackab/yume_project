@@ -14,6 +14,7 @@ void pool_init(Pool *p) {
   Position_init(&p->position);
   Tag_init(&p->tag);
   Uid_init(&p->uid);
+  Owner_init(&p->owner);
 
   Physics_init(&p->physics);
   Sprite_init(&p->sprite);
@@ -24,6 +25,8 @@ void pool_init(Pool *p) {
   Life_init(&p->life);
   Player_init(&p->player);
   Weapon_init(&p->weapon);
+
+  Enemy_init(&p->enemy);
 
   Straight_laser_init(&p->straightLaser);
   Loose_laser_init(&p->looseLaser);
@@ -67,6 +70,7 @@ void pool_kill_convicts(Pool *p) {
     Position_remove(&p->position, e);
     Tag_remove(&p->tag, e);
     Uid_remove(&p->uid, e);
+    Owner_remove(&p->owner, e);
 
     Physics_remove(&p->physics, e);
     Sprite_remove(&p->sprite, e);
@@ -82,6 +86,8 @@ void pool_kill_convicts(Pool *p) {
     Straight_laser_remove(&p->straightLaser, e);
     Loose_laser_destroy(p, e);
     Life_remove(&p->life, e);
+
+    Enemy_remove(&p->enemy, e);
     
     // Ajout de l'entité dans la pile libre
     p->free_indices[p->free_top++] = e;

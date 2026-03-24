@@ -1,5 +1,4 @@
 #pragma once
-
 #include "core/game_state.h"
 
 extern void state_moonlight_update(GameContext *ctx);
