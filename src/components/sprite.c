@@ -1,11 +1,9 @@
 #include "components/sprite.h"
 #include "components/common.h"
-#include "core/assets.h"
+#include "content/assets.h"
 #include "core/screen.h"
 #include "ecs/pool.h"
 #include <raylib.h>
-
-
 
 #define MIN_LAYER 0
 #define MAX_LAYER 100
@@ -62,7 +60,7 @@ void UpdateAnimation(Sprite *sprite) {
   }
 }
 
-static void Sprite_draw_sprite(Sprite *sprite, Position *pos) {
+void Sprite_draw_sprite(Sprite *sprite, Position *pos) {
   /**
    * Dessine un sprite a une position donnée en utilisant DrawTexturePro de
    * raylib

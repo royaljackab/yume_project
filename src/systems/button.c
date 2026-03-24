@@ -1,5 +1,6 @@
 #include "systems/button.h"
 #include "core/input.h"
+#include "content/assets.h"
 
 #include <raylib.h>
 #include <raymath.h>
@@ -30,9 +31,11 @@ void button_update(ButtonSystem *buttonSystem, InputSystem *inputState) {
   if (isPressed(inputState->down) &&
       buttonSystem->selection < buttonSystem->nbButtons - 1) {
     (buttonSystem->selection)++;
+    PlaySound(sfx[SFX_MENU_NAV]);
   }
   if (isPressed(inputState->up) && buttonSystem->selection > 0) {
     (buttonSystem->selection)--;
+    PlaySound(sfx[SFX_MENU_NAV]);
   }
   if (isPressed(inputState->left)) {
     if (buttonSystem->buttons[buttonSystem->selection].buttonLeft !=

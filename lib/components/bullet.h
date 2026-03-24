@@ -8,11 +8,12 @@
 
 #pragma once
 
-#include "core/assets.h"
+#include "content/assets.h"
 #include "ecs/ecs.h"
 #include "core/assets.h"
 #include "common.h"
 
+#include "content/assets.h"
 typedef struct Pool Pool;
 
 /**

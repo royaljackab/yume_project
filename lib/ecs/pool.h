@@ -25,15 +25,19 @@
 #include "life.h"
 #include "straight_laser.h"
 #include "looseLaser.h"
+#include "enemy.h"
 
 typedef struct Pool {
   //common
   PositionManager position;
   TagManager tag;
+  OwnerManager owner;
+
   // TimerManager timer;
   PhysicsManager physics;
   SpriteManager sprite;
 
+  EnemyManager enemy;
 
   //collisions
   Collision_circleManager collision_circle;
