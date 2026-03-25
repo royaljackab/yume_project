@@ -1,7 +1,6 @@
 #include "content/stage/moonlight/moonlight.h"
 #include "common.h"
-#include "core/assets.h"
-#include "cosched.h"
+#include "coroutine/cosched.h"
 #include "ecs.h"
 #include "content/assets.h"
 #include "game_state.h"
@@ -20,6 +19,7 @@
 #include <raylib.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 static
 void fireRing(GameContext *ctx, float x, float y, int nb_ring, float angleT) {
@@ -29,77 +29,65 @@ void fireRing(GameContext *ctx, float x, float y, int nb_ring, float angleT) {
     }
 }
 
-TASK(rocket, {GameContext *ctx; float start_x; float start_y; float start_speed; }) {
-    Pool *pool = ARGS.ctx->pool;
-    Entity rocket = pool_create_entity(pool);
-    TASK_BIND(rocket);
+TASK(pulse_ring, {GameContext *ctx; float x; float y;}) {
+    const int num_shots = 5;
+    const int num_projs = 12;
 
-    Position pos = { .pos =  {ARGS.start_x, ARGS.start_y}, .angle = 270.0f };
-    Position_add(&pool->position, rocket, pos);
+    Entity player_ent = Player_get_entity(&ARGS.ctx->pool->player, 0);
 
-    Physics phy = Physics_create_speed(ARGS.start_speed);
+    Position *player_pos = Position_get(&ARGS.ctx->pool->position, player_ent);
+    float aim_angle = atan2f(player_pos->pos.y - ARGS.y, player_pos->pos.x - ARGS.x) * RAD2DEG;
 
-    Physics_set_accel(&phy, -0.4f);
-    Physics_set_minSpd(&phy, 0);
+    for (int shot = 0; shot < num_shots; shot++) {
+        float final_speed = 3.0 + shot / 3.0;
+        float boost = shot * 0.7;
 
-    Physics_add(&pool->physics, rocket, phy);
+        float init_speed = final_speed + boost;
 
+        for (int i=0; i < num_projs; i++) {
+            float current_angle = aim_angle + (i * 360.0 / num_projs);
+
+            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.x, ARGS.y, init_speed, current_angle, BALL_M_BLACK);
+            Physics *phy = Physics_get(&ARGS.ctx->pool->physics, bullet);
+            Physics_set_accel(phy, -0.6);
+            Physics_set_minSpd(phy, final_speed);
+        }
+
+        WAIT(2);
+    }
+}
+
+TASK(crystal_shower, {GameContext *ctx; float x; float y;}) {
+    for (int t=0, i=0; t<60; i++) {
+        float speed0 = 10;
+        float speed1 = 4;
+
+        float angle_offset = GetRandomValue(-150, 90);
+        
+        float sign = 1 - 2 *(i & 1);
+
+        float spawn_x = ARGS.x + (30 * sign);
+        float spawn_y = ARGS.y - 42;
+
+        float start_angle = 270.0 + angle_offset;
+
+        Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, spawn_x, spawn_y, speed0, start_angle, BALL_M_BLACK);
+        Physics *phy = Physics_get(&ARGS.ctx->pool->physics, bullet);
+        Physics_set_force(phy, (Vector2){0, 0.35});
+        Physics_set_maxSpd(phy, speed0);
+
+        t += WAIT(1);
+    }
+}   
+
+TASK(moonlight_task, { GameContext *ctx; }) {
     while (true) {
-        Position *p = Position_get(&pool->position, rocket);
-        Physics *ph = Physics_get(&pool->physics, rocket);
-
-        Bullet_enemy_spawn(pool, p->pos.x, p->pos.y, 0, 0, ANIM_TEST);
-
-        if (ph->speed <= 0) {
-            break;
-        }
-
-        YIELD;
+        WAIT(20);
+        INVOKE_SUBTASK(pulse_ring, ARGS.ctx, 500, 500);
+        WAIT(10);
+        INVOKE_SUBTASK(crystal_shower, ARGS.ctx, 500, 500);
     }
-
-    Position *final_pos = Position_get(&pool->position, rocket);
-    float exp_x = final_pos->pos.x;
-    float exp_y = final_pos->pos.y;
-
-    fireRing(ARGS.ctx, exp_x, exp_y, 15, 7.0f);
-    WAIT(8); 
-    fireRing(ARGS.ctx, exp_x, exp_y, 15, 12.0f);
-
-    pool_kill_entity(pool, rocket);
-}
-
-TASK(spiral, { GameContext *gctx; float x; float y; float angvel; float angleT; int nb_ring; int periode; int duration;}) {
-    float curr_angle = ARGS.angleT;
-    int frames_passed = 0;
-
-    while(frames_passed < ARGS.duration) {
-        fireRing(ARGS.gctx, ARGS.x, ARGS.y, ARGS.nb_ring, curr_angle);
-        curr_angle += ARGS.angvel;
-
-        WAIT(ARGS.periode);
-        frames_passed += ARGS.periode;
-    }
-}
-
-TASK(moonlight_task, {GameContext *gctx; }) {
-    WAIT(60);
-
-    while(true) {
-        for (int i=0; i < 4; i++) {
-            float random_x = GetRandomValue(PANEL_LEFT, PANEL_RIGHT);
-
-            INVOKE_SUBTASK(rocket, ARGS.gctx, random_x, PANEL_DOWN, 5.0f);
-
-            WAIT(30);
-        }
-
-        WAIT(120);
-
-        INVOKE_SUBTASK(spiral, ARGS.gctx, 1920/2, 400, 3.5f, 0.0f, 8, 4, 240);
-        INVOKE_SUBTASK(spiral, ARGS.gctx, 1920/2, 400, -3.5f, 180.0f, 8, 4, 240);
-
-        WAIT(300);
-    }
+    
 }
 
 void state_moonlight_init(GameContext *ctx) {
@@ -118,7 +106,6 @@ void state_moonlight_init(GameContext *ctx) {
 
     Enemy_spawn(ctx->pool, 480, 200, 0, 0, 5, 20,
         ENEMY_TYPE_FAIRY, ENEMY_FAIRY_BLUE_IDLE);
-}
 
     cosched_init(&ctx->sched, ctx->pool);
 
