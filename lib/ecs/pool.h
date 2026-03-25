@@ -31,6 +31,7 @@ typedef struct Pool {
   //common
   PositionManager position;
   TagManager tag;
+  UidManager uid;
   OwnerManager owner;
 
   // TimerManager timer;
@@ -65,3 +66,6 @@ extern void pool_init(Pool *p);
 extern Entity pool_create_entity(Pool *p);
 extern void pool_kill_convicts(Pool *p);
 extern void pool_kill_entity(Pool *p, Entity e);
+
+BoxedEntity entity_box(Pool *p, Entity ent);
+Entity entity_unbox(Pool *p, BoxedEntity box);

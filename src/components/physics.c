@@ -68,6 +68,14 @@ static void update_pos(Physics *phy, Position *pos) {
   pos->pos = Vector2Add(pos->pos, phy->velocity);
 }
 
+static void update_force(Physics *phy, Position *pos) {
+  if (phy->force.x == 0 && phy->force.y == 0) return;
+
+  phy->velocity = Vector2Add(phy->velocity, phy->force);
+  phy->speed = Vector2Length(phy->velocity);
+  pos->angle = atan2f(phy->velocity.y, phy->velocity.x) * RAD2DEG;
+}
+
 static void Physics_update(Physics *phy, Position *pos) {
   /***
    * Met a jour une composante physique pour une entité
@@ -75,12 +83,13 @@ static void Physics_update(Physics *phy, Position *pos) {
   update_angle(phy, pos);
   update_speed(phy, pos);
   update_velocity(phy, pos);
+  update_force(phy, pos);
   update_pos(phy, pos);
 }
 
 /* Extern functions */
 Physics Physics_create_speed(float speed) {
-  Physics phy = {speed, 0, NO_MAX_SPEED, NO_MIN_SPEED, 0, {0, 0}};
+  Physics phy = {speed, 0, NO_MAX_SPEED, NO_MIN_SPEED, 0, (Vector2){0,0}, (Vector2){0,0}};
   return phy;
 }
 

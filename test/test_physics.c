@@ -23,11 +23,12 @@ typedef struct {
     float maxSpd;
     float minSpd;
     float angVel;
+    Vector2 force;
     Vector2 velocity;
 } Physics;
 
 Physics Physics_create_speed(float speed) {
-    Physics phy = {speed, 0, NO_MAX_SPEED, NO_MIN_SPEED, 0, {0, 0}};
+    Physics phy = {speed, 0, NO_MAX_SPEED, NO_MIN_SPEED, 0, {0, 0}, {0, 0}};
     return phy;
 }
 
