@@ -35,3 +35,15 @@ float obj_GetAlpha(Pool *p, Entity objId);
 
 /*----------------------------------------------------*/
 
+void obj_SetAcceleration(Pool *p, Entity objId, float accel);
+void obj_SetAngularSpeed(Pool *p, Entity objId, float angvel);
+void obj_SetForceX(Pool *p, Entity objId, float forcex);
+void obj_SetForceY(Pool *p, Entity objId, float forcey);
+void obj_SetForce(Pool *p, Entity objId, float forcex, float forcey);
+void obj_SetVelocityX(Pool *p, Entity objId, float velX);
+void obj_SetVelocityY(Pool *p, Entity objId, float velY);
+void obj_SetVelocity(Pool *p, Entity objId, float velX, float velY);
+void obj_SetMaxSpd(Pool *p, Entity objId, float maxspd);
+void obj_SetMinSpd(Pool *p, Entity objId, float minspd);
+void obj_UnsetMaxSpd(Pool *p, Entity objId);
+void obj_UnsetMinSpd(Pool *p, Entity objId);

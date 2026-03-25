@@ -1,7 +1,11 @@
 #include "obj/obj.h"
 #include "common.h"
+#include "physics.h"
 #include "pool.h"
 #include "sprite.h"
+#include <raylib.h>
+
+
 
 void obj_Delete(Pool *p, Entity objId) {
     pool_kill_entity(p, objId);
@@ -113,5 +117,150 @@ float obj_GetX(Pool *p, Entity objId) {
     Position *pos = Position_get(&p->position, objId);
     if (!pos) return 0;
 
-    
+    return pos->pos.x;
 }
+
+float obj_GetY(Pool *p, Entity objId) {
+    Position *pos = Position_get(&p->position, objId);
+    if (!pos) return 0;
+
+    return pos->pos.y;
+}
+
+Vector2 obj_GetPosition(Pool *p, Entity objId) {
+    Position *pos = Position_get(&p->position, objId);
+    if (!pos) return (Vector2){0,0};
+
+    return pos->pos;
+}
+
+float obj_GetAngle(Pool *p, Entity objId) {
+    Position *pos = Position_get(&p->position, objId);
+    if (!pos) return 0;
+
+    return pos->angle;
+}
+
+float obj_GetScaleX(Pool *p, Entity objId) {
+    Sprite *sprite = Sprite_get(&p->sprite, objId);
+    if (!sprite) return 0;
+
+    return sprite->scale.x;
+}
+
+float obj_GetScaleY(Pool *p, Entity objId) {
+    Sprite *sprite = Sprite_get(&p->sprite, objId);
+    if (!sprite) return 0;
+
+    return sprite->scale.y;
+}
+
+Vector2 obj_GetScale(Pool *p, Entity objId) {
+    Sprite *sprite = Sprite_get(&p->sprite, objId);
+    if (!sprite) return (Vector2){0,0};
+
+    return sprite->scale;
+}
+
+Color obj_GetColor(Pool *p, Entity objId) {
+    Sprite *sprite = Sprite_get(&p->sprite, objId);
+    if (!sprite) return WHITE;
+
+    return sprite->color;
+}
+
+float obj_GetAlpha(Pool *p, Entity objId) {
+    Sprite *sprite = Sprite_get(&p->sprite, objId);
+    if (!sprite) return 0;
+
+    return sprite->color.a;
+}
+
+/*----------------------------------------------------*/
+
+void obj_SetAcceleration(Pool *p, Entity objId, float accel) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->accel = accel;
+}
+
+void obj_SetAngularSpeed(Pool *p, Entity objId, float angvel) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->angVel = angvel;
+}
+
+void obj_SetForceX(Pool *p, Entity objId, float forcex) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->force.x = forcex;
+}
+
+void obj_SetForceY(Pool *p, Entity objId, float forcey) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->force.x = forcey;
+}
+
+void obj_SetForce(Pool *p, Entity objId, float forcex, float forcey) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->force.x = forcex;
+    phy->force.y = forcey;
+}
+
+void obj_SetVelocityX(Pool *p, Entity objId, float velX) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->velocity.x = velX;
+}
+
+void obj_SetVelocityY(Pool *p, Entity objId, float velY) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->velocity.y = velY;
+}
+
+void obj_SetVelocity(Pool *p, Entity objId, float velX, float velY) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->velocity.x = velX;
+    phy->velocity.y = velY;
+}
+
+void obj_SetMaxSpd(Pool *p, Entity objId, float maxspd) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->maxSpd = maxspd;
+}
+
+void obj_SetMinSpd(Pool *p, Entity objId, float minspd) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->maxSpd = minspd;
+}
+
+void obj_UnsetMaxSpd(Pool *p, Entity objId) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->maxSpd = NO_MAX_SPEED;
+}
+
+void obj_UnsetMinSpd(Pool *p, Entity objId) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->minSpd = NO_MIN_SPEED;
+}
+
