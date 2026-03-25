@@ -34,10 +34,10 @@ CoTask *_cosched_new_task(CoSched *sched, CoTaskFunc func, void *arg, size_t arg
     return task;
 }
 
-uint cosched_run_tasks(CoSched *sched) {
+unsigned int cosched_run_tasks(CoSched *sched) {
     alist_merge_tail(&sched->tasks, &sched->pending_tasks);
 
-    uint ran = 0;
+    unsigned int ran = 0;
 
     for (CoTask *t = sched->tasks.first, *next; t; t = next) {
         next = t->next;
@@ -74,8 +74,8 @@ void add_unique_event(events_array *arr, CoEvent *e, uint32_t uid) {
 }
 
 static
-uint gather_blocking_events(CoTaskList *tasks, events_array *events_array) {
-    uint n = 0;
+unsigned int gather_blocking_events(CoTaskList *tasks, events_array *events_array) {
+    unsigned int n = 0;
 
     for (CoTask *t = tasks->first; t; t = t->next) {
         if (!t->data) continue;

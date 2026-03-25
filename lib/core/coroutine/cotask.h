@@ -167,7 +167,7 @@ CoTaskEvents *cotask_get_events(CoTask *task);
 
 
 Entity cotask_host_entity(CoTask *task, Tag ent_type);
-void cotask_host_events(CoTask *task, uint num_events, CoEvent events[num_events]);
+void cotask_host_events(CoTask *task, unsigned int num_events, CoEvent events[num_events]);
 
 void cotask_free(CoTask *task);
 
