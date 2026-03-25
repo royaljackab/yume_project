@@ -13,6 +13,15 @@ Texture2D textures[MAX_TEXTURES];
 Music playlist[MAX_BGM]; // Nouveau tableau pour la musique
 Sound sfx[MAX_SFX]; // Effets sonores
 
+enum{
+  RENDER_PRIO_BULLET,
+
+  RENDER_PRIO_PLAYER,
+  RENDER_PRIO_HITBOX,
+    
+  RENDER_PRIO_ENEMY,
+};
+
 
 void AssetsLoad() {
     // Chargement des Textures existantes
@@ -49,8 +58,6 @@ void AssetsLoad() {
 }
 
 void SpritesLoad() {
-    
-
     Sprite_set_texture(&sprites[ANIM_TEST], 10, ANIM_TEST_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[ANIM_TEST], 0,0,256,16);
     Sprite_set_animation(&sprites[ANIM_TEST], 16, 2);
@@ -85,83 +92,119 @@ void BulletsSpritesLoad() {
      *  Fonction intermediaire pour load tous les assets du jeu.
      *  Load toutes les bullets.
      **/
-    Sprite_set_texture(&sprites[NULL_SPRITE], BULLET_RENDER_PRIO, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[NULL_SPRITE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[NULL_SPRITE], 0, 0, 0, 0);
 
 
-    Sprite_set_texture(&sprites[BALL_M_BLACK], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BALL_M_BLACK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BALL_M_BLACK], 5, 54, 16, 16);
 
-    // SMALL BULLETS (16x16)
+    // LASERS
+    Sprite_set_texture(&sprites[LASER_BLACK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_BLACK], 0, 0, 16, 14);
 
-    Sprite_set_texture(&sprites[BULLET_SMALL_RED], 0, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[BULLET_SMALL_RED], 6, 6, 16, 16);
+    Sprite_set_texture(&sprites[LASER_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_RED], 16, 0, 16, 14);
 
-    Sprite_set_texture(&sprites[BULLET_SMALL_BLUE], 0, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[BULLET_SMALL_BLUE], 38, 6, 16, 16);
+    Sprite_set_texture(&sprites[LASER_LIGHT_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_RED], 32, 0, 16, 14);
 
-    Sprite_set_texture(&sprites[BULLET_SMALL_GREEN], 0, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[BULLET_SMALL_GREEN], 70, 6, 16, 16);
+    Sprite_set_texture(&sprites[LASER_PINK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_PINK], 48, 0, 16, 14);
 
-    Sprite_set_texture(&sprites[BULLET_SMALL_YELLOW], 0, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[BULLET_SMALL_YELLOW], 102, 6, 16, 16);
+    Sprite_set_texture(&sprites[LASER_LIGHT_PINK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_PINK], 64, 0, 16, 14);
+
+    Sprite_set_texture(&sprites[LASER_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_BLUE], 80, 0, 16, 14);
+
+    Sprite_set_texture(&sprites[LASER_LIGHT_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_BLUE], 96, 0, 16, 14);
+
+    Sprite_set_texture(&sprites[LASER_CYAN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_CYAN], 112, 0, 16, 14);
+    
+    Sprite_set_texture(&sprites[LASER_LIGHT_CYAN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_CYAN], 128, 0, 16, 14);
+
+    Sprite_set_texture(&sprites[LASER_GREEN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_GREEN], 144, 0, 16, 14);
+
+    Sprite_set_texture(&sprites[LASER_LIGHT_GREEN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_GREEN], 160, 0, 16, 14);
+
+    Sprite_set_texture(&sprites[LASER_LIME], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_LIME], 176, 0, 16, 14);
+
+    Sprite_set_texture(&sprites[LASER_YELLOW], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_YELLOW], 192, 0, 16, 14);
+
+    Sprite_set_texture(&sprites[LASER_LIGHT_YELLOW], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_YELLOW], 208, 0, 16, 14);
+
+    Sprite_set_texture(&sprites[LASER_GOLD], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_GOLD], 224, 0, 16, 14);
+
+    Sprite_set_texture(&sprites[LASER_WHITE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[LASER_WHITE], 240, 0, 16, 14);
+
 
 
     // RING BULLETS
 
-    Sprite_set_texture(&sprites[BULLET_RING_RED], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_RING_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_RING_RED], 8, 210, 32, 32);
 
-    Sprite_set_texture(&sprites[BULLET_RING_BLUE], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_RING_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_RING_BLUE], 44, 210, 32, 32);
 
-    Sprite_set_texture(&sprites[BULLET_RING_GREEN], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_RING_GREEN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_RING_GREEN], 80, 210, 32, 32);
 
 
     // STAR BULLETS
 
-    Sprite_set_texture(&sprites[BULLET_STAR_RED], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_STAR_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_STAR_RED], 6, 330, 32, 32);
 
-    Sprite_set_texture(&sprites[BULLET_STAR_BLUE], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_STAR_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_STAR_BLUE], 42, 330, 32, 32);
 
 
     // BIG BALL BULLETS
 
-    Sprite_set_texture(&sprites[BULLET_BIG_RED], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_BIG_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_BIG_RED], 310, 40, 64, 64);
 
-    Sprite_set_texture(&sprites[BULLET_BIG_BLUE], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_BIG_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_BIG_BLUE], 378, 40, 64, 64);
 
 
 
     // FIRE BULLETS
 
-    Sprite_set_texture(&sprites[BULLET_FIRE_RED], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_FIRE_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_FIRE_RED], 240, 260, 64, 64);
 
-    Sprite_set_texture(&sprites[BULLET_FIRE_BLUE], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_FIRE_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_FIRE_BLUE], 310, 260, 64, 64);
 
-    Sprite_set_texture(&sprites[BULLET_FIRE_GREEN], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_FIRE_GREEN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_FIRE_GREEN], 380, 260, 64, 64);
 
 
     // GRADIENT BULLETS
 
-    Sprite_set_texture(&sprites[BULLET_BLACK_GRADIENT], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_BLACK_GRADIENT], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_BLACK_GRADIENT], 8, 470, 64, 64);
 
-    Sprite_set_texture(&sprites[BULLET_PURPLE_GRADIENT], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_PURPLE_GRADIENT], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_PURPLE_GRADIENT], 78, 470, 64, 64);
 
-    Sprite_set_texture(&sprites[BULLET_GREEN_GRADIENT], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_GREEN_GRADIENT], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_GREEN_GRADIENT], 148, 470, 64, 64);
 
-    Sprite_set_texture(&sprites[BULLET_YELLOW_GRADIENT], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[BULLET_YELLOW_GRADIENT], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BULLET_YELLOW_GRADIENT], 218, 470, 64, 64);
 
 }
