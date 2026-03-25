@@ -16,9 +16,9 @@ void Position_set_position(Position *pos, float x, float y) {
 }
 
 
-bool Tag_in_array(Tag * tag, Tag * array, int size) {
+bool Tag_in_array(Tag tag, Tag * array, int size) {
     for (int i = 0; i < size; i++) {
-        if (*tag == array[i]) {
+        if (tag == array[i]) {
             return true;
         }
     }
