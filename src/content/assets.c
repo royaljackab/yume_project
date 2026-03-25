@@ -13,6 +13,7 @@ Texture2D textures[MAX_TEXTURES];
 Music playlist[MAX_BGM]; // Nouveau tableau pour la musique
 Sound sfx[MAX_SFX]; // Effets sonores
 
+
 void AssetsLoad() {
     // Chargement des Textures existantes
     textures[BULLET_SPRITESHEET] =
@@ -84,7 +85,7 @@ void BulletsSpritesLoad() {
      *  Fonction intermediaire pour load tous les assets du jeu.
      *  Load toutes les bullets.
      **/
-    Sprite_set_texture(&sprites[NULL_SPRITE], 0, BULLET_SPRITESHEET);
+    Sprite_set_texture(&sprites[NULL_SPRITE], BULLET_RENDER_PRIO, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[NULL_SPRITE], 0, 0, 0, 0);
 
 
