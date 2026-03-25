@@ -133,7 +133,7 @@ Entity entity_unbox(Pool *p, BoxedEntity box) {
 
   Uid *uid_comp = Uid_get(&p->uid, box.id);
   if (uid_comp && uid_comp->unique_id == box.unique_id)
-    return box.unique_id;
+    return box.id;
 
   return NULL_INDEX;
 }

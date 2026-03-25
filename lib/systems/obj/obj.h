@@ -36,6 +36,7 @@ float obj_GetAlpha(Pool *p, Entity objId);
 /*----------------------------------------------------*/
 
 void obj_SetAcceleration(Pool *p, Entity objId, float accel);
+void obj_SetSpeed(Pool *p, Entity objId, float speed);
 void obj_SetAngularSpeed(Pool *p, Entity objId, float angvel);
 void obj_SetForceX(Pool *p, Entity objId, float forcex);
 void obj_SetForceY(Pool *p, Entity objId, float forcey);

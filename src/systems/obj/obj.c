@@ -264,3 +264,9 @@ void obj_UnsetMinSpd(Pool *p, Entity objId) {
     phy->minSpd = NO_MIN_SPEED;
 }
 
+void obj_SetSpeed(Pool *p, Entity objId, float speed) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->speed = speed;
+}
