@@ -5,6 +5,7 @@
 #include "components/physics.h"
 #include "components/sprite.h"
 #include "components/particle.h"
+#include "components/collision_entity.h"
 
 #include "ecs/pool.h"
 
