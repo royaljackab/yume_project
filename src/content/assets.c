@@ -97,57 +97,105 @@ void BulletsSpritesLoad() {
 
 
     Sprite_set_texture(&sprites[BALL_M_BLACK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[BALL_M_BLACK], 5, 54, 16, 16);
+    Sprite_set_SourceRect(&sprites[BALL_M_BLACK], 0, 17, 16, 16);
 
     // LASERS
     Sprite_set_texture(&sprites[LASER_BLACK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_BLACK], 0, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_BLACK], 807, 0, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_RED], 16, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_RED], 807, 16, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_LIGHT_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_LIGHT_RED], 32, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_RED], 807, 32, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_PINK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_PINK], 48, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_PINK], 807, 48, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_LIGHT_PINK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_LIGHT_PINK], 64, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_PINK], 807, 64, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_BLUE], 80, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_BLUE], 807, 80, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_LIGHT_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_LIGHT_BLUE], 96, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_BLUE], 807, 96, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_CYAN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_CYAN], 112, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_CYAN], 807, 112, 14, 16);
     
     Sprite_set_texture(&sprites[LASER_LIGHT_CYAN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_LIGHT_CYAN], 128, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_CYAN], 807, 128, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_GREEN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_GREEN], 144, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_GREEN], 807, 144, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_LIGHT_GREEN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_LIGHT_GREEN], 160, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_GREEN], 807, 160, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_LIME], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_LIME], 176, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_LIME], 807, 176, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_YELLOW], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_YELLOW], 192, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_YELLOW], 807, 192, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_LIGHT_YELLOW], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_LIGHT_YELLOW], 208, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_LIGHT_YELLOW], 807, 208, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_GOLD], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_GOLD], 224, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_GOLD], 807, 224, 14, 16);
 
     Sprite_set_texture(&sprites[LASER_WHITE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[LASER_WHITE], 240, 0, 16, 14);
+    Sprite_set_SourceRect(&sprites[LASER_WHITE], 807, 240, 14, 16);
 
+// MISSILES
+    Sprite_set_texture(&sprites[MISSILE_BLACK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_BLACK], 790, 0, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_RED], 790, 16, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_LIGHT_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_LIGHT_RED], 790, 32, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_PINK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_PINK], 790, 48, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_LIGHT_PINK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_LIGHT_PINK], 790, 64, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_BLUE], 790, 80, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_LIGHT_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_LIGHT_BLUE], 790, 96, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_CYAN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_CYAN], 790, 112, 15, 16);
+    
+    Sprite_set_texture(&sprites[MISSILE_LIGHT_CYAN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_LIGHT_CYAN], 790, 128, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_GREEN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_GREEN], 790, 144, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_LIGHT_GREEN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_LIGHT_GREEN], 790, 160, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_LIME], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_LIME], 790, 176, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_YELLOW], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_YELLOW], 790, 192, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_LIGHT_YELLOW], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_LIGHT_YELLOW], 790, 208, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_GOLD], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_GOLD], 790, 224, 15, 16);
+
+    Sprite_set_texture(&sprites[MISSILE_WHITE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[MISSILE_WHITE], 790, 240, 15, 16);
 
 
     // RING BULLETS

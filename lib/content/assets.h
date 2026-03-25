@@ -1,5 +1,4 @@
-#ifndef ASSETS_H
-#define ASSETS_H
+#pragma once
 
 #include <raylib.h>
 #include <raymath.h>
@@ -39,10 +38,10 @@ typedef enum {
 
   HITBOX,
 
-  //BULLETS 
+  //BULLETS -----------------------------------
   BALL_M_BLACK,
 
-
+  // ------ LASERS
   LASER_BLACK,
   LASER_RED,
   LASER_LIGHT_RED,
@@ -60,6 +59,23 @@ typedef enum {
   LASER_GOLD,
   LASER_WHITE,
 
+  // ------ MISSILES
+  MISSILE_BLACK,
+  MISSILE_RED,
+  MISSILE_LIGHT_RED,
+  MISSILE_PINK,
+  MISSILE_LIGHT_PINK,
+  MISSILE_BLUE,
+  MISSILE_LIGHT_BLUE,
+  MISSILE_CYAN,
+  MISSILE_LIGHT_CYAN,
+  MISSILE_GREEN,
+  MISSILE_LIGHT_GREEN,
+  MISSILE_LIME,
+  MISSILE_YELLOW,
+  MISSILE_LIGHT_YELLOW,
+  MISSILE_GOLD,
+  MISSILE_WHITE,
 
   BULLET_SMALL_RED,
   BULLET_SMALL_BLUE,
@@ -146,4 +162,3 @@ typedef enum {
 
 extern Sound sfx[MAX_SFX];
 
-#endif
