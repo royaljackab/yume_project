@@ -1,12 +1,16 @@
 #include "content/stage/moonlight/moonlight.h"
+#include "common.h"
+#include "coroutine/cosched.h"
+#include "ecs.h"
 #include "content/assets.h"
 #include "game_state.h"
 #include "physics.h"
 #include "player.h"
 #include "pool.h"
+#include "screen.h"
 #include "sprite.h"
 #include "components/bullet.h"
-#include "core/task.h"
+#include "core/coroutine/tasks.h"
 #include "components/looseLaser.h"
 #include "components/straight_laser.h"
 #include "systems/hud.h"
@@ -15,8 +19,76 @@
 #include <raylib.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
-void * moonlight_ctx = NULL;
+static
+void fireRing(GameContext *ctx, float x, float y, int nb_ring, float angleT) {
+    for (int i=0; i < nb_ring; i++) {
+        Bullet_enemy_spawn(ctx->pool, x, y, 5, angleT, BALL_M_BLACK);
+        angleT += 360.0 / nb_ring;
+    }
+}
+
+TASK(pulse_ring, {GameContext *ctx; float x; float y;}) {
+    const int num_shots = 5;
+    const int num_projs = 12;
+
+    Entity player_ent = Player_get_entity(&ARGS.ctx->pool->player, 0);
+
+    Position *player_pos = Position_get(&ARGS.ctx->pool->position, player_ent);
+    float aim_angle = atan2f(player_pos->pos.y - ARGS.y, player_pos->pos.x - ARGS.x) * RAD2DEG;
+
+    for (int shot = 0; shot < num_shots; shot++) {
+        float final_speed = 3.0 + shot / 3.0;
+        float boost = shot * 0.7;
+
+        float init_speed = final_speed + boost;
+
+        for (int i=0; i < num_projs; i++) {
+            float current_angle = aim_angle + (i * 360.0 / num_projs);
+
+            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.x, ARGS.y, init_speed, current_angle, BALL_M_BLACK);
+            Physics *phy = Physics_get(&ARGS.ctx->pool->physics, bullet);
+            Physics_set_accel(phy, -0.6);
+            Physics_set_minSpd(phy, final_speed);
+        }
+
+        WAIT(2);
+    }
+}
+
+TASK(crystal_shower, {GameContext *ctx; float x; float y;}) {
+    for (int t=0, i=0; t<60; i++) {
+        float speed0 = 10;
+        float speed1 = 4;
+
+        float angle_offset = GetRandomValue(-150, 90);
+        
+        float sign = 1 - 2 *(i & 1);
+
+        float spawn_x = ARGS.x + (30 * sign);
+        float spawn_y = ARGS.y - 42;
+
+        float start_angle = 270.0 + angle_offset;
+
+        Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, spawn_x, spawn_y, speed0, start_angle, BALL_M_BLACK);
+        Physics *phy = Physics_get(&ARGS.ctx->pool->physics, bullet);
+        Physics_set_force(phy, (Vector2){0, 0.35});
+        Physics_set_maxSpd(phy, speed0);
+
+        t += WAIT(1);
+    }
+}   
+
+TASK(moonlight_task, { GameContext *ctx; }) {
+    while (true) {
+        WAIT(20);
+        INVOKE_SUBTASK(pulse_ring, ARGS.ctx, 500, 500);
+        WAIT(10);
+        INVOKE_SUBTASK(crystal_shower, ARGS.ctx, 500, 500);
+    }
+    
+}
 
 void state_moonlight_init(GameContext *ctx) {
     ctx->pool = malloc(sizeof(Pool));
@@ -34,43 +106,16 @@ void state_moonlight_init(GameContext *ctx) {
 
     Enemy_spawn(ctx->pool, 480, 200, 0, 0, 5, 20,
         ENEMY_TYPE_FAIRY, ENEMY_FAIRY_BLUE_IDLE);
+
+    cosched_init(&ctx->sched, ctx->pool);
+
+    SCHED_INVOKE_TASK(&ctx->sched, moonlight_task, ctx);
 }
 
-Define_Static_Task(fireRing, PARAMS(GameContext * gctx, int nb_ring, float angleT));
-    for (int i=0; i < nb_ring; i++) {
-        Bullet_enemy_spawn(gctx->pool, 1920 / 4, 100, 5, angleT, BALL_M_BLACK);
-        angleT += 360.0 / nb_ring;
-    }
-End_Task;
 
-Define_Static_Task(spiral, PARAMS(GameContext * gctx, float angvel, float angleT, int nb_ring, int periode), int count; float curr_angle; void * fireRing_ctx;);
-    ctx->fireRing_ctx = NULL;
-    ctx->count = 0;
-    ctx->curr_angle = angleT;
-
-    while(1) {
-        if (ctx->count % periode == 0) {
-            fireRing(&ctx->fireRing_ctx, gctx, nb_ring, ctx->curr_angle);
-            ctx->curr_angle += angvel;
-        }
-        ctx->count++;
-        yield;
-    }
-End_Task;
-
-Define_Task(moonlight_task, PARAMS(GameContext *gctx), void * spiral_ctx; void *spiral_ctx_2;);
-    ctx->spiral_ctx = NULL;
-    ctx->spiral_ctx_2 = NULL;
-    
-    while(1) {
-        spiral(&ctx->spiral_ctx, gctx, 3, 90, 30, 4);
-        spiral(&ctx->spiral_ctx_2, gctx, -2, 90, 30, 4);
-        yield;
-    }
-End_Task;
 
 void state_moonlight_update(GameContext *ctx) {
-    moonlight_task(&moonlight_ctx, ctx);
+    cosched_run_tasks(&ctx->sched);
 
     Player_update(ctx);
     Physics_update_all(ctx->pool);
@@ -96,6 +141,7 @@ void state_moonlight_draw(GameContext *ctx) {
 
 void state_moonlight_cleanup(GameContext *ctx) {
     StopMusicStream(playlist[BGM_FAST_DANGER]);
+    cosched_finish(&ctx->sched);
     free(ctx->pool);
 }
 

@@ -46,6 +46,7 @@ typedef struct Physics {
   float maxSpd; // Vitesse terminale
   float minSpd; // Vitesse minimale
   float angVel; // Vélocité angulaire
+  Vector2 force;
 
   /* Calcul */
   Vector2 velocity;
@@ -59,6 +60,7 @@ DECLARE_SETTER_GETTER(Physics, float, accel)
 DECLARE_SETTER_GETTER(Physics, float, maxSpd)
 DECLARE_SETTER_GETTER(Physics, float, minSpd)
 DECLARE_SETTER_GETTER(Physics, float, angVel)
+DECLARE_SETTER_GETTER(Physics, Vector2, force);
 
 /**
  * @brief Crée une composante physique avec uniquement la speed
