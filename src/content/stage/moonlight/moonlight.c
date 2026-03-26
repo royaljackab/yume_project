@@ -8,7 +8,6 @@
 #include "physics.h"
 #include "player.h"
 #include "pool.h"
-#include "screen.h"
 #include "sprite.h"
 #include "components/bullet.h"
 #include "core/coroutine/tasks.h"

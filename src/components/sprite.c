@@ -60,7 +60,7 @@ void UpdateAnimation(Sprite *sprite) {
   }
 }
 
-void Sprite_draw_sprite(Sprite *sprite, Position *pos) {
+void Sprite_draw_sprite(Sprite *sprite, Position *pos, Tag *tag) {
   /**
    * Dessine un sprite a une position donnée en utilisant DrawTexturePro de
    * raylib
@@ -72,7 +72,8 @@ void Sprite_draw_sprite(Sprite *sprite, Position *pos) {
                        sprite->srcRect.height * sprite->scale.y};
 
   // TODO: Tag pour enlever la rotation par défaut
-  sprite->rotation = pos->angle;
+  if ( tag == NULL || (*tag != ENT_ENEMY && *tag != ENT_BOSS) )
+    sprite->rotation = pos->angle;
 
   DrawTexturePro(tex, sprite->srcRect, destRec, sprite->center,
                  sprite->rotation, sprite->color);
@@ -99,16 +100,18 @@ void Sprite_draw_all(Pool *p) {
    */
   SpriteManager *spriteManager = &p->sprite;
   PositionManager *positionManager = &p->position;
+  TagManager *tagManager = &p->tag;
 
   Position *pos;
   Entity e;
   Sprite *sprite;
+  Tag *tag;
   for (int layer = MIN_LAYER; layer <= MAX_LAYER; layer++) {
     for (int i = 0; i < spriteManager->count; i++) {
       sprite = &spriteManager->dense[i];
       e = Sprite_get_entity(spriteManager, i);
-      
       pos = Position_get(positionManager, e);
+      tag = Tag_get(tagManager, e);
 
 
       if (IsOutOfDrawBounds(*pos, *sprite)) {
@@ -118,7 +121,7 @@ void Sprite_draw_all(Pool *p) {
       if (sprite->renderPriority == layer) {
 
         if (sprite->display) {
-          Sprite_draw_sprite(sprite, pos);
+          Sprite_draw_sprite(sprite, pos, tag);
           if (sprite->isAnimated) {
             UpdateAnimation(sprite);
           }
