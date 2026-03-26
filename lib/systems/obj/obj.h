@@ -48,3 +48,12 @@ void obj_SetMaxSpd(Pool *p, Entity objId, float maxspd);
 void obj_SetMinSpd(Pool *p, Entity objId, float minspd);
 void obj_UnsetMaxSpd(Pool *p, Entity objId);
 void obj_UnsetMinSpd(Pool *p, Entity objId);
+
+/*----------------------------------------------------*/
+
+int obj_GetLife(Pool *p, Entity objId);
+int obj_GetMaxLife(Pool *p, Entity objId);
+bool obj_IsDead(Pool *p, Entity objId);
+
+void obj_SetLife(Pool *p, Entity objId, int life);
+void obj_SetMaxlife(Pool *p, Entity objId, int maxLife);
