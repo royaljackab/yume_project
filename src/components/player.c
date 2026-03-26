@@ -6,6 +6,7 @@
 #include "components/sprite.h"
 #include "components/particle.h"
 #include "components/collision_entity.h"
+#include "components/flags.h"
 
 #include "ecs/pool.h"
 
@@ -18,6 +19,7 @@
 #include <complex.h>
 #include <raylib.h>
 #include <raymath.h>
+#include <stdio.h>
 
 /* Macros definitions */
 #define CREATE_PLAYER(nbLives, nbBombs, speed, focusSpeed, name) (Player){nbLives, nbLives, nbBombs, nbBombs, speed, focusSpeed, -1, name}
@@ -112,11 +114,13 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
 
     Position *pos = Position_get(&p->position, player);
     Weapon *weapon = Weapon_get(&p->weapon, player);
-
+    flagList flagList = {.flags = {FLAG_BULLET_PLAYER}, .size = 1};
     if(input->shoot.isDown) {
         if (weapon->cooldown == 0) {
-            Bullet_player_spawn(p, pos->pos.x - 7, pos->pos.y, 40, -90, REIMU_PINK_AMULET);
-            Bullet_player_spawn(p, pos->pos.x + 7, pos->pos.y, 40, -90, REIMU_PINK_AMULET);
+            printf("avant bullet spawn");
+            Bullet_player_spawn(p, pos->pos.x - 7, pos->pos.y, 40, -90, &flagList, REIMU_PINK_AMULET);
+            Bullet_player_spawn(p, pos->pos.x + 7, pos->pos.y, 40, -90, &flagList, REIMU_PINK_AMULET);
+            printf("apres bullet spawn");
             // Son de tir
             if (!IsSoundPlaying(sfx[SFX_SHOOT])) {
                 PlaySound(sfx[SFX_SHOOT]);
@@ -169,7 +173,7 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     Player player = Player_create(name);
     Weapon weapon = Weapon_create(type);
     Sprite sprite = sprites[REIMU_IDLE];
-    
+    Collision_circle collision_circle = {5};
     Entity e = pool_create_entity(p);
     Entity hitbox = particle_bound(p, HITBOX, e);
 
@@ -179,6 +183,7 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     Sprite_add(&p->sprite, e, sprite);
 
     Player_set_hitboxId(Player_get(&p->player,e),hitbox);
+    Collision_circle_add(&p->collision_circle, e, collision_circle);
 }
 
 void Player_update(GameContext *ctx) {
@@ -189,8 +194,8 @@ void Player_update(GameContext *ctx) {
     
     Player_move(input, p, player);
     Player_shoot(input, p, player);
-
-    Entity_is_hit(p, player, (Tag[]){ENT_ENEMY_SHOT, ENT_LOOSE_LASER ,ENT_ENEMY_LASER} );
+    flagList flagList = {.flags = {FLAG_BULLET_ENEMY}, .size = 1};
+    Entity_is_hit(p, player, &flagList);
     Player_focus(input, p, player);
 
 }

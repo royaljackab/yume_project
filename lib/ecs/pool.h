@@ -26,6 +26,7 @@
 #include "straight_laser.h"
 #include "looseLaser.h"
 #include "enemy.h"
+#include "flags.h"
 
 typedef struct Pool {
   //common
@@ -51,6 +52,8 @@ typedef struct Pool {
   LifeManager life;
   PlayerManager player;
   WeaponManager weapon;
+
+  flagListManager flagList;
 
   // Nouvelle gestion des indices
   Entity free_indices[MAX_ENTITIES]; // Le tableau qui stocke les IDs dispos
