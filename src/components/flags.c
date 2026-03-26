@@ -22,6 +22,7 @@ void Flag_display(FlagType flag) {
         case FLAG_BULLET_ENEMY:   type_str = "BULLET_ENEMY"; break;
         case FLAG_POWERUP:        type_str = "POWERUP"; break;
         case FLAG_WALL:           type_str = "WALL"; break;
+        case FLAG_INVINCIBLE:     type_str = "INVINCIBLE"; break;
         default:                  type_str = "UNKNOWN"; break;
     }
     printf("Flag: [Type: %s]\n", type_str);
@@ -48,6 +49,17 @@ bool Entity_has_flag_in_list(Pool *p, Entity entity, flagList *list){
     }
     return false;
 }
+
+bool Entity_has_flag(Pool *p, Entity entity, FlagType flag){
+    flagList * entityFlags = flagList_get(&p->flagList, entity);
+    for (int i=0; i<entityFlags->size; i++) {
+        if (entityFlags->flags[i] == flag) {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 bool flagList_add_element(flagList *list, FlagType type){
 /** 

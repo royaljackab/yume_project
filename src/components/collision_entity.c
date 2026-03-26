@@ -13,6 +13,10 @@ bool Entity_is_hit_by_circle(Pool *p, Entity entity, flagList * BulletFlags) {
   /**
    * Verifie si l'enité est touchés par une collision circulaire ayant un des tag de BulletTypes
    */
+  if (Entity_has_flag(p, entity, FLAG_INVINCIBLE)) {
+    return false; //ne rentre pas dans les calculs si l'entité est invincible
+  }
+  
   bool is_hit = false;
   Collision_circleManager *collision_circle_manager = &p->collision_circle;
   PositionManager *positionManager = &p->position;
@@ -21,6 +25,7 @@ bool Entity_is_hit_by_circle(Pool *p, Entity entity, flagList * BulletFlags) {
   Vector2 entityPos = Position_get_pos(Position_get(positionManager, entity));
   Collision_circle * collision;
   float entityRadius = Collision_circle_get_radius(Collision_circle_get(collision_circle_manager, entity));
+
   int lookup;
   for (int i = 0; i < collision_circle_manager->count; i++) {
     lookup = collision_circle_manager->entity_lookup[i];
@@ -44,10 +49,15 @@ bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, flagList * laserFlags){
     /**
      * Verifie si l'enité est touchés par une collision rectangulaire ayant un des tag de LaserTypes
      */
+
+    if (Entity_has_flag(p, entity, FLAG_INVINCIBLE)) {
+        return false; //ne rentre pas dans les calculs si l'entité est invincible 
+    }
+
     bool is_hit = false;
     Collision_rectangleManager *collision_rectangle_manager = &p->collision_rectangle;
     PositionManager *positionManager = &p->position;
-    
+
     Position * pos;
     Vector2 entityPos = Position_get_pos(Position_get(positionManager, entity));
     Collision_rectangle * collision;
@@ -77,5 +87,19 @@ extern bool Entity_is_hit(Pool *p, Entity entity, flagList * flags){
 }
 
 
+
+extern bool Entity_damaged_by_enemy_projectile(Pool *p, Entity entity){
+    /**
+     * Verifie si l'entité (surtout le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts
+     */
+
+    flagList bulletFlags = {.flags = (FlagType[]){FLAG_PROJECTILE_ENEMY}, .size = 1};
+    if(Entity_is_hit(p, entity, &bulletFlags)){
+        Life_damage(Life_get(p, entity), 1);
+        return true;
+    }
+    return false;
+
+}
 
 

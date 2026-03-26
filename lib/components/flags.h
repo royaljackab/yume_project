@@ -16,9 +16,10 @@ typedef enum {
     FLAG_ENEMY,
     FLAG_BOSS,
     FLAG_BULLET_PLAYER,
-    FLAG_BULLET_ENEMY,
+    FLAG_PROJECTILE_ENEMY,
     FLAG_POWERUP,
-    FLAG_WALL
+    FLAG_WALL,
+    FLAG_INVINCIBLE //et pas omni-man l'équipe
 } FlagType;
 
 /* Liste de flags */
@@ -38,3 +39,4 @@ bool Flag_in_list(FlagType type, flagList *list);
 bool flagList_add_element(flagList *list, FlagType type);
 bool Entity_has_flag_in_list(Pool *p, Entity entity, flagList *list);
 void flagList_destroy(Pool *p, Entity e);
+bool Entity_has_flag(Pool *p, Entity entity, FlagType flag);

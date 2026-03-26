@@ -13,7 +13,7 @@ Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle,
 
   FlagType * flagTypeList = malloc(sizeof(FlagType) * MAX_FLAGS);
   flagList flagList = {.flags = flagTypeList, .size = 1};
-  flagList_add_element(&flagList, FLAG_BULLET_ENEMY);
+  flagList_add_element(&flagList, FLAG_PROJECTILE_ENEMY);
   flagList_add(&p->flagList, e, flagList);
   return e;
 }
@@ -24,7 +24,7 @@ Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
 
   FlagType * flagTypeList = malloc(sizeof(FlagType) * MAX_FLAGS);
   flagList flagList = {.flags = flagTypeList, .size = 1};
-  flagList_add_element(&flagList, FLAG_BULLET_PLAYER);
+  flagList_add_element(&flagList, FLAG_PROJECTILE_PLAYER);
   flagList_add(&p->flagList, e, flagList);
   return e;
 
