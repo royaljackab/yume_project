@@ -28,8 +28,8 @@ endif
 
 # Recherche des dossiers de header dans ../lib
 LIB_DIRS = $(shell find ../lib -type d)
-# Inclusion des headers : src/ + tous les sous-dossiers de lib/ + le dossier raylib/src
-INCLUDES = -I. $(addprefix -I,$(LIB_DIRS)) -I../include
+# Inclusion des headers : src/ + tous les sous-dossiers de lib/ + raylib include
+INCLUDES = -I. $(addprefix -I,$(LIB_DIRS)) -I../include -I../include/src -I../raylib/src
 
 # Flags de compilation
 CFLAGS = -g $(INCLUDES)
