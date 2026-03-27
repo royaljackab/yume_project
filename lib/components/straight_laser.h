@@ -31,5 +31,4 @@ bool straight_laser_update(Pool *p, Entity laserID);
 void straight_lasers_update_all(Pool *pool);
 void straight_laser_draw(Straight_laser *laser, Position * pos, Sprite * sprite);
 void straight_lasers_draw_all(Straight_laserManager *laserManager, PositionManager * positionManager, SpriteManager * spriteManager);
-void straight_laser_create(Pool *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, SpriteID graphic);
-
+Entity straight_laser_create(Pool *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, SpriteID graphic);

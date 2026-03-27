@@ -52,8 +52,8 @@ void coevent_add_subscriber(CoEvent *evt, CoTask *task) {
 }
 
 static
-void coevent_wake_subscribers(CoEvent *evt, uint num_subs, BoxedTask subs[num_subs]) {
-    for(uint i=0; i < num_subs; i++) {
+void coevent_wake_subscribers(CoEvent *evt, unsigned int num_subs, BoxedTask subs[num_subs]) {
+    for(unsigned int i=0; i < num_subs; i++) {
         CoTask *task = cotask_unbox(subs[i]);
 
         // TODO: A finir quand cotask_resume sera fait
@@ -94,8 +94,8 @@ void coevent_cancel(CoEvent *evt) {
     }
 }
 
-void _coevent_array_action(uint num, CoEvent *events, void (*func)(CoEvent *)) {
-    for (uint i = 0; i < num; i++) {
+void _coevent_array_action(unsigned int num, CoEvent *events, void (*func)(CoEvent *)) {
+    for (unsigned int i = 0; i < num; i++) {
         func(events + i);
     }
 }

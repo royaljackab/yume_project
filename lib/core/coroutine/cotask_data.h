@@ -64,14 +64,14 @@ struct CoTaskData {
             } event;
         };
 
-        uint wait_type;
+        unsigned int wait_type;
     } wait;
 
     // Entité/events que la tache crée
     struct {
         Entity ent;
         CoEvent *events;
-        uint num_events;
+        unsigned int num_events;
     } hosted;
 };
 

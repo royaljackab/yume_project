@@ -27,5 +27,13 @@ test/test_life
 test/test_physics
 test/*.dSYM
 
+# Raylib compilation artifacts
+include/src/*.o
+include/src/*.d
+include/src/*.exe
+# include/src/libraylib.a
+include/src/raylib.dll
 
-
+# Koishi build artifacts
+include/koishi/build/
+# lib/libkoishi.a
