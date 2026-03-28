@@ -109,7 +109,7 @@ void coevent_cancel(CoEvent *evt);
  * @param events 
  * @param func 
  */
-void _coevent_array_action(uint num, CoEvent *events, void (*func)(CoEvent*));
+void _coevent_array_action(unsigned int num, CoEvent *events, void (*func)(CoEvent*));
 
 #define COEVENT_ARRAY_ACTION(func, array) \
     (_coevent_array_action(sizeof(array)/sizeof(CoEvent), &((array)._first_event_), func))

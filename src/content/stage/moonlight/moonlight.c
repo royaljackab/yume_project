@@ -47,7 +47,7 @@ TASK(pulse_ring, {GameContext *ctx; float x; float y;}) {
         for (int i=0; i < num_projs; i++) {
             float current_angle = aim_angle + (i * 360.0 / num_projs);
 
-            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.x, ARGS.y, init_speed, current_angle, BALL_M_BLACK);
+            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.x, ARGS.y, init_speed, current_angle, MISSILE_LIGHT_RED);
             Physics *phy = Physics_get(&ARGS.ctx->pool->physics, bullet);
             Physics_set_accel(phy, -0.6);
             Physics_set_minSpd(phy, final_speed);
@@ -95,14 +95,28 @@ TASK(crystal_shower, {GameContext *ctx; float x; float y;}) {
     }
 }   
 
-TASK(moonlight_task, { GameContext *ctx; }) {
-    while (true) {
-        WAIT(20);
-        INVOKE_SUBTASK(pulse_ring, ARGS.ctx, 500, 500);
-        WAIT(10);
-        INVOKE_SUBTASK(crystal_shower, ARGS.ctx, 500, 500);
+
+TASK(laser_task,  {GameContext *ctx; int amount; int x; int y; int length;}) {
+    while(true){
+            for(int i = 0; i < 1;i++){
+            Entity id = straight_laser_enemy_create(ARGS.ctx->pool, ARGS.x, ARGS.y, i * 360 / ARGS.amount, ARGS.length, 40, 80, 40, 100, LASER_LIGHT_CYAN);
+            Physics_set_angVel(Physics_get(&ARGS.ctx->pool->physics,id),0.3);
+        }
+        WAIT(300);
     }
-    
+}
+
+
+
+TASK(moonlight_task, { GameContext *ctx; }) {
+    INVOKE_SUBTASK(laser_task, ARGS.ctx, 3, 500, 500 ,700);
+    while (true) {
+        WAIT(30);
+        INVOKE_SUBTASK(pulse_ring, ARGS.ctx, 500, 500);
+        
+        // WAIT(10);
+        // INVOKE_SUBTASK(crystal_shower, ARGS.ctx, 500, 500);
+    }
 }
 
 TASK(movement, { GameContext *ctx; }) {
