@@ -1,3 +1,4 @@
+
 #include "components/player.h"
 #include "components/bullet.h"
 #include "components/common.h"
@@ -6,7 +7,6 @@
 #include "components/sprite.h"
 #include "components/particle.h"
 #include "components/collision_entity.h"
-#include "components/flags.h"
 
 #include "ecs/pool.h"
 
@@ -20,6 +20,7 @@
 #include <raylib.h>
 #include <raymath.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /* Macros definitions */
 #define CREATE_PLAYER(nbLives, nbBombs, speed, focusSpeed, name) (Player){nbLives, nbLives, nbBombs, nbBombs, speed, focusSpeed, -1, name}
@@ -114,13 +115,11 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
 
     Position *pos = Position_get(&p->position, player);
     Weapon *weapon = Weapon_get(&p->weapon, player);
-    flagList flagList = {.flags = {FLAG_BULLET_PLAYER}, .size = 1};
+
     if(input->shoot.isDown) {
         if (weapon->cooldown == 0) {
-            printf("avant bullet spawn");
-            Bullet_player_spawn(p, pos->pos.x - 7, pos->pos.y, 40, -90, &flagList, REIMU_PINK_AMULET);
-            Bullet_player_spawn(p, pos->pos.x + 7, pos->pos.y, 40, -90, &flagList, REIMU_PINK_AMULET);
-            printf("apres bullet spawn");
+            Bullet_player_spawn(p, pos->pos.x - 7, pos->pos.y, 40, -90, REIMU_PINK_AMULET);
+            Bullet_player_spawn(p, pos->pos.x + 7, pos->pos.y, 40, -90, REIMU_PINK_AMULET);
             // Son de tir
             if (!IsSoundPlaying(sfx[SFX_SHOOT])) {
                 PlaySound(sfx[SFX_SHOOT]);
@@ -173,7 +172,7 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     Player player = Player_create(name);
     Weapon weapon = Weapon_create(type);
     Sprite sprite = sprites[REIMU_IDLE];
-    Collision_circle collision_circle = {5};
+    
     Entity e = pool_create_entity(p);
     Entity hitbox = particle_bound(p, HITBOX, e);
 
@@ -181,10 +180,18 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     Weapon_add(&p->weapon, e, weapon);
     Position_add(&p->position, e, (Position){{0,0}, 0});
     Sprite_add(&p->sprite, e, sprite);
-
+    Collision_circle_add(&p->collision_circle, e, (Collision_circle){5});
     Player_set_hitboxId(Player_get(&p->player,e),hitbox);
-    Collision_circle_add(&p->collision_circle, e, collision_circle);
+    Life_add(&p->life, e, (Life){INITIAL_PLAYER_LIVES, INITIAL_PLAYER_LIVES});
+
+        //ajout de la flagList du joueur
+    FlagType * flagTypeList = malloc(sizeof(FlagType) * MAX_FLAGS);
+    flagList flagList = {.flags = flagTypeList, .size = 0};
+    flagList_add_element(&flagList, FLAG_PLAYER);
+    flagList_add(&p->flagList, e, flagList);
+
 }
+
 
 void Player_update(GameContext *ctx) {
     Pool *p = ctx->pool;
@@ -194,11 +201,12 @@ void Player_update(GameContext *ctx) {
     
     Player_move(input, p, player);
     Player_shoot(input, p, player);
-    flagList flagList = {.flags = {FLAG_BULLET_ENEMY}, .size = 1};
-    Entity_is_hit(p, player, &flagList);
     Player_focus(input, p, player);
+    Damage_entity_by_enemy_projectile(p, player);
+    
 
 }
+
 
 extern Position * Player_get_position(Pool *p, Player player){
     /**
@@ -219,6 +227,5 @@ extern Collision_circle * Player_get_collision(Pool *p, Player player){
   Collision_circleManager *collision_circleManager = &p->collision_circle;
   int lookup = collision_circleManager->entity_lookup[0];
   return &collision_circleManager->dense[lookup];
-
 }
 

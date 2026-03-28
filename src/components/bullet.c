@@ -1,31 +1,22 @@
 #include "components/bullet.h"
-#include "common.h"
 #include "physics.h"
 #include "pool.h"
 #include "sprite.h"
-#include "flags.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 
 Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle, 
                     SpriteID graphic) {
   Entity e = Bullet_spawn(p, x, y, speed, angle, ENT_ENEMY_SHOT, graphic);
-
-  FlagType * flagTypeList = malloc(sizeof(FlagType) * MAX_FLAGS);
-  flagList flagList = {.flags = flagTypeList, .size = 1};
-  flagList_add_element(&flagList, FLAG_PROJECTILE_ENEMY);
-  flagList_add(&p->flagList, e, flagList);
+  flagList_attach_first_flag(p, e, FLAG_PROJECTILE_ENEMY);
   return e;
 }
 
 Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic) {
   Entity e = Bullet_spawn(p, x, y, speed, angle, ENT_PLAYER_SHOT, graphic);
-
-  FlagType * flagTypeList = malloc(sizeof(FlagType) * MAX_FLAGS);
-  flagList flagList = {.flags = flagTypeList, .size = 1};
-  flagList_add_element(&flagList, FLAG_PROJECTILE_PLAYER);
-  flagList_add(&p->flagList, e, flagList);
+  flagList_attach_first_flag(p, e, FLAG_PROJECTILE_PLAYER);
   return e;
 
 

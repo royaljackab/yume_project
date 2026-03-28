@@ -84,7 +84,7 @@ TASK(crystal_shower, {GameContext *ctx; float x; float y;}) {
 TASK(laser_task,  {GameContext *ctx; int amount; int x; int y; int length;}) {
     while(true){
             for(int i = 0; i < ARGS.amount;i++){
-            Entity id = straight_laser_create(ARGS.ctx->pool, ARGS.x, ARGS.y, i * 360 / ARGS.amount, ARGS.length, 40, 80, 40, 100, LASER_LIGHT_CYAN);
+            Entity id = straight_laser_enemy_create(ARGS.ctx->pool, ARGS.x, ARGS.y, i * 360 / ARGS.amount, ARGS.length, 40, 80, 40, 100, LASER_LIGHT_CYAN);
             Physics_set_angVel(Physics_get(&ARGS.ctx->pool->physics,id),0.3);
         }
         WAIT(300);

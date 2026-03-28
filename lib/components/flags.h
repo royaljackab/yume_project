@@ -5,7 +5,7 @@
 
 #pragma once
 
-#define MAX_FLAGS 20
+#define MAX_FLAGS 30
 #include "ecs/component.h"
 typedef struct Pool Pool;
 
@@ -15,7 +15,7 @@ typedef enum {
     FLAG_PLAYER,
     FLAG_ENEMY,
     FLAG_BOSS,
-    FLAG_BULLET_PLAYER,
+    FLAG_PROJECTILE_PLAYER,
     FLAG_PROJECTILE_ENEMY,
     FLAG_POWERUP,
     FLAG_WALL,
@@ -40,3 +40,4 @@ bool flagList_add_element(flagList *list, FlagType type);
 bool Entity_has_flag_in_list(Pool *p, Entity entity, flagList *list);
 void flagList_destroy(Pool *p, Entity e);
 bool Entity_has_flag(Pool *p, Entity entity, FlagType flag);
+Entity flagList_attach_first_flag(Pool *p, Entity e, FlagType flag);

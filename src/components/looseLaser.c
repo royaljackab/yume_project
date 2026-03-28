@@ -6,6 +6,7 @@
 #include "pool.h"
 
 #include "stdio.h"
+#include <stdlib.h>
 
 ///TODO: ajouter des hitbox aux nodes
 

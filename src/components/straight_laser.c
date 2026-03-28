@@ -48,6 +48,11 @@ bool straight_laser_update(Pool *p, Entity laserID) {
     //le laser continue d'exister
     return true;
 }
+Entity straight_laser_enemy_create(Pool *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, SpriteID graphic){
+    Entity e = straight_laser_create(pool, x, y, angle, length, maxWidth, warning, growing, duration, graphic);
+    flagList_attach_first_flag(pool, e, FLAG_PROJECTILE_ENEMY);
+    return e;
+}
 
 Entity straight_laser_create(Pool *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, SpriteID graphic){
     Entity id = pool_create_entity(pool);
@@ -77,7 +82,7 @@ Entity straight_laser_create(Pool *pool, int x, int y, int angle, int length, in
     Collision_rectangle collision = {0 , 0};
     Collision_rectangle_add(&pool->collision_rectangle, id, collision);
 
-    //rintf("Laser cree\n");
+    //printf("Laser cree %d\n", id);
     for(int i = 0; i < timer.nbTime; i++){
     }
     return id;
@@ -92,7 +97,7 @@ void straight_lasers_update_all(Pool *pool) {
     for (int i=0; i < pool->straightLaser.count; i++) {
         laser = &pool->straightLaser.dense[i];
         // printf("mise a jour du laser %d\n",pool->straightLaser.entity_lookup[i]);
-        if(!straight_laser_update(laser)) {
+        if(!straight_laser_update(pool, pool->straightLaser.entity_lookup[i])) {
             // printf("mise a la casse du laser %d\n",pool->straightLaser.entity_lookup[i]);
             pool_kill_entity(pool, pool->straightLaser.entity_lookup[i]);
         }
