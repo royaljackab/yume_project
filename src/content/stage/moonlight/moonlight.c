@@ -95,6 +95,13 @@ TASK(laser_task,  {GameContext *ctx; int amount; int x; int y; int length;}) {
 
 TASK(moonlight_task, { GameContext *ctx; }) {
     INVOKE_SUBTASK(laser_task, ARGS.ctx, 3, 500, 500 ,700);
+    Enemy_spawn(ARGS.ctx->pool, 700,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_PURPLE_IDLE);
+    Enemy_spawn(ARGS.ctx->pool, 600,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_BLACK_BLONDE_IDLE);
+    Enemy_spawn(ARGS.ctx->pool, 500,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_RED_IDLE);
+    Enemy_spawn(ARGS.ctx->pool, 400,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_BLUE_IDLE);
+    Enemy_spawn(ARGS.ctx->pool, 300,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
+    Enemy_spawn(ARGS.ctx->pool, 200,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_BIG_EVIL_IDLE);
+    Enemy_spawn(ARGS.ctx->pool, 100,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_GREEN_IDLE);
     while (true) {
         WAIT(30);
         INVOKE_SUBTASK(pulse_ring, ARGS.ctx, 500, 500);
