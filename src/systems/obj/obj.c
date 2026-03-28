@@ -1,5 +1,6 @@
 #include "obj/obj.h"
 #include "common.h"
+#include "life.h"
 #include "physics.h"
 #include "pool.h"
 #include "sprite.h"
@@ -264,3 +265,44 @@ void obj_UnsetMinSpd(Pool *p, Entity objId) {
     phy->minSpd = NO_MIN_SPEED;
 }
 
+void obj_SetSpeed(Pool *p, Entity objId, float speed) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    phy->speed = speed;
+}
+
+int obj_GetLife(Pool *p, Entity objId) {
+    Life *life = Life_get(&p->life, objId);
+    if (!life) return 0;
+
+    return life->life;
+}
+
+int obj_GetMaxLife(Pool *p, Entity objId) {
+    Life *life = Life_get(&p->life, objId);
+    if (!life) return 0;
+
+    return life->maxLife;
+}
+
+bool obj_IsDead(Pool *p, Entity objId) {
+    Life *life = Life_get(&p->life, objId);
+    if (!life) return true;
+
+    return life->life == 0;
+}
+
+void obj_SetLife(Pool *p, Entity objId, int lif) {
+    Life *life = Life_get(&p->life, objId);
+    if (!life) return;
+
+    life->life = lif;
+}
+
+void obj_SetMaxlife(Pool *p, Entity objId, int maxLife) {
+    Life *life = Life_get(&p->life, objId);
+    if (!life) return;
+
+    life->maxLife = maxLife; 
+}

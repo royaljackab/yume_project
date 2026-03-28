@@ -84,6 +84,6 @@ extern void Sprite_set_SourceRect(Sprite *sprite, float x, float y, float width,
 
 void UpdateAnimation(Sprite *sprite);
 
-void Sprite_draw_sprite(Sprite *sprite, Position *pos);
+void Sprite_draw_sprite(Sprite *sprite, Position *pos, Tag *tag);
 extern void Sprite_draw_all(Pool *pool);
 

@@ -36,6 +36,7 @@ float obj_GetAlpha(Pool *p, Entity objId);
 /*----------------------------------------------------*/
 
 void obj_SetAcceleration(Pool *p, Entity objId, float accel);
+void obj_SetSpeed(Pool *p, Entity objId, float speed);
 void obj_SetAngularSpeed(Pool *p, Entity objId, float angvel);
 void obj_SetForceX(Pool *p, Entity objId, float forcex);
 void obj_SetForceY(Pool *p, Entity objId, float forcey);
@@ -47,3 +48,12 @@ void obj_SetMaxSpd(Pool *p, Entity objId, float maxspd);
 void obj_SetMinSpd(Pool *p, Entity objId, float minspd);
 void obj_UnsetMaxSpd(Pool *p, Entity objId);
 void obj_UnsetMinSpd(Pool *p, Entity objId);
+
+/*----------------------------------------------------*/
+
+int obj_GetLife(Pool *p, Entity objId);
+int obj_GetMaxLife(Pool *p, Entity objId);
+bool obj_IsDead(Pool *p, Entity objId);
+
+void obj_SetLife(Pool *p, Entity objId, int life);
+void obj_SetMaxlife(Pool *p, Entity objId, int maxLife);

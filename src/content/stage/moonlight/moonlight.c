@@ -4,10 +4,10 @@
 #include "ecs.h"
 #include "content/assets.h"
 #include "game_state.h"
+#include "obj/obj.h"
 #include "physics.h"
 #include "player.h"
 #include "pool.h"
-#include "screen.h"
 #include "sprite.h"
 #include "components/bullet.h"
 #include "core/coroutine/tasks.h"
@@ -22,9 +22,9 @@
 #include <math.h>
 
 static
-void fireRing(GameContext *ctx, float x, float y, int nb_ring, float angleT) {
+void fireRing(GameContext *ctx, float x, float y, int nb_ring, float angleT, float speed) {
     for (int i=0; i < nb_ring; i++) {
-        Bullet_enemy_spawn(ctx->pool, x, y, 5, angleT, BALL_M_BLACK);
+        Bullet_enemy_spawn(ctx->pool, x, y, speed, angleT, BALL_M_BLACK);
         angleT += 360.0 / nb_ring;
     }
 }
@@ -54,6 +54,21 @@ TASK(pulse_ring, {GameContext *ctx; float x; float y;}) {
         }
 
         WAIT(2);
+    }
+}
+
+TASK(flowering_night, { GameContext *ctx; Entity enemy; int profondeur; int nb_petale; int periode; }) {
+    while (true) {
+        float angleT = GetRandomValue(0, 360);
+        float x = obj_GetX(ARGS.ctx->pool, ARGS.enemy);
+        float y = obj_GetY(ARGS.ctx->pool, ARGS.enemy);
+        int sign = angleT > 180 ? -1 : 1;
+
+        for (int i=0; i < ARGS.profondeur; i++) {
+            fireRing(ARGS.ctx, x, y, ARGS.nb_petale, angleT + sign *i*10, 2 + i);
+        }
+
+        WAIT(ARGS.periode);
     }
 }
 
@@ -104,6 +119,24 @@ TASK(moonlight_task, { GameContext *ctx; }) {
     }
 }
 
+TASK(movement, { GameContext *ctx; }) {
+    Pool *pool = ARGS.ctx->pool;
+    
+    Entity enemy = Enemy_spawn(pool, 480, 200, 0, 0, 5, 20, ENEMY_TYPE_FAIRY, ENEMY_FAIRY_BLUE_IDLE);
+    INVOKE_SUBTASK(flowering_night, ARGS.ctx, enemy, 6, 7, 30);
+
+    TASK_BIND(enemy);
+
+    while(true) {
+        float rand_angle = (float)GetRandomValue(0, 360);
+
+        obj_SetAngle(ARGS.ctx->pool, enemy, rand_angle);
+        obj_SetSpeed(ARGS.ctx->pool, enemy, 3);
+
+        WAIT(30);
+    }
+}
+
 void state_moonlight_init(GameContext *ctx) {
     ctx->pool = malloc(sizeof(Pool));
     if (!ctx->pool) {
@@ -118,15 +151,15 @@ void state_moonlight_init(GameContext *ctx) {
     pool_init(ctx->pool);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
 
-    Enemy_spawn(ctx->pool, 480, 200, 0, 0, 5, 20,
-        ENEMY_TYPE_FAIRY, ENEMY_FAIRY_BLUE_IDLE);
-
     cosched_init(&ctx->sched, ctx->pool);
 
-    SCHED_INVOKE_TASK(&ctx->sched, moonlight_task, ctx);
+
+    // SCHED_INVOKE_TASK(&ctx->sched, moonlight_task, ctx);
+    // SCHED_INVOKE_TASK(&ctx->sched, flowering_night, ctx, 500, 500, 5, 7, 30);
+    for (int i=0; i<1; ++i) {
+        SCHED_INVOKE_TASK(&ctx->sched, movement, ctx); 
+    }
 }
-
-
 
 void state_moonlight_update(GameContext *ctx) {
     cosched_run_tasks(&ctx->sched);
