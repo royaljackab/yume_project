@@ -112,40 +112,60 @@ extern bool Damage_player_by_enemy_projectile(Pool *p, Entity player){
     return false;
 }
 
+bool CheckCircleRotatedRect(Vector2 cPos, float radius, Vector2 rPos, float w, float h, float angle) {
 
-bool CheckCircleRotatedRect(Vector2 cPos, float radius,
-                            Vector2 rPos, float w, float h, float angle)
-{
-    /**
-    * Fonction pour verifier la collision entre un rectangle avec un angle et un cercle
-    */    
-    angle += 90;   
+    // 1. Calcul de l'angle, décalage de -90 degrés (jsp pk mais sans probleme)
+    float rad = (angle - 90.0f) * DEG2RAD;
+    float cosA = cosf(rad);
+    float sinA = sinf(rad);
 
-    float rad = angle * DEG2RAD; //necessaire car cosf et sinf prennent des randians
+    // Vecteurs de direction unitaires
+    Vector2 dirX = { cosA, sinA };
+    Vector2 dirY = { -sinA, cosA };
 
-    // déplacer le cercle dans l'espace du rectangle
-    float dx = cPos.x - rPos.x;
-    float dy = cPos.y - rPos.y;
+    // 2. Calcul des 4 sommets
+    // Le rectangle s'étend de -w/2 à w/2 latéralement (dirX)
+    // et de 0 à h en profondeur (dirY).
+    float hw = w / 2.0f;
 
-    // rotation inverse
-    float localX = dx * cosf(rad) + dy * sinf(rad);
-    float localY = dx * sinf(rad) + dy * cosf(rad);
-
-    // clamp au rectangle (centré)
-    float closestX = fmaxf(-w/2, fminf(localX, w/2));
-    float closestY = fmaxf(-h/2, fminf(localY, h/2));
-
-    float distX = localX - closestX;
-    float distY = localY - closestY;
-    bool collision = (distX * distX + distY * distY) <= (radius * radius);
+    Vector2 corners[4];
     
-    DrawRectanglePro((Rectangle){rPos.x, rPos.y, w, h}, (Vector2){w/2, h}, angle, collision ? RED : GREEN);
+    // Haut-Gauche : rPos - (largeur/2 * dirX)
+    corners[0] = Vector2Subtract(rPos, Vector2Scale(dirX, hw));
     
+    // Haut-Droite : rPos + (largeur/2 * dirX)
+    corners[1] = Vector2Add(rPos, Vector2Scale(dirX, hw));
+    
+    // Bas-Droite : Haut-Droite + (hauteur * dirY)
+    corners[2] = Vector2Add(corners[1], Vector2Scale(dirY, h));
+    
+    // Bas-Gauche : Haut-Gauche + (hauteur * dirY)
+    corners[3] = Vector2Add(corners[0], Vector2Scale(dirY, h));
 
+    // 3. Boucle de collision par segments
+    bool collision = false;
+    for (int i = 0; i < 4; i++) {
+        //DrawLineV(corners[i], corners[(i + 1) % 4], GREEN);  //affiche si besoin les lignes
+        // Test de collision avec le segment actuel
+        if (CheckCollisionCircleLine(cPos, radius, corners[i], corners[(i + 1) % 4])) {
+            collision = true;
+        }
+    }
+
+    // 4. Test d'inclusion (si le centre du cercle est à l'intérieur du rectangle)
+    if (!collision) {
+        // Projection du vecteur (Cercle - rPos) sur les axes locaux
+        Vector2 d = Vector2Subtract(cPos, rPos);
+        float projX = d.x * cosA + d.y * sinA;     // Axe de la largeur
+        float projY = -d.x * sinA + d.y * cosA;    // Axe de la hauteur
+
+        // Vérification des limites : x entre [-w/2, w/2] et y entre [0, h]
+        if (projX >= -hw && projX <= hw && projY >= 0 && projY <= h) {
+            collision = true;
+        }
+    }
     return collision;
 }
-
-
 
 
 bool collision_circle_add_scaled_with_sprite(Pool *p, Entity entity){
