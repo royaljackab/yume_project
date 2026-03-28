@@ -67,7 +67,8 @@ bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, flagList * laserFlags){
         lookup = collision_rectangle_manager->entity_lookup[i];
         pos = Position_get(positionManager, lookup);
         if (Entity_has_flag_in_list(p, lookup, laserFlags)) {
-            if (CheckCircleRotatedRect(entityPos, entityRadius, Position_get_pos(pos), Collision_rectangle_get_width(collision), Collision_rectangle_get_length(collision), Position_get_angle(pos))){
+            if (CheckCircleRotatedRect(entityPos, entityRadius, Position_get_pos(pos), Collision_rectangle_get_width(collision), 
+            Collision_rectangle_get_length(collision), Position_get_angle(pos), Collision_rectangle_get_origin(collision))){
                 DrawText("Entité touché rectangle", PANEL_WIDTH + 100, 500, 50, RED);
                 is_hit = true;
             }
@@ -112,7 +113,7 @@ extern bool Damage_player_by_enemy_projectile(Pool *p, Entity player){
     return false;
 }
 
-bool CheckCircleRotatedRect(Vector2 cPos, float radius, Vector2 rPos, float w, float h, float angle) {
+bool CheckCircleRotatedRect(Vector2 cPos, float radius, Vector2 rPos, float w, float h, float angle, Collision_rectangle_origin origin_type) {
 
     // 1. Calcul de l'angle, décalage de -90 degrés (jsp pk mais sans probleme)
     float rad = (angle - 90.0f) * DEG2RAD;
@@ -127,6 +128,8 @@ bool CheckCircleRotatedRect(Vector2 cPos, float radius, Vector2 rPos, float w, f
     // Le rectangle s'étend de -w/2 à w/2 latéralement (dirX)
     // et de 0 à h en profondeur (dirY).
     float hw = w / 2.0f;
+    if (origin_type == CENTER)
+        h /= 2.0f;
 
     Vector2 corners[4];
     

@@ -79,7 +79,7 @@ Entity straight_laser_create(Pool *pool, int x, int y, int angle, int length, in
     Physics phy = Physics_create_speed(0);
     Physics_add(&pool->physics,id,phy);
 
-    Collision_rectangle collision = {0 , 0};
+    Collision_rectangle collision = {0 , 0, TOP};
     Collision_rectangle_add(&pool->collision_rectangle, id, collision);
 
     //printf("Laser cree %d\n", id);
