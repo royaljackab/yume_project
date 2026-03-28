@@ -3,7 +3,7 @@
 #include "components/collision_entity.h"
 #include "flags.h"
 #include <stdio.h>
-
+#include "core/screen.h"
 
 
 
@@ -34,7 +34,7 @@ bool Entity_is_hit_by_circle(Pool *p, Entity entity, flagList * BulletFlags) {
         pos = Position_get(positionManager, lookup);
         if (Entity_has_flag_in_list(p, lookup, BulletFlags)) {
             if (CheckCollisionCircles(entityPos, entityRadius, Position_get_pos(pos), Collision_circle_get_radius(collision))){
-                DrawText("Entité touché cercle", 50, 500, 50, YELLOW);
+                DrawText("Entité touché cercle", PANEL_WIDTH + 100, 500, 50, YELLOW);
                 is_hit = true;
             }
         }
@@ -68,7 +68,7 @@ bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, flagList * laserFlags){
         pos = Position_get(positionManager, lookup);
         if (Entity_has_flag_in_list(p, lookup, laserFlags)) {
             if (CheckCircleRotatedRect(entityPos, entityRadius, Position_get_pos(pos), Collision_rectangle_get_width(collision), Collision_rectangle_get_length(collision), Position_get_angle(pos))){
-                DrawText("Entité touché rectangle", 50, 500, 50, RED);
+                DrawText("Entité touché rectangle", PANEL_WIDTH + 100, 500, 50, RED);
                 is_hit = true;
             }
         }
@@ -119,16 +119,16 @@ bool CheckCircleRotatedRect(Vector2 cPos, float radius,
     /**
     * Fonction pour verifier la collision entre un rectangle avec un angle et un cercle
     */    
+    angle += 90;   
 
-    printf("debut CheckCircleRotatedRect\n");
-    float rad = -angle * DEG2RAD; //necessaire car cosf et sinf prennent des randians
+    float rad = angle * DEG2RAD; //necessaire car cosf et sinf prennent des randians
 
     // déplacer le cercle dans l'espace du rectangle
     float dx = cPos.x - rPos.x;
     float dy = cPos.y - rPos.y;
 
     // rotation inverse
-    float localX = dx * cosf(rad) - dy * sinf(rad);
+    float localX = dx * cosf(rad) + dy * sinf(rad);
     float localY = dx * sinf(rad) + dy * cosf(rad);
 
     // clamp au rectangle (centré)
@@ -138,6 +138,26 @@ bool CheckCircleRotatedRect(Vector2 cPos, float radius,
     float distX = localX - closestX;
     float distY = localY - closestY;
     bool collision = (distX * distX + distY * distY) <= (radius * radius);
-    printf("fin CheckCircleRotatedRect  %d\n", collision);
+    
+    DrawRectanglePro((Rectangle){rPos.x, rPos.y, w, h}, (Vector2){w/2, h}, angle, collision ? RED : GREEN);
+    
+
     return collision;
 }
+
+
+
+
+bool collision_circle_add_scaled_with_sprite(Pool *p, Entity entity){
+    /**
+     * Ajoute une collision circulaire à une entité, avec un rayon basé sur la taille de son sprite
+     */
+    Sprite *sprite = Sprite_get(&p->sprite, entity);
+    if (!sprite) return false;
+
+    float radius = (sprite->srcRect.height) / 2.0; // approximation du rayon à partir de la taille du sprite
+    Collision_circle collision = {radius};
+    Collision_circle_add(&p->collision_circle, entity, collision);
+    return true;
+}
+

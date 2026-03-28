@@ -14,3 +14,4 @@ bool CheckCircleRotatedRect(Vector2 cPos, float radius,
                             Vector2 rPos, float w, float h, float angle);
 extern bool Damage_entity_by_enemy_projectile(Pool *p, Entity entity);
 extern bool Damage_player_by_enemy_projectile(Pool *p, Entity player);
+bool collision_circle_add_scaled_with_sprite(Pool *p, Entity entity);

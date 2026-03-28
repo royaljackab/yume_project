@@ -118,5 +118,6 @@ run: all
 
 clean:
 	rm -rf $(BIN_DIR)
+	mkdir -p $(BIN_DIR)
 	# ACTUELLEMENT DESACTIVÉ: supprimer koishi pour forcer la recompilation
 	# rm -f $(KOISHI_LIB)
