@@ -49,5 +49,5 @@ DECLARE_SETTER_GETTER(Player, Entity, hitboxId);
 extern void Player_start(Pool *p, PlayerName name, PatternType type);
 extern void Player_update(GameContext *ctx);
 
-extern Position * Player_get_position(Pool *p, Player player);
-extern Collision_circle * Player_get_collision(Pool *p, Player player);
+extern void teleport_to_player_spawn(Pool *p, Entity e);
+extern bool Damage_player(Pool *p, Entity player);

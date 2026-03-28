@@ -190,6 +190,9 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     flagList_add_element(&flagList, FLAG_PLAYER);
     flagList_add(&p->flagList, e, flagList);
 
+
+    teleport_to_player_spawn(p, e);
+
 }
 
 
@@ -202,11 +205,24 @@ void Player_update(GameContext *ctx) {
     Player_move(input, p, player);
     Player_shoot(input, p, player);
     Player_focus(input, p, player);
-    Damage_entity_by_enemy_projectile(p, player);
+    Damage_player_by_enemy_projectile(p, player);
     
-
 }
 
+extern void  teleport_to_player_spawn(Pool *p, Entity e){
+    Position_set_pos(Position_get(&p->position, e), (Vector2){PANEL_WIDTH/2, PANEL_HEIGHT*0.8});
+}
+
+extern bool Damage_player(Pool *p, Entity player){
+    Life *life = Life_get(&p->life, player);
+    if (!life) return false;
+    Life_damage(life, 1);
+    if (life->life > 0){
+        teleport_to_player_spawn(p, player);
+        //make_player_incinvible(p, player);
+        //clear_screan_projectiles(p); 
+    }
+}
 
 extern Position * Player_get_position(Pool *p, Player player){
     /**
