@@ -1,6 +1,11 @@
 #pragma once
 
 #include "component.h"
+#include "collision_circle.h"
+#include "common.h"
+
+
+#define INITIAL_PLAYER_LIVES 3
 
 typedef struct GameContext GameContext;
 typedef struct Pool Pool;
@@ -10,8 +15,6 @@ typedef enum {
 } PlayerName;
 
 typedef struct Player {
-    int nbLives;
-    int lives;
 
     int nbBombs;
     int bombs;
@@ -36,8 +39,6 @@ typedef struct Weapon {
 DEFINE_COMPONENT_MANAGER(Player, 1);
 DEFINE_COMPONENT_MANAGER(Weapon, 1);
 
-DECLARE_SETTER_GETTER(Player, int, nbLives);
-DECLARE_SETTER_GETTER(Player, int, lives);
 DECLARE_SETTER_GETTER(Player, int, nbBombs);
 DECLARE_SETTER_GETTER(Player, int, bombs);
 DECLARE_SETTER_GETTER(Player, float, speed);
@@ -51,5 +52,5 @@ extern Entity Player_get_playerID(Pool *p);
 extern float Player_GetX(Pool *p);
 extern float Player_GetY(Pool *p);
 
-
-
+extern void teleport_to_player_spawn(Pool *p, Entity e);
+extern bool Damage_player(Pool *p, Entity player);

@@ -304,7 +304,7 @@ Entity cotask_host_entity(CoTask *task, Tag ent_type) {
     return ent;
 }
 
-void cotask_host_events(CoTask *task, uint num_events, CoEvent events[num_events]) {
+void cotask_host_events(CoTask *task, unsigned int num_events, CoEvent events[num_events]) {
     CoTaskData *task_data = cotask_get_data(task);
     if (task_data->hosted.num_events != 0) return;
     if (task_data->hosted.events != NULL) return;

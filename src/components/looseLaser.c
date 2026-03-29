@@ -6,6 +6,7 @@
 #include "pool.h"
 
 #include "stdio.h"
+#include <stdlib.h>
 
 ///TODO: ajouter des hitbox aux nodes
 
@@ -21,7 +22,7 @@ bool loose_laser_update(Pool *pool, Loose_laser *laser){
         //on doit placer le node nouvellement créé à la position du précédent dernier node
         lastCoord = Position_get(positionManager,laser->looseNodes[laser->looseNodeCount - 1])->pos;
         
-        laser->looseNodes[laser->looseNodeCount] = node_create(pool, lastCoord.x, lastCoord.y);
+        laser->looseNodes[laser->looseNodeCount] = node_create(pool, lastCoord.x, lastCoord.y, Loose_laser_get_looseWidth(laser) / 2.0f);
         laser->looseNodeCount++;
     }
     // printf("nb_node: %d\n",laser->looseNodeCount);
@@ -99,7 +100,7 @@ Entity loose_laser_create(Pool * pool, int x, int y, float speed, float length, 
     timer_add_time(&timer, duration);
     Loose_laser loose ={
         .looseNodes = nodes,
-        .looseNodeCount = 1,
+        .looseNodeCount = 1, 
         .looseTargetLength = length,
         .looseWidth = width,
         .looseTimer = timer,
@@ -115,7 +116,7 @@ Entity loose_laser_create(Pool * pool, int x, int y, float speed, float length, 
 
 
 
-Entity node_create(Pool * pool, float x, float y) {
+Entity node_create(Pool * pool, float x, float y, float radius) {
     /***
      * Créé un node de loose laser dans la pool
      */
@@ -123,6 +124,8 @@ Entity node_create(Pool * pool, float x, float y) {
     Vector2 vect = {x, y};
     Position pos = {.pos = vect, .angle = 0};
     Position_add(&pool->position, id, pos);
+    Collision_circle circle = {.radius = radius};
+    Collision_circle_add(&pool->collision_circle, id, circle);
     return id;
 }
 

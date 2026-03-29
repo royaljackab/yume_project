@@ -2,7 +2,7 @@
 
 #define MAX_LOOSE_NODES 1000
 #define DURATION_ETERNAL 20000
-
+#define MAX_LOOSE_LASER 282
 
 #include "systems/timer.h"
 #include "ecs/component.h"
@@ -26,10 +26,11 @@ typedef struct {
     float looseWidth;                    // Épaisseur du laser
     Timer looseTimer;                    // Timer pour la durée de vie du laser
 
+
     Color looseColor;                    // Pour l'affichage uniquement
 } Loose_laser;
 
-DEFINE_COMPONENT_MANAGER(Loose_laser, MAX_ENTITIES)
+DEFINE_COMPONENT_MANAGER(Loose_laser, MAX_LOOSE_LASER)
 
 DECLARE_GETTER(Loose_laser, Entity *, looseNodes)
 DECLARE_SETTER_GETTER(Loose_laser, int, looseNodeCount)
@@ -39,7 +40,7 @@ DECLARE_SETTER_GETTER(Loose_laser, float, looseWidth)
 bool loose_laser_update(Pool *pool, Loose_laser *laser);
 void loose_lasers_update_all(Pool *pool);
 Entity loose_laser_create(Pool * pool, int x, int y, float speed, float length, float width, int duration, Color color);
-Entity node_create(Pool * pool, float x, float y);
+Entity node_create(Pool * pool, float x, float y, float radius);
 void Loose_laser_destroy(Pool * pool, Entity id);
 void draw_loose_laser(Loose_laser *laser, PositionManager *positionManager);
 void draw_all_loose_lasers(Loose_laserManager *looseManager, PositionManager *positionManager);
