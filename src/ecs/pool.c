@@ -31,6 +31,7 @@ void pool_init(Pool *p) {
   Straight_laser_init(&p->straightLaser);
   Loose_laser_init(&p->looseLaser);
   
+  flagList_init(&p->flagList);
 
   /* Remplissage de la pile d'indices libres */
   for (int i = 0; i < MAX_ENTITIES; i++) {
@@ -88,7 +89,8 @@ void pool_kill_convicts(Pool *p) {
     Life_remove(&p->life, e);
 
     Enemy_remove(&p->enemy, e);
-    
+    flagList_destroy(p, e);
+
     // Ajout de l'entité dans la pile libre
     p->free_indices[p->free_top++] = e;
   }
@@ -133,7 +135,7 @@ Entity entity_unbox(Pool *p, BoxedEntity box) {
 
   Uid *uid_comp = Uid_get(&p->uid, box.id);
   if (uid_comp && uid_comp->unique_id == box.unique_id)
-    return box.unique_id;
+    return box.id;
 
   return NULL_INDEX;
 }

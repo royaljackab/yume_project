@@ -183,7 +183,6 @@ static
 void *cotask_force_resume(CoTask *task, void *arg) {
     CoTaskData *task_data = cotask_get_data(task);
     if (task_data->wait.wait_type != COTASK_WAIT_NONE) return NULL;
-    if (task_data->bound_ent.id != NULL_INDEX) return NULL;
     return cotask_resume_internal(task, arg);
 }
 

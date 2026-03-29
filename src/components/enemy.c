@@ -47,8 +47,9 @@ void Enemy_update_all(Pool *p) {
     for (int i = 0; i < em->count; i++) {
         Entity e = em->entity_lookup[i];
         Life *life = Life_get(&p->life, e);
+        Tag *tag = Tag_get(&p->tag, e);
 
-        if (life && Life_is_dead(life)) {
+        if (life && Life_is_dead(life) && *tag != ENT_BOSS) {
             PlaySound(sfx[SFX_ENEMY_DEATH]);
             pool_kill_entity(p, e);
         }

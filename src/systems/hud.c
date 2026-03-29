@@ -72,9 +72,9 @@ void HUD_draw(GameContext *ctx, const char *stage_name) {
 
     /* Vies : cercles rouges pleins si vie restante, contour sinon */
     DrawText("LIVES", cx, cy, 18, HUD_LABEL_COL);
-    for (int i = 0; i < player->nbLives; i++) {
+    for (int i = 0; i < Life_get(&ctx->pool->life, 0)->maxLife; i++) {
         int lx = cx + 80 + (i * 28);
-        if (i < player->lives) {
+        if (i < Life_get(&ctx->pool->life, 0)->life) {
             DrawCircle(lx, cy + 9, 9, HUD_LIFE_COL);
         } else {
             DrawCircleLines(lx, cy + 9, 9, HUD_LIFE_COL);

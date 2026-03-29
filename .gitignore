@@ -36,4 +36,4 @@ include/src/raylib.dll
 
 # Koishi build artifacts
 include/koishi/build/
-# lib/libkoishi.a
+lib/libkoishi.a

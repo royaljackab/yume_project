@@ -13,15 +13,14 @@ Texture2D textures[MAX_TEXTURES];
 Music playlist[MAX_BGM]; // Nouveau tableau pour la musique
 Sound sfx[MAX_SFX]; // Effets sonores
 
-enum{
-  RENDER_PRIO_BULLET,
+enum{ 
+  RENDER_PRIO_BULLET, 
 
-  RENDER_PRIO_PLAYER,
-  RENDER_PRIO_HITBOX,
-    
-  RENDER_PRIO_ENEMY,
+  RENDER_PRIO_PLAYER, 
+  RENDER_PRIO_HITBOX, 
+
+  RENDER_PRIO_ENEMY, 
 };
-
 
 void AssetsLoad() {
     // Chargement des Textures existantes
@@ -87,6 +86,7 @@ void SpritesLoad() {
     BulletsSpritesLoad();
 }
 
+//CLANKER GPT CORE
 void BulletsSpritesLoad() {
     /**
      *  Fonction intermediaire pour load tous les assets du jeu.
@@ -196,7 +196,6 @@ void BulletsSpritesLoad() {
 
     Sprite_set_texture(&sprites[MISSILE_WHITE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[MISSILE_WHITE], 790, 240, 15, 16);
-
 
     // RING BULLETS
     Sprite_set_texture(&sprites[BULLET_RING_BLACK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
@@ -846,6 +845,8 @@ void BulletsSpritesLoad() {
     Sprite_set_SourceRect(&sprites[BIG_HEART_WHITE], 524, 497, 30, 30);    
 
   }
+
+
 
 
 

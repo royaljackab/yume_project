@@ -4,6 +4,7 @@
 #include "ecs.h"
 #include "content/assets.h"
 #include "game_state.h"
+#include "obj/obj.h"
 #include "physics.h"
 #include "player.h"
 #include "pool.h"
@@ -22,92 +23,60 @@
 #include <math.h>
 
 static
-void fireRing(GameContext *ctx, float x, float y, int nb_ring, float angleT) {
-    for (int i=0; i < nb_ring; i++) {
-        Bullet_enemy_spawn(ctx->pool, x, y, 5, angleT, BALL_M_BLACK);
-        angleT += 360.0 / nb_ring;
-    }
-}
+int frames = 0;
 
-TASK(pulse_ring, {GameContext *ctx; float x; float y;}) {
-    const int num_shots = 5;
-    const int num_projs = 12;
+TASK(crystal_wall, {GameContext *ctx;}) {
+    const int num_crystals = 27;
+    float spacing = PANEL_WIDTH / (float)(num_crystals - 1);
+    float ofs = GetRandomValue(0, 5) - 1;
 
-    Entity player_ent = Player_get_entity(&ARGS.ctx->pool->player, 0);
-
-    Position *player_pos = Position_get(&ARGS.ctx->pool->position, player_ent);
-    float aim_angle = atan2f(player_pos->pos.y - ARGS.y, player_pos->pos.x - ARGS.x) * RAD2DEG;
-
-    for (int shot = 0; shot < num_shots; shot++) {
-        float final_speed = 3.0 + shot / 3.0;
-        float boost = shot * 0.7;
-
-        float init_speed = final_speed + boost;
-
-        for (int i=0; i < num_projs; i++) {
-            float current_angle = aim_angle + (i * 360.0 / num_projs);
-
-            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.x, ARGS.y, init_speed, current_angle, MISSILE_LIGHT_RED);
-            Physics *phy = Physics_get(&ARGS.ctx->pool->physics, bullet);
-            Physics_set_accel(phy, -0.6);
-            Physics_set_minSpd(phy, final_speed);
+    for (int i=0; i < 30; i++) {
+        for (int c = 0; c < num_crystals; ++c) {
+            Vector2 accel = {0, 0.02 + 0.01 * ((c%2) ? 1 : -1) * sin((c*3+frames) / 30.0)};
+            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, MISSILE_BLACK);
+            float r = (c % 2) ? 100 : 255;
+            float g = (c % 2) ? 100 : 255;
+            float b = (c % 2) ? 200 : 255;
+            obj_SetColor(ARGS.ctx->pool, bullet, r, g, b);
+            obj_SetForce(ARGS.ctx->pool, bullet, 0, accel.y);
         }
 
-        WAIT(2);
+        WAIT(10);
     }
 }
 
-TASK(crystal_shower, {GameContext *ctx; float x; float y;}) {
-    for (int t=0, i=0; t<60; i++) {
-        float speed0 = 10;
-        float speed1 = 4;
+TASK(rotating_laser, { GameContext *ctx; }) {
+    Entity laser = straight_laser_create(ARGS.ctx->pool, 500, 500, 90, 1500, 30, 5, 5, 10000, LASER_GOLD);
+    TASK_BIND(laser);
 
-        float angle_offset = GetRandomValue(-150, 90);
-        
-        float sign = 1 - 2 *(i & 1);
+    obj_SetAngularSpeed(ARGS.ctx->pool, laser, 0.2);
+}
 
-        float spawn_x = ARGS.x + (30 * sign);
-        float spawn_y = ARGS.y - 42;
+TASK(frostbolt, {GameContext *ctx; Vector2 pos; float angle; float speed;}) {
+    Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.pos.x, ARGS.pos.y, ARGS.speed, ARGS.angle, ANIM_TEST);
+    TASK_BIND(bullet);
 
-        float start_angle = 270.0 + angle_offset;
+    WAIT(300);
+}
 
-        Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, spawn_x, spawn_y, speed0, start_angle, BALL_M_BLACK);
-        Physics *phy = Physics_get(&ARGS.ctx->pool->physics, bullet);
-        Physics_set_force(phy, (Vector2){0, 0.35});
-        Physics_set_maxSpd(phy, speed0);
+TASK(main_attack, {GameContext *ctx;}) {
+    while (true)  {
+        //INVOKE_SUBTASK_DELAYED(60, crystal_wall, ARGS.ctx);
+        WAIT(330);
 
-        t += WAIT(1);
-    }
-}   
+        for (int t=0; t < 370; ++t) {
+            // if (!(t % 2)) {
+            //     float speed = GetRandomValue(1, 400) / 100.0;
+            //     float angle = atan2f( Player_GetY(ARGS.ctx->pool) - 500, Player_GetX(ARGS.ctx->pool) - 500) * RAD2DEG + GetRandomValue(-5, 5);
+            //     INVOKE_TASK(frostbolt, ARGS.ctx,  {500, 500} , angle, speed);
+            // }
 
+            if ( t == 60) {
+                INVOKE_TASK(rotating_laser, ARGS.ctx);
+            }
 
-TASK(laser_task,  {GameContext *ctx; int amount; int x; int y; int length;}) {
-    while(true){
-            for(int i = 0; i < ARGS.amount;i++){
-            Entity id = straight_laser_create(ARGS.ctx->pool, ARGS.x, ARGS.y, i * 360 / ARGS.amount, ARGS.length, 40, 80, 40, 100, LASER_LIGHT_CYAN);
-            Physics_set_angVel(Physics_get(&ARGS.ctx->pool->physics,id),0.3);
+            WAIT(1);
         }
-        WAIT(300);
-    }
-}
-
-
-
-TASK(moonlight_task, { GameContext *ctx; }) {
-    INVOKE_SUBTASK(laser_task, ARGS.ctx, 3, 500, 500 ,700);
-    Enemy_spawn(ARGS.ctx->pool, 700,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_PURPLE_IDLE);
-    Enemy_spawn(ARGS.ctx->pool, 600,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_BLACK_BLONDE_IDLE);
-    Enemy_spawn(ARGS.ctx->pool, 500,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_RED_IDLE);
-    Enemy_spawn(ARGS.ctx->pool, 400,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_BLUE_IDLE);
-    Enemy_spawn(ARGS.ctx->pool, 300,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
-    Enemy_spawn(ARGS.ctx->pool, 200,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_BIG_EVIL_IDLE);
-    Enemy_spawn(ARGS.ctx->pool, 100,800, 0, 0, 10, 5, 0, ENEMY_FAIRY_GREEN_IDLE);
-    while (true) {
-        WAIT(30);
-        INVOKE_SUBTASK(pulse_ring, ARGS.ctx, 500, 500);
-        
-        // WAIT(10);
-        // INVOKE_SUBTASK(crystal_shower, ARGS.ctx, 500, 500);
     }
 }
 
@@ -125,15 +94,10 @@ void state_moonlight_init(GameContext *ctx) {
     pool_init(ctx->pool);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
 
-    Enemy_spawn(ctx->pool, 480, 200, 0, 0, 5, 20,
-        ENEMY_TYPE_FAIRY, ENEMY_FAIRY_BLUE_IDLE);
-
     cosched_init(&ctx->sched, ctx->pool);
 
-    SCHED_INVOKE_TASK(&ctx->sched, moonlight_task, ctx);
+    SCHED_INVOKE_TASK(&ctx->sched, main_attack, ctx);
 }
-
-
 
 void state_moonlight_update(GameContext *ctx) {
     cosched_run_tasks(&ctx->sched);
@@ -146,6 +110,8 @@ void state_moonlight_update(GameContext *ctx) {
     pool_kill_convicts(ctx->pool);
 
     Enemy_update_all(ctx->pool);
+
+    frames++;
 }
 
 void state_moonlight_draw(GameContext *ctx) {

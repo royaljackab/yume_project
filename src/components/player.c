@@ -1,3 +1,4 @@
+
 #include "components/player.h"
 #include "components/bullet.h"
 #include "components/common.h"
@@ -5,6 +6,7 @@
 #include "components/physics.h"
 #include "components/sprite.h"
 #include "components/particle.h"
+#include "components/collision_entity.h"
 
 #include "ecs/pool.h"
 
@@ -13,13 +15,16 @@
 #include "core/game_state.h"
 #include "core/input.h"
 #include "core/screen.h"
+#include "obj/obj.h"
 
 #include <complex.h>
 #include <raylib.h>
 #include <raymath.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /* Macros definitions */
-#define CREATE_PLAYER(nbLives, nbBombs, speed, focusSpeed, name) (Player){nbLives, nbLives, nbBombs, nbBombs, speed, focusSpeed, -1, name}
+#define CREATE_PLAYER(nbBombs, speed, focusSpeed, name) (Player){nbBombs, nbBombs, speed, focusSpeed, -1, name}
 #define GET_SPRITE_MOVEMENT(SpriteRootName, movement) sprites[SpriteRootName##_##movement]
 
 /* Structures definitions */
@@ -31,7 +36,7 @@ typedef enum {
 
 /* Static variables */
 static
-Player test_player = CREATE_PLAYER(3, 3, 10, 7, TEST_PLAYER);
+Player test_player = CREATE_PLAYER(3, 7, 3.9, TEST_PLAYER);
 
 /*Static functions*/
 static
@@ -176,9 +181,21 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     Weapon_add(&p->weapon, e, weapon);
     Position_add(&p->position, e, (Position){{0,0}, 0});
     Sprite_add(&p->sprite, e, sprite);
-
+    Collision_circle_add(&p->collision_circle, e, (Collision_circle){5});
     Player_set_hitboxId(Player_get(&p->player,e),hitbox);
+    Life_add(&p->life, e, (Life){INITIAL_PLAYER_LIVES, INITIAL_PLAYER_LIVES});
+
+        //ajout de la flagList du joueur
+    FlagType * flagTypeList = malloc(sizeof(FlagType) * MAX_FLAGS);
+    flagList flagList = {.flags = flagTypeList, .size = 0};
+    flagList_add_element(&flagList, FLAG_PLAYER);
+    flagList_add(&p->flagList, e, flagList);
+
+
+    teleport_to_player_spawn(p, e);
+
 }
+
 
 void Player_update(GameContext *ctx) {
     Pool *p = ctx->pool;
@@ -189,4 +206,57 @@ void Player_update(GameContext *ctx) {
     Player_move(input, p, player);
     Player_shoot(input, p, player);
     Player_focus(input, p, player);
+
+    Damage_player_by_enemy_projectile(p, player);
 }
+
+Entity Player_get_playerID(Pool *pool) {
+    return pool->player.entity_lookup[0];
+}
+
+float Player_GetX(Pool *pool) {
+    Entity player = Player_get_playerID(pool);
+    return obj_GetX(pool, player);
+}
+
+float Player_GetY(Pool *pool) {
+    Entity player = Player_get_playerID(pool);
+    return obj_GetY(pool, player);
+}
+
+extern void  teleport_to_player_spawn(Pool *p, Entity e){
+    Position_set_pos(Position_get(&p->position, e), (Vector2){PANEL_WIDTH/2, PANEL_HEIGHT*0.8});
+}
+
+extern bool Damage_player(Pool *p, Entity player){
+    Life *life = Life_get(&p->life, player);
+    if (!life) return false;
+    Life_damage(life, 1);
+    if (life->life > 0){
+        teleport_to_player_spawn(p, player);
+        //make_player_incinvible(p, player);
+        //clear_screan_projectiles(p); 
+    }
+}
+
+extern Position * Player_get_position(Pool *p, Player player){
+    /**
+     * Récupère la position a partir d'un joueur
+     * Actuellement, renvoie celle du joueur de base, pas du paramètre
+     */
+  PositionManager *positionManager = &p->position;
+  int lookup = positionManager->entity_lookup[0];
+  return &positionManager->dense[lookup];
+
+}
+
+extern Collision_circle * Player_get_collision(Pool *p, Player player){
+    /**
+     * Récupère le cercle de collision a partir d'un joueur
+     * Actuellement, renvoie celle du joueur de base, pas du paramètre
+     */
+  Collision_circleManager *collision_circleManager = &p->collision_circle;
+  int lookup = collision_circleManager->entity_lookup[0];
+  return &collision_circleManager->dense[lookup];
+}
+
