@@ -117,14 +117,14 @@
 
 #define DEFINE_TASK_EXPLICIT(name, linkage) \
     TASK_COMMON_PRIVATE_DECLARATIONS(name); \
-    TASK_COMMON_THUNK_DEFINITIONS(name, linkage); \
+    TASK_COMMON_THUNK_DEFINITIONS(name, linkage) \
     TASK_COMMON_BEGIN_BODY_DEFINITION(name, linkage)
 
 #define DECLARE_TASK(name, ...) \
     MACRO_OVERLOAD_HASARGS(DECLARE_TASK_, __VA_ARGS__)(name, ##__VA_ARGS__)
 #define DECLARE_TASK_1(name, ...) \
     DECLARE_TASK_EXPLICIT(name, TASK_ARGS_STRUCT(__VA_ARGS__), void, static)
-#define DECLARE_TASk_0(name) DECLARE_TASK_1(name, { })
+#define DECLARE_TASK_0(name) DECLARE_TASK_1(name, { })
 
 #define DECLARE_TASK_WITH_INTERFACE(name, iface) \
     DECLARE_TASK_EXPLICIT(name, TASK_IFACE_ARGS_TYPE(iface), TASK_INDIRECT_TYPE(iface), static)

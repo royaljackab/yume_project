@@ -47,6 +47,9 @@ DECLARE_SETTER_GETTER(Player, Entity, hitboxId);
 
 extern void Player_start(Pool *p, PlayerName name, PatternType type);
 extern void Player_update(GameContext *ctx);
+extern Entity Player_get_playerID(Pool *p);
+extern float Player_GetX(Pool *p);
+extern float Player_GetY(Pool *p);
 
 
 

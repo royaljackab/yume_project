@@ -13,6 +13,7 @@
 #include "core/game_state.h"
 #include "core/input.h"
 #include "core/screen.h"
+#include "obj/obj.h"
 
 #include <complex.h>
 #include <raylib.h>
@@ -189,4 +190,18 @@ void Player_update(GameContext *ctx) {
     Player_move(input, p, player);
     Player_shoot(input, p, player);
     Player_focus(input, p, player);
+}
+
+Entity Player_get_playerID(Pool *pool) {
+    return pool->player.entity_lookup[0];
+}
+
+float Player_GetX(Pool *pool) {
+    Entity player = Player_get_playerID(pool);
+    return obj_GetX(pool, player);
+}
+
+float Player_GetY(Pool *pool) {
+    Entity player = Player_get_playerID(pool);
+    return obj_GetY(pool, player);
 }
