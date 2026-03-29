@@ -14,7 +14,7 @@ ifeq ($(UNAME_S),Linux)
     LIBS = -lraylib -lm -lpthread -ldl -lrt -lX11 -lkoishi
     LIBPATH = -L../lib
     NEED_RAYLIB_BUILD = false
-    NEED_KOISHI_BUILD = false
+    NEED_KOISHI_BUILD = true
 else ifeq ($(UNAME_S),Darwin)
     # macOS
     LIBS = -lraylib -lm -lpthread -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL -lkoishi
@@ -120,4 +120,4 @@ clean:
 	rm -rf $(BIN_DIR)
 	mkdir -p $(BIN_DIR)
 	# ACTUELLEMENT DESACTIVÉ: supprimer koishi pour forcer la recompilation
-	# rm -f $(KOISHI_LIB)
+	rm -f $(KOISHI_LIB)

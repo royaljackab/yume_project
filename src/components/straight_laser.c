@@ -56,7 +56,7 @@ Entity straight_laser_enemy_create(Pool *pool, int x, int y, int angle, int leng
 
 Entity straight_laser_create(Pool *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, SpriteID graphic){
     Entity id = pool_create_entity(pool);
-    Vector2 vect = {x,y};
+    Vector2 vect = {y,x};
     Position pos = {vect, angle};
 
     Timer timer;

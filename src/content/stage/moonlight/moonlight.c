@@ -33,7 +33,7 @@ TASK(crystal_wall, {GameContext *ctx;}) {
     for (int i=0; i < 30; i++) {
         for (int c = 0; c < num_crystals; ++c) {
             Vector2 accel = {0, 0.02 + 0.01 * ((c%2) ? 1 : -1) * sin((c*3+frames) / 30.0)};
-            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, BALL_M_BLACK);
+            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, MISSILE_BLACK);
             float r = (c % 2) ? 100 : 255;
             float g = (c % 2) ? 100 : 255;
             float b = (c % 2) ? 200 : 255;
@@ -43,7 +43,13 @@ TASK(crystal_wall, {GameContext *ctx;}) {
 
         WAIT(10);
     }
+}
 
+TASK(rotating_laser, { GameContext *ctx; }) {
+    Entity laser = straight_laser_create(ARGS.ctx->pool, 500, 500, 90, 1500, 30, 5, 5, 10000, LASER_GOLD);
+    TASK_BIND(laser);
+
+    obj_SetAngularSpeed(ARGS.ctx->pool, laser, 0.2);
 }
 
 TASK(frostbolt, {GameContext *ctx; Vector2 pos; float angle; float speed;}) {
@@ -55,14 +61,18 @@ TASK(frostbolt, {GameContext *ctx; Vector2 pos; float angle; float speed;}) {
 
 TASK(main_attack, {GameContext *ctx;}) {
     while (true)  {
-        INVOKE_SUBTASK_DELAYED(60, crystal_wall, ARGS.ctx);
+        //INVOKE_SUBTASK_DELAYED(60, crystal_wall, ARGS.ctx);
         WAIT(330);
 
         for (int t=0; t < 370; ++t) {
-            if (!(t % 2)) {
-                float speed = GetRandomValue(1, 400) / 100.0;
-                float angle = atan2f( Player_GetY(ARGS.ctx->pool) - 500, Player_GetX(ARGS.ctx->pool) - 500) * RAD2DEG + GetRandomValue(-5, 5);
-                INVOKE_TASK(frostbolt, ARGS.ctx,  {500, 500} , angle, speed);
+            // if (!(t % 2)) {
+            //     float speed = GetRandomValue(1, 400) / 100.0;
+            //     float angle = atan2f( Player_GetY(ARGS.ctx->pool) - 500, Player_GetX(ARGS.ctx->pool) - 500) * RAD2DEG + GetRandomValue(-5, 5);
+            //     INVOKE_TASK(frostbolt, ARGS.ctx,  {500, 500} , angle, speed);
+            // }
+
+            if ( t == 60) {
+                INVOKE_TASK(rotating_laser, ARGS.ctx);
             }
 
             WAIT(1);

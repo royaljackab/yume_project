@@ -29,7 +29,7 @@ bool Entity_is_hit_by_circle(Pool *p, Entity entity, flagList * BulletFlags) {
   int lookup;
   for (int i = 0; i < collision_circle_manager->count; i++) {
     lookup = collision_circle_manager->entity_lookup[i];
-    if (lookup != entity) {
+    if ((Entity)lookup != entity) {
         collision = Collision_circle_get(collision_circle_manager, lookup);
         pos = Position_get(positionManager, lookup);
         if (Entity_has_flag_in_list(p, lookup, BulletFlags)) {

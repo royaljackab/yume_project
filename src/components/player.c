@@ -24,7 +24,7 @@
 #include <stdlib.h>
 
 /* Macros definitions */
-#define CREATE_PLAYER(nbLives, nbBombs, speed, focusSpeed, name) (Player){nbLives, nbLives, nbBombs, nbBombs, speed, focusSpeed, -1, name}
+#define CREATE_PLAYER(nbBombs, speed, focusSpeed, name) (Player){nbBombs, nbBombs, speed, focusSpeed, -1, name}
 #define GET_SPRITE_MOVEMENT(SpriteRootName, movement) sprites[SpriteRootName##_##movement]
 
 /* Structures definitions */
@@ -36,7 +36,7 @@ typedef enum {
 
 /* Static variables */
 static
-Player test_player = CREATE_PLAYER(3, 3, 10, 7, TEST_PLAYER);
+Player test_player = CREATE_PLAYER(3, 7, 3.9, TEST_PLAYER);
 
 /*Static functions*/
 static
@@ -206,6 +206,8 @@ void Player_update(GameContext *ctx) {
     Player_move(input, p, player);
     Player_shoot(input, p, player);
     Player_focus(input, p, player);
+
+    Damage_player_by_enemy_projectile(p, player);
 }
 
 Entity Player_get_playerID(Pool *pool) {
@@ -220,9 +222,6 @@ float Player_GetX(Pool *pool) {
 float Player_GetY(Pool *pool) {
     Entity player = Player_get_playerID(pool);
     return obj_GetY(pool, player);
-}
-    Damage_player_by_enemy_projectile(p, player);
-    
 }
 
 extern void  teleport_to_player_spawn(Pool *p, Entity e){
