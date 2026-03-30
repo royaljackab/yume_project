@@ -20,9 +20,13 @@ typedef struct Pool Pool;
  * @brief Type d'ennemi
  */
 typedef enum {
-    ENEMY_TYPE_FAIRY,       /**< Petite fée */
-    ENEMY_TYPE_BUTTERFLY,   /**< Papillon */
-    ENEMY_TYPE_BIG_FAIRY    /**< Grande fée */
+    ENEMY_TYPE_BLUE_FAIRY,       /**< Petite fée */
+    ENEMY_TYPE_RED_FAIRY,   /**< Papillon */
+    ENEMY_TYPE_GREEN_FAIRY,
+    ENEMY_TYPE_BLACK_BLONDE_FAIRY,
+    ENEMY_TYPE_PURPLE_FAIRY,
+    ENEMY_TYPE_SUNFLOWER_FAIRY,    /**< Grande fée */
+    ENEMY_TYPE_EVIL_FAIRY
 } EnemyType;
 
 /**
