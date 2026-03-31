@@ -33,7 +33,7 @@ TASK(crystal_wall, {GameContext *ctx;}) {
     for (int i=0; i < 30; i++) {
         for (int c = 0; c < num_crystals; ++c) {
             Vector2 accel = {0, 0.02 + 0.01 * ((c%2) ? 1 : -1) * sin((c*3+frames) / 30.0)};
-            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, BULLET_BIG_RED);
+            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, GUNSHOT_BLUE);
             float r = (c % 2) ? 100 : 255;
             float g = (c % 2) ? 100 : 255;
             float b = (c % 2) ? 200 : 255;
