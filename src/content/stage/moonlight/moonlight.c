@@ -16,6 +16,7 @@
 #include "components/straight_laser.h"
 #include "systems/hud.h"
 #include "components/enemy.h"
+#include "boss.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -33,7 +34,7 @@ TASK(crystal_wall, {GameContext *ctx;}) {
     for (int i=0; i < 30; i++) {
         for (int c = 0; c < num_crystals; ++c) {
             Vector2 accel = {0, 0.02 + 0.01 * ((c%2) ? 1 : -1) * sin((c*3+frames) / 30.0)};
-            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, BULLET_BIG_RED);
+            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, BULLET_RED);
             float r = (c % 2) ? 100 : 255;
             float g = (c % 2) ? 100 : 255;
             float b = (c % 2) ? 200 : 255;
@@ -60,6 +61,9 @@ TASK(frostbolt, {GameContext *ctx; Vector2 pos; float angle; float speed;}) {
 }
 
 TASK(main_attack, {GameContext *ctx;}) {
+    Entity id = Enemy_spawn(ARGS.ctx->pool, 500, 200, 0, 0, 100, 3, ENEMY_TYPE_EVIL_FAIRY, ENEMY_FAIRY_BIG_EVIL_IDLE);
+    *Tag_get(&ARGS.ctx->pool->tag, id) = ENT_BOSS;
+    printf("%d",*Tag_get(&ARGS.ctx->pool->tag, id) == ENT_BOSS);
     while (true)  {
         INVOKE_SUBTASK_DELAYED(60, crystal_wall, ARGS.ctx);
         WAIT(330);
@@ -104,7 +108,6 @@ void state_moonlight_update(GameContext *ctx) {
     straight_lasers_update_all(ctx->pool);
     Owner_update(ctx->pool); 
     pool_kill_convicts(ctx->pool);
-
     Enemy_update_all(ctx->pool);
 
     frames++;
@@ -117,8 +120,9 @@ void state_moonlight_draw(GameContext *ctx) {
     HUD_draw(ctx, "Stage 1 - Moonlight");
     draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); 
     straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); 
-    
 
+    //par sécurité: mettez plutôt la boss_bar après les sprites, peut-être que ça cause des problèmes
+    bossbar_draw_all(ctx->pool);
     DrawText("coucou", 30, 30, 50, WHITE);
 }
 

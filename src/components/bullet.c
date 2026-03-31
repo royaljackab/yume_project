@@ -17,8 +17,8 @@ Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic) {
   Entity e = Bullet_spawn(p, x, y, speed, angle, ENT_PLAYER_SHOT, graphic);
   flagList_attach_first_flag(p, e, FLAG_PROJECTILE_PLAYER);
+  flagList_add_element(flagList_get(&p->flagList, e), FLAG_BULLET_PLAYER);
   return e;
-
 
 }
 

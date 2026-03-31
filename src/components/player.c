@@ -57,7 +57,7 @@ Weapon Weapon_create(PatternType type) {
     Weapon weapon;
     switch(type) {
         case DEFAULT_PATTERN:
-            weapon = (Weapon){2, 0, DEFAULT_PATTERN};
+            weapon = (Weapon){2, 0, 1, DEFAULT_PATTERN};
             break;
         default: break;
     }

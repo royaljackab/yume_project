@@ -33,6 +33,7 @@ typedef enum {
 typedef struct Weapon {
     int fire_rate;
     int cooldown;
+    int attack_damage;
     PatternType pattern;
 } Weapon;
 
@@ -45,6 +46,10 @@ DECLARE_SETTER_GETTER(Player, float, speed);
 DECLARE_SETTER_GETTER(Player, float, focusSpeed);
 DECLARE_SETTER_GETTER(Player, Entity, hitboxId);
 
+DECLARE_SETTER_GETTER(Weapon, int , fire_rate)
+DECLARE_SETTER_GETTER(Weapon, int , cooldown)
+DECLARE_SETTER_GETTER(Weapon, int , attack_damage)
+DECLARE_SETTER_GETTER(Weapon, PatternType , pattern)
 
 extern void Player_start(Pool *p, PlayerName name, PatternType type);
 extern void Player_update(GameContext *ctx);

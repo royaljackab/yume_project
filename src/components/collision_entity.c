@@ -9,9 +9,9 @@
 
 
 
-bool Entity_is_hit_by_circle(Pool *p, Entity entity, flagList * BulletFlags) {
+static bool Entity_is_hit_by_circle(Pool *p, Entity entity, flagList * BulletFlags, Entity foundCollisions[], int * nbcollisions) {
   /**
-   * Verifie si l'enité est touchés par une collision circulaire ayant un des tag de BulletTypes
+   * Verifie si l'entité est touchée par une collision circulaire ayant un des tag de BulletTypes
    */
   if (Entity_has_flag(p, entity, FLAG_INVINCIBLE)) {
     return false; //ne rentre pas dans les calculs si l'entité est invincible
@@ -35,6 +35,11 @@ bool Entity_is_hit_by_circle(Pool *p, Entity entity, flagList * BulletFlags) {
         if (Entity_has_flag_in_list(p, lookup, BulletFlags)) {
             if (CheckCollisionCircles(entityPos, entityRadius, Position_get_pos(pos), Collision_circle_get_radius(collision))){
                 DrawText("Entité touché cercle", PANEL_WIDTH + 100, 500, 50, YELLOW);
+
+                if (nbcollisions && *nbcollisions  < MAX_COLLISIONS){
+                    foundCollisions[(*nbcollisions)++] = lookup; //Tout ID en collision avec entity est mis dans ce tableau
+                }
+                
                 is_hit = true;
             }
         }
@@ -45,13 +50,11 @@ bool Entity_is_hit_by_circle(Pool *p, Entity entity, flagList * BulletFlags) {
 
 
 
-bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, flagList * laserFlags){
+static bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, flagList * laserFlags, Entity foundCollisions[], int * nbcollisions){
     /**
      * Verifie si l'enité est touchés par une collision rectangulaire ayant un des tag de LaserTypes
      */
-    if (Entity_has_flag(p, entity, FLAG_INVINCIBLE)) {
-        return false; //ne rentre pas dans les calculs si l'entité est invincible 
-    }
+
 
     bool is_hit = false;
     Collision_rectangleManager *collision_rectangle_manager = &p->collision_rectangle;
@@ -69,6 +72,11 @@ bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, flagList * laserFlags){
         if (Entity_has_flag_in_list(p, lookup, laserFlags)) {
             if (CheckCircleRotatedRect(entityPos, entityRadius, Position_get_pos(pos), Collision_rectangle_get_width(collision), Collision_rectangle_get_length(collision), Position_get_angle(pos))){
                 DrawText("Entité touché rectangle", PANEL_WIDTH + 100, 500, 50, RED);
+
+                if (nbcollisions && *nbcollisions  < MAX_COLLISIONS){
+                    foundCollisions[(*nbcollisions)++] = lookup; //Tout ID en collision avec entity est mis dans ce tableau
+                }
+
                 is_hit = true;
             }
         }
@@ -81,7 +89,16 @@ extern bool Entity_is_hit(Pool *p, Entity entity, flagList * flags){
     /**
      * Verifie si l'entité est touchés par une attaque d'un des types spécifiés dans bulletTypes
      */
-    return Entity_is_hit_by_rectangle(p, entity, flags) || Entity_is_hit_by_circle(p, entity, flags); 
+    return Entity_is_hit_by_rectangle(p, entity, flags, NULL, NULL) || Entity_is_hit_by_circle(p, entity, flags, NULL, NULL); 
+}
+
+
+extern bool Entity_find_hitters(Pool *p, Entity entity, flagList * flags, Entity foundCollisions[], int *nbCollisions){
+    /**
+     * @brief Rempli le tableau d'ID passé en paramètre avec les ID des entités ayant les flags spécifiés et en collision avec entity.
+     */
+    Entity_is_hit_by_rectangle(p, entity, flags, foundCollisions, nbCollisions);
+    Entity_is_hit_by_circle(p, entity, flags, foundCollisions, nbCollisions);
 }
 
 
@@ -112,7 +129,7 @@ extern bool Damage_player_by_enemy_projectile(Pool *p, Entity player){
     return false;
 }
 
-bool CheckCircleRotatedRect(Vector2 cPos, float radius, Vector2 rPos, float w, float h, float angle) {
+static bool CheckCircleRotatedRect(Vector2 cPos, float radius, Vector2 rPos, float w, float h, float angle) {
 
     // 1. Calcul de l'angle, décalage de -90 degrés (jsp pk mais sans probleme)
     float rad = (angle - 90.0f) * DEG2RAD;
@@ -168,7 +185,7 @@ bool CheckCircleRotatedRect(Vector2 cPos, float radius, Vector2 rPos, float w, f
 }
 
 
-bool collision_circle_add_scaled_with_sprite(Pool *p, Entity entity){
+extern bool collision_circle_add_scaled_with_sprite(Pool *p, Entity entity){
     /**
      * Ajoute une collision circulaire à une entité, avec un rayon basé sur la taille de son sprite
      */

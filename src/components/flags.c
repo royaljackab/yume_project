@@ -59,7 +59,7 @@ bool Entity_has_flag(Pool *p, Entity entity, FlagType flag) {
 
 bool flagList_add_element(flagList *list, FlagType type){
 /** 
- * ajoute un flag a la fin de la liste et met a jour size
+ * @brief ajoute un flag a la fin de la liste et met a jour size
  */
     if (list->size >= MAX_FLAGS) {
         printf("Erreur d'ajout de flag: flagList full.\n");
