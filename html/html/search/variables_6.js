@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['keybinds_0',['keybinds',['../structInputSystem.html#a74fc39a89edf58d9432172815279ddee',1,'InputSystem']]],
-  ['kill_5fcount_1',['kill_count',['../structPool.html#a0f00b94536e5fc916678a2c489d59875',1,'Pool']]],
-  ['kill_5fqueue_2',['kill_queue',['../structPool.html#a6ae96ac7dd62919e305a345a4e4c70db',1,'Pool']]]
+  ['hitboxid_0',['hitboxId',['../structPlayer.html#a1ad36a1e726785c64fbec483e47afade',1,'Player']]],
+  ['hosted_1',['hosted',['../structCoTaskData.html#adf51348555ed12e8f538df4b9b10b6e6',1,'CoTaskData']]]
 ];

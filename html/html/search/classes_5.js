@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['life_0',['Life',['../structLife.html',1,'']]],
-  ['loose_5flaser_1',['Loose_laser',['../structLoose__laser.html',1,'']]]
+  ['inputconfig_0',['InputConfig',['../structInputConfig.html',1,'']]],
+  ['inputsystem_1',['InputSystem',['../structInputSystem.html',1,'']]]
 ];

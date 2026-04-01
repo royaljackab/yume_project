@@ -11,6 +11,7 @@ typedef enum {
   BGM_QUIRKY_GOOFY,
   BGM_TO_BE_NAMED, // maybe won't be used
   BGM_WAITING,
+  BGM_MORIYA_THEME,
   MAX_BGM // Pour savoir combien on en a
 } BGMId;
 
@@ -363,6 +364,9 @@ typedef enum {
     SFX_SHOOT,
     SFX_ENEMY_DEATH,
     SFX_MENU_NAV,
+    SFX_TAN00,
+    SFX_TAN01,
+    SFX_TAN02,
     MAX_SFX
 } SFXID;
 

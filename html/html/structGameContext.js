@@ -6,5 +6,7 @@ var structGameContext =
     [ "debug", "structGameContext.html#ab38766f1051b6cc993247c58c1398d1a", null ],
     [ "input", "structGameContext.html#adbf41746c46dce56827fc5bbe803ade0", null ],
     [ "nextStateID", "structGameContext.html#ad2770bc186c7073a4e03f7dc5916aae8", null ],
-    [ "pause", "structGameContext.html#a53de7c3fd40be2b32430174827bda0da", null ]
+    [ "pause", "structGameContext.html#a53de7c3fd40be2b32430174827bda0da", null ],
+    [ "pool", "structGameContext.html#a1723e276337cea9d2837dc5fedee7d4d", null ],
+    [ "sched", "structGameContext.html#aecdfc8d77dd2a635f82fe82325e2b460", null ]
 ];

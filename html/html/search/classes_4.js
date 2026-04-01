@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['keystate_0',['KeyState',['../structKeyState.html',1,'']]]
+  ['gamecontext_0',['GameContext',['../structGameContext.html',1,'']]],
+  ['gamestate_1',['GameState',['../structGameState.html',1,'']]]
 ];

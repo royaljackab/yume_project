@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gamecontext_0',['GameContext',['../game__state_8h.html#af1d739a5886b399946180d0fcd08e95f',1,'game_state.h']]],
-  ['gamestate_1',['GameState',['../game__state_8h.html#ad74d0fae2a41b21724fe224cf3ec6e13',1,'game_state.h']]]
+  ['dynarray_5ffilter_5ft_0',['dynarray_filter_t',['../dynarray_8h.html#a1143ad942a2b88eb8018565b36e37d52',1,'dynarray.h']]],
+  ['dynarray_5fsize_5ft_1',['dynarray_size_t',['../dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c',1,'dynarray.h']]]
 ];

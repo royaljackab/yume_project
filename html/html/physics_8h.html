@@ -114,6 +114,9 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7c63a4a9dc5d956f5a32bdd65e517dcc" id="r_a7c63a4a9dc5d956f5a32bdd65e517dcc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7c63a4a9dc5d956f5a32bdd65e517dcc">DECLARE_SETTER_GETTER</a> (<a class="el" href="structPhysics.html">Physics</a>, Vector2, force)</td></tr>
+<tr class="memitem:a611a21911f3d5aa4102d4423824483be" id="r_a611a21911f3d5aa4102d4423824483be"><td class="memItemLeft"><a class="el" href="structPhysics.html">Physics</a>&#160;</td><td class="memItemRight"><a class="el" href="#a611a21911f3d5aa4102d4423824483be">Physics_create_speed</a> (float speed)</td></tr>
+<tr class="memdesc:a611a21911f3d5aa4102d4423824483be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une composante physique avec uniquement la speed.  <br /></td></tr>
 <tr class="memitem:a1bf484ef10f0a2eef82abdd7e06e4999" id="r_a1bf484ef10f0a2eef82abdd7e06e4999"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1bf484ef10f0a2eef82abdd7e06e4999">Physics_update_all</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
 <tr class="memdesc:a1bf484ef10f0a2eef82abdd7e06e4999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met a jour toutes les composantes physiques.  <br /></td></tr>
 </table>
@@ -185,6 +188,67 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a7c63a4a9dc5d956f5a32bdd65e517dcc" name="a7c63a4a9dc5d956f5a32bdd65e517dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c63a4a9dc5d956f5a32bdd65e517dcc">&#9670;&#160;</a></span>DECLARE_SETTER_GETTER()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_SETTER_GETTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPhysics.html">Physics</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector2</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">force</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a611a21911f3d5aa4102d4423824483be" name="a611a21911f3d5aa4102d4423824483be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a611a21911f3d5aa4102d4423824483be">&#9670;&#160;</a></span>Physics_create_speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPhysics.html">Physics</a> Physics_create_speed </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>speed</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Crée une composante physique avec uniquement la speed. </p>
+<p>Toutes les autres valeurs sont initialisées à 0 et NO_MAX/MIN_SPEED</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">speed</td><td>: Vitesse </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Composante physique associée </dd></dl>
+
+</div>
+</div>
 <a id="a1bf484ef10f0a2eef82abdd7e06e4999" name="a1bf484ef10f0a2eef82abdd7e06e4999"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1bf484ef10f0a2eef82abdd7e06e4999">&#9670;&#160;</a></span>Physics_update_all()</h2>
 

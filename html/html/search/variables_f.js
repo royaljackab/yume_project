@@ -1,6 +1,20 @@
 var searchData=
 [
-  ['validate_0',['validate',['../structInputConfig.html#aa1ff0e0c80744ddf0f0d8f1f2765501f',1,'InputConfig::validate'],['../structInputSystem.html#accfa7d364a5dad954f63d1cf20b45fd3',1,'InputSystem::validate']]],
-  ['validated_1',['validated',['../structButton.html#ad20e3a92b276da38a7ea90350b99914c',1,'Button']]],
-  ['velocity_2',['velocity',['../structPhysics.html#a2e80eb13f06e48a17c577530c1099855',1,'Physics']]]
+  ['scale_0',['scale',['../structSprite.html#a9f983f4ecc0b817d353a0eb88f0e931d',1,'Sprite']]],
+  ['sched_1',['sched',['../structCoTaskData.html#aa33f6b1ef978ebd7f1b5692ebc2338fe',1,'CoTaskData::sched'],['../structCoTaskInitData.html#a6b96a259d9e3d22363d6dbaa770e1821',1,'CoTaskInitData::sched'],['../structGameContext.html#aecdfc8d77dd2a635f82fe82325e2b460',1,'GameContext::sched']]],
+  ['selection_2',['selection',['../structButtonSystem.html#a93c2e32cd2ae37f6b3c74ede2b817f77',1,'ButtonSystem']]],
+  ['sfx_3',['sfx',['../assets_8c.html#ab3f50a3673544c2460f41ec5c95ca735',1,'sfx:&#160;assets.c'],['../assets_8h.html#ab3f50a3673544c2460f41ec5c95ca735',1,'sfx:&#160;assets.c']]],
+  ['shoot_4',['shoot',['../structInputConfig.html#a6f836ca578e4543ac7b96afe51a55e3c',1,'InputConfig::shoot'],['../structInputSystem.html#a4c941e70f1a74bb94c0b5717640b8bff',1,'InputSystem::shoot']]],
+  ['size_5',['size',['../structflagList.html#a84d789fa5d00745e71eddec1797679d9',1,'flagList']]],
+  ['skip_6',['skip',['../structInputConfig.html#a8479d0e614f8ad85a4fd2e16c9581a83',1,'InputConfig::skip'],['../structInputSystem.html#a778bc615bd4ab01b20ebf1aa120de1d0',1,'InputSystem::skip']]],
+  ['snapshot_7',['snapshot',['../structCoTaskData.html#abb1024e8e7174ae962ff659b777ac674',1,'CoTaskData']]],
+  ['speed_8',['speed',['../structPhysics.html#ae06a5b02521d1a91267340fc21165057',1,'Physics::speed'],['../structPlayer.html#a770942101eff683b030edde9f730d537',1,'Player::speed']]],
+  ['sprite_9',['sprite',['../structPool.html#aa54cef6cf77eac310848589a1e6b00f2',1,'Pool']]],
+  ['sprites_10',['sprites',['../assets_8c.html#a73483cd2f7f2f594eb95acbe9b3f4f9f',1,'sprites:&#160;assets.c'],['../assets_8h.html#a73483cd2f7f2f594eb95acbe9b3f4f9f',1,'sprites:&#160;assets.c']]],
+  ['srcrect_11',['srcRect',['../structSprite.html#a52902ba0f684a029aa2b3dc9d273b6eb',1,'Sprite']]],
+  ['state_5fmenu_5fkeybinds_12',['state_menu_keybinds',['../keybinds_8c.html#a090feb230d4ba62abfeb441a52996355',1,'state_menu_keybinds:&#160;keybinds.c'],['../game__state_8h.html#a090feb230d4ba62abfeb441a52996355',1,'state_menu_keybinds:&#160;keybinds.c']]],
+  ['state_5fmenu_5ftitle_13',['state_menu_title',['../title__screen_8c.html#a7da518c69adccea1c6b3a9885fae38bd',1,'state_menu_title:&#160;title_screen.c'],['../game__state_8h.html#a7da518c69adccea1c6b3a9885fae38bd',1,'state_menu_title:&#160;title_screen.c']]],
+  ['state_5fmoonlight_14',['state_moonlight',['../moonlight_8c.html#a3b8b93e232e5560bbada628cf50813c1',1,'state_moonlight:&#160;moonlight.c'],['../game__state_8h.html#a3b8b93e232e5560bbada628cf50813c1',1,'state_moonlight:&#160;moonlight.c']]],
+  ['state_5ftest_15',['state_test',['../game__state_8h.html#a339bd2d8215508219fd2b6bbd267be6c',1,'game_state.h']]],
+  ['straightlaser_16',['straightLaser',['../structPool.html#a784047c4dccd75e769a504a7210715a7',1,'Pool']]]
 ];

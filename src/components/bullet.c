@@ -1,8 +1,10 @@
 #include "components/bullet.h"
+#include "common.h"
 #include "obj.h"
 #include "physics.h"
 #include "pool.h"
 #include "sprite.h"
+#include "tasks.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,4 +44,51 @@ Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityT
 
   Collision_circle_add(&p->collision_circle, e, collision);
   return e;
+}
+
+Entity Bullet_enemy_spawn_delayed(Pool *p, float x, float y, float speed, float angle, SpriteID graphic, int delay) {
+  Entity e = Bullet_enemy_spawn(p, x, y, 0, angle, graphic);
+  obj_SetTag(p, e, ENT_PARTICLE);
+
+  Condensation cond = {
+    .timer = delay,
+    .max_time = delay,
+    .target_speed = speed,
+    .target_tag = ENT_ENEMY,
+    .target_scale = obj_GetScale(p, e)
+  };
+  Condensation_add(&p->condensation, e, cond);
+
+  obj_SetScale(p, e, cond.target_scale.x * 3.0, cond.target_scale.y * 3.0);
+  obj_SetAlpha(p, e, 0.0f);
+
+  return e;
+}
+
+void Condensation_update_all(Pool *p) {
+  for (int i=0; i < p->condensation.count; ++i) {
+    Entity e = Condensation_get_entity(&p->condensation, i);
+    Condensation *cond = &p->condensation.dense[i];
+
+    cond->timer--;
+
+    float progression = 1.0 - ((float)cond->timer / (float)cond->max_time);
+
+    float current_scaleX = (cond->target_scale.x * 3.0) - ((cond->target_scale.x * 2.0) * progression);
+    float current_scaleY = (cond->target_scale.y * 3.0) - ((cond->target_scale.y * 2.0) * progression);
+    obj_SetScale(p, e, current_scaleX, current_scaleY);
+
+    obj_SetAlpha(p, e, 255.0 * progression);
+
+    if (cond->timer <= 0) {
+      obj_SetScale(p, e, cond->target_scale.x, cond->target_scale.y);
+      obj_SetAlpha(p, e, 255);
+
+      obj_SetSpeed(p, e, cond->target_speed);
+      obj_SetTag(p, e, cond->target_tag);
+
+      Condensation_remove(&p->condensation, e);
+      i--;
+    }
+  }
 }

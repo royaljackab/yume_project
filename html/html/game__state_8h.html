@@ -92,7 +92,10 @@ $(function(){initNavTree('game__state_8h.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="input_8h_source.html">core/input.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cosched_8h_source.html">coroutine/cosched.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pool_8h_source.html">ecs/pool.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="button_8h_source.html">systems/button.h</a>&quot;</code><br />
+<code>#include &lt;raylib.h&gt;</code><br />
 </div>
 <p><a href="game__state_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -104,7 +107,6 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a1e429b3df1f3ce68729ed6b71d8714a9" id="r_a1e429b3df1f3ce68729ed6b71d8714a9"><td class="memItemLeft">typedef enum <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1e429b3df1f3ce68729ed6b71d8714a9">StateID</a></td></tr>
-<tr class="memitem:af1d739a5886b399946180d0fcd08e95f" id="r_af1d739a5886b399946180d0fcd08e95f"><td class="memItemLeft">typedef struct GameContext&#160;</td><td class="memItemRight"><a class="el" href="#af1d739a5886b399946180d0fcd08e95f">GameContext</a></td></tr>
 <tr class="memitem:ad74d0fae2a41b21724fe224cf3ec6e13" id="r_ad74d0fae2a41b21724fe224cf3ec6e13"><td class="memItemLeft">typedef struct GameState&#160;</td><td class="memItemRight"><a class="el" href="#ad74d0fae2a41b21724fe224cf3ec6e13">GameState</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -117,8 +119,10 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0">STATE_MENU_KEYBINDS</a>
 , <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549">__END_MENU__</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497">STATE_MOONLIGHT</a>
 , <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673">STATE_TEST</a>
-, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04">STATE_EXTRA</a>
+, <br />
+&#160;&#160;<a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04">STATE_EXTRA</a>
 <br />
  }</td></tr>
 </table><table class="memberdecls">
@@ -135,22 +139,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a7da518c69adccea1c6b3a9885fae38bd" id="r_a7da518c69adccea1c6b3a9885fae38bd"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7da518c69adccea1c6b3a9885fae38bd">state_menu_title</a></td></tr>
 <tr class="memitem:a090feb230d4ba62abfeb441a52996355" id="r_a090feb230d4ba62abfeb441a52996355"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a090feb230d4ba62abfeb441a52996355">state_menu_keybinds</a></td></tr>
 <tr class="memitem:a339bd2d8215508219fd2b6bbd267be6c" id="r_a339bd2d8215508219fd2b6bbd267be6c"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a339bd2d8215508219fd2b6bbd267be6c">state_test</a></td></tr>
+<tr class="memitem:a3b8b93e232e5560bbada628cf50813c1" id="r_a3b8b93e232e5560bbada628cf50813c1"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3b8b93e232e5560bbada628cf50813c1">state_moonlight</a></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
-<a id="af1d739a5886b399946180d0fcd08e95f" name="af1d739a5886b399946180d0fcd08e95f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1d739a5886b399946180d0fcd08e95f">&#9670;&#160;</a></span>GameContext</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct GameContext GameContext</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ad74d0fae2a41b21724fe224cf3ec6e13" name="ad74d0fae2a41b21724fe224cf3ec6e13"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad74d0fae2a41b21724fe224cf3ec6e13">&#9670;&#160;</a></span>GameState</h2>
 
@@ -198,6 +189,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a81d90e02886072a3d471e4c1b4c60be0" name="a2c309f64131cbfdae6d95e6591f208e6a81d90e02886072a3d471e4c1b4c60be0"></a>STATE_MENU_SETTINGS&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0" name="a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0"></a>STATE_MENU_KEYBINDS&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549" name="a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549"></a>__END_MENU__&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497" name="a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497"></a>STATE_MOONLIGHT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673" name="a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673"></a>STATE_TEST&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04" name="a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04"></a>STATE_EXTRA&#160;</td><td class="fielddoc"></td></tr>
 </table>
@@ -356,6 +348,28 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_menu_title</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b8b93e232e5560bbada628cf50813c1" name="a3b8b93e232e5560bbada628cf50813c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b8b93e232e5560bbada628cf50813c1">&#9670;&#160;</a></span>state_moonlight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_moonlight</td>
         </tr>
       </table>
   </td>

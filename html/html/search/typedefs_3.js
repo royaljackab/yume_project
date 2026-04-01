@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['inputconfig_0',['InputConfig',['../input_8h.html#aea34ef574b3cf7509e579fcfe943fa42',1,'input.h']]],
-  ['inputsystem_1',['InputSystem',['../input_8h.html#aca783be07530351065cc4525856763fc',1,'input.h']]]
+  ['entity_0',['Entity',['../ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918',1,'ecs.h']]]
 ];

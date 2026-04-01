@@ -14,6 +14,7 @@
 
 #pragma once
 
+#include "bullet.h"
 #include "collision_circle.h"
 #include "collision_rectangle.h"
 #include "common.h"
@@ -38,6 +39,7 @@ typedef struct Pool {
   // TimerManager timer;
   PhysicsManager physics;
   SpriteManager sprite;
+  CondensationManager condensation;
 
   EnemyManager enemy;
 

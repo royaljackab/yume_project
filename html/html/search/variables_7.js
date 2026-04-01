@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['left_0',['left',['../structInputConfig.html#a03b792359bbd45ddc7a65025a1b2901d',1,'InputConfig::left'],['../structInputSystem.html#a8db519393f016c0f395cde1863ef392b',1,'InputSystem::left']]],
-  ['length_1',['length',['../structCollision__rectangle.html#ac877055eb4a4426536a27e6f8d86d70f',1,'Collision_rectangle']]],
-  ['life_2',['life',['../structLife.html#a14520ed7fd895d4366443b5cfe41880d',1,'Life::life'],['../structPool.html#abe7af6e27fc8325fd9b173144bb65ba6',1,'Pool::life']]],
-  ['loosenodecount_3',['looseNodeCount',['../structLoose__laser.html#a3537f2a5612e7db19e4cf707cf4d258c',1,'Loose_laser']]],
-  ['loosenodes_4',['looseNodes',['../structLoose__laser.html#a530daadb36eeea826ce60867a874d37c',1,'Loose_laser']]],
-  ['loosetargetlength_5',['looseTargetLength',['../structLoose__laser.html#a5dac8ae4d8d042193d42a837c1fb9cf7',1,'Loose_laser']]],
-  ['loosewidth_6',['looseWidth',['../structLoose__laser.html#a9693de799a5107c246be51bda86944f1',1,'Loose_laser']]]
+  ['id_0',['id',['../structBoxedEntity.html#aead26eec79b4456e168ef58af5c3e1b3',1,'BoxedEntity']]],
+  ['init_1',['init',['../structGameState.html#a646629fecaa25df3f70a56ee0d8b53d6',1,'GameState']]],
+  ['input_2',['input',['../structGameContext.html#adbf41746c46dce56827fc5bbe803ade0',1,'GameContext']]],
+  ['intersectionwidth_3',['intersectionWidth',['../structStraight__laser.html#a07c0bdacd6dcf2b855cc5e2d77ec4d02',1,'Straight_laser']]],
+  ['isanimated_4',['isAnimated',['../structSprite.html#a6e70ddeb82dcbf4030ad83347ba5fc0e',1,'Sprite']]],
+  ['isdown_5',['isDown',['../structKeyState.html#acbda6e006f8c713639379b1eb65f309b',1,'KeyState']]],
+  ['ispressed_6',['isPressed',['../structKeyState.html#a56894d499e649be23799959f1d3f14f1',1,'KeyState']]],
+  ['isreleased_7',['isReleased',['../structKeyState.html#a74de02611159b1d8572ea1deced25ad7',1,'KeyState']]]
 ];

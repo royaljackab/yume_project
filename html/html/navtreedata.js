@@ -30,6 +30,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
@@ -37,11 +38,11 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", "globals_dup" ],
-        [ "Functions", "globals_func.html", null ],
+        [ "Functions", "globals_func.html", "globals_func" ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ],
+        [ "Enumerator", "globals_eval.html", "globals_eval" ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -51,7 +52,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"screen_8h.html#a6974d08a74da681b3957b2fead2608b8"
+"assets_8h.html#a458291307eae5dfdecda616d636894f3adcb7548166d6e40ed6df28aeaa71a53d",
+"cotask_8c.html#ab39051f11c4dbfa4183dbda196c3c315",
+"globals_func_s.html",
+"obj_8h.html#a3e94dff6b4ed80d063c8a5ad5281af19",
+"structEnemy.html#a51791619a70962355568fae00cb96cdb",
+"title__screen_8c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

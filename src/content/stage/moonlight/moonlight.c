@@ -1,4 +1,5 @@
 #include "content/stage/moonlight/moonlight.h"
+#include "bullet.h"
 #include "common.h"
 #include "coroutine/cosched.h"
 #include "cotask.h"
@@ -75,18 +76,18 @@ TASK(movement, {GameContext *ctx; Entity boss; }) {
         obj_SetAngle(ARGS.ctx->pool, ARGS.boss, angleT);
         obj_SetSpeed(ARGS.ctx->pool, ARGS.boss, 2);
 
-        WAIT(20);
-        obj_SetSpeed(ARGS.ctx->pool, ARGS.boss, 0);
         WAIT(60);
+        obj_SetSpeed(ARGS.ctx->pool, ARGS.boss, 0);
+        WAIT(120);
     }
 }
 
 TASK(main_attack, {GameContext *ctx;}) {
-    Entity boss = Enemy_spawn(ARGS.ctx->pool, 500, 200, 0, 0, 100, 3, 1, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
+    Entity boss = Enemy_spawn(ARGS.ctx->pool, 500, 200, 0, 0, 500, 3, 1, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
     obj_SetTag(ARGS.ctx->pool, boss, ENT_BOSS);
     TASK_BIND(boss);
 
-    WAIT(60);
+    WAIT(120);
 
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
     CoTask *attack_1 = INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss);
@@ -96,8 +97,9 @@ TASK(main_attack, {GameContext *ctx;}) {
     while(!obj_IsDead(ARGS.ctx->pool, boss)) {
         YIELD;
     }
-
     CANCEL_TASK(attack_1_box);
+
+    obj_SetLife(ARGS.ctx->pool, boss, 100);
 
     STALL;
 }
@@ -111,7 +113,7 @@ void state_moonlight_init(GameContext *ctx) {
     
     // Change the beat bruv
     StopMusicStream(playlist[BGM_WAITING]);
-    PlayMusicStream(playlist[BGM_FAST_DANGER]);
+    PlayMusicStream(playlist[BGM_MORIYA_THEME]);
 
     pool_init(ctx->pool);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
@@ -126,6 +128,7 @@ void state_moonlight_update(GameContext *ctx) {
 
     Player_update(ctx);
     Physics_update_all(ctx->pool);
+    Condensation_update_all(ctx->pool);
     loose_lasers_update_all(ctx->pool); 
     straight_lasers_update_all(ctx->pool);
     Owner_update(ctx->pool); 

@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['declare_5fgetter_0',['DECLARE_GETTER',['../component_8h.html#a4500130e62f48bdc86940b366df20999',1,'component.h']]],
-  ['declare_5fsetter_1',['DECLARE_SETTER',['../component_8h.html#a73e7da277986cf970a55af6aaa03f68e',1,'component.h']]],
-  ['declare_5fsetter_5fgetter_2',['DECLARE_SETTER_GETTER',['../component_8h.html#aeabad4d08cf984e0d901d1fc63a27dcc',1,'component.h']]],
-  ['define_5fcomponent_5fmanager_3',['DEFINE_COMPONENT_MANAGER',['../component_8h.html#ad846ec829d26b00e7cb1e617a5f197c3',1,'component.h']]],
-  ['define_5fstatic_5ftask_4',['Define_Static_Task',['../task_8h.html#aae06495579acea9020227769a1f19fea',1,'task.h']]],
-  ['define_5ftask_5',['Define_Task',['../task_8h.html#afee3214b9f86171e72593f230be7eb0f',1,'task.h']]],
-  ['draw_5fkeybinds_6',['DRAW_KEYBINDS',['../keybinds_8c.html#a518c4e31519cdfa7ae90b26a1a5ea647',1,'keybinds.c']]],
-  ['draw_5fmargin_7',['DRAW_MARGIN',['../screen_8h.html#ad77852c9ed05a6d2d0dc929e12474474',1,'screen.h']]]
+  ['_5fdynarray_5fappend_5fmin_5fcapacity_0',['_dynarray_append_min_capacity',['../dynarray_8h.html#a159de541efaaaf42f7c823790cc18292',1,'dynarray.h']]],
+  ['_5fdynarray_5fforeach_5fiter_1',['_dynarray_foreach_iter',['../dynarray_8h.html#adaad4c571ae3a0b732a11c84086ad61a',1,'dynarray.h']]],
+  ['_5fdynarray_5fforeach_5ftemp_2',['_dynarray_foreach_temp',['../dynarray_8h.html#ad66b7666403723672b479f8769514d75',1,'dynarray.h']]],
+  ['_5fdynarray_5ffunc_3',['_dynarray_func',['../dynarray_8h.html#a4745762bdb3d3aaed11f8e4292b52512',1,'dynarray.h']]],
+  ['_5fdynarray_5ffunc_5fnoargs_4',['_dynarray_func_noargs',['../dynarray_8h.html#a16a537d132a2e692f0d28484ec6eef68',1,'dynarray.h']]],
+  ['_5finternal_5finvoke_5ftask_5',['_internal_INVOKE_TASK',['../tasks_8h.html#a52f1dfa91ab8acd584e2470eb6681687',1,'tasks.h']]],
+  ['_5finternal_5finvoke_5ftask_5fdelayed_6',['_internal_INVOKE_TASK_DELAYED',['../tasks_8h.html#a3b740d0c7aead422f1928b72bce2f9ba',1,'tasks.h']]],
+  ['_5finternal_5finvoke_5ftask_5fon_5fevent_7',['_internal_INVOKE_TASK_ON_EVENT',['../tasks_8h.html#a7010b453068049e9d52866d9906a9bd7',1,'tasks.h']]]
 ];

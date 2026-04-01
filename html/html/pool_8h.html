@@ -91,13 +91,18 @@ $(function(){initNavTree('pool_8h.html','',''); });
   <div class="headertitle"><div class="title">pool.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="collision__circle_8h_source.html">components/collision_circle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="collision__rectangle_8h_source.html">components/collision_rectangle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="common_8h_source.html">components/common.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="life_8h_source.html">components/life.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="physics_8h_source.html">components/physics.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="sprite_8h_source.html">components/sprite.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="collision__circle_8h_source.html">collision_circle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="collision__rectangle_8h_source.html">collision_rectangle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="life_8h_source.html">life.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="physics_8h_source.html">physics.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="sprite_8h_source.html">sprite.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ecs_8h_source.html">ecs/ecs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="straight__laser_8h_source.html">straight_laser.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="looseLaser_8h_source.html">looseLaser.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enemy_8h_source.html">enemy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="flags_8h_source.html">flags.h</a>&quot;</code><br />
 </div>
 <p><a href="pool_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -115,6 +120,8 @@ Functions</h2></td></tr>
 <tr class="memitem:aeee323761ac029b995b05b3c99f6aa29" id="r_aeee323761ac029b995b05b3c99f6aa29"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#aeee323761ac029b995b05b3c99f6aa29">pool_create_entity</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
 <tr class="memitem:a27986cf4e2b23fac8a47afc57c88a7ab" id="r_a27986cf4e2b23fac8a47afc57c88a7ab"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a27986cf4e2b23fac8a47afc57c88a7ab">pool_kill_convicts</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
 <tr class="memitem:ad3ac59302ddb42f699a779a6babfd5e5" id="r_ad3ac59302ddb42f699a779a6babfd5e5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad3ac59302ddb42f699a779a6babfd5e5">pool_kill_entity</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e)</td></tr>
+<tr class="memitem:a5d6320b48cf66b9e95b911a2ac7357b4" id="r_a5d6320b48cf66b9e95b911a2ac7357b4"><td class="memItemLeft"><a class="el" href="structBoxedEntity.html">BoxedEntity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5d6320b48cf66b9e95b911a2ac7357b4">entity_box</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> ent)</td></tr>
+<tr class="memitem:a524e3262be35dd78674fa8b2913aeefd" id="r_a524e3262be35dd78674fa8b2913aeefd"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a524e3262be35dd78674fa8b2913aeefd">entity_unbox</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="structBoxedEntity.html">BoxedEntity</a> box)</td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="a667f1041ddc634d36522f92d1308a71e" name="a667f1041ddc634d36522f92d1308a71e"></a>
@@ -132,6 +139,48 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a5d6320b48cf66b9e95b911a2ac7357b4" name="a5d6320b48cf66b9e95b911a2ac7357b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d6320b48cf66b9e95b911a2ac7357b4">&#9670;&#160;</a></span>entity_box()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structBoxedEntity.html">BoxedEntity</a> entity_box </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em>ent</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a524e3262be35dd78674fa8b2913aeefd" name="a524e3262be35dd78674fa8b2913aeefd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a524e3262be35dd78674fa8b2913aeefd">&#9670;&#160;</a></span>entity_unbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity_unbox </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structBoxedEntity.html">BoxedEntity</a></td>          <td class="paramname"><span class="paramname"><em>box</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aeee323761ac029b995b05b3c99f6aa29" name="aeee323761ac029b995b05b3c99f6aa29"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeee323761ac029b995b05b3c99f6aa29">&#9670;&#160;</a></span>pool_create_entity()</h2>
 

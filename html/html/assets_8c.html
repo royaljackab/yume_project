@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: src/core/assets.c File Reference</title>
+<title>My Project: src/content/assets.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,21 +91,57 @@ $(function(){initNavTree('assets_8c.html','',''); });
   <div class="headertitle"><div class="title">assets.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="assets_8h_source.html">core/assets.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="assets_8h_source.html">content/assets.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="sprite_8h_source.html">sprite.h</a>&quot;</code><br />
+<code>#include &lt;raylib.h&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a50ee77142890469d49bb7868f66d34e3" id="r_a50ee77142890469d49bb7868f66d34e3"><td class="memItemLeft">enum &#160;</td><td class="memItemRight">{ <a class="el" href="#a50ee77142890469d49bb7868f66d34e3ab5e6f435db485e604c96288a5ea882c9">RENDER_PRIO_BULLET</a>
+, <a class="el" href="#a50ee77142890469d49bb7868f66d34e3a0d9badac8cef851d6b496ece0108e6f2">RENDER_PRIO_PLAYER</a>
+, <a class="el" href="#a50ee77142890469d49bb7868f66d34e3a7ad38ebdfb27385ad19d04b23337415d">RENDER_PRIO_HITBOX</a>
+, <a class="el" href="#a50ee77142890469d49bb7868f66d34e3ac4a38ea6243d572c306abfb6a4d37274">RENDER_PRIO_ENEMY</a>
+ }</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a7138dcb2d0610e4f7a20321cc8992a97" id="r_a7138dcb2d0610e4f7a20321cc8992a97"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7138dcb2d0610e4f7a20321cc8992a97">AssetsLoad</a> ()</td></tr>
+<tr class="memitem:a78c70adc6bee8fbfc70e4933be0e7c4f" id="r_a78c70adc6bee8fbfc70e4933be0e7c4f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a78c70adc6bee8fbfc70e4933be0e7c4f">SpritesLoad</a> ()</td></tr>
+<tr class="memitem:aeb1d38cf71deda587fce2698d154e045" id="r_aeb1d38cf71deda587fce2698d154e045"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aeb1d38cf71deda587fce2698d154e045">BulletsSpritesLoad</a> ()</td></tr>
+<tr class="memitem:a5a7bed266706793f22e4c40f32ee53ae" id="r_a5a7bed266706793f22e4c40f32ee53ae"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5a7bed266706793f22e4c40f32ee53ae">EnemiesSpritesLoad</a> ()</td></tr>
 <tr class="memitem:a0be12c8f122eaebb8842f02c0234d952" id="r_a0be12c8f122eaebb8842f02c0234d952"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0be12c8f122eaebb8842f02c0234d952">AssetsUnload</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a73483cd2f7f2f594eb95acbe9b3f4f9f" id="r_a73483cd2f7f2f594eb95acbe9b3f4f9f"><td class="memItemLeft"><a class="el" href="structSprite.html">Sprite</a>&#160;</td><td class="memItemRight"><a class="el" href="#a73483cd2f7f2f594eb95acbe9b3f4f9f">sprites</a> [<a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3ad490ff3d99118488af58ed39ff1da3da">MAX_SPRITES</a>]</td></tr>
 <tr class="memitem:a6c36749609a005c6ac8178607de67fa3" id="r_a6c36749609a005c6ac8178607de67fa3"><td class="memItemLeft">Texture2D&#160;</td><td class="memItemRight"><a class="el" href="#a6c36749609a005c6ac8178607de67fa3">textures</a> [<a class="el" href="assets_8h.html#aac8c8e4db184e4a83ec51cdec293c11da16507bb6059237db935e951590235ddd">MAX_TEXTURES</a>]</td></tr>
 <tr class="memitem:a0060cf3ad78d1e210a9b4b5f6faa715b" id="r_a0060cf3ad78d1e210a9b4b5f6faa715b"><td class="memItemLeft">Music&#160;</td><td class="memItemRight"><a class="el" href="#a0060cf3ad78d1e210a9b4b5f6faa715b">playlist</a> [<a class="el" href="assets_8h.html#ad7fdbac9c8d116d2048ea198ba0d909ca788a39790068f70fbbad9361622d0e10">MAX_BGM</a>]</td></tr>
+<tr class="memitem:ab3f50a3673544c2460f41ec5c95ca735" id="r_ab3f50a3673544c2460f41ec5c95ca735"><td class="memItemLeft">Sound&#160;</td><td class="memItemRight"><a class="el" href="#ab3f50a3673544c2460f41ec5c95ca735">sfx</a> [<a class="el" href="assets_8h.html#a34e9cff1b7a75a2c6744fadf0d600dbaaf98de20345e8a607f1c7dbccd7a61aa0">MAX_SFX</a>]</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>jack abribat description blah blah </dd></dl>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="a50ee77142890469d49bb7868f66d34e3" name="a50ee77142890469d49bb7868f66d34e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50ee77142890469d49bb7868f66d34e3">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a50ee77142890469d49bb7868f66d34e3ab5e6f435db485e604c96288a5ea882c9" name="a50ee77142890469d49bb7868f66d34e3ab5e6f435db485e604c96288a5ea882c9"></a>RENDER_PRIO_BULLET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a50ee77142890469d49bb7868f66d34e3a0d9badac8cef851d6b496ece0108e6f2" name="a50ee77142890469d49bb7868f66d34e3a0d9badac8cef851d6b496ece0108e6f2"></a>RENDER_PRIO_PLAYER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a50ee77142890469d49bb7868f66d34e3a7ad38ebdfb27385ad19d04b23337415d" name="a50ee77142890469d49bb7868f66d34e3a7ad38ebdfb27385ad19d04b23337415d"></a>RENDER_PRIO_HITBOX&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a50ee77142890469d49bb7868f66d34e3ac4a38ea6243d572c306abfb6a4d37274" name="a50ee77142890469d49bb7868f66d34e3ac4a38ea6243d572c306abfb6a4d37274"></a>RENDER_PRIO_ENEMY&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a7138dcb2d0610e4f7a20321cc8992a97" name="a7138dcb2d0610e4f7a20321cc8992a97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7138dcb2d0610e4f7a20321cc8992a97">&#9670;&#160;</a></span>AssetsLoad()</h2>
 
@@ -140,6 +176,58 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="aeb1d38cf71deda587fce2698d154e045" name="aeb1d38cf71deda587fce2698d154e045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb1d38cf71deda587fce2698d154e045">&#9670;&#160;</a></span>BulletsSpritesLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BulletsSpritesLoad </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction intermediaire pour load tous les assets du jeu. Load toutes les bullets.</p>
+
+</div>
+</div>
+<a id="a5a7bed266706793f22e4c40f32ee53ae" name="a5a7bed266706793f22e4c40f32ee53ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a7bed266706793f22e4c40f32ee53ae">&#9670;&#160;</a></span>EnemiesSpritesLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EnemiesSpritesLoad </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78c70adc6bee8fbfc70e4933be0e7c4f" name="a78c70adc6bee8fbfc70e4933be0e7c4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c70adc6bee8fbfc70e4933be0e7c4f">&#9670;&#160;</a></span>SpritesLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpritesLoad </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
 <a id="a0060cf3ad78d1e210a9b4b5f6faa715b" name="a0060cf3ad78d1e210a9b4b5f6faa715b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0060cf3ad78d1e210a9b4b5f6faa715b">&#9670;&#160;</a></span>playlist</h2>
@@ -149,6 +237,34 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">Music playlist[<a class="el" href="assets_8h.html#ad7fdbac9c8d116d2048ea198ba0d909ca788a39790068f70fbbad9361622d0e10">MAX_BGM</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3f50a3673544c2460f41ec5c95ca735" name="ab3f50a3673544c2460f41ec5c95ca735"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3f50a3673544c2460f41ec5c95ca735">&#9670;&#160;</a></span>sfx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sound sfx[<a class="el" href="assets_8h.html#a34e9cff1b7a75a2c6744fadf0d600dbaaf98de20345e8a607f1c7dbccd7a61aa0">MAX_SFX</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73483cd2f7f2f594eb95acbe9b3f4f9f" name="a73483cd2f7f2f594eb95acbe9b3f4f9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73483cd2f7f2f594eb95acbe9b3f4f9f">&#9670;&#160;</a></span>sprites</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSprite.html">Sprite</a> sprites[<a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3ad490ff3d99118488af58ed39ff1da3da">MAX_SPRITES</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -182,7 +298,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a href="assets_8c.html">assets.c</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_b2566f32a3daaa15f78914030eeb5e8d.html">content</a></li><li class="navelem"><a href="assets_8c.html">assets.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

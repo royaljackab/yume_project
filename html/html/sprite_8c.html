@@ -93,9 +93,10 @@ $(function(){initNavTree('sprite_8c.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="sprite_8h_source.html">components/sprite.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="common_8h_source.html">components/common.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="assets_8h_source.html">core/assets.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="assets_8h_source.html">content/assets.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="screen_8h_source.html">core/screen.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pool_8h_source.html">ecs/pool.h</a>&quot;</code><br />
+<code>#include &lt;raylib.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -104,13 +105,16 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a07fdda0e9291646299852afc303ac1f4" id="r_a07fdda0e9291646299852afc303ac1f4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a07fdda0e9291646299852afc303ac1f4">Sprite_set_texture</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite, int textureID)</td></tr>
-<tr class="memdesc:a07fdda0e9291646299852afc303ac1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une texture avec les valeurs pas défauts.  <br /></td></tr>
+<tr class="memitem:a62161762a06d2538ff4c99d130fb62aa" id="r_a62161762a06d2538ff4c99d130fb62aa"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a62161762a06d2538ff4c99d130fb62aa">Sprite_set_texture</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite, int renderPriority, int textureID)</td></tr>
+<tr class="memdesc:a62161762a06d2538ff4c99d130fb62aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une texture avec les valeurs pas défauts.  <br /></td></tr>
 <tr class="memitem:add9c8e7d80512d918ec19660334640ef" id="r_add9c8e7d80512d918ec19660334640ef"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#add9c8e7d80512d918ec19660334640ef">Sprite_set_animation</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite, int frameCount, int delay)</td></tr>
+<tr class="memitem:a4cae9d43fd2cf473306be58d3cc7d670" id="r_a4cae9d43fd2cf473306be58d3cc7d670"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4cae9d43fd2cf473306be58d3cc7d670">Sprite_set_SourceRect</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite, float x, float y, float width, float height)</td></tr>
 <tr class="memitem:a3f971f3fb07c8d6f0cdad1c07443f937" id="r_a3f971f3fb07c8d6f0cdad1c07443f937"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3f971f3fb07c8d6f0cdad1c07443f937">UpdateAnimation</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite)</td></tr>
-<tr class="memitem:afa740657b7ad0f29f77eef9fd94a8ce5" id="r_afa740657b7ad0f29f77eef9fd94a8ce5"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#afa740657b7ad0f29f77eef9fd94a8ce5">Sprite_draw_sprite</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite, <a class="el" href="structPosition.html">Position</a> *pos)</td></tr>
+<tr class="memitem:a2a87a61a675a2e3c11d3c2fe3d9fc515" id="r_a2a87a61a675a2e3c11d3c2fe3d9fc515"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2a87a61a675a2e3c11d3c2fe3d9fc515">Sprite_draw_sprite</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite, <a class="el" href="structPosition.html">Position</a> *pos, <a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">Tag</a> *tag)</td></tr>
 <tr class="memitem:a4998df4d1d71a7a26756786f6e09fa88" id="r_a4998df4d1d71a7a26756786f6e09fa88"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a4998df4d1d71a7a26756786f6e09fa88">IsOutOfDrawBounds</a> (<a class="el" href="structPosition.html">Position</a> pos, <a class="el" href="structSprite.html">Sprite</a> sprite)</td></tr>
 <tr class="memitem:a54ca9312407bae75fe9ccf829068b979" id="r_a54ca9312407bae75fe9ccf829068b979"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a54ca9312407bae75fe9ccf829068b979">Sprite_draw_all</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
+<tr class="memitem:a7952f88ced2f6ba563a8251eb7a80a39" id="r_a7952f88ced2f6ba563a8251eb7a80a39"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7952f88ced2f6ba563a8251eb7a80a39">drawStraightLaser</a> (<a class="el" href="structStraight__laser.html">Straight_laser</a> *laser, <a class="el" href="structPosition.html">Position</a> *pos, <a class="el" href="structSprite.html">Sprite</a> *sprite)</td></tr>
+<tr class="memitem:a39f8fe954b042e1b2e7349a35372cc7b" id="r_a39f8fe954b042e1b2e7349a35372cc7b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a39f8fe954b042e1b2e7349a35372cc7b">drawAllStraightLasers</a> (Straight_laserManager *laserManager, PositionManager *positionManager, SpriteManager *spriteManager)</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a912d8a5fc768baa70d250f6d8f0cf751" name="a912d8a5fc768baa70d250f6d8f0cf751"></a>
@@ -142,6 +146,60 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a39f8fe954b042e1b2e7349a35372cc7b" name="a39f8fe954b042e1b2e7349a35372cc7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39f8fe954b042e1b2e7349a35372cc7b">&#9670;&#160;</a></span>drawAllStraightLasers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawAllStraightLasers </td>
+          <td>(</td>
+          <td class="paramtype">Straight_laserManager *</td>          <td class="paramname"><span class="paramname"><em>laserManager</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PositionManager *</td>          <td class="paramname"><span class="paramname"><em>positionManager</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SpriteManager *</td>          <td class="paramname"><span class="paramname"><em>spriteManager</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Affiche tous les lasers droits actifs</p>
+
+</div>
+</div>
+<a id="a7952f88ced2f6ba563a8251eb7a80a39" name="a7952f88ced2f6ba563a8251eb7a80a39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7952f88ced2f6ba563a8251eb7a80a39">&#9670;&#160;</a></span>drawStraightLaser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawStraightLaser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStraight__laser.html">Straight_laser</a> *</td>          <td class="paramname"><span class="paramname"><em>laser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structPosition.html">Position</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Affiche un laser droit selon sa largeur et sa longueur, à sa position et avec la couleur de son sprite</p>
+
+</div>
+</div>
 <a id="a4998df4d1d71a7a26756786f6e09fa88" name="a4998df4d1d71a7a26756786f6e09fa88"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4998df4d1d71a7a26756786f6e09fa88">&#9670;&#160;</a></span>IsOutOfDrawBounds()</h2>
 
@@ -185,17 +243,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Dessine tous les sprites du spriteManager en parametre a la position donné par le positionManager en faisant attention à la couche dont il doit être dessiné. les sprites ne sont dessinés uniquement si ils doivent être afficher (sprite.display et DrawBounds).</p>
 
 </div>
 </div>
-<a id="afa740657b7ad0f29f77eef9fd94a8ce5" name="afa740657b7ad0f29f77eef9fd94a8ce5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa740657b7ad0f29f77eef9fd94a8ce5">&#9670;&#160;</a></span>Sprite_draw_sprite()</h2>
+<a id="a2a87a61a675a2e3c11d3c2fe3d9fc515" name="a2a87a61a675a2e3c11d3c2fe3d9fc515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a87a61a675a2e3c11d3c2fe3d9fc515">&#9670;&#160;</a></span>Sprite_draw_sprite()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Sprite_draw_sprite </td>
@@ -205,14 +261,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structPosition.html">Position</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="structPosition.html">Position</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">Tag</a> *</td>          <td class="paramname"><span class="paramname"><em>tag</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Dessine un sprite a une position donnée en utilisant DrawTexturePro de raylib</p>
 
@@ -244,8 +300,44 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a07fdda0e9291646299852afc303ac1f4" name="a07fdda0e9291646299852afc303ac1f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07fdda0e9291646299852afc303ac1f4">&#9670;&#160;</a></span>Sprite_set_texture()</h2>
+<a id="a4cae9d43fd2cf473306be58d3cc7d670" name="a4cae9d43fd2cf473306be58d3cc7d670"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cae9d43fd2cf473306be58d3cc7d670">&#9670;&#160;</a></span>Sprite_set_SourceRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sprite_set_SourceRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62161762a06d2538ff4c99d130fb62aa" name="a62161762a06d2538ff4c99d130fb62aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62161762a06d2538ff4c99d130fb62aa">&#9670;&#160;</a></span>Sprite_set_texture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -254,6 +346,11 @@ Functions</h2></td></tr>
           <td class="memname">void Sprite_set_texture </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structSprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>renderPriority</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -267,6 +364,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sprite</td><td>Composante du sprite </td></tr>
+    <tr><td class="paramname">renderPriority</td><td>Layer a laquelle on affiche le sprite </td></tr>
     <tr><td class="paramname">textureID</td><td>ID de la texture a utiliser (<a class="el" href="assets_8h.html">assets.h</a>)</td></tr>
   </table>
   </dd>

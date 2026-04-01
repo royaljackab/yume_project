@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['keybinds_0',['KEYBINDS',['../title__screen_8c.html#a65e18a8ca12f8c1ba0f34cb59a221646ad0f3d2c54a7e94dacfbb4b5f004f0e46',1,'title_screen.c']]]
+  ['hitbox_0',['HITBOX',['../assets_8h.html#a458291307eae5dfdecda616d636894f3ab4fe06c5c8b197579e39b1768f198d5a',1,'assets.h']]],
+  ['hitbox_5fspritesheet_1',['HITBOX_SPRITESHEET',['../assets_8h.html#aac8c8e4db184e4a83ec51cdec293c11da01a09cd065de534261c978cf62edad59',1,'assets.h']]]
 ];
