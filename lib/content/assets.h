@@ -359,6 +359,7 @@ extern void AssetsUnload();
 void BulletsSpritesLoad();
 extern void SpritesLoad();
 void EnemiesSpritesLoad();
+extern void BackgroundsSpritesLoad();
 
 extern Texture2D textures[MAX_TEXTURES];
 extern Sprite sprites[MAX_SPRITES];

@@ -5,7 +5,7 @@
 #include "ecs/pool.h"
 #include <raylib.h>
 
-#define MIN_LAYER 0
+#define MIN_LAYER -20
 #define MAX_LAYER 100
 
 void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
@@ -74,7 +74,7 @@ void Sprite_draw_sprite(Sprite *sprite, Position *pos, Tag *tag) {
   Vector2 scaled_center = {sprite->center.x * sprite->scale.x, sprite->center.y * sprite->scale.y};
 
   // TODO: Tag pour enlever la rotation par défaut
-  if ( tag == NULL || (*tag != ENT_ENEMY && *tag != ENT_BOSS) )
+  if ( tag == NULL || (*tag != ENT_ENEMY && *tag != ENT_BOSS && *tag != ENT_BACKGROUND) )
     sprite->rotation = pos->angle;
 
   DrawTexturePro(tex, sprite->srcRect, destRec, scaled_center,

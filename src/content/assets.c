@@ -46,6 +46,7 @@ void AssetsLoad() {
       //LES BACKGROUNDS :
   textures[BACKGROUND_GRAYCIRCLES_SPRITE] = 
       LoadTexture("../Assets/Sprites/backgrounds/bg_touhou_gray_circles.png");
+    SetTextureWrap(textures[BACKGROUND_GRAYCIRCLES_SPRITE], TEXTURE_WRAP_REPEAT);
   textures[BACKGROUND_FLOWER_SPRITE] = 
       LoadTexture("../Assets/Sprites/backgrounds/bg_touhou_flowers.png");
 
@@ -71,7 +72,7 @@ void AssetsLoad() {
 
 
     // Load dem enemies up
-    EnemiesSpritesLoad();
+    
 }
 
 void SpritesLoad() {
@@ -102,6 +103,8 @@ void SpritesLoad() {
 
 
     BulletsSpritesLoad();
+    EnemiesSpritesLoad();
+    BackgroundsSpritesLoad();
 }
 
 //CLANKER GPT CORE
@@ -946,13 +949,12 @@ void BackgroundsSpritesLoad(){
   // =========================
   // BACKGROUNDS
   // =========================
-
-  Sprite_set_texture(&sprites[BACKGROUND_FLOWER], RENDER_PRIO_BG_LAYER_1, BACKGROUND_FLOWER_SPRITE);
+  Sprite_set_texture(&sprites[BACKGROUND_FLOWER], -20, BACKGROUND_FLOWER_SPRITE);
   Sprite_set_SourceRect(&sprites[BACKGROUND_FLOWER], 0, 0, 384, 448);
 
-
-  Sprite_set_texture(&sprites[BACKGROUND_GRAYCIRCLES], RENDER_PRIO_BG_LAYER_3, BACKGROUND_GRAYCIRCLES_SPRITE);
-  Sprite_set_SourceRect(&sprites[BACKGROUND_GRAYCIRCLES], 0, 0, 256, 256);
+  Sprite_set_texture(&sprites[BACKGROUND_GRAYCIRCLES], -19, BACKGROUND_GRAYCIRCLES_SPRITE);
+  Sprite_set_SourceRect(&sprites[BACKGROUND_GRAYCIRCLES], 0, 0, 1000, 1000);
+  Sprite_set_color(&sprites[BACKGROUND_GRAYCIRCLES], YELLOW);
 
 }
 

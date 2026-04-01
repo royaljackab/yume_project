@@ -17,6 +17,7 @@
 #include "boss.h"
 
 #include "nonspells/nonspell1.h"
+#include "background.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -141,12 +142,14 @@ void state_moonlight_update(GameContext *ctx) {
 void state_moonlight_draw(GameContext *ctx) {
     ClearBackground(BLACK);
 
+    BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
     Sprite_draw_all(ctx->pool);
     draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); 
     straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); 
 
     //par sécurité: mettez plutôt la boss_bar après les sprites, peut-être que ça cause des problèmes
     bossbar_draw_all(ctx->pool);
+    EndScissorMode();
 
     HUD_draw(ctx, "Stage 1 - Moonlight");
     DrawText("coucou", 30, 30, 50, WHITE);

@@ -1,14 +1,29 @@
 #include "background.h"
 
+#include "assets.h"
+#include "obj.h"
+#include "pool.h"
+
 Entity background_create_layer_speed(Pool *p, float speed, SpriteID graphic, bgScrollType scroll, backgroundID bgID) {
   Entity e = pool_create_entity(p);
 
-  Position pos = {{0, 0}, 0};
+  // 1. On centre parfaitement le fond dans le terrain !
+  Position pos = {
+      { PANEL_LEFT + (PANEL_WIDTH / 2.0f), PANEL_UP + (PANEL_HEIGHT / 2.0f) },
+      0 
+  };
   Physics phy = Physics_create_speed(speed);
 
-  if (scroll == BG_SCROLL_HORIZONTAL) pos.angle = 90;
-  else if (scroll == BG_SCROLL_VERTICAL) pos.angle = 0;
-  else if (scroll == BG_SCROLL_NONE) phy.speed = 0;
+  // 2. On corrige les angles de direction
+  if (scroll == BG_SCROLL_HORIZONTAL) {
+      pos.angle = 180; // 180 = Défile vers la GAUCHE (comme dans les jeux classiques)
+  }
+  else if (scroll == BG_SCROLL_VERTICAL) {
+      pos.angle = 90;  // 90 = Défile vers le BAS
+  }
+  else if (scroll == BG_SCROLL_NONE) {
+      phy.speed = 0;
+  }
 
   Background bg = {scroll, bgID};
 
@@ -18,6 +33,7 @@ Entity background_create_layer_speed(Pool *p, float speed, SpriteID graphic, bgS
   Tag_add(&p->tag, e, ENT_BACKGROUND);
   flagList_attach_first_flag(p, e, FLAG_OUT_OF_BOUNDS_ALIVE);
   Background_add(&p->background, e, bg);
+  
   return e;
 }
 
@@ -44,97 +60,69 @@ Entity background_create_layer(Pool *p, SpriteID graphic, bgScrollType scroll, b
 }
 
 bool background_delete_id(Pool *p, backgroundID bgID){
-/**
- * supprime tous les backgrounds qui ont l'id passé en paramètre
- * retourne vrai si un background a été supprimé, faux sinon
- */
-
     BackgroundManager *bgManager = &p->background;
-    if (bgID < 0 || bgID >= MAX_ENTITIES) return false;
+    bool deleted_something = false;
 
-    // Remove the background entity from the manager
-    for (int i = 0; i < MAX_ENTITIES; i++){
-        int lookup = Background_get_id(bgManager, i);
-        if (Background_get_bgID(lookup) == bgID) {
-            pool_kill_entity(bgManager, lookup);
-            return true;
+    // CORRECTION : On s'arrête à 'count', pas à MAX_ENTITIES !
+    for (int i = 0; i < bgManager->count; i++){
+        Entity lookup = bgManager->entity_lookup[i];
+        if (Background_get_bgID(Background_get(bgManager, lookup)) == bgID) {
+            pool_kill_entity(p, lookup);
+            deleted_something = true;
+            i--; // CORRECTION CRUCIALE : On recule d'un pas car l'ECS vient de boucher le trou !
         }
     }
-
-    return false;
+    return deleted_something;
 }
 
 bool background_delete_other(Pool *p, backgroundID bgID){
-/**supprime tous les backgrounds qui n'ont pas l'id passé en paramètre
- * retourne vrai si un background a été supprimé, faux sinon
- */
     BackgroundManager *bgManager = &p->background;
-    if (bgID < 0 || bgID >= MAX_ENTITIES) return false;
+    bool deleted_something = false;
 
-    // Remove the background entity from the manager
-    for (int i = 0; i < MAX_ENTITIES; i++){
-        int lookup = Background_get_id(bgManager, i);
-        if (Background_get_bgID(lookup) != bgID) {
-            pool_kill_entity(bgManager, lookup);
-            return true;
+    for (int i = 0; i < bgManager->count; i++){
+        Entity lookup = bgManager->entity_lookup[i];
+        if (Background_get_bgID(Background_get(bgManager, lookup)) != bgID) {
+            pool_kill_entity(p, lookup);
+            deleted_something = true;
+            i--; 
         }
     }
-
-    return false;
+    return deleted_something;
 }
-
-
 
 void background_update_bounds(Pool *p, Entity e){
-/**
- * Si le background ne couvre plus l'integralité du terrain, crée un nouveau background pour que la superposition des 2 le fasse
- * Si le background n'est plus du tous sur l'ecran le tue
- */
-
-    Vector2 pos = Position_get_pos(Position_get(&p->position, e));
-    Background bg = *Background_get(&p->background, e);
-    Sprite sprite = *Sprite_get(&p->sprite, e);
-    if (bg.scroll == BG_SCROLL_HORIZONTAL){
-        int spriteWidth = sprites[sprite.textureID].srcRect.width;
-
-        if (pos.x > PANEL_RIGHT){
-            //Crée un nv bg a gauche
-            background_duplicate_at(p, e, pos.x - spriteWidth, pos.y);
-
-        }
-        else if (pos.x < PANEL_LEFT){
-            //Crée un nv bg a droite
-            background_duplicate_at(p, e, pos.x + spriteWidth, pos.y);
-        }
-
-        if (pos.x < PANEL_LEFT - spriteWidth || pos.x > PANEL_RIGHT + spriteWidth) {
-            // supprime le bg actuelle
-            pool_kill_entity(p, e);
-        }
-
-    } else if (bg.scroll == BG_SCROLL_VERTICAL){
-        int spriteHeight = sprites[sprite.textureID].srcRect.height;
-
-        if (pos.y > PANEL_DOWN){
-            //Crée un nv bg en haut
-            background_duplicate_at(p, e, pos.x, pos.y - spriteHeight);
-        }
-        else if (pos.y < PANEL_UP){
-            //Crée un nv bg en bas
-            background_duplicate_at(p, e, pos.x, pos.y + spriteHeight);
-        }
-
-        if (pos.y < PANEL_UP - spriteHeight || pos.y > PANEL_DOWN + spriteHeight) {
-            // supprime le bg actuelle
-            pool_kill_entity(p, e);
-        }
-
-    }
-    //Rien besoin de faire si le bg ne scroll pas
-
+    Position *pos = Position_get(&p->position, e);
+    Background *bg = Background_get(&p->background, e);
+    Sprite *sprite = Sprite_get(&p->sprite, e);
     
-}
+    if (!pos || !bg || !sprite) return;
 
+    // Le vrai point central du terrain
+    float centerX = PANEL_LEFT + (PANEL_WIDTH / 2.0f);
+    float centerY = PANEL_UP + (PANEL_HEIGHT / 2.0f);
+
+    if (bg->scroll == BG_SCROLL_HORIZONTAL){
+        float width = sprite->srcRect.width * sprite->scale.x;
+
+        // La boucle parfaite : on saute dès qu'on a parcouru exactement la taille d'une image
+        if (pos->pos.x <= centerX - width){
+            pos->pos.x += width * 2.0f; 
+        }
+        else if (pos->pos.x >= centerX + width){
+            pos->pos.x -= width * 2.0f;
+        }
+
+    } else if (bg->scroll == BG_SCROLL_VERTICAL){
+        float height = sprite->srcRect.height * sprite->scale.y;
+
+        if (pos->pos.y <= centerY - height){
+            pos->pos.y += height * 2.0f;
+        }
+        else if (pos->pos.y >= centerY + height){
+            pos->pos.y -= height * 2.0f;
+        }
+    }
+}
 
 void background_update_all_bounds(Pool *p){
 /** 
@@ -142,14 +130,23 @@ void background_update_all_bounds(Pool *p){
 */
     BackgroundManager *bgManager = &p->background;
     for (int i = 0; i < bgManager->count; i++){
-        int lookup = Background_get_id(bgManager, i);
+        int lookup = Background_get_entity(bgManager, i);
         background_update_bounds(p, lookup);
     }
 }
 
 void background_set_moriya(Pool *p){
     background_delete_other(p, MORIYA);
-    background_create_layer(p, BACKGROUND_FLOWER, BG_SCROLL_NONE, MORIYA);
-    background_create_layer(p, BACKGROUND_GRAYCIRCLES, BG_SCROLL_HORIZONTAL, MORIYA);
+    
+    // Le fond fixe
+    Entity bg0 = background_create_layer_speed(p, 0.0f, BACKGROUND_FLOWER, BG_SCROLL_NONE, MORIYA);
+    obj_SetScale(p, bg0, 2.5, 2.5);
+    
+    // LE FOND GRIS (Une seule entité !)
+    // On met sa vitesse physique à 0.0f car l'entité ne bougera pas, c'est l'image qui glissera.
+    Entity bg1 = background_create_layer_speed(p, 1.0f, BACKGROUND_GRAYCIRCLES, BG_SCROLL_HORIZONTAL, MORIYA);
+    obj_SetAlpha(p, bg1, 120);
+    
+    Sprite *spr1 = Sprite_get(&p->sprite, bg1);
+    spr1->scale = (Vector2){1.0f, 1.0f}; // L'image reste nette et bien zoomée !
 }
-

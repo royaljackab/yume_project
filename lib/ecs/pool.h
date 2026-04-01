@@ -28,6 +28,7 @@
 #include "looseLaser.h"
 #include "enemy.h"
 #include "flags.h"
+#include "background.h"
 
 typedef struct Pool {
   //common
