@@ -1,26 +1,28 @@
 /**
  * @file state_menu_settings.c
- * @brief Écran de réglages audio : volume BGM et SFX, navigable au clavier.
+ * @brief Écran de réglages audio, navigation via ButtonSystem.
  */
 
 #include "content/ui/state_menu_settings.h"
 #include "core/game_state.h"
 #include "core/settings.h"
 #include "content/assets.h"
+#include "systems/button.h"
 #include <raylib.h>
 #include <raymath.h>
-#include <stdio.h>
 
-/* Options du menu */
+/* --- Enum des boutons --- */
 typedef enum {
-  OPT_VOLUME_BGM = 0,
-  OPT_VOLUME_SFX,
-  OPT_KEYBINDS,
-  OPT_RETOUR,
-  NB_OPTIONS
-} SettingsOption;
+  BTN_VOLUME_BGM = 0,
+  BTN_VOLUME_SFX,
+  BTN_KEYBINDS,
+  BTN_RETOUR,
+  NB_BTN_SETTINGS
+} SettingsBtn;
 
-static int option_courante = 0;
+#define PAS_VOLUME 0.05f
+#define BARRE_LARGEUR 400
+#define BARRE_HAUTEUR 25
 
 /* ------------------------------------------------------------------ */
 /* Fonctions internes                                                  */
@@ -28,23 +30,21 @@ static int option_courante = 0;
 
 void audio_appliquer_volumes(GameContext *ctx) {
   /* Applique les volumes stockés dans le contexte à tous les sons chargés */
-  for (int i = 0; i < MAX_BGM; i++) {
+  for (int i = 0; i < MAX_BGM; i++)
     SetMusicVolume(playlist[i], ctx->volume_bgm);
-  }
-  for (int i = 0; i < MAX_SFX; i++) {
+  for (int i = 0; i < MAX_SFX; i++)
     SetSoundVolume(sfx[i], ctx->volume_sfx);
-  }
 }
 
-static void dessiner_barre(float valeur, int x, int y, int largeur, int hauteur) {
+static void dessiner_barre_volume(float valeur, int x, int y, Color couleur) {
   /* Fond gris */
-  DrawRectangle(x, y, largeur, hauteur, DARKGRAY);
-  /* Remplissage rose proportionnel à la valeur */
-  DrawRectangle(x, y, (int)(largeur * valeur), hauteur, PINK);
-  /* Bordure blanche */
-  DrawRectangleLines(x, y, largeur, hauteur, WHITE);
-  /* Pourcentage à droite */
-  DrawText(TextFormat("%d%%", (int)(valeur * 100)), x + largeur + 15, y, hauteur, WHITE);
+  DrawRectangle(x, y, BARRE_LARGEUR, BARRE_HAUTEUR, DARKGRAY);
+  /* Remplissage proportionnel */
+  DrawRectangle(x, y, (int)(BARRE_LARGEUR * valeur), BARRE_HAUTEUR, couleur);
+  /* Bordure */
+  DrawRectangleLines(x, y, BARRE_LARGEUR, BARRE_HAUTEUR, WHITE);
+  /* Pourcentage */
+  DrawText(TextFormat("%d%%", (int)(valeur * 100)), x + BARRE_LARGEUR + 15, y + 3, 20, WHITE);
 }
 
 /* ------------------------------------------------------------------ */
@@ -52,68 +52,60 @@ static void dessiner_barre(float valeur, int x, int y, int largeur, int hauteur)
 /* ------------------------------------------------------------------ */
 
 void state_menu_settings_init(GameContext *ctx) {
-  option_courante = 0;
-  /* Applique les volumes dès l'entrée dans le menu (chargés depuis fichier) */
+  button_system_init(&ctx->button);
+
+  /* Positions Y de chaque option */
+  button_create(&ctx->button, 50, 200);  /* BTN_VOLUME_BGM */
+  button_create(&ctx->button, 50, 340);  /* BTN_VOLUME_SFX */
+  button_create(&ctx->button, 50, 480);  /* BTN_KEYBINDS   */
+  button_create(&ctx->button, 50, 560);  /* BTN_RETOUR      */
+
   audio_appliquer_volumes(ctx);
 }
 
 void state_menu_settings_update(GameContext *ctx) {
-  const float PAS = 0.05f; /* 5% par appui */
+  /* Navigation haut/bas + validation gérées par button_update */
+  button_update(&ctx->button, &ctx->input);
 
-  /* Navigation haut/bas avec IsKeyPressed direct (menu, pas gameplay) */
-  if (IsKeyPressed(ctx->input.keybinds.up)) {
-    option_courante = (option_courante - 1 + NB_OPTIONS) % NB_OPTIONS;
-    PlaySound(sfx[SFX_MENU_NAV]);
-  }
-  if (IsKeyPressed(ctx->input.keybinds.down)) {
-    option_courante = (option_courante + 1) % NB_OPTIONS;
-    PlaySound(sfx[SFX_MENU_NAV]);
-  }
+  int sel = button_get_current_buttonID(&ctx->button);
 
-  /* --- Modification volume BGM --- */
-  if (option_courante == OPT_VOLUME_BGM) {
+  /* Gauche/droite : modifier le volume du bouton sélectionné */
+  if (sel == BTN_VOLUME_BGM) {
     if (isPressed(ctx->input.right)) {
-      ctx->volume_bgm = Clamp(ctx->volume_bgm + PAS, 0.0f, 1.0f);
+      ctx->volume_bgm = Clamp(ctx->volume_bgm + PAS_VOLUME, 0.0f, 1.0f);
       audio_appliquer_volumes(ctx);
     }
     if (isPressed(ctx->input.left)) {
-      ctx->volume_bgm = Clamp(ctx->volume_bgm - PAS, 0.0f, 1.0f);
+      ctx->volume_bgm = Clamp(ctx->volume_bgm - PAS_VOLUME, 0.0f, 1.0f);
       audio_appliquer_volumes(ctx);
     }
   }
 
-  /* --- Modification volume SFX --- */
-  if (option_courante == OPT_VOLUME_SFX) {
+  if (sel == BTN_VOLUME_SFX) {
     if (isPressed(ctx->input.right)) {
-      ctx->volume_sfx = Clamp(ctx->volume_sfx + PAS, 0.0f, 1.0f);
+      ctx->volume_sfx = Clamp(ctx->volume_sfx + PAS_VOLUME, 0.0f, 1.0f);
       audio_appliquer_volumes(ctx);
-      /* Jouer un son de test pour entendre le nouveau niveau */
-      PlaySound(sfx[SFX_MENU_NAV]);
+      PlaySound(sfx[SFX_MENU_NAV]); /* test sonore immédiat */
     }
     if (isPressed(ctx->input.left)) {
-      ctx->volume_sfx = Clamp(ctx->volume_sfx - PAS, 0.0f, 1.0f);
+      ctx->volume_sfx = Clamp(ctx->volume_sfx - PAS_VOLUME, 0.0f, 1.0f);
       audio_appliquer_volumes(ctx);
       PlaySound(sfx[SFX_MENU_NAV]);
     }
   }
 
-  /* --- Validation --- */
-  if (isPressed(ctx->input.validate)) {
-    switch (option_courante) {
-    case OPT_KEYBINDS:
+  /* Validation (Espace) */
+  if (button_is_validated(&ctx->button)) {
+    switch (sel) {
+    case BTN_KEYBINDS:
       gamestate_change_state(ctx, STATE_MENU_KEYBINDS);
       break;
-    case OPT_RETOUR:
+    case BTN_RETOUR:
       gamestate_change_state(ctx, STATE_MENU_TITLE);
       break;
     default:
-      break;
+      break; /* volumes : espace ne fait rien de spécial */
     }
-  }
-
-  /* Raccourci retour rapide avec skip (Ctrl) */
-  if (isPressed(ctx->input.skip)) {
-    gamestate_change_state(ctx, STATE_MENU_TITLE);
   }
 }
 
@@ -122,45 +114,44 @@ void state_menu_settings_draw(GameContext *ctx) {
 
   DrawText("REGLAGES", 50, 60, 70, RED);
 
+  int sel = button_get_current_buttonID(&ctx->button);
+
   /* --- Volume BGM --- */
-  Color c_bgm = (option_courante == OPT_VOLUME_BGM) ? YELLOW : GRAY;
-  DrawText("*", 20, 200, 40, (option_courante == OPT_VOLUME_BGM) ? YELLOW : BLACK);
-  DrawText("Volume musique", 50, 200, 40, c_bgm);
-  DrawRectangle(50, 250, 400, 25, DARKGRAY);
-  DrawRectangle(50, 250, (int)(400 * ctx->volume_bgm), 25, RED);
-  DrawRectangleLines(50, 250, 400, 25, WHITE);
-  DrawText(TextFormat("%d%%", (int)(ctx->volume_bgm * 100)), 465, 252, 20, WHITE);
-  /* Hint SOUS la barre, pas à côté */
-  if (option_courante == OPT_VOLUME_BGM)
-    DrawText("< gauche / droite >", 50, 282, 16, YELLOW);
+  button_draw_button_text(&ctx->button, BTN_VOLUME_BGM,
+    "Volume musique", 40,
+    (sel == BTN_VOLUME_BGM) ? YELLOW : GRAY);
+  dessiner_barre_volume(ctx->volume_bgm, 50, 250, RED);
+  if (sel == BTN_VOLUME_BGM)
+    DrawText("< / >", 50, 282, 16, YELLOW);
 
   /* --- Volume SFX --- */
-  Color c_sfx = (option_courante == OPT_VOLUME_SFX) ? YELLOW : GRAY;
-  DrawText("*", 20, 330, 40, (option_courante == OPT_VOLUME_SFX) ? YELLOW : BLACK);
-  DrawText("Volume effets sonores", 50, 330, 40, c_sfx);
-  DrawRectangle(50, 380, 400, 25, DARKGRAY);
-  DrawRectangle(50, 380, (int)(400 * ctx->volume_sfx), 25, (Color){80, 0, 120, 255});
-  DrawRectangleLines(50, 380, 400, 25, WHITE);
-  DrawText(TextFormat("%d%%", (int)(ctx->volume_sfx * 100)), 465, 382, 20, WHITE);
-  if (option_courante == OPT_VOLUME_SFX)
-    DrawText("< gauche / droite >", 50, 412, 16, YELLOW);
+  button_draw_button_text(&ctx->button, BTN_VOLUME_SFX,
+    "Volume effets sonores", 40,
+    (sel == BTN_VOLUME_SFX) ? YELLOW : GRAY);
+  dessiner_barre_volume(ctx->volume_sfx, 50, 390, (Color){80, 0, 120, 255});
+  if (sel == BTN_VOLUME_SFX)
+    DrawText("< / >", 50, 422, 16, YELLOW);
 
   /* --- Controles clavier --- */
-  Color c_kb = (option_courante == OPT_KEYBINDS) ? YELLOW : GRAY;
-  DrawText("*", 20, 450, 40, (option_courante == OPT_KEYBINDS) ? YELLOW : BLACK);
-  DrawText("Controles clavier", 50, 450, 40, c_kb);
+  button_draw_button_text(&ctx->button, BTN_KEYBINDS,
+    "Controles clavier", 40,
+    (sel == BTN_KEYBINDS) ? YELLOW : GRAY);
 
   /* --- Retour --- */
-  Color c_ret = (option_courante == OPT_RETOUR) ? YELLOW : GRAY;
-  DrawText("*", 20, 520, 40, (option_courante == OPT_RETOUR) ? YELLOW : BLACK);
-  DrawText("Retour", 50, 520, 40, c_ret);
+  button_draw_button_text(&ctx->button, BTN_RETOUR,
+    "Retour", 40,
+    (sel == BTN_RETOUR) ? YELLOW : GRAY);
 
-  DrawText("Haut/Bas : naviguer   Gauche/Droite : modifier   Espace : valider",
+  /* Curseur * */
+  button_draw_selector_text(&ctx->button, -35, 0, "*", 40, YELLOW);
+
+  /* Aide en bas */
+  DrawText("Haut/Bas : naviguer   Gauche/Droite : modifier volume   Espace : valider",
            50, 680, 18, DARKGRAY);
 }
 
 void state_menu_settings_cleanup(GameContext *ctx) {
-  /* Sauvegarde automatique en quittant le menu */
+  /* Sauvegarde automatique en quittant */
   saveSettings(ctx);
 }
 
