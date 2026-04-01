@@ -11,20 +11,20 @@
 #include "ecs/pool.h"
 
 #include "content/assets.h"
-
 #include "core/game_state.h"
 #include "core/input.h"
 #include "core/screen.h"
 #include "obj.h"
 
-#include <complex.h>
+#include "systems/score.h"
+
 #include <raylib.h>
 #include <raymath.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 /* Macros definitions */
-#define CREATE_PLAYER(nbBombs, speed, focusSpeed, name) (Player){nbBombs, nbBombs, speed, focusSpeed, -1, name}
+#define CREATE_PLAYER(nbBombs, speed, focusSpeed, grazeRadius, name) (Player){nbBombs, nbBombs, speed, focusSpeed, -1, -1, grazeRadius, name}
 #define GET_SPRITE_MOVEMENT(SpriteRootName, movement) sprites[SpriteRootName##_##movement]
 
 /* Structures definitions */
@@ -36,7 +36,7 @@ typedef enum {
 
 /* Static variables */
 static
-Player test_player = CREATE_PLAYER(3, 7, 3.9, TEST_PLAYER);
+Player test_player = CREATE_PLAYER(3, 7, 3.9, TEST_PLAYER, 2);
 
 /*Static functions*/
 static
@@ -69,7 +69,6 @@ static
 void Player_move(InputSystem *input, Pool *p, Entity player) {
 
     // TODO: Généraliser les sprites IDLE/LEFT
-    // TODO: focus mode
 
     Player *player_p = Player_get(&p->player, player);
     Position *pos = Position_get(&p->position, player);
@@ -134,7 +133,7 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
 static
 void Player_focus(InputSystem *input, Pool *p, Entity player) {
     Player *player_p = Player_get(&p->player, player);
-    Sprite * hitboxSprite = Sprite_get(&p->sprite,player_p->hitboxId);
+    Sprite * hitboxSprite = Sprite_get(&p->sprite,player_p->hitboxSpriteId);
     if(input->focus.isPressed){
         hitboxSprite->color.a = 0;
     }
@@ -168,6 +167,46 @@ void Player_focus(InputSystem *input, Pool *p, Entity player) {
 //   }
 }
 
+static
+void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
+    /**
+     * @brief Gérer le graze du joueur
+     * - incrémenter le score de graze et le score total en conséquence
+     */
+    flagList projectileFlag = {.flags = (FlagType[]){FLAG_PROJECTILE_ENEMY}, .size = 1};
+    Player *player_p = Player_get(&p->player, player);
+    Sprite * hitboxSprite = Sprite_get(&p->sprite,player_p->GrazeSpriteId);
+    bool isGrazing = false;
+
+    //check graze avec les hitbox cercles
+    for(int i = 0; i < p->collision_circle.count; i++){
+        Entity e = Collision_circle_get_entity(&p->collision_circle, i);
+        if (Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCollisionCircles(Position_get(&p->position, player)->pos, player_p->grazeRadius, obj_GetPosition(p, e), Collision_circle_get(&p->collision_circle, e)->radius)){
+                score_increase(scoreS, scoreS->scoreOnGraze);
+                PlaySound(sfx[SFX_GRAZE]);
+                obj_SetVisible(p, player_p->GrazeSpriteId, true);
+                isGrazing = true;
+        }
+    }
+    
+    //check graze avec les hitbox rectangles (pour les lasers)
+    for(int i = 0; i < p->collision_rectangle.count; i++){
+        Entity e = Collision_rectangle_get_entity(&p->collision_rectangle, i);
+        Collision_rectangle * cl = Collision_rectangle_get(&p->collision_rectangle, e);
+
+        Rectangle rect = {.x=obj_GetX(p, e), .y=obj_GetY(p, e), .width=cl->width, .height=cl->length};
+        if (Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCollisionCircleRec(Position_get(&p->position, player)->pos, player_p->grazeRadius, rect)){
+                score_increase(scoreS, scoreS->scoreOnGraze);
+                PlaySound(sfx[SFX_GRAZE]);
+                obj_SetVisible(p, player_p->GrazeSpriteId, true);
+                isGrazing = true;
+        }
+    }
+    if(!isGrazing){
+        obj_SetVisible(p, player_p->GrazeSpriteId, false);
+    }
+}
+
 /* Extern functions */
 void Player_start(Pool *p, PlayerName name, PatternType type) {
     Player player = Player_create(name);
@@ -176,16 +215,20 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     
     Entity e = pool_create_entity(p);
     Entity hitbox = particle_bound(p, HITBOX, e);
+    Entity graze = particle_bound(p, ENEMY_FAIRY_BLACK_BLONDE_IDLE, e);
 
     Player_add(&p->player, e, player);
     Weapon_add(&p->weapon, e, weapon);
     Position_add(&p->position, e, (Position){{0,0}, 0});
     Sprite_add(&p->sprite, e, sprite);
     Collision_circle_add(&p->collision_circle, e, (Collision_circle){5});
-    Player_set_hitboxId(Player_get(&p->player,e),hitbox);
+
+    Player_set_hitboxSpriteId(Player_get(&p->player,e),hitbox);
+    Player_set_GrazeSpriteId(Player_get(&p->player,e), graze);
+
     Life_add(&p->life, e, (Life){INITIAL_PLAYER_LIVES, INITIAL_PLAYER_LIVES});
 
-        //ajout de la flagList du joueur
+    //ajout de la flagList du joueur
     FlagType * flagTypeList = malloc(sizeof(FlagType) * MAX_FLAGS);
     flagList flagList = {.flags = flagTypeList, .size = 0};
     flagList_add_element(&flagList, FLAG_PLAYER);
@@ -193,7 +236,6 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
 
 
     teleport_to_player_spawn(p, e);
-
 }
 
 
@@ -208,6 +250,7 @@ void Player_update(GameContext *ctx) {
     Player_focus(input, p, player);
 
     Damage_player_by_enemy_projectile(p, player);
+    Player_graze(p, &ctx->score, player);
 }
 
 Entity Player_get_playerID(Pool *pool) {
