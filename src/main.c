@@ -1,4 +1,5 @@
 #include "content/assets.h"
+#include "content/ui/state_menu_settings.h"
 #include "core/game_state.h"
 #include "core/screen.h"
 #include "core/settings.h"
@@ -22,6 +23,7 @@ int main() {
 
   input_initialize(&ctx.input);
   load_settings(&ctx);
+  audio_appliquer_volumes(&ctx);
 
   ctx.currentState->init(&ctx);
 
@@ -40,16 +42,21 @@ int main() {
     if (ctx.currentStateID > __END_MENU__) {
       pauseListener(&ctx);
     }
+
     if (ctx.pause) {
-      pauseMenu();
-    }
-
-    if (ctx.currentState != NULL) {
-      ctx.currentState->update(&ctx);
-
+      /* Jeu figé : on ne update plus, on dessine juste le menu pause */
       BeginDrawing();
-        ctx.currentState->draw(&ctx);
+        ctx.currentState->draw(&ctx);   // le stage reste visible en fond
+        pauseMenu(&ctx);                // par-dessus
       EndDrawing();
+    } else {
+      /* Jeu actif : comportement normal */
+      if (ctx.currentState != NULL) {
+        ctx.currentState->update(&ctx);
+        BeginDrawing();
+          ctx.currentState->draw(&ctx);
+        EndDrawing();
+      }
     }
   }
 

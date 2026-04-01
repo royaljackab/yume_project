@@ -20,7 +20,7 @@ else ifeq ($(UNAME_S),Darwin)
     LIBS = -lraylib -lm -lpthread -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL -lkoishi
     LIBPATH = -L/opt/homebrew/lib -L../lib
     NEED_RAYLIB_BUILD = false
-    NEED_KOISHI_BUILD = false
+    NEED_KOISHI_BUILD = true
 else
     # Windows (MSYS2, MinGW)
     LIBS = -lraylib -lm -lpthread -lopengl32 -lgdi32 -lwinmm   # plus de -lkoishi
