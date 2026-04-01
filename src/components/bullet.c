@@ -95,3 +95,14 @@ void Condensation_update_all(Pool *p) {
   }
 }
 
+void Bullet_clear_bullets(Pool *p) {
+  for (int i=0; i < p->tag.count; ++i) {
+    Entity e = Tag_get_entity(&p->tag, i);
+    Tag tag = p->tag.dense[i];
+
+    if (tag == ENT_ENEMY_SHOT || tag == ENT_ENEMY_LASER) {
+      pool_kill_entity(p, e);
+    }
+  }
+}
+

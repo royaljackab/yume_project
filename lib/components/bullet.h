@@ -46,3 +46,5 @@ Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityT
 Entity Bullet_enemy_spawn_delayed(Pool *p, float x, float y, float speed, float angle, SpriteID graphic, int delay);
 
 void Condensation_update_all(Pool *p);
+
+void Bullet_clear_bullets(Pool *p);

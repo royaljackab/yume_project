@@ -16,15 +16,15 @@ TASK(slow_ring, {Pool *pool; Entity boss; int nb_bullets; float speed_slow; floa
 
         float angleT = GetRandomValue(0, 360);
         for (int  i = 0; i < ARGS.nb_bullets; ++i) {
-            Entity bullet = Bullet_enemy_spawn_delayed(ARGS.pool, x, y, init_speed, angleT, BULLET_LIGHT_YELLOW, 10);
+            Entity bullet = Bullet_enemy_spawn_delayed(ARGS.pool, x, y, init_speed, angleT, BULLET_YELLOW, 5);
             obj_SetAcceleration(ARGS.pool, bullet, -0.5);
             obj_SetMinSpd(ARGS.pool, bullet, ARGS.speed_slow);
 
-            Entity bullet_mid = Bullet_enemy_spawn_delayed(ARGS.pool, x, y, init_speed_mid, angleT, BULLET_YELLOW, 10);
+            Entity bullet_mid = Bullet_enemy_spawn_delayed(ARGS.pool, x, y, init_speed_mid, angleT, BULLET_YELLOW, 5);
             obj_SetAcceleration(ARGS.pool, bullet_mid, -0.5);
             obj_SetMinSpd(ARGS.pool, bullet_mid, ARGS.speed_mid);
 
-            Entity bullet_fast = Bullet_enemy_spawn_delayed(ARGS.pool, x, y, init_speed_fast, angleT, BULLET_RED, 10);
+            Entity bullet_fast = Bullet_enemy_spawn_delayed(ARGS.pool, x, y, init_speed_fast, angleT, BULLET_YELLOW, 5);
             obj_SetAcceleration(ARGS.pool, bullet_fast, -0.5);
             obj_SetMinSpd(ARGS.pool, bullet_fast, ARGS.speed_fast);
 
@@ -47,7 +47,7 @@ TASK(fast_spiral, {Pool *pool; Entity boss; int nb_bullets; int nb_legs; float r
 
             float angle_curr_offset = ARGS.nb_bullets / 2 * (-ARGS.angle_offset);
             for (int i=0; i < ARGS.nb_bullets; ++i) {
-                Bullet_enemy_spawn_delayed(ARGS.pool, x, y, ARGS.speed, angleT - angle_curr_offset, PETAL_LIGHT_BLUE, 20);
+                Bullet_enemy_spawn_delayed(ARGS.pool, x, y, ARGS.speed, angleT - angle_curr_offset, PETAL_LIGHT_BLUE, 5);
                 angle_curr_offset += ARGS.angle_offset;
             }
 
