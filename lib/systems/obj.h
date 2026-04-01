@@ -62,3 +62,5 @@ void obj_SetMaxlife(Pool *p, Entity objId, int maxLife);
 
 Tag obj_GetTag(Pool *p, Entity objId);
 void obj_SetTag(Pool *p, Entity objId, Tag tag);
+
+void obj_SetHitboxRadius(Pool *p, Entity objID, float radius);

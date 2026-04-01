@@ -357,7 +357,7 @@ void EnemiesSpritesLoad();
 
 extern Texture2D textures[MAX_TEXTURES];
 extern Sprite sprites[MAX_SPRITES];
-extern Music playlist[MAX_BGM];      
+extern Music playlist[MAX_BGM];     
 
 // Effets sonores
 typedef enum {
@@ -367,6 +367,7 @@ typedef enum {
     SFX_TAN00,
     SFX_TAN01,
     SFX_TAN02,
+    SFX_PLDEAD00,
     MAX_SFX
 } SFXID;
 

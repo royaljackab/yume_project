@@ -119,8 +119,8 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
 
     if(input->shoot.isDown) {
         if (weapon->cooldown == 0) {
-            Bullet_player_spawn(p, pos->pos.x - 7, pos->pos.y, 40, -90, REIMU_PINK_AMULET);
-            Bullet_player_spawn(p, pos->pos.x + 7, pos->pos.y, 40, -90, REIMU_PINK_AMULET);
+            Bullet_player_spawn(p, pos->pos.x - 10, pos->pos.y, 40, -90, REIMU_PINK_AMULET);
+            Bullet_player_spawn(p, pos->pos.x + 10, pos->pos.y, 40, -90, REIMU_PINK_AMULET);
             // Son de tir
             if (!IsSoundPlaying(sfx[SFX_SHOOT])) {
                 PlaySound(sfx[SFX_SHOOT]);
@@ -173,6 +173,7 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     Player player = Player_create(name);
     Weapon weapon = Weapon_create(type);
     Sprite sprite = sprites[REIMU_IDLE];
+    Tag tag = ENT_PLAYER;
     
     Entity e = pool_create_entity(p);
     Entity hitbox = particle_bound(p, HITBOX, e);
@@ -184,6 +185,7 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     Collision_circle_add(&p->collision_circle, e, (Collision_circle){5});
     Player_set_hitboxId(Player_get(&p->player,e),hitbox);
     Life_add(&p->life, e, (Life){INITIAL_PLAYER_LIVES, INITIAL_PLAYER_LIVES});
+    Tag_add(&p->tag, e, tag);
 
         //ajout de la flagList du joueur
     FlagType * flagTypeList = malloc(sizeof(FlagType) * MAX_FLAGS);
@@ -232,6 +234,18 @@ extern bool Damage_player(Pool *p, Entity player){
     Life *life = Life_get(&p->life, player);
     if (!life) return false;
     Life_damage(life, 1);
+    PlaySound(sfx[SFX_PLDEAD00]);
+
+    LifeManager *lm = &p->life;
+    for (int i=0; i < lm->count; ++i) {
+        Entity e = Life_get_entity(lm, i);
+        Tag *tag = Tag_get(&p->tag, e);
+
+        if (tag && *tag == ENT_PLAYER) continue;
+
+        Life_damage(lm->dense + i, 1);
+    }
+
     if (life->life > 0){
         teleport_to_player_spawn(p, player);
         //make_player_incinvible(p, player);

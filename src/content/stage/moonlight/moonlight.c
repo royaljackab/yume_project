@@ -128,10 +128,10 @@ void state_moonlight_update(GameContext *ctx) {
 
     Player_update(ctx);
     Physics_update_all(ctx->pool);
-    Condensation_update_all(ctx->pool);
     loose_lasers_update_all(ctx->pool); 
     straight_lasers_update_all(ctx->pool);
-    Owner_update(ctx->pool); 
+    Condensation_update_all(ctx->pool);
+    Owner_update(ctx->pool);
     pool_kill_convicts(ctx->pool);
     Enemy_update_all(ctx->pool);
 

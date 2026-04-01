@@ -1,4 +1,5 @@
 #pragma once
+
 #include "ecs/component.h"
 
 typedef struct {
@@ -7,3 +8,4 @@ typedef struct {
 
 DEFINE_COMPONENT_MANAGER(Collision_circle, MAX_ENTITIES)
 DECLARE_SETTER_GETTER(Collision_circle, float, radius)
+
