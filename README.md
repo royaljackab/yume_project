@@ -1,8 +1,9 @@
-# Moonlight
+## Yume Project
 Projet de L2 Informatique — Université du Mans (LMU)
 
 ## Description
-...
+Yume Project est un jeu de type danmaku (ou bullet hell). Le danmaku est un sous-genre du shoot-em up caractérisé par de très nombreux projectiles à l'écran. Il se base avant tout sur l'esquive et la dextérité, plus que sur le tir.
+Ce projet est librement inspiré de Touhou Project, un des titres les plus connus de ce genre.
 
 ## Membres de l'équipe
 - DELAUNAY Amaury
@@ -44,8 +45,8 @@ Le projet utilise un ECS (Entity Component System) avec Sparse Set.
 Le projet est organisé en 3 phases :
 
 - Phase 1 (semaines 1-3) : Création des systèmes core — render, mouvement, collision, laser, ECS, menus
-- Phase 2 (semaines 4-6) : Contenu — ennemis, boss, spellcards, vagues, sprites, musiques
-- Phase 3 (semaines 6-9) : Documentation, tests, rapport, soutenance
+- Phase 2 (semaines 4-6) : Contenu : ennemis, boss, spellcards, vagues, sprites, musiques
+- Phase 3 (semaines 6-9) : Documentation : tests, rapport, soutenance
 
 Rendu : 10 avril 2026 - Présentation : 17 avril 2026
 
@@ -62,7 +63,7 @@ doxygen Doxyfile
 - [x] HUD
 - [x] Lasers (loose et straight)
 - [x] Ennemis (spawn, vie)
-- [ ] Collisions
-- [ ] Boss
+- [x] Collisions
+- [x] Boss
 - [ ] Structure du stage
 - [ ] Tests unitaires
