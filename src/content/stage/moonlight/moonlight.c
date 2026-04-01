@@ -112,6 +112,7 @@ void state_moonlight_init(GameContext *ctx) {
     // Change the beat bruv
     StopMusicStream(playlist[BGM_WAITING]);
     PlayMusicStream(playlist[BGM_FAST_DANGER]);
+    SetMusicVolume(playlist[BGM_FAST_DANGER], ctx->volume_bgm);
 
     pool_init(ctx->pool);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);

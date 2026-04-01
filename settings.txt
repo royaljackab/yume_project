@@ -6,3 +6,7 @@ keybind_shoot=90
 keybind_pause=80
 keybind_focus_mode=340
 keybind_validate=32
+keybind_skip=341
+keybind_bomb=88
+volume_bgm=45
+volume_sfx=54

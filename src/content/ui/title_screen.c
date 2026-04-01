@@ -20,6 +20,7 @@ void state_menu_title_init(GameContext *ctx) {
   button_create(&ctx->button, 50, 600);
 
   PlayMusicStream(playlist[BGM_WAITING]);
+  SetMusicVolume(playlist[BGM_WAITING], ctx->volume_bgm);
 }
 
 void state_menu_title_draw(GameContext *ctx) {
@@ -53,7 +54,7 @@ void state_menu_title_update(GameContext *ctx) {
       gamestate_change_state(ctx, STATE_MOONLIGHT);
       break;
     case KEYBINDS:
-      gamestate_change_state(ctx, STATE_MENU_KEYBINDS);
+      gamestate_change_state(ctx, STATE_MENU_SETTINGS);
       break;
     }
   }
