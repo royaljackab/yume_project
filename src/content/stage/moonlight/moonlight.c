@@ -119,7 +119,7 @@ void state_moonlight_init(GameContext *ctx) {
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
 
     cosched_init(&ctx->sched, ctx->pool);
-
+    background_set_moriya(ctx->pool);
     SCHED_INVOKE_TASK(&ctx->sched, main_attack, ctx);
 }
 
@@ -134,7 +134,7 @@ void state_moonlight_update(GameContext *ctx) {
     Owner_update(ctx->pool); 
     pool_kill_convicts(ctx->pool);
     Enemy_update_all(ctx->pool);
-
+    background_update_all_bounds(ctx->pool);
     frames++;
 }
 

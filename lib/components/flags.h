@@ -20,7 +20,8 @@ typedef enum {
     FLAG_PROJECTILE_ENEMY,
     FLAG_POWERUP,
     FLAG_WALL,
-    FLAG_INVINCIBLE //et pas omni-man l'équipe
+    FLAG_INVINCIBLE,
+    FLAG_OUT_OF_BOUNDS_ALIVE
 } FlagType;
 
 /* Liste de flags */

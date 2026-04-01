@@ -111,7 +111,9 @@ void Physics_update_all(Pool *p) {
     // TODO: Rajouter flag pour ce comportement par défaut
     // Si l'objet est hors du cadre, on le tue
     if (Position_is_out_of_bounds(pos)) {
-      pool_kill_entity(p, pm->entity_lookup[i]);
+      if(!Entity_has_flag(p, pm->entity_lookup[i], FLAG_OUT_OF_BOUNDS_ALIVE)){
+        pool_kill_entity(p, pm->entity_lookup[i]);
+      }
     }
   }
 }

@@ -15,12 +15,18 @@ Sound sfx[MAX_SFX]; // Effets sonores
 
 
 enum{ 
-  RENDER_PRIO_BULLET, 
+  RENDER_PRIO_BG_LAYER_1,
+  RENDER_PRIO_BG_LAYER_2,
+  RENDER_PRIO_BG_LAYER_3,
 
   RENDER_PRIO_PLAYER, 
+  RENDER_PRIO_ENEMY, 
+  RENDER_PRIO_BULLET, 
   RENDER_PRIO_HITBOX, 
 
-  RENDER_PRIO_ENEMY, 
+  RENDER_PRIO_FG_LAYER_1,
+  RENDER_PRIO_FG_LAYER_2,
+  RENDER_PRIO_FG_LAYER_3
 };
 
 void AssetsLoad() {
@@ -37,6 +43,11 @@ void AssetsLoad() {
       LoadTexture("../Assets/Sprites/reimu_spritesheet.png");
   textures[HITBOX_SPRITESHEET] = 
       LoadTexture("../Assets/Sprites/hitbox.png");
+      //LES BACKGROUNDS :
+  textures[BACKGROUND_GRAYCIRCLES_SPRITE] = 
+      LoadTexture("../Assets/Sprites/backgrounds/bg_touhou_gray_circles.png");
+  textures[BACKGROUND_FLOWER_SPRITE] = 
+      LoadTexture("../Assets/Sprites/backgrounds/bg_touhou_flowers.png");
 
     // Chargement de la Musique
     playlist[BGM_FAST_DANGER] =
@@ -926,14 +937,24 @@ void EnemiesSpritesLoad()
     Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_BIG_EVIL_IDLE], 0, 1739, 256, 54);
     Sprite_set_animation(&sprites[ENEMY_FAIRY_BIG_EVIL_IDLE], 4, 5);
 
+
 }
 
 
 
+void BackgroundsSpritesLoad(){
+  // =========================
+  // BACKGROUNDS
+  // =========================
+
+  Sprite_set_texture(&sprites[BACKGROUND_FLOWER], RENDER_PRIO_BG_LAYER_1, BACKGROUND_FLOWER_SPRITE);
+  Sprite_set_SourceRect(&sprites[BACKGROUND_FLOWER], 0, 0, 384, 448);
 
 
+  Sprite_set_texture(&sprites[BACKGROUND_GRAYCIRCLES], RENDER_PRIO_BG_LAYER_3, BACKGROUND_GRAYCIRCLES_SPRITE);
+  Sprite_set_SourceRect(&sprites[BACKGROUND_GRAYCIRCLES], 0, 0, 256, 256);
 
-
+}
 
 void AssetsUnload() {
     // Déchargement des textures

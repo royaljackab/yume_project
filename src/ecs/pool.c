@@ -92,7 +92,7 @@ void pool_kill_convicts(Pool *p) {
 
     Enemy_remove(&p->enemy, e);
     flagList_destroy(p, e);
-
+    Background_remove(&p->background, e);
     // Ajout de l'entité dans la pile libre
     p->free_indices[p->free_top++] = e;
   }

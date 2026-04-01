@@ -57,6 +57,8 @@ typedef struct Pool {
 
   flagListManager flagList;
 
+  BackgroundManager background;
+
   // Nouvelle gestion des indices
   Entity free_indices[MAX_ENTITIES]; // Le tableau qui stocke les IDs dispos
   int free_top; // L'index du sommet de la pile (si il est a 5000 la pile est
