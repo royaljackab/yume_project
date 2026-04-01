@@ -1,4 +1,5 @@
 #include "obj.h"
+#include "collision_circle.h"
 #include "common.h"
 #include "life.h"
 #include "physics.h"
@@ -316,5 +317,18 @@ Tag obj_GetTag(Pool *p, Entity objId) {
 }
 
 void obj_SetTag(Pool *p, Entity objId, Tag tag) {
-    Tag_add(&p->tag, objId, tag);
+    Tag *existing_tag = Tag_get(&p->tag, objId);
+
+    if (existing_tag) {
+        *existing_tag = tag;
+    } else {
+        Tag_add(&p->tag, objId, tag);
+    }    
+}
+
+void obj_SetHitboxRadius(Pool *p, Entity objID, float radius) {
+    Collision_circle *hitbox = Collision_circle_get(&p->collision_circle, objID);
+    if (!hitbox) return;
+
+    hitbox->radius = radius;
 }

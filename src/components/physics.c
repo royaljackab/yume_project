@@ -4,6 +4,7 @@
  */
 
 #include "components/physics.h"
+#include "collision_circle.h"
 #include "components/common.h"
 #include "ecs/pool.h"
 #include <math.h>
@@ -100,6 +101,7 @@ void Physics_update_all(Pool *p) {
   PhysicsManager *pm = &p->physics;
   Physics *phy;
   Position *pos;
+  Collision_circle *hitbox;
 
   // On boucle sur la physique
   for (int i = 0; i < pm->count; i++) {

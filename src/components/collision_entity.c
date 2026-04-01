@@ -192,7 +192,7 @@ extern bool collision_circle_add_scaled_with_sprite(Pool *p, Entity entity){
     Sprite *sprite = Sprite_get(&p->sprite, entity);
     if (!sprite) return false;
 
-    float radius = (sprite->srcRect.height) / 2.0; // approximation du rayon à partir de la taille du sprite
+    float radius = (sprite->frameWidth) / 5.0; // approximation du rayon à partir de la taille du sprite
     Collision_circle collision = {radius};
     Collision_circle_add(&p->collision_circle, entity, collision);
     return true;

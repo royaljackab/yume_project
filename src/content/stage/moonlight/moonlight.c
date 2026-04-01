@@ -13,10 +13,12 @@
 #include "pool.h"
 #include "screen.h"
 #include "core/coroutine/tasks.h"
+#include "common_task.h"
 #include "systems/hud.h"
 #include "boss.h"
 
 #include "nonspells/nonspell1.h"
+#include "spellcards/poincarre_recurrence.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -83,23 +85,38 @@ TASK(movement, {GameContext *ctx; Entity boss; }) {
 }
 
 TASK(main_attack, {GameContext *ctx;}) {
-    Entity boss = Enemy_spawn(ARGS.ctx->pool, 500, 200, 0, 0, 500, 3, 1, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
+    Entity boss = Enemy_spawn(ARGS.ctx->pool, 20, 20, 0, 0, 200, 3, 1, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
     obj_SetTag(ARGS.ctx->pool, boss, ENT_BOSS);
     TASK_BIND(boss);
+
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
     WAIT(120);
 
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
     CoTask *attack_1 = INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss);
-
     BoxedTask attack_1_box = cotask_box(attack_1);
 
     while(!obj_IsDead(ARGS.ctx->pool, boss)) {
         YIELD;
     }
     CANCEL_TASK(attack_1_box);
+    Bullet_clear_bullets(ARGS.ctx->pool);
 
-    obj_SetLife(ARGS.ctx->pool, boss, 100);
+    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
+    obj_SetLife(ARGS.ctx->pool, boss, 500);
+    
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
+    WAIT(60);
+
+    CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
+    BoxedTask spell_1_box = cotask_box(spell_1);
+
+    while (!obj_IsDead(ARGS.ctx->pool, boss)) {
+        YIELD;
+    }
+    CANCEL_TASK(spell_1_box);
+    Bullet_clear_bullets(ARGS.ctx->pool);
 
     STALL;
 }
@@ -130,10 +147,10 @@ void state_moonlight_update(GameContext *ctx) {
 
     Player_update(ctx);
     Physics_update_all(ctx->pool);
-    Condensation_update_all(ctx->pool);
     loose_lasers_update_all(ctx->pool); 
     straight_lasers_update_all(ctx->pool);
-    Owner_update(ctx->pool); 
+    Condensation_update_all(ctx->pool);
+    Owner_update(ctx->pool);
     pool_kill_convicts(ctx->pool);
     Enemy_update_all(ctx->pool, &ctx->score);
 

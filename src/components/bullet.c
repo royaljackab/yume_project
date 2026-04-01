@@ -21,7 +21,9 @@ Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
   Entity e = Bullet_spawn(p, x, y, speed, angle, ENT_PLAYER_SHOT, graphic);
   flagList_attach_first_flag(p, e, FLAG_PROJECTILE_PLAYER);
   flagList_add_element(flagList_get(&p->flagList, e), FLAG_BULLET_PLAYER);
-
+  obj_SetHitboxRadius(p, e, 30);
+                    
+  obj_SetAlpha(p, e, 170);
   obj_SetRenderPriority(p, e, 9);
   return e;
 
@@ -33,7 +35,7 @@ Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityT
 
   Position pos = {{x, y}, angle};
   Physics phy = Physics_create_speed(speed);
-  Collision_circle collision = {15.0};
+  Collision_circle collision = {sprites[graphic].frameWidth / 2.0};
 
   Position_add(&p->position, e, pos);
   Physics_add(&p->physics, e, phy);
@@ -41,6 +43,7 @@ Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityT
   Tag_add(&p->tag, e, tag);
 
   obj_SetRenderPriority(p, e, 90);
+  obj_SetLife(p, e, 1);
 
   Collision_circle_add(&p->collision_circle, e, collision);
   return e;
@@ -48,13 +51,12 @@ Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityT
 
 Entity Bullet_enemy_spawn_delayed(Pool *p, float x, float y, float speed, float angle, SpriteID graphic, int delay) {
   Entity e = Bullet_enemy_spawn(p, x, y, 0, angle, graphic);
-  obj_SetTag(p, e, ENT_PARTICLE);
 
   Condensation cond = {
     .timer = delay,
     .max_time = delay,
     .target_speed = speed,
-    .target_tag = ENT_ENEMY,
+    .target_tag = ENT_ENEMY_SHOT,
     .target_scale = obj_GetScale(p, e)
   };
   Condensation_add(&p->condensation, e, cond);
@@ -92,3 +94,15 @@ void Condensation_update_all(Pool *p) {
     }
   }
 }
+
+void Bullet_clear_bullets(Pool *p) {
+  for (int i=0; i < p->tag.count; ++i) {
+    Entity e = Tag_get_entity(&p->tag, i);
+    Tag tag = p->tag.dense[i];
+
+    if (tag == ENT_ENEMY_SHOT || tag == ENT_ENEMY_LASER) {
+      pool_kill_entity(p, e);
+    }
+  }
+}
+

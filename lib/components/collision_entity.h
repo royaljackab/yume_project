@@ -3,7 +3,7 @@
 #include "player.h"
 #include <raylib.h>
 
-#define MAX_COLLISIONS 100
+#define MAX_COLLISIONS 100000
 
 extern bool Entity_find_hitters(Pool *p, Entity entity, flagList * flags, Entity foundCollisions[], int *nbCollisions);
 extern bool Entity_is_hit(Pool *p, Entity entity, flagList * flags);
