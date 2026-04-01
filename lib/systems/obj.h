@@ -33,6 +33,8 @@ Vector2 obj_GetScale(Pool *p, Entity objId);
 Color obj_GetColor(Pool *p, Entity objId);
 float obj_GetAlpha(Pool *p, Entity objId);
 
+
+
 /*----------------------------------------------------*/
 
 void obj_SetAcceleration(Pool *p, Entity objId, float accel);

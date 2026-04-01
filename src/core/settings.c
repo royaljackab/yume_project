@@ -41,6 +41,12 @@ void init_settings(GameContext *ctx) {
   fprintf(new, "keybind_skip=%d\n", ctx->input.keybinds.skip);
   fprintf(new, "keybind_bomb=%d\n", ctx->input.keybinds.bomb);
 
+  // ------ audio ------
+  ctx->volume_bgm = 0.3f;
+  ctx->volume_sfx = 0.8f;
+  fprintf(new, "volume_bgm=%d\n", (int)(ctx->volume_bgm * 100));
+  fprintf(new, "volume_sfx=%d\n", (int)(ctx->volume_sfx * 100));
+
   fclose(new);
 }
 
@@ -86,6 +92,10 @@ void load_settings(GameContext *ctx) {
     } else if (strcmp(optionName, "keybind_skip") == 0) {
       printf("skip set to %d\n", optionValue);
       ctx->input.keybinds.skip = optionValue;
+    } else if (strcmp(optionName, "volume_bgm") == 0) {
+      ctx->volume_bgm = optionValue / 100.0f;
+    } else if (strcmp(optionName, "volume_sfx") == 0) {
+      ctx->volume_sfx = optionValue / 100.0f;
     }
   }
   fclose(f);
@@ -122,6 +132,10 @@ void saveSettings(GameContext *ctx) {
       fprintf(new, "%s=%d\n", optionName, ctx->input.keybinds.bomb);
     } else if (strcmp(optionName, "keybind_skip") == 0) {
       fprintf(new, "%s=%d\n", optionName, ctx->input.keybinds.skip);
+    } else if (strcmp(optionName, "volume_bgm") == 0) {
+      fprintf(new, "%s=%d\n", optionName, (int)(ctx->volume_bgm * 100));
+    } else if (strcmp(optionName, "volume_sfx") == 0) {
+      fprintf(new, "%s=%d\n", optionName, (int)(ctx->volume_sfx * 100));
     }
   }
   fclose(old);

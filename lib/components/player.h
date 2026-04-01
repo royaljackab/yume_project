@@ -3,7 +3,7 @@
 #include "component.h"
 #include "collision_circle.h"
 #include "common.h"
-
+#include "systems/score.h"
 
 #define INITIAL_PLAYER_LIVES 3
 
@@ -21,7 +21,11 @@ typedef struct Player {
 
     float speed;
     float focusSpeed;
-    Entity hitboxId;
+
+    Entity hitboxSpriteId;
+    Entity GrazeSpriteId;
+    
+    int grazeRadius;
 
     PlayerName name;
 } Player;
@@ -44,7 +48,9 @@ DECLARE_SETTER_GETTER(Player, int, nbBombs);
 DECLARE_SETTER_GETTER(Player, int, bombs);
 DECLARE_SETTER_GETTER(Player, float, speed);
 DECLARE_SETTER_GETTER(Player, float, focusSpeed);
-DECLARE_SETTER_GETTER(Player, Entity, hitboxId);
+DECLARE_SETTER_GETTER(Player, Entity, hitboxSpriteId);
+DECLARE_SETTER_GETTER(Player, Entity, GrazeSpriteId);
+DECLARE_SETTER_GETTER(Player, int, grazeRadius);
 
 DECLARE_SETTER_GETTER(Weapon, int , fire_rate)
 DECLARE_SETTER_GETTER(Weapon, int , cooldown)

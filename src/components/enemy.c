@@ -13,14 +13,16 @@
 #include "components/sprite.h"
 #include "components/collision_entity.h"
 
+
 #include <stdio.h>
 #include "content/assets.h"
 #include "ecs/pool.h"
 #include "obj.h"
+#include "systems/score.h"
 
 Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                    int life, float hitboxRadius,
-                   EnemyType type, SpriteID graphic) {
+                   int score, SpriteID graphic) {
 
     Entity e = pool_create_entity(p);
 
@@ -29,7 +31,7 @@ Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
     Life l = {life, life};
     Collision_circle col = {hitboxRadius};
     Tag tag = ENT_ENEMY;
-    Enemy enemy = {type};
+    Enemy enemy = {score};
 
     Position_add(&p->position, e, pos);
     Physics_add(&p->physics, e, phy);
@@ -42,10 +44,11 @@ Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
     return e;
 }
 
-void Enemy_update_all(Pool *p) {
+void Enemy_update_all(Pool *p, ScoreSystem *scoreS) {
     /**
      * Parcourt tous les ennemis.
      * - les tue s'ils n'ont plus de vie
+     * - ajoute du score au joueur si c'est le cas
      * - leur inflige des dégats s'ils sont en collision avec une balle du joueur
      */
     EnemyManager *em = &p->enemy;
@@ -66,6 +69,7 @@ void Enemy_update_all(Pool *p) {
         if (life && Life_is_dead(life) && obj_GetTag(p, e) != ENT_BOSS) {
             PlaySound(sfx[SFX_ENEMY_DEATH]);
             pool_kill_entity(p, e);
+            score_increase(scoreS, Enemy_get(&p->enemy, e)->score);
         }
 
         //collisions avec l'ennemi
@@ -82,6 +86,7 @@ void Enemy_update_all(Pool *p) {
             //détruire la bullet du joueur après impact
             if(Entity_has_flag_in_list(p, collision[j], &bulletFlag)){
                 pool_kill_entity(p, collision[j]);
+                score_increase(scoreS, scoreS->scoreOnHit);
             }
         }
 

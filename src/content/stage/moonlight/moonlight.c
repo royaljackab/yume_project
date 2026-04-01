@@ -113,9 +113,11 @@ void state_moonlight_init(GameContext *ctx) {
     
     // Change the beat bruv
     StopMusicStream(playlist[BGM_WAITING]);
+    SetMusicVolume(playlist[BGM_FAST_DANGER], ctx->volume_bgm);
     PlayMusicStream(playlist[BGM_MORIYA_THEME]);
 
     pool_init(ctx->pool);
+    score_system_init(&ctx->score);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
 
     cosched_init(&ctx->sched, ctx->pool);
@@ -133,7 +135,7 @@ void state_moonlight_update(GameContext *ctx) {
     Condensation_update_all(ctx->pool);
     Owner_update(ctx->pool);
     pool_kill_convicts(ctx->pool);
-    Enemy_update_all(ctx->pool);
+    Enemy_update_all(ctx->pool, &ctx->score);
 
     frames++;
 }

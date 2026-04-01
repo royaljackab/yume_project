@@ -4,6 +4,7 @@
 #include "coroutine/cosched.h"
 #include "ecs/pool.h"
 #include "systems/button.h"
+#include "systems/score.h"
 #include <raylib.h>
 
 typedef enum StateID {
@@ -39,6 +40,7 @@ struct GameContext {
   /* Systemes */
   InputSystem input;
   ButtonSystem button;
+  ScoreSystem score;
 
   Pool * pool;
 
@@ -46,12 +48,16 @@ struct GameContext {
 
   int debug;
   int pause;
+
+  /* Audio */
+  float volume_bgm; 
+  float volume_sfx;
 };
 
 extern void gamestate_initialize(GameContext *ctx, StateID state);
 extern void gamestate_update(GameContext *ctx);
 void pauseListener(GameContext *ctx);
-void pauseMenu();
+void pauseMenu(GameContext *ctx);
 
 extern void gamestate_change_state(GameContext *ctx, StateID stateID);
 
@@ -59,3 +65,4 @@ extern GameState state_menu_title;
 extern GameState state_menu_keybinds;
 extern GameState state_test;
 extern GameState state_moonlight;
+extern GameState state_menu_settings;
