@@ -9,4 +9,4 @@ keybind_validate=32
 keybind_skip=341
 keybind_bomb=88
 volume_bgm=45
-volume_sfx=54
+volume_sfx=33
