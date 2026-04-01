@@ -66,7 +66,7 @@ void HUD_draw(GameContext *ctx, const char *stage_name) {
 
     /* Score */
     char score_text[30];
-    sprintf(score_text, "SCORE   %09d", 0); /* TODO: vrai score */
+    sprintf(score_text, "SCORE   %09d", ctx->score.score); /* TODO: vrai score */
     DrawText(score_text, cx, cy, 20, HUD_VALUE_COL);
     cy += 35;
 

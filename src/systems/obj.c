@@ -114,6 +114,7 @@ void obj_SetAlpha(Pool *p, Entity objId, float alpha) {
     sprite->color.a = alpha;
 }
 
+
 float obj_GetX(Pool *p, Entity objId) {
     Position *pos = Position_get(&p->position, objId);
     if (!pos) return 0;

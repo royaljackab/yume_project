@@ -4,6 +4,7 @@
 #include "coroutine/cosched.h"
 #include "ecs/pool.h"
 #include "systems/button.h"
+#include "systems/score.h"
 #include <raylib.h>
 
 typedef enum StateID {
@@ -39,6 +40,7 @@ struct GameContext {
   /* Systemes */
   InputSystem input;
   ButtonSystem button;
+  ScoreSystem score;
 
   Pool * pool;
 

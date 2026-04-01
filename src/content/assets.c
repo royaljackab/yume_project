@@ -57,7 +57,7 @@ void AssetsLoad() {
     sfx[SFX_TAN00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_tan00.wav");
     sfx[SFX_TAN01] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_tan01.wav");
     sfx[SFX_TAN02] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_tan02.wav");
-
+    sfx[SFX_GRAZE] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_graze.wav");
 
     // Load dem enemies up
     EnemiesSpritesLoad();

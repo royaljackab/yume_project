@@ -367,6 +367,8 @@ typedef enum {
     SFX_TAN00,
     SFX_TAN01,
     SFX_TAN02,
+    SFX_GRAZE,
+    
     MAX_SFX
 } SFXID;
 
