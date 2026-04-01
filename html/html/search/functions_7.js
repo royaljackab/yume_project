@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['pauselistener_0',['pauseListener',['../game__state_8c.html#a3cee3db5b6cfb26e58c34deb17a8470c',1,'pauseListener(GameContext *ctx):&#160;game_state.c'],['../game__state_8h.html#a3cee3db5b6cfb26e58c34deb17a8470c',1,'pauseListener(GameContext *ctx):&#160;game_state.c']]],
-  ['pausemenu_1',['pauseMenu',['../game__state_8c.html#acfb13375e4f3f035d25c89875838d25f',1,'pauseMenu():&#160;game_state.c'],['../game__state_8h.html#acfb13375e4f3f035d25c89875838d25f',1,'pauseMenu():&#160;game_state.c']]],
-  ['physics_5fupdate_2',['Physics_update',['../physics_8c.html#aaaf5e4211f41ca753b5f56883f0152d5',1,'physics.c']]],
-  ['physics_5fupdate_5fall_3',['Physics_update_all',['../physics_8c.html#a1bf484ef10f0a2eef82abdd7e06e4999',1,'Physics_update_all(Pool *p):&#160;physics.c'],['../physics_8h.html#a1bf484ef10f0a2eef82abdd7e06e4999',1,'Physics_update_all(Pool *p):&#160;physics.c']]],
-  ['pool_5fcreate_5fentity_4',['pool_create_entity',['../pool_8c.html#aeee323761ac029b995b05b3c99f6aa29',1,'pool_create_entity(Pool *p):&#160;pool.c'],['../pool_8h.html#aeee323761ac029b995b05b3c99f6aa29',1,'pool_create_entity(Pool *p):&#160;pool.c']]],
-  ['pool_5finit_5',['pool_init',['../pool_8c.html#a60ceabc44e88327ca668cca1f2773701',1,'pool_init(Pool *p):&#160;pool.c'],['../pool_8h.html#a60ceabc44e88327ca668cca1f2773701',1,'pool_init(Pool *p):&#160;pool.c']]],
-  ['pool_5fkill_5fconvicts_6',['pool_kill_convicts',['../pool_8c.html#a27986cf4e2b23fac8a47afc57c88a7ab',1,'pool_kill_convicts(Pool *p):&#160;pool.c'],['../pool_8h.html#a27986cf4e2b23fac8a47afc57c88a7ab',1,'pool_kill_convicts(Pool *p):&#160;pool.c']]],
-  ['pool_5fkill_5fentity_7',['pool_kill_entity',['../pool_8c.html#ad3ac59302ddb42f699a779a6babfd5e5',1,'pool_kill_entity(Pool *p, Entity e):&#160;pool.c'],['../pool_8h.html#ad3ac59302ddb42f699a779a6babfd5e5',1,'pool_kill_entity(Pool *p, Entity e):&#160;pool.c']]]
+  ['gamestate_5fchange_5fstate_0',['gamestate_change_state',['../game__state_8c.html#acbfa62a5a5f262c34c8c03645e6b13e0',1,'gamestate_change_state(GameContext *ctx, StateID stateID):&#160;game_state.c'],['../game__state_8h.html#acbfa62a5a5f262c34c8c03645e6b13e0',1,'gamestate_change_state(GameContext *ctx, StateID stateID):&#160;game_state.c']]],
+  ['gamestate_5finitialize_1',['gamestate_initialize',['../game__state_8c.html#a8ac7ed6f267827c5ee452a799a3a6f11',1,'gamestate_initialize(GameContext *ctx, StateID init_state):&#160;game_state.c'],['../game__state_8h.html#a88738fcfe8f3e35e6614b506da928c22',1,'gamestate_initialize(GameContext *ctx, StateID state):&#160;game_state.c']]],
+  ['gamestate_5fupdate_2',['gamestate_update',['../game__state_8c.html#a483bfca2f161f59662568e594d468325',1,'gamestate_update(GameContext *ctx):&#160;game_state.c'],['../game__state_8h.html#a483bfca2f161f59662568e594d468325',1,'gamestate_update(GameContext *ctx):&#160;game_state.c']]],
+  ['gather_5fblocking_5fevents_3',['gather_blocking_events',['../cosched_8c.html#a26ef94fb6d896ee3699c76b73708eac6',1,'cosched.c']]],
+  ['get_5fstate_5fpointer_4',['get_state_pointer',['../game__state_8c.html#aaa996f0da88781df9f1a45e113176ea5',1,'game_state.c']]]
 ];

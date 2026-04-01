@@ -8,12 +8,23 @@
 
 #pragma once
 
+#include "component.h"
 #include "content/assets.h"
 #include "ecs/ecs.h"
 #include "common.h"
 #include "flags.h"
 
 typedef struct Pool Pool;
+
+typedef struct Condensation {
+    int timer;
+    int max_time;
+    float target_speed;
+    Tag target_tag;
+    Vector2 target_scale;
+} Condensation;
+
+DEFINE_COMPONENT_MANAGER(Condensation, MAX_ENTITIES)
 
 /**
  * @brief Spawn un bullet avec une position, un angle et une vitesse initiale
@@ -31,3 +42,7 @@ Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
 
 Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityType tag,
                     SpriteID graphic);
+
+Entity Bullet_enemy_spawn_delayed(Pool *p, float x, float y, float speed, float angle, SpriteID graphic, int delay);
+
+void Condensation_update_all(Pool *p);

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['keybinds_2ec_0',['keybinds.c',['../keybinds_8c.html',1,'']]],
-  ['keybinds_2eh_1',['keybinds.h',['../keybinds_8h.html',1,'']]]
+  ['hud_2ec_0',['hud.c',['../hud_8c.html',1,'']]],
+  ['hud_2eh_1',['hud.h',['../hud_8h.html',1,'']]]
 ];

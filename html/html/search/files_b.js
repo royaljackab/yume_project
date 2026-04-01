@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['screen_2eh_0',['screen.h',['../screen_8h.html',1,'']]],
-  ['settings_2ec_1',['settings.c',['../settings_8c.html',1,'']]],
-  ['settings_2eh_2',['settings.h',['../settings_8h.html',1,'']]],
-  ['sprite_2ec_3',['sprite.c',['../sprite_8c.html',1,'']]],
-  ['sprite_2eh_4',['sprite.h',['../sprite_8h.html',1,'']]]
+  ['macro_2eh_0',['macro.h',['../macro_8h.html',1,'']]],
+  ['main_2ec_1',['main.c',['../main_8c.html',1,'']]],
+  ['moonlight_2ec_2',['moonlight.c',['../moonlight_8c.html',1,'']]],
+  ['moonlight_2eh_3',['moonlight.h',['../moonlight_8h.html',1,'']]]
 ];

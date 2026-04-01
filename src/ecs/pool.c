@@ -1,11 +1,11 @@
 #include "ecs/pool.h"
+#include "bullet.h"
 #include "components/common.h"
 #include "ecs/ecs.h"
 #include "life.h"
 #include "player.h"
 #include <stdint.h>
 
-static uint32_t entity_box_counter = 0;
 static uint32_t uid_counter = 0;
 
 void pool_init(Pool *p) {
@@ -18,6 +18,7 @@ void pool_init(Pool *p) {
 
   Physics_init(&p->physics);
   Sprite_init(&p->sprite);
+  Condensation_init(&p->condensation);
 
   Collision_circle_init(&p->collision_circle);
   Collision_rectangle_init(&p->collision_rectangle);
@@ -75,6 +76,7 @@ void pool_kill_convicts(Pool *p) {
 
     Physics_remove(&p->physics, e);
     Sprite_remove(&p->sprite, e);
+    Condensation_remove(&p->condensation, e);
 
     //collisions
     Collision_circle_remove(&p->collision_circle, e);

@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['particle_5fbound_0',['particle_bound',['../particle_8c.html#a8c8d50b84997529e311e4cef2f2bd28e',1,'particle_bound(Pool *p, SpriteID graphic, Entity owner):&#160;particle.c'],['../particle_8h.html#a8c8d50b84997529e311e4cef2f2bd28e',1,'particle_bound(Pool *p, SpriteID graphic, Entity owner):&#160;particle.c']]],
+  ['particle_5fspawn_1',['particle_spawn',['../particle_8c.html#ae447686348c899aa1a61eb7dc5956088',1,'particle_spawn(Pool *p, float x, float y, float speed, float angle, SpriteID graphic):&#160;particle.c'],['../particle_8h.html#ae447686348c899aa1a61eb7dc5956088',1,'particle_spawn(Pool *p, float x, float y, float speed, float angle, SpriteID graphic):&#160;particle.c']]],
+  ['pauselistener_2',['pauseListener',['../game__state_8c.html#a3cee3db5b6cfb26e58c34deb17a8470c',1,'pauseListener(GameContext *ctx):&#160;game_state.c'],['../game__state_8h.html#a3cee3db5b6cfb26e58c34deb17a8470c',1,'pauseListener(GameContext *ctx):&#160;game_state.c']]],
+  ['pausemenu_3',['pauseMenu',['../game__state_8c.html#acfb13375e4f3f035d25c89875838d25f',1,'pauseMenu():&#160;game_state.c'],['../game__state_8h.html#acfb13375e4f3f035d25c89875838d25f',1,'pauseMenu():&#160;game_state.c']]],
+  ['physics_5fcreate_5fspeed_4',['Physics_create_speed',['../physics_8c.html#a611a21911f3d5aa4102d4423824483be',1,'Physics_create_speed(float speed):&#160;physics.c'],['../physics_8h.html#a611a21911f3d5aa4102d4423824483be',1,'Physics_create_speed(float speed):&#160;physics.c']]],
+  ['physics_5fupdate_5',['Physics_update',['../physics_8c.html#aaaf5e4211f41ca753b5f56883f0152d5',1,'physics.c']]],
+  ['physics_5fupdate_5fall_6',['Physics_update_all',['../physics_8c.html#a1bf484ef10f0a2eef82abdd7e06e4999',1,'Physics_update_all(Pool *p):&#160;physics.c'],['../physics_8h.html#a1bf484ef10f0a2eef82abdd7e06e4999',1,'Physics_update_all(Pool *p):&#160;physics.c']]],
+  ['player_5fcreate_7',['Player_create',['../player_8c.html#a3e9f4f50084c8d9d57f3f0b7c8424e52',1,'player.c']]],
+  ['player_5ffocus_8',['Player_focus',['../player_8c.html#af80c39ec8f1a6fe7db6b2abc55cea826',1,'player.c']]],
+  ['player_5fget_5fcollision_9',['Player_get_collision',['../player_8c.html#a8c4b84b9f463b1536ceb12608f6267da',1,'player.c']]],
+  ['player_5fget_5fplayerid_10',['Player_get_playerID',['../player_8c.html#a82e98fe2b79c2aa04cc3c499c3f42eff',1,'Player_get_playerID(Pool *pool):&#160;player.c'],['../player_8h.html#ae38a270aaf90552d3f47aeb8b4fdbe31',1,'Player_get_playerID(Pool *p):&#160;player.c']]],
+  ['player_5fget_5fposition_11',['Player_get_position',['../player_8c.html#a24bc981b961473e9236febde395e27cd',1,'player.c']]],
+  ['player_5fgetx_12',['Player_GetX',['../player_8c.html#a902e37f661669f85cf99c05ddac198ad',1,'Player_GetX(Pool *pool):&#160;player.c'],['../player_8h.html#aef18f2e7c4c7d33bede12f0fd2ba06b2',1,'Player_GetX(Pool *p):&#160;player.c']]],
+  ['player_5fgety_13',['Player_GetY',['../player_8c.html#a51673e6927e2cd4642b73485f5a3f196',1,'Player_GetY(Pool *pool):&#160;player.c'],['../player_8h.html#a448838013ff8190de267e0d84610fd28',1,'Player_GetY(Pool *p):&#160;player.c']]],
+  ['player_5fmove_14',['Player_move',['../player_8c.html#ad7e903817bc72bbbd3f71baa7deea4dc',1,'player.c']]],
+  ['player_5fshoot_15',['Player_shoot',['../player_8c.html#af14354ec7c8aca3a52666463a7328601',1,'player.c']]],
+  ['player_5fstart_16',['Player_start',['../player_8c.html#ad4c82be4eac1a155a2fb6b0472106f78',1,'Player_start(Pool *p, PlayerName name, PatternType type):&#160;player.c'],['../player_8h.html#ad4c82be4eac1a155a2fb6b0472106f78',1,'Player_start(Pool *p, PlayerName name, PatternType type):&#160;player.c']]],
+  ['player_5fupdate_17',['Player_update',['../player_8c.html#afe1adaf296bb4b829c1a0a085ad61699',1,'Player_update(GameContext *ctx):&#160;player.c'],['../player_8h.html#afe1adaf296bb4b829c1a0a085ad61699',1,'Player_update(GameContext *ctx):&#160;player.c']]],
+  ['pool_5fcreate_5fentity_18',['pool_create_entity',['../pool_8c.html#aeee323761ac029b995b05b3c99f6aa29',1,'pool_create_entity(Pool *p):&#160;pool.c'],['../pool_8h.html#aeee323761ac029b995b05b3c99f6aa29',1,'pool_create_entity(Pool *p):&#160;pool.c']]],
+  ['pool_5finit_19',['pool_init',['../pool_8c.html#a60ceabc44e88327ca668cca1f2773701',1,'pool_init(Pool *p):&#160;pool.c'],['../pool_8h.html#a60ceabc44e88327ca668cca1f2773701',1,'pool_init(Pool *p):&#160;pool.c']]],
+  ['pool_5fkill_5fconvicts_20',['pool_kill_convicts',['../pool_8c.html#a27986cf4e2b23fac8a47afc57c88a7ab',1,'pool_kill_convicts(Pool *p):&#160;pool.c'],['../pool_8h.html#a27986cf4e2b23fac8a47afc57c88a7ab',1,'pool_kill_convicts(Pool *p):&#160;pool.c']]],
+  ['pool_5fkill_5fentity_21',['pool_kill_entity',['../pool_8c.html#ad3ac59302ddb42f699a779a6babfd5e5',1,'pool_kill_entity(Pool *p, Entity e):&#160;pool.c'],['../pool_8h.html#ad3ac59302ddb42f699a779a6babfd5e5',1,'pool_kill_entity(Pool *p, Entity e):&#160;pool.c']]],
+  ['position_5fis_5fout_5fof_5fbounds_22',['Position_is_out_of_bounds',['../common_8c.html#adf3de0b0bc88599b407635fe28bddcaf',1,'Position_is_out_of_bounds(Position *pos):&#160;common.c'],['../common_8h.html#adf3de0b0bc88599b407635fe28bddcaf',1,'Position_is_out_of_bounds(Position *pos):&#160;common.c']]],
+  ['position_5fset_5fposition_23',['Position_set_position',['../common_8c.html#ad7a1a47cb20c277d94ba5b8f19df2e0e',1,'Position_set_position(Position *pos, float x, float y):&#160;common.c'],['../common_8h.html#ad7a1a47cb20c277d94ba5b8f19df2e0e',1,'Position_set_position(Position *pos, float x, float y):&#160;common.c']]]
+];

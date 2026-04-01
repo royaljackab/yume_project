@@ -1,9 +1,21 @@
 var searchData=
 [
-  ['updateanimation_0',['UpdateAnimation',['../sprite_8c.html#a3f971f3fb07c8d6f0cdad1c07443f937',1,'sprite.c']]],
-  ['updateanimationplayer_1',['UpdateAnimationPlayer',['../player_8c.html#a5d2399d243be616729d123ae941a38b1',1,'player.c']]],
-  ['updateanimations_2',['UpdateAnimations',['../obj_8c.html#a19ea21ddf9c85ca1d43b77979657ed38',1,'obj.c']]],
-  ['updatecollisions_3',['UpdateCollisions',['../obj_8c.html#aac6eeb4bcedf42c8d23ee71d09806d8a',1,'obj.c']]],
-  ['updateobjects_4',['UpdateObjects',['../obj_8c.html#a522912d67446895b0a03d01837b75a99',1,'obj.c']]],
-  ['updateplayer_5',['UpdatePlayer',['../player_8c.html#a782ea5c8fc43ab63accef89d953f0049',1,'player.c']]]
+  ['life_5fdamage_0',['Life_damage',['../life_8c.html#afdbbc819c2d83b7d3bcae6ff97e04963',1,'Life_damage(Life *life, int damage):&#160;life.c'],['../life_8h.html#afdbbc819c2d83b7d3bcae6ff97e04963',1,'Life_damage(Life *life, int damage):&#160;life.c']]],
+  ['life_5fheal_1',['Life_heal',['../life_8c.html#a83f42f2392b612920ec4cc560c02704a',1,'Life_heal(Life *life, int heal):&#160;life.c'],['../life_8h.html#a83f42f2392b612920ec4cc560c02704a',1,'Life_heal(Life *life, int heal):&#160;life.c']]],
+  ['life_5fis_5fdead_2',['Life_is_dead',['../life_8c.html#abb8d00d9b0ab1094c8a96b60fd5c4471',1,'Life_is_dead(Life *life):&#160;life.c'],['../life_8h.html#abb8d00d9b0ab1094c8a96b60fd5c4471',1,'Life_is_dead(Life *life):&#160;life.c']]],
+  ['list_5fanchor_3',['LIST_ANCHOR',['../structCoTaskData.html#a99f2e2006fb192d533e06a9588911d1c',1,'CoTaskData::LIST_ANCHOR()'],['../cotask_8h.html#a66c8b59cc96fd288b8d7d958723cc3bc',1,'LIST_ANCHOR():&#160;cotask.h']]],
+  ['list_5fanchor_5finterface_4',['LIST_ANCHOR_INTERFACE',['../structListAnchor.html#ace39c29e71b3911c16f65e0abe76912d',1,'ListAnchor']]],
+  ['list_5fanchor_5finterface_5fbase_5',['LIST_ANCHOR_INTERFACE_BASE',['../structListAnchorInterface.html#ae3f51817ccd1a9b34be18f39915dd1c9',1,'ListAnchorInterface']]],
+  ['list_5fappend_6',['list_append',['../list_8c.html#a75ed0cb6f59b0e2ff8f43aadc484ebec',1,'list_append(List **dest, List *elem):&#160;list.c'],['../list_8h.html#a75ed0cb6f59b0e2ff8f43aadc484ebec',1,'list_append(List **dest, List *elem):&#160;list.c']]],
+  ['list_5finsert_7',['list_insert',['../list_8c.html#a5f543052389d2dbd3e61872f306c81f6',1,'list_insert(List **dest, List *elem):&#160;list.c'],['../list_8h.html#a5f543052389d2dbd3e61872f306c81f6',1,'list_insert(List **dest, List *elem):&#160;list.c']]],
+  ['list_5finterface_8',['LIST_INTERFACE',['../structCoTask.html#adb4a3389e04ee39f01682ebbfed18266',1,'CoTask::LIST_INTERFACE()'],['../structCoTaskData.html#a6e2ccc773c3182cf2240fdf454550681',1,'CoTaskData::LIST_INTERFACE()'],['../structList.html#aeeb7b9d76f579ad80ed5c355b7a9e648',1,'List::LIST_INTERFACE()'],['../structListContainer.html#a778dadf76ae0275dd09a9b04f9509c60',1,'ListContainer::LIST_INTERFACE()']]],
+  ['list_5finterface_5fbase_9',['LIST_INTERFACE_BASE',['../structListInterface.html#a362d878f7fda25f6818ea76de1162a84',1,'ListInterface']]],
+  ['list_5fpop_10',['list_pop',['../list_8c.html#a86c29c2f993a714af69203186b251020',1,'list_pop(List **dest):&#160;list.c'],['../list_8h.html#ace22ee512a1d0246f477d5f1c1b71559',1,'list_pop(List **list):&#160;list.c']]],
+  ['list_5fpush_11',['list_push',['../list_8c.html#a2dfee0d3d5262974ed954d410fa4de3a',1,'list_push(List **dest, List *elem):&#160;list.c'],['../list_8h.html#a2dfee0d3d5262974ed954d410fa4de3a',1,'list_push(List **dest, List *elem):&#160;list.c']]],
+  ['list_5funlink_12',['list_unlink',['../list_8c.html#a5cb83d57dd27eec9b8a2fd3bd2ff621e',1,'list_unlink(List **dest, List *elem):&#160;list.c'],['../list_8h.html#a5cb83d57dd27eec9b8a2fd3bd2ff621e',1,'list_unlink(List **dest, List *elem):&#160;list.c']]],
+  ['load_5fsettings_13',['load_settings',['../settings_8c.html#a2486b651a5a3eb8f1a8f9e15bdb6a64e',1,'load_settings(GameContext *ctx):&#160;settings.c'],['../settings_8h.html#a2486b651a5a3eb8f1a8f9e15bdb6a64e',1,'load_settings(GameContext *ctx):&#160;settings.c']]],
+  ['loose_5flaser_5fcreate_14',['loose_laser_create',['../looseLaser_8c.html#a360b5a5c6c766de37c58394f75ab3e67',1,'loose_laser_create(Pool *pool, int x, int y, float speed, float length, float width, int duration, Color color):&#160;looseLaser.c'],['../looseLaser_8h.html#a360b5a5c6c766de37c58394f75ab3e67',1,'loose_laser_create(Pool *pool, int x, int y, float speed, float length, float width, int duration, Color color):&#160;looseLaser.c']]],
+  ['loose_5flaser_5fdestroy_15',['Loose_laser_destroy',['../looseLaser_8c.html#a9768d023d40cd61e9ec6e6515fb1a1fa',1,'Loose_laser_destroy(Pool *pool, Entity id):&#160;looseLaser.c'],['../looseLaser_8h.html#a9768d023d40cd61e9ec6e6515fb1a1fa',1,'Loose_laser_destroy(Pool *pool, Entity id):&#160;looseLaser.c']]],
+  ['loose_5flaser_5fupdate_16',['loose_laser_update',['../looseLaser_8c.html#a7607e971f6ed952b9cc8a66a44a50742',1,'loose_laser_update(Pool *pool, Loose_laser *laser):&#160;looseLaser.c'],['../looseLaser_8h.html#a7607e971f6ed952b9cc8a66a44a50742',1,'loose_laser_update(Pool *pool, Loose_laser *laser):&#160;looseLaser.c']]],
+  ['loose_5flasers_5fupdate_5fall_17',['loose_lasers_update_all',['../looseLaser_8c.html#a03d0a5503014aa808277eeaec919b793',1,'loose_lasers_update_all(Pool *pool):&#160;looseLaser.c'],['../looseLaser_8h.html#a03d0a5503014aa808277eeaec919b793',1,'loose_lasers_update_all(Pool *pool):&#160;looseLaser.c']]]
 ];

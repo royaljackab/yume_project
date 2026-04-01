@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['screen_5fheight_0',['SCREEN_HEIGHT',['../screen_8h.html#a6974d08a74da681b3957b2fead2608b8',1,'screen.h']]],
-  ['screen_5fwidth_1',['SCREEN_WIDTH',['../screen_8h.html#a2cd109632a6dcccaa80b43561b1ab700',1,'screen.h']]]
+  ['end_5ftask_0',['End_Task',['../task_8h.html#a571049c50e937a5841634ba98bea0eac',1,'task.h']]]
 ];

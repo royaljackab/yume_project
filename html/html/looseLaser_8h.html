@@ -91,9 +91,11 @@ $(function(){initNavTree('looseLaser_8h.html','',''); });
   <div class="headertitle"><div class="title">looseLaser.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="common_8h_source.html">components/common.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="timer_8h_source.html">systems/timer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="component_8h_source.html">ecs/component.h</a>&quot;</code><br />
 <code>#include &lt;raymath.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="sprite_8h_source.html">components/sprite.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common_8h_source.html">components/common.h</a>&quot;</code><br />
 </div>
 <p><a href="looseLaser_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -103,13 +105,50 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a007fff1fa23d0dafaebf5767d1088cd7" id="r_a007fff1fa23d0dafaebf5767d1088cd7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a007fff1fa23d0dafaebf5767d1088cd7">MAX_LOOSE_NODES</a>&#160;&#160;&#160;200</td></tr>
+<tr class="memitem:a007fff1fa23d0dafaebf5767d1088cd7" id="r_a007fff1fa23d0dafaebf5767d1088cd7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a007fff1fa23d0dafaebf5767d1088cd7">MAX_LOOSE_NODES</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memitem:aecda5f4b19662d0b1689cbb76074ea1b" id="r_aecda5f4b19662d0b1689cbb76074ea1b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aecda5f4b19662d0b1689cbb76074ea1b">DURATION_ETERNAL</a>&#160;&#160;&#160;20000</td></tr>
+<tr class="memitem:a8d1181cc346d720ec528628bb1920c54" id="r_a8d1181cc346d720ec528628bb1920c54"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8d1181cc346d720ec528628bb1920c54">MAX_LOOSE_LASER</a>&#160;&#160;&#160;282</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a280d700e1bde13ac70f75ddd7fe9389f" id="r_a280d700e1bde13ac70f75ddd7fe9389f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a280d700e1bde13ac70f75ddd7fe9389f">updateAllLooseLasers</a> (Loose_laserManager *laserManager, PositionManager *positionManager)</td></tr>
+<tr class="memitem:a7607e971f6ed952b9cc8a66a44a50742" id="r_a7607e971f6ed952b9cc8a66a44a50742"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7607e971f6ed952b9cc8a66a44a50742">loose_laser_update</a> (<a class="el" href="structPool.html">Pool</a> *pool, <a class="el" href="structLoose__laser.html">Loose_laser</a> *laser)</td></tr>
+<tr class="memdesc:a7607e971f6ed952b9cc8a66a44a50742"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: ajouter des hitbox aux nodes.  <br /></td></tr>
+<tr class="memitem:a03d0a5503014aa808277eeaec919b793" id="r_a03d0a5503014aa808277eeaec919b793"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a03d0a5503014aa808277eeaec919b793">loose_lasers_update_all</a> (<a class="el" href="structPool.html">Pool</a> *pool)</td></tr>
+<tr class="memitem:a360b5a5c6c766de37c58394f75ab3e67" id="r_a360b5a5c6c766de37c58394f75ab3e67"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a360b5a5c6c766de37c58394f75ab3e67">loose_laser_create</a> (<a class="el" href="structPool.html">Pool</a> *pool, int x, int y, float speed, float length, float width, int duration, Color color)</td></tr>
+<tr class="memitem:a58990abea69007c210f3ccace93e09ac" id="r_a58990abea69007c210f3ccace93e09ac"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a58990abea69007c210f3ccace93e09ac">node_create</a> (<a class="el" href="structPool.html">Pool</a> *pool, float x, float y, float radius)</td></tr>
+<tr class="memitem:a9768d023d40cd61e9ec6e6515fb1a1fa" id="r_a9768d023d40cd61e9ec6e6515fb1a1fa"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9768d023d40cd61e9ec6e6515fb1a1fa">Loose_laser_destroy</a> (<a class="el" href="structPool.html">Pool</a> *pool, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> id)</td></tr>
+<tr class="memitem:adc3697a054437bcaf6b43d1ecf0cafa4" id="r_adc3697a054437bcaf6b43d1ecf0cafa4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adc3697a054437bcaf6b43d1ecf0cafa4">draw_loose_laser</a> (<a class="el" href="structLoose__laser.html">Loose_laser</a> *laser, PositionManager *positionManager)</td></tr>
+<tr class="memitem:a0e2f86c2c1d44db6b744ffd1970c739d" id="r_a0e2f86c2c1d44db6b744ffd1970c739d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0e2f86c2c1d44db6b744ffd1970c739d">draw_all_loose_lasers</a> (Loose_laserManager *looseManager, PositionManager *positionManager)</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="aecda5f4b19662d0b1689cbb76074ea1b" name="aecda5f4b19662d0b1689cbb76074ea1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecda5f4b19662d0b1689cbb76074ea1b">&#9670;&#160;</a></span>DURATION_ETERNAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DURATION_ETERNAL&#160;&#160;&#160;20000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d1181cc346d720ec528628bb1920c54" name="a8d1181cc346d720ec528628bb1920c54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d1181cc346d720ec528628bb1920c54">&#9670;&#160;</a></span>MAX_LOOSE_LASER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_LOOSE_LASER&#160;&#160;&#160;282</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a007fff1fa23d0dafaebf5767d1088cd7" name="a007fff1fa23d0dafaebf5767d1088cd7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a007fff1fa23d0dafaebf5767d1088cd7">&#9670;&#160;</a></span>MAX_LOOSE_NODES</h2>
 
@@ -117,7 +156,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_LOOSE_NODES&#160;&#160;&#160;200</td>
+          <td class="memname">#define MAX_LOOSE_NODES&#160;&#160;&#160;1000</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -125,19 +164,16 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a280d700e1bde13ac70f75ddd7fe9389f" name="a280d700e1bde13ac70f75ddd7fe9389f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a280d700e1bde13ac70f75ddd7fe9389f">&#9670;&#160;</a></span>updateAllLooseLasers()</h2>
+<a id="a0e2f86c2c1d44db6b744ffd1970c739d" name="a0e2f86c2c1d44db6b744ffd1970c739d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e2f86c2c1d44db6b744ffd1970c739d">&#9670;&#160;</a></span>draw_all_loose_lasers()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void updateAllLooseLasers </td>
+          <td class="memname">void draw_all_loose_lasers </td>
           <td>(</td>
-          <td class="paramtype">Loose_laserManager *</td>          <td class="paramname"><span class="paramname"><em>laserManager</em></span>, </td>
+          <td class="paramtype">Loose_laserManager *</td>          <td class="paramname"><span class="paramname"><em>looseManager</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -145,11 +181,172 @@ Functions</h2></td></tr>
           <td class="paramtype">PositionManager *</td>          <td class="paramname"><span class="paramname"><em>positionManager</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
+</div><div class="memdoc">
+<p>Affiche tous les loose lasers actifs</p>
+
+</div>
+</div>
+<a id="adc3697a054437bcaf6b43d1ecf0cafa4" name="adc3697a054437bcaf6b43d1ecf0cafa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc3697a054437bcaf6b43d1ecf0cafa4">&#9670;&#160;</a></span>draw_loose_laser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void draw_loose_laser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLoose__laser.html">Loose_laser</a> *</td>          <td class="paramname"><span class="paramname"><em>laser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PositionManager *</td>          <td class="paramname"><span class="paramname"><em>positionManager</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a360b5a5c6c766de37c58394f75ab3e67" name="a360b5a5c6c766de37c58394f75ab3e67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a360b5a5c6c766de37c58394f75ab3e67">&#9670;&#160;</a></span>loose_laser_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> loose_laser_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>pool</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9768d023d40cd61e9ec6e6515fb1a1fa" name="a9768d023d40cd61e9ec6e6515fb1a1fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9768d023d40cd61e9ec6e6515fb1a1fa">&#9670;&#160;</a></span>Loose_laser_destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Loose_laser_destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>pool</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em>id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7607e971f6ed952b9cc8a66a44a50742" name="a7607e971f6ed952b9cc8a66a44a50742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7607e971f6ed952b9cc8a66a44a50742">&#9670;&#160;</a></span>loose_laser_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool loose_laser_update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>pool</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structLoose__laser.html">Loose_laser</a> *</td>          <td class="paramname"><span class="paramname"><em>laser</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>TODO: ajouter des hitbox aux nodes. </p>
+<p>TODO: Je ne sais pas comment gêrer les loops</p>
+
+</div>
+</div>
+<a id="a03d0a5503014aa808277eeaec919b793" name="a03d0a5503014aa808277eeaec919b793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03d0a5503014aa808277eeaec919b793">&#9670;&#160;</a></span>loose_lasers_update_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loose_lasers_update_all </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>pool</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58990abea69007c210f3ccace93e09ac" name="a58990abea69007c210f3ccace93e09ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58990abea69007c210f3ccace93e09ac">&#9670;&#160;</a></span>node_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> node_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>pool</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>&#160;)</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

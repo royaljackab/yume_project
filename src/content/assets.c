@@ -13,6 +13,7 @@ Texture2D textures[MAX_TEXTURES];
 Music playlist[MAX_BGM]; // Nouveau tableau pour la musique
 Sound sfx[MAX_SFX]; // Effets sonores
 
+
 enum{ 
   RENDER_PRIO_BULLET, 
 
@@ -46,11 +47,17 @@ void AssetsLoad() {
       LoadMusicStream("../Assets/Audio/BGM/tobenamedlater.wav");
     playlist[BGM_WAITING] =
       LoadMusicStream("../Assets/Audio/BGM/waiting-settingstype.wav");
+    playlist[BGM_MORIYA_THEME] =
+      LoadMusicStream("../Assets/Audio/BGM/moriya_theme.wav");
 
     // Chargement des effets sonores
     sfx[SFX_SHOOT] = LoadSound("../Assets/Audio/SFX/shoot.wav");
     sfx[SFX_ENEMY_DEATH] = LoadSound("../Assets/Audio/SFX/enemy_death.wav");
     sfx[SFX_MENU_NAV] = LoadSound("../Assets/Audio/SFX/menu_nav.wav");
+    sfx[SFX_TAN00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_tan00.wav");
+    sfx[SFX_TAN01] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_tan01.wav");
+    sfx[SFX_TAN02] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_tan02.wav");
+
 
     // Load dem enemies up
     EnemiesSpritesLoad();

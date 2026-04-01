@@ -2,7 +2,6 @@ var game__state_8h =
 [
     [ "GameState", "structGameState.html", "structGameState" ],
     [ "GameContext", "structGameContext.html", "structGameContext" ],
-    [ "GameContext", "game__state_8h.html#af1d739a5886b399946180d0fcd08e95f", null ],
     [ "GameState", "game__state_8h.html#ad74d0fae2a41b21724fe224cf3ec6e13", null ],
     [ "StateID", "game__state_8h.html#a1e429b3df1f3ce68729ed6b71d8714a9", null ],
     [ "StateID", "game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6", [
@@ -12,6 +11,7 @@ var game__state_8h =
       [ "STATE_MENU_SETTINGS", "game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a81d90e02886072a3d471e4c1b4c60be0", null ],
       [ "STATE_MENU_KEYBINDS", "game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0", null ],
       [ "__END_MENU__", "game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549", null ],
+      [ "STATE_MOONLIGHT", "game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497", null ],
       [ "STATE_TEST", "game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673", null ],
       [ "STATE_EXTRA", "game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04", null ]
     ] ],
@@ -22,5 +22,6 @@ var game__state_8h =
     [ "pauseMenu", "game__state_8h.html#acfb13375e4f3f035d25c89875838d25f", null ],
     [ "state_menu_keybinds", "game__state_8h.html#a090feb230d4ba62abfeb441a52996355", null ],
     [ "state_menu_title", "game__state_8h.html#a7da518c69adccea1c6b3a9885fae38bd", null ],
+    [ "state_moonlight", "game__state_8h.html#a3b8b93e232e5560bbada628cf50813c1", null ],
     [ "state_test", "game__state_8h.html#a339bd2d8215508219fd2b6bbd267be6c", null ]
 ];

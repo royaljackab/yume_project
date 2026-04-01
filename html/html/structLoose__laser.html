@@ -96,12 +96,28 @@ $(function(){initNavTree('structLoose__laser.html','','structLoose__laser-member
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a530daadb36eeea826ce60867a874d37c" id="r_a530daadb36eeea826ce60867a874d37c"><td class="memItemLeft">Vector2&#160;</td><td class="memItemRight"><a class="el" href="#a530daadb36eeea826ce60867a874d37c">looseNodes</a> [<a class="el" href="looseLaser_8h.html#a007fff1fa23d0dafaebf5767d1088cd7">MAX_LOOSE_NODES</a>]</td></tr>
+<tr class="memitem:a303791ce7e0846d486fd09a4f24fe357" id="r_a303791ce7e0846d486fd09a4f24fe357"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a303791ce7e0846d486fd09a4f24fe357">looseNodes</a></td></tr>
 <tr class="memitem:a3537f2a5612e7db19e4cf707cf4d258c" id="r_a3537f2a5612e7db19e4cf707cf4d258c"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a3537f2a5612e7db19e4cf707cf4d258c">looseNodeCount</a></td></tr>
 <tr class="memitem:a5dac8ae4d8d042193d42a837c1fb9cf7" id="r_a5dac8ae4d8d042193d42a837c1fb9cf7"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a5dac8ae4d8d042193d42a837c1fb9cf7">looseTargetLength</a></td></tr>
 <tr class="memitem:a9693de799a5107c246be51bda86944f1" id="r_a9693de799a5107c246be51bda86944f1"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a9693de799a5107c246be51bda86944f1">looseWidth</a></td></tr>
+<tr class="memitem:a184dc48d3133b93befe649ebfe9cd387" id="r_a184dc48d3133b93befe649ebfe9cd387"><td class="memItemLeft"><a class="el" href="structTimer.html">Timer</a>&#160;</td><td class="memItemRight"><a class="el" href="#a184dc48d3133b93befe649ebfe9cd387">looseTimer</a></td></tr>
+<tr class="memitem:a4b9011cf0e5ee78db88a98e9c681f915" id="r_a4b9011cf0e5ee78db88a98e9c681f915"><td class="memItemLeft">Color&#160;</td><td class="memItemRight"><a class="el" href="#a4b9011cf0e5ee78db88a98e9c681f915">looseColor</a></td></tr>
 </table>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a4b9011cf0e5ee78db88a98e9c681f915" name="a4b9011cf0e5ee78db88a98e9c681f915"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b9011cf0e5ee78db88a98e9c681f915">&#9670;&#160;</a></span>looseColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Color Loose_laser::looseColor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3537f2a5612e7db19e4cf707cf4d258c" name="a3537f2a5612e7db19e4cf707cf4d258c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3537f2a5612e7db19e4cf707cf4d258c">&#9670;&#160;</a></span>looseNodeCount</h2>
 
@@ -116,17 +132,18 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a530daadb36eeea826ce60867a874d37c" name="a530daadb36eeea826ce60867a874d37c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a530daadb36eeea826ce60867a874d37c">&#9670;&#160;</a></span>looseNodes</h2>
+<a id="a303791ce7e0846d486fd09a4f24fe357" name="a303791ce7e0846d486fd09a4f24fe357"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a303791ce7e0846d486fd09a4f24fe357">&#9670;&#160;</a></span>looseNodes</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Vector2 Loose_laser::looseNodes[<a class="el" href="looseLaser_8h.html#a007fff1fa23d0dafaebf5767d1088cd7">MAX_LOOSE_NODES</a>]</td>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>* Loose_laser::looseNodes</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Un loose laser est un filament composé de plusieurs nodes. Le node à l'avant se comporte comme une bullet et a une physique. Les autres nodes conservent l'historique des positions du head node, ce qui créé un effet de trainée. </p>
 
 </div>
 </div>
@@ -138,6 +155,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">float Loose_laser::looseTargetLength</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a184dc48d3133b93befe649ebfe9cd387" name="a184dc48d3133b93befe649ebfe9cd387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a184dc48d3133b93befe649ebfe9cd387">&#9670;&#160;</a></span>looseTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTimer.html">Timer</a> Loose_laser::looseTimer</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['entitytype_0',['EntityType',['../common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44',1,'common.h']]]
+  ['coeventstatus_0',['CoEventStatus',['../coevent_8h.html#a29c4fef75f569bdcc3bf4bdd9dc5dcfa',1,'coevent.h']]],
+  ['costatus_1',['CoStatus',['../cotask_8h.html#ae1bbabd117619887606c151f625f933f',1,'cotask.h']]]
 ];
