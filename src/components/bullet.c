@@ -1,4 +1,5 @@
 #include "components/bullet.h"
+#include "obj.h"
 #include "physics.h"
 #include "pool.h"
 #include "sprite.h"
@@ -18,6 +19,8 @@ Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
   Entity e = Bullet_spawn(p, x, y, speed, angle, ENT_PLAYER_SHOT, graphic);
   flagList_attach_first_flag(p, e, FLAG_PROJECTILE_PLAYER);
   flagList_add_element(flagList_get(&p->flagList, e), FLAG_BULLET_PLAYER);
+
+  obj_SetRenderPriority(p, e, 9);
   return e;
 
 }
@@ -34,6 +37,8 @@ Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityT
   Physics_add(&p->physics, e, phy);
   Sprite_add(&p->sprite, e, sprites[graphic]);
   Tag_add(&p->tag, e, tag);
+
+  obj_SetRenderPriority(p, e, 90);
 
   Collision_circle_add(&p->collision_circle, e, collision);
   return e;

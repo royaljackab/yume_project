@@ -1,4 +1,4 @@
-#include "obj/obj.h"
+#include "obj.h"
 #include "common.h"
 #include "life.h"
 #include "physics.h"
@@ -248,7 +248,7 @@ void obj_SetMinSpd(Pool *p, Entity objId, float minspd) {
     Physics *phy = Physics_get(&p->physics, objId);
     if (!phy) return;
 
-    phy->maxSpd = minspd;
+    phy->minSpd = minspd;
 }
 
 void obj_UnsetMaxSpd(Pool *p, Entity objId) {
@@ -290,7 +290,7 @@ bool obj_IsDead(Pool *p, Entity objId) {
     Life *life = Life_get(&p->life, objId);
     if (!life) return true;
 
-    return life->life == 0;
+    return Life_is_dead(life);
 }
 
 void obj_SetLife(Pool *p, Entity objId, int lif) {
@@ -305,4 +305,15 @@ void obj_SetMaxlife(Pool *p, Entity objId, int maxLife) {
     if (!life) return;
 
     life->maxLife = maxLife; 
+}
+
+Tag obj_GetTag(Pool *p, Entity objId) {
+    Tag *tag = Tag_get(&p->tag, objId);
+    if (!tag) return ID_INVALID;
+
+    return *tag;
+}
+
+void obj_SetTag(Pool *p, Entity objId, Tag tag) {
+    Tag_add(&p->tag, objId, tag);
 }

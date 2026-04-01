@@ -4,6 +4,7 @@
 #include "coroutine/cosched.h"
 #include "ecs/pool.h"
 #include "systems/button.h"
+#include <raylib.h>
 
 typedef enum StateID {
   STATE_NONE,

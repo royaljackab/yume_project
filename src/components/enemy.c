@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include "content/assets.h"
 #include "ecs/pool.h"
+#include "obj.h"
 
 Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                    int life, float hitboxRadius,
@@ -62,7 +63,7 @@ void Enemy_update_all(Pool *p) {
         Life *life = Life_get(&p->life, e);
         
         //mort de l'ennemi
-        if (life && Life_is_dead(life)) {
+        if (life && Life_is_dead(life) && obj_GetTag(p, e) != ENT_BOSS) {
             PlaySound(sfx[SFX_ENEMY_DEATH]);
             pool_kill_entity(p, e);
         }

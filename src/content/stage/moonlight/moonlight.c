@@ -1,22 +1,21 @@
 #include "content/stage/moonlight/moonlight.h"
 #include "common.h"
 #include "coroutine/cosched.h"
+#include "cotask.h"
 #include "ecs.h"
 #include "content/assets.h"
+#include "enemy.h"
 #include "game_state.h"
-#include "obj/obj.h"
+#include "obj.h"
 #include "physics.h"
 #include "player.h"
 #include "pool.h"
 #include "screen.h"
-#include "sprite.h"
-#include "components/bullet.h"
 #include "core/coroutine/tasks.h"
-#include "components/looseLaser.h"
-#include "components/straight_laser.h"
 #include "systems/hud.h"
-#include "components/enemy.h"
 #include "boss.h"
+
+#include "nonspells/nonspell1.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -26,25 +25,25 @@
 static
 int frames = 0;
 
-TASK(crystal_wall, {GameContext *ctx;}) {
-    const int num_crystals = 27;
-    float spacing = PANEL_WIDTH / (float)(num_crystals - 1);
-    float ofs = GetRandomValue(0, 5) - 1;
+// TASK(crystal_wall, {GameContext *ctx;}) {
+//     const int num_crystals = 27;
+//     float spacing = PANEL_WIDTH / (float)(num_crystals - 1);
+//     float ofs = GetRandomValue(0, 5) - 1;
 
-    for (int i=0; i < 30; i++) {
-        for (int c = 0; c < num_crystals; ++c) {
-            Vector2 accel = {0, 0.02 + 0.01 * ((c%2) ? 1 : -1) * sin((c*3+frames) / 30.0)};
-            Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, BULLET_RED);
-            float r = (c % 2) ? 100 : 255;
-            float g = (c % 2) ? 100 : 255;
-            float b = (c % 2) ? 200 : 255;
-            obj_SetColor(ARGS.ctx->pool, bullet, r, g, b);
-            obj_SetForce(ARGS.ctx->pool, bullet, 0, accel.y);
-        }
+//     for (int i=0; i < 30; i++) {
+//         for (int c = 0; c < num_crystals; ++c) {
+//             Vector2 accel = {0, 0.02 + 0.01 * ((c%2) ? 1 : -1) * sin((c*3+frames) / 30.0)};
+//             Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, BULLET_RED);
+//             float r = (c % 2) ? 100 : 255;
+//             float g = (c % 2) ? 100 : 255;
+//             float b = (c % 2) ? 200 : 255;
+//             obj_SetColor(ARGS.ctx->pool, bullet, r, g, b);
+//             obj_SetForce(ARGS.ctx->pool, bullet, 0, accel.y);
+//         }
 
-        WAIT(10);
-    }
-}
+//         WAIT(10);
+//     }
+// }
 
 TASK(rotating_laser, { GameContext *ctx; }) {
     Entity laser = straight_laser_create(ARGS.ctx->pool, 500, 500, 90, 1500, 30, 5, 5, 10000, LASER_GOLD);
@@ -53,31 +52,54 @@ TASK(rotating_laser, { GameContext *ctx; }) {
     obj_SetAngularSpeed(ARGS.ctx->pool, laser, 0.2);
 }
 
-TASK(frostbolt, {GameContext *ctx; Vector2 pos; float angle; float speed;}) {
-    Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.pos.x, ARGS.pos.y, ARGS.speed, ARGS.angle, ANIM_TEST);
-    TASK_BIND(bullet);
+// TASK(frostbolt, {GameContext *ctx; Vector2 pos; float angle; float speed;}) {
+//     Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.pos.x, ARGS.pos.y, ARGS.speed, ARGS.angle, ANIM_TEST);
+//     TASK_BIND(bullet);
 
-    WAIT(300);
+//     WAIT(300);
+// }
+
+TASK(movement, {GameContext *ctx; Entity boss; }) {
+    while(true) {
+        float player_x = Player_GetX(ARGS.ctx->pool);
+        float boss_x = obj_GetX(ARGS.ctx->pool, ARGS.boss);
+
+        float angleT = 0;
+
+        if (boss_x <= player_x) {
+            angleT = GetRandomValue(-45, 45);
+        } else {
+            angleT = GetRandomValue(135,215);
+        }
+
+        obj_SetAngle(ARGS.ctx->pool, ARGS.boss, angleT);
+        obj_SetSpeed(ARGS.ctx->pool, ARGS.boss, 2);
+
+        WAIT(20);
+        obj_SetSpeed(ARGS.ctx->pool, ARGS.boss, 0);
+        WAIT(60);
+    }
 }
 
 TASK(main_attack, {GameContext *ctx;}) {
-    Entity id = Enemy_spawn(ARGS.ctx->pool, 500, 200, 0, 0, 100, 3, ENEMY_TYPE_EVIL_FAIRY, ENEMY_FAIRY_BIG_EVIL_IDLE);
-    *Tag_get(&ARGS.ctx->pool->tag, id) = ENT_BOSS;
-    printf("%d",*Tag_get(&ARGS.ctx->pool->tag, id) == ENT_BOSS);
-    while (true)  {
-        INVOKE_SUBTASK_DELAYED(60, crystal_wall, ARGS.ctx);
-        WAIT(330);
+    Entity boss = Enemy_spawn(ARGS.ctx->pool, 500, 200, 0, 0, 100, 3, 1, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
+    obj_SetTag(ARGS.ctx->pool, boss, ENT_BOSS);
+    TASK_BIND(boss);
 
-        for (int t=0; t < 370; ++t) {
-            if (!(t % 2)) {
-                float speed = GetRandomValue(1, 400) / 100.0;
-                float angle = atan2f( Player_GetY(ARGS.ctx->pool) - 500, Player_GetX(ARGS.ctx->pool) - 500) * RAD2DEG + GetRandomValue(-5, 5);
-                INVOKE_TASK(frostbolt, ARGS.ctx,  {500, 500} , angle, speed);
-            }
+    WAIT(60);
 
-            WAIT(1);
-        }
+    INVOKE_SUBTASK(movement, ARGS.ctx, boss);
+    CoTask *attack_1 = INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss);
+
+    BoxedTask attack_1_box = cotask_box(attack_1);
+
+    while(!obj_IsDead(ARGS.ctx->pool, boss)) {
+        YIELD;
     }
+
+    CANCEL_TASK(attack_1_box);
+
+    STALL;
 }
 
 void state_moonlight_init(GameContext *ctx) {
@@ -117,12 +139,13 @@ void state_moonlight_draw(GameContext *ctx) {
     ClearBackground(BLACK);
 
     Sprite_draw_all(ctx->pool);
-    HUD_draw(ctx, "Stage 1 - Moonlight");
     draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); 
     straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); 
 
     //par sécurité: mettez plutôt la boss_bar après les sprites, peut-être que ça cause des problèmes
     bossbar_draw_all(ctx->pool);
+
+    HUD_draw(ctx, "Stage 1 - Moonlight");
     DrawText("coucou", 30, 30, 50, WHITE);
 }
 

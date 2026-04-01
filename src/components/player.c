@@ -15,7 +15,7 @@
 #include "core/game_state.h"
 #include "core/input.h"
 #include "core/screen.h"
-#include "obj/obj.h"
+#include "obj.h"
 
 #include <complex.h>
 #include <raylib.h>

@@ -19,7 +19,7 @@ void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
   sprite->color = WHITE;
   sprite->rotation = 0;
   sprite->renderPriority = renderPriority;
-  sprite->scale = (Vector2){1, 1};
+  sprite->scale = (Vector2){1.7, 1.7};
   sprite->display = true;
 }
 
@@ -71,11 +71,13 @@ void Sprite_draw_sprite(Sprite *sprite, Position *pos, Tag *tag) {
                        sprite->srcRect.width * sprite->scale.x,
                        sprite->srcRect.height * sprite->scale.y};
 
+  Vector2 scaled_center = {sprite->center.x * sprite->scale.x, sprite->center.y * sprite->scale.y};
+
   // TODO: Tag pour enlever la rotation par défaut
   if ( tag == NULL || (*tag != ENT_ENEMY && *tag != ENT_BOSS) )
     sprite->rotation = pos->angle;
 
-  DrawTexturePro(tex, sprite->srcRect, destRec, sprite->center,
+  DrawTexturePro(tex, sprite->srcRect, destRec, scaled_center,
                  sprite->rotation, sprite->color);
 }
 
@@ -85,10 +87,10 @@ static bool IsOutOfDrawBounds(Position pos, Sprite sprite) {
    * pas
    */
 
-  return (pos.pos.x + sprite.srcRect.width < PANEL_LEFT ||
-          pos.pos.x - sprite.srcRect.width > PANEL_LEFT + PANEL_WIDTH ||
-          pos.pos.y + sprite.srcRect.height < PANEL_UP ||
-          pos.pos.y - sprite.srcRect.height > PANEL_UP + PANEL_HEIGHT);
+  return (pos.pos.x + sprite.srcRect.width * sprite.scale.x < PANEL_LEFT ||
+          pos.pos.x - sprite.srcRect.width * sprite.scale.x > PANEL_LEFT + PANEL_WIDTH ||
+          pos.pos.y + sprite.srcRect.height * sprite.scale.y < PANEL_UP ||
+          pos.pos.y - sprite.srcRect.height * sprite.scale.y > PANEL_UP + PANEL_HEIGHT);
 }
 
 void Sprite_draw_all(Pool *p) {

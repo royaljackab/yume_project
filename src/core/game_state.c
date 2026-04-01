@@ -2,6 +2,7 @@
 #include "core/input.h"
 #include "core/screen.h"
 
+#include <raylib.h>
 #include <stddef.h>
 #include <stdio.h>
 

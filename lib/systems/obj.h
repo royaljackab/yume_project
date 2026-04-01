@@ -57,3 +57,8 @@ bool obj_IsDead(Pool *p, Entity objId);
 
 void obj_SetLife(Pool *p, Entity objId, int life);
 void obj_SetMaxlife(Pool *p, Entity objId, int maxLife);
+
+/*----------------------------------------------------*/
+
+Tag obj_GetTag(Pool *p, Entity objId);
+void obj_SetTag(Pool *p, Entity objId, Tag tag);
