@@ -14,14 +14,6 @@ Music playlist[MAX_BGM]; // Nouveau tableau pour la musique
 Sound sfx[MAX_SFX]; // Effets sonores
 
 
-enum{ 
-  RENDER_PRIO_BULLET, 
-
-  RENDER_PRIO_PLAYER, 
-  RENDER_PRIO_HITBOX, 
-
-  RENDER_PRIO_ENEMY, 
-};
 
 void AssetsLoad() {
     // Chargement des Textures existantes
@@ -851,7 +843,11 @@ void BulletsSpritesLoad() {
     Sprite_set_SourceRect(&sprites[BIG_HEART_YELLOW], 524, 465, 30, 30);
     
     Sprite_set_texture(&sprites[BIG_HEART_WHITE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[BIG_HEART_WHITE], 524, 497, 30, 30);    
+    Sprite_set_SourceRect(&sprites[BIG_HEART_WHITE], 524, 497, 30, 30);
+
+    // BALL L
+    Sprite_set_texture(&sprites[BALL_L_BLACK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BALL_L_BLACK], 491, 2, 30, 30);
 
   }
 

@@ -5,6 +5,11 @@
 
 #include "components/sprite.h"
 
+#define RENDER_PRIO_PLAYER 10
+#define RENDER_PRIO_ENEMY 40
+#define RENDER_PRIO_BULLET 50
+#define RENDER_PRIO_HITBOX 80
+
 // Audio : background music for now
 typedef enum {
   BGM_FAST_DANGER,
@@ -315,6 +320,16 @@ typedef enum {
   BIG_HEART_GREEN,
   BIG_HEART_YELLOW,
   BIG_HEART_WHITE,
+  
+  // ------ BALL L
+  BALL_L_BLACK,
+  BALL_L_RED,
+  BALL_RED_PURPLE,
+  BALL_L_BLUE,
+  BALL_L_LIGHT_BLUE,
+  BALL_L_GREEN,
+  BALL_L_YELLOW,
+  BALL_L_WHITE,
 
   // ------------ ENEMIES
 

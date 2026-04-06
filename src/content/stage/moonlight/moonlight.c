@@ -18,6 +18,7 @@
 #include "boss.h"
 
 #include "nonspells/nonspell1.h"
+#include "nonspells/nonspell2.h"
 #include "spellcards/poincarre_recurrence.h"
 
 #include <raylib.h>
@@ -92,8 +93,16 @@ TASK(main_attack, {GameContext *ctx;}) {
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
     WAIT(120);
-
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
+
+
+
+    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
+    obj_SetLife(ARGS.ctx->pool, boss, 500);
+
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
+    WAIT(60);
+
     CoTask *attack_1 = INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss);
     BoxedTask attack_1_box = cotask_box(attack_1);
 
@@ -116,6 +125,21 @@ TASK(main_attack, {GameContext *ctx;}) {
         YIELD;
     }
     CANCEL_TASK(spell_1_box);
+    Bullet_clear_bullets(ARGS.ctx->pool);
+
+    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
+    obj_SetLife(ARGS.ctx->pool, boss, 500);
+
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
+    WAIT(60);
+
+    CoTask *nonspell_2 = INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss);
+    BoxedTask nonspell_2_box = cotask_box(nonspell_2);
+
+    while(!obj_IsDead(ARGS.ctx->pool, boss)) {
+        YIELD;
+    }
+    CANCEL_TASK(nonspell_2_box);
     Bullet_clear_bullets(ARGS.ctx->pool);
 
     STALL;

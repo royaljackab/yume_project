@@ -1,4 +1,5 @@
 #include "components/sprite.h"
+#include "collision_circle.h"
 #include "components/common.h"
 #include "content/assets.h"
 #include "core/screen.h"
@@ -79,6 +80,7 @@ void Sprite_draw_sprite(Sprite *sprite, Position *pos, Tag *tag) {
 
   DrawTexturePro(tex, sprite->srcRect, destRec, scaled_center,
                  sprite->rotation, sprite->color);
+
 }
 
 static bool IsOutOfDrawBounds(Position pos, Sprite sprite) {
@@ -126,6 +128,11 @@ void Sprite_draw_all(Pool *p) {
           Sprite_draw_sprite(sprite, pos, tag);
           if (sprite->isAnimated) {
             UpdateAnimation(sprite);
+          }
+
+          Collision_circle *hitbox = Collision_circle_get(&p->collision_circle, e);
+          if (hitbox) {
+            DrawCircle(pos->pos.x, pos->pos.y, hitbox->radius, RED);
           }
         }
       }
