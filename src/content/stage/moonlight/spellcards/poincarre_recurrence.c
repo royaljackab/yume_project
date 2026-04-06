@@ -5,6 +5,7 @@
 #include "obj.h"
 #include "screen.h"
 #include "tasks.h"
+#include "components/straight_laser.h"
 #include <raylib.h>
 
 #define NB_BULLETS_RING 30

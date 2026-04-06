@@ -1,4 +1,4 @@
-#include "obj.h"
+#include "systems/obj.h"
 #include "collision_circle.h"
 #include "common.h"
 #include "life.h"
@@ -272,6 +272,13 @@ void obj_SetSpeed(Pool *p, Entity objId, float speed) {
     if (!phy) return;
 
     phy->speed = speed;
+}
+
+float obj_GetAngularSpeed(Pool *p, Entity objId) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return;
+
+    return phy->angVel;
 }
 
 int obj_GetLife(Pool *p, Entity objId) {

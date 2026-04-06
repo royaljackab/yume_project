@@ -48,12 +48,12 @@ int frames = 0;
 //     }
 // }
 
-TASK(rotating_laser, { GameContext *ctx; }) {
-    Entity laser = straight_laser_create(ARGS.ctx->pool, 500, 500, 90, 1500, 30, 5, 5, 10000, LASER_GOLD);
-    TASK_BIND(laser);
+// TASK(rotating_laser, { GameContext *ctx; }) {
+//     Entity laser = straight_laser_create(ARGS.ctx->pool, 500, 500, 90, 1500, 30, 5, 5, 10000, LASER_GOLD);
+//     TASK_BIND(laser);
 
-    obj_SetAngularSpeed(ARGS.ctx->pool, laser, 0.2);
-}
+//     obj_SetAngularSpeed(ARGS.ctx->pool, laser, 0.2);
+// }
 
 // TASK(frostbolt, {GameContext *ctx; Vector2 pos; float angle; float speed;}) {
 //     Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.pos.x, ARGS.pos.y, ARGS.speed, ARGS.angle, ANIM_TEST);
