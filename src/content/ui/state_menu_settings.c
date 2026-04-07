@@ -16,6 +16,7 @@ typedef enum {
   BTN_VOLUME_BGM = 0,
   BTN_VOLUME_SFX,
   BTN_KEYBINDS,
+  BTN_ENREGISTRER,
   BTN_RETOUR,
   NB_BTN_SETTINGS
 } SettingsBtn;
@@ -58,6 +59,7 @@ void state_menu_settings_init(GameContext *ctx) {
   button_create(&ctx->button, 50, 200);  /* BTN_VOLUME_BGM */
   button_create(&ctx->button, 50, 340);  /* BTN_VOLUME_SFX */
   button_create(&ctx->button, 50, 480);  /* BTN_KEYBINDS   */
+  button_create(&ctx->button, 50, 520);  /* BTN_ENREGISTRER */
   button_create(&ctx->button, 50, 560);  /* BTN_RETOUR      */
 
   audio_appliquer_volumes(ctx);
@@ -100,6 +102,9 @@ void state_menu_settings_update(GameContext *ctx) {
     case BTN_KEYBINDS:
       gamestate_change_state(ctx, STATE_MENU_KEYBINDS);
       break;
+    case BTN_ENREGISTRER:
+      saveSettings(ctx);
+      break;
     case BTN_RETOUR:
       gamestate_change_state(ctx, STATE_MENU_TITLE);
       break;
@@ -137,6 +142,11 @@ void state_menu_settings_draw(GameContext *ctx) {
     "Controles clavier", 40,
     (sel == BTN_KEYBINDS) ? YELLOW : GRAY);
 
+  /* --- Enregistrer --- */
+  button_draw_button_text(&ctx->button, BTN_ENREGISTRER,
+    "Enregistrer", 40,
+    (sel == BTN_ENREGISTRER) ? YELLOW : GRAY);
+
   /* --- Retour --- */
   button_draw_button_text(&ctx->button, BTN_RETOUR,
     "Retour", 40,
@@ -151,8 +161,7 @@ void state_menu_settings_draw(GameContext *ctx) {
 }
 
 void state_menu_settings_cleanup(GameContext *ctx) {
-  /* Sauvegarde automatique en quittant */
-  saveSettings(ctx);
+  /* Sauvegarde gérée par le bouton Enregistrer dans les contrôles */
 }
 
 GameState state_menu_settings = {
