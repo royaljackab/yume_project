@@ -19,7 +19,7 @@
 
 #include "nonspells/nonspell1.h"
 #include "spellcards/poincarre_recurrence.h"
-#include "spellcards/gram_schmidt.h"
+#include "spellcards/brouwer_fixed_point.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -110,22 +110,22 @@ TASK(main_attack, {GameContext *ctx;}) {
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
 
-    // CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
-    // BoxedTask spell_1_box = cotask_box(spell_1);
+    CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
+    BoxedTask spell_1_box = cotask_box(spell_1);
 
-    // while (!obj_IsDead(ARGS.ctx->pool, boss)) {
-    //     YIELD;
-    // }
-    // CANCEL_TASK(spell_1_box);
-    // Bullet_clear_bullets(ARGS.ctx->pool);
+    while (!obj_IsDead(ARGS.ctx->pool, boss)) {
+        YIELD;
+    }
+    CANCEL_TASK(spell_1_box);
+    Bullet_clear_bullets(ARGS.ctx->pool);
 
-    // obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
-    // obj_SetLife(ARGS.ctx->pool, boss, 500);
+    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
+    obj_SetLife(ARGS.ctx->pool, boss, 500);
 
-    // INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
-    // WAIT(60);
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
+    WAIT(60);
 
-    CoTask *spell_2 = INVOKE_SUBTASK(orthonormalisation, ARGS.ctx->pool, boss, 10, 3.5, 100);
+    CoTask *spell_2 = INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss, 10, 3.5, 100);
     BoxedTask spell_2_box = cotask_box(spell_2);
 
     while (!obj_IsDead(ARGS.ctx->pool, boss)) {

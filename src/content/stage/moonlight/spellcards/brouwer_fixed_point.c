@@ -1,4 +1,4 @@
-#include "spellcards/gram_schmidt.h"
+#include "spellcards/brouwer_fixed_point.h"
 #include "assets.h"
 #include "bullet.h"
 #include "ecs.h"
@@ -40,7 +40,12 @@ TASK(clock,{Pool * pool; float spawn_x; float spawn_y; float radius; float angle
     
     while(true){
         obj_SetSpeed(ARGS.pool, leadingID, ARGS.param_angvel/(ARGS.param_burst*timer));
-
+        Position *position = Position_get(&ARGS.pool->position, leadingID);
+        if(!position){
+            pool_kill_entity(ARGS.pool,hour_hand);
+            pool_kill_entity(ARGS.pool,minute_hand);
+            STALL;
+        }
         // printf("angvel hour : %f\n",obj_GetAngularSpeed(ARGS.pool,hour_hand));
         // printf("moins que 0,1 : %d\n",(obj_GetAngularSpeed(ARGS.pool,hour_hand) < 0.1 ));
         // printf("id hour : %d\n",hour_hand);
@@ -57,12 +62,13 @@ TASK(clock,{Pool * pool; float spawn_x; float spawn_y; float radius; float angle
                 if(laser_hour->timer.chrono < INFINITE_TIME) {
                     laser_hour->timer.chrono = INFINITE_TIME;
                     laser_minute->timer.chrono = INFINITE_TIME;
+                    PlaySound(sfx[SFX_LAZER01]);
                 }
             }
             else{
                 Position *position = Position_get(&ARGS.pool->position, leadingID);
                 if(position){
-                    INVOKE_SUBTASK(basic_ring, ARGS.pool, position->pos.x, position->pos.y, 2.5, 20);
+                    INVOKE_SUBTASK(basic_ring, ARGS.pool, position->pos.x, position->pos.y, 2.5, 10);
                     pool_kill_entity(ARGS.pool,leadingID);
                     STALL;
                 }
@@ -81,7 +87,7 @@ TASK(clock,{Pool * pool; float spawn_x; float spawn_y; float radius; float angle
     }
 }
 
-DEFINE_EXTERN_TASK(orthonormalisation){
+DEFINE_EXTERN_TASK(brouwer_fixed_point){
     TASK_BIND(ARGS.boss);
     
     while(true){
@@ -101,7 +107,9 @@ DEFINE_EXTERN_TASK(orthonormalisation){
         angle = atan2f(player_y - boss_y, player_x - boss_x) * RAD2DEG;
         angle += GetRandomValue(-30, 30);
 
+        INVOKE_SUBTASK(clock, ARGS.pool, obj_GetX(ARGS.pool,ARGS.boss), obj_GetY(ARGS.pool,ARGS.boss), 300, angle-120, 120, 0.5, 2.5 + GetRandomValue(-0.2, 0.2));
         INVOKE_SUBTASK(clock, ARGS.pool, obj_GetX(ARGS.pool,ARGS.boss), obj_GetY(ARGS.pool,ARGS.boss), 600, angle, 120, 0.5, 1.5 + GetRandomValue(-0.5, 0));
-        WAIT(25);
+        INVOKE_SUBTASK(clock, ARGS.pool, obj_GetX(ARGS.pool,ARGS.boss), obj_GetY(ARGS.pool,ARGS.boss), 300, angle+120, 120, 0.5, 2.5 + GetRandomValue(-0.2, 0.2));
+        WAIT(40);
     }
 }

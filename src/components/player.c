@@ -230,7 +230,7 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     Weapon_add(&p->weapon, e, weapon);
     Position_add(&p->position, e, (Position){{0,0}, 0});
     Sprite_add(&p->sprite, e, sprite);
-    Collision_circle_add(&p->collision_circle, e, (Collision_circle){5});
+    Collision_circle_add(&p->collision_circle, e, (Collision_circle){6});
 
     Player_set_hitboxSpriteId(Player_get(&p->player,e),hitbox);
     Player_set_GrazeSpriteId(Player_get(&p->player,e), graze);
