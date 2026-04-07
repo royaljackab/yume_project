@@ -19,6 +19,7 @@
 
 #include "nonspells/nonspell1.h"
 #include "spellcards/poincarre_recurrence.h"
+#include "spellcards/brouwer_fixed_point.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -48,12 +49,12 @@ int frames = 0;
 //     }
 // }
 
-TASK(rotating_laser, { GameContext *ctx; }) {
-    Entity laser = straight_laser_create(ARGS.ctx->pool, 500, 500, 90, 1500, 30, 5, 5, 10000, LASER_GOLD);
-    TASK_BIND(laser);
+// TASK(rotating_laser, { GameContext *ctx; }) {
+//     Entity laser = straight_laser_create(ARGS.ctx->pool, 500, 500, 90, 1500, 30, 5, 5, 10000, LASER_GOLD);
+//     TASK_BIND(laser);
 
-    obj_SetAngularSpeed(ARGS.ctx->pool, laser, 0.2);
-}
+//     obj_SetAngularSpeed(ARGS.ctx->pool, laser, 0.2);
+// }
 
 // TASK(frostbolt, {GameContext *ctx; Vector2 pos; float angle; float speed;}) {
 //     Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.pos.x, ARGS.pos.y, ARGS.speed, ARGS.angle, ANIM_TEST);
@@ -106,7 +107,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
     obj_SetLife(ARGS.ctx->pool, boss, 500);
     
-    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
 
     CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
@@ -117,6 +118,22 @@ TASK(main_attack, {GameContext *ctx;}) {
     }
     CANCEL_TASK(spell_1_box);
     Bullet_clear_bullets(ARGS.ctx->pool);
+
+    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
+    obj_SetLife(ARGS.ctx->pool, boss, 500);
+
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
+    WAIT(60);
+
+    CoTask *spell_2 = INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss, 10, 3.5, 100);
+    BoxedTask spell_2_box = cotask_box(spell_2);
+
+    while (!obj_IsDead(ARGS.ctx->pool, boss)) {
+        YIELD;
+    }
+    CANCEL_TASK(spell_2_box);
+    Bullet_clear_bullets(ARGS.ctx->pool);
+
 
     STALL;
 }
@@ -176,5 +193,7 @@ void state_moonlight_cleanup(GameContext *ctx) {
     cosched_finish(&ctx->sched);
     free(ctx->pool);
 }
+
+
 
 GameState state_moonlight = {state_moonlight_init, state_moonlight_update, state_moonlight_draw, state_moonlight_cleanup};

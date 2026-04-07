@@ -40,6 +40,20 @@ void Owner_update(Pool *p){
   for(int i=0; i< p->owner.count; i++){
     Entity ownedId = Owner_get_entity(&p->owner, i); //l'id de la propriété
     Entity ownerId = p->owner.dense[i]; //l'id du propriétaire
-    *Position_get(&p->position, ownedId) = * Position_get(&p->position, ownerId); //la position de la propriété copie tout le temps celle de l'owner
+    if(ownedId == ID_INVALID){
+        continue;
+    }
+    if(ownerId == ID_INVALID){
+        pool_kill_entity(p, ownedId);
+        continue;
+    }
+
+    Position *ownedPos = Position_get(&p->position, ownedId);
+    Position *ownerPos = Position_get(&p->position, ownerId);
+    if (!ownedPos || !ownerPos) {
+        continue;
+    }
+
+    ownedPos->pos = ownerPos->pos; //la position de la propriété copie tout le temps celle de l'owner
   }
 }

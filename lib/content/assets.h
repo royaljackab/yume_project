@@ -369,7 +369,10 @@ typedef enum {
     SFX_TAN02,
     SFX_PLDEAD00,
     SFX_GRAZE,
-    
+    SFX_LAZER00,
+    SFX_LAZER01,
+    SFX_LAZER02,
+
     MAX_SFX
 } SFXID;
 
