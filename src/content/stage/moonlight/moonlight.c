@@ -19,6 +19,7 @@
 
 #include "nonspells/nonspell1.h"
 #include "spellcards/poincarre_recurrence.h"
+#include "spellcards/gram_schmidt.h"
 
 #include <raylib.h>
 #include <stdio.h>
@@ -106,17 +107,33 @@ TASK(main_attack, {GameContext *ctx;}) {
     obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
     obj_SetLife(ARGS.ctx->pool, boss, 500);
     
-    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
 
-    CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
-    BoxedTask spell_1_box = cotask_box(spell_1);
+    // CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
+    // BoxedTask spell_1_box = cotask_box(spell_1);
+
+    // while (!obj_IsDead(ARGS.ctx->pool, boss)) {
+    //     YIELD;
+    // }
+    // CANCEL_TASK(spell_1_box);
+    // Bullet_clear_bullets(ARGS.ctx->pool);
+
+    // obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
+    // obj_SetLife(ARGS.ctx->pool, boss, 500);
+
+    // INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
+    // WAIT(60);
+
+    CoTask *spell_2 = INVOKE_SUBTASK(orthonormalisation, ARGS.ctx->pool, boss, 10, 3.5, 100);
+    BoxedTask spell_2_box = cotask_box(spell_2);
 
     while (!obj_IsDead(ARGS.ctx->pool, boss)) {
         YIELD;
     }
-    CANCEL_TASK(spell_1_box);
+    CANCEL_TASK(spell_2_box);
     Bullet_clear_bullets(ARGS.ctx->pool);
+
 
     STALL;
 }
@@ -176,5 +193,7 @@ void state_moonlight_cleanup(GameContext *ctx) {
     cosched_finish(&ctx->sched);
     free(ctx->pool);
 }
+
+
 
 GameState state_moonlight = {state_moonlight_init, state_moonlight_update, state_moonlight_draw, state_moonlight_cleanup};

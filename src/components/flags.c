@@ -24,6 +24,7 @@ void Flag_display(FlagType flag) {
         case FLAG_POWERUP:        type_str = "POWERUP"; break;
         case FLAG_WALL:           type_str = "WALL"; break;
         case FLAG_INVINCIBLE:     type_str = "INVINCIBLE"; break;
+        case FLAG_NO_DAMAGE_PLAYER:   type_str = "NO_DAMAGE_PLAYER"; break;
         default:                  type_str = "UNKNOWN"; break;
     }
     printf("Flag: [Type: %s]\n", type_str);
@@ -96,7 +97,7 @@ bool flagList_remove_element(flagList *list, FlagType type){
 
 void flagList_destroy(Pool *pool, Entity id){
     /***
-     * Détruit une flagliist dans la pool (y compris on libérant tout ce qui le compose, contrairement à flagList_remove)
+     * Détruit une flaglist dans la pool (y compris on libérant tout ce qui le compose, contrairement à flagList_remove)
      */
 
     flagList * list = flagList_get(&pool->flagList, id);

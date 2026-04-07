@@ -122,9 +122,15 @@ extern bool Damage_player_by_enemy_projectile(Pool *p, Entity player){
      * Verifie si l'entité (surtout le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts
      */
     flagList bulletFlags = {.flags = (FlagType[]){FLAG_PROJECTILE_ENEMY}, .size = 1};
-    if(Entity_is_hit(p, player, &bulletFlags)){
-        Damage_player(p, player);
-        return true;
+    Entity foundCollisions[MAX_COLLISIONS];
+    int nbCollisions = 0;
+
+    Entity_find_hitters(p, player,&bulletFlags, foundCollisions, &nbCollisions);
+    for(int i = 0; i < nbCollisions; i++){
+        if(!Entity_has_flag(p, foundCollisions[i], FLAG_NO_DAMAGE_PLAYER)){
+            Damage_player(p, player);
+            return true;
+        }
     }
     return false;
 }

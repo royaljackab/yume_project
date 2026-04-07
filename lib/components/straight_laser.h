@@ -7,18 +7,24 @@
 #include "components/common.h"
 #include "components/sprite.h"
 
+#define LASER_STATE_WARNING -1
+#define LASER_STATE_GROWING 0
+#define LASER_STATE_DURATION 1 
+#define LASER_STATE_DONE 2
+
 typedef struct Pool Pool;
 
 typedef struct {
     float laserLength;
-    float laserWidth;                 //taille actuelle affichée
-    float laserMaxWidth;              //taille quand le laser s'élargit au max
-    float intersectionWidth;          //largeur hitbox
+    float laserWidth;                 // taille actuelle affichée
+    float laserMaxWidth;              // taille quand le laser s'élargit au max
+    float intersectionWidth;          // largeur hitbox
 
-    // float invalidLengthBase;       //Ces champs n'étaient utilisés nul part donc je les ai mis en commentaire
+    // float invalidLengthBase;       // Ces champs n'étaient utilisés nul part donc je les ai mis en commentaire
     // float invalidLengthTip;
     
     Timer timer;
+
 } Straight_laser;
 
 DEFINE_COMPONENT_MANAGER(Straight_laser, MAX_ENTITIES)

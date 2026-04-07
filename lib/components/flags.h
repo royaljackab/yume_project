@@ -18,9 +18,10 @@ typedef enum {
     FLAG_BULLET_PLAYER,
     FLAG_PROJECTILE_PLAYER,
     FLAG_PROJECTILE_ENEMY,
+    FLAG_NO_DAMAGE_PLAYER, //n'inflige pas de dégat au joueur
     FLAG_POWERUP,
     FLAG_WALL,
-    FLAG_INVINCIBLE //et pas omni-man l'équipe
+    FLAG_INVINCIBLE, //et pas omni-man l'équipe
 } FlagType;
 
 /* Liste de flags */
@@ -38,6 +39,7 @@ DECLARE_SETTER_GETTER(flagList, int, size)
 
 bool Flag_in_list(FlagType type, flagList *list);
 bool flagList_add_element(flagList *list, FlagType type);
+bool flagList_remove_element(flagList *list, FlagType type);
 bool Entity_has_flag_in_list(Pool *p, Entity entity, flagList *list);
 void flagList_destroy(Pool *p, Entity e);
 bool Entity_has_flag(Pool *p, Entity entity, FlagType flag);

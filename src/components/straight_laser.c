@@ -25,6 +25,9 @@ bool straight_laser_update(Pool *p, Entity laserID) {
         laser->laserWidth = 2;
     }
     else if(timer_current_time(&timer) == growing) {
+        if(Entity_has_flag(p, laserID, FLAG_NO_DAMAGE_PLAYER)){
+            flagList_remove_element(flagList_get(&p->flagList,laserID),FLAG_NO_DAMAGE_PLAYER);
+        }
         laser->laserWidth += laser->laserMaxWidth / (timer.time[1]-timer.time[0]);
     }
     else if(timer_current_time(&timer) == duration) {
@@ -50,14 +53,14 @@ bool straight_laser_update(Pool *p, Entity laserID) {
 }
 Entity straight_laser_enemy_create(Pool *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, SpriteID graphic){
     Entity e = straight_laser_create(pool, x, y, angle, length, maxWidth, warning, growing, duration, graphic);
-    flagList_attach_first_flag(pool, e, FLAG_PROJECTILE_ENEMY);
+    flagList_add_element(flagList_get(&pool->flagList,e),FLAG_PROJECTILE_ENEMY);
     return e;
 }
 
 Entity straight_laser_create(Pool *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, SpriteID graphic){
-    Entity id = pool_create_entity(pool);
-    Vector2 vect = {y,x};
-    Position pos = {vect, angle};
+    Entity id = pool_create_entity(pool) ;
+    Vector2 vect = {.x=x,.y=y} ;
+    Position pos = {vect, angle} ;
 
     Timer timer;
     timer.chrono = 0;
@@ -78,9 +81,11 @@ Entity straight_laser_create(Pool *pool, int x, int y, int angle, int length, in
     Sprite_set_display(Sprite_get(&pool->sprite,id),0);
     Physics phy = Physics_create_speed(0);
     Physics_add(&pool->physics,id,phy);
+    Tag_add(&pool->tag, id, ENT_ENEMY_LASER);
 
     Collision_rectangle collision = {0 , 0};
     Collision_rectangle_add(&pool->collision_rectangle, id, collision);
+    flagList_attach_first_flag(pool, id, FLAG_NO_DAMAGE_PLAYER);
 
     //printf("Laser cree %d\n", id);
     for(int i = 0; i < timer.nbTime; i++){
@@ -114,8 +119,8 @@ void straight_laser_draw(Straight_laser *laser, Position * pos, Sprite * sprite)
     Rectangle source = sprite->srcRect;
 
     Rectangle dest = {
-        pos->pos.y,
         pos->pos.x,
+        pos->pos.y,
         laser->laserLength,
         laser->laserWidth
     };
