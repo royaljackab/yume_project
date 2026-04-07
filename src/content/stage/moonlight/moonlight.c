@@ -1,4 +1,5 @@
 #include "content/stage/moonlight/moonlight.h"
+#include "background.h"
 #include "bullet.h"
 #include "common.h"
 #include "coroutine/cosched.h"
@@ -29,39 +30,18 @@
 static
 int frames = 0;
 
-// TASK(crystal_wall, {GameContext *ctx;}) {
-//     const int num_crystals = 27;
-//     float spacing = PANEL_WIDTH / (float)(num_crystals - 1);
-//     float ofs = GetRandomValue(0, 5) - 1;
+void invoke_spellcard_background(Pool *p) {
+    Entity base = Background_create(p, BG_MORIYA_FLOWERS, 0, 0);
+    Entity overlay = Background_create(p, BG_MORIYA_CIRCLES, -1, 1);
 
-//     for (int i=0; i < 30; i++) {
-//         for (int c = 0; c < num_crystals; ++c) {
-//             Vector2 accel = {0, 0.02 + 0.01 * ((c%2) ? 1 : -1) * sin((c*3+frames) / 30.0)};
-//             Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, BULLET_RED);
-//             float r = (c % 2) ? 100 : 255;
-//             float g = (c % 2) ? 100 : 255;
-//             float b = (c % 2) ? 200 : 255;
-//             obj_SetColor(ARGS.ctx->pool, bullet, r, g, b);
-//             obj_SetForce(ARGS.ctx->pool, bullet, 0, accel.y);
-//         }
+    obj_SetScaleX(p, base, (float)PANEL_WIDTH/(float)sprites[BG_MORIYA_FLOWERS].srcRect.width);
+    obj_SetScaleY(p, base, (float)PANEL_HEIGHT/(float)sprites[BG_MORIYA_FLOWERS].srcRect.height);
 
-//         WAIT(10);
-//     }
-// }
-
-TASK(rotating_laser, { GameContext *ctx; }) {
-    Entity laser = straight_laser_create(ARGS.ctx->pool, 500, 500, 90, 1500, 30, 5, 5, 10000, LASER_GOLD);
-    TASK_BIND(laser);
-
-    obj_SetAngularSpeed(ARGS.ctx->pool, laser, 0.2);
+    obj_SetAlpha(p, overlay, 128);
+    obj_SetRenderPriority(p, overlay, RENDER_PRIO_BG + 1);
+    obj_SetColor(p, overlay, YELLOW.r, YELLOW.g, YELLOW.b);
+    obj_SetScale(p, overlay, 3, 3);
 }
-
-// TASK(frostbolt, {GameContext *ctx; Vector2 pos; float angle; float speed;}) {
-//     Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.pos.x, ARGS.pos.y, ARGS.speed, ARGS.angle, ANIM_TEST);
-//     TASK_BIND(bullet);
-
-//     WAIT(300);
-// }
 
 TASK(movement, {GameContext *ctx; Entity boss; }) {
     while(true) {
@@ -90,9 +70,14 @@ TASK(main_attack, {GameContext *ctx;}) {
     obj_SetTag(ARGS.ctx->pool, boss, ENT_BOSS);
     TASK_BIND(boss);
 
+    INVOKE_SUBTASK(boss_particle_spawner, ARGS.ctx->pool, boss);
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
     WAIT(120);
+    INVOKE_SUBTASK(boss_pentagram_effect, ARGS.ctx->pool, boss);
+    WAIT(80);
+    
+    invoke_spellcard_background(ARGS.ctx->pool);
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
 
 
@@ -177,6 +162,7 @@ void state_moonlight_update(GameContext *ctx) {
     Owner_update(ctx->pool);
     pool_kill_convicts(ctx->pool);
     Enemy_update_all(ctx->pool, &ctx->score);
+    Background_update_all(ctx->pool);
 
     frames++;
 }
@@ -184,15 +170,16 @@ void state_moonlight_update(GameContext *ctx) {
 void state_moonlight_draw(GameContext *ctx) {
     ClearBackground(BLACK);
 
+    BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
     Sprite_draw_all(ctx->pool);
     draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); 
     straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); 
 
     //par sécurité: mettez plutôt la boss_bar après les sprites, peut-être que ça cause des problèmes
     bossbar_draw_all(ctx->pool);
+    EndScissorMode();
 
     HUD_draw(ctx, "Stage 1 - Moonlight");
-    DrawText("coucou", 30, 30, 50, WHITE);
 }
 
 void state_moonlight_cleanup(GameContext *ctx) {

@@ -30,6 +30,14 @@ void AssetsLoad() {
   textures[HITBOX_SPRITESHEET] = 
       LoadTexture("../Assets/Sprites/hitbox.png");
 
+
+    // Backgrounds
+    textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
+    textures[BG_SC_OV_CIRCLES] = LoadTexture("../Assets/Sprites/bg/bg_touhou_gray_circles.png");
+    
+    SetTextureWrap(textures[BG_SC_OV_CIRCLES], TEXTURE_WRAP_REPEAT);
+
+
     // Chargement de la Musique
     playlist[BGM_FAST_DANGER] =
       LoadMusicStream("../Assets/Audio/BGM/fast-danger.wav");
@@ -85,6 +93,25 @@ void SpritesLoad() {
 
 
     BulletsSpritesLoad();
+    BgSpritesLoad();
+    EffectsLoad();
+}
+
+void BgSpritesLoad() {
+  Sprite_set_texture(&sprites[BG_MORIYA_FLOWERS], RENDER_PRIO_BG, BG_SC_FLOWERS);
+  Sprite_set_SourceRect(&sprites[BG_MORIYA_FLOWERS], 0, 0, 384, 448);
+
+  Sprite_set_texture(&sprites[BG_MORIYA_CIRCLES], RENDER_PRIO_BG, BG_SC_OV_CIRCLES);
+  Sprite_set_SourceRect(&sprites[BG_MORIYA_CIRCLES], 0, 0, 2000, 2000);
+}
+
+void EffectsLoad() {
+  Sprite_set_texture(&sprites[BOSS_AURA_WAVES], 0, BULLET_SPRITESHEET);
+  Sprite_set_SourceRect(&sprites[BOSS_AURA_WAVES], 384, 429, 42, 35);
+  Sprite_set_center(&sprites[BOSS_AURA_WAVES], (Vector2){0, 17.5});
+
+  Sprite_set_texture(&sprites[BOSS_PENTAGRAM], 0, BULLET_SPRITESHEET);
+  Sprite_set_SourceRect(&sprites[BOSS_PENTAGRAM], 613, 400, 128, 128);
 }
 
 //CLANKER GPT CORE
@@ -875,7 +902,7 @@ void EnemiesSpritesLoad()
     // RED FAIRY
     // =========================
 
-    Sprite_set_texture(&sprites[ENEMY_FAIRY_RED_IDLE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_RED_IDLE], RENDER_PRIO_ENEMY, ENEMY_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_RED_IDLE], 0, 95, 188, 32);
     Sprite_set_animation(&sprites[ENEMY_FAIRY_RED_IDLE], 4, 5);
 

@@ -6,8 +6,10 @@
 #include "ecs/pool.h"
 #include <raylib.h>
 
-#define MIN_LAYER 0
+#define MIN_LAYER -50
 #define MAX_LAYER 100
+
+#define DEBUG 0
 
 void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
   sprite->textureID = textureID;
@@ -131,7 +133,7 @@ void Sprite_draw_all(Pool *p) {
           }
 
           Collision_circle *hitbox = Collision_circle_get(&p->collision_circle, e);
-          if (hitbox) {
+          if (hitbox && DEBUG) {
             DrawCircle(pos->pos.x, pos->pos.y, hitbox->radius, RED);
           }
         }
