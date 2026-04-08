@@ -17,9 +17,11 @@
 
 #include "core/game_state.h"
 
+extern void HUD_draw_background(void);
+
 /**
  * @brief Dessine le HUD
  * @param ctx Le contexte du jeu
  * @param stage_name Nom du stage affiché en haut du HUD
  */
-extern void HUD_draw(GameContext *ctx, const char *stage_name);
+extern void HUD_draw_foreground(GameContext *ctx, const char *stage_name);

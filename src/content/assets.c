@@ -34,8 +34,11 @@ void AssetsLoad() {
     // Backgrounds
     textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
     textures[BG_SC_OV_CIRCLES] = LoadTexture("../Assets/Sprites/bg/bg_touhou_gray_circles.png");
-    textures[BG_PANEL] = LoadTexture("../Assets/Sprites/bg/UI_game.jpg");
+    textures[BG_PANEL] = LoadTexture("../Assets/Sprites/bg/UI_game_full.jpg");
+    textures[TEX_BG_TORII] = LoadTexture("../Assets/Sprites/bg/bg_sc_torii.jpg");
+    textures[TEX_BG_MATH] = LoadTexture("../Assets/Sprites/bg/bg_sc_ov_math.png");
     
+    SetTextureWrap(textures[TEX_BG_MATH], TEXTURE_WRAP_REPEAT);
     SetTextureWrap(textures[BG_SC_OV_CIRCLES], TEXTURE_WRAP_REPEAT);
 
 
@@ -115,6 +118,12 @@ void BgSpritesLoad() {
 
   Sprite_set_texture(&sprites[BG_MORIYA_CIRCLES], RENDER_PRIO_BG, BG_SC_OV_CIRCLES);
   Sprite_set_SourceRect(&sprites[BG_MORIYA_CIRCLES], 0, 0, 2000, 2000);
+
+  Sprite_set_texture(&sprites[BG_SC_TORII], RENDER_PRIO_BG, TEX_BG_TORII);
+  Sprite_set_SourceRect(&sprites[BG_SC_TORII], 0, 0, 1056, 1026);
+
+  Sprite_set_texture(&sprites[BG_SC_OV_MATH], RENDER_PRIO_BG, TEX_BG_MATH);
+  Sprite_set_SourceRect(&sprites[BG_SC_OV_MATH], 0, 0, 1021,855);
 }
 
 void EffectsLoad() {

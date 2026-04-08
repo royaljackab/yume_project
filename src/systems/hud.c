@@ -41,7 +41,19 @@
 /** @brief Couleur des bombes */
 #define HUD_BOMB_COL  YELLOW
 
-void HUD_draw(GameContext *ctx, const char *stage_name) {
+void HUD_draw_background() {
+    // FOND PANEL
+    Texture2D panel = textures[BG_PANEL];
+    Rectangle src = {0,0,panel.width, panel.height};
+    Rectangle dest = {0,0,GetScreenWidth(), GetScreenHeight()};
+    DrawTexturePro(panel, src, dest, Vector2Zero(), 0, WHITE);
+
+    // RECTANGLE AUTOUR DU JEU
+    Rectangle game = {PANEL_LEFT - 5, PANEL_UP - 5, PANEL_WIDTH + 10, PANEL_HEIGHT + 10};
+    DrawRectangleGradientEx(game, RED, BLACK, BLACK, RED);
+}
+
+void HUD_draw_foreground(GameContext *ctx, const char *stage_name) {
     Pool *p = ctx->pool;
 
     /* Récupérer les infos du joueur */
@@ -51,12 +63,6 @@ void HUD_draw(GameContext *ctx, const char *stage_name) {
 
     int x = HUD_X;
     int y = HUD_Y;
-
-    Texture2D panel = textures[BG_PANEL];
-    Rectangle src = {0,0,panel.width, panel.height};
-    Rectangle dest = {0,0,GetScreenWidth(), GetScreenHeight()};
-    DrawTexturePro(panel, src, dest, Vector2Zero(), 0, WHITE);
-    DrawTexture(textures[BG_PANEL], 500, 500, WHITE);
 
     /* Fond du cadre */
     DrawRectangle(x, y, HUD_WIDTH, HUD_HEIGHT, HUD_BG);
