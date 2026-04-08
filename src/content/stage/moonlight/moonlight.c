@@ -27,6 +27,15 @@
 #include <stdlib.h>
 #include <math.h>
 
+static RenderTexture2D screen_target;
+static Shader lens_shader;
+static int center_loc, radius_loc, strength_loc;
+
+static Vector2 lens_center = {0,0};
+static float lens_radius = 0;
+static float lens_strength = 0;
+
+
 static
 int frames = 0;
 
@@ -75,8 +84,10 @@ TASK(main_attack, {GameContext *ctx;}) {
 
     WAIT(120);
     INVOKE_SUBTASK(boss_pentagram_effect, ARGS.ctx->pool, boss);
+    INVOKE_SUBTASK(boss_distortion_effect, ARGS.ctx->pool, boss, &lens_center, &lens_radius, &lens_strength);
+    INVOKE_SUBTASK(boss_orb_effect, ARGS.ctx->pool, boss);
     WAIT(80);
-    
+
     invoke_spellcard_background(ARGS.ctx->pool);
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
 
@@ -149,6 +160,14 @@ void state_moonlight_init(GameContext *ctx) {
     cosched_init(&ctx->sched, ctx->pool);
 
     SCHED_INVOKE_TASK(&ctx->sched, main_attack, ctx);
+
+    // Pour effet de distortion
+    screen_target = LoadRenderTexture(GetScreenWidth(), GetScreenHeight());
+    lens_shader = LoadShader(0, "../Assets/Shaders/lens.fs");
+
+    center_loc = GetShaderLocation(lens_shader, "center");
+    radius_loc = GetShaderLocation(lens_shader, "radius");
+    strength_loc = GetShaderLocation(lens_shader, "strength");
 }
 
 void state_moonlight_update(GameContext *ctx) {
@@ -168,15 +187,47 @@ void state_moonlight_update(GameContext *ctx) {
 }
 
 void state_moonlight_draw(GameContext *ctx) {
-    ClearBackground(BLACK);
+    // ==============================================
+    // 1. CAPTURER LE DÉCOR (Priorités Négatives)
+    // ==============================================
+    BeginTextureMode(screen_target);
+        ClearBackground(BLACK);
+        BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
+        
+        // On dessine UNIQUEMENT les backgrounds (de -50 à -1)
+        Sprite_draw_range(ctx->pool, -50, -1);
+        
+        EndScissorMode();
+    EndTextureMode();
 
+    ClearBackground(BLACK); // On nettoie le vrai écran
+
+    // ==============================================
+    // 2. AFFICHER LE DÉCOR AVEC LE SHADER
+    // ==============================================
+    BeginShaderMode(lens_shader);
+        // Mise à jour des valeurs pour la carte graphique
+        SetShaderValue(lens_shader, center_loc, &lens_center, SHADER_UNIFORM_VEC2);
+        SetShaderValue(lens_shader, radius_loc, &lens_radius, SHADER_UNIFORM_FLOAT);
+        SetShaderValue(lens_shader, strength_loc, &lens_strength, SHADER_UNIFORM_FLOAT);
+        
+        // Raylib inverse l'axe Y des toiles virtuelles, on met donc une hauteur négative
+        Rectangle sourceRec = { 0.0f, 0.0f, (float)screen_target.texture.width, -(float)screen_target.texture.height };
+        DrawTextureRec(screen_target.texture, sourceRec, (Vector2){ 0, 0 }, WHITE);
+    EndShaderMode();
+
+    // ==============================================
+    // 3. DESSINER LE JEU PAR-DESSUS (Priorités Positives)
+    // ==============================================
     BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
-    Sprite_draw_all(ctx->pool);
-    draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); 
-    straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); 
-
-    //par sécurité: mettez plutôt la boss_bar après les sprites, peut-être que ça cause des problèmes
-    bossbar_draw_all(ctx->pool);
+        
+        // On dessine le Joueur, le Boss et les Balles (de 0 à 100) SANS DISTORSION
+        Sprite_draw_range(ctx->pool, 0, 100);
+        
+        draw_all_loose_lasers(&ctx->pool->looseLaser, &ctx->pool->position); 
+        straight_lasers_draw_all(&ctx->pool->straightLaser, &ctx->pool->position, &ctx->pool->sprite); 
+        bossbar_draw_all(ctx->pool);
+        
     EndScissorMode();
 
     HUD_draw(ctx, "Stage 1 - Moonlight");
@@ -186,6 +237,8 @@ void state_moonlight_cleanup(GameContext *ctx) {
     StopMusicStream(playlist[BGM_FAST_DANGER]);
     cosched_finish(&ctx->sched);
     free(ctx->pool);
+    UnloadRenderTexture(screen_target);
+    UnloadShader(lens_shader);
 }
 
 GameState state_moonlight = {state_moonlight_init, state_moonlight_update, state_moonlight_draw, state_moonlight_cleanup};

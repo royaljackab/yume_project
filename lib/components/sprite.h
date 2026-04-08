@@ -86,4 +86,4 @@ void UpdateAnimation(Sprite *sprite);
 
 void Sprite_draw_sprite(Sprite *sprite, Position *pos, Tag *tag);
 extern void Sprite_draw_all(Pool *pool);
-
+extern void Sprite_draw_range(Pool *p, int min_layer, int max_layer);

@@ -142,6 +142,45 @@ void Sprite_draw_all(Pool *p) {
   }
 }
 
+void Sprite_draw_range(Pool *p, int min_layer, int max_layer) {
+  SpriteManager *spriteManager = &p->sprite;
+  PositionManager *positionManager = &p->position;
+  TagManager *tagManager = &p->tag;
+
+  Position *pos;
+  Entity e;
+  Sprite *sprite;
+  Tag *tag;
+  for (int layer = min_layer; layer <= max_layer; layer++) {
+    for (int i = 0; i < spriteManager->count; i++) {
+      sprite = &spriteManager->dense[i];
+      e = Sprite_get_entity(spriteManager, i);
+      pos = Position_get(positionManager, e);
+      tag = Tag_get(tagManager, e);
+
+
+      if (IsOutOfDrawBounds(*pos, *sprite)) {
+        continue;
+      }
+
+      if (sprite->renderPriority == layer) {
+
+        if (sprite->display) {
+          Sprite_draw_sprite(sprite, pos, tag);
+          if (sprite->isAnimated) {
+            UpdateAnimation(sprite);
+          }
+
+          Collision_circle *hitbox = Collision_circle_get(&p->collision_circle, e);
+          if (hitbox && DEBUG) {
+            DrawCircle(pos->pos.x, pos->pos.y, hitbox->radius, RED);
+          }
+        }
+      }
+    }
+  }
+}
+
 void drawStraightLaser(Straight_laser *laser, Position * pos, Sprite * sprite){
     /**
      * Affiche un laser droit selon sa largeur et sa longueur, à sa position et avec la couleur de son sprite

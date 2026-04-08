@@ -112,6 +112,9 @@ void EffectsLoad() {
 
   Sprite_set_texture(&sprites[BOSS_PENTAGRAM], 0, BULLET_SPRITESHEET);
   Sprite_set_SourceRect(&sprites[BOSS_PENTAGRAM], 613, 400, 128, 128);
+
+  Sprite_set_texture(&sprites[BOSS_AURA_ORB], 0, BULLET_SPRITESHEET);
+  Sprite_set_SourceRect(&sprites[BOSS_AURA_ORB], 32, 32, 225, 225);
 }
 
 //CLANKER GPT CORE

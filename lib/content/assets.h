@@ -375,6 +375,7 @@ typedef enum {
 
   BOSS_AURA_WAVES,
   BOSS_PENTAGRAM,
+  BOSS_AURA_ORB,
 
   MAX_SPRITES
 } SpriteID;
