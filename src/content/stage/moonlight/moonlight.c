@@ -156,6 +156,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     Bullet_clear_bullets(ARGS.ctx->pool);
 
 
+    gamestate_change_state(ARGS.ctx, STATE_VICTORY);
     STALL;
 }
 
