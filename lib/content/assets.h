@@ -5,6 +5,12 @@
 
 #include "components/sprite.h"
 
+#define RENDER_PRIO_BG -50
+#define RENDER_PRIO_PLAYER 10
+#define RENDER_PRIO_ENEMY 40
+#define RENDER_PRIO_BULLET 50
+#define RENDER_PRIO_HITBOX 80
+
 // Audio : background music for now
 typedef enum {
   BGM_FAST_DANGER,
@@ -22,6 +28,13 @@ typedef enum {
   ANIM_TEST_SPRITESHEET,
   REIMU_SPRITESHEET,
   HITBOX_SPRITESHEET,
+  
+  // ------ BACKGROUNDS
+
+  BG_SC_FLOWERS,
+  BG_SC_OV_CIRCLES,
+
+
   MAX_TEXTURES
 } TextureID;
 
@@ -315,6 +328,16 @@ typedef enum {
   BIG_HEART_GREEN,
   BIG_HEART_YELLOW,
   BIG_HEART_WHITE,
+  
+  // ------ BALL L
+  BALL_L_BLACK,
+  BALL_L_RED,
+  BALL_RED_PURPLE,
+  BALL_L_BLUE,
+  BALL_L_LIGHT_BLUE,
+  BALL_L_GREEN,
+  BALL_L_YELLOW,
+  BALL_L_WHITE,
 
   // ------------ ENEMIES
 
@@ -343,6 +366,17 @@ typedef enum {
   ENEMY_FAIRY_BIG_EVIL_IDLE,
   ENEMY_FAIRY_BIG_EVIL_MOVE,
 
+  // ------ BACKGROUNDS
+
+  BG_MORIYA_FLOWERS,
+  BG_MORIYA_CIRCLES,
+
+  // ----- EFFECTS
+
+  BOSS_AURA_WAVES,
+  BOSS_PENTAGRAM,
+  BOSS_AURA_ORB,
+
   MAX_SPRITES
 } SpriteID;
 
@@ -352,6 +386,8 @@ typedef enum {
 extern void AssetsLoad();
 extern void AssetsUnload();
 void BulletsSpritesLoad();
+void BgSpritesLoad();
+void EffectsLoad();
 extern void SpritesLoad();
 void EnemiesSpritesLoad();
 

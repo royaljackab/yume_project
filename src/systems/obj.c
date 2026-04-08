@@ -339,3 +339,7 @@ void obj_SetHitboxRadius(Pool *p, Entity objID, float radius) {
 
     hitbox->radius = radius;
 }
+
+void obj_SetBGScrollX(Pool *p, Entity objId, float scroll_speed_x) {
+    
+}

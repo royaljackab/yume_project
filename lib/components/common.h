@@ -34,6 +34,7 @@ typedef enum {
   ENT_PLAYER_LASER,
   ENT_LOOSE_LASER,
   ENT_PARTICLE,
+  ENT_BACKGROUND
 } EntityType;
 typedef EntityType Tag;
 DEFINE_COMPONENT_MANAGER(Tag, MAX_ENTITIES)

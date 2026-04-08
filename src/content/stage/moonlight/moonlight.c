@@ -1,4 +1,5 @@
 #include "content/stage/moonlight/moonlight.h"
+#include "background.h"
 #include "bullet.h"
 #include "common.h"
 #include "coroutine/cosched.h"
@@ -18,6 +19,7 @@
 #include "boss.h"
 
 #include "nonspells/nonspell1.h"
+#include "nonspells/nonspell2.h"
 #include "spellcards/poincarre_recurrence.h"
 #include "spellcards/brouwer_fixed_point.h"
 
@@ -26,42 +28,30 @@
 #include <stdlib.h>
 #include <math.h>
 
+static RenderTexture2D screen_target;
+static Shader lens_shader;
+static int center_loc, radius_loc, strength_loc;
+
+static Vector2 lens_center = {0,0};
+static float lens_radius = 0;
+static float lens_strength = 0;
+
+
 static
 int frames = 0;
 
-// TASK(crystal_wall, {GameContext *ctx;}) {
-//     const int num_crystals = 27;
-//     float spacing = PANEL_WIDTH / (float)(num_crystals - 1);
-//     float ofs = GetRandomValue(0, 5) - 1;
+void invoke_spellcard_background(Pool *p) {
+    Entity base = Background_create(p, BG_MORIYA_FLOWERS, 0, 0);
+    Entity overlay = Background_create(p, BG_MORIYA_CIRCLES, -1, 1);
 
-//     for (int i=0; i < 30; i++) {
-//         for (int c = 0; c < num_crystals; ++c) {
-//             Vector2 accel = {0, 0.02 + 0.01 * ((c%2) ? 1 : -1) * sin((c*3+frames) / 30.0)};
-//             Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, (ofs + c) * spacing + 10, PANEL_UP + 5, 0, 0, BULLET_RED);
-//             float r = (c % 2) ? 100 : 255;
-//             float g = (c % 2) ? 100 : 255;
-//             float b = (c % 2) ? 200 : 255;
-//             obj_SetColor(ARGS.ctx->pool, bullet, r, g, b);
-//             obj_SetForce(ARGS.ctx->pool, bullet, 0, accel.y);
-//         }
+    obj_SetScaleX(p, base, (float)PANEL_WIDTH/(float)sprites[BG_MORIYA_FLOWERS].srcRect.width);
+    obj_SetScaleY(p, base, (float)PANEL_HEIGHT/(float)sprites[BG_MORIYA_FLOWERS].srcRect.height);
 
-//         WAIT(10);
-//     }
-// }
-
-// TASK(rotating_laser, { GameContext *ctx; }) {
-//     Entity laser = straight_laser_create(ARGS.ctx->pool, 500, 500, 90, 1500, 30, 5, 5, 10000, LASER_GOLD);
-//     TASK_BIND(laser);
-
-//     obj_SetAngularSpeed(ARGS.ctx->pool, laser, 0.2);
-// }
-
-// TASK(frostbolt, {GameContext *ctx; Vector2 pos; float angle; float speed;}) {
-//     Entity bullet = Bullet_enemy_spawn(ARGS.ctx->pool, ARGS.pos.x, ARGS.pos.y, ARGS.speed, ARGS.angle, ANIM_TEST);
-//     TASK_BIND(bullet);
-
-//     WAIT(300);
-// }
+    obj_SetAlpha(p, overlay, 128);
+    obj_SetRenderPriority(p, overlay, RENDER_PRIO_BG + 1);
+    obj_SetColor(p, overlay, YELLOW.r, YELLOW.g, YELLOW.b);
+    obj_SetScale(p, overlay, 3, 3);
+}
 
 TASK(movement, {GameContext *ctx; Entity boss; }) {
     while(true) {
@@ -90,11 +80,26 @@ TASK(main_attack, {GameContext *ctx;}) {
     obj_SetTag(ARGS.ctx->pool, boss, ENT_BOSS);
     TASK_BIND(boss);
 
+    INVOKE_SUBTASK(boss_particle_spawner, ARGS.ctx->pool, boss);
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
     WAIT(120);
+    INVOKE_SUBTASK(boss_pentagram_effect, ARGS.ctx->pool, boss);
+    INVOKE_SUBTASK(boss_distortion_effect, ARGS.ctx->pool, boss, &lens_center, &lens_radius, &lens_strength);
+    INVOKE_SUBTASK(boss_orb_effect, ARGS.ctx->pool, boss);
+    WAIT(80);
 
+    invoke_spellcard_background(ARGS.ctx->pool);
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
+
+
+
+    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
+    obj_SetLife(ARGS.ctx->pool, boss, 500);
+
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
+    WAIT(60);
+
     CoTask *attack_1 = INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss);
     BoxedTask attack_1_box = cotask_box(attack_1);
 
@@ -121,6 +126,18 @@ TASK(main_attack, {GameContext *ctx;}) {
 
     obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
     obj_SetLife(ARGS.ctx->pool, boss, 500);
+
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
+    WAIT(60);
+
+    CoTask *nonspell_2 = INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss);
+    BoxedTask nonspell_2_box = cotask_box(nonspell_2);
+
+    while(!obj_IsDead(ARGS.ctx->pool, boss)) {
+        YIELD;
+    }
+    CANCEL_TASK(nonspell_2_box);
+    Bullet_clear_bullets(ARGS.ctx->pool);
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
@@ -157,6 +174,14 @@ void state_moonlight_init(GameContext *ctx) {
     cosched_init(&ctx->sched, ctx->pool);
 
     SCHED_INVOKE_TASK(&ctx->sched, main_attack, ctx);
+
+    // Pour effet de distortion
+    screen_target = LoadRenderTexture(GetScreenWidth(), GetScreenHeight());
+    lens_shader = LoadShader(0, "../Assets/Shaders/lens.fs");
+
+    center_loc = GetShaderLocation(lens_shader, "center");
+    radius_loc = GetShaderLocation(lens_shader, "radius");
+    strength_loc = GetShaderLocation(lens_shader, "strength");
 }
 
 void state_moonlight_update(GameContext *ctx) {
@@ -170,28 +195,64 @@ void state_moonlight_update(GameContext *ctx) {
     Owner_update(ctx->pool);
     pool_kill_convicts(ctx->pool);
     Enemy_update_all(ctx->pool, &ctx->score);
+    Background_update_all(ctx->pool);
 
     frames++;
 }
 
 void state_moonlight_draw(GameContext *ctx) {
-    ClearBackground(BLACK);
+    // ==============================================
+    // 1. CAPTURER LE DÉCOR (Priorités Négatives)
+    // ==============================================
+    BeginTextureMode(screen_target);
+        ClearBackground(BLACK);
+        BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
+        
+        // On dessine UNIQUEMENT les backgrounds (de -50 à -1)
+        Sprite_draw_range(ctx->pool, -50, -1);
+        
+        EndScissorMode();
+    EndTextureMode();
 
-    Sprite_draw_all(ctx->pool);
-    draw_all_loose_lasers(&ctx->pool->looseLaser,&ctx->pool->position); 
-    straight_lasers_draw_all(&ctx->pool->straightLaser,&ctx->pool->position,&ctx->pool->sprite); 
+    ClearBackground(BLACK); // On nettoie le vrai écran
 
-    //par sécurité: mettez plutôt la boss_bar après les sprites, peut-être que ça cause des problèmes
-    bossbar_draw_all(ctx->pool);
+    // ==============================================
+    // 2. AFFICHER LE DÉCOR AVEC LE SHADER
+    // ==============================================
+    BeginShaderMode(lens_shader);
+        // Mise à jour des valeurs pour la carte graphique
+        SetShaderValue(lens_shader, center_loc, &lens_center, SHADER_UNIFORM_VEC2);
+        SetShaderValue(lens_shader, radius_loc, &lens_radius, SHADER_UNIFORM_FLOAT);
+        SetShaderValue(lens_shader, strength_loc, &lens_strength, SHADER_UNIFORM_FLOAT);
+        
+        // Raylib inverse l'axe Y des toiles virtuelles, on met donc une hauteur négative
+        Rectangle sourceRec = { 0.0f, 0.0f, (float)screen_target.texture.width, -(float)screen_target.texture.height };
+        DrawTextureRec(screen_target.texture, sourceRec, (Vector2){ 0, 0 }, WHITE);
+    EndShaderMode();
+
+    // ==============================================
+    // 3. DESSINER LE JEU PAR-DESSUS (Priorités Positives)
+    // ==============================================
+    BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
+        
+        // On dessine le Joueur, le Boss et les Balles (de 0 à 100) SANS DISTORSION
+        Sprite_draw_range(ctx->pool, 0, 100);
+        
+        draw_all_loose_lasers(&ctx->pool->looseLaser, &ctx->pool->position); 
+        straight_lasers_draw_all(&ctx->pool->straightLaser, &ctx->pool->position, &ctx->pool->sprite); 
+        bossbar_draw_all(ctx->pool);
+        
+    EndScissorMode();
 
     HUD_draw(ctx, "Stage 1 - Moonlight");
-    DrawText("coucou", 30, 30, 50, WHITE);
 }
 
 void state_moonlight_cleanup(GameContext *ctx) {
     StopMusicStream(playlist[BGM_FAST_DANGER]);
     cosched_finish(&ctx->sched);
     free(ctx->pool);
+    UnloadRenderTexture(screen_target);
+    UnloadShader(lens_shader);
 }
 
 

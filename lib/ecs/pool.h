@@ -14,6 +14,7 @@
 
 #pragma once
 
+#include "background.h"
 #include "bullet.h"
 #include "collision_circle.h"
 #include "collision_rectangle.h"
@@ -56,6 +57,8 @@ typedef struct Pool {
   WeaponManager weapon;
 
   flagListManager flagList;
+
+  BackgroundManager background;
 
   // Nouvelle gestion des indices
   Entity free_indices[MAX_ENTITIES]; // Le tableau qui stocke les IDs dispos
