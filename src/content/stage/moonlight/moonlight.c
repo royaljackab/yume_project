@@ -189,6 +189,14 @@ void state_moonlight_init(GameContext *ctx) {
 }
 
 void state_moonlight_update(GameContext *ctx) {
+    /* Vérifier le game over */
+    Entity player = ctx->pool->player.entity_lookup[0];
+    Life *player_life = Life_get(&ctx->pool->life, player);
+    if (player_life && player_life->life <= 0) {
+        gamestate_change_state(ctx, STATE_GAME_OVER);
+        return;
+    }
+
     cosched_run_tasks(&ctx->sched);
 
     Player_update(ctx);
