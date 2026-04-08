@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include "content/ui/state_menu_settings.h"
 #include "content/ui/state_game_over.h"
+#include "content/ui/state_victory.h"
 
 // Variable statique pour savoir ce qu'on modifie en pause
 // 0 = BGM, 1 = SFX
@@ -30,6 +31,8 @@ GameState *get_state_pointer(StateID state) {
     return &state_moonlight;
   case STATE_GAME_OVER:
     return &state_game_over;
+  case STATE_VICTORY:
+    return &state_victory;
   
   default:
     return 0;

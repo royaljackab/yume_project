@@ -44,7 +44,7 @@ typedef enum {
 
 /* Static variables */
 static
-Player test_player = CREATE_PLAYER(4, 7, 3.9, 20, TEST_PLAYER);
+Player test_player = CREATE_PLAYER(3, 7, 3.9, 20, TEST_PLAYER);
 
 /*Static functions*/
 static
