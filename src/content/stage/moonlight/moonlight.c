@@ -139,6 +139,9 @@ TASK(main_attack, {GameContext *ctx;}) {
     CANCEL_TASK(nonspell_2_box);
     Bullet_clear_bullets(ARGS.ctx->pool);
 
+    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
+    obj_SetLife(ARGS.ctx->pool, boss, 500);
+
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
 
