@@ -13,8 +13,8 @@
 #include "content/assets.h"
 #include "core/game_state.h"
 #include "core/input.h"
-#include "core/screen.h"
-#include "obj.h"
+#include "screen.h"
+#include "systems/obj.h"
 
 #include "systems/score.h"
 

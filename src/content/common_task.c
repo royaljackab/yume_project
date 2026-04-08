@@ -2,7 +2,7 @@
 #include "assets.h"
 #include "coevent.h"
 #include "common.h"
-#include "obj.h"
+#include "systems/obj.h"
 #include "pool.h"
 #include "sprite.h"
 #include "tasks.h"

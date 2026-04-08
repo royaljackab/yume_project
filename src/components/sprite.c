@@ -2,12 +2,15 @@
 #include "collision_circle.h"
 #include "components/common.h"
 #include "content/assets.h"
-#include "core/screen.h"
+#include "screen.h"
 #include "ecs/pool.h"
+
 #include <raylib.h>
 
 #define MIN_LAYER -50
 #define MAX_LAYER 100
+#define COEFF_SPRITE_SCALE_X 1.7/1920
+#define COEFF_SPRITE_SCALE_Y 1.7/1080
 
 #define DEBUG 0
 
@@ -22,7 +25,7 @@ void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
   sprite->color = WHITE;
   sprite->rotation = 0;
   sprite->renderPriority = renderPriority;
-  sprite->scale = (Vector2){1.7, 1.7};
+  sprite->scale = (Vector2){SCREEN_WIDTH*COEFF_SPRITE_SCALE_X, SCREEN_HEIGHT*COEFF_SPRITE_SCALE_Y};
   sprite->display = true;
 }
 
