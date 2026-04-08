@@ -18,6 +18,7 @@ int main() {
   cotask_global_init();
 
   GameContext ctx;
+  screen_system_init(&ctx.screen); 
   gamestate_initialize(&ctx, STATE_MENU_TITLE);
   ctx.pause = 0;
 
