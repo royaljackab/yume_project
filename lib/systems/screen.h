@@ -2,8 +2,8 @@
 #pragma once
 
 #define DRAW_MARGIN 500  // 80
-#define SCREEN_WIDTH 800 // 1280
-#define SCREEN_HEIGHT 600 // 900
+#define SCREEN_WIDTH 1920 // 1280
+#define SCREEN_HEIGHT 1080 // 900
 
 #define PANEL_LEFT SCREEN_WIDTH / 64      // 10
 #define PANEL_WIDTH SCREEN_WIDTH / 2      // 700

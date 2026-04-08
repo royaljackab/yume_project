@@ -7,6 +7,7 @@
 #include "ecs.h"
 #include "content/assets.h"
 #include "enemy.h"
+#include "life.h"
 #include "game_state.h"
 #include "obj.h"
 #include "physics.h"
@@ -205,10 +206,13 @@ void state_moonlight_update(GameContext *ctx) {
     straight_lasers_update_all(ctx->pool);
     Condensation_update_all(ctx->pool);
     Owner_update(ctx->pool);
-    pool_kill_convicts(ctx->pool);
+    
+    Life_update_all(ctx->pool, &ctx->score);
     Enemy_update_all(ctx->pool, &ctx->score);
     Background_update_all(ctx->pool);
 
+    //en dernier par sécurité
+    pool_kill_convicts(ctx->pool);
     frames++;
 }
 
