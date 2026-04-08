@@ -67,6 +67,13 @@ void AssetsLoad() {
 
     // Load dem enemies up
     EnemiesSpritesLoad();
+
+  for (int i = 0; i < MAX_TEXTURES; i++) {
+        // On vérifie que la texture existe (id > 0) pour éviter les crashs
+        if (textures[i].id != 0) { 
+            SetTextureFilter(textures[i], TEXTURE_FILTER_BILINEAR);
+        }
+    }
 }
 
 void SpritesLoad() {

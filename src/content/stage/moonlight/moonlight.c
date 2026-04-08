@@ -42,14 +42,15 @@ int frames = 0;
 
 void invoke_spellcard_background(Pool *p) {
     Entity base = Background_create(p, BG_MORIYA_FLOWERS, 0, 0);
-    Entity overlay = Background_create(p, BG_MORIYA_CIRCLES, -1, 1);
+    Entity overlay = Background_create(p, BG_MORIYA_CIRCLES, -0.5, 0.5);
+
 
     obj_SetScaleX(p, base, (float)PANEL_WIDTH/(float)sprites[BG_MORIYA_FLOWERS].srcRect.width);
     obj_SetScaleY(p, base, (float)PANEL_HEIGHT/(float)sprites[BG_MORIYA_FLOWERS].srcRect.height);
 
     obj_SetAlpha(p, overlay, 128);
     obj_SetRenderPriority(p, overlay, RENDER_PRIO_BG + 1);
-    obj_SetColor(p, overlay, YELLOW.r, YELLOW.g, YELLOW.b);
+    // obj_SetColor(p, overlay, YELLOW.r, YELLOW.g, YELLOW.b);
     obj_SetScale(p, overlay, 3, 3);
 }
 

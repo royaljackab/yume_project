@@ -32,8 +32,8 @@ TASK(clock,{Pool * pool; float spawn_x; float spawn_y; float radius; float angle
     Entity leadingID = Bullet_enemy_spawn_delayed(ARGS.pool, ARGS.spawn_x, ARGS.spawn_y, 0, ARGS.angle, BULLET_RING_YELLOW, 5);
 
     float timer = 1;
-    Entity hour_hand = straight_laser_enemy_create(ARGS.pool, 0, 0, GetRandomValue(0, 360), 2*ARGS.radius/3, 20, INFINITE_TIME,5,150,LASER_CYAN);
-    Entity minute_hand = straight_laser_enemy_create(ARGS.pool, 0, 0, GetRandomValue(0, 360), ARGS.radius, 15, INFINITE_TIME,5,150,LASER_RED);
+    Entity hour_hand = straight_laser_enemy_create(ARGS.pool, 0, 0, GetRandomValue(0, 360), 2*ARGS.radius/3, 20, INFINITE_TIME,5,150,PETAL_BLUE);
+    Entity minute_hand = straight_laser_enemy_create(ARGS.pool, 0, 0, GetRandomValue(0, 360), ARGS.radius, 15, INFINITE_TIME,5,150,BULLET_RED);
 
     Owner_bind(ARGS.pool, leadingID, hour_hand);
     Owner_bind(ARGS.pool, leadingID, minute_hand);
