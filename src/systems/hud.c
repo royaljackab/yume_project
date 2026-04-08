@@ -6,11 +6,13 @@
  */
 
 #include "systems/hud.h"
+#include "assets.h"
 #include "screen.h"
 #include "components/player.h"
 #include "ecs/pool.h"
 
 #include <raylib.h>
+#include <raymath.h>
 #include <stdio.h>
 
 /** @brief Position x du cadre HUD */
@@ -49,6 +51,12 @@ void HUD_draw(GameContext *ctx, const char *stage_name) {
 
     int x = HUD_X;
     int y = HUD_Y;
+
+    Texture2D panel = textures[BG_PANEL];
+    Rectangle src = {0,0,panel.width, panel.height};
+    Rectangle dest = {0,0,GetScreenWidth(), GetScreenHeight()};
+    DrawTexturePro(panel, src, dest, Vector2Zero(), 0, WHITE);
+    DrawTexture(textures[BG_PANEL], 500, 500, WHITE);
 
     /* Fond du cadre */
     DrawRectangle(x, y, HUD_WIDTH, HUD_HEIGHT, HUD_BG);

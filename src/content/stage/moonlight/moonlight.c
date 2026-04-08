@@ -219,6 +219,8 @@ void state_moonlight_update(GameContext *ctx) {
 
 void state_moonlight_draw(GameContext *ctx) {
    
+    HUD_draw(ctx, "Stage 1 - Moonlight");
+
     // DESSIN BACKGROUND
     BeginTextureMode(screen_target);
         ClearBackground(BLACK);
@@ -228,8 +230,6 @@ void state_moonlight_draw(GameContext *ctx) {
         
         EndScissorMode();
     EndTextureMode();
-
-    ClearBackground(BLACK); // On nettoie le vrai écran
 
     // DESSIN SHADER
     BeginShaderMode(lens_shader);
@@ -251,8 +251,6 @@ void state_moonlight_draw(GameContext *ctx) {
         bossbar_draw_all(ctx->pool);
         
     EndScissorMode();
-
-    HUD_draw(ctx, "Stage 1 - Moonlight");
 }
 
 void state_moonlight_cleanup(GameContext *ctx) {

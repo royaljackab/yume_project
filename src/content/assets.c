@@ -34,6 +34,7 @@ void AssetsLoad() {
     // Backgrounds
     textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
     textures[BG_SC_OV_CIRCLES] = LoadTexture("../Assets/Sprites/bg/bg_touhou_gray_circles.png");
+    textures[BG_PANEL] = LoadTexture("../Assets/Sprites/bg/UI_game.jpg");
     
     SetTextureWrap(textures[BG_SC_OV_CIRCLES], TEXTURE_WRAP_REPEAT);
 
