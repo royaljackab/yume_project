@@ -5,6 +5,7 @@
 #include "pool.h"
 #include "sprite.h"
 #include "tasks.h"
+#include "life.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -36,14 +37,15 @@ Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityT
   Position pos = {{x, y}, angle};
   Physics phy = Physics_create_speed(speed);
   Collision_circle collision = {sprites[graphic].frameWidth / 2.0};
-
+  Life life = {1,1};
   Position_add(&p->position, e, pos);
   Physics_add(&p->physics, e, phy);
   Sprite_add(&p->sprite, e, sprites[graphic]);
   Tag_add(&p->tag, e, tag);
+  Life_add(&p->life, e, life);
 
   obj_SetRenderPriority(p, e, 90);
-  obj_SetLife(p, e, 1);
+
 
   Collision_circle_add(&p->collision_circle, e, collision);
   return e;
