@@ -33,7 +33,9 @@ typedef enum {
 
   BG_SC_FLOWERS,
   BG_SC_OV_CIRCLES,
-
+  BG_PANEL,
+  TEX_BG_TORII,
+  TEX_BG_MATH,
 
   MAX_TEXTURES
 } TextureID;
@@ -370,6 +372,9 @@ typedef enum {
 
   BG_MORIYA_FLOWERS,
   BG_MORIYA_CIRCLES,
+  BG_PANEL_SPRITE,
+  BG_SC_TORII,
+  BG_SC_OV_MATH,
 
   // ----- EFFECTS
 

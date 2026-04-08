@@ -101,6 +101,8 @@ DEFINE_EXTERN_TASK(boss_particle_spawner) {
 DEFINE_EXTERN_TASK(boss_pentagram_effect) {
     Pool *p = ARGS.pool;
 
+    TASK_BIND(ARGS.boss);
+
     Entity penta = pool_create_entity(p);
     Position pos = {{0,0}, 0};
     Position_add(&p->position, penta, pos);
@@ -160,7 +162,9 @@ DEFINE_EXTERN_TASK(boss_pentagram_effect) {
 
 DEFINE_EXTERN_TASK(boss_distortion_effect) {
     Pool *p = ARGS.pool;
-    
+
+    TASK_BIND(ARGS.boss);
+
     *(ARGS.lens_radius) = 300.0f; 
     float max_strength = 5.0f;    
     int duration = 60;            

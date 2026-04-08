@@ -42,12 +42,12 @@ static
 int frames = 0;
 
 void invoke_spellcard_background(Pool *p) {
-    Entity base = Background_create(p, BG_MORIYA_FLOWERS, 0, 0);
-    Entity overlay = Background_create(p, BG_MORIYA_CIRCLES, -0.5, 0.5);
+    Entity base = Background_create(p, BG_SC_TORII, 0, 0);
+    Entity overlay = Background_create(p, BG_SC_OV_MATH, -0.5, 0.5);
 
 
-    obj_SetScaleX(p, base, (float)PANEL_WIDTH/(float)sprites[BG_MORIYA_FLOWERS].srcRect.width);
-    obj_SetScaleY(p, base, (float)PANEL_HEIGHT/(float)sprites[BG_MORIYA_FLOWERS].srcRect.height);
+    obj_SetScaleX(p, base, (float)PANEL_WIDTH/(float)sprites[BG_SC_TORII].srcRect.width);
+    obj_SetScaleY(p, base, (float)PANEL_HEIGHT/(float)sprites[BG_SC_TORII].srcRect.height);
 
     obj_SetAlpha(p, overlay, 128);
     obj_SetRenderPriority(p, overlay, RENDER_PRIO_BG + 1);
@@ -218,41 +218,53 @@ void state_moonlight_update(GameContext *ctx) {
 }
 
 void state_moonlight_draw(GameContext *ctx) {
-   
-    // DESSIN BACKGROUND
+    
+    // ETAPE 1 : PREPARER LE DECOR (Sur la toile virtuelle)
     BeginTextureMode(screen_target);
-        ClearBackground(BLACK);
+        ClearBackground(BLANK); 
         BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
-        
-        Sprite_draw_range(ctx->pool, -50, -1);
-        
+            Sprite_draw_range(ctx->pool, -50, -1); 
         EndScissorMode();
     EndTextureMode();
 
-    ClearBackground(BLACK); // On nettoie le vrai écran
 
-    // DESSIN SHADER
-    BeginShaderMode(lens_shader);
-        SetShaderValue(lens_shader, center_loc, &lens_center, SHADER_UNIFORM_VEC2);
-        SetShaderValue(lens_shader, radius_loc, &lens_radius, SHADER_UNIFORM_FLOAT);
-        SetShaderValue(lens_shader, strength_loc, &lens_strength, SHADER_UNIFORM_FLOAT);
-        
-        Rectangle sourceRec = { 0.0f, 0.0f, (float)screen_target.texture.width, -(float)screen_target.texture.height };
-        DrawTextureRec(screen_target.texture, sourceRec, (Vector2){ 0, 0 }, WHITE);
-    EndShaderMode();
+    // ETAPE 2 : LE FOND UI
+    ClearBackground(BLACK); 
+    HUD_draw_background(); 
 
-    // DESSIN JEU
+
+    // ETAPE 3 : LE CACHE NOIR (Sauve les couleurs !)
+    DrawRectangle(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT, BLACK);
+
+
+    // =======================================================
+    // ETAPE 4 : LE JEU ET LE SHADER STRICTEMENT CONFINÉS
+    // =======================================================
+    // On active les "ciseaux" spatiaux
     BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
-        
+
+        // 4A. On dessine la distorsion (elle sera coupée net aux bords du panel)
+        BeginShaderMode(lens_shader);
+            SetShaderValue(lens_shader, center_loc, &lens_center, SHADER_UNIFORM_VEC2);
+            SetShaderValue(lens_shader, radius_loc, &lens_radius, SHADER_UNIFORM_FLOAT);
+            SetShaderValue(lens_shader, strength_loc, &lens_strength, SHADER_UNIFORM_FLOAT);
+            
+            Rectangle sourceRec = { 0.0f, 0.0f, (float)screen_target.texture.width, -(float)screen_target.texture.height };
+            DrawTextureRec(screen_target.texture, sourceRec, (Vector2){ 0, 0 }, WHITE);
+        EndShaderMode();
+
+        // 4B. On dessine les entités par-dessus
         Sprite_draw_range(ctx->pool, 0, 100);
-        
         draw_all_loose_lasers(&ctx->pool->looseLaser, &ctx->pool->position); 
         straight_lasers_draw_all(&ctx->pool->straightLaser, &ctx->pool->position, &ctx->pool->sprite); 
         bossbar_draw_all(ctx->pool);
-        
+
+    // Fin de la zone de confinement
     EndScissorMode();
 
-    HUD_draw(ctx, "Stage 1 - Moonlight");
+
+    // ETAPE 5 : LES TEXTES DU HUD
+    HUD_draw_foreground(ctx, "Stage 1 - Moonlight");
 }
 
 void state_moonlight_cleanup(GameContext *ctx) {
