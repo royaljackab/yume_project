@@ -41,6 +41,8 @@ Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
     Tag_add(&p->tag, e, tag);
     Enemy_add(&p->enemy, e, enemy);
 
+    obj_SetRenderPriority(p, e, RENDER_PRIO_ENEMY);
+
     return e;
 }
 

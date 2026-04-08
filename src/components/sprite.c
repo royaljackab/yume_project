@@ -1,12 +1,18 @@
 #include "components/sprite.h"
+#include "collision_circle.h"
 #include "components/common.h"
 #include "content/assets.h"
-#include "core/screen.h"
+#include "screen.h"
 #include "ecs/pool.h"
+
 #include <raylib.h>
 
-#define MIN_LAYER 0
+#define MIN_LAYER -50
 #define MAX_LAYER 100
+#define COEFF_SPRITE_SCALE_X 1.7/1920
+#define COEFF_SPRITE_SCALE_Y 1.7/1080
+
+#define DEBUG 0
 
 void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
   sprite->textureID = textureID;
@@ -19,7 +25,7 @@ void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
   sprite->color = WHITE;
   sprite->rotation = 0;
   sprite->renderPriority = renderPriority;
-  sprite->scale = (Vector2){1.7, 1.7};
+  sprite->scale = (Vector2){SCREEN_WIDTH*COEFF_SPRITE_SCALE_X, SCREEN_HEIGHT*COEFF_SPRITE_SCALE_Y};
   sprite->display = true;
 }
 
@@ -79,6 +85,7 @@ void Sprite_draw_sprite(Sprite *sprite, Position *pos, Tag *tag) {
 
   DrawTexturePro(tex, sprite->srcRect, destRec, scaled_center,
                  sprite->rotation, sprite->color);
+
 }
 
 static bool IsOutOfDrawBounds(Position pos, Sprite sprite) {
@@ -126,6 +133,50 @@ void Sprite_draw_all(Pool *p) {
           Sprite_draw_sprite(sprite, pos, tag);
           if (sprite->isAnimated) {
             UpdateAnimation(sprite);
+          }
+
+          Collision_circle *hitbox = Collision_circle_get(&p->collision_circle, e);
+          if (hitbox && DEBUG) {
+            DrawCircle(pos->pos.x, pos->pos.y, hitbox->radius, RED);
+          }
+        }
+      }
+    }
+  }
+}
+
+void Sprite_draw_range(Pool *p, int min_layer, int max_layer) {
+  SpriteManager *spriteManager = &p->sprite;
+  PositionManager *positionManager = &p->position;
+  TagManager *tagManager = &p->tag;
+
+  Position *pos;
+  Entity e;
+  Sprite *sprite;
+  Tag *tag;
+  for (int layer = min_layer; layer <= max_layer; layer++) {
+    for (int i = 0; i < spriteManager->count; i++) {
+      sprite = &spriteManager->dense[i];
+      e = Sprite_get_entity(spriteManager, i);
+      pos = Position_get(positionManager, e);
+      tag = Tag_get(tagManager, e);
+
+
+      if (IsOutOfDrawBounds(*pos, *sprite)) {
+        continue;
+      }
+
+      if (sprite->renderPriority == layer) {
+
+        if (sprite->display) {
+          Sprite_draw_sprite(sprite, pos, tag);
+          if (sprite->isAnimated) {
+            UpdateAnimation(sprite);
+          }
+
+          Collision_circle *hitbox = Collision_circle_get(&p->collision_circle, e);
+          if (hitbox && DEBUG) {
+            DrawCircle(pos->pos.x, pos->pos.y, hitbox->radius, RED);
           }
         }
       }

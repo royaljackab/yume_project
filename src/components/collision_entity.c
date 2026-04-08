@@ -3,7 +3,7 @@
 #include "components/collision_entity.h"
 #include "flags.h"
 #include <stdio.h>
-#include "core/screen.h"
+#include "screen.h"
 
 
 
@@ -135,7 +135,7 @@ extern bool Damage_player_by_enemy_projectile(Pool *p, Entity player){
     return false;
 }
 
-static bool CheckCircleRotatedRect(Vector2 cPos, float radius, Vector2 rPos, float w, float h, float angle) {
+bool CheckCircleRotatedRect(Vector2 cPos, float radius, Vector2 rPos, float w, float h, float angle) {
 
     // 1. Calcul de l'angle, décalage de -90 degrés (jsp pk mais sans probleme)
     float rad = (angle - 90.0f) * DEG2RAD;

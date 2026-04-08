@@ -6,7 +6,7 @@
  */
 
 #include "systems/hud.h"
-#include "core/screen.h"
+#include "screen.h"
 #include "components/player.h"
 #include "ecs/pool.h"
 

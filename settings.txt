@@ -8,5 +8,5 @@ keybind_focus_mode=340
 keybind_validate=32
 keybind_skip=341
 keybind_bomb=88
-volume_bgm=34
+volume_bgm=9
 volume_sfx=7

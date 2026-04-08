@@ -14,14 +14,6 @@ Music playlist[MAX_BGM]; // Nouveau tableau pour la musique
 Sound sfx[MAX_SFX]; // Effets sonores
 
 
-enum{ 
-  RENDER_PRIO_BULLET, 
-
-  RENDER_PRIO_PLAYER, 
-  RENDER_PRIO_HITBOX, 
-
-  RENDER_PRIO_ENEMY, 
-};
 
 void AssetsLoad() {
     // Chargement des Textures existantes
@@ -37,6 +29,14 @@ void AssetsLoad() {
       LoadTexture("../Assets/Sprites/reimu_spritesheet.png");
   textures[HITBOX_SPRITESHEET] = 
       LoadTexture("../Assets/Sprites/hitbox.png");
+
+
+    // Backgrounds
+    textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
+    textures[BG_SC_OV_CIRCLES] = LoadTexture("../Assets/Sprites/bg/bg_touhou_gray_circles.png");
+    
+    SetTextureWrap(textures[BG_SC_OV_CIRCLES], TEXTURE_WRAP_REPEAT);
+
 
     // Chargement de la Musique
     playlist[BGM_FAST_DANGER] =
@@ -67,6 +67,13 @@ void AssetsLoad() {
 
     // Load dem enemies up
     EnemiesSpritesLoad();
+
+  for (int i = 0; i < MAX_TEXTURES; i++) {
+        // On vérifie que la texture existe (id > 0) pour éviter les crashs
+        if (textures[i].id != 0) { 
+            SetTextureFilter(textures[i], TEXTURE_FILTER_BILINEAR);
+        }
+    }
 }
 
 void SpritesLoad() {
@@ -97,6 +104,28 @@ void SpritesLoad() {
 
 
     BulletsSpritesLoad();
+    BgSpritesLoad();
+    EffectsLoad();
+}
+
+void BgSpritesLoad() {
+  Sprite_set_texture(&sprites[BG_MORIYA_FLOWERS], RENDER_PRIO_BG, BG_SC_FLOWERS);
+  Sprite_set_SourceRect(&sprites[BG_MORIYA_FLOWERS], 0, 0, 384, 448);
+
+  Sprite_set_texture(&sprites[BG_MORIYA_CIRCLES], RENDER_PRIO_BG, BG_SC_OV_CIRCLES);
+  Sprite_set_SourceRect(&sprites[BG_MORIYA_CIRCLES], 0, 0, 2000, 2000);
+}
+
+void EffectsLoad() {
+  Sprite_set_texture(&sprites[BOSS_AURA_WAVES], 0, BULLET_SPRITESHEET);
+  Sprite_set_SourceRect(&sprites[BOSS_AURA_WAVES], 384, 429, 42, 35);
+  Sprite_set_center(&sprites[BOSS_AURA_WAVES], (Vector2){0, 17.5});
+
+  Sprite_set_texture(&sprites[BOSS_PENTAGRAM], 0, BULLET_SPRITESHEET);
+  Sprite_set_SourceRect(&sprites[BOSS_PENTAGRAM], 613, 400, 128, 128);
+
+  Sprite_set_texture(&sprites[BOSS_AURA_ORB], 0, BULLET_SPRITESHEET);
+  Sprite_set_SourceRect(&sprites[BOSS_AURA_ORB], 32, 32, 225, 225);
 }
 
 //CLANKER GPT CORE
@@ -855,7 +884,11 @@ void BulletsSpritesLoad() {
     Sprite_set_SourceRect(&sprites[BIG_HEART_YELLOW], 524, 465, 30, 30);
     
     Sprite_set_texture(&sprites[BIG_HEART_WHITE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[BIG_HEART_WHITE], 524, 497, 30, 30);    
+    Sprite_set_SourceRect(&sprites[BIG_HEART_WHITE], 524, 497, 30, 30);
+
+    // BALL L
+    Sprite_set_texture(&sprites[BALL_L_BLACK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BALL_L_BLACK], 491, 2, 30, 30);
 
   }
 
@@ -883,7 +916,7 @@ void EnemiesSpritesLoad()
     // RED FAIRY
     // =========================
 
-    Sprite_set_texture(&sprites[ENEMY_FAIRY_RED_IDLE], 0, ENEMY_SPRITESHEET);
+    Sprite_set_texture(&sprites[ENEMY_FAIRY_RED_IDLE], RENDER_PRIO_ENEMY, ENEMY_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[ENEMY_FAIRY_RED_IDLE], 0, 95, 188, 32);
     Sprite_set_animation(&sprites[ENEMY_FAIRY_RED_IDLE], 4, 5);
 

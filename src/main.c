@@ -1,7 +1,7 @@
 #include "content/assets.h"
 #include "content/ui/state_menu_settings.h"
 #include "core/game_state.h"
-#include "core/screen.h"
+#include "screen.h"
 #include "core/settings.h"
 #include "cotask_data.h"
 #include <stddef.h>

@@ -1,4 +1,5 @@
 #include "ecs/pool.h"
+#include "background.h"
 #include "bullet.h"
 #include "components/common.h"
 #include "ecs/ecs.h"
@@ -33,6 +34,8 @@ void pool_init(Pool *p) {
   Loose_laser_init(&p->looseLaser);
   
   flagList_init(&p->flagList);
+
+  Background_init(&p->background);
 
   /* Remplissage de la pile d'indices libres */
   for (int i = 0; i < MAX_ENTITIES; i++) {
@@ -91,6 +94,7 @@ void pool_kill_convicts(Pool *p) {
     Life_remove(&p->life, e);
 
     Enemy_remove(&p->enemy, e);
+    Background_remove(&p->background, e);
     flagList_destroy(p, e);
 
     // Ajout de l'entité dans la pile libre
