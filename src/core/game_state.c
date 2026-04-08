@@ -1,6 +1,6 @@
 #include "core/game_state.h"
 #include "core/input.h"
-#include "core/screen.h"
+#include "screen.h"
 
 #include <raylib.h>
 #include <raymath.h>

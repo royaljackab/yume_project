@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include "content/ui/state_game_over.h"
 #include "core/game_state.h"
-#include "core/screen.h"
+#include "screen.h"
 #include "core/input.h"
 #include <raylib.h>
 
