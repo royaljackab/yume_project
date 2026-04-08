@@ -46,6 +46,13 @@ Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
     return e;
 }
 
+Entity Enemy_spawn_score_decrease(Pool *p, float x, float y, float speed, float angle, float hitboxRadius, int score, SpriteID graphic) {
+    Entity e = Enemy_spawn(p, x, y, speed, angle, 1, hitboxRadius, score, graphic);
+    Entity_add_flag(p, e, FLAG_DECREASE_SCORE);
+    return e;    
+}
+
+
 void Enemy_update_all(Pool *p, ScoreSystem *scoreS) {
     /**
      * Parcourt tous les ennemis.
@@ -71,7 +78,11 @@ void Enemy_update_all(Pool *p, ScoreSystem *scoreS) {
         if (life && Life_is_dead(life) && obj_GetTag(p, e) != ENT_BOSS) {
             PlaySound(sfx[SFX_ENEMY_DEATH]);
             pool_kill_entity(p, e);
-            score_increase(scoreS, Enemy_get(&p->enemy, e)->score);
+            if (!Entity_has_flag(p, e, FLAG_DECREASE_SCORE)){
+                score_decrease(scoreS, Enemy_get(&p->enemy, e)->score);
+            }
+            else
+                score_increase(scoreS, Enemy_get(&p->enemy, e)->score);
         }
 
         //collisions avec l'ennemi

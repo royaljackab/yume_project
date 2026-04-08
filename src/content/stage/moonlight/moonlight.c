@@ -22,7 +22,7 @@
 #include "nonspells/nonspell2.h"
 #include "spellcards/poincarre_recurrence.h"
 #include "spellcards/brouwer_fixed_point.h"
-
+#include "spellcards/moving_ring.h"
 #include <raylib.h>
 #include <stdio.h>
 #include <stdlib.h>

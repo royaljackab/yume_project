@@ -9,4 +9,5 @@ typedef struct ScoreSystem {
 
 extern void score_system_init(ScoreSystem *scoreSystem);
 extern void score_increase(ScoreSystem *scoreSystem, unsigned int amount);
+extern void score_decrease(ScoreSystem *scoreSystem, unsigned int amount);
 
