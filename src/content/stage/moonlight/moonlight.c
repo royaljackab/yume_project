@@ -201,14 +201,12 @@ void state_moonlight_update(GameContext *ctx) {
 }
 
 void state_moonlight_draw(GameContext *ctx) {
-    // ==============================================
-    // 1. CAPTURER LE DÉCOR (Priorités Négatives)
-    // ==============================================
+   
+    // DESSIN BACKGROUND
     BeginTextureMode(screen_target);
         ClearBackground(BLACK);
         BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
         
-        // On dessine UNIQUEMENT les backgrounds (de -50 à -1)
         Sprite_draw_range(ctx->pool, -50, -1);
         
         EndScissorMode();
@@ -216,26 +214,19 @@ void state_moonlight_draw(GameContext *ctx) {
 
     ClearBackground(BLACK); // On nettoie le vrai écran
 
-    // ==============================================
-    // 2. AFFICHER LE DÉCOR AVEC LE SHADER
-    // ==============================================
+    // DESSIN SHADER
     BeginShaderMode(lens_shader);
-        // Mise à jour des valeurs pour la carte graphique
         SetShaderValue(lens_shader, center_loc, &lens_center, SHADER_UNIFORM_VEC2);
         SetShaderValue(lens_shader, radius_loc, &lens_radius, SHADER_UNIFORM_FLOAT);
         SetShaderValue(lens_shader, strength_loc, &lens_strength, SHADER_UNIFORM_FLOAT);
         
-        // Raylib inverse l'axe Y des toiles virtuelles, on met donc une hauteur négative
         Rectangle sourceRec = { 0.0f, 0.0f, (float)screen_target.texture.width, -(float)screen_target.texture.height };
         DrawTextureRec(screen_target.texture, sourceRec, (Vector2){ 0, 0 }, WHITE);
     EndShaderMode();
 
-    // ==============================================
-    // 3. DESSINER LE JEU PAR-DESSUS (Priorités Positives)
-    // ==============================================
+    // DESSIN JEU
     BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
         
-        // On dessine le Joueur, le Boss et les Balles (de 0 à 100) SANS DISTORSION
         Sprite_draw_range(ctx->pool, 0, 100);
         
         draw_all_loose_lasers(&ctx->pool->looseLaser, &ctx->pool->position); 
