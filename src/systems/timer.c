@@ -7,7 +7,7 @@
 //     Timer timer;
 //     timer.chrono = 0;
 //     timer.nbTime = 0;
-//     return timer;
+//     return tim cer;
 // }
 
 bool timer_loop(Timer *timer, int max) {

@@ -24,7 +24,15 @@
 #include <stdlib.h>
 
 /* Macros definitions */
-#define CREATE_PLAYER(nbBombs, speed, focusSpeed, grazeRadius, name) (Player){nbBombs, nbBombs, speed, focusSpeed, -1, -1, grazeRadius, name}
+#define CREATE_PLAYER(numberBombs, playerSpeed, focus, radius, playerName) (Player){.nbBombs=numberBombs,     \
+    .bombs=numberBombs,                                                                                 \
+    .speed=playerSpeed,                                                                                   \
+    .focusSpeed=focus,                                                                         \
+    .GrazeSpriteId=-1,                                                                              \
+    .hitboxSpriteId=-1,                                                                             \
+    .grazeRadius=radius,                                                                       \
+    .name=playerName                                                                                      \
+}
 #define GET_SPRITE_MOVEMENT(SpriteRootName, movement) sprites[SpriteRootName##_##movement]
 
 /* Structures definitions */
@@ -36,7 +44,7 @@ typedef enum {
 
 /* Static variables */
 static
-Player test_player = CREATE_PLAYER(3, 7, 3.9, TEST_PLAYER, 2);
+Player test_player = CREATE_PLAYER(3, 7, 3.9, 20, TEST_PLAYER);
 
 /*Static functions*/
 static
@@ -222,7 +230,7 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     Weapon_add(&p->weapon, e, weapon);
     Position_add(&p->position, e, (Position){{0,0}, 0});
     Sprite_add(&p->sprite, e, sprite);
-    Collision_circle_add(&p->collision_circle, e, (Collision_circle){5});
+    Collision_circle_add(&p->collision_circle, e, (Collision_circle){6});
 
     Player_set_hitboxSpriteId(Player_get(&p->player,e),hitbox);
     Player_set_GrazeSpriteId(Player_get(&p->player,e), graze);

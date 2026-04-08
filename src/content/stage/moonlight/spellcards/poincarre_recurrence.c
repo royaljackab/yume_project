@@ -5,6 +5,7 @@
 #include "obj.h"
 #include "screen.h"
 #include "tasks.h"
+#include "components/straight_laser.h"
 #include <raylib.h>
 
 #define NB_BULLETS_RING 30
@@ -94,11 +95,12 @@ TASK(slow_flower, {Pool *pool; Entity boss; float speed; float rotation; int dur
 DEFINE_EXTERN_TASK(poincarre_recurrence) {
     TASK_BIND(ARGS.boss);
 
+    float angle = GetRandomValue(0, 360);
     for (int i=0; i < ARGS.nb_rings; ++i) {
         float boss_x = obj_GetX(ARGS.pool, ARGS.boss);
         float boss_y = obj_GetY(ARGS.pool, ARGS.boss);
 
-        float angle_deg = (float)i * (360.0 / ARGS.nb_rings);
+        float angle_deg = angle + (float)i * (360.0 / ARGS.nb_rings);
         float angle_rad = angle_deg * DEG2RAD;
 
         float vx = cosf(angle_rad) * ARGS.speed;
