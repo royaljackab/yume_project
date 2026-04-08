@@ -6,7 +6,7 @@
 
 #include "content/ui/state_victory.h"
 #include "core/game_state.h"
-#include "core/screen.h"
+#include "../lib/systems/screen.h"
 #include "core/input.h"
 #include <raylib.h>
 #include <stdio.h>
