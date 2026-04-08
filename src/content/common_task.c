@@ -169,10 +169,7 @@ DEFINE_EXTERN_TASK(boss_distortion_effect) {
     float max_strength = 5.0f;    
     int duration = 60;            
     
-    // --- LE RÉGLAGE DE LA LATENCE ---
-    // 1.0f = Instantané
-    // 0.1f = Bonne latence (élastique)
-    // 0.05f = Très lourd (gros décalage)
+    // Latence
     float follow_speed = 0.07f; 
 
     // Initialisation immédiate au spawn pour éviter que la bulle 
@@ -183,9 +180,6 @@ DEFINE_EXTERN_TASK(boss_distortion_effect) {
         ARGS.lens_center->y = GetScreenHeight() - init_pos->pos.y;
     }
 
-    // ==========================================
-    // PHASE 1 : DEPLOIEMENT 
-    // ==========================================
     for(int i = 0; i < duration; i++) {
         if (obj_IsDead(p, ARGS.boss)) {
             *(ARGS.lens_strength) = 0.0f;
@@ -211,9 +205,6 @@ DEFINE_EXTERN_TASK(boss_distortion_effect) {
     
     *(ARGS.lens_strength) = max_strength;
 
-    // ==========================================
-    // PHASE 2 : MAINTIEN
-    // ==========================================
     while (true) {
         if (obj_IsDead(p, ARGS.boss)) {
             break; 
@@ -232,9 +223,6 @@ DEFINE_EXTERN_TASK(boss_distortion_effect) {
         WAIT(1);
     }
     
-    // ==========================================
-    // PHASE 3 : NETTOYAGE
-    // ==========================================
     *(ARGS.lens_strength) = 0.0f;
 }
 
