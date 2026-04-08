@@ -19,6 +19,7 @@ typedef enum StateID {
   __END_MENU__,
 
   STATE_MOONLIGHT,
+  STATE_GAME_OVER,
   STATE_TEST,
   STATE_EXTRA
 } StateID;
@@ -66,3 +67,4 @@ extern GameState state_menu_keybinds;
 extern GameState state_test;
 extern GameState state_moonlight;
 extern GameState state_menu_settings;
+extern GameState state_game_over;

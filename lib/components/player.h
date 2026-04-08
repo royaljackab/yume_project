@@ -5,7 +5,7 @@
 #include "common.h"
 #include "systems/score.h"
 
-#define INITIAL_PLAYER_LIVES 3
+#define INITIAL_PLAYER_LIVES 4
 
 typedef struct GameContext GameContext;
 typedef struct Pool Pool;
