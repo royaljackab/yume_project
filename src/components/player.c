@@ -175,7 +175,6 @@ void Player_focus(InputSystem *input, Pool *p, Entity player) {
 //   }
 }
 
-static
 void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
     /**
      * @brief Gérer le graze du joueur
@@ -189,11 +188,11 @@ void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
     //check graze avec les hitbox cercles
     for(int i = 0; i < p->collision_circle.count; i++){
         Entity e = Collision_circle_get_entity(&p->collision_circle, i);
-        if (Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCollisionCircles(Position_get(&p->position, player)->pos, player_p->grazeRadius, obj_GetPosition(p, e), Collision_circle_get(&p->collision_circle, e)->radius)){
-                score_increase(scoreS, scoreS->scoreOnGraze);
-                PlaySound(sfx[SFX_GRAZE]);
-                obj_SetVisible(p, player_p->GrazeSpriteId, true);
-                isGrazing = true;
+        if (!Entity_has_flag(p, e, FLAG_NO_DAMAGE_PLAYER) && Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCollisionCircles(Position_get(&p->position, player)->pos, player_p->grazeRadius, obj_GetPosition(p, e), Collision_circle_get(&p->collision_circle, e)->radius)){
+            score_increase(scoreS, scoreS->scoreOnGraze);
+            PlaySound(sfx[SFX_GRAZE]);
+            obj_SetVisible(p, player_p->GrazeSpriteId, true);
+            isGrazing = true;
         }
     }
     
@@ -202,12 +201,11 @@ void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
         Entity e = Collision_rectangle_get_entity(&p->collision_rectangle, i);
         Collision_rectangle * cl = Collision_rectangle_get(&p->collision_rectangle, e);
 
-        Rectangle rect = {.x=obj_GetX(p, e), .y=obj_GetY(p, e), .width=cl->width, .height=cl->length};
-        if (Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCollisionCircleRec(Position_get(&p->position, player)->pos, player_p->grazeRadius, rect)){
-                score_increase(scoreS, scoreS->scoreOnGraze);
-                PlaySound(sfx[SFX_GRAZE]);
-                obj_SetVisible(p, player_p->GrazeSpriteId, true);
-                isGrazing = true;
+        if (!Entity_has_flag(p, e, FLAG_NO_DAMAGE_PLAYER) && Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCircleRotatedRect(Position_get(&p->position, player)->pos, player_p->grazeRadius, obj_GetPosition(p, e), cl->width, cl-> length, obj_GetAngle(p, e))){
+            score_increase(scoreS, scoreS->scoreOnGraze);
+            PlaySound(sfx[SFX_GRAZE]);
+            obj_SetVisible(p, player_p->GrazeSpriteId, true);
+            isGrazing = true;
         }
     }
     if(!isGrazing){
