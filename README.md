@@ -36,7 +36,7 @@ Le projet utilise un ECS (Entity Component System) avec Sparse Set.
 |--------|--------|
 | Flèches | Déplacement |
 | Z | Tirer |
-| X | Bombe |
+| H | Bombe |
 | Shift | Focus |
 | P | Pause |
 | Espace | Valider |
@@ -55,15 +55,3 @@ La documentation technique est générée avec Doxygen.
 ```bash
 doxygen Doxyfile
 ```
-
-## État du projet
-- [x] Système ECS
-- [x] Joueur (mouvement, tir)
-- [x] Système audio
-- [x] HUD
-- [x] Lasers (loose et straight)
-- [x] Ennemis (spawn, vie)
-- [x] Collisions
-- [x] Boss
-- [ ] Structure du stage
-- [ ] Tests unitaires
