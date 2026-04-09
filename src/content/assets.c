@@ -146,7 +146,7 @@ void BgSpritesLoad() {
   Sprite_set_SourceRect(&sprites[BG_MORIYA_CIRCLES], 0, 0, 2000, 2000);
 
   Sprite_set_texture(&sprites[BG_MAIN], RENDER_PRIO_BG, BG_SC_MAIN);
-  Sprite_set_SourceRect(&sprites[BG_MAIN], 0, 0, 3840, 2160);
+  Sprite_set_SourceRect(&sprites[BG_MAIN], 0, 0, 5120, 2880);
 
   Sprite_set_texture(&sprites[BG_SC_TORII], RENDER_PRIO_BG, TEX_BG_TORII);
   Sprite_set_SourceRect(&sprites[BG_SC_TORII], 0, 0, 1056, 1026);
