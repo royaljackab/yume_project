@@ -32,13 +32,13 @@ void AssetsLoad() {
       textures[TH14_OTHER] = LoadTexture("../Assets/Sprites/th14_other_sprites.png");
 
     //Combos
-    textures[COMBO_1] = LoadTexture("../Assets/Sprites/combo/1.png");
-    textures[COMBO_2] = LoadTexture("../Assets/Sprites/combo/2.png");
-    textures[COMBO_3] = LoadTexture("../Assets/Sprites/combo/3.png");
-    textures[COMBO_4] = LoadTexture("../Assets/Sprites/combo/4.png");
-    textures[COMBO_5] = LoadTexture("../Assets/Sprites/combo/5.png");
-  textures[GREEN_ARROW_SPRITE] = 
-      LoadTexture("../Assets/Sprites/green_arrow.png");
+    textures[COMBO_1_SHEET] = LoadTexture("../Assets/Sprites/combo/1.png");
+    textures[COMBO_2_SHEET] = LoadTexture("../Assets/Sprites/combo/2.png");
+    textures[COMBO_3_SHEET] = LoadTexture("../Assets/Sprites/combo/3.png");
+    textures[COMBO_4_SHEET] = LoadTexture("../Assets/Sprites/combo/4.png");
+    textures[COMBO_5_SHEET] = LoadTexture("../Assets/Sprites/combo/5.png");
+
+    textures[GREEN_ARROW_SPRITE] = LoadTexture("../Assets/Sprites/green_arrow.png");
 
     // Backgrounds
     textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
@@ -134,25 +134,39 @@ void SpritesLoad() {
 }
 
 void CombosSpritesLoad(){
+  int nb_frames = 3;
+  int taille = 16;
+  float scale = 1.5f;
+  int anim_speed = 10;
   Sprite_set_texture(&sprites[COMBO_1], 0, COMBO_1_SHEET);
-  Sprite_set_SourceRect(&sprites[COMBO_1], 0, 0, 64, 32);
-  Sprite_set_animation(&sprites[COMBO_1], 2, 20);
+  Sprite_set_SourceRect(&sprites[COMBO_1], 0, 0, taille * nb_frames, taille);
+  Sprite_set_animation(&sprites[COMBO_1], nb_frames, anim_speed);
+  sprites[COMBO_1].scale.x *= scale;
+  sprites[COMBO_1].scale.y *= scale; 
 
   Sprite_set_texture(&sprites[COMBO_2], 0, COMBO_2_SHEET);
-  Sprite_set_SourceRect(&sprites[COMBO_2], 0, 0, 64, 32);
-  Sprite_set_animation(&sprites[COMBO_2], 2, 20);
+  Sprite_set_SourceRect(&sprites[COMBO_2], 0, 0, taille * nb_frames, taille);
+  Sprite_set_animation(&sprites[COMBO_2], nb_frames, anim_speed);
+  sprites[COMBO_2].scale.x *= scale;
+  sprites[COMBO_2].scale.y *= scale;
 
   Sprite_set_texture(&sprites[COMBO_3], 0, COMBO_3_SHEET);
-  Sprite_set_SourceRect(&sprites[COMBO_3], 0, 0, 64, 32);
-  Sprite_set_animation(&sprites[COMBO_3], 2, 20);
+  Sprite_set_SourceRect(&sprites[COMBO_3], 0, 0, taille * nb_frames, taille);
+  Sprite_set_animation(&sprites[COMBO_3], nb_frames, anim_speed);
+  sprites[COMBO_3].scale.x *= scale;
+  sprites[COMBO_3].scale.y *= scale;
 
   Sprite_set_texture(&sprites[COMBO_4], 0, COMBO_4_SHEET);
-  Sprite_set_SourceRect(&sprites[COMBO_4], 0, 0, 64, 32);
-  Sprite_set_animation(&sprites[COMBO_4], 2, 20);
+  Sprite_set_SourceRect(&sprites[COMBO_4], 0, 0, taille * nb_frames, taille);
+  Sprite_set_animation(&sprites[COMBO_4], nb_frames, anim_speed);
+  sprites[COMBO_4].scale.x *= scale;
+  sprites[COMBO_4].scale.y *= scale;
 
   Sprite_set_texture(&sprites[COMBO_5], 0, COMBO_5_SHEET);
-  Sprite_set_SourceRect(&sprites[COMBO_5], 0, 0, 64, 32);
-  Sprite_set_animation(&sprites[COMBO_5], 2, 20);
+  Sprite_set_SourceRect(&sprites[COMBO_5], 0, 0, taille * nb_frames, taille);
+  Sprite_set_animation(&sprites[COMBO_5], nb_frames, anim_speed);
+  sprites[COMBO_5].scale.x *= scale;
+  sprites[COMBO_5].scale.y *= scale;
 }
 
 

@@ -182,6 +182,7 @@ void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
         Entity e = Collision_circle_get_entity(&p->collision_circle, i);
         if (!Entity_has_flag(p, e, FLAG_NO_DAMAGE_PLAYER) && Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCollisionCircles(Position_get(&p->position, player)->pos, player_p->grazeRadius, obj_GetPosition(p, e), Collision_circle_get(&p->collision_circle, e)->radius)){
             score_increase(scoreS, scoreS->scoreOnGraze);
+            scoreS->graze++;
             PlaySound(sfx[SFX_GRAZE]);
             obj_SetVisible(p, player_p->GrazeSpriteId, true);
             isGrazing = true;
@@ -195,6 +196,7 @@ void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
 
         if (!Entity_has_flag(p, e, FLAG_NO_DAMAGE_PLAYER) && Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCircleRotatedRect(Position_get(&p->position, player)->pos, player_p->grazeRadius, obj_GetPosition(p, e), cl->width, cl-> length, obj_GetAngle(p, e))){
             score_increase(scoreS, scoreS->scoreOnGraze);
+            scoreS->graze++;
             PlaySound(sfx[SFX_GRAZE]);
             obj_SetVisible(p, player_p->GrazeSpriteId, true);
             isGrazing = true;

@@ -40,6 +40,10 @@
 #define HUD_LIFE_COL  RED
 /** @brief Couleur des bombes */
 #define HUD_BOMB_COL  YELLOW
+/** @brief Couleur du score si c'est un nouveau record */
+#define HUD_NEW_HIGH_SCORE_COL YELLOW
+
+
 
 void HUD_draw_background() {
 /** @brief Dessine l'arrière-plan du HUD
@@ -85,23 +89,32 @@ void HUD_draw_foreground(GameContext *ctx, const char *stage_name) {
     cy += 15;
 
     /* Score */
+    Color col = HUD_VALUE_COL;
+    if (score_system_is_new_highscore(&ctx->score)) {
+        col = HUD_NEW_HIGH_SCORE_COL;
+    }
     char score_text[30];
-    sprintf(score_text, "SCORE   %09d", ctx->score.score);
-    DrawText(score_text, cx, cy, 20, HUD_VALUE_COL);
-    draw_combo_sprite(&ctx->score, cx + MeasureText(score_text, 20) + 5, cy);
+    sprintf(score_text, "%09d", ctx->score.score);
+    DrawText("SCORE   ", cx, cy, 20, HUD_LABEL_COL);
+    DrawText(score_text, cx + MeasureText("SCORE   ", 20), cy, 20, col);
+    draw_combo_sprite(&ctx->score, cx + HUD_WIDTH - (HUD_PADDING * 2) - 40, cy + 7);
+
+    cy += 35;
+    
+    /* High score */
+    char high_score_text[30];
+    sprintf(high_score_text, "%09d", score_system_get_highscore(&ctx->score));
+    DrawText("HIGHSCORE ", cx, cy, 20, HUD_LABEL_COL);
+    DrawText(high_score_text, cx + MeasureText("HIGHSCORE ", 20), cy, 20, col);
     cy += 35;
 
     /* Graze */
     char graze_text[30];
-    sprintf(graze_text, "Compteur de graze %09d", ctx->score.graze);
-    DrawText(graze_text, cx, cy, 20, HUD_VALUE_COL);
+    sprintf(graze_text, "Graze Counter  %09d", ctx->score.graze);
+    DrawText(graze_text, cx, cy, 20, HUD_LABEL_COL);
     cy += 35;
 
-    /* High score */
-    char high_score_text[30];
-    sprintf(high_score_text, "HIGH SCORE %09d", score_system_get_highscore(&ctx->score));
-    DrawText(high_score_text, cx, cy, 20, HUD_VALUE_COL);
-    cy += 35;
+
 
     /* Vies : cercles rouges pleins si vie restante, contour sinon */
     DrawText("LIVES", cx, cy, 18, HUD_LABEL_COL);

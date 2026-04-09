@@ -104,7 +104,6 @@ TASK(main_attack, {GameContext *ctx;}) {
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
     WAIT(60);
-    update_combo(&ARGS.ctx->score);
 
     CoTask *attack_1 = INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss);
     BoxedTask attack_1_box = cotask_box(attack_1);
@@ -140,7 +139,6 @@ TASK(main_attack, {GameContext *ctx;}) {
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
     WAIT(60);
-
     update_combo(&ARGS.ctx->score);
 
     moonlight_bg_set_mode(false);
