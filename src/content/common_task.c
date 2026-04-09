@@ -285,3 +285,26 @@ DEFINE_EXTERN_TASK(boss_orb_effect) {
     }
 }
 
+DEFINE_EXTERN_TASK(orb_explosion) {
+    Pool *p = ARGS.pool;
+    Entity orb = pool_create_entity(p);
+
+    Position pos = {{ARGS.x,ARGS.y}, 0};
+    Position_add(&p->position, orb, pos);
+
+    Sprite_add(&p->sprite, orb, sprites[HIT_ORB]);
+    obj_SetColor(p, orb, 255, 150, 150);
+
+    int duration = 50;
+    float target_scale = 5;
+    for (int i=0; i < duration; ++i) {
+        float t = (float)i / duration;
+
+        obj_SetScale(p, orb, t * target_scale, t * target_scale);
+        obj_SetAlpha(p, orb, 255 * (1 - t));
+
+        YIELD;
+    }
+
+    pool_kill_entity(p, orb);
+}
