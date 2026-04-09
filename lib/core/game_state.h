@@ -6,7 +6,7 @@
 #include "systems/button.h"
 #include "systems/score.h"
 #include <raylib.h>
-#include "lib/systems/screen.h"
+#include "../systems/screen.h"
 
 typedef enum StateID {
   STATE_NONE,

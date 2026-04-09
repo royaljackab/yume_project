@@ -8,6 +8,10 @@
 #include <stdio.h>
 
 int main() {
+
+  GameContext ctx;
+  screen_system_init(&ctx.screen); 
+
   InitAudioDevice();
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Night of nights");
   SetTargetFPS(60);
@@ -16,14 +20,13 @@ int main() {
   SpritesLoad();
 
   cotask_global_init();
-
-  GameContext ctx;
-  screen_system_init(&ctx.screen); 
+  
   gamestate_initialize(&ctx, STATE_MENU_TITLE);
   ctx.pause = 0;
 
   input_initialize(&ctx.input);
   load_settings(&ctx);
+  SetWindowSize(ctx.screen.screen_width,ctx.screen.screen_height);
   audio_appliquer_volumes(&ctx);
 
   ctx.currentState->init(&ctx);
