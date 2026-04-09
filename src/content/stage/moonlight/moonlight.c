@@ -23,10 +23,14 @@
 #include "nonspells/nonspell2.h"
 #include "spellcards/poincarre_recurrence.h"
 #include "spellcards/brouwer_fixed_point.h"
+<<<<<<< HEAD
 
 #include "moonlight_bg.h"
 #include "systems/screen_effects.h"
 
+=======
+#include "spellcards/moving_ring.h"
+>>>>>>> origin/content/test_patern_samuel
 #include <raylib.h>
 #include <stdio.h>
 #include <stdlib.h>

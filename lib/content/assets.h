@@ -37,8 +37,9 @@ typedef enum {
   COMBO_3_SHEET,
   COMBO_4_SHEET,
   COMBO_5_SHEET,
+  
+  GREEN_ARROW_SPRITE,
   // ------ BACKGROUNDS
-
   BG_SC_FLOWERS,
   BG_SC_OV_CIRCLES,
   BG_PANEL,
@@ -181,6 +182,7 @@ typedef enum {
   KUNAI_GOLD,
   KUNAI_WHITE,
 
+  GREEN_ARROW,
   // ------ SHARDS
   SHARD_BLACK,
   SHARD_RED,

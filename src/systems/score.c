@@ -105,3 +105,10 @@ SpriteID get_combo_sprite(ScoreSystem *scoreSystem){
 }
 
 
+extern void score_decrease(ScoreSystem *scoreSystem, unsigned int amount){
+    //enleve amount du score du joueur sans le descendre sous 0. (amount est positif)
+    scoreSystem->score -= amount;
+    if(scoreSystem->score < 0){ //min score = 0
+        scoreSystem->score = 0;
+    }
+}

@@ -37,6 +37,8 @@ void AssetsLoad() {
     textures[COMBO_3] = LoadTexture("../Assets/Sprites/combo/3.png");
     textures[COMBO_4] = LoadTexture("../Assets/Sprites/combo/4.png");
     textures[COMBO_5] = LoadTexture("../Assets/Sprites/combo/5.png");
+  textures[GREEN_ARROW_SPRITE] = 
+      LoadTexture("../Assets/Sprites/green_arrow.png");
 
     // Backgrounds
     textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
@@ -170,6 +172,10 @@ void EffectsLoad() {
 
   Sprite_set_texture(&sprites[BOSS_AURA_ORB], 0, BULLET_SPRITESHEET);
   Sprite_set_SourceRect(&sprites[BOSS_AURA_ORB], 32, 32, 225, 225);
+
+  Sprite_set_texture(&sprites[GREEN_ARROW], 0, GREEN_ARROW_SPRITE);
+  Sprite_set_SourceRect(&sprites[GREEN_ARROW], 0, 0, 16, 16);
+
 }
 
 //CLANKER GPT CORE

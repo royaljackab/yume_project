@@ -88,6 +88,7 @@ extern bool Position_is_out_of_bounds(Position * pos);
  * @param y coordonnée y
  */
 extern void Position_set_position(Position * pos, float x, float y);
+extern Entity Position_create(Pool *p, float x, float y, float angle);
 void Owner_bind(Pool *p, Entity PositionId, Entity ParticleId);
 void Owner_update(Pool *p);
 bool Tag_in_array(Tag tag, Tag * array, int size);
