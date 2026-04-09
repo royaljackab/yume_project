@@ -17,6 +17,8 @@
 #include "systems/obj.h"
 
 #include "systems/score.h"
+#include "tasks.h"
+#include "screen_effects.h"
 
 #include <raylib.h>
 #include <raymath.h>
@@ -257,7 +259,7 @@ void Player_update(GameContext *ctx) {
     Player_shoot(input, p, player);
     Player_focus(input, p, player);
 
-    Damage_player_by_enemy_projectile(p, player);
+    Damage_player_by_enemy_projectile(ctx, player);
     Player_graze(p, &ctx->score, player);
 }
 
@@ -279,11 +281,15 @@ extern void  teleport_to_player_spawn(Pool *p, Entity e){
     Position_set_pos(Position_get(&p->position, e), (Vector2){PANEL_WIDTH/2, PANEL_HEIGHT*0.8});
 }
 
-extern bool Damage_player(Pool *p, Entity player){
+extern bool Damage_player(GameContext *ctx, Entity player){
+    Pool *p = ctx->pool;
     Life *life = Life_get(&p->life, player);
     if (!life) return false;
+
     Life_damage(life, 1);
     PlaySound(sfx[SFX_PLDEAD00]);
+
+    SCHED_INVOKE_TASK(&ctx->sched, player_hit_effect, ctx->pool, player);
 
     LifeManager *lm = &p->life;
     for (int i=0; i < lm->count; ++i) {

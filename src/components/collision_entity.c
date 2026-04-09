@@ -3,6 +3,8 @@
 #include "components/collision_entity.h"
 #include "flags.h"
 #include <stdio.h>
+#include "player.h"
+#include "game_state.h"
 #include "screen.h"
 
 
@@ -117,7 +119,8 @@ extern bool Damage_entity_by_enemy_projectile(Pool *p, Entity entity){
     return false;
 }
 
-extern bool Damage_player_by_enemy_projectile(Pool *p, Entity player){
+extern bool Damage_player_by_enemy_projectile(GameContext *ctx, Entity player){
+    Pool *p = ctx->pool;
     /**
      * Verifie si l'entité (surtout le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts
      */
@@ -128,7 +131,7 @@ extern bool Damage_player_by_enemy_projectile(Pool *p, Entity player){
     Entity_find_hitters(p, player,&bulletFlags, foundCollisions, &nbCollisions);
     for(int i = 0; i < nbCollisions; i++){
         if(!Entity_has_flag(p, foundCollisions[i], FLAG_NO_DAMAGE_PLAYER)){
-            Damage_player(p, player);
+            Damage_player(ctx, player);
             return true;
         }
     }

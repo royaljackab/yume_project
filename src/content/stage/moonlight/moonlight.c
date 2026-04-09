@@ -25,12 +25,15 @@
 #include "spellcards/brouwer_fixed_point.h"
 
 #include "moonlight_bg.h"
+#include "systems/screen_effects.h"
 
 #include <raylib.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
+
+// Variables distorsions
 static RenderTexture2D screen_target;
 static Shader lens_shader;
 static int center_loc, radius_loc, strength_loc;
@@ -38,6 +41,12 @@ static int center_loc, radius_loc, strength_loc;
 static Vector2 lens_center = {0,0};
 static float lens_radius = 0;
 static float lens_strength = 0;
+
+// Variables invert
+static RenderTexture2D game_target;
+static Shader invert_shader;
+static int inv_centers_loc, inv_radius_loc;
+
 
 static
 int frames = 0;
@@ -184,6 +193,14 @@ void state_moonlight_init(GameContext *ctx) {
     radius_loc = GetShaderLocation(lens_shader, "radius");
     strength_loc = GetShaderLocation(lens_shader, "strength");
 
+    // Pour effet d'inversion
+    game_target = LoadRenderTexture(GetScreenWidth(), GetScreenHeight());
+    invert_shader = LoadShader(0, "../Assets/Shaders/invert.fs");
+
+    inv_centers_loc = GetShaderLocation(invert_shader, "centers");
+    inv_radius_loc = GetShaderLocation(invert_shader, "radius");
+    invert_radius = 0;
+
     moonlight_bg_init();
 }
 
@@ -217,48 +234,60 @@ void state_moonlight_update(GameContext *ctx) {
 }
 
 void state_moonlight_draw(GameContext *ctx) {
-    
-    // DECORS
+    // =======================================================
+    // ETAPE 1 : PREPARER LE DECOR (Sur Toile 1 : screen_target)
+    // =======================================================
     BeginTextureMode(screen_target);
         ClearBackground(BLANK); 
         BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
-            // Sprite_draw_range(ctx->pool, -50, -1); 
             moonlight_bg_draw(ctx);
         EndScissorMode();
     EndTextureMode();
 
-
-    // FOND UI
-    ClearBackground(BLACK); 
-    HUD_draw_background(); 
-
-    DrawRectangle(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT, BLACK);
-
-
-    // JEU ET SHADER
-    BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
-
-        // Distorsion
+    // =======================================================
+    // ETAPE 2 : DESSINER TOUT LE JEU (Sur Toile 2 : game_target)
+    // =======================================================
+    // On dessine le Fond déformé + les Sprites sur une seule image
+    BeginTextureMode(game_target);
+        ClearBackground(BLANK);
+        
         BeginShaderMode(lens_shader);
             SetShaderValue(lens_shader, center_loc, &lens_center, SHADER_UNIFORM_VEC2);
             SetShaderValue(lens_shader, radius_loc, &lens_radius, SHADER_UNIFORM_FLOAT);
             SetShaderValue(lens_shader, strength_loc, &lens_strength, SHADER_UNIFORM_FLOAT);
-            
-            Rectangle sourceRec = { 0.0f, 0.0f, (float)screen_target.texture.width, -(float)screen_target.texture.height };
-            DrawTextureRec(screen_target.texture, sourceRec, (Vector2){ 0, 0 }, WHITE);
+            Rectangle sourceRec1 = { 0.0f, 0.0f, (float)screen_target.texture.width, -(float)screen_target.texture.height };
+            DrawTextureRec(screen_target.texture, sourceRec1, (Vector2){ 0, 0 }, WHITE);
         EndShaderMode();
 
-        // Jeu
         Sprite_draw_range(ctx->pool, 0, 100);
         draw_all_loose_lasers(&ctx->pool->looseLaser, &ctx->pool->position); 
         straight_lasers_draw_all(&ctx->pool->straightLaser, &ctx->pool->position, &ctx->pool->sprite); 
+    EndTextureMode();
 
+    // =======================================================
+    // ETAPE 3 : DESSIN FINAL SUR L'ÉCRAN PHYSIQUE
+    // =======================================================
+    ClearBackground(BLACK); 
+    HUD_draw_background();
+    bossbar_draw_all(ctx->pool);
+    DrawRectangle(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT, BLACK); // Le cache pour les couleurs
+
+    // On applique l'inversion sur l'intégralité du jeu !
+    BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
+        BeginShaderMode(invert_shader);
+            
+            // On envoie le tableau de 5 vecteurs et le rayon à la carte graphique
+            SetShaderValueV(invert_shader, inv_centers_loc, invert_centers, SHADER_UNIFORM_VEC2, 4);
+            SetShaderValue(invert_shader, inv_radius_loc, &invert_radius, SHADER_UNIFORM_FLOAT);
+            
+            Rectangle sourceRec2 = { 0.0f, 0.0f, (float)game_target.texture.width, -(float)game_target.texture.height };
+            DrawTextureRec(game_target.texture, sourceRec2, (Vector2){ 0, 0 }, WHITE);
+            
+        EndShaderMode();
     EndScissorMode();
 
-
-    // HUD textes
+    // ETAPE 4 : LE HUD EN DERNIER
     HUD_draw_foreground(ctx, "Stage 1 - Moonlight");
-    bossbar_draw_all(ctx->pool);
 }
 
 void state_moonlight_cleanup(GameContext *ctx) {
@@ -267,6 +296,7 @@ void state_moonlight_cleanup(GameContext *ctx) {
     free(ctx->pool);
     UnloadRenderTexture(screen_target);
     UnloadShader(lens_shader);
+    UnloadShader(invert_shader);
 }
 
 
