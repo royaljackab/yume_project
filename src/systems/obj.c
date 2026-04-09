@@ -1,6 +1,7 @@
 #include "systems/obj.h"
 #include "collision_circle.h"
 #include "common.h"
+#include "flags.h"
 #include "life.h"
 #include "physics.h"
 #include "pool.h"
@@ -340,6 +341,18 @@ void obj_SetHitboxRadius(Pool *p, Entity objID, float radius) {
     hitbox->radius = radius;
 }
 
-void obj_SetBGScrollX(Pool *p, Entity objId, float scroll_speed_x) {
-    
+void obj_AddFlag(Pool *p, Entity objId, FlagType flag) {
+    flagList* flags = flagList_get(&p->flagList, objId);
+
+    if (!flags)
+        flagList_attach_first_flag(p, objId, flag);
+    else
+        flagList_add_element(flags, flag);
+}
+
+void obj_RemoveFlag(Pool *p, Entity objId, FlagType flag) {
+    flagList* flags = flagList_get(&p->flagList, objId);
+    if (!flags) return;
+
+    flagList_remove_element(flags, flag);
 }

@@ -2,6 +2,7 @@
 
 #include "common.h"
 #include "ecs.h"
+#include "flags.h"
 #include <stdbool.h>
 
 void obj_Delete(Pool *p, Entity objId);
@@ -68,3 +69,8 @@ Tag obj_GetTag(Pool *p, Entity objId);
 void obj_SetTag(Pool *p, Entity objId, Tag tag);
 
 void obj_SetHitboxRadius(Pool *p, Entity objID, float radius);
+
+/*----------------------------------------------------*/
+
+void obj_AddFlag(Pool *p, Entity objId, FlagType flag);
+void obj_RemoveFlag(Pool *p, Entity objId, FlagType flag);
