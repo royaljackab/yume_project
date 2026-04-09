@@ -111,6 +111,8 @@ void SpritesLoad() {
     Sprite_set_texture(&sprites[BOSS_INDICATOR], 0, TH14_OTHER);
     Sprite_set_SourceRect(&sprites[BOSS_INDICATOR], 213, 2169, 42, 16);
 
+    Sprite_set_texture(&sprites[HIT_ORB], RENDER_PRIO_PLAYER, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[HIT_ORB], 566, 336, 30, 30);
 
     BulletsSpritesLoad();
     BgSpritesLoad();
