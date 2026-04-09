@@ -114,6 +114,9 @@ void SpritesLoad() {
     Sprite_set_texture(&sprites[HIT_ORB], RENDER_PRIO_PLAYER, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[HIT_ORB], 566, 336, 30, 30);
 
+    Sprite_set_texture(&sprites[SPELL_CARD_ATTACK], 90, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[SPELL_CARD_ATTACK], 337, 386, 98, 13);
+
     BulletsSpritesLoad();
     BgSpritesLoad();
     EffectsLoad();
