@@ -181,6 +181,8 @@ void state_moonlight_init(GameContext *ctx) {
     SetMusicVolume(playlist[BGM_FAST_DANGER], ctx->volume_bgm);
     PlayMusicStream(playlist[BGM_MORIYA_THEME]);
 
+    FontsLoad();
+
     pool_init(ctx->pool);
     score_system_init(&ctx->score);
     Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);

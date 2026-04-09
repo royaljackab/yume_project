@@ -37,6 +37,7 @@ extern Vector2 button_get_button_position(ButtonSystem *buttonSystem,
 
 extern void button_draw_button_text(ButtonSystem *buttonSystem, int buttonID,
                                     char *text, int fontSize, Color color);
+extern void button_draw_button_text_touhou98(ButtonSystem *buttonSystem, int buttonID, char *text, int fontSize, Color color);
 extern void button_draw_selector_text(ButtonSystem *buttonSystem, int x_offset,
                                       int y_offset, char *text, int fontSize,
                                       Color color);
