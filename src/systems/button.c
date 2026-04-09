@@ -87,19 +87,24 @@ Vector2 button_get_button_position(ButtonSystem *buttonSystem, int buttonID) {
 }
 
 /* Fonctions utilitaires */
-// WARNING: CES FONCTIONS SONT A DEPLACER ! pas fan que bouton gere de
-// l'affichage, a deplacer dans render/sprite.h quand ce dernier sera fait.
-
-// NOTE: Cette fonction est vouée a disparaitre (ou pas?), j'espere qu'on aura
-// un sprite pour chaque bouton
 void button_draw_button_text(ButtonSystem *buttonSystem, int buttonID,
                              char *text, int fontSize, Color color) {
   /***
-   * Ecris le texte a la position du bouton
+   * @brief Ecris le texte a la position du bouton
    */
 
   Vector2 buttonPos = button_get_button_position(buttonSystem, buttonID);
   DrawText(text, buttonPos.x, buttonPos.y, fontSize, color);
+}
+
+void button_draw_button_text_touhou98(ButtonSystem *buttonSystem, int buttonID,
+                             char *text, int fontSize, Color color) {
+  /***
+   * @brief Ecris le texte a la position du bouton
+   */
+
+  Vector2 buttonPos = button_get_button_position(buttonSystem, buttonID);
+  DrawTextEx(fonts[TOUHOU_98], text, buttonPos, fontSize, 3, color);
 }
 
 // TODO: button_draw_sprite quand le systeme de render sera bien fait

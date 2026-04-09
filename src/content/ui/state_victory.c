@@ -8,14 +8,29 @@
 #include "core/game_state.h"
 #include "../lib/systems/screen.h"
 #include "core/input.h"
+#include "content/assets.h"
+#include "components/background.h"
+#include "core/coroutine/tasks.h"
 #include <raylib.h>
 #include <stdio.h>
 
 static int timer = 0;
 
 void state_victory_init(GameContext *ctx) {
+    ctx->pool = malloc(sizeof(Pool));
+    if (!ctx->pool) {
+        printf("FATAL ERROR: victory pool allocation failed\n");
+        return;
+    }
+
+    pool_init(ctx->pool);
+
+    /* Create background */
+    Entity bg = invoke_main_background(ctx->pool);
+    (void)bg; /* Background entity for future use */
+
     timer = 0;
-    (void)ctx;
+    FontsLoad();
 }
 
 void state_victory_update(GameContext *ctx) {
@@ -23,10 +38,16 @@ void state_victory_update(GameContext *ctx) {
     if (timer > 60 && IsKeyPressed(ctx->input.keybinds.validate)) {
         gamestate_change_state(ctx, STATE_MENU_TITLE);
     }
+
+    Background_update_all(ctx->pool);
+
+    /* en dernier par sécurité */
+    pool_kill_convicts(ctx->pool);
 }
 
 void state_victory_draw(GameContext *ctx) {
     ClearBackground(BLACK);
+    Sprite_draw_range(ctx->pool, -50, -1);
 
     int cx = PANEL_WIDTH / 2;
 
@@ -52,7 +73,8 @@ void state_victory_draw(GameContext *ctx) {
 }
 
 void state_victory_cleanup(GameContext *ctx) {
-    (void)ctx;
+    cosched_finish(&ctx->sched);
+    free(ctx->pool);
 }
 
 GameState state_victory = {

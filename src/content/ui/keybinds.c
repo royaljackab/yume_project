@@ -2,6 +2,7 @@
 #include "core/game_state.h"
 #include "core/input.h"
 #include "screen.h"
+#include "assets.h"
 #include "core/settings.h"
 #include "systems/button.h"
 #include "core/coroutine/tasks.h"
@@ -228,11 +229,22 @@ TASK(keybind_capture, { GameContext *ctx; int action; KeyboardKey validate_key; 
 
 
 void state_menu_keybinds_init(GameContext *ctx) {
+  ctx->pool = malloc(sizeof(Pool));
+  if (!ctx->pool) {
+      printf("FATAL ERROR: Moonlight pool allocation failed\n");
+      return;
+  }
+
+  pool_init(ctx->pool);
   button_system_init(&ctx->button);
   cosched_init(&ctx->sched, NULL);
   capture_active = 0;
   capture_action = -1;
   capture_validate_key = KEY_NULL;
+
+  /* Create background */
+  Entity bg = invoke_main_background(ctx->pool);
+  (void)bg; /* Background entity for future use */
 
   /* Positions Y pour les actions */
   int y = 150;
@@ -242,7 +254,9 @@ void state_menu_keybinds_init(GameContext *ctx) {
   }
 
   /* Bouton Retour */
-  button_create(&ctx->button, 50, 550);
+  button_create(&ctx->button, 50, 620);
+  FontsLoad();
+  
 }
 
 void state_menu_keybinds_update(GameContext *ctx) {
@@ -266,19 +280,29 @@ void state_menu_keybinds_update(GameContext *ctx) {
       gamestate_change_state(ctx, STATE_MENU_SETTINGS);
     }
   }
+
+  Background_update_all(ctx->pool);
+
+  //en dernier par sécurité
+  pool_kill_convicts(ctx->pool);
 }
 
 void state_menu_keybinds_draw(GameContext *ctx) {
+  
+  // DESSIN BACKGROUND
   ClearBackground(BLACK);
+  Sprite_draw_range(ctx->pool, -50, -1);
+  
 
-  DrawText("CONTROLES CLAVIER", 50, 60, 70, RED);
+  Vector2 vect = {50, 60};
+  DrawTextEx(fonts[TOUHOU_98],"CONTROLES CLAVIER", vect , 50, 3 ,RED);
 
   int sel = button_get_current_buttonID(&ctx->button);
 
   /* Dessiner les actions */
   for (int i = 0; i < ACTION_BUTTON_COUNT; i++) {
     Color color = (sel == i) ? YELLOW : GRAY;
-    button_draw_button_text(&ctx->button, i, (char *)get_action_name(i), 30, color);
+      button_draw_button_text(&ctx->button, i, (char *)get_action_name(i), 30, color);
 
     // Dessiner la touche actuelle à côté
     KeyboardKey *key_ptr = get_keybind_ptr(ctx, i);
@@ -289,8 +313,8 @@ void state_menu_keybinds_draw(GameContext *ctx) {
   }
 
   /* Bouton Retour */
-  button_draw_button_text(&ctx->button, RETOUR,
-    "Retour", 40,
+  button_draw_button_text_touhou98(&ctx->button, RETOUR,
+    "Retour", 30,
     (sel == RETOUR) ? YELLOW : GRAY);
 
   /* Curseur * */

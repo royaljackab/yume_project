@@ -6,14 +6,32 @@
 
 #include "content/assets.h"
 #include "sprite.h"
+#include "pool.h"
+#include "obj.h"
+#include "screen.h"
 #include <raylib.h>
 
 Sprite sprites[MAX_SPRITES];
 Texture2D textures[MAX_TEXTURES];
 Music playlist[MAX_BGM]; // Nouveau tableau pour la musique
 Sound sfx[MAX_SFX]; // Effets sonores
+Font fonts[MAX_FONTS]; // Polices d'écritures
 
+extern Entity invoke_main_background(Pool *p) {
+    Entity base = Background_create(p, BG_MAIN, 0, 0);
 
+    obj_SetScaleX(p, base, (float)SCREEN_WIDTH/(float)sprites[BG_MAIN].srcRect.width);
+    obj_SetScaleY(p, base, (float)SCREEN_HEIGHT/(float)sprites[BG_MAIN].srcRect.height);
+    
+    return base;
+}
+
+void FontsLoad(){
+  /**
+   * @brief 
+   */
+  fonts[TOUHOU_98] = LoadFont("../Assets/Fonts/touhou98.ttf");
+}
 
 void AssetsLoad() {
     // Chargement des Textures existantes
@@ -34,6 +52,7 @@ void AssetsLoad() {
     // Backgrounds
     textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
     textures[BG_SC_OV_CIRCLES] = LoadTexture("../Assets/Sprites/bg/bg_touhou_gray_circles.png");
+    textures[BG_SC_MAIN] = LoadTexture("../Assets/Sprites/bg/bg_menu.png");
     
     SetTextureWrap(textures[BG_SC_OV_CIRCLES], TEXTURE_WRAP_REPEAT);
 
@@ -114,6 +133,9 @@ void BgSpritesLoad() {
 
   Sprite_set_texture(&sprites[BG_MORIYA_CIRCLES], RENDER_PRIO_BG, BG_SC_OV_CIRCLES);
   Sprite_set_SourceRect(&sprites[BG_MORIYA_CIRCLES], 0, 0, 2000, 2000);
+
+  Sprite_set_texture(&sprites[BG_MAIN], RENDER_PRIO_BG, BG_SC_MAIN);
+  Sprite_set_SourceRect(&sprites[BG_MAIN], 0, 0, 3840, 2160);
 }
 
 void EffectsLoad() {
