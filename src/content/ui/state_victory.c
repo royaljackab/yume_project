@@ -19,18 +19,6 @@
 static int timer = 0;
 
 void state_victory_init(GameContext *ctx) {
-    ctx->pool = malloc(sizeof(Pool));
-    if (!ctx->pool) {
-        printf("FATAL ERROR: victory pool allocation failed\n");
-        return;
-    }
-
-    pool_init(ctx->pool);
-
-    /* Create background */
-    Entity bg = invoke_main_background(ctx->pool, &ctx->screen);
-    (void)bg; /* Background entity for future use */
-
     timer = 0;
     FontsLoad();
 }

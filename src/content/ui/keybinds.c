@@ -256,7 +256,6 @@ void state_menu_keybinds_init(GameContext *ctx) {
   /* Bouton Retour */
   button_create(&ctx->button, 50, 620);
   FontsLoad();
-  
 }
 
 void state_menu_keybinds_update(GameContext *ctx) {

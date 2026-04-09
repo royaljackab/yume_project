@@ -3,6 +3,8 @@
 #include "systems/button.h"
 #include "components/background.h"
 #include "core/coroutine/tasks.h"
+#include "components/background.h"
+#include "core/coroutine/tasks.h"
 #include <raylib.h>
 #include <stdio.h>
 #include "content/assets.h"

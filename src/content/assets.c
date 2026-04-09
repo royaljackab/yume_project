@@ -9,7 +9,6 @@
 #include "pool.h"
 #include "obj.h"
 #include "systems/screen.h"
-#include "game_state.h"
 #include <raylib.h>
 
 
