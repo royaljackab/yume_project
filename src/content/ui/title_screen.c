@@ -23,6 +23,7 @@ void state_menu_title_init(GameContext *ctx) {
   }
 
   pool_init(ctx->pool);
+  cosched_init(&ctx->sched, ctx->pool);
 
   /* Create background */
   Entity bg = invoke_main_background(ctx->pool, &ctx->screen);

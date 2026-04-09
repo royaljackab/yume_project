@@ -57,6 +57,7 @@ void state_menu_settings_init(GameContext *ctx) {
   }
 
   pool_init(ctx->pool);
+  cosched_init(&ctx->sched, ctx->pool);
   button_system_init(&ctx->button);
 
   /* Create background */
@@ -131,6 +132,7 @@ void state_menu_settings_update(GameContext *ctx) {
       break;
     case BTN_ENREGISTRER:
       saveSettings(ctx);
+      PlaySound(sfx[SFX_MENU_NAV]);
       break;
     case BTN_RETOUR:
       gamestate_change_state(ctx, STATE_MENU_TITLE);
@@ -189,20 +191,20 @@ void state_menu_settings_draw(GameContext *ctx) {
     return;
   }
 
-  /* --- Controles clavier --- */
-  button_draw_button_text_touhou98(&ctx->button, BTN_KEYBINDS,
-    "Controles clavier", 30,
-    (sel == BTN_KEYBINDS) ? YELLOW : GRAY);
-
   /* --- Enregistrer --- */
   button_draw_button_text(&ctx->button, BTN_ENREGISTRER,
     "Enregistrer", 40,
     (sel == BTN_ENREGISTRER) ? YELLOW : GRAY);
 
+  /* --- Controles clavier --- */
+  button_draw_button_text_touhou98(&ctx->button, BTN_KEYBINDS,
+    "Controles clavier", 30,
+    (sel == BTN_KEYBINDS) ? YELLOW : WHITE);
+
   /* --- Retour --- */
   button_draw_button_text_touhou98(&ctx->button, BTN_RETOUR,
     "Retour", 30,
-    (sel == BTN_RETOUR) ? YELLOW : GRAY);
+    (sel == BTN_RETOUR) ? YELLOW : WHITE);
 
   /* Curseur * */
   button_draw_selector_text(&ctx->button, -35, 0, "*", 40, YELLOW);

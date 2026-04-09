@@ -19,6 +19,9 @@
 static int timer = 0;
 
 void state_game_over_init(GameContext *ctx) {
+    StopMusicStream(playlist[BGM_MORIYA_THEME]);
+    PlayMusicStream(playlist[BGM_WAITING]);
+
     ctx->pool = malloc(sizeof(Pool));
     if (!ctx->pool) {
         printf("FATAL ERROR: game over pool allocation failed\n");
@@ -26,6 +29,7 @@ void state_game_over_init(GameContext *ctx) {
     }
 
     pool_init(ctx->pool);
+    cosched_init(&ctx->sched, ctx->pool);
 
     /* Create background */
     Entity bg = invoke_main_background(ctx->pool, &ctx->screen);

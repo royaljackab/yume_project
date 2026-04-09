@@ -314,7 +314,7 @@ void state_menu_keybinds_draw(GameContext *ctx) {
   /* Bouton Retour */
   button_draw_button_text_touhou98(&ctx->button, RETOUR,
     "Retour", 30,
-    (sel == RETOUR) ? YELLOW : GRAY);
+    (sel == RETOUR) ? YELLOW : WHITE);
 
   /* Curseur * */
   button_draw_selector_text(&ctx->button, -35, 0, "*", 40, YELLOW);

@@ -19,6 +19,10 @@
 static int timer = 0;
 
 void state_victory_init(GameContext *ctx) {
+    StopMusicStream(playlist[BGM_MORIYA_THEME]);
+    PlayMusicStream(playlist[BGM_WAITING]);
+
+    cosched_init(&ctx->sched, ctx->pool);
     timer = 0;
     FontsLoad();
 }

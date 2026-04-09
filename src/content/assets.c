@@ -20,8 +20,10 @@ Font fonts[MAX_FONTS]; // Polices d'écritures
 
 extern Entity invoke_main_background(Pool *p, ScreenSystem *screen) {
   Entity base = Background_create(p, BG_MAIN, 0, 0);
-  obj_SetScaleX(p, base, (float)screen->screen_width/(float)sprites[BG_MAIN].srcRect.width);
-  obj_SetScaleY(p, base, (float)screen->screen_height/(float)sprites[BG_MAIN].srcRect.height);
+  Sprite_set_center(&sprites[BG_MAIN], (Vector2){sprites[BG_MAIN].srcRect.width / 2, sprites[BG_MAIN].srcRect.height / 2});
+  obj_SetScaleX(p, base, (float)screen->screen_width / (float)sprites[BG_MAIN].srcRect.width);
+  obj_SetScaleY(p, base, (float)screen->screen_height / (float)sprites[BG_MAIN].srcRect.height);
+  obj_SetPosition(p, base, screen->screen_width / 2, screen->screen_height / 2);
   
   return base;
 }

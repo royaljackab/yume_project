@@ -5,7 +5,7 @@
 #include "tasks.h"
 #include "obj.h"
 #include <raylib.h>
-
+#include <stdio.h>
 TASK(fast_spiral, {Pool *pool; Entity boss; float offset_x; float offset_y; float angle; int nb_bullets; int nb_legs; float rotation; float speed; float angle_offset; int periode; }) {
     float angleT = ARGS.angle;
     while(true) {
@@ -18,7 +18,8 @@ TASK(fast_spiral, {Pool *pool; Entity boss; float offset_x; float offset_y; floa
             float angle_curr_offset = ARGS.nb_bullets / 2 * (-ARGS.angle_offset);
             for (int i=0; i < ARGS.nb_bullets; ++i) {
                 Entity bullet = Bullet_enemy_spawn_delayed(ARGS.pool, x, y, ARGS.speed, angleT - angle_curr_offset, PETAL_LIGHT_BLUE, 10);
-                obj_SetRenderPriority(ARGS.pool, bullet, RENDER_PRIO_BULLET + 10);
+                obj_SetRenderPriority(ARGS.pool, bullet, RENDER_PRIO_BULLET + 5);
+                printf("render prio : %d\n", obj_GetRenderPriority(ARGS.pool, bullet));
                 angle_curr_offset += ARGS.angle_offset;
             }
 
