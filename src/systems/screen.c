@@ -1,19 +1,24 @@
 /**
  * @file screen.c
- * @brief Initialisation du système d'écran
+ * @brief Système d'écran 
  * @author @amyelalem
  */
 
-#include "lib/systems/screen.h"
+#include "systems/screen.h"
+#include <stdlib.h>
+
+ScreenSystem *g_screen = NULL;
 
 void screen_system_init(ScreenSystem *screen) {
-    screen->screen_width  = SCREEN_WIDTH;
-    screen->screen_height = SCREEN_HEIGHT;
-    screen->draw_margin   = DRAW_MARGIN;
-    screen->panel_left    = PANEL_LEFT;
-    screen->panel_width   = PANEL_WIDTH;
-    screen->panel_up      = PANEL_UP;
-    screen->panel_height  = PANEL_HEIGHT;
-    screen->panel_right   = PANEL_RIGHT;
-    screen->panel_down    = PANEL_DOWN;
+    screen->screen_width  = 1460;
+    screen->screen_height = 800;
+    screen->draw_margin   = 500;
+    screen->panel_left    = screen->screen_width / 64;
+    screen->panel_width   = screen->screen_width / 2;
+    screen->panel_up      = screen->screen_height / 45;
+    screen->panel_height  = (int)(screen->screen_height * 0.95f);
+    screen->panel_right   = screen->panel_left + screen->panel_width;
+    screen->panel_down    = screen->panel_up + screen->panel_height;
+
+    g_screen = screen;
 }
