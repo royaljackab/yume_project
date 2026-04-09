@@ -10,8 +10,8 @@
 ScreenSystem *g_screen = NULL;
 
 void screen_system_init(ScreenSystem *screen) {
-    screen->screen_width  = 1460;
-    screen->screen_height = 800;
+    screen->screen_width  = 1280;
+    screen->screen_height = 720;
     screen->draw_margin   = 500;
     screen->panel_left    = screen->screen_width / 64;
     screen->panel_width   = screen->screen_width / 2;
