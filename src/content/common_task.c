@@ -2,10 +2,12 @@
 #include "assets.h"
 #include "coevent.h"
 #include "common.h"
+#include "screen.h"
 #include "systems/obj.h"
 #include "pool.h"
 #include "sprite.h"
 #include "tasks.h"
+#include <math.h>
 #include <raylib.h>
 #include <raymath.h>
 
@@ -285,3 +287,105 @@ DEFINE_EXTERN_TASK(boss_orb_effect) {
     }
 }
 
+DEFINE_EXTERN_TASK(orb_explosion) {
+    Pool *p = ARGS.pool;
+    Entity orb = pool_create_entity(p);
+
+    Position pos = {{ARGS.x,ARGS.y}, 0};
+    Position_add(&p->position, orb, pos);
+
+    Sprite_add(&p->sprite, orb, sprites[HIT_ORB]);
+    obj_SetColor(p, orb, 255, 150, 150);
+
+    int duration = 50;
+    float target_scale = 5;
+    for (int i=0; i < duration; ++i) {
+        float t = (float)i / duration;
+
+        obj_SetScale(p, orb, t * target_scale, t * target_scale);
+        obj_SetAlpha(p, orb, 255 * (1 - t));
+
+        YIELD;
+    }
+
+    pool_kill_entity(p, orb);
+}
+
+DEFINE_EXTERN_TASK(spellcard_bg_anim) {
+    Pool *p = ARGS.pool;
+    int duration = ARGS.duration;
+
+    const int num_lines = 30;
+    const int sprites_per_lines = 16;
+    const float spacing_line = 70;
+    const float spacing_sprite = 100;
+    float line_length = sprites_per_lines * spacing_sprite;
+
+    const float angle = 135 * DEG2RAD;
+    const float speed = 2;
+
+    float dir_x = cosf(angle);
+    float dir_y = sinf(angle);
+    float perp_x = -sinf(angle);
+    float perp_y = cosf(angle);
+
+    float cx = PANEL_RIGHT / 2.0 ;
+    float cy = PANEL_DOWN / 2.0;
+
+    Entity bg_sprites[30 * 16];
+
+    // Création des entités
+    for (int i = 0; i < num_lines; ++i) {
+        for (int j=0; j < sprites_per_lines; ++j) {
+            Entity e = pool_create_entity(p);
+            bg_sprites[i * sprites_per_lines + j ] = e;
+
+            Position pos = {{0,0}, 0};
+            Position_add(&p->position, e, pos);
+
+            Sprite_add(&p->sprite, e, sprites[SPELL_CARD_ATTACK]);
+
+            obj_SetAngle(p, e, angle * RAD2DEG);
+            obj_SetAlpha(p, e, 120);
+        }
+    }
+
+    // Animation
+    for (int time = 0; time<duration; time++) {
+        for (int i = 0; i < num_lines; ++i) {
+            // On centre l'indice autour de 0
+            int line_offset = i - (num_lines / 2);
+
+            // paire -> droite, impaire -> gauche ou inverse jsp
+            float current_speed = (i % 2 == 0) ? speed : -speed;
+            float movement = time *current_speed;
+
+            float line_center_x = cx + line_offset * spacing_line * perp_x;
+            float line_center_y = cy + line_offset * spacing_line * perp_y;
+
+            for (int j=0 ; j < sprites_per_lines; j++) {
+                int sprite_offset = j - (sprites_per_lines / 2);
+                Entity e = bg_sprites[i * sprites_per_lines + j ];
+
+                float dist = sprite_offset * spacing_sprite + movement;
+
+                dist = fmodf(dist + 1000 * line_length, line_length);
+                dist -= line_length / 2;
+
+                float final_x = line_center_x + dist * dir_x;
+                float final_y = line_center_y + dist * dir_y;
+
+                obj_SetPosition(p, e, final_x, final_y);
+                obj_SetRenderPriority(p, e, 0);
+
+                obj_SetAlpha(p, e, -cosf(time * 4 * PI / duration) * 100 + 100);
+            }
+        }
+
+        YIELD;
+    }
+
+    for (int i=0; i < num_lines * sprites_per_lines; ++i) {
+        pool_kill_entity(p, bg_sprites[i]);
+    }
+}

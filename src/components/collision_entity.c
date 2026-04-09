@@ -57,6 +57,9 @@ static bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, flagList * laserF
      * Verifie si l'enité est touchés par une collision rectangulaire ayant un des tag de LaserTypes
      */
 
+    if (Entity_has_flag(p, entity, FLAG_INVINCIBLE)) {
+        return false; //ne rentre pas dans les calculs si l'entité est invincible
+    }
 
     bool is_hit = false;
     Collision_rectangleManager *collision_rectangle_manager = &p->collision_rectangle;

@@ -11,10 +11,10 @@
 #include <raylib.h>
 #include <raymath.h>
 
-/* --- Enum des boutons --- */
 typedef enum {
   BTN_VOLUME_BGM = 0,
   BTN_VOLUME_SFX,
+  BTN_RESOLUTION,
   BTN_KEYBINDS,
   BTN_ENREGISTRER,
   BTN_RETOUR,
@@ -25,12 +25,12 @@ typedef enum {
 #define BARRE_LARGEUR 400
 #define BARRE_HAUTEUR 25
 
-/* ------------------------------------------------------------------ */
-/* Fonctions internes                                                  */
-/* ------------------------------------------------------------------ */
+static int res_ouvert = 0;
+static int res_sel = 0;
+
+const char *res_noms[3] = {"Petit  (1280x720)", "Moyen  (1920x1080)", "Grand  (2560x1440)"};
 
 void audio_appliquer_volumes(GameContext *ctx) {
-  /* Applique les volumes stockés dans le contexte à tous les sons chargés */
   for (int i = 0; i < MAX_BGM; i++)
     SetMusicVolume(playlist[i], ctx->volume_bgm);
   for (int i = 0; i < MAX_SFX; i++)
@@ -38,40 +38,47 @@ void audio_appliquer_volumes(GameContext *ctx) {
 }
 
 static void dessiner_barre_volume(float valeur, int x, int y, Color couleur) {
-  /* Fond gris */
   DrawRectangle(x, y, BARRE_LARGEUR, BARRE_HAUTEUR, DARKGRAY);
-  /* Remplissage proportionnel */
   DrawRectangle(x, y, (int)(BARRE_LARGEUR * valeur), BARRE_HAUTEUR, couleur);
-  /* Bordure */
   DrawRectangleLines(x, y, BARRE_LARGEUR, BARRE_HAUTEUR, WHITE);
-  /* Pourcentage */
   DrawText(TextFormat("%d%%", (int)(valeur * 100)), x + BARRE_LARGEUR + 15, y + 3, 20, WHITE);
 }
 
-/* ------------------------------------------------------------------ */
-/* Fonctions state                                                     */
-/* ------------------------------------------------------------------ */
-
 void state_menu_settings_init(GameContext *ctx) {
   button_system_init(&ctx->button);
+  res_ouvert = 0;
+  res_sel = 0;
 
-  /* Positions Y de chaque option */
-  button_create(&ctx->button, 50, 200);  /* BTN_VOLUME_BGM */
-  button_create(&ctx->button, 50, 340);  /* BTN_VOLUME_SFX */
-  button_create(&ctx->button, 50, 480);  /* BTN_KEYBINDS   */
-  button_create(&ctx->button, 50, 520);  /* BTN_ENREGISTRER */
-  button_create(&ctx->button, 50, 560);  /* BTN_RETOUR      */
+  button_create(&ctx->button, 50, 200);  /* BTN_VOLUME_BGM  */
+  button_create(&ctx->button, 50, 340);  /* BTN_VOLUME_SFX  */
+  button_create(&ctx->button, 50, 480);  /* BTN_RESOLUTION  */
+  button_create(&ctx->button, 50, 520);  /* BTN_KEYBINDS    */
+  button_create(&ctx->button, 50, 560);  /* BTN_ENREGISTRER */
+  button_create(&ctx->button, 50, 600);  /* BTN_RETOUR      */
 
   audio_appliquer_volumes(ctx);
 }
 
 void state_menu_settings_update(GameContext *ctx) {
-  /* Navigation haut/bas + validation gérées par button_update */
-  button_update(&ctx->button, &ctx->input);
 
+  /* Si sous-menu résolution ouvert : on bloque button_update */
+  if (res_ouvert) {
+    if (isPressed(ctx->input.up))   res_sel = (res_sel - 1 + 3) % 3;
+    if (isPressed(ctx->input.down)) res_sel = (res_sel + 1) % 3;
+    if (isPressed(ctx->input.validate)) {
+      if (res_sel == 0) { ctx->screen.screen_width = 1280; ctx->screen.screen_height = 720;  }
+      if (res_sel == 1) { ctx->screen.screen_width = 1920; ctx->screen.screen_height = 1080; }
+      if (res_sel == 2) { ctx->screen.screen_width = 2560; ctx->screen.screen_height = 1440; }
+      SetWindowSize(ctx->screen.screen_width, ctx->screen.screen_height);
+      res_ouvert = 0;
+    }
+    return;
+  }
+
+  button_update(&ctx->button, &ctx->input);
   int sel = button_get_current_buttonID(&ctx->button);
 
-  /* Gauche/droite : modifier le volume du bouton sélectionné */
+  /* --- Volume BGM --- */
   if (sel == BTN_VOLUME_BGM) {
     if (isPressed(ctx->input.right)) {
       ctx->volume_bgm = Clamp(ctx->volume_bgm + PAS_VOLUME, 0.0f, 1.0f);
@@ -83,11 +90,12 @@ void state_menu_settings_update(GameContext *ctx) {
     }
   }
 
+  /* --- Volume SFX --- */
   if (sel == BTN_VOLUME_SFX) {
     if (isPressed(ctx->input.right)) {
       ctx->volume_sfx = Clamp(ctx->volume_sfx + PAS_VOLUME, 0.0f, 1.0f);
       audio_appliquer_volumes(ctx);
-      PlaySound(sfx[SFX_MENU_NAV]); /* test sonore immédiat */
+      PlaySound(sfx[SFX_MENU_NAV]);
     }
     if (isPressed(ctx->input.left)) {
       ctx->volume_sfx = Clamp(ctx->volume_sfx - PAS_VOLUME, 0.0f, 1.0f);
@@ -96,9 +104,12 @@ void state_menu_settings_update(GameContext *ctx) {
     }
   }
 
-  /* Validation (Espace) */
+  /* --- Validation (Espace) --- */
   if (button_is_validated(&ctx->button)) {
     switch (sel) {
+    case BTN_RESOLUTION:
+      res_ouvert = 1;
+      break;
     case BTN_KEYBINDS:
       gamestate_change_state(ctx, STATE_MENU_KEYBINDS);
       break;
@@ -109,14 +120,13 @@ void state_menu_settings_update(GameContext *ctx) {
       gamestate_change_state(ctx, STATE_MENU_TITLE);
       break;
     default:
-      break; /* volumes : espace ne fait rien de spécial */
+      break;
     }
   }
 }
 
 void state_menu_settings_draw(GameContext *ctx) {
   ClearBackground(BLACK);
-
   DrawText("REGLAGES", 50, 60, 70, RED);
 
   int sel = button_get_current_buttonID(&ctx->button);
@@ -137,6 +147,23 @@ void state_menu_settings_draw(GameContext *ctx) {
   if (sel == BTN_VOLUME_SFX)
     DrawText("< / >", 50, 422, 16, YELLOW);
 
+  /* --- Résolution --- */
+  button_draw_button_text(&ctx->button, BTN_RESOLUTION,
+    "Resolution", 40,
+    (sel == BTN_RESOLUTION) ? YELLOW : GRAY);
+
+  if (res_ouvert) {
+    DrawRectangle(45, 508, 350, 130, (Color){20, 20, 20, 220});
+    DrawRectangleLines(45, 508, 350, 130, WHITE);
+    for (int i = 0; i < 3; i++) {
+      Color c = (i == res_sel) ? YELLOW : WHITE;
+      if (i == res_sel) DrawText(">", 55, 515 + i * 40, 28, YELLOW);
+      DrawText(res_noms[i], 80, 515 + i * 40, 28, c);
+    }
+    DrawText("Haut/Bas : choisir   Espace : confirmer", 55, 648, 16, DARKGRAY);
+    return;
+  }
+
   /* --- Controles clavier --- */
   button_draw_button_text(&ctx->button, BTN_KEYBINDS,
     "Controles clavier", 40,
@@ -155,13 +182,12 @@ void state_menu_settings_draw(GameContext *ctx) {
   /* Curseur * */
   button_draw_selector_text(&ctx->button, -35, 0, "*", 40, YELLOW);
 
-  /* Aide en bas */
-  DrawText("Haut/Bas : naviguer   Gauche/Droite : modifier volume   Espace : valider",
+  DrawText("Haut/Bas : naviguer   Gauche/Droite : modifier   Espace : valider",
            50, 680, 18, DARKGRAY);
 }
 
 void state_menu_settings_cleanup(GameContext *ctx) {
-  /* Sauvegarde gérée par le bouton Enregistrer dans les contrôles */
+  (void)ctx;
 }
 
 GameState state_menu_settings = {

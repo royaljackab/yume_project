@@ -3,14 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// KEY_RIGHT           = 262,      // Key: Cursor right
-// KEY_LEFT            = 263,      // Key: Cursor left
-// KEY_DOWN            = 264,      // Key: Cursor down
-// KEY_UP              = 265,      // Key: Cursor up
-
 void init_settings(GameContext *ctx) {
-  // créé le fichier settings.txt si il n'existe pas.
-
   //------------ Valeurs par défaut des options ------------
   //------ keybinds ------
   ctx->input.keybinds.left = KEY_LEFT;
@@ -28,6 +21,7 @@ void init_settings(GameContext *ctx) {
   if (!new) {
     return;
   }
+
   //------------ Création du fichier ------------
   //------ keybinds ------
   fprintf(new, "keybind_move_left=%d\n", ctx->input.keybinds.left);
@@ -47,6 +41,10 @@ void init_settings(GameContext *ctx) {
   fprintf(new, "volume_bgm=%d\n", (int)(ctx->volume_bgm * 100));
   fprintf(new, "volume_sfx=%d\n", (int)(ctx->volume_sfx * 100));
 
+  // ------ écran ------
+  fprintf(new, "screen_width=%d\n", ctx->screen.screen_width);
+  fprintf(new, "screen_height=%d\n", ctx->screen.screen_height);
+
   fclose(new);
 }
 
@@ -63,39 +61,33 @@ void load_settings(GameContext *ctx) {
   while (fscanf(f, " %29[^=]=%d", optionName, &optionValue) != EOF) {
     //------ keybinds ------
     if (strcmp(optionName, "keybind_move_left") == 0) {
-      printf("left set to %d\n", optionValue);
       ctx->input.keybinds.left = optionValue;
     } else if (strcmp(optionName, "keybind_move_right") == 0) {
-      printf("right set to %d\n", optionValue);
       ctx->input.keybinds.right = optionValue;
     } else if (strcmp(optionName, "keybind_move_down") == 0) {
-      printf("down set to %d\n", optionValue);
       ctx->input.keybinds.down = optionValue;
     } else if (strcmp(optionName, "keybind_move_up") == 0) {
-      printf("up set to %d\n", optionValue);
       ctx->input.keybinds.up = optionValue;
     } else if (strcmp(optionName, "keybind_shoot") == 0) {
-      printf("shoot set to %d\n", optionValue);
       ctx->input.keybinds.shoot = optionValue;
     } else if (strcmp(optionName, "keybind_pause") == 0) {
-      printf("pause set to %d\n", optionValue);
       ctx->input.keybinds.pause = optionValue;
     } else if (strcmp(optionName, "keybind_focus_mode") == 0) {
-      printf("focus mode set to %d\n", optionValue);
       ctx->input.keybinds.focus = optionValue;
     } else if (strcmp(optionName, "keybind_validate") == 0) {
-      printf("validate set to %d\n", optionValue);
       ctx->input.keybinds.validate = optionValue;
     } else if (strcmp(optionName, "keybind_bomb") == 0) {
-      printf("bomb set to %d\n", optionValue);
       ctx->input.keybinds.bomb = optionValue;
     } else if (strcmp(optionName, "keybind_skip") == 0) {
-      printf("skip set to %d\n", optionValue);
       ctx->input.keybinds.skip = optionValue;
     } else if (strcmp(optionName, "volume_bgm") == 0) {
       ctx->volume_bgm = optionValue / 100.0f;
     } else if (strcmp(optionName, "volume_sfx") == 0) {
       ctx->volume_sfx = optionValue / 100.0f;
+    } else if (strcmp(optionName, "screen_width") == 0) {
+      ctx->screen.screen_width = optionValue;
+    } else if (strcmp(optionName, "screen_height") == 0) {
+      ctx->screen.screen_height = optionValue;
     }
   }
   fclose(f);
@@ -111,7 +103,6 @@ void saveSettings(GameContext *ctx) {
   }
 
   while (fscanf(old, " %29[^=]=%d", optionName, &dummy) != EOF) {
-    //------ keybinds ------
     if (strcmp(optionName, "keybind_move_left") == 0) {
       fprintf(new, "%s=%d\n", optionName, ctx->input.keybinds.left);
     } else if (strcmp(optionName, "keybind_move_right") == 0) {
@@ -136,6 +127,10 @@ void saveSettings(GameContext *ctx) {
       fprintf(new, "%s=%d\n", optionName, (int)(ctx->volume_bgm * 100));
     } else if (strcmp(optionName, "volume_sfx") == 0) {
       fprintf(new, "%s=%d\n", optionName, (int)(ctx->volume_sfx * 100));
+    } else if (strcmp(optionName, "screen_width") == 0) {
+      fprintf(new, "%s=%d\n", optionName, ctx->screen.screen_width);
+    } else if (strcmp(optionName, "screen_height") == 0) {
+      fprintf(new, "%s=%d\n", optionName, ctx->screen.screen_height);
     }
   }
   fclose(old);
@@ -144,3 +139,4 @@ void saveSettings(GameContext *ctx) {
   remove("../settings.txt");
   rename("../temp.txt", "../settings.txt");
 }
+

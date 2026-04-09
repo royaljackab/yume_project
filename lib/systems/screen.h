@@ -1,13 +1,27 @@
-// FICHIER QUI DEFINIE LA TAILLE DES DIFFERENTES PARTIES DE L'ECRAN
 #pragma once
 
-#define DRAW_MARGIN 500  // 80
-#define SCREEN_WIDTH 1920 // 1280
-#define SCREEN_HEIGHT 1080 // 900
+typedef struct ScreenSystem {
+    int screen_width;
+    int screen_height;
+    int draw_margin;
+    int panel_left;
+    int panel_width;
+    int panel_up;
+    int panel_height;
+    int panel_right;
+    int panel_down;
+} ScreenSystem;
 
-#define PANEL_LEFT SCREEN_WIDTH / 64      // 10
-#define PANEL_WIDTH SCREEN_WIDTH * 0.55      // 700
-#define PANEL_UP SCREEN_HEIGHT / 40       // 20
-#define PANEL_HEIGHT SCREEN_HEIGHT * 0.95 // 820
-#define PANEL_RIGHT PANEL_LEFT + PANEL_WIDTH
-#define PANEL_DOWN PANEL_UP + PANEL_HEIGHT
+extern ScreenSystem *g_screen;
+
+extern void screen_system_init(ScreenSystem *screen);
+
+#define DRAW_MARGIN  (g_screen->draw_margin)
+#define SCREEN_WIDTH (g_screen->screen_width)
+#define SCREEN_HEIGHT (g_screen->screen_height)
+#define PANEL_LEFT   (g_screen->panel_left)
+#define PANEL_WIDTH  (g_screen->panel_width)
+#define PANEL_UP     (g_screen->panel_up)
+#define PANEL_HEIGHT (g_screen->panel_height)
+#define PANEL_RIGHT  (g_screen->panel_right)
+#define PANEL_DOWN   (g_screen->panel_down)
