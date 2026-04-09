@@ -29,12 +29,18 @@ void AssetsLoad() {
       LoadTexture("../Assets/Sprites/reimu_spritesheet.png");
   textures[HITBOX_SPRITESHEET] = 
       LoadTexture("../Assets/Sprites/hitbox.png");
+      textures[TH14_OTHER] = LoadTexture("../Assets/Sprites/th14_other_sprites.png");
 
 
     // Backgrounds
     textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
     textures[BG_SC_OV_CIRCLES] = LoadTexture("../Assets/Sprites/bg/bg_touhou_gray_circles.png");
+    textures[BG_PANEL] = LoadTexture("../Assets/Sprites/bg/UI_game_full.jpg");
+    textures[TEX_BG_TORII] = LoadTexture("../Assets/Sprites/bg/bg_sc_torii.jpg");
+    textures[TEX_BG_MATH] = LoadTexture("../Assets/Sprites/bg/bg_sc_ov_math.png");
+    textures[TH14_STG4] = LoadTexture("../Assets/Sprites/bg/stg4_bg.png");
     
+    SetTextureWrap(textures[TEX_BG_MATH], TEXTURE_WRAP_REPEAT);
     SetTextureWrap(textures[BG_SC_OV_CIRCLES], TEXTURE_WRAP_REPEAT);
 
 
@@ -51,7 +57,7 @@ void AssetsLoad() {
       LoadMusicStream("../Assets/Audio/BGM/moriya_theme.wav");
 
     // Chargement des effets sonores
-    sfx[SFX_SHOOT] = LoadSound("../Assets/Audio/SFX/shoot.wav");
+    sfx[SFX_SHOOT] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_plst00.wav");
     sfx[SFX_ENEMY_DEATH] = LoadSound("../Assets/Audio/SFX/enemy_death.wav");
     sfx[SFX_MENU_NAV] = LoadSound("../Assets/Audio/SFX/menu_nav.wav");
     sfx[SFX_TAN00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_tan00.wav");
@@ -102,6 +108,9 @@ void SpritesLoad() {
     Sprite_set_SourceRect(&sprites[HITBOX], 0, 0, 64, 64);
     Sprite_set_rotation(&sprites[HITBOX], 0);
 
+    Sprite_set_texture(&sprites[BOSS_INDICATOR], 0, TH14_OTHER);
+    Sprite_set_SourceRect(&sprites[BOSS_INDICATOR], 213, 2169, 42, 16);
+
 
     BulletsSpritesLoad();
     BgSpritesLoad();
@@ -114,6 +123,12 @@ void BgSpritesLoad() {
 
   Sprite_set_texture(&sprites[BG_MORIYA_CIRCLES], RENDER_PRIO_BG, BG_SC_OV_CIRCLES);
   Sprite_set_SourceRect(&sprites[BG_MORIYA_CIRCLES], 0, 0, 2000, 2000);
+
+  Sprite_set_texture(&sprites[BG_SC_TORII], RENDER_PRIO_BG, TEX_BG_TORII);
+  Sprite_set_SourceRect(&sprites[BG_SC_TORII], 0, 0, 1056, 1026);
+
+  Sprite_set_texture(&sprites[BG_SC_OV_MATH], RENDER_PRIO_BG, TEX_BG_MATH);
+  Sprite_set_SourceRect(&sprites[BG_SC_OV_MATH], 0, 0, 1021,855);
 }
 
 void EffectsLoad() {

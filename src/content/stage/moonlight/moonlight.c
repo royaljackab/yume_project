@@ -7,6 +7,7 @@
 #include "ecs.h"
 #include "content/assets.h"
 #include "enemy.h"
+#include "life.h"
 #include "game_state.h"
 #include "obj.h"
 #include "physics.h"
@@ -23,11 +24,16 @@
 #include "spellcards/poincarre_recurrence.h"
 #include "spellcards/brouwer_fixed_point.h"
 
+#include "moonlight_bg.h"
+#include "systems/screen_effects.h"
+
 #include <raylib.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
+
+// Variables distorsions
 static RenderTexture2D screen_target;
 static Shader lens_shader;
 static int center_loc, radius_loc, strength_loc;
@@ -36,17 +42,22 @@ static Vector2 lens_center = {0,0};
 static float lens_radius = 0;
 static float lens_strength = 0;
 
+// Variables invert
+static RenderTexture2D game_target;
+static Shader invert_shader;
+static int inv_centers_loc, inv_radius_loc;
+
 
 static
 int frames = 0;
 
 void invoke_spellcard_background(Pool *p) {
-    Entity base = Background_create(p, BG_MORIYA_FLOWERS, 0, 0);
-    Entity overlay = Background_create(p, BG_MORIYA_CIRCLES, -0.5, 0.5);
+    Entity base = Background_create(p, BG_SC_TORII, 0, 0);
+    Entity overlay = Background_create(p, BG_SC_OV_MATH, -0.5, 0.5);
 
 
-    obj_SetScaleX(p, base, (float)PANEL_WIDTH/(float)sprites[BG_MORIYA_FLOWERS].srcRect.width);
-    obj_SetScaleY(p, base, (float)PANEL_HEIGHT/(float)sprites[BG_MORIYA_FLOWERS].srcRect.height);
+    obj_SetScaleX(p, base, (float)PANEL_WIDTH/(float)sprites[BG_SC_TORII].srcRect.width);
+    obj_SetScaleY(p, base, (float)PANEL_HEIGHT/(float)sprites[BG_SC_TORII].srcRect.height);
 
     obj_SetAlpha(p, overlay, 128);
     obj_SetRenderPriority(p, overlay, RENDER_PRIO_BG + 1);
@@ -77,23 +88,14 @@ TASK(movement, {GameContext *ctx; Entity boss; }) {
 }
 
 TASK(main_attack, {GameContext *ctx;}) {
-    Entity boss = Enemy_spawn(ARGS.ctx->pool, 20, 20, 0, 0, 200, 3, 1, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
-    obj_SetTag(ARGS.ctx->pool, boss, ENT_BOSS);
-    TASK_BIND(boss);
-
-    INVOKE_SUBTASK(boss_particle_spawner, ARGS.ctx->pool, boss);
+    Entity boss = Boss_spawn(ARGS.ctx->pool, 10, 10, 200, 20, 200000, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
     WAIT(120);
-    INVOKE_SUBTASK(boss_pentagram_effect, ARGS.ctx->pool, boss);
-    INVOKE_SUBTASK(boss_distortion_effect, ARGS.ctx->pool, boss, &lens_center, &lens_radius, &lens_strength);
-    INVOKE_SUBTASK(boss_orb_effect, ARGS.ctx->pool, boss);
-    WAIT(80);
+    Boss_fight_begin(ARGS.ctx->pool, boss, &lens_center, &lens_radius, &lens_strength);
 
     invoke_spellcard_background(ARGS.ctx->pool);
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
-
-
 
     obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
     obj_SetLife(ARGS.ctx->pool, boss, 500);
@@ -116,6 +118,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
 
+    moonlight_bg_set_mode(true);
     CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
     BoxedTask spell_1_box = cotask_box(spell_1);
 
@@ -131,6 +134,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
     WAIT(60);
 
+    moonlight_bg_set_mode(false);
     CoTask *nonspell_2 = INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss);
     BoxedTask nonspell_2_box = cotask_box(nonspell_2);
 
@@ -146,6 +150,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
 
+    moonlight_bg_set_mode(true);
     CoTask *spell_2 = INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss, 10, 3.5, 100);
     BoxedTask spell_2_box = cotask_box(spell_2);
 
@@ -156,6 +161,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     Bullet_clear_bullets(ARGS.ctx->pool);
 
 
+    gamestate_change_state(ARGS.ctx, STATE_VICTORY);
     STALL;
 }
 
@@ -186,6 +192,16 @@ void state_moonlight_init(GameContext *ctx) {
     center_loc = GetShaderLocation(lens_shader, "center");
     radius_loc = GetShaderLocation(lens_shader, "radius");
     strength_loc = GetShaderLocation(lens_shader, "strength");
+
+    // Pour effet d'inversion
+    game_target = LoadRenderTexture(GetScreenWidth(), GetScreenHeight());
+    invert_shader = LoadShader(0, "../Assets/Shaders/invert.fs");
+
+    inv_centers_loc = GetShaderLocation(invert_shader, "centers");
+    inv_radius_loc = GetShaderLocation(invert_shader, "radius");
+    invert_radius = 0;
+
+    moonlight_bg_init();
 }
 
 void state_moonlight_update(GameContext *ctx) {
@@ -197,6 +213,8 @@ void state_moonlight_update(GameContext *ctx) {
         return;
     }
 
+    moonlight_bg_update(frames);
+
     cosched_run_tasks(&ctx->sched);
 
     Player_update(ctx);
@@ -205,49 +223,71 @@ void state_moonlight_update(GameContext *ctx) {
     straight_lasers_update_all(ctx->pool);
     Condensation_update_all(ctx->pool);
     Owner_update(ctx->pool);
-    pool_kill_convicts(ctx->pool);
+    
+    Life_update_all(ctx->pool, &ctx->score);
     Enemy_update_all(ctx->pool, &ctx->score);
     Background_update_all(ctx->pool);
 
+    //en dernier par sécurité
+    pool_kill_convicts(ctx->pool);
     frames++;
 }
 
 void state_moonlight_draw(GameContext *ctx) {
-   
-    // DESSIN BACKGROUND
+    // =======================================================
+    // ETAPE 1 : PREPARER LE DECOR (Sur Toile 1 : screen_target)
+    // =======================================================
     BeginTextureMode(screen_target);
-        ClearBackground(BLACK);
+        ClearBackground(BLANK); 
         BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
-        
-        Sprite_draw_range(ctx->pool, -50, -1);
-        
+            moonlight_bg_draw(ctx);
         EndScissorMode();
     EndTextureMode();
 
-    ClearBackground(BLACK); // On nettoie le vrai écran
-
-    // DESSIN SHADER
-    BeginShaderMode(lens_shader);
-        SetShaderValue(lens_shader, center_loc, &lens_center, SHADER_UNIFORM_VEC2);
-        SetShaderValue(lens_shader, radius_loc, &lens_radius, SHADER_UNIFORM_FLOAT);
-        SetShaderValue(lens_shader, strength_loc, &lens_strength, SHADER_UNIFORM_FLOAT);
+    // =======================================================
+    // ETAPE 2 : DESSINER TOUT LE JEU (Sur Toile 2 : game_target)
+    // =======================================================
+    // On dessine le Fond déformé + les Sprites sur une seule image
+    BeginTextureMode(game_target);
+        ClearBackground(BLANK);
         
-        Rectangle sourceRec = { 0.0f, 0.0f, (float)screen_target.texture.width, -(float)screen_target.texture.height };
-        DrawTextureRec(screen_target.texture, sourceRec, (Vector2){ 0, 0 }, WHITE);
-    EndShaderMode();
+        BeginShaderMode(lens_shader);
+            SetShaderValue(lens_shader, center_loc, &lens_center, SHADER_UNIFORM_VEC2);
+            SetShaderValue(lens_shader, radius_loc, &lens_radius, SHADER_UNIFORM_FLOAT);
+            SetShaderValue(lens_shader, strength_loc, &lens_strength, SHADER_UNIFORM_FLOAT);
+            Rectangle sourceRec1 = { 0.0f, 0.0f, (float)screen_target.texture.width, -(float)screen_target.texture.height };
+            DrawTextureRec(screen_target.texture, sourceRec1, (Vector2){ 0, 0 }, WHITE);
+        EndShaderMode();
 
-    // DESSIN JEU
-    BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
-        
         Sprite_draw_range(ctx->pool, 0, 100);
-        
         draw_all_loose_lasers(&ctx->pool->looseLaser, &ctx->pool->position); 
         straight_lasers_draw_all(&ctx->pool->straightLaser, &ctx->pool->position, &ctx->pool->sprite); 
-        bossbar_draw_all(ctx->pool);
-        
+    EndTextureMode();
+
+    // =======================================================
+    // ETAPE 3 : DESSIN FINAL SUR L'ÉCRAN PHYSIQUE
+    // =======================================================
+    ClearBackground(BLACK); 
+    HUD_draw_background();
+    bossbar_draw_all(ctx->pool);
+    DrawRectangle(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT, BLACK); // Le cache pour les couleurs
+
+    // On applique l'inversion sur l'intégralité du jeu !
+    BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
+        BeginShaderMode(invert_shader);
+            
+            // On envoie le tableau de 5 vecteurs et le rayon à la carte graphique
+            SetShaderValueV(invert_shader, inv_centers_loc, invert_centers, SHADER_UNIFORM_VEC2, 4);
+            SetShaderValue(invert_shader, inv_radius_loc, &invert_radius, SHADER_UNIFORM_FLOAT);
+            
+            Rectangle sourceRec2 = { 0.0f, 0.0f, (float)game_target.texture.width, -(float)game_target.texture.height };
+            DrawTextureRec(game_target.texture, sourceRec2, (Vector2){ 0, 0 }, WHITE);
+            
+        EndShaderMode();
     EndScissorMode();
 
-    HUD_draw(ctx, "Stage 1 - Moonlight");
+    // ETAPE 4 : LE HUD EN DERNIER
+    HUD_draw_foreground(ctx, "Stage 1 - Moonlight");
 }
 
 void state_moonlight_cleanup(GameContext *ctx) {
@@ -256,6 +296,7 @@ void state_moonlight_cleanup(GameContext *ctx) {
     free(ctx->pool);
     UnloadRenderTexture(screen_target);
     UnloadShader(lens_shader);
+    UnloadShader(invert_shader);
 }
 
 

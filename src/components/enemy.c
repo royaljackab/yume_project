@@ -67,12 +67,7 @@ void Enemy_update_all(Pool *p, ScoreSystem *scoreS) {
         Entity e = Enemy_get_entity(&p->enemy,i);
         Life *life = Life_get(&p->life, e);
         
-        //mort de l'ennemi
-        if (life && Life_is_dead(life) && obj_GetTag(p, e) != ENT_BOSS) {
-            PlaySound(sfx[SFX_ENEMY_DEATH]);
-            pool_kill_entity(p, e);
-            score_increase(scoreS, Enemy_get(&p->enemy, e)->score);
-        }
+
 
         //collisions avec l'ennemi
         nbCollisions = 0;
