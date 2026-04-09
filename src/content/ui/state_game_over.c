@@ -92,17 +92,14 @@ void state_game_over_draw(GameContext *ctx) {
 }
 
 void state_game_over_cleanup(GameContext *ctx) {
-<<<<<<< HEAD
 /**
  * @brief Nettoie l'état de fin de partie en cas de défaite (enregistre le highscore)
  * @param ctx Le contexte du jeu
  */
     update_highscore(ctx->score.score); // Met à jour le highscore si nécessaire
     (void)ctx;
-=======
     cosched_finish(&ctx->sched);
     free(ctx->pool);
->>>>>>> origin/main
 }
 
 GameState state_game_over = {
