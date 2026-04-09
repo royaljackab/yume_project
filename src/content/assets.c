@@ -68,6 +68,7 @@ void AssetsLoad() {
     sfx[SFX_LAZER00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_lazer00.wav");
     sfx[SFX_LAZER01] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_lazer01.wav");
     sfx[SFX_LAZER02] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_lazer02.wav");
+    sfx[SFX_CAT00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_cat00.wav");
 
     sfx[SFX_GRAZE] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_graze.wav");
 

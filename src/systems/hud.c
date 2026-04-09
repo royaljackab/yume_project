@@ -41,6 +41,12 @@
 /** @brief Couleur des bombes */
 #define HUD_BOMB_COL  YELLOW
 
+char hud_spell_name[128] = "";
+float hud_spell_x = 0;
+float hud_spell_y = 0;
+int hud_spell_alpha = 0;
+float hud_spell_scale = 1;
+
 void HUD_draw_background() {
     // FOND PANEL
     Texture2D panel = textures[BG_PANEL];
@@ -106,4 +112,19 @@ void HUD_draw_foreground(GameContext *ctx, const char *stage_name) {
             DrawRectangleLines(bx - 8, cy, 16, 16, HUD_BOMB_COL);
         }
     }
+
+    // Dessin nom spellcard
+    if (hud_spell_alpha > 0) {
+        int font_size = (int)(20 * hud_spell_scale);
+
+        Color text_color = Fade(WHITE, hud_spell_alpha/255.0);
+        Color shadow_color = Fade(BLACK, hud_spell_alpha / 255.0);
+
+        DrawText(hud_spell_name, hud_spell_x + 2, hud_spell_y + 2, font_size, shadow_color);
+        DrawText(hud_spell_name, hud_spell_x, hud_spell_y, font_size, text_color);
+    }
+}
+
+void HUD_clear_spellcard() {
+    hud_spell_alpha = 0;
 }
