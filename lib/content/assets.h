@@ -386,6 +386,7 @@ typedef enum {
   BOSS_PENTAGRAM,
   BOSS_AURA_ORB,
   BOSS_INDICATOR,
+  HIT_ORB,
 
   MAX_SPRITES
 } SpriteID;
