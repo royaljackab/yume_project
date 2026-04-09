@@ -284,3 +284,4 @@ DEFINE_EXTERN_TASK(boss_orb_effect) {
         YIELD;
     }
 }
+
