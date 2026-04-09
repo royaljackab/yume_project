@@ -13,7 +13,7 @@
 #pragma once
 
 #include "ecs/component.h"
-
+#include "systems/score.h"
 #include <stdbool.h>
 
 typedef struct Life {
@@ -48,3 +48,10 @@ extern void Life_heal(Life *life, int heal);
  * @return true s'il est mort, false sinon
  */
 extern bool Life_is_dead(Life *life);
+
+/**
+ * @brief  tue / effectue un traitement adapté à tout les objets ayant 0 HP
+ * @param p pool
+ * @param scoreS manager de score
+ */
+extern void Life_update_all(Pool * p, ScoreSystem * scoreS);

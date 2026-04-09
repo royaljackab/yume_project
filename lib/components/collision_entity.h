@@ -9,7 +9,7 @@ extern bool Entity_find_hitters(Pool *p, Entity entity, flagList * flags, Entity
 extern bool Entity_is_hit(Pool *p, Entity entity, flagList * flags);
 
 extern bool Damage_entity_by_enemy_projectile(Pool *p, Entity entity);
-extern bool Damage_player_by_enemy_projectile(Pool *p, Entity player);
+extern bool Damage_player_by_enemy_projectile(GameContext *ctx, Entity player);
 
 extern bool collision_circle_add_scaled_with_sprite(Pool *p, Entity entity);
 

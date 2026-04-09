@@ -15,6 +15,8 @@ TASK(bouncing_ring, {Pool *pool; float cx; float cy; float vx; float vy; float r
     if (!ARGS.initialized) {
         for (int i=0; i < NB_BULLETS_RING; ++i) {
             ARGS.bullets[i] = Bullet_enemy_spawn_delayed(ARGS.pool, ARGS.cx, ARGS.cy, 0, 0, BULLET_BLUE, 5);
+            obj_SetMaxlife(ARGS.pool, ARGS.bullets[i], 3000);
+            obj_SetLife(ARGS.pool, ARGS.bullets[i], 3000);
         }
         ARGS.initialized = true;
     }
