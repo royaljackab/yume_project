@@ -30,7 +30,13 @@ typedef enum {
   HITBOX_SPRITESHEET,
   TH14_OTHER,
   TH14_STG4,
-  
+
+  //combos
+  COMBO_1_SHEET,
+  COMBO_2_SHEET,
+  COMBO_3_SHEET,
+  COMBO_4_SHEET,
+  COMBO_5_SHEET,
   // ------ BACKGROUNDS
 
   BG_SC_FLOWERS,
@@ -55,6 +61,13 @@ typedef enum {
   REIMU_PINK_AMULET,
 
   HITBOX,
+  
+  //COMBOS
+  COMBO_1,
+  COMBO_2,
+  COMBO_3,
+  COMBO_4,
+  COMBO_5,
 
   //BULLETS -----------------------------------
   BALL_M_BLACK,

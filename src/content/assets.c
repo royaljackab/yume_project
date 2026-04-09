@@ -31,6 +31,12 @@ void AssetsLoad() {
       LoadTexture("../Assets/Sprites/hitbox.png");
       textures[TH14_OTHER] = LoadTexture("../Assets/Sprites/th14_other_sprites.png");
 
+    //Combos
+    textures[COMBO_1] = LoadTexture("../Assets/Sprites/combo/1.png");
+    textures[COMBO_2] = LoadTexture("../Assets/Sprites/combo/2.png");
+    textures[COMBO_3] = LoadTexture("../Assets/Sprites/combo/3.png");
+    textures[COMBO_4] = LoadTexture("../Assets/Sprites/combo/4.png");
+    textures[COMBO_5] = LoadTexture("../Assets/Sprites/combo/5.png");
 
     // Backgrounds
     textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
@@ -111,11 +117,34 @@ void SpritesLoad() {
     Sprite_set_texture(&sprites[BOSS_INDICATOR], 0, TH14_OTHER);
     Sprite_set_SourceRect(&sprites[BOSS_INDICATOR], 213, 2169, 42, 16);
 
-
+    CombosSpritesLoad();
     BulletsSpritesLoad();
     BgSpritesLoad();
     EffectsLoad();
 }
+
+void CombosSpritesLoad(){
+  Sprite_set_texture(&sprites[COMBO_1], 0, COMBO_1_SHEET);
+  Sprite_set_SourceRect(&sprites[COMBO_1], 0, 0, 64, 32);
+  Sprite_set_animation(&sprites[COMBO_1], 2, 20);
+
+  Sprite_set_texture(&sprites[COMBO_2], 0, COMBO_2_SHEET);
+  Sprite_set_SourceRect(&sprites[COMBO_2], 0, 0, 64, 32);
+  Sprite_set_animation(&sprites[COMBO_2], 2, 20);
+
+  Sprite_set_texture(&sprites[COMBO_3], 0, COMBO_3_SHEET);
+  Sprite_set_SourceRect(&sprites[COMBO_3], 0, 0, 64, 32);
+  Sprite_set_animation(&sprites[COMBO_3], 2, 20);
+
+  Sprite_set_texture(&sprites[COMBO_4], 0, COMBO_4_SHEET);
+  Sprite_set_SourceRect(&sprites[COMBO_4], 0, 0, 64, 32);
+  Sprite_set_animation(&sprites[COMBO_4], 2, 20);
+
+  Sprite_set_texture(&sprites[COMBO_5], 0, COMBO_5_SHEET);
+  Sprite_set_SourceRect(&sprites[COMBO_5], 0, 0, 64, 32);
+  Sprite_set_animation(&sprites[COMBO_5], 2, 20);
+}
+
 
 void BgSpritesLoad() {
   Sprite_set_texture(&sprites[BG_MORIYA_FLOWERS], RENDER_PRIO_BG, BG_SC_FLOWERS);
