@@ -10,7 +10,9 @@
 #include "core/input.h"
 #include <raylib.h>
 #include <stdio.h>
+#include "core/highscore.h"
 
+    
 static int timer = 0;
 
 void state_victory_init(GameContext *ctx) {
@@ -43,6 +45,12 @@ void state_victory_draw(GameContext *ctx) {
     DrawText(score_text,
              cx - MeasureText(score_text, 30) / 2,
              340, 30, WHITE);
+
+    if (update_highscore(ctx->score.score)) { //affiche le message de nouveau record
+        DrawText("Nouveau highscore !",
+                 cx - MeasureText("Nouveau highscore !", 30) / 2,
+                 360, 30, YELLOW);
+    }
 
     if (timer > 60) {
         DrawText("Appuyer sur Espace pour revenir au menu",

@@ -218,7 +218,7 @@ void state_moonlight_update(GameContext *ctx) {
 
 void state_moonlight_draw(GameContext *ctx) {
     
-    // ETAPE 1 : PREPARER LE DECOR (Sur la toile virtuelle)
+    // DECORS
     BeginTextureMode(screen_target);
         ClearBackground(BLANK); 
         BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
@@ -228,22 +228,17 @@ void state_moonlight_draw(GameContext *ctx) {
     EndTextureMode();
 
 
-    // ETAPE 2 : LE FOND UI
+    // FOND UI
     ClearBackground(BLACK); 
     HUD_draw_background(); 
 
-
-    // ETAPE 3 : LE CACHE NOIR (Sauve les couleurs !)
     DrawRectangle(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT, BLACK);
 
 
-    // =======================================================
-    // ETAPE 4 : LE JEU ET LE SHADER STRICTEMENT CONFINÉS
-    // =======================================================
-    // On active les "ciseaux" spatiaux
+    // JEU ET SHADER
     BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
 
-        // 4A. On dessine la distorsion (elle sera coupée net aux bords du panel)
+        // Distorsion
         BeginShaderMode(lens_shader);
             SetShaderValue(lens_shader, center_loc, &lens_center, SHADER_UNIFORM_VEC2);
             SetShaderValue(lens_shader, radius_loc, &lens_radius, SHADER_UNIFORM_FLOAT);
@@ -253,15 +248,15 @@ void state_moonlight_draw(GameContext *ctx) {
             DrawTextureRec(screen_target.texture, sourceRec, (Vector2){ 0, 0 }, WHITE);
         EndShaderMode();
 
-        // 4B. On dessine les entités par-dessus
+        // Jeu
         Sprite_draw_range(ctx->pool, 0, 100);
         draw_all_loose_lasers(&ctx->pool->looseLaser, &ctx->pool->position); 
         straight_lasers_draw_all(&ctx->pool->straightLaser, &ctx->pool->position, &ctx->pool->sprite); 
 
-    // Fin de la zone de confinement
     EndScissorMode();
 
-    // ETAPE 5 : LES TEXTES DU HUD
+
+    // HUD textes
     HUD_draw_foreground(ctx, "Stage 1 - Moonlight");
     bossbar_draw_all(ctx->pool);
 }
