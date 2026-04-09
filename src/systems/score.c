@@ -27,6 +27,18 @@ extern void score_increase(ScoreSystem *scoreSystem, unsigned int amount){
         scoreSystem->score = scoreSystem->maxScore;
     }
 }
+extern void score_decrease(ScoreSystem *scoreSystem, unsigned int amount){
+/** @brief enleve amount du score du joueur sans le descendre sous 0. (amount est positif)
+ * @param scoreSystem Le système de score
+ * @param amount La quantité à ajouter au score
+ */
+    scoreSystem->score -= amount;
+    if(scoreSystem->score < 0){ //min score = 0
+        scoreSystem->score = 0;
+    }
+}
+
+
 
 unsigned int score_system_get_highscore(ScoreSystem *score){
 /** @brief Récupère le highscore du système de score (prend en compte le cas ou le score > last_high_score)
@@ -105,10 +117,3 @@ SpriteID get_combo_sprite(ScoreSystem *scoreSystem){
 }
 
 
-extern void score_decrease(ScoreSystem *scoreSystem, unsigned int amount){
-    //enleve amount du score du joueur sans le descendre sous 0. (amount est positif)
-    scoreSystem->score -= amount;
-    if(scoreSystem->score < 0){ //min score = 0
-        scoreSystem->score = 0;
-    }
-}
