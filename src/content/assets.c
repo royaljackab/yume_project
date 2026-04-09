@@ -29,6 +29,7 @@ void AssetsLoad() {
       LoadTexture("../Assets/Sprites/reimu_spritesheet.png");
   textures[HITBOX_SPRITESHEET] = 
       LoadTexture("../Assets/Sprites/hitbox.png");
+      textures[TH14_OTHER] = LoadTexture("../Assets/Sprites/th14_other_sprites.png");
 
 
     // Backgrounds
@@ -37,6 +38,7 @@ void AssetsLoad() {
     textures[BG_PANEL] = LoadTexture("../Assets/Sprites/bg/UI_game_full.jpg");
     textures[TEX_BG_TORII] = LoadTexture("../Assets/Sprites/bg/bg_sc_torii.jpg");
     textures[TEX_BG_MATH] = LoadTexture("../Assets/Sprites/bg/bg_sc_ov_math.png");
+    textures[TH14_STG4] = LoadTexture("../Assets/Sprites/bg/stg4_bg.png");
     
     SetTextureWrap(textures[TEX_BG_MATH], TEXTURE_WRAP_REPEAT);
     SetTextureWrap(textures[BG_SC_OV_CIRCLES], TEXTURE_WRAP_REPEAT);
@@ -105,6 +107,9 @@ void SpritesLoad() {
     Sprite_set_texture(&sprites[HITBOX], 11, HITBOX_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[HITBOX], 0, 0, 64, 64);
     Sprite_set_rotation(&sprites[HITBOX], 0);
+
+    Sprite_set_texture(&sprites[BOSS_INDICATOR], 0, TH14_OTHER);
+    Sprite_set_SourceRect(&sprites[BOSS_INDICATOR], 213, 2169, 42, 16);
 
 
     BulletsSpritesLoad();

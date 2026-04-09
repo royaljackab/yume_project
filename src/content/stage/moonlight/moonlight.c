@@ -24,6 +24,8 @@
 #include "spellcards/poincarre_recurrence.h"
 #include "spellcards/brouwer_fixed_point.h"
 
+#include "moonlight_bg.h"
+
 #include <raylib.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -36,7 +38,6 @@ static int center_loc, radius_loc, strength_loc;
 static Vector2 lens_center = {0,0};
 static float lens_radius = 0;
 static float lens_strength = 0;
-
 
 static
 int frames = 0;
@@ -78,23 +79,14 @@ TASK(movement, {GameContext *ctx; Entity boss; }) {
 }
 
 TASK(main_attack, {GameContext *ctx;}) {
-    Entity boss = Enemy_spawn(ARGS.ctx->pool, 20, 20, 0, 0, 200, 3, 1, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
-    obj_SetTag(ARGS.ctx->pool, boss, ENT_BOSS);
-    TASK_BIND(boss);
-
-    INVOKE_SUBTASK(boss_particle_spawner, ARGS.ctx->pool, boss);
+    Entity boss = Boss_spawn(ARGS.ctx->pool, 10, 10, 200, 20, 200000, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
     WAIT(120);
-    INVOKE_SUBTASK(boss_pentagram_effect, ARGS.ctx->pool, boss);
-    INVOKE_SUBTASK(boss_distortion_effect, ARGS.ctx->pool, boss, &lens_center, &lens_radius, &lens_strength);
-    INVOKE_SUBTASK(boss_orb_effect, ARGS.ctx->pool, boss);
-    WAIT(80);
+    Boss_fight_begin(ARGS.ctx->pool, boss, &lens_center, &lens_radius, &lens_strength);
 
     invoke_spellcard_background(ARGS.ctx->pool);
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
-
-
 
     obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
     obj_SetLife(ARGS.ctx->pool, boss, 500);
@@ -117,6 +109,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
 
+    moonlight_bg_set_mode(true);
     CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
     BoxedTask spell_1_box = cotask_box(spell_1);
 
@@ -132,6 +125,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
     WAIT(60);
 
+    moonlight_bg_set_mode(false);
     CoTask *nonspell_2 = INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss);
     BoxedTask nonspell_2_box = cotask_box(nonspell_2);
 
@@ -147,6 +141,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
 
+    moonlight_bg_set_mode(true);
     CoTask *spell_2 = INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss, 10, 3.5, 100);
     BoxedTask spell_2_box = cotask_box(spell_2);
 
@@ -188,6 +183,8 @@ void state_moonlight_init(GameContext *ctx) {
     center_loc = GetShaderLocation(lens_shader, "center");
     radius_loc = GetShaderLocation(lens_shader, "radius");
     strength_loc = GetShaderLocation(lens_shader, "strength");
+
+    moonlight_bg_init();
 }
 
 void state_moonlight_update(GameContext *ctx) {
@@ -198,6 +195,8 @@ void state_moonlight_update(GameContext *ctx) {
         gamestate_change_state(ctx, STATE_GAME_OVER);
         return;
     }
+
+    moonlight_bg_update(frames);
 
     cosched_run_tasks(&ctx->sched);
 
@@ -223,7 +222,8 @@ void state_moonlight_draw(GameContext *ctx) {
     BeginTextureMode(screen_target);
         ClearBackground(BLANK); 
         BeginScissorMode(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT);
-            Sprite_draw_range(ctx->pool, -50, -1); 
+            // Sprite_draw_range(ctx->pool, -50, -1); 
+            moonlight_bg_draw(ctx);
         EndScissorMode();
     EndTextureMode();
 
@@ -257,14 +257,13 @@ void state_moonlight_draw(GameContext *ctx) {
         Sprite_draw_range(ctx->pool, 0, 100);
         draw_all_loose_lasers(&ctx->pool->looseLaser, &ctx->pool->position); 
         straight_lasers_draw_all(&ctx->pool->straightLaser, &ctx->pool->position, &ctx->pool->sprite); 
-        bossbar_draw_all(ctx->pool);
 
     // Fin de la zone de confinement
     EndScissorMode();
 
-
     // ETAPE 5 : LES TEXTES DU HUD
     HUD_draw_foreground(ctx, "Stage 1 - Moonlight");
+    bossbar_draw_all(ctx->pool);
 }
 
 void state_moonlight_cleanup(GameContext *ctx) {

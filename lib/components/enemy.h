@@ -17,19 +17,6 @@
 
 typedef struct Pool Pool;
 
-// /**
-//  * @brief Type d'ennemi
-//  */
-// typedef enum {
-//     ENEMY_TYPE_BLUE_FAIRY,       /**< Petite fée */
-//     ENEMY_TYPE_RED_FAIRY,   /**< Papillon */
-//     ENEMY_TYPE_GREEN_FAIRY,
-//     ENEMY_TYPE_BLACK_BLONDE_FAIRY,
-//     ENEMY_TYPE_PURPLE_FAIRY,
-//     ENEMY_TYPE_SUNFLOWER_FAIRY,    /**< Grande fée */
-//     ENEMY_TYPE_EVIL_FAIRY
-// } EnemyType;
-
 /**
  * @brief Composant ennemi
  *
@@ -37,7 +24,6 @@ typedef struct Pool Pool;
  * Les données de vie, hitbox et physique sont dans leurs composants respectifs.
  */
 typedef struct {
-    // EnemyType type; /**< Type de l'ennemi */
     unsigned int score; /**< Score à attribuer au joueur lors de la destruction de cet ennemi */
 } Enemy;
 
