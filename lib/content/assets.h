@@ -4,6 +4,7 @@
 #include <raymath.h>
 
 #include "components/sprite.h"
+#include "systems/screen.h"
 
 #define RENDER_PRIO_BG -50
 #define RENDER_PRIO_PLAYER 10
@@ -35,6 +36,7 @@ typedef enum {
 
   BG_SC_FLOWERS,
   BG_SC_OV_CIRCLES,
+  BG_SC_MAIN,
   BG_PANEL,
   TEX_BG_TORII,
   TEX_BG_MATH,
@@ -374,6 +376,7 @@ typedef enum {
 
   BG_MORIYA_FLOWERS,
   BG_MORIYA_CIRCLES,
+  BG_MAIN,
   BG_PANEL_SPRITE,
   BG_SC_TORII,
   BG_SC_OV_MATH,
@@ -401,6 +404,8 @@ void BgSpritesLoad();
 void EffectsLoad();
 extern void SpritesLoad();
 void EnemiesSpritesLoad();
+extern Entity invoke_main_background(Pool *p, ScreenSystem *screen);
+void FontsLoad();
 
 extern Texture2D textures[MAX_TEXTURES];
 extern Sprite sprites[MAX_SPRITES];
@@ -423,5 +428,11 @@ typedef enum {
     MAX_SFX
 } SFXID;
 
+typedef enum{
+  TOUHOU_98,
+  MAX_FONTS
+} FontID;
+
 extern Sound sfx[MAX_SFX];
+extern Font fonts[MAX_FONTS];
 
