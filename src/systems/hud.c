@@ -1,6 +1,6 @@
 /**
  * @file hud.c
- * @brief Implémentation du HUD (Heads-Up Display)
+ * @brief Implémentation du HUD (Heads Up Display)
  *
  * @author @amyelalem
  */
