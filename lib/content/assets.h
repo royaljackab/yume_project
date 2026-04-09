@@ -31,9 +31,16 @@ typedef enum {
   HITBOX_SPRITESHEET,
   TH14_OTHER,
   TH14_STG4,
-  
-  // ------ BACKGROUNDS
 
+  //combos
+  COMBO_1_SHEET,
+  COMBO_2_SHEET,
+  COMBO_3_SHEET,
+  COMBO_4_SHEET,
+  COMBO_5_SHEET,
+  
+  GREEN_ARROW_SPRITE,
+  // ------ BACKGROUNDS
   BG_SC_FLOWERS,
   BG_SC_OV_CIRCLES,
   BG_SC_MAIN,
@@ -57,6 +64,13 @@ typedef enum {
   REIMU_PINK_AMULET,
 
   HITBOX,
+  
+  //COMBOS
+  COMBO_1,
+  COMBO_2,
+  COMBO_3,
+  COMBO_4,
+  COMBO_5,
 
   //BULLETS -----------------------------------
   BALL_M_BLACK,
@@ -170,6 +184,7 @@ typedef enum {
   KUNAI_GOLD,
   KUNAI_WHITE,
 
+  GREEN_ARROW,
   // ------ SHARDS
   SHARD_BLACK,
   SHARD_RED,
@@ -405,6 +420,7 @@ void BgSpritesLoad();
 void EffectsLoad();
 extern void SpritesLoad();
 void EnemiesSpritesLoad();
+void CombosSpritesLoad();
 extern Entity invoke_main_background(Pool *p, ScreenSystem *screen);
 void FontsLoad();
 

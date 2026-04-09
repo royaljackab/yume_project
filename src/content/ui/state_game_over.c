@@ -19,6 +19,10 @@
 static int timer = 0;
 
 void state_game_over_init(GameContext *ctx) {
+/**
+ * @param ctx Le contexte du jeu
+ * @brief Initialise l'état de fin de partie
+ */
     StopMusicStream(playlist[BGM_MORIYA_THEME]);
     PlayMusicStream(playlist[BGM_WAITING]);
 
@@ -38,7 +42,7 @@ void state_game_over_init(GameContext *ctx) {
     timer = 0;
     FontsLoad();
 }
-
+ 
 void state_game_over_update(GameContext *ctx) {
     timer++;
     /* Appuyer sur Espace après 1 seconde pour retourner au menu */
@@ -53,6 +57,11 @@ void state_game_over_update(GameContext *ctx) {
 }
 
 void state_game_over_draw(GameContext *ctx) {
+/**
+ * @brief Dessine l'écran de fin de partie (défaite)
+ * @param ctx Le contexte du jeu
+ */
+
     ClearBackground(BLACK);
     Sprite_draw_range(ctx->pool, -50, -1);
 
@@ -68,7 +77,7 @@ void state_game_over_draw(GameContext *ctx) {
              cx - MeasureText(score_text, 30) / 2,
              320, 30, WHITE);
 
-    if (update_highscore(ctx->score.score)) { //affiche le message de nouveau record
+    if (score_system_is_new_highscore(&ctx->score)) { //affiche le message de nouveau record
         DrawText("Nouveau highscore !",
                  cx - MeasureText("Nouveau highscore !", 30) / 2,
                  360, 30, YELLOW);
@@ -83,6 +92,12 @@ void state_game_over_draw(GameContext *ctx) {
 }
 
 void state_game_over_cleanup(GameContext *ctx) {
+/**
+ * @brief Nettoie l'état de fin de partie en cas de défaite (enregistre le highscore)
+ * @param ctx Le contexte du jeu
+ */
+    update_highscore(ctx->score.score); // Met à jour le highscore si nécessaire
+    (void)ctx;
     cosched_finish(&ctx->sched);
     free(ctx->pool);
 }

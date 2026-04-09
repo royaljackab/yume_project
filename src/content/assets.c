@@ -51,6 +51,14 @@ void AssetsLoad() {
       LoadTexture("../Assets/Sprites/hitbox.png");
       textures[TH14_OTHER] = LoadTexture("../Assets/Sprites/th14_other_sprites.png");
 
+    //Combos
+    textures[COMBO_1_SHEET] = LoadTexture("../Assets/Sprites/combo/1.png");
+    textures[COMBO_2_SHEET] = LoadTexture("../Assets/Sprites/combo/2.png");
+    textures[COMBO_3_SHEET] = LoadTexture("../Assets/Sprites/combo/3.png");
+    textures[COMBO_4_SHEET] = LoadTexture("../Assets/Sprites/combo/4.png");
+    textures[COMBO_5_SHEET] = LoadTexture("../Assets/Sprites/combo/5.png");
+
+    textures[GREEN_ARROW_SPRITE] = LoadTexture("../Assets/Sprites/green_arrow.png");
 
     // Backgrounds
     textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
@@ -132,16 +140,56 @@ void SpritesLoad() {
     Sprite_set_texture(&sprites[BOSS_INDICATOR], 0, TH14_OTHER);
     Sprite_set_SourceRect(&sprites[BOSS_INDICATOR], 213, 2169, 42, 16);
 
+    
     Sprite_set_texture(&sprites[HIT_ORB], RENDER_PRIO_PLAYER, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[HIT_ORB], 566, 336, 30, 30);
 
     Sprite_set_texture(&sprites[SPELL_CARD_ATTACK], 90, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[SPELL_CARD_ATTACK], 337, 386, 98, 13);
 
+
+    CombosSpritesLoad();
     BulletsSpritesLoad();
     BgSpritesLoad();
     EffectsLoad();
 }
+
+void CombosSpritesLoad(){
+  int nb_frames = 3;
+  int taille = 16;
+  float scale = 1.5f;
+  int anim_speed = 10;
+  Sprite_set_texture(&sprites[COMBO_1], 0, COMBO_1_SHEET);
+  Sprite_set_SourceRect(&sprites[COMBO_1], 0, 0, taille * nb_frames, taille);
+  Sprite_set_animation(&sprites[COMBO_1], nb_frames, anim_speed);
+  sprites[COMBO_1].scale.x *= scale;
+  sprites[COMBO_1].scale.y *= scale; 
+
+  Sprite_set_texture(&sprites[COMBO_2], 0, COMBO_2_SHEET);
+  Sprite_set_SourceRect(&sprites[COMBO_2], 0, 0, taille * nb_frames, taille);
+  Sprite_set_animation(&sprites[COMBO_2], nb_frames, anim_speed);
+  sprites[COMBO_2].scale.x *= scale;
+  sprites[COMBO_2].scale.y *= scale;
+
+  Sprite_set_texture(&sprites[COMBO_3], 0, COMBO_3_SHEET);
+  Sprite_set_SourceRect(&sprites[COMBO_3], 0, 0, taille * nb_frames, taille);
+  Sprite_set_animation(&sprites[COMBO_3], nb_frames, anim_speed);
+  sprites[COMBO_3].scale.x *= scale;
+  sprites[COMBO_3].scale.y *= scale;
+
+  Sprite_set_texture(&sprites[COMBO_4], 0, COMBO_4_SHEET);
+  Sprite_set_SourceRect(&sprites[COMBO_4], 0, 0, taille * nb_frames, taille);
+  Sprite_set_animation(&sprites[COMBO_4], nb_frames, anim_speed);
+  sprites[COMBO_4].scale.x *= scale;
+  sprites[COMBO_4].scale.y *= scale;
+
+  Sprite_set_texture(&sprites[COMBO_5], 0, COMBO_5_SHEET);
+  Sprite_set_SourceRect(&sprites[COMBO_5], 0, 0, taille * nb_frames, taille);
+  Sprite_set_animation(&sprites[COMBO_5], nb_frames, anim_speed);
+  sprites[COMBO_5].scale.x *= scale;
+  sprites[COMBO_5].scale.y *= scale;
+}
+
 
 void BgSpritesLoad() {
   Sprite_set_texture(&sprites[BG_MORIYA_FLOWERS], RENDER_PRIO_BG, BG_SC_FLOWERS);
@@ -170,6 +218,10 @@ void EffectsLoad() {
 
   Sprite_set_texture(&sprites[BOSS_AURA_ORB], 0, BULLET_SPRITESHEET);
   Sprite_set_SourceRect(&sprites[BOSS_AURA_ORB], 32, 32, 225, 225);
+
+  Sprite_set_texture(&sprites[GREEN_ARROW], 0, GREEN_ARROW_SPRITE);
+  Sprite_set_SourceRect(&sprites[GREEN_ARROW], 0, 0, 16, 16);
+
 }
 
 //CLANKER GPT CORE

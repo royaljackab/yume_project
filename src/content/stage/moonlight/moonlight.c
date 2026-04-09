@@ -119,6 +119,8 @@ TASK(main_attack, {GameContext *ctx;}) {
     
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
+    update_combo(&ARGS.ctx->score);
+
     moonlight_bg_set_mode(true);
     INVOKE_SUBTASK(spellcard_bg_anim, ARGS.ctx->pool, 120);
     WAIT(120);
@@ -137,6 +139,7 @@ TASK(main_attack, {GameContext *ctx;}) {
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
     WAIT(60);
+    update_combo(&ARGS.ctx->score);
 
     moonlight_bg_set_mode(false);
     CoTask *nonspell_2 = INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss);
@@ -153,6 +156,7 @@ TASK(main_attack, {GameContext *ctx;}) {
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
+    update_combo(&ARGS.ctx->score);
 
     moonlight_bg_set_mode(true);
     CoTask *spell_2 = INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss, 10, 3.5, 100);
@@ -163,7 +167,6 @@ TASK(main_attack, {GameContext *ctx;}) {
     }
     CANCEL_TASK(spell_2_box);
     Bullet_clear_bullets(ARGS.ctx->pool);
-
 
     gamestate_change_state(ARGS.ctx, STATE_VICTORY);
     STALL;

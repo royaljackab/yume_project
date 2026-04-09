@@ -8,7 +8,8 @@
 #define PREFIX "highscore="
 
 int update_highscore(unsigned int score) {
-/** Change le highscore si le score actuel est supérieur au highscore enregistré. Retourne 1 si le highscore a été mis à jour, sinon 0.
+/** @brief Change le highscore si le score actuel est supérieur au highscore enregistré. Retourne 1 si le highscore a été mis à jour, sinon 0.
+ * @param score Le score à vérifier / enregistrer
  * */
 
     unsigned int currentHighscore = get_highscore();
@@ -20,8 +21,8 @@ int update_highscore(unsigned int score) {
 
 
 int save_highscore(unsigned int score) {
-/** Enregistre le score dans un fichier texte. Retourne 1 si l'enregistrement a réussi, sinon 0. 
-*
+/** @brief Enregistre le score dans un fichier texte. Retourne 1 si l'enregistrement a réussi, sinon 0. 
+* @param score Le score à enregistrer
 */ 
     FILE *file = fopen(FILENAME, "w");
     if (!file) {
@@ -34,8 +35,8 @@ int save_highscore(unsigned int score) {
 
 
 unsigned int get_highscore() {
-/** Récupère le score highscore depuis un fichier texte. Retourne 0 si le fichier n'existe pas ou en cas d'erreur (réinitialisation/initialisation du score). 
-*
+/** @brief Récupère le score highscore depuis un fichier texte.  
+* @return Retourne 0 si le fichier n'existe pas ou en cas d'erreur (réinitialisation/initialisation du score).
 */ 
   FILE *file = fopen(FILENAME, "r");
   unsigned int highscore = 0;
@@ -47,6 +48,7 @@ unsigned int get_highscore() {
   fclose(file);
   
   char highscore_text[64];
+  sprintf(highscore_text, "%u", highscore);
   return highscore;
 
 }
