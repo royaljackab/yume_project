@@ -1,6 +1,7 @@
 #include "systems/score.h"
 #include "pool.h"
 #include "game_state.h"
+#include "highscore.h"
 
 #define POINTS_PER_COMBO 4000
 

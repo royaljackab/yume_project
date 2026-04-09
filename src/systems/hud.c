@@ -88,7 +88,7 @@ void HUD_draw_foreground(GameContext *ctx, const char *stage_name) {
     char score_text[30];
     sprintf(score_text, "SCORE   %09d", ctx->score.score);
     DrawText(score_text, cx, cy, 20, HUD_VALUE_COL);
-    draw_combo_sprite(&ctx->score, cx, cy);
+    draw_combo_sprite(&ctx->score, cx + MeasureText(score_text, 20) + 5, cy);
     cy += 35;
 
     /* Graze */

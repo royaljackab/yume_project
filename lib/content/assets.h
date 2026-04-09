@@ -415,6 +415,7 @@ void BgSpritesLoad();
 void EffectsLoad();
 extern void SpritesLoad();
 void EnemiesSpritesLoad();
+void CombosSpritesLoad();
 
 extern Texture2D textures[MAX_TEXTURES];
 extern Sprite sprites[MAX_SPRITES];

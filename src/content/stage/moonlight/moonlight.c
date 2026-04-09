@@ -102,7 +102,7 @@ TASK(main_attack, {GameContext *ctx;}) {
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
     WAIT(60);
-    update_combo(ARGS.ctx);
+    update_combo(&ARGS.ctx->score);
 
     CoTask *attack_1 = INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss);
     BoxedTask attack_1_box = cotask_box(attack_1);
@@ -119,7 +119,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
 
-    update_combo(ARGS.ctx);
+    update_combo(&ARGS.ctx->score);
 
     moonlight_bg_set_mode(true);
     CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
@@ -137,7 +137,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
     WAIT(60);
 
-    update_combo(ARGS.ctx);
+    update_combo(&ARGS.ctx->score);
 
     moonlight_bg_set_mode(false);
     CoTask *nonspell_2 = INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss);
@@ -154,7 +154,7 @@ TASK(main_attack, {GameContext *ctx;}) {
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     WAIT(60);
-    update_combo(ARGS.ctx);
+    update_combo(&ARGS.ctx->score);
 
     moonlight_bg_set_mode(true);
     CoTask *spell_2 = INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss, 10, 3.5, 100);

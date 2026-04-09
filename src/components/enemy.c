@@ -12,7 +12,7 @@
 #include "components/physics.h"
 #include "components/sprite.h"
 #include "components/collision_entity.h"
-
+#include "flags.h"
 
 #include <stdio.h>
 #include "content/assets.h"
@@ -69,7 +69,7 @@ Entity Enemy_spawn_score_decrease(Pool *p, float x, float y, float speed, float 
  * @return L'entité de l'ennemi spawné
  */
     Entity e = Enemy_spawn(p, x, y, speed, angle, 1, hitboxRadius, score, graphic);
-    Entity_add_flag(p, e, FLAG_DECREASE_SCORE);
+    flagList_add_element(flagList_get(&p->flagList, e), FLAG_DECREASE_SCORE);
     return e;    
 }
 
