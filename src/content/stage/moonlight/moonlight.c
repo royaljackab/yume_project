@@ -181,8 +181,9 @@ void state_moonlight_init(GameContext *ctx) {
     
     // Change the beat bruv
     StopMusicStream(playlist[BGM_WAITING]);
-    SetMusicVolume(playlist[BGM_FAST_DANGER], ctx->volume_bgm);
     PlayMusicStream(playlist[BGM_MORIYA_THEME]);
+
+    FontsLoad();
 
     pool_init(ctx->pool);
     score_system_init(&ctx->score);

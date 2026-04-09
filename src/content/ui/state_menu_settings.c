@@ -8,15 +8,20 @@
 #include "core/settings.h"
 #include "content/assets.h"
 #include "systems/button.h"
+#include "components/background.h"
+#include "core/coroutine/tasks.h"
 #include <raylib.h>
 #include <raymath.h>
 
+#include <stdio.h>
+
+/* --- Enum des boutons --- */
 typedef enum {
   BTN_VOLUME_BGM = 0,
   BTN_VOLUME_SFX,
   BTN_RESOLUTION,
-  BTN_KEYBINDS,
   BTN_ENREGISTRER,
+  BTN_KEYBINDS,
   BTN_RETOUR,
   NB_BTN_SETTINGS
 } SettingsBtn;
@@ -45,17 +50,29 @@ static void dessiner_barre_volume(float valeur, int x, int y, Color couleur) {
 }
 
 void state_menu_settings_init(GameContext *ctx) {
+  ctx->pool = malloc(sizeof(Pool));
+  if (!ctx->pool) {
+      printf("FATAL ERROR: menu_settings pool allocation failed\n");
+      return;
+  }
+
+  pool_init(ctx->pool);
+  cosched_init(&ctx->sched, ctx->pool);
   button_system_init(&ctx->button);
-  res_ouvert = 0;
-  res_sel = 0;
 
-  button_create(&ctx->button, 50, 200);  /* BTN_VOLUME_BGM  */
-  button_create(&ctx->button, 50, 340);  /* BTN_VOLUME_SFX  */
-  button_create(&ctx->button, 50, 480);  /* BTN_RESOLUTION  */
-  button_create(&ctx->button, 50, 520);  /* BTN_KEYBINDS    */
-  button_create(&ctx->button, 50, 560);  /* BTN_ENREGISTRER */
-  button_create(&ctx->button, 50, 600);  /* BTN_RETOUR      */
+  /* Create background */
+  Entity bg = invoke_main_background(ctx->pool, &ctx->screen);
+  (void)bg; /* Background entity for future use */
 
+  /* Positions Y de chaque option */
+  button_create(&ctx->button, 50, 200);  /* BTN_VOLUME_BGM */
+  button_create(&ctx->button, 50, 340);  /* BTN_VOLUME_SFX */
+  button_create(&ctx->button, 50, 440);  /* BTN_RESOLUTION  */
+  button_create(&ctx->button, 50, 500);  /* BTN_ENREGISTRER */
+  button_create(&ctx->button, 50, 570);  /* BTN_KEYBINDS   */
+  button_create(&ctx->button, 50, 620);  /* BTN_RETOUR      */
+
+  FontsLoad();
   audio_appliquer_volumes(ctx);
 }
 
@@ -115,6 +132,7 @@ void state_menu_settings_update(GameContext *ctx) {
       break;
     case BTN_ENREGISTRER:
       saveSettings(ctx);
+      PlaySound(sfx[SFX_MENU_NAV]);
       break;
     case BTN_RETOUR:
       gamestate_change_state(ctx, STATE_MENU_TITLE);
@@ -123,11 +141,20 @@ void state_menu_settings_update(GameContext *ctx) {
       break;
     }
   }
+
+  Background_update_all(ctx->pool);
+
+  /* en dernier par sécurité */
+  pool_kill_convicts(ctx->pool);
 }
 
 void state_menu_settings_draw(GameContext *ctx) {
   ClearBackground(BLACK);
-  DrawText("REGLAGES", 50, 60, 70, RED);
+  Sprite_draw_range(ctx->pool, -50, -1);
+
+  
+  Vector2 vect = {50, 60};
+  DrawTextEx(fonts[TOUHOU_98],"REGLAGES", vect , 50, 3 ,RED);
 
   int sel = button_get_current_buttonID(&ctx->button);
 
@@ -164,20 +191,20 @@ void state_menu_settings_draw(GameContext *ctx) {
     return;
   }
 
-  /* --- Controles clavier --- */
-  button_draw_button_text(&ctx->button, BTN_KEYBINDS,
-    "Controles clavier", 40,
-    (sel == BTN_KEYBINDS) ? YELLOW : GRAY);
-
   /* --- Enregistrer --- */
   button_draw_button_text(&ctx->button, BTN_ENREGISTRER,
     "Enregistrer", 40,
     (sel == BTN_ENREGISTRER) ? YELLOW : GRAY);
 
+  /* --- Controles clavier --- */
+  button_draw_button_text_touhou98(&ctx->button, BTN_KEYBINDS,
+    "Controles clavier", 30,
+    (sel == BTN_KEYBINDS) ? YELLOW : WHITE);
+
   /* --- Retour --- */
-  button_draw_button_text(&ctx->button, BTN_RETOUR,
-    "Retour", 40,
-    (sel == BTN_RETOUR) ? YELLOW : GRAY);
+  button_draw_button_text_touhou98(&ctx->button, BTN_RETOUR,
+    "Retour", 30,
+    (sel == BTN_RETOUR) ? YELLOW : WHITE);
 
   /* Curseur * */
   button_draw_selector_text(&ctx->button, -35, 0, "*", 40, YELLOW);
@@ -187,6 +214,8 @@ void state_menu_settings_draw(GameContext *ctx) {
 }
 
 void state_menu_settings_cleanup(GameContext *ctx) {
+  cosched_finish(&ctx->sched);
+  free(ctx->pool);
   (void)ctx;
 }
 
