@@ -13,6 +13,7 @@
 #include "content/assets.h"
 #include "core/game_state.h"
 #include "core/input.h"
+#include "flags.h"
 #include "screen.h"
 #include "systems/obj.h"
 
@@ -159,22 +160,6 @@ void Player_focus(InputSystem *input, Pool *p, Entity player) {
         hitboxSprite->display = false;
         hitboxSprite->color.a = Clamp(hitboxSprite->color.a - 40, 0, 255);
     }
-
-    
-
-
-//       if (isPressed(ctx->input.focus)) {
-//     playerSprites[HITBOX].color.a = 0;
-//   }
-//   if (isDown(ctx->input.focus)) {
-//     speed = player.focusSpeed;
-//     playerSprites[HITBOX].color.a =
-//         Clamp(playerSprites[HITBOX].color.a + 40, 0, 255);
-//   }
-//   if (isReleased(ctx->input.focus)) {
-//     playerSprites[HITBOX].color.a =
-//         Clamp(playerSprites[HITBOX].color.a - 40, 0, 255);
-//   }
 }
 
 void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
@@ -329,3 +314,7 @@ extern Collision_circle * Player_get_collision(Pool *p, Player player){
   return &collision_circleManager->dense[lookup];
 }
 
+TASK(player_hit_behavior, {Pool *p; Entity player;}) {
+    obj_AddFlag(ARGS.p, ARGS.player, FLAG_INVINCIBLE);
+    
+}
