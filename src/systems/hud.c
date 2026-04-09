@@ -84,6 +84,18 @@ void HUD_draw_foreground(GameContext *ctx, const char *stage_name) {
     DrawText(score_text, cx, cy, 20, HUD_VALUE_COL);
     cy += 35;
 
+    /* Graze */
+    char graze_text[30];
+    sprintf(graze_text, "Compteur de graze %09d", ctx->score.graze);
+    DrawText(graze_text, cx, cy, 20, HUD_VALUE_COL);
+    cy += 35;
+
+    /* High score */
+    char high_score_text[30];
+    sprintf(high_score_text, "HIGH SCORE %09d", score_system_get_highscore(&ctx->score));
+    DrawText(high_score_text, cx, cy, 20, HUD_VALUE_COL);
+    cy += 35;
+
     /* Vies : cercles rouges pleins si vie restante, contour sinon */
     DrawText("LIVES", cx, cy, 18, HUD_LABEL_COL);
     for (int i = 0; i < Life_get(&ctx->pool->life, 0)->maxLife; i++) {

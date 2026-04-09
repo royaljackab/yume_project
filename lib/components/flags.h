@@ -21,7 +21,7 @@ typedef enum {
     FLAG_NO_DAMAGE_PLAYER, //n'inflige pas de dégat au joueur
     FLAG_POWERUP,
     FLAG_WALL,
-    FLAG_INVINCIBLE, //et pas omni-man l'équipe
+    FLAG_INVINCIBLE,
 } FlagType;
 
 /* Liste de flags */

@@ -42,7 +42,7 @@ void state_game_over_draw(GameContext *ctx) {
              cx - MeasureText(score_text, 30) / 2,
              320, 30, WHITE);
 
-    if (update_highscore(ctx->score.score)) { //affiche le message de nouveau record
+    if (score_system_is_new_highscore(&ctx->score)) { //affiche le message de nouveau record
         DrawText("Nouveau highscore !",
                  cx - MeasureText("Nouveau highscore !", 30) / 2,
                  360, 30, YELLOW);
@@ -57,6 +57,7 @@ void state_game_over_draw(GameContext *ctx) {
 }
 
 void state_game_over_cleanup(GameContext *ctx) {
+    update_highscore(ctx->score.score); // Met à jour le highscore si nécessaire
     (void)ctx;
 }
 
