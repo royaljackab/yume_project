@@ -15,6 +15,12 @@
 #define DEBUG 0
 
 void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
+/** @brief Définit la texture d'un sprite dans le tableau globale textures[] et initialise avec des valeurs par defaut les champs du sprite
+ * @param sprite Le sprite à modifier
+ * @param renderPriority La priorité de rendu du sprite
+ * @param textureID L'ID de la texture à appliquer
+ */
+
   sprite->textureID = textureID;
   sprite->srcRect =
       (Rectangle){0, 0, textures[textureID].width, textures[textureID].height};

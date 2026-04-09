@@ -18,3 +18,5 @@ extern void score_increase(ScoreSystem *scoreSystem, unsigned int amount);
 unsigned int score_system_get_highscore(ScoreSystem *score);
 int score_system_is_new_highscore(ScoreSystem *score);
 int update_combo(ScoreSystem *scoreSystem);
+SpriteID get_combo_sprite(ScoreSystem *scoreSystem);
+void draw_combo_sprite(ScoreSystem *scoreSystem, int x, int y);

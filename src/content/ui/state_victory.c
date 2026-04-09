@@ -16,11 +16,19 @@
 static int timer = 0;
 
 void state_victory_init(GameContext *ctx) {
+/**
+ * @brief Initialise l'état de victoire
+ * @param ctx Le contexte du jeu
+ */
     timer = 0;
     (void)ctx;
 }
 
 void state_victory_update(GameContext *ctx) {
+/**
+ * @brief Met à jour l'état de victoire
+ * @param ctx Le contexte du jeu
+ */
     timer++;
     if (timer > 60 && IsKeyPressed(ctx->input.keybinds.validate)) {
         gamestate_change_state(ctx, STATE_MENU_TITLE);
@@ -28,6 +36,10 @@ void state_victory_update(GameContext *ctx) {
 }
 
 void state_victory_draw(GameContext *ctx) {
+/**
+ * @brief Dessine l'écran de victoire, est appelé a chaque frame
+ * @param ctx Le contexte du jeu
+ */
     ClearBackground(BLACK);
 
     int cx = PANEL_WIDTH / 2;
@@ -60,6 +72,11 @@ void state_victory_draw(GameContext *ctx) {
 }
 
 void state_victory_cleanup(GameContext *ctx) {
+/**
+ * @brief Nettoie l'état de fin de partie en cas de victoire (enregistre le highscore)
+ * @param ctx Le contexte du jeu
+ */
+    update_highscore(ctx->score.score); // Met à jour le highscore si nécessaire
     (void)ctx;
 }
 

@@ -42,6 +42,8 @@
 #define HUD_BOMB_COL  YELLOW
 
 void HUD_draw_background() {
+/** @brief Dessine l'arrière-plan du HUD
+ */
     // FOND PANEL
     Texture2D panel = textures[BG_PANEL];
     Rectangle src = {0,0,panel.width, panel.height};
@@ -54,6 +56,10 @@ void HUD_draw_background() {
 }
 
 void HUD_draw_foreground(GameContext *ctx, const char *stage_name) {
+/** @brief Dessine le premier plan du HUD (éléments de jeu (pv...), score, etc.)
+ * @param ctx Le contexte du jeu
+ * @param stage_name Le nom du stage actuel
+ */
     Pool *p = ctx->pool;
 
     /* Récupérer les infos du joueur */

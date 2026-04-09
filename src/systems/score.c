@@ -2,6 +2,9 @@
 #include "pool.h"
 #include "game_state.h"
 
+#define POINTS_PER_COMBO 4000
+
+
 extern void score_system_init(ScoreSystem *scoreSystem){
     scoreSystem->score = 0;
     scoreSystem->graze = 0;
@@ -15,6 +18,10 @@ extern void score_system_init(ScoreSystem *scoreSystem){
 }
 
 extern void score_increase(ScoreSystem *scoreSystem, unsigned int amount){
+/** @brief Augmente le score du système de score
+ * @param scoreSystem Le système de score
+ * @param amount La quantité à ajouter au score
+ */
     scoreSystem->score += amount;
     if(scoreSystem->score > scoreSystem->maxScore){
         scoreSystem->score = scoreSystem->maxScore;
@@ -22,6 +29,10 @@ extern void score_increase(ScoreSystem *scoreSystem, unsigned int amount){
 }
 
 unsigned int score_system_get_highscore(ScoreSystem *score){
+/** @brief Récupère le highscore du système de score (prend en compte le cas ou le score > last_high_score)
+ * @param score Le système de score
+ * @return Le highscore calculé
+ */
     if (score->last_high_score > score->score){
         return score->last_high_score;
     }
@@ -29,6 +40,10 @@ unsigned int score_system_get_highscore(ScoreSystem *score){
 }
 
 int score_system_is_new_highscore(ScoreSystem *score){
+/** @brief Vérifie si le score actuel est un nouveau highscore (score > last_high_score)
+ * @param score Le système de score
+ * @return 1 si c'est un nouveau highscore, 0 sinon
+ */
     if (score->last_high_score <= score->score){
         return 1;
     }
@@ -36,9 +51,14 @@ int score_system_is_new_highscore(ScoreSystem *score){
 }
 
 int update_combo(ScoreSystem *scoreSystem){
+/** @brief Met à jour le combo du système de score. Si le combo est actif, incrémente le combo et retourne 1. Sinon, active le combo, réinitialise le combo à 0 et retourne 0. Octroie les points du combo
+ * @param scoreSystem Le système de score
+ */
+    
     scoreSystem->angleSpriteCombo = GetRandomValue(-40, 40);
     if (scoreSystem->isComboActive){
         scoreSystem->combo++;
+        score_increase(scoreSystem, POINTS_PER_COMBO * scoreSystem->combo * log(scoreSystem->combo));
         return 1;
     }
     scoreSystem->isComboActive = 1;
@@ -47,6 +67,11 @@ int update_combo(ScoreSystem *scoreSystem){
 }
 
 void draw_combo_sprite(ScoreSystem *scoreSystem, int x, int y){
+/** @brief Dessine le sprite de combo en le récuperant via get_combo_sprite(scoreSystem)
+ * @param scoreSystem Le système de score
+ * @param x La position x
+ * @param y La position y
+ */
     SpriteID combo_sprite = get_combo_sprite(scoreSystem);
 
     Position pos = {x, y, scoreSystem->angleSpriteCombo};
@@ -57,6 +82,10 @@ void draw_combo_sprite(ScoreSystem *scoreSystem, int x, int y){
 }
 
 SpriteID get_combo_sprite(ScoreSystem *scoreSystem){
+/** @brief Récupère le sprite de combo en fonction du niveau de combo dans le scoreSystem
+ * @param scoreSystem Le système de score
+ * @return L'ID du sprite de combo correspondant
+ */
     if (scoreSystem->combo >= 5){
         return COMBO_5;
     }
