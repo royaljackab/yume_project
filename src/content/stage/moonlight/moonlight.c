@@ -99,7 +99,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     invoke_spellcard_background(ARGS.ctx->pool);
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
 
-    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
+    // INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
 
     RUN_NONSPELL(ARGS.ctx->pool, boss, 
         INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss), nonspell1, 500);
