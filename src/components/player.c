@@ -336,7 +336,7 @@ extern bool Damage_player(GameContext *ctx, Entity player){
     Life *life = Life_get(&p->life, player);
     if (!life) return false;
 
-    Life_damage(life, 0);
+    Life_damage(life, 1);
     PlaySound(sfx[SFX_PLDEAD00]);
 
     SCHED_INVOKE_TASK(&ctx->sched, player_hit_effect, ctx->pool, player);
