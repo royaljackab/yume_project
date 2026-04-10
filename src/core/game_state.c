@@ -10,78 +10,44 @@
 #include "content/ui/state_game_over.h"
 #include "content/ui/state_victory.h"
 
-// Variable statique pour savoir ce qu'on modifie en pause
-// 0 = BGM, 1 = SFX
 static int pause_selection = 0;
+/* 0 = BGM, 1 = SFX, 2 = Retour au menu */
 
 GameState *get_state_pointer(StateID state) {
-  /***
-   * @return: pointeur vers l'état désigné par state
-   */
-
-  // NOTE: Nouvel état = Nouveau case ici !
   switch (state) {
-  case STATE_MENU_TITLE:
-    return &state_menu_title;
-  case STATE_MENU_KEYBINDS:
-    return &state_menu_keybinds;
-  case STATE_MENU_SETTINGS:
-    return &state_menu_settings;
-  case STATE_MOONLIGHT:
-    return &state_moonlight;
-  case STATE_GAME_OVER:
-    return &state_game_over;
-  case STATE_VICTORY:
-    return &state_victory;
-  
-  default:
-    return 0;
+  case STATE_MENU_TITLE:    return &state_menu_title;
+  case STATE_MENU_KEYBINDS: return &state_menu_keybinds;
+  case STATE_MENU_SETTINGS: return &state_menu_settings;
+  case STATE_MOONLIGHT:     return &state_moonlight;
+  case STATE_GAME_OVER:     return &state_game_over;
+  case STATE_VICTORY:       return &state_victory;
+  default:                  return 0;
   }
 }
 
 void gamestate_initialize(GameContext *ctx, StateID init_state) {
-  /*** Initialise le Game System à un state
-   *
-   */
-
   ctx->nextStateID = STATE_NONE;
   ctx->currentStateID = init_state;
   ctx->currentState = get_state_pointer(init_state);
 }
 
 void gamestate_update(GameContext *ctx) {
-  /***
-   * Appelée a chaque frame pour effectuer le changement d'état (s'il a lieu)
-   */
+  if (ctx->nextStateID == STATE_NONE) return;
 
-  // Pas de changement d'état
-  if (ctx->nextStateID == STATE_NONE) {
-    return;
-  }
-
-  // On nettoie l'état précédent
-  if (ctx->currentState->cleanup != NULL) {
+  if (ctx->currentState->cleanup != NULL)
     ctx->currentState->cleanup(ctx);
-  }
-  // Changer l'ID et pointeur
+
   ctx->currentStateID = ctx->nextStateID;
   ctx->currentState = get_state_pointer(ctx->currentStateID);
   printf("Switched to state %d\n", ctx->currentStateID);
 
-  // Initialiser le nouvel etat
-  if (ctx->currentState != NULL) {
+  if (ctx->currentState != NULL)
     ctx->currentState->init(ctx);
-  }
 
-  // Reset trigger
   ctx->nextStateID = STATE_NONE;
 }
 
 void gamestate_change_state(GameContext *ctx, StateID stateID) {
-  /***
-   * A utiliser pour changer d'état
-   */
-
   ctx->nextStateID = stateID;
 }
 
@@ -90,34 +56,40 @@ void pauseListener(GameContext *ctx) {
 
   if (IsKeyPressed(ctx->input.keybinds.pause)) {
     ctx->pause = !ctx->pause;
-    pause_selection = 0; // reset à BGM à chaque ouverture
+    pause_selection = 0;
   }
 
   if (ctx->pause) {
-    /* Haut/Bas : changer la sélection */
-    if (IsKeyPressed(ctx->input.keybinds.up)) {
-      pause_selection = (pause_selection - 1 + 2) % 2;
-    }
-    if (IsKeyPressed(ctx->input.keybinds.down)) {
-      pause_selection = (pause_selection + 1) % 2;
+    /* Haut/Bas : changer la sélection (3 options) */
+    if (IsKeyPressed(ctx->input.keybinds.up))
+      pause_selection = (pause_selection - 1 + 3) % 3;
+    if (IsKeyPressed(ctx->input.keybinds.down))
+      pause_selection = (pause_selection + 1) % 3;
+
+    /* Gauche/Droite : modifier le volume */
+    if (pause_selection == 0 || pause_selection == 1) {
+      if (IsKeyPressed(ctx->input.keybinds.right)) {
+        if (pause_selection == 0) ctx->volume_bgm = Clamp(ctx->volume_bgm + PAS, 0.0f, 1.0f);
+        else                      ctx->volume_sfx = Clamp(ctx->volume_sfx + PAS, 0.0f, 1.0f);
+        audio_appliquer_volumes(ctx);
+      }
+      if (IsKeyPressed(ctx->input.keybinds.left)) {
+        if (pause_selection == 0) ctx->volume_bgm = Clamp(ctx->volume_bgm - PAS, 0.0f, 1.0f);
+        else                      ctx->volume_sfx = Clamp(ctx->volume_sfx - PAS, 0.0f, 1.0f);
+        audio_appliquer_volumes(ctx);
+      }
     }
 
-    /* Gauche/Droite : modifier le volume sélectionné */
-    if (IsKeyPressed(ctx->input.keybinds.right)) {
-      if (pause_selection == 0) ctx->volume_bgm = Clamp(ctx->volume_bgm + PAS, 0.0f, 1.0f);
-      else                      ctx->volume_sfx = Clamp(ctx->volume_sfx + PAS, 0.0f, 1.0f);
-      audio_appliquer_volumes(ctx);
-    }
-    if (IsKeyPressed(ctx->input.keybinds.left)) {
-      if (pause_selection == 0) ctx->volume_bgm = Clamp(ctx->volume_bgm - PAS, 0.0f, 1.0f);
-      else                      ctx->volume_sfx = Clamp(ctx->volume_sfx - PAS, 0.0f, 1.0f);
-      audio_appliquer_volumes(ctx);
+    /* Espace : confirmer le retour au menu */
+    if (pause_selection == 2 && IsKeyPressed(ctx->input.keybinds.validate)) {
+      ctx->pause = 0;
+      pause_selection = 0;
+      gamestate_change_state(ctx, STATE_MENU_TITLE);
     }
   }
 }
 
 void pauseMenu(GameContext *ctx) {
-  /* Fond semi-transparent */
   DrawRectangle(50, 50, PANEL_WIDTH - 100, PANEL_HEIGHT - 100, (Color){0, 0, 0, 180});
   DrawRectangleLines(50, 50, PANEL_WIDTH - 100, PANEL_HEIGHT - 100, WHITE);
 
@@ -141,6 +113,13 @@ void pauseMenu(GameContext *ctx) {
   DrawRectangleLines(100, 360, 400, 20, WHITE);
   DrawText(TextFormat("%d%%", (int)(ctx->volume_sfx * 100)), 515, 360, 20, WHITE);
 
-  DrawText("Haut/Bas : changer   Gauche/Droite : modifier   P : reprendre",
-           100, PANEL_HEIGHT - 120, 18, DARKGRAY);
+  /* --- Retour au menu --- */
+  Color c_retour = (pause_selection == 2) ? YELLOW : WHITE;
+  DrawText("Retour au menu", 100, 410, 30, c_retour);
+  DrawText("*", 70, 410, 30, (pause_selection == 2) ? YELLOW : BLACK);
+  if (pause_selection == 2)
+    DrawText("Espace pour confirmer", 100, 445, 18, GRAY);
+
+  DrawText("Haut/Bas   Gauche/Droite : volume   P : reprendre",
+           100, PANEL_HEIGHT - 120, 16, DARKGRAY);
 }

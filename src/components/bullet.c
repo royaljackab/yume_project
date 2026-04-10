@@ -44,7 +44,7 @@ Entity Bullet_spawn(Pool *p, float x, float y, float speed, float angle, EntityT
   Tag_add(&p->tag, e, tag);
   Life_add(&p->life, e, life);
 
-  obj_SetRenderPriority(p, e, 90);
+  obj_SetRenderPriority(p, e, RENDER_PRIO_BULLET);
 
 
   Collision_circle_add(&p->collision_circle, e, collision);

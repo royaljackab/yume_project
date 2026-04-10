@@ -1,4 +1,6 @@
 #pragma once
+#include "content/assets.h"
+
 typedef struct ScoreSystem {
   unsigned int score;
   unsigned int graze;

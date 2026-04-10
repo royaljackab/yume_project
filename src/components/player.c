@@ -13,11 +13,13 @@
 #include "content/assets.h"
 #include "core/game_state.h"
 #include "core/input.h"
+#include "flags.h"
 #include "screen.h"
 #include "systems/obj.h"
 
 #include "systems/score.h"
 #include "tasks.h"
+#include "common_task.h"
 #include "screen_effects.h"
 
 #include <raylib.h>
@@ -48,9 +50,13 @@ typedef enum {
 static
 Player test_player = CREATE_PLAYER(3, 7, 3.9, 20, TEST_PLAYER);
 
+static bool is_input_locked = false;
+
 /*Static functions*/
 static
 Player Player_create(PlayerName name) {
+    is_input_locked = false;
+
     Player player;
     switch(name) {
         case TEST_PLAYER:
@@ -159,22 +165,6 @@ void Player_focus(InputSystem *input, Pool *p, Entity player) {
         hitboxSprite->display = false;
         hitboxSprite->color.a = Clamp(hitboxSprite->color.a - 40, 0, 255);
     }
-
-    
-
-
-//       if (isPressed(ctx->input.focus)) {
-//     playerSprites[HITBOX].color.a = 0;
-//   }
-//   if (isDown(ctx->input.focus)) {
-//     speed = player.focusSpeed;
-//     playerSprites[HITBOX].color.a =
-//         Clamp(playerSprites[HITBOX].color.a + 40, 0, 255);
-//   }
-//   if (isReleased(ctx->input.focus)) {
-//     playerSprites[HITBOX].color.a =
-//         Clamp(playerSprites[HITBOX].color.a - 40, 0, 255);
-//   }
 }
 
 void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
@@ -192,6 +182,7 @@ void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
         Entity e = Collision_circle_get_entity(&p->collision_circle, i);
         if (!Entity_has_flag(p, e, FLAG_NO_DAMAGE_PLAYER) && Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCollisionCircles(Position_get(&p->position, player)->pos, player_p->grazeRadius, obj_GetPosition(p, e), Collision_circle_get(&p->collision_circle, e)->radius)){
             score_increase(scoreS, scoreS->scoreOnGraze);
+            scoreS->graze++;
             PlaySound(sfx[SFX_GRAZE]);
             obj_SetVisible(p, player_p->GrazeSpriteId, true);
             isGrazing = true;
@@ -205,6 +196,7 @@ void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
 
         if (!Entity_has_flag(p, e, FLAG_NO_DAMAGE_PLAYER) && Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCircleRotatedRect(Position_get(&p->position, player)->pos, player_p->grazeRadius, obj_GetPosition(p, e), cl->width, cl-> length, obj_GetAngle(p, e))){
             score_increase(scoreS, scoreS->scoreOnGraze);
+            scoreS->graze++;
             PlaySound(sfx[SFX_GRAZE]);
             obj_SetVisible(p, player_p->GrazeSpriteId, true);
             isGrazing = true;
@@ -255,9 +247,11 @@ void Player_update(GameContext *ctx) {
 
     Entity player = p->player.entity_lookup[0];
     
-    Player_move(input, p, player);
-    Player_shoot(input, p, player);
-    Player_focus(input, p, player);
+    if (!is_input_locked) {
+        Player_move(input, p, player);
+        Player_shoot(input, p, player);
+        Player_focus(input, p, player);
+    }
 
     Damage_player_by_enemy_projectile(ctx, player);
     Player_graze(p, &ctx->score, player);
@@ -281,6 +275,57 @@ extern void  teleport_to_player_spawn(Pool *p, Entity e){
     Position_set_pos(Position_get(&p->position, e), (Vector2){PANEL_WIDTH/2, PANEL_HEIGHT*0.8});
 }
 
+TASK(player_respawn_sequence, {Pool *pool; Entity player;}) {
+    Pool *p = ARGS.pool;
+    Entity player = ARGS.player;
+
+    is_input_locked = true;
+
+    float px = obj_GetX(p, player);
+    float py = obj_GetY(p, player);
+
+    INVOKE_SUBTASK(orb_explosion, p, px, py);
+
+    obj_SetVisible(p, player, false);
+    obj_AddFlag(p, player, FLAG_INVINCIBLE);
+    // Pour la hitbox parce que whatever.....
+    Player *player_p = Player_get(&p->player, player);
+    Sprite *hitboxSprite = Sprite_get(&p->sprite, player_p->hitboxSpriteId);
+    if(hitboxSprite) hitboxSprite->display = false;
+
+    WAIT(45);
+
+    // LE joueur en bas là
+    obj_SetPosition(p, player, PANEL_WIDTH / 2.0, PANEL_HEIGHT + 50);
+    obj_SetVisible(p, player, true);
+
+    // Le joueur se déplace jusqu'au spawn
+    float target_y = PANEL_HEIGHT * 0.8;
+    INVOKE_SUBTASK(obj_GoTo, p, player, PANEL_WIDTH / 2.0, target_y, 4);
+
+    // Ca brille
+    int frame = 0;
+    while(obj_GetY(p, player) > target_y + 1.0f) {
+        if (frame % 8 < 4) obj_SetVisible(p, player, false);
+        else obj_SetVisible(p, player, true);
+        frame++;
+        YIELD;
+    }
+
+    // REPRISE DES CONTRÔLES 
+    is_input_locked = false;
+
+    // Invis encore
+    for(int i = 0; i < 90; i++) {
+        if (i % 8 < 4) obj_SetVisible(p, player, false);
+        else obj_SetVisible(p, player, true);
+        YIELD;
+    }
+
+    obj_SetVisible(p, player, true);
+    obj_RemoveFlag(p, player, FLAG_INVINCIBLE);
+}
+
 extern bool Damage_player(GameContext *ctx, Entity player){
     Pool *p = ctx->pool;
     Life *life = Life_get(&p->life, player);
@@ -302,10 +347,12 @@ extern bool Damage_player(GameContext *ctx, Entity player){
     }
 
     if (life->life > 0){
-        teleport_to_player_spawn(p, player);
+        SCHED_INVOKE_TASK(&ctx->sched, player_respawn_sequence, p, player);
+        //teleport_to_player_spawn(p, player);
         //make_player_incinvible(p, player);
         //clear_screan_projectiles(p); 
     }
+    return true;
 }
 
 extern Position * Player_get_position(Pool *p, Player player){
@@ -328,4 +375,3 @@ extern Collision_circle * Player_get_collision(Pool *p, Player player){
   int lookup = collision_circleManager->entity_lookup[0];
   return &collision_circleManager->dense[lookup];
 }
-

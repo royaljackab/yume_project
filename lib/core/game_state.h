@@ -6,6 +6,7 @@
 #include "systems/button.h"
 #include "systems/score.h"
 #include <raylib.h>
+#include "../systems/screen.h"
 
 typedef enum StateID {
   STATE_NONE,
@@ -43,6 +44,7 @@ struct GameContext {
   InputSystem input;
   ButtonSystem button;
   ScoreSystem score;
+  ScreenSystem screen;
 
   Pool * pool;
 

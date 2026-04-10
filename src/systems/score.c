@@ -1,6 +1,7 @@
 #include "systems/score.h"
 #include "pool.h"
 #include "game_state.h"
+#include "highscore.h"
 
 #define POINTS_PER_COMBO 35000
 
@@ -67,7 +68,7 @@ int update_combo(ScoreSystem *scoreSystem){
  * @param scoreSystem Le système de score
  */
     
-    scoreSystem->angleSpriteCombo = GetRandomValue(-40, 40);
+    scoreSystem->angleSpriteCombo = GetRandomValue(-15, 15); //donne un angle aléatoire au sprite de combo pour le rendre plus dynamique
     if (scoreSystem->isComboActive){
         scoreSystem->combo++;
         score_increase(scoreSystem, POINTS_PER_COMBO * scoreSystem->combo * log(scoreSystem->combo));
@@ -90,6 +91,7 @@ void draw_combo_sprite(ScoreSystem *scoreSystem, int x, int y){
 
     if (combo_sprite != NULL_SPRITE){
         Sprite_draw_sprite(&sprites[combo_sprite], &pos, NULL);
+        UpdateAnimation(&sprites[combo_sprite]);
     }
 }
 

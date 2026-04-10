@@ -15,3 +15,6 @@ DECLARE_EXTERN_TASK(boss_pentagram_effect, {Pool *pool; Entity boss; });
 DECLARE_EXTERN_TASK(boss_particle_spawner, {Pool *pool; Entity boss; });
 DECLARE_EXTERN_TASK(boss_distortion_effect, {Pool *pool; Entity boss; Vector2 *lens_center; float *lens_radius; float *lens_strength;});
 
+DECLARE_EXTERN_TASK(orb_explosion, {Pool *pool; float x; float y;});
+
+DECLARE_EXTERN_TASK(spellcard_bg_anim, {Pool *pool; int duration; });
