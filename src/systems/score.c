@@ -2,14 +2,14 @@
 #include "pool.h"
 #include "game_state.h"
 
-#define POINTS_PER_COMBO 4000
+#define POINTS_PER_COMBO 35000
 
 
 extern void score_system_init(ScoreSystem *scoreSystem){
     scoreSystem->score = 0;
     scoreSystem->graze = 0;
-    scoreSystem->scoreOnHit = 100;
-    scoreSystem->scoreOnGraze = 10;
+    scoreSystem->scoreOnHit = 500;
+    scoreSystem->scoreOnGraze = 50;
     scoreSystem->maxScore = 999999999;
     scoreSystem->last_high_score = get_highscore();
     scoreSystem->combo = 0;
