@@ -25,3 +25,12 @@ extern void HUD_draw_background(void);
  * @param stage_name Nom du stage affiché en haut du HUD
  */
 extern void HUD_draw_foreground(GameContext *ctx, const char *stage_name);
+
+// -- Variables animations spellcard
+extern char hud_spell_name[128];
+extern float hud_spell_x;
+extern float hud_spell_y;
+extern int hud_spell_alpha;
+extern float hud_spell_scale;
+
+void HUD_clear_spellcard(void);

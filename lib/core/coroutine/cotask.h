@@ -114,7 +114,7 @@ int cotask_wait(int delay);
  * 
  * @return int 
  */
-int cotask_wait_substasks(void);
+int cotask_wait_subtasks(void);
 
 /**
  * @brief Wait un événement
