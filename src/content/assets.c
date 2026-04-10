@@ -138,6 +138,10 @@ void SpritesLoad() {
     Sprite_set_SourceRect(&sprites[HITBOX], 0, 0, 64, 64);
     Sprite_set_rotation(&sprites[HITBOX], 0);
 
+    Sprite_set_texture(&sprites[GRAZE], 10, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[GRAZE], 742,400,61,61);
+
+
     Sprite_set_texture(&sprites[BOSS_INDICATOR], 0, TH14_OTHER);
     Sprite_set_SourceRect(&sprites[BOSS_INDICATOR], 213, 2169, 42, 16);
 

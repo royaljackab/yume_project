@@ -178,6 +178,10 @@ void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
     bool isGrazing = false;
 
     //check graze avec les hitbox cercles
+    if(Entity_has_flag(p, player, FLAG_INVINCIBLE)){
+        obj_SetVisible(p, player_p->GrazeSpriteId, false);
+        return;
+    }
     for(int i = 0; i < p->collision_circle.count; i++){
         Entity e = Collision_circle_get_entity(&p->collision_circle, i);
         if (!Entity_has_flag(p, e, FLAG_NO_DAMAGE_PLAYER) && Entity_has_flag_in_list(p, e, &projectileFlag) && CheckCollisionCircles(Position_get(&p->position, player)->pos, player_p->grazeRadius, obj_GetPosition(p, e), Collision_circle_get(&p->collision_circle, e)->radius)){
@@ -216,7 +220,8 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
     
     Entity e = pool_create_entity(p);
     Entity hitbox = particle_bound(p, HITBOX, e);
-    Entity graze = particle_bound(p, ENEMY_FAIRY_BLACK_BLONDE_IDLE, e);
+    Entity graze = particle_bound(p, GRAZE, e);
+    obj_SetScale(p, graze, 1, 1);
 
     Player_add(&p->player, e, player);
     Weapon_add(&p->weapon, e, weapon);
@@ -331,7 +336,7 @@ extern bool Damage_player(GameContext *ctx, Entity player){
     Life *life = Life_get(&p->life, player);
     if (!life) return false;
 
-    Life_damage(life, 1);
+    Life_damage(life, 0);
     PlaySound(sfx[SFX_PLDEAD00]);
 
     SCHED_INVOKE_TASK(&ctx->sched, player_hit_effect, ctx->pool, player);

@@ -64,6 +64,7 @@ typedef enum {
   REIMU_PINK_AMULET,
 
   HITBOX,
+  GRAZE,
   
   //COMBOS
   COMBO_1,
