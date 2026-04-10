@@ -13,6 +13,7 @@
 #include "physics.h"
 #include "player.h"
 #include "pool.h"
+#include "score.h"
 #include "screen.h"
 #include "core/coroutine/tasks.h"
 #include "common_task.h"
@@ -106,6 +107,7 @@ TASK(main_attack, {GameContext *ctx;}) {
     
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
+    update_combo(&ARGS.ctx->score);
     RUN_SPELLCARD(ARGS.ctx->pool, boss, 
         INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100), poincare,
         "Theorem - Poincare Recurrence", 500);
@@ -116,7 +118,8 @@ TASK(main_attack, {GameContext *ctx;}) {
         INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss), nonspell2, 500);
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
-
+    
+    update_combo(&ARGS.ctx->score);
     RUN_SPELLCARD(ARGS.ctx->pool, boss, 
         INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss), brouwer, "Theorem - Brouwer's fixed point", 500);
 
