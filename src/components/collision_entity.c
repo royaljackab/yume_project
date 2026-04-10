@@ -92,7 +92,7 @@ static bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, flagList * laserF
 
 extern bool Entity_is_hit(Pool *p, Entity entity, flagList * flags){
     /**
-     * Verifie si l'entité est touchés par une attaque d'un des types spécifiés dans bulletTypes
+     * @brief Verifie si l'entité est touchée par une attaque d'un des types spécifiés dans flags
      */
     return Entity_is_hit_by_rectangle(p, entity, flags, NULL, NULL) || Entity_is_hit_by_circle(p, entity, flags, NULL, NULL); 
 }
@@ -110,7 +110,7 @@ extern bool Entity_find_hitters(Pool *p, Entity entity, flagList * flags, Entity
 
 extern bool Damage_entity_by_enemy_projectile(Pool *p, Entity entity){
     /**
-     * Verifie si l'entité (surtout le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts
+     * @brief Verifie si l'entité est touchée par un projectile ennemi, et lui inflige des dégâts
      */
     flagList bulletFlags = {.flags = (FlagType[]){FLAG_PROJECTILE_ENEMY}, .size = 1};
     if(Entity_is_hit(p, entity, &bulletFlags)){
@@ -123,10 +123,14 @@ extern bool Damage_entity_by_enemy_projectile(Pool *p, Entity entity){
 }
 
 extern bool Damage_player_by_enemy_projectile(GameContext *ctx, Entity player){
-    Pool *p = ctx->pool;
     /**
-     * Verifie si l'entité (surtout le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts
+     * @brief Verifie si l'entité (utilisé surtout pour le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts
+     * @param ctx Le contexte du jeu, utilisé pour accéder au pool et au système de score
+     * @param player L'ID de l'entité testé (le joueur)
      */
+
+    Pool *p = ctx->pool;
+
     flagList bulletFlags = {.flags = (FlagType[]){FLAG_PROJECTILE_ENEMY}, .size = 1};
     Entity foundCollisions[MAX_COLLISIONS];
     int nbCollisions = 0;
@@ -134,6 +138,7 @@ extern bool Damage_player_by_enemy_projectile(GameContext *ctx, Entity player){
     Entity_find_hitters(p, player,&bulletFlags, foundCollisions, &nbCollisions);
     for(int i = 0; i < nbCollisions; i++){
         if(!Entity_has_flag(p, foundCollisions[i], FLAG_NO_DAMAGE_PLAYER)){
+            ctx->score.isComboActive = 0;
             Damage_player(ctx, player);
             return true;
         }

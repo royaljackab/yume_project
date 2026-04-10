@@ -57,3 +57,13 @@ void Owner_update(Pool *p){
     ownedPos->pos = ownerPos->pos; //la position de la propriété copie tout le temps celle de l'owner
   }
 }
+
+extern Entity Position_create(Pool *p, float x, float y, float angle){
+/**
+ * Crée une entité de position et la renvoie
+ */
+    Entity e = pool_create_entity(p);
+    Position pos = {{x, y}, angle};
+    Position_add(&p->position, e, pos);
+    return e;
+}

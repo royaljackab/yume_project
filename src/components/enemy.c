@@ -12,7 +12,7 @@
 #include "components/physics.h"
 #include "components/sprite.h"
 #include "components/collision_entity.h"
-
+#include "flags.h"
 
 #include <stdio.h>
 #include "content/assets.h"
@@ -23,7 +23,17 @@
 Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                    int life, float hitboxRadius,
                    int score, SpriteID graphic) {
-
+/** @brief spawn une nouvelle entité
+ * @param p Le pool d'entités
+ * @param x La position x de l'ennemi
+ * @param y La position y de l'ennemi
+ * @param speed La vitesse de l'ennemi
+ * @param angle L'angle de l'ennemi
+ * @param hitboxRadius Le rayon de la hitbox de l'ennemi
+ * @param score Le score que fait perdre l'ennemi si il est tué
+ * @param graphic L'ID du sprite de l'ennemi
+ * @return L'entité de l'ennemi spawné
+ */
     Entity e = pool_create_entity(p);
 
     Position pos = {{x, y}, angle};
@@ -46,13 +56,35 @@ Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
     return e;
 }
 
+Entity Enemy_spawn_score_decrease(Pool *p, float x, float y, float speed, float angle, float hitboxRadius, int score, SpriteID graphic) {
+/** @brief spawn un enemy qui a le flag qui fait perdre des points si il est tué 
+ * @param p Le pool d'entités
+ * @param x La position x de l'ennemi
+ * @param y La position y de l'ennemi
+ * @param speed La vitesse de l'ennemi
+ * @param angle L'angle de l'ennemi
+ * @param hitboxRadius Le rayon de la hitbox de l'ennemi
+ * @param score Le score que fait perdre l'ennemi si il est tué
+ * @param graphic L'ID du sprite de l'ennemi
+ * @return L'entité de l'ennemi spawné
+ */
+    Entity e = Enemy_spawn(p, x, y, speed, angle, 1, hitboxRadius, score, graphic);
+    flagList_add_element(flagList_get(&p->flagList, e), FLAG_DECREASE_SCORE);
+    return e;    
+}
+
+
 void Enemy_update_all(Pool *p, ScoreSystem *scoreS) {
-    /**
-     * Parcourt tous les ennemis.
+/** 
+ * @brief Met à jour tous les ennemis du pool :P
+     * - Parcourt tous les ennemis.
      * - les tue s'ils n'ont plus de vie
      * - ajoute du score au joueur si c'est le cas
      * - leur inflige des dégats s'ils sont en collision avec une balle du joueur
-     */
+ * @param p Le pool d'entités
+ * @param scoreS Le système de score
+ */
+
     EnemyManager *em = &p->enemy;
     flagList projectileFlag = {.flags = (FlagType[]){FLAG_PROJECTILE_PLAYER}, .size = 1};
     
@@ -67,7 +99,16 @@ void Enemy_update_all(Pool *p, ScoreSystem *scoreS) {
         Entity e = Enemy_get_entity(&p->enemy,i);
         Life *life = Life_get(&p->life, e);
         
-
+        //mort de l'ennemi
+        if (life && Life_is_dead(life) && obj_GetTag(p, e) != ENT_BOSS) {
+            PlaySound(sfx[SFX_ENEMY_DEATH]);
+            pool_kill_entity(p, e);
+            if (!Entity_has_flag(p, e, FLAG_DECREASE_SCORE)){
+                score_decrease(scoreS, Enemy_get(&p->enemy, e)->score);
+            }
+            else
+                score_increase(scoreS, Enemy_get(&p->enemy, e)->score);
+        }
 
         //collisions avec l'ennemi
         nbCollisions = 0;

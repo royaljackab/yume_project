@@ -4,6 +4,7 @@
 #include <raymath.h>
 
 #include "components/sprite.h"
+#include "systems/screen.h"
 
 #define RENDER_PRIO_BG -50
 #define RENDER_PRIO_PLAYER 10
@@ -30,11 +31,19 @@ typedef enum {
   HITBOX_SPRITESHEET,
   TH14_OTHER,
   TH14_STG4,
-  
-  // ------ BACKGROUNDS
 
+  //combos
+  COMBO_1_SHEET,
+  COMBO_2_SHEET,
+  COMBO_3_SHEET,
+  COMBO_4_SHEET,
+  COMBO_5_SHEET,
+  
+  GREEN_ARROW_SPRITE,
+  // ------ BACKGROUNDS
   BG_SC_FLOWERS,
   BG_SC_OV_CIRCLES,
+  BG_SC_MAIN,
   BG_PANEL,
   TEX_BG_TORII,
   TEX_BG_MATH,
@@ -55,6 +64,13 @@ typedef enum {
   REIMU_PINK_AMULET,
 
   HITBOX,
+  
+  //COMBOS
+  COMBO_1,
+  COMBO_2,
+  COMBO_3,
+  COMBO_4,
+  COMBO_5,
 
   //BULLETS -----------------------------------
   BALL_M_BLACK,
@@ -168,6 +184,7 @@ typedef enum {
   KUNAI_GOLD,
   KUNAI_WHITE,
 
+  GREEN_ARROW,
   // ------ SHARDS
   SHARD_BLACK,
   SHARD_RED,
@@ -374,6 +391,7 @@ typedef enum {
 
   BG_MORIYA_FLOWERS,
   BG_MORIYA_CIRCLES,
+  BG_MAIN,
   BG_PANEL_SPRITE,
   BG_SC_TORII,
   BG_SC_OV_MATH,
@@ -402,6 +420,9 @@ void BgSpritesLoad();
 void EffectsLoad();
 extern void SpritesLoad();
 void EnemiesSpritesLoad();
+void CombosSpritesLoad();
+extern Entity invoke_main_background(Pool *p, ScreenSystem *screen);
+void FontsLoad();
 
 extern Texture2D textures[MAX_TEXTURES];
 extern Sprite sprites[MAX_SPRITES];
@@ -425,5 +446,11 @@ typedef enum {
     MAX_SFX
 } SFXID;
 
+typedef enum{
+  TOUHOU_98,
+  MAX_FONTS
+} FontID;
+
 extern Sound sfx[MAX_SFX];
+extern Font fonts[MAX_FONTS];
 
