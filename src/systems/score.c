@@ -98,9 +98,9 @@ void draw_combo_sprite(ScoreSystem *scoreSystem, int x, int y){
         //float val = (4/ pow(COMBO_ACTIVE_VALUE,2)) * scoreSystem->isComboActive * (COMBO_ACTIVE_VALUE - scoreSystem->isComboActive);
         //float val = pow(scoreSystem->isComboActive/(COMBO_ACTIVE_VALUE/2), a) * (1 - pow(scoreSystem->isComboActive/(COMBO_ACTIVE_VALUE), a));
         int a = 5;
-        float val = pow(sinf((PI * scoreSystem->isComboActive) / COMBO_ACTIVE_VALUE), a);
+        float val = 1.2 * pow(sinf((PI * scoreSystem->isComboActive) / COMBO_ACTIVE_VALUE), a);
         
-        float scale = val + 0.1 + (scoreSystem->combo * 0.1);
+        float scale = val + (scoreSystem->combo * 0.1);
         sprite->scale.x = scale;
         sprite->scale.y = scale;
         scoreSystem->isComboActive = Clamp(scoreSystem->isComboActive - 1, 0, COMBO_ACTIVE_VALUE); //fait décroître le timer du combo
