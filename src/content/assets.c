@@ -97,6 +97,7 @@ void AssetsLoad() {
     sfx[SFX_LAZER00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_lazer00.wav");
     sfx[SFX_LAZER01] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_lazer01.wav");
     sfx[SFX_LAZER02] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_lazer02.wav");
+    sfx[SFX_CAT00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_cat00.wav");
 
     sfx[SFX_GRAZE] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_graze.wav");
 
@@ -136,6 +137,10 @@ void SpritesLoad() {
     Sprite_set_texture(&sprites[HITBOX], 11, HITBOX_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[HITBOX], 0, 0, 64, 64);
     Sprite_set_rotation(&sprites[HITBOX], 0);
+
+    Sprite_set_texture(&sprites[GRAZE], 10, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[GRAZE], 742,400,61,61);
+
 
     Sprite_set_texture(&sprites[BOSS_INDICATOR], 0, TH14_OTHER);
     Sprite_set_SourceRect(&sprites[BOSS_INDICATOR], 213, 2169, 42, 16);

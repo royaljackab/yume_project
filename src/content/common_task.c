@@ -2,6 +2,10 @@
 #include "assets.h"
 #include "coevent.h"
 #include "common.h"
+#include "flags.h"
+#include "hud.h"
+#include "moonlight_bg.h"
+#include "player.h"
 #include "screen.h"
 #include "systems/obj.h"
 #include "pool.h"
@@ -10,6 +14,7 @@
 #include <math.h>
 #include <raylib.h>
 #include <raymath.h>
+#include <string.h>
 
 DEFINE_EXTERN_TASK(phase_timer) {
     WAIT(ARGS.duration);
@@ -24,7 +29,7 @@ DEFINE_EXTERN_TASK(obj_GoTo) {
         Vector2 pos = obj_GetPosition(ARGS.pool, ARGS.objId);
         Vector2 dest = (Vector2){ARGS.x, ARGS.y};
 
-        if (Vector2Equals(pos, dest)) break;
+        if (Vector2Equals(pos, dest)) return;
 
         Vector2 intermid = Vector2MoveTowards(pos, dest, ARGS.speed);
         obj_SetPosition(ARGS.pool, ARGS.objId, intermid.x, intermid.y);
@@ -318,7 +323,7 @@ DEFINE_EXTERN_TASK(spellcard_bg_anim) {
     const int num_lines = 30;
     const int sprites_per_lines = 16;
     const float spacing_line = 70;
-    const float spacing_sprite = 100;
+    const float spacing_sprite = 200;
     float line_length = sprites_per_lines * spacing_sprite;
 
     const float angle = 135 * DEG2RAD;
@@ -345,7 +350,8 @@ DEFINE_EXTERN_TASK(spellcard_bg_anim) {
 
             Sprite_add(&p->sprite, e, sprites[SPELL_CARD_ATTACK]);
 
-            obj_SetAngle(p, e, angle * RAD2DEG);
+            obj_SetScale(p, e, 2, 2);
+            obj_SetAngle(p, e, angle * RAD2DEG + 180);
             obj_SetAlpha(p, e, 120);
         }
     }
@@ -388,4 +394,63 @@ DEFINE_EXTERN_TASK(spellcard_bg_anim) {
     for (int i=0; i < num_lines * sprites_per_lines; ++i) {
         pool_kill_entity(p, bg_sprites[i]);
     }
+}
+
+DEFINE_EXTERN_TASK(start_spellcard_sequence) {
+    Entity boss = ARGS.boss;
+    Pool *p = ARGS.pool;
+
+    // Déclenchement de l'environnement
+    PlaySound(sfx[SFX_CAT00]);
+    moonlight_bg_set_mode(true);
+    INVOKE_TASK(spellcard_bg_anim, p, ARGS.duration);
+    obj_AddFlag(p, boss, FLAG_INVINCIBLE);
+
+    // Préparation anim texte
+    strncpy(hud_spell_name, ARGS.spell_name, 127);
+    hud_spell_alpha = 0;
+    hud_spell_scale = 1.5;
+
+    int text_width = MeasureText(hud_spell_name, (int)(20 * 1.5));
+
+    float start_x = PANEL_RIGHT + 50;
+    float start_y = PANEL_DOWN * 0.6;
+
+    float wait_x = PANEL_RIGHT - text_width - 20;
+    float wait_y = start_y;
+
+    int final_text_width = MeasureText(hud_spell_name, 20);
+    float final_x = PANEL_RIGHT - final_text_width - 20;
+    float final_y = PANEL_UP + 40;
+
+    // Le mouvement
+    // 1 - arrivée glissage de la droite
+    for (int i = 0; i <= 30; i++) {
+        float t = (float)i / 30.0;
+        float ease = 1 - powf(1 - t, 3);
+
+        hud_spell_x = start_x + (wait_x - start_x) * ease;
+        hud_spell_y = start_y;
+        hud_spell_alpha = (int)(ease * 255);
+        YIELD;
+    }
+
+    // 2 - pause
+    for (int i=0; i < 60; i++) {
+        YIELD;
+    }
+
+    // 3 - Remonte
+    for (int i=0; i <= 30; i++) {
+        float t = (float)i/30;
+        float ease = t * t * (3 - 2 * t);
+
+        hud_spell_x = wait_x + (final_x - wait_x) * ease;
+        hud_spell_y = wait_y + (final_y - wait_y) * ease;
+        hud_spell_scale = 1.5 - (0.5 * ease);
+        YIELD;
+    }
+
+    // 4 - FIN
+    obj_RemoveFlag(p, boss, FLAG_INVINCIBLE);
 }

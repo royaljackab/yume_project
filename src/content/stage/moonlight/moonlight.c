@@ -3,7 +3,7 @@
 #include "bullet.h"
 #include "common.h"
 #include "coroutine/cosched.h"
-#include "cotask.h"
+#include "coroutine/cotask.h"
 #include "ecs.h"
 #include "content/assets.h"
 #include "enemy.h"
@@ -13,6 +13,7 @@
 #include "physics.h"
 #include "player.h"
 #include "pool.h"
+#include "score.h"
 #include "screen.h"
 #include "core/coroutine/tasks.h"
 #include "common_task.h"
@@ -92,81 +93,37 @@ TASK(movement, {GameContext *ctx; Entity boss; }) {
 TASK(main_attack, {GameContext *ctx;}) {
     Entity boss = Boss_spawn(ARGS.ctx->pool, 10, 10, 200, 20, 200000, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
+    WAIT(60);
 
-    WAIT(120);
     Boss_fight_begin(ARGS.ctx->pool, boss, &lens_center, &lens_radius, &lens_strength);
 
     invoke_spellcard_background(ARGS.ctx->pool);
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
 
-    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
-    obj_SetLife(ARGS.ctx->pool, boss, 500);
+    // INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
 
-    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
-    WAIT(60);
-
-    CoTask *attack_1 = INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss);
-    BoxedTask attack_1_box = cotask_box(attack_1);
-
-    while(!obj_IsDead(ARGS.ctx->pool, boss)) {
-        YIELD;
-    }
-    CANCEL_TASK(attack_1_box);
-    Bullet_clear_bullets(ARGS.ctx->pool);
-
-    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
-    obj_SetLife(ARGS.ctx->pool, boss, 500);
+    
+    RUN_NONSPELL(ARGS.ctx->pool, boss, 
+        INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss), nonspell1, 400);
     
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
     update_combo(&ARGS.ctx->score);
-
-    moonlight_bg_set_mode(true);
-    INVOKE_SUBTASK(spellcard_bg_anim, ARGS.ctx->pool, 120);
-    WAIT(120);
-
-    CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
-    BoxedTask spell_1_box = cotask_box(spell_1);
-
-    while (!obj_IsDead(ARGS.ctx->pool, boss)) {
-        YIELD;
-    }
-    CANCEL_TASK(spell_1_box);
-    Bullet_clear_bullets(ARGS.ctx->pool);
-
-    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
-    obj_SetLife(ARGS.ctx->pool, boss, 500);
-
+    RUN_SPELLCARD(ARGS.ctx->pool, boss, 
+        INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100), poincare,
+        "Theorem - Poincare Recurrence", 600);
+    
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
-    WAIT(60);
+
     update_combo(&ARGS.ctx->score);
-
-    moonlight_bg_set_mode(false);
-    CoTask *nonspell_2 = INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss);
-    BoxedTask nonspell_2_box = cotask_box(nonspell_2);
-
-    while(!obj_IsDead(ARGS.ctx->pool, boss)) {
-        YIELD;
-    }
-    CANCEL_TASK(nonspell_2_box);
-    Bullet_clear_bullets(ARGS.ctx->pool);
-
-    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
-    obj_SetLife(ARGS.ctx->pool, boss, 500);
+    RUN_NONSPELL(ARGS.ctx->pool, boss, 
+        INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss), nonspell2, 400);
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
-    WAIT(60);
+    
     update_combo(&ARGS.ctx->score);
-
-    moonlight_bg_set_mode(true);
-    CoTask *spell_2 = INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss, 10, 3.5, 100);
-    BoxedTask spell_2_box = cotask_box(spell_2);
-
-    while (!obj_IsDead(ARGS.ctx->pool, boss)) {
-        YIELD;
-    }
-    CANCEL_TASK(spell_2_box);
-    Bullet_clear_bullets(ARGS.ctx->pool);
+    RUN_SPELLCARD(ARGS.ctx->pool, boss, 
+        INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss), brouwer, "Theorem - Brouwer's fixed point", 750);
 
     gamestate_change_state(ARGS.ctx, STATE_VICTORY);
     STALL;

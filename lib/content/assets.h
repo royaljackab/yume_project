@@ -64,6 +64,7 @@ typedef enum {
   REIMU_PINK_AMULET,
 
   HITBOX,
+  GRAZE,
   
   //COMBOS
   COMBO_1,
@@ -441,6 +442,7 @@ typedef enum {
     SFX_LAZER00,
     SFX_LAZER01,
     SFX_LAZER02,
+    SFX_CAT00,
 
     MAX_SFX
 } SFXID;

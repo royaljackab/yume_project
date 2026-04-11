@@ -1,5 +1,8 @@
 #include "components/life.h"
+#include "cotask.h"
+#include "obj.h"
 #include "pool.h"
+#include "tasks.h"
 
 void bossbar_draw(Life * life);
 void bossbar_draw_all(Pool * p);

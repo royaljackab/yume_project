@@ -26,7 +26,18 @@ void state_victory_init(GameContext *ctx) {
     StopMusicStream(playlist[BGM_MORIYA_THEME]);
     PlayMusicStream(playlist[BGM_WAITING]);
 
+    ctx->pool = malloc(sizeof(Pool));
+    if (!ctx->pool) {
+        printf("FATAL ERROR: victory pool allocation failed\n");
+        return;
+    }
+
+    pool_init(ctx->pool);
     cosched_init(&ctx->sched, ctx->pool);
+
+    Entity bg = invoke_main_background(ctx->pool, &ctx->screen);
+    (void)bg;
+
     timer = 0;
     FontsLoad();
 }
