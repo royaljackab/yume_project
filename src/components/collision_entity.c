@@ -138,8 +138,7 @@ extern bool Damage_player_by_enemy_projectile(GameContext *ctx, Entity player){
     Entity_find_hitters(p, player,&bulletFlags, foundCollisions, &nbCollisions);
     for(int i = 0; i < nbCollisions; i++){
         if(!Entity_has_flag(p, foundCollisions[i], FLAG_NO_DAMAGE_PLAYER)){
-            ctx->score.isComboActive = 0;
-            Damage_player(ctx, player);
+            //Damage_player(ctx, player);
             return true;
         }
     }

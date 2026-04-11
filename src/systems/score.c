@@ -4,7 +4,7 @@
 #include "highscore.h"
 
 #define POINTS_PER_COMBO 35000
-
+#define COMBO_ACTIVE_VALUE 80
 
 extern void score_system_init(ScoreSystem *scoreSystem){
     scoreSystem->score = 0;
@@ -14,7 +14,7 @@ extern void score_system_init(ScoreSystem *scoreSystem){
     scoreSystem->maxScore = 999999999;
     scoreSystem->last_high_score = get_highscore();
     scoreSystem->combo = 0;
-    scoreSystem->isComboActive = 1;
+    scoreSystem->isComboActive = COMBO_ACTIVE_VALUE;
     scoreSystem->angleSpriteCombo = 0;
 }
 
@@ -68,17 +68,20 @@ int update_combo(ScoreSystem *scoreSystem){
  * @param scoreSystem Le système de score
  */
     
-    scoreSystem->angleSpriteCombo = GetRandomValue(-15, 15); //donne un angle aléatoire au sprite de combo pour le rendre plus dynamique
+    scoreSystem->angleSpriteCombo = GetRandomValue(-10, 5); //donne un angle aléatoire au sprite de combo pour le rendre plus dynamique
     if (scoreSystem->isComboActive){
         scoreSystem->combo++;
+        scoreSystem->isComboActive = COMBO_ACTIVE_VALUE;
         score_increase(scoreSystem, POINTS_PER_COMBO * scoreSystem->combo * log(scoreSystem->combo));
         return 1;
     }
-    scoreSystem->isComboActive = 1;
+    scoreSystem->isComboActive = COMBO_ACTIVE_VALUE;
     scoreSystem->combo = 0;
     return 0;
 }
 
+#include <stdio.h>
+#include <math.h>
 void draw_combo_sprite(ScoreSystem *scoreSystem, int x, int y){
 /** @brief Dessine le sprite de combo en le récuperant via get_combo_sprite(scoreSystem)
  * @param scoreSystem Le système de score
@@ -86,13 +89,26 @@ void draw_combo_sprite(ScoreSystem *scoreSystem, int x, int y){
  * @param y La position y
  */
     SpriteID combo_sprite = get_combo_sprite(scoreSystem);
-
-    Position pos = {x, y, scoreSystem->angleSpriteCombo};
-
+    
     if (combo_sprite != NULL_SPRITE){
-        Sprite_draw_sprite(&sprites[combo_sprite], &pos, NULL);
-        UpdateAnimation(&sprites[combo_sprite]);
+        
+        Sprite *sprite = &sprites[combo_sprite];
+        Position pos = {x, y, scoreSystem->angleSpriteCombo};
+        scoreSystem->angleSpriteCombo += 0.01; //fait tourner le sprite de combo;
+        //float val = (4/ pow(COMBO_ACTIVE_VALUE,2)) * scoreSystem->isComboActive * (COMBO_ACTIVE_VALUE - scoreSystem->isComboActive);
+        //float val = pow(scoreSystem->isComboActive/(COMBO_ACTIVE_VALUE/2), a) * (1 - pow(scoreSystem->isComboActive/(COMBO_ACTIVE_VALUE), a));
+        int a = 5;
+        float val = pow(sinf((PI * scoreSystem->isComboActive) / COMBO_ACTIVE_VALUE), a);
+        
+        float scale = val + 0.1 + (scoreSystem->combo * 0.1);
+        sprite->scale.x = scale;
+        sprite->scale.y = scale;
+        scoreSystem->isComboActive = Clamp(scoreSystem->isComboActive - 1, 0, COMBO_ACTIVE_VALUE); //fait décroître le timer du combo
+        Sprite_draw_sprite(sprite, &pos, NULL);
+        UpdateAnimation(sprite);
+        
     }
+    
 }
 
 SpriteID get_combo_sprite(ScoreSystem *scoreSystem){
@@ -100,6 +116,9 @@ SpriteID get_combo_sprite(ScoreSystem *scoreSystem){
  * @param scoreSystem Le système de score
  * @return L'ID du sprite de combo correspondant
  */
+    if (scoreSystem->isComboActive == 0 || scoreSystem->isComboActive == 1){
+        return NULL_SPRITE;
+    }
     if (scoreSystem->combo >= 5){
         return COMBO_5;
     }
