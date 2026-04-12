@@ -85,7 +85,7 @@ void state_victory_draw(GameContext *ctx) {
     if (update_highscore(ctx->score.score)) { //affiche le message de nouveau record
         DrawText("Nouveau highscore !",
                  cx - MeasureText("Nouveau highscore !", 30) / 2,
-                 360, 30, YELLOW);
+                 375, 30, YELLOW);
     }
 
     if (timer > 60) {

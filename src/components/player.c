@@ -332,7 +332,12 @@ TASK(player_respawn_sequence, {Pool *pool; Entity player;}) {
 }
 
 extern bool Damage_player(GameContext *ctx, Entity player){
+/** @brief Inflige des dégâts au joueur, et gère les conséquences de ces dégâts (perte de vie, combo, invincibilité temporaire, effets...)
+ * @param ctx Le contexte du jeu, utilisé pour accéder au pool et au système de score
+ * @param player L'entité du joueur à qui infliger les dégâts
+ */
     Pool *p = ctx->pool;
+    ctx->score.isComboActive = 0; //casse le combo actuelle
     Life *life = Life_get(&p->life, player);
     if (!life) return false;
 
