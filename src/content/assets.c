@@ -991,6 +991,29 @@ void BulletsSpritesLoad() {
     Sprite_set_texture(&sprites[BALL_L_BLACK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BALL_L_BLACK], 491, 2, 30, 30);
 
+    Sprite_set_texture(&sprites[BALL_L_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BALL_L_RED], 491, 34, 30, 30);
+
+    Sprite_set_texture(&sprites[BALL_L_PINK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BALL_L_PINK], 491, 66, 30, 30);
+
+    Sprite_set_texture(&sprites[BALL_L_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BALL_L_BLUE], 491, 98, 30, 30);
+
+    Sprite_set_texture(&sprites[BALL_L_LIGHT_BLUE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BALL_L_LIGHT_BLUE], 491, 130, 30, 30);
+
+    Sprite_set_texture(&sprites[BALL_L_GREEN], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BALL_L_GREEN], 491, 162, 30, 30);
+
+    Sprite_set_texture(&sprites[BALL_L_YELLOW], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BALL_L_YELLOW], 491, 194, 30, 30);
+
+    Sprite_set_texture(&sprites[BALL_L_WHITE], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BALL_L_WHITE], 491, 226, 30, 30);
+
+    Sprite_set_texture(&sprites[BUBBLE_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BUBBLE_RED], 300, 1, 62, 62);
   }
 
 

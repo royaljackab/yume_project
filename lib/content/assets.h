@@ -354,12 +354,18 @@ typedef enum {
   // ------ BALL L
   BALL_L_BLACK,
   BALL_L_RED,
-  BALL_RED_PURPLE,
+  BALL_L_PINK,
   BALL_L_BLUE,
   BALL_L_LIGHT_BLUE,
   BALL_L_GREEN,
   BALL_L_YELLOW,
   BALL_L_WHITE,
+
+  // ------ BUBBLE
+  BUBBLE_RED,
+  BUBBLE_BLUE,
+  BUBBLE_GREEN,
+  BUBBLE_YELLOW,
 
   // ------------ ENEMIES
 
