@@ -80,7 +80,7 @@ void state_game_over_draw(GameContext *ctx) {
     if (score_system_is_new_highscore(&ctx->score)) { //affiche le message de nouveau record
         DrawText("Nouveau highscore !",
                  cx - MeasureText("Nouveau highscore !", 30) / 2,
-                 360, 30, YELLOW);
+                 375, 30, YELLOW);
     }
 
 

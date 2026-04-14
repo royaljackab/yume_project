@@ -54,7 +54,7 @@ struct GameContext {
   int pause;
 
   /* Audio */
-  float volume_bgm; 
+  float volume_bgm;
   float volume_sfx;
 };
 

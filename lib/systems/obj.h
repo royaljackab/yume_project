@@ -52,6 +52,7 @@ void obj_SetMinSpd(Pool *p, Entity objId, float minspd);
 void obj_UnsetMaxSpd(Pool *p, Entity objId);
 void obj_UnsetMinSpd(Pool *p, Entity objId);
 
+float obj_GetSpeed(Pool *p, Entity objId);
 float obj_GetAngularSpeed(Pool *p, Entity objId);
 
 /*----------------------------------------------------*/

@@ -26,7 +26,18 @@ void state_victory_init(GameContext *ctx) {
     StopMusicStream(playlist[BGM_MORIYA_THEME]);
     PlayMusicStream(playlist[BGM_WAITING]);
 
+    ctx->pool = malloc(sizeof(Pool));
+    if (!ctx->pool) {
+        printf("FATAL ERROR: victory pool allocation failed\n");
+        return;
+    }
+
+    pool_init(ctx->pool);
     cosched_init(&ctx->sched, ctx->pool);
+
+    Entity bg = invoke_main_background(ctx->pool, &ctx->screen);
+    (void)bg;
+
     timer = 0;
     FontsLoad();
 }
@@ -74,7 +85,7 @@ void state_victory_draw(GameContext *ctx) {
     if (update_highscore(ctx->score.score)) { //affiche le message de nouveau record
         DrawText("Nouveau highscore !",
                  cx - MeasureText("Nouveau highscore !", 30) / 2,
-                 360, 30, YELLOW);
+                 375, 30, YELLOW);
     }
 
     if (timer > 60) {

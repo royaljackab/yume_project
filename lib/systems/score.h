@@ -10,8 +10,8 @@ typedef struct ScoreSystem {
   unsigned int last_high_score;
 
   unsigned int combo;
-  unsigned int isComboActive;
-  int angleSpriteCombo;
+  unsigned int isComboActive; //est aussi utilisé en tant que timer pour l'animation de l'indicateur de combo. 0 = combo cassé, 1 = combo actif mais pas d'affichage, >1 = combo actif et affichage
+  float angleSpriteCombo;
 
 } ScoreSystem;
 

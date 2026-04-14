@@ -275,6 +275,13 @@ void obj_SetSpeed(Pool *p, Entity objId, float speed) {
     phy->speed = speed;
 }
 
+float obj_GetSpeed(Pool *p, Entity objId) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return 0;
+
+    return phy->speed;
+}
+
 float obj_GetAngularSpeed(Pool *p, Entity objId) {
     Physics *phy = Physics_get(&p->physics, objId);
     if (!phy) return 0;
