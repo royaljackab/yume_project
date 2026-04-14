@@ -17,6 +17,8 @@
 
 #include "core/game_state.h"
 
+/** @brief Dessine le fond du HUD
+ */
 extern void HUD_draw_background(void);
 
 /**
@@ -33,4 +35,7 @@ extern float hud_spell_y;
 extern int hud_spell_alpha;
 extern float hud_spell_scale;
 
+
+/** @brief Efface la carte de la spellcard du HUD
+ */
 void HUD_clear_spellcard(void);
