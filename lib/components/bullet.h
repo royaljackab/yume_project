@@ -1,9 +1,6 @@
 /**
- * @file
- *
- * @brief Composante des bullets
- *
- * Fonctions qui permettent de tirer des bullets de différentes manières
+ * @file bullet.h
+ * @brief Fonctions qui permettent de tirer des bullets de différentes manières
  */
 
 #pragma once
@@ -16,6 +13,10 @@
 
 typedef struct Pool Pool;
 
+/**
+ * @brief composante condensation dans l'ECS
+ * @details Avant l'apparition d'une balle, une courte animation appellée condensation préviens le joueur visuellement du danger
+ */
 typedef struct Condensation {
     int timer;
     int max_time;
@@ -37,6 +38,8 @@ DEFINE_COMPONENT_MANAGER(Condensation, MAX_ENTITIES)
  */
 Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic);
+
+                    
 Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic);
 
