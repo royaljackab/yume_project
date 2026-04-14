@@ -58,8 +58,17 @@ struct GameContext {
   float volume_sfx;
 };
 
+/** @brief Initialise l'état du jeu
+ * @param ctx Le contexte du jeu
+ * @param state L'ID de l'état à initialiser
+ */
 extern void gamestate_initialize(GameContext *ctx, StateID state);
+
+/** @brief Met à jour l'état du jeu
+ * @param ctx Le contexte du jeu
+ */
 extern void gamestate_update(GameContext *ctx);
+
 void pauseListener(GameContext *ctx);
 void pauseMenu(GameContext *ctx);
 
