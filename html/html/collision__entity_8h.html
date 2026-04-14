@@ -91,6 +91,9 @@ $(function(){initNavTree('collision__entity_8h.html','',''); });
   <div class="headertitle"><div class="title">collision_entity.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>fonctions de détection des collisions des entités  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="pool_8h_source.html">ecs/pool.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
 <code>#include &lt;raylib.h&gt;</code><br />
@@ -99,20 +102,28 @@ $(function(){initNavTree('collision__entity_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a1f0e4fb383eba545273cbfd481b98e1e" id="r_a1f0e4fb383eba545273cbfd481b98e1e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1f0e4fb383eba545273cbfd481b98e1e">MAX_COLLISIONS</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memitem:a1f0e4fb383eba545273cbfd481b98e1e" id="r_a1f0e4fb383eba545273cbfd481b98e1e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1f0e4fb383eba545273cbfd481b98e1e">MAX_COLLISIONS</a>&#160;&#160;&#160;100000</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a999c1b77f1815db71d9d9cdd442f6154" id="r_a999c1b77f1815db71d9d9cdd442f6154"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a999c1b77f1815db71d9d9cdd442f6154">Entity_find_hitters</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="structflagList.html">flagList</a> *flags, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> foundCollisions[], int *nbCollisions)</td></tr>
-<tr class="memitem:adee326ca85baf25afc9e1dfa12f6ad38" id="r_adee326ca85baf25afc9e1dfa12f6ad38"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adee326ca85baf25afc9e1dfa12f6ad38">Entity_is_hit</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="structflagList.html">flagList</a> *flags)</td></tr>
-<tr class="memitem:ac3368529f54127bc85a82492f709e227" id="r_ac3368529f54127bc85a82492f709e227"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac3368529f54127bc85a82492f709e227">Damage_entity_by_enemy_projectile</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity)</td></tr>
-<tr class="memitem:a9680b656add7c95eae62d51442abab69" id="r_a9680b656add7c95eae62d51442abab69"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9680b656add7c95eae62d51442abab69">Damage_player_by_enemy_projectile</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> player)</td></tr>
-<tr class="memitem:a7152a2936659d63c09f923a8fb931ccf" id="r_a7152a2936659d63c09f923a8fb931ccf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7152a2936659d63c09f923a8fb931ccf">collision_circle_add_scaled_with_sprite</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity)</td></tr>
-<tr class="memitem:aa5151025e16afa4fcf09b626aff9aebd" id="r_aa5151025e16afa4fcf09b626aff9aebd"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aa5151025e16afa4fcf09b626aff9aebd">CheckCircleRotatedRect</a> (Vector2 cPos, float radius, Vector2 rPos, float w, float h, float angle)</td></tr>
-<tr class="memitem:a724cbae5a43ed31a782137fa8e62d19a" id="r_a724cbae5a43ed31a782137fa8e62d19a"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a724cbae5a43ed31a782137fa8e62d19a">Entity_is_hit_by_rectangle</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="structflagList.html">flagList</a> *laserFlags, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> foundCollisions[], int *nbcollisions)</td></tr>
-<tr class="memitem:aa9f003081bbbd65703ff29625d492a96" id="r_aa9f003081bbbd65703ff29625d492a96"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aa9f003081bbbd65703ff29625d492a96">Entity_is_hit_by_circle</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="structflagList.html">flagList</a> *BulletFlags, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> foundCollisions[], int *nbcollisions)</td></tr>
+<tr class="memitem:adee326ca85baf25afc9e1dfa12f6ad38" id="r_adee326ca85baf25afc9e1dfa12f6ad38"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adee326ca85baf25afc9e1dfa12f6ad38">Entity_is_hit</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="structflag_list.html">flagList</a> *flags)</td></tr>
+<tr class="memdesc:adee326ca85baf25afc9e1dfa12f6ad38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une entité est touchée par au moins une autre entitée.  <br /></td></tr>
+<tr class="memitem:a999c1b77f1815db71d9d9cdd442f6154" id="r_a999c1b77f1815db71d9d9cdd442f6154"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a999c1b77f1815db71d9d9cdd442f6154">Entity_find_hitters</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="structflag_list.html">flagList</a> *flags, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> foundCollisions[], int *nbCollisions)</td></tr>
+<tr class="memdesc:a999c1b77f1815db71d9d9cdd442f6154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une entité est touchée par d'autres entitées et les liste dans un tableau.  <br /></td></tr>
+<tr class="memitem:ac3368529f54127bc85a82492f709e227" id="r_ac3368529f54127bc85a82492f709e227"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac3368529f54127bc85a82492f709e227">Damage_entity_by_enemy_projectile</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity)</td></tr>
+<tr class="memdesc:ac3368529f54127bc85a82492f709e227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifie si l'entité est touchée par un projectile ennemi, et lui inflige des dégâts.  <br /></td></tr>
+<tr class="memitem:aab971c51f49b6cf01a1122a88987328e" id="r_aab971c51f49b6cf01a1122a88987328e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aab971c51f49b6cf01a1122a88987328e">Damage_player_by_enemy_projectile</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> player)</td></tr>
+<tr class="memdesc:aab971c51f49b6cf01a1122a88987328e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifie si l'entité (utilisé surtout pour le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts.  <br /></td></tr>
+<tr class="memitem:a7152a2936659d63c09f923a8fb931ccf" id="r_a7152a2936659d63c09f923a8fb931ccf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7152a2936659d63c09f923a8fb931ccf">collision_circle_add_scaled_with_sprite</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity)</td></tr>
+<tr class="memdesc:a7152a2936659d63c09f923a8fb931ccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée automatiquement une hitbox circulaire d'une taille basée sur le sprite d'une entité  <br /></td></tr>
+<tr class="memitem:a8e3af3d2d44140ef4a5ba10421087db8" id="r_a8e3af3d2d44140ef4a5ba10421087db8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8e3af3d2d44140ef4a5ba10421087db8">CheckCircleRotatedRect</a> (Vector2 cPos, float radius, Vector2 rPos, float w, float h, float angle)</td></tr>
+<tr class="memdesc:a8e3af3d2d44140ef4a5ba10421087db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si un cercle et un rectangle sont en collision.  <br /></td></tr>
+<tr class="memitem:a724cbae5a43ed31a782137fa8e62d19a" id="r_a724cbae5a43ed31a782137fa8e62d19a"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a724cbae5a43ed31a782137fa8e62d19a">Entity_is_hit_by_rectangle</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="structflag_list.html">flagList</a> *laserFlags, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> foundCollisions[], int *nbcollisions)</td></tr>
+<tr class="memitem:aa9f003081bbbd65703ff29625d492a96" id="r_aa9f003081bbbd65703ff29625d492a96"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aa9f003081bbbd65703ff29625d492a96">Entity_is_hit_by_circle</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="structflag_list.html">flagList</a> *BulletFlags, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> foundCollisions[], int *nbcollisions)</td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>fonctions de détection des collisions des entités </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a1f0e4fb383eba545273cbfd481b98e1e" name="a1f0e4fb383eba545273cbfd481b98e1e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f0e4fb383eba545273cbfd481b98e1e">&#9670;&#160;</a></span>MAX_COLLISIONS</h2>
 
@@ -120,7 +131,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_COLLISIONS&#160;&#160;&#160;100</td>
+          <td class="memname">#define MAX_COLLISIONS&#160;&#160;&#160;100000</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -128,8 +139,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="aa5151025e16afa4fcf09b626aff9aebd" name="aa5151025e16afa4fcf09b626aff9aebd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5151025e16afa4fcf09b626aff9aebd">&#9670;&#160;</a></span>CheckCircleRotatedRect()</h2>
+<a id="a8e3af3d2d44140ef4a5ba10421087db8" name="a8e3af3d2d44140ef4a5ba10421087db8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e3af3d2d44140ef4a5ba10421087db8">&#9670;&#160;</a></span>CheckCircleRotatedRect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,10 +181,24 @@ Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Vérifie si un cercle et un rectangle sont en collision. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cPos</td><td>coordonnées 2D du cercle </td></tr>
+    <tr><td class="paramname">radius</td><td>rayon du cercle </td></tr>
+    <tr><td class="paramname">rPos</td><td>coordonnées 2D du coin du rectangle </td></tr>
+    <tr><td class="paramname">w</td><td>largeur du rectangle </td></tr>
+    <tr><td class="paramname">h</td><td>longueur du rectangle </td></tr>
+    <tr><td class="paramname">angle</td><td>angle de rotation du rectangle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si les deux figures sont en collision, false sinon </dd></dl>
 
 </div>
 </div>
@@ -189,7 +214,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool collision_circle_add_scaled_with_sprite </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -203,7 +228,16 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Ajoute une collision circulaire à une entité, avec un rayon basé sur la taille de son sprite</p>
+
+<p>Crée automatiquement une hitbox circulaire d'une taille basée sur le sprite d'une entité </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">entity</td><td>l'entité cible </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true, si l'ajout a marché, faux sinon </dd></dl>
 
 </div>
 </div>
@@ -219,7 +253,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Damage_entity_by_enemy_projectile </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -233,12 +267,22 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifie si l'entité (surtout le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts</p>
+
+<p>Verifie si l'entité est touchée par un projectile ennemi, et lui inflige des dégâts. </p>
+<dl class="section note"><dt>Note</dt><dd>les projectiles ennemis sont identifiés par le flag FLAG_PROJECTILE_ENEMY</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">entity</td><td>l'entité dont on cherche à savoir si on doit lui infliger des dégâts </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si l'entité a subit des dégâts, false sinon </dd></dl>
 
 </div>
 </div>
-<a id="a9680b656add7c95eae62d51442abab69" name="a9680b656add7c95eae62d51442abab69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9680b656add7c95eae62d51442abab69">&#9670;&#160;</a></span>Damage_player_by_enemy_projectile()</h2>
+<a id="aab971c51f49b6cf01a1122a88987328e" name="aab971c51f49b6cf01a1122a88987328e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab971c51f49b6cf01a1122a88987328e">&#9670;&#160;</a></span>Damage_player_by_enemy_projectile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -249,7 +293,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Damage_player_by_enemy_projectile </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -263,7 +307,26 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifie si l'entité (surtout le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts</p>
+
+<p>Verifie si l'entité (utilisé surtout pour le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="struct_game_context.html">GameContext</a> courant (toutes les données du jeu) </td></tr>
+    <tr><td class="paramname">player</td><td>L'ID de l'entité testé (le joueur) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si le joueur a subit des dégats, faux sinon</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo</a></b></dt><dd><p class="startdd">changer ctx par pool, pas besoin de tout le contexte </p>
+<p class="enddd">changer pour trouver le joueur automatiquement </p>
+</dd></dl>
+<p>Verifie si l'entité (utilisé surtout pour le joueur) est touchée par un projectile ennemi, et lui inflige des dégâts </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Le contexte du jeu, utilisé pour accéder au pool et au système de score </td></tr>
+    <tr><td class="paramname">player</td><td>L'ID de l'entité testé (le joueur)</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -279,7 +342,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Entity_find_hitters </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -289,7 +352,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structflagList.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>flags</em></span>, </td>
+          <td class="paramtype"><a class="el" href="structflag_list.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>flags</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -308,7 +371,20 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Rempli le tableau d'ID passé en paramètre avec les ID des entités ayant les flags spécifiés et en collision avec entity.</p>
+
+<p>Vérifie si une entité est touchée par d'autres entitées et les liste dans un tableau. </p>
+<p>Vérifie si des cercles ou rectangles de collision ayant les flags de la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> passée en paramètre touche une entité spécifiée, puis les ajoute à un tableau.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">entity</td><td>l'entité dont on cherche à savoir si elle est en collision </td></tr>
+    <tr><td class="paramname">flags</td><td>les entités en collision avec l'entité que l'on étudie doivent disposer de ces flags, sinon elles sont ignorées </td></tr>
+    <tr><td class="paramname">foundCollisions</td><td>Un tableau d'ID, vide au départ, qui sera rempli avec toutes les entitées en collisions avec l'entité étudiée et remplissant le critère des flags </td></tr>
+    <tr><td class="paramname">nbCollisions</td><td>Un pointeur qui prendra la valeur du nombre de collisions valides trouvées </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si l'entité est touchée avec les flags spécifiés, false sinon </dd></dl>
 
 </div>
 </div>
@@ -324,7 +400,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Entity_is_hit </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -334,7 +410,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structflagList.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>flags</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="structflag_list.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>flags</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -343,7 +419,18 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifie si l'entité est touchés par une attaque d'un des types spécifiés dans bulletTypes</p>
+
+<p>Vérifie si une entité est touchée par au moins une autre entitée. </p>
+<p>Vérifie si un cercle ou rectangle de collision ayant les flags de la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> passée en paramètre touche une entité spécifiée</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">entity</td><td>l'entité dont on cherche à savoir si elle est en collision </td></tr>
+    <tr><td class="paramname">flags</td><td>les entités en collision avec l'entitée que l'on étudie doivent disposer de ces flags, sinon elles sont ignorées </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si l'entité est touchée avec les flags spécifiés, false sinon </dd></dl>
 
 </div>
 </div>
@@ -359,7 +446,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Entity_is_hit_by_circle </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -369,7 +456,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structflagList.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>BulletFlags</em></span>, </td>
+          <td class="paramtype"><a class="el" href="structflag_list.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>BulletFlags</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -403,7 +490,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Entity_is_hit_by_rectangle </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -413,7 +500,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structflagList.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>laserFlags</em></span>, </td>
+          <td class="paramtype"><a class="el" href="structflag_list.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>laserFlags</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

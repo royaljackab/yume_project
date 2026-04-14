@@ -385,7 +385,7 @@ $(function(){initNavTree('tasks_8h_source.html','',''); });
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="tasks_8h.html#a4eba2667266583061a61c2a3aa994b3b">  222</a></span><span class="preprocessor">#define CANCEL_TASK_WHEN(_event, _task) INVOKE_TASK_WHEN(_event, _cancel_task_helper, _task)</span></div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="tasks_8h.html#a2d7411c931167c18c4c92b0bdd660ca5">  223</a></span><span class="preprocessor">#define CANCEL_TASK_AFTER(_event, _task) INVOKE_TASK_AFTER(_event, _cancel_task_helper, _task)</span></div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="tasks_8h.html#ac7f6498f234daa94be296220b9c4d78e">  225</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(_cancel_task_helper, { <a class="code hl_struct" href="structBoxedTask.html">BoxedTask</a> task; });</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="tasks_8h.html#ac7f6498f234daa94be296220b9c4d78e">  225</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(_cancel_task_helper, { <a class="code hl_struct" href="struct_boxed_task.html">BoxedTask</a> task; });</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="tasks_8h.html#a0037b2243c9bafbf7a5af67901c24446">  227</a></span><span class="preprocessor">#define CANCEL_TASK(boxed_task) cotask_cancel(cotask_unbox(boxed_task))</span></div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
@@ -467,7 +467,7 @@ $(function(){initNavTree('tasks_8h_source.html','',''); });
 <div class="ttc" id="acosched_8h_html"><div class="ttname"><a href="cosched_8h.html">cosched.h</a></div></div>
 <div class="ttc" id="acotask_8h_html"><div class="ttname"><a href="cotask_8h.html">cotask.h</a></div></div>
 <div class="ttc" id="amacro_8h_html"><div class="ttname"><a href="macro_8h.html">macro.h</a></div></div>
-<div class="ttc" id="astructBoxedTask_html"><div class="ttname"><a href="structBoxedTask.html">BoxedTask</a></div><div class="ttdoc">Une BoxedTask est une référence faible a une task.</div><div class="ttdef"><b>Definition</b> cotask.h:25</div></div>
+<div class="ttc" id="astruct_boxed_task_html"><div class="ttname"><a href="struct_boxed_task.html">BoxedTask</a></div><div class="ttdoc">Une BoxedTask est une référence faible a une task.</div><div class="ttdef"><b>Definition</b> cotask.h:25</div></div>
 <div class="ttc" id="atasks_8h_html_a42679cc359654f526369cbd037e77a27"><div class="ttname"><a href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a></div><div class="ttdeci">#define DECLARE_EXTERN_TASK(name,...)</div><div class="ttdef"><b>Definition</b> tasks.h:143</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

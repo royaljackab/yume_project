@@ -111,55 +111,56 @@ $(function(){initNavTree('cotask_8c.html','',''); });
 Functions</h2></td></tr>
 <tr class="memitem:a2c80ffc4ef06cc42380a2476cfa218bf" id="r_a2c80ffc4ef06cc42380a2476cfa218bf"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2c80ffc4ef06cc42380a2476cfa218bf">cotask_global_init</a> ()</td></tr>
 <tr class="memitem:ace4890180692e0d8a9c0f66b6c4067a6" id="r_ace4890180692e0d8a9c0f66b6c4067a6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ace4890180692e0d8a9c0f66b6c4067a6">cotask_global_shutdown</a> ()</td></tr>
-<tr class="memitem:aa5305cdb8bc8aae792c7bb81dc81cd2b" id="r_aa5305cdb8bc8aae792c7bb81dc81cd2b"><td class="memItemLeft">static <a class="el" href="structCoTask.html">CoTask</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aa5305cdb8bc8aae792c7bb81dc81cd2b">cotask_from_koishi_coroutine</a> (koishi_coroutine_t *co)</td></tr>
-<tr class="memitem:a83e7f763cd720b4a97a707030da2a111" id="r_a83e7f763cd720b4a97a707030da2a111"><td class="memItemLeft"><a class="el" href="structBoxedTask.html">BoxedTask</a>&#160;</td><td class="memItemRight"><a class="el" href="#a83e7f763cd720b4a97a707030da2a111">cotask_box</a> (<a class="el" href="structCoTask.html">CoTask</a> *task)</td></tr>
+<tr class="memitem:aa5305cdb8bc8aae792c7bb81dc81cd2b" id="r_aa5305cdb8bc8aae792c7bb81dc81cd2b"><td class="memItemLeft">static <a class="el" href="struct_co_task.html">CoTask</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aa5305cdb8bc8aae792c7bb81dc81cd2b">cotask_from_koishi_coroutine</a> (koishi_coroutine_t *co)</td></tr>
+<tr class="memitem:a83e7f763cd720b4a97a707030da2a111" id="r_a83e7f763cd720b4a97a707030da2a111"><td class="memItemLeft"><a class="el" href="struct_boxed_task.html">BoxedTask</a>&#160;</td><td class="memItemRight"><a class="el" href="#a83e7f763cd720b4a97a707030da2a111">cotask_box</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task)</td></tr>
 <tr class="memdesc:a83e7f763cd720b4a97a707030da2a111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emballer une task dans une boite (ref faible).  <br /></td></tr>
-<tr class="memitem:a77ce99cb0ebe7b8fb50ef918396218b3" id="r_a77ce99cb0ebe7b8fb50ef918396218b3"><td class="memItemLeft"><a class="el" href="structCoTask.html">CoTask</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a77ce99cb0ebe7b8fb50ef918396218b3">cotask_unbox</a> (<a class="el" href="structBoxedTask.html">BoxedTask</a> box)</td></tr>
+<tr class="memitem:a77ce99cb0ebe7b8fb50ef918396218b3" id="r_a77ce99cb0ebe7b8fb50ef918396218b3"><td class="memItemLeft"><a class="el" href="struct_co_task.html">CoTask</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a77ce99cb0ebe7b8fb50ef918396218b3">cotask_unbox</a> (<a class="el" href="struct_boxed_task.html">BoxedTask</a> box)</td></tr>
 <tr class="memdesc:a77ce99cb0ebe7b8fb50ef918396218b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A partir d'une boite, retrouver la task correspondante.  <br /></td></tr>
-<tr class="memitem:ac968ce4760ac31c551a3abecd2620da0" id="r_ac968ce4760ac31c551a3abecd2620da0"><td class="memItemLeft"><a class="el" href="structCoTask.html">CoTask</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac968ce4760ac31c551a3abecd2620da0">cotask_new_internal</a> (koishi_entrypoint_t entry_point)</td></tr>
+<tr class="memitem:ac968ce4760ac31c551a3abecd2620da0" id="r_ac968ce4760ac31c551a3abecd2620da0"><td class="memItemLeft"><a class="el" href="struct_co_task.html">CoTask</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac968ce4760ac31c551a3abecd2620da0">cotask_new_internal</a> (koishi_entrypoint_t entry_point)</td></tr>
 <tr class="memdesc:ac968ce4760ac31c551a3abecd2620da0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pour créer une nouvelle cotask Fonction de "bas" niveau.  <br /></td></tr>
-<tr class="memitem:a0d9cd4899471454a1489457f627bdf09" id="r_a0d9cd4899471454a1489457f627bdf09"><td class="memItemLeft">void *&#160;</td><td class="memItemRight"><a class="el" href="#a0d9cd4899471454a1489457f627bdf09">cotask_resume_internal</a> (<a class="el" href="structCoTask.html">CoTask</a> *task, void *arg)</td></tr>
+<tr class="memitem:a0d9cd4899471454a1489457f627bdf09" id="r_a0d9cd4899471454a1489457f627bdf09"><td class="memItemLeft">void *&#160;</td><td class="memItemRight"><a class="el" href="#a0d9cd4899471454a1489457f627bdf09">cotask_resume_internal</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task, void *arg)</td></tr>
 <tr class="memdesc:a0d9cd4899471454a1489457f627bdf09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction interne pour le resume.  <br /></td></tr>
-<tr class="memitem:ab39051f11c4dbfa4183dbda196c3c315" id="r_ab39051f11c4dbfa4183dbda196c3c315"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ab39051f11c4dbfa4183dbda196c3c315">cancel_task_events</a> (<a class="el" href="structCoTaskData.html">CoTaskData</a> *task_data)</td></tr>
-<tr class="memitem:ab1b16b8fdf436fc4c1e4764666a56754" id="r_ab1b16b8fdf436fc4c1e4764666a56754"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ab1b16b8fdf436fc4c1e4764666a56754">cotask_finalize</a> (<a class="el" href="structCoTask.html">CoTask</a> *task)</td></tr>
-<tr class="memitem:abbde79b262e5278c64b04b21713b4010" id="r_abbde79b262e5278c64b04b21713b4010"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#abbde79b262e5278c64b04b21713b4010">cotask_enslave</a> (<a class="el" href="structCoTaskData.html">CoTaskData</a> *master_data, <a class="el" href="structCoTaskData.html">CoTaskData</a> *slave_data)</td></tr>
-<tr class="memitem:a8d6a0636e08616e1ea6b8bfe78595a41" id="r_a8d6a0636e08616e1ea6b8bfe78595a41"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a8d6a0636e08616e1ea6b8bfe78595a41">cotask_entry_setup</a> (<a class="el" href="structCoTask.html">CoTask</a> *task, <a class="el" href="structCoTaskData.html">CoTaskData</a> *data, <a class="el" href="structCoTaskInitData.html">CoTaskInitData</a> *init_data)</td></tr>
+<tr class="memitem:ab39051f11c4dbfa4183dbda196c3c315" id="r_ab39051f11c4dbfa4183dbda196c3c315"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ab39051f11c4dbfa4183dbda196c3c315">cancel_task_events</a> (<a class="el" href="struct_co_task_data.html">CoTaskData</a> *task_data)</td></tr>
+<tr class="memitem:ab1b16b8fdf436fc4c1e4764666a56754" id="r_ab1b16b8fdf436fc4c1e4764666a56754"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ab1b16b8fdf436fc4c1e4764666a56754">cotask_finalize</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task)</td></tr>
+<tr class="memitem:abbde79b262e5278c64b04b21713b4010" id="r_abbde79b262e5278c64b04b21713b4010"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#abbde79b262e5278c64b04b21713b4010">cotask_enslave</a> (<a class="el" href="struct_co_task_data.html">CoTaskData</a> *master_data, <a class="el" href="struct_co_task_data.html">CoTaskData</a> *slave_data)</td></tr>
+<tr class="memitem:a8d6a0636e08616e1ea6b8bfe78595a41" id="r_a8d6a0636e08616e1ea6b8bfe78595a41"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a8d6a0636e08616e1ea6b8bfe78595a41">cotask_entry_setup</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task, <a class="el" href="struct_co_task_data.html">CoTaskData</a> *data, <a class="el" href="struct_co_task_init_data.html">CoTaskInitData</a> *init_data)</td></tr>
 <tr class="memitem:a25b4311cfd88223b64eeff0d4eb3dfd0" id="r_a25b4311cfd88223b64eeff0d4eb3dfd0"><td class="memItemLeft">void *&#160;</td><td class="memItemRight"><a class="el" href="#a25b4311cfd88223b64eeff0d4eb3dfd0">cotask_entry</a> (void *varg)</td></tr>
 <tr class="memdesc:a25b4311cfd88223b64eeff0d4eb3dfd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">EHH en gros ce qui fait touner la tache.  <br /></td></tr>
-<tr class="memitem:af69847a7f99006622da2eb368a340bb2" id="r_af69847a7f99006622da2eb368a340bb2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af69847a7f99006622da2eb368a340bb2">cotask_free</a> (<a class="el" href="structCoTask.html">CoTask</a> *task)</td></tr>
-<tr class="memitem:a2b3d02877fb7fc509d6145e755cb08f7" id="r_a2b3d02877fb7fc509d6145e755cb08f7"><td class="memItemLeft"><a class="el" href="structCoTask.html">CoTask</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a2b3d02877fb7fc509d6145e755cb08f7">cotask_active</a> (void)</td></tr>
+<tr class="memitem:af69847a7f99006622da2eb368a340bb2" id="r_af69847a7f99006622da2eb368a340bb2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af69847a7f99006622da2eb368a340bb2">cotask_free</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task)</td></tr>
+<tr class="memitem:a2b3d02877fb7fc509d6145e755cb08f7" id="r_a2b3d02877fb7fc509d6145e755cb08f7"><td class="memItemLeft"><a class="el" href="struct_co_task.html">CoTask</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a2b3d02877fb7fc509d6145e755cb08f7">cotask_active</a> (void)</td></tr>
 <tr class="memdesc:a2b3d02877fb7fc509d6145e755cb08f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la cotask actuellement en train de run.  <br /></td></tr>
-<tr class="memitem:af850fa54400b9afe581d4294fbe0b2c1" id="r_af850fa54400b9afe581d4294fbe0b2c1"><td class="memItemLeft">static void *&#160;</td><td class="memItemRight"><a class="el" href="#af850fa54400b9afe581d4294fbe0b2c1">cotask_force_resume</a> (<a class="el" href="structCoTask.html">CoTask</a> *task, void *arg)</td></tr>
-<tr class="memitem:af62fe484d98b8311bccbc49dae87a373" id="r_af62fe484d98b8311bccbc49dae87a373"><td class="memItemLeft">static void *&#160;</td><td class="memItemRight"><a class="el" href="#af62fe484d98b8311bccbc49dae87a373">cotask_wake_and_resume</a> (<a class="el" href="structCoTask.html">CoTask</a> *task, void *arg)</td></tr>
-<tr class="memitem:a47145bfb35378a5273120c5915d28283" id="r_a47145bfb35378a5273120c5915d28283"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a47145bfb35378a5273120c5915d28283">cotask_do_wait</a> (<a class="el" href="structCoTaskData.html">CoTaskData</a> *task_data)</td></tr>
-<tr class="memitem:a2533cb4b10f14a1656d6ac618d926aab" id="r_a2533cb4b10f14a1656d6ac618d926aab"><td class="memItemLeft">void *&#160;</td><td class="memItemRight"><a class="el" href="#a2533cb4b10f14a1656d6ac618d926aab">cotask_resume</a> (<a class="el" href="structCoTask.html">CoTask</a> *task, void *arg)</td></tr>
+<tr class="memitem:af850fa54400b9afe581d4294fbe0b2c1" id="r_af850fa54400b9afe581d4294fbe0b2c1"><td class="memItemLeft">static void *&#160;</td><td class="memItemRight"><a class="el" href="#af850fa54400b9afe581d4294fbe0b2c1">cotask_force_resume</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task, void *arg)</td></tr>
+<tr class="memitem:af62fe484d98b8311bccbc49dae87a373" id="r_af62fe484d98b8311bccbc49dae87a373"><td class="memItemLeft">static void *&#160;</td><td class="memItemRight"><a class="el" href="#af62fe484d98b8311bccbc49dae87a373">cotask_wake_and_resume</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task, void *arg)</td></tr>
+<tr class="memitem:a47145bfb35378a5273120c5915d28283" id="r_a47145bfb35378a5273120c5915d28283"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a47145bfb35378a5273120c5915d28283">cotask_do_wait</a> (<a class="el" href="struct_co_task_data.html">CoTaskData</a> *task_data)</td></tr>
+<tr class="memitem:a2533cb4b10f14a1656d6ac618d926aab" id="r_a2533cb4b10f14a1656d6ac618d926aab"><td class="memItemLeft">void *&#160;</td><td class="memItemRight"><a class="el" href="#a2533cb4b10f14a1656d6ac618d926aab">cotask_resume</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task, void *arg)</td></tr>
 <tr class="memdesc:a2533cb4b10f14a1656d6ac618d926aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redonne la main a la task.  <br /></td></tr>
 <tr class="memitem:ae3be74ea97d59211d95a8b70daacd7f7" id="r_ae3be74ea97d59211d95a8b70daacd7f7"><td class="memItemLeft">void *&#160;</td><td class="memItemRight"><a class="el" href="#ae3be74ea97d59211d95a8b70daacd7f7">cotask_yield</a> (void *arg)</td></tr>
 <tr class="memdesc:ae3be74ea97d59211d95a8b70daacd7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Yield la coroutine active (redonne la main au main).  <br /></td></tr>
-<tr class="memitem:a3812bffc739d32ba3f2c747ccca625f7" id="r_a3812bffc739d32ba3f2c747ccca625f7"><td class="memItemLeft">static <a class="el" href="structCoWaitResult.html">CoWaitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3812bffc739d32ba3f2c747ccca625f7">cotask_wait_init</a> (<a class="el" href="structCoTaskData.html">CoTaskData</a> *task_data, char wait_type)</td></tr>
+<tr class="memitem:a3812bffc739d32ba3f2c747ccca625f7" id="r_a3812bffc739d32ba3f2c747ccca625f7"><td class="memItemLeft">static <a class="el" href="struct_co_wait_result.html">CoWaitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3812bffc739d32ba3f2c747ccca625f7">cotask_wait_init</a> (<a class="el" href="struct_co_task_data.html">CoTaskData</a> *task_data, char wait_type)</td></tr>
 <tr class="memitem:a5adeebe30d573cab597985f358d5652d" id="r_a5adeebe30d573cab597985f358d5652d"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a5adeebe30d573cab597985f358d5652d">cotask_wait</a> (int delay)</td></tr>
 <tr class="memdesc:a5adeebe30d573cab597985f358d5652d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de yield pdt delay frames.  <br /></td></tr>
 <tr class="memitem:a44ad09aa4fed2cc8ed70934c434540fa" id="r_a44ad09aa4fed2cc8ed70934c434540fa"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a44ad09aa4fed2cc8ed70934c434540fa">cotask_wait_subtasks</a> (void)</td></tr>
-<tr class="memitem:a4a2094a753cca975c8c2aa56f6b72078" id="r_a4a2094a753cca975c8c2aa56f6b72078"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4a2094a753cca975c8c2aa56f6b72078">cotask_host_entity</a> (<a class="el" href="structCoTask.html">CoTask</a> *task, <a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">Tag</a> ent_type)</td></tr>
-<tr class="memitem:af072fdb97a4cd7f2ad2c06602a573c98" id="r_af072fdb97a4cd7f2ad2c06602a573c98"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af072fdb97a4cd7f2ad2c06602a573c98">cotask_host_events</a> (<a class="el" href="structCoTask.html">CoTask</a> *task, unsigned int num_events, <a class="el" href="structCoEvent.html">CoEvent</a> events[num_events])</td></tr>
-<tr class="memitem:a7da5ffe5b3125a905ca76ff84ebce4c3" id="r_a7da5ffe5b3125a905ca76ff84ebce4c3"><td class="memItemLeft">static <a class="el" href="structCoWaitResult.html">CoWaitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7da5ffe5b3125a905ca76ff84ebce4c3">cotask_wait_event_internal</a> (<a class="el" href="structCoEvent.html">CoEvent</a> *evt, bool once)</td></tr>
-<tr class="memitem:af3d6a29a0f31fcaafed6a53862e67541" id="r_af3d6a29a0f31fcaafed6a53862e67541"><td class="memItemLeft"><a class="el" href="structCoWaitResult.html">CoWaitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#af3d6a29a0f31fcaafed6a53862e67541">cotask_wait_event</a> (<a class="el" href="structCoEvent.html">CoEvent</a> *evt)</td></tr>
+<tr class="memdesc:a44ad09aa4fed2cc8ed70934c434540fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait les soustaches actives.  <br /></td></tr>
+<tr class="memitem:a4a2094a753cca975c8c2aa56f6b72078" id="r_a4a2094a753cca975c8c2aa56f6b72078"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4a2094a753cca975c8c2aa56f6b72078">cotask_host_entity</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task, <a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">Tag</a> ent_type)</td></tr>
+<tr class="memitem:af072fdb97a4cd7f2ad2c06602a573c98" id="r_af072fdb97a4cd7f2ad2c06602a573c98"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af072fdb97a4cd7f2ad2c06602a573c98">cotask_host_events</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task, unsigned int num_events, <a class="el" href="struct_co_event.html">CoEvent</a> events[num_events])</td></tr>
+<tr class="memitem:a7da5ffe5b3125a905ca76ff84ebce4c3" id="r_a7da5ffe5b3125a905ca76ff84ebce4c3"><td class="memItemLeft">static <a class="el" href="struct_co_wait_result.html">CoWaitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7da5ffe5b3125a905ca76ff84ebce4c3">cotask_wait_event_internal</a> (<a class="el" href="struct_co_event.html">CoEvent</a> *evt, bool once)</td></tr>
+<tr class="memitem:af3d6a29a0f31fcaafed6a53862e67541" id="r_af3d6a29a0f31fcaafed6a53862e67541"><td class="memItemLeft"><a class="el" href="struct_co_wait_result.html">CoWaitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#af3d6a29a0f31fcaafed6a53862e67541">cotask_wait_event</a> (<a class="el" href="struct_co_event.html">CoEvent</a> *evt)</td></tr>
 <tr class="memdesc:af3d6a29a0f31fcaafed6a53862e67541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait un événement.  <br /></td></tr>
-<tr class="memitem:a11b0103d2f02f7188c8d3c4f48b38158" id="r_a11b0103d2f02f7188c8d3c4f48b38158"><td class="memItemLeft"><a class="el" href="structCoWaitResult.html">CoWaitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a11b0103d2f02f7188c8d3c4f48b38158">cotask_wait_event_once</a> (<a class="el" href="structCoEvent.html">CoEvent</a> *evt)</td></tr>
+<tr class="memitem:a11b0103d2f02f7188c8d3c4f48b38158" id="r_a11b0103d2f02f7188c8d3c4f48b38158"><td class="memItemLeft"><a class="el" href="struct_co_wait_result.html">CoWaitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a11b0103d2f02f7188c8d3c4f48b38158">cotask_wait_event_once</a> (<a class="el" href="struct_co_event.html">CoEvent</a> *evt)</td></tr>
 <tr class="memdesc:a11b0103d2f02f7188c8d3c4f48b38158"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait un événement une seule fois.  <br /></td></tr>
-<tr class="memitem:a564390051d3fb04a804a1ea38e2e5a36" id="r_a564390051d3fb04a804a1ea38e2e5a36"><td class="memItemLeft"><a class="el" href="structCoWaitResult.html">CoWaitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a564390051d3fb04a804a1ea38e2e5a36">cotask_wait_event_or_die</a> (<a class="el" href="structCoEvent.html">CoEvent</a> *evt)</td></tr>
+<tr class="memitem:a564390051d3fb04a804a1ea38e2e5a36" id="r_a564390051d3fb04a804a1ea38e2e5a36"><td class="memItemLeft"><a class="el" href="struct_co_wait_result.html">CoWaitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a564390051d3fb04a804a1ea38e2e5a36">cotask_wait_event_or_die</a> (<a class="el" href="struct_co_event.html">CoEvent</a> *evt)</td></tr>
 <tr class="memdesc:a564390051d3fb04a804a1ea38e2e5a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait un événement, sinon cancel la tache.  <br /></td></tr>
-<tr class="memitem:a5342389f4ea2ffe06304a4a4b1cd39d1" id="r_a5342389f4ea2ffe06304a4a4b1cd39d1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5342389f4ea2ffe06304a4a4b1cd39d1">cotask_cancel</a> (<a class="el" href="structCoTask.html">CoTask</a> *task)</td></tr>
+<tr class="memitem:a5342389f4ea2ffe06304a4a4b1cd39d1" id="r_a5342389f4ea2ffe06304a4a4b1cd39d1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5342389f4ea2ffe06304a4a4b1cd39d1">cotask_cancel</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task)</td></tr>
 <tr class="memdesc:a5342389f4ea2ffe06304a4a4b1cd39d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Annule une tache.  <br /></td></tr>
-<tr class="memitem:a68e07f34a0ac6abc0f25ac05a754ac0f" id="r_a68e07f34a0ac6abc0f25ac05a754ac0f"><td class="memItemLeft"><a class="el" href="cotask_8h.html#ae1bbabd117619887606c151f625f933f">CoStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a68e07f34a0ac6abc0f25ac05a754ac0f">cotask_status</a> (<a class="el" href="structCoTask.html">CoTask</a> *task)</td></tr>
+<tr class="memitem:a68e07f34a0ac6abc0f25ac05a754ac0f" id="r_a68e07f34a0ac6abc0f25ac05a754ac0f"><td class="memItemLeft"><a class="el" href="cotask_8h.html#ae1bbabd117619887606c151f625f933f">CoStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a68e07f34a0ac6abc0f25ac05a754ac0f">cotask_status</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task)</td></tr>
 <tr class="memdesc:a68e07f34a0ac6abc0f25ac05a754ac0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie le statut de la task.  <br /></td></tr>
-<tr class="memitem:a17842bd60367ba493ee7650f197b0417" id="r_a17842bd60367ba493ee7650f197b0417"><td class="memItemLeft"><a class="el" href="structCoSched.html">CoSched</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a17842bd60367ba493ee7650f197b0417">cotask_get_sched</a> (<a class="el" href="structCoTask.html">CoTask</a> *task)</td></tr>
+<tr class="memitem:a17842bd60367ba493ee7650f197b0417" id="r_a17842bd60367ba493ee7650f197b0417"><td class="memItemLeft"><a class="el" href="struct_co_sched.html">CoSched</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a17842bd60367ba493ee7650f197b0417">cotask_get_sched</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task)</td></tr>
 <tr class="memdesc:a17842bd60367ba493ee7650f197b0417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie le scheduler d'une tache.  <br /></td></tr>
-<tr class="memitem:a6f470d4b885a58e272c091451f9d6ae9" id="r_a6f470d4b885a58e272c091451f9d6ae9"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6f470d4b885a58e272c091451f9d6ae9">cotask_bind_to_entity</a> (<a class="el" href="structCoTask.html">CoTask</a> *task, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> ent)</td></tr>
+<tr class="memitem:a6f470d4b885a58e272c091451f9d6ae9" id="r_a6f470d4b885a58e272c091451f9d6ae9"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6f470d4b885a58e272c091451f9d6ae9">cotask_bind_to_entity</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> ent)</td></tr>
 <tr class="memdesc:a6f470d4b885a58e272c091451f9d6ae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rattache une tache a une entité  <br /></td></tr>
-<tr class="memitem:ae8f972c34fc9ff23cf2b53914e0edd5e" id="r_ae8f972c34fc9ff23cf2b53914e0edd5e"><td class="memItemLeft">CoTaskEvents *&#160;</td><td class="memItemRight"><a class="el" href="#ae8f972c34fc9ff23cf2b53914e0edd5e">cotask_get_events</a> (<a class="el" href="structCoTask.html">CoTask</a> *task)</td></tr>
+<tr class="memitem:ae8f972c34fc9ff23cf2b53914e0edd5e" id="r_ae8f972c34fc9ff23cf2b53914e0edd5e"><td class="memItemLeft">CoTaskEvents *&#160;</td><td class="memItemRight"><a class="el" href="#ae8f972c34fc9ff23cf2b53914e0edd5e">cotask_get_events</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task)</td></tr>
 <tr class="memdesc:ae8f972c34fc9ff23cf2b53914e0edd5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie les événements d'une tache.  <br /></td></tr>
-<tr class="memitem:a93c2b687b99a93fcb5f396032752c22c" id="r_a93c2b687b99a93fcb5f396032752c22c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a93c2b687b99a93fcb5f396032752c22c">cotask_force_finish</a> (<a class="el" href="structCoTask.html">CoTask</a> *task)</td></tr>
+<tr class="memitem:a93c2b687b99a93fcb5f396032752c22c" id="r_a93c2b687b99a93fcb5f396032752c22c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a93c2b687b99a93fcb5f396032752c22c">cotask_force_finish</a> (<a class="el" href="struct_co_task.html">CoTask</a> *task)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -179,7 +180,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void cancel_task_events </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTaskData.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>task_data</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task_data.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>task_data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -199,7 +200,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoTask.html">CoTask</a> * cotask_active </td>
+          <td class="memname"><a class="el" href="struct_co_task.html">CoTask</a> * cotask_active </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -221,7 +222,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> cotask_bind_to_entity </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -250,9 +251,9 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structBoxedTask.html">BoxedTask</a> cotask_box </td>
+          <td class="memname"><a class="el" href="struct_boxed_task.html">BoxedTask</a> cotask_box </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -265,7 +266,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structBoxedTask.html" title="Une BoxedTask est une référence faible a une task.">BoxedTask</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_boxed_task.html" title="Une BoxedTask est une référence faible a une task.">BoxedTask</a> </dd></dl>
 
 </div>
 </div>
@@ -278,7 +279,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void cotask_cancel </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -306,7 +307,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">bool cotask_do_wait </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTaskData.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>task_data</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task_data.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>task_data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -331,12 +332,12 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void cotask_enslave </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTaskData.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>master_data</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task_data.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>master_data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structCoTaskData.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>slave_data</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task_data.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>slave_data</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -386,17 +387,17 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void cotask_entry_setup </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structCoTaskData.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task_data.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structCoTaskInitData.html">CoTaskInitData</a> *</td>          <td class="paramname"><span class="paramname"><em>init_data</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task_init_data.html">CoTaskInitData</a> *</td>          <td class="paramname"><span class="paramname"><em>init_data</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -420,7 +421,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">bool cotask_finalize </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -442,7 +443,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void cotask_force_finish </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -462,7 +463,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void * cotask_force_resume </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -488,7 +489,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void cotask_free </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -506,7 +507,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoTask.html">CoTask</a> * cotask_from_koishi_coroutine </td>
+          <td class="memname"><a class="el" href="struct_co_task.html">CoTask</a> * cotask_from_koishi_coroutine </td>
           <td>(</td>
           <td class="paramtype">koishi_coroutine_t *</td>          <td class="paramname"><span class="paramname"><em>co</em></span></td><td>)</td>
           <td></td>
@@ -530,7 +531,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">CoTaskEvents * cotask_get_events </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -554,9 +555,9 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoSched.html">CoSched</a> * cotask_get_sched </td>
+          <td class="memname"><a class="el" href="struct_co_sched.html">CoSched</a> * cotask_get_sched </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -616,7 +617,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> cotask_host_entity </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -637,7 +638,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void cotask_host_events </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -647,7 +648,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a></td>          <td class="paramname"><span class="paramname"><em>events</em></span>[num_events]&#160;)</td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a></td>          <td class="paramname"><span class="paramname"><em>events</em></span>[num_events]&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -661,7 +662,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoTask.html">CoTask</a> * cotask_new_internal </td>
+          <td class="memname"><a class="el" href="struct_co_task.html">CoTask</a> * cotask_new_internal </td>
           <td>(</td>
           <td class="paramtype">koishi_entrypoint_t</td>          <td class="paramname"><span class="paramname"><em>entry_point</em></span></td><td>)</td>
           <td></td>
@@ -689,7 +690,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void * cotask_resume </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -720,7 +721,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void * cotask_resume_internal </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -751,7 +752,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="cotask_8h.html#ae1bbabd117619887606c151f625f933f">CoStatus</a> cotask_status </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -775,9 +776,9 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoTask.html">CoTask</a> * cotask_unbox </td>
+          <td class="memname"><a class="el" href="struct_co_task.html">CoTask</a> * cotask_unbox </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structBoxedTask.html">BoxedTask</a></td>          <td class="paramname"><span class="paramname"><em>box</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_boxed_task.html">BoxedTask</a></td>          <td class="paramname"><span class="paramname"><em>box</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -828,9 +829,9 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoWaitResult.html">CoWaitResult</a> cotask_wait_event </td>
+          <td class="memname"><a class="el" href="struct_co_wait_result.html">CoWaitResult</a> cotask_wait_event </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -843,7 +844,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structCoWaitResult.html">CoWaitResult</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_co_wait_result.html">CoWaitResult</a> </dd></dl>
 
 </div>
 </div>
@@ -857,9 +858,9 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoWaitResult.html">CoWaitResult</a> cotask_wait_event_internal </td>
+          <td class="memname"><a class="el" href="struct_co_wait_result.html">CoWaitResult</a> cotask_wait_event_internal </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -883,9 +884,9 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoWaitResult.html">CoWaitResult</a> cotask_wait_event_once </td>
+          <td class="memname"><a class="el" href="struct_co_wait_result.html">CoWaitResult</a> cotask_wait_event_once </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -898,7 +899,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structCoWaitResult.html">CoWaitResult</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_co_wait_result.html">CoWaitResult</a> </dd></dl>
 
 </div>
 </div>
@@ -909,9 +910,9 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoWaitResult.html">CoWaitResult</a> cotask_wait_event_or_die </td>
+          <td class="memname"><a class="el" href="struct_co_wait_result.html">CoWaitResult</a> cotask_wait_event_or_die </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -924,7 +925,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structCoWaitResult.html">CoWaitResult</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_co_wait_result.html">CoWaitResult</a> </dd></dl>
 
 </div>
 </div>
@@ -938,9 +939,9 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoWaitResult.html">CoWaitResult</a> cotask_wait_init </td>
+          <td class="memname"><a class="el" href="struct_co_wait_result.html">CoWaitResult</a> cotask_wait_init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTaskData.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>task_data</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task_data.html">CoTaskData</a> *</td>          <td class="paramname"><span class="paramname"><em>task_data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -972,6 +973,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Wait les soustaches actives. </p>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
 </div>
 </div>
 <a id="af62fe484d98b8311bccbc49dae87a373" name="af62fe484d98b8311bccbc49dae87a373"></a>
@@ -986,7 +990,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void * cotask_wake_and_resume </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

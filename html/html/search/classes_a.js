@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timer_0',['Timer',['../structTimer.html',1,'']]]
+  ['timer_0',['Timer',['../struct_timer.html',1,'']]]
 ];

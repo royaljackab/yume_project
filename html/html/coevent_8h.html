@@ -99,8 +99,8 @@ $(function(){initNavTree('coevent_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:CoEvent" id="r_CoEvent"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structCoEvent.html">CoEvent</a></td></tr>
-<tr class="memitem:CoEventSnapshot" id="r_CoEventSnapshot"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structCoEventSnapshot.html">CoEventSnapshot</a></td></tr>
+<tr class="memitem:CoEvent" id="r_CoEvent"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_co_event.html">CoEvent</a></td></tr>
+<tr class="memitem:CoEventSnapshot" id="r_CoEventSnapshot"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_co_event_snapshot.html">CoEventSnapshot</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -126,23 +126,23 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:adbec676c45ea24686da062aeb6fcdcab" id="r_adbec676c45ea24686da062aeb6fcdcab"><td class="memItemLeft">typedef&#160;</td><td class="memItemRight"><a class="el" href="#adbec676c45ea24686da062aeb6fcdcab">COEVENTS_ARRAY</a> (finished) CoTaskEvents</td></tr>
-<tr class="memitem:a86c45d87e8b8c40db2ec971f9b89dafb" id="r_a86c45d87e8b8c40db2ec971f9b89dafb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a86c45d87e8b8c40db2ec971f9b89dafb">coevent_init</a> (<a class="el" href="structCoEvent.html">CoEvent</a> *evt)</td></tr>
+<tr class="memitem:a86c45d87e8b8c40db2ec971f9b89dafb" id="r_a86c45d87e8b8c40db2ec971f9b89dafb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a86c45d87e8b8c40db2ec971f9b89dafb">coevent_init</a> (<a class="el" href="struct_co_event.html">CoEvent</a> *evt)</td></tr>
 <tr class="memdesc:a86c45d87e8b8c40db2ec971f9b89dafb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise un événement Lui donne un id unique.  <br /></td></tr>
-<tr class="memitem:aac57b97b360d42a5a85bd20e275e2931" id="r_aac57b97b360d42a5a85bd20e275e2931"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aac57b97b360d42a5a85bd20e275e2931">coevent_signal</a> (<a class="el" href="structCoEvent.html">CoEvent</a> *evt)</td></tr>
+<tr class="memitem:aac57b97b360d42a5a85bd20e275e2931" id="r_aac57b97b360d42a5a85bd20e275e2931"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aac57b97b360d42a5a85bd20e275e2931">coevent_signal</a> (<a class="el" href="struct_co_event.html">CoEvent</a> *evt)</td></tr>
 <tr class="memdesc:aac57b97b360d42a5a85bd20e275e2931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signale l'evenement et reveille ses enfants.  <br /></td></tr>
-<tr class="memitem:a1d14effa162b2443cf55ed9d4e67e38b" id="r_a1d14effa162b2443cf55ed9d4e67e38b"><td class="memItemLeft"><a class="el" href="structCoEventSnapshot.html">CoEventSnapshot</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1d14effa162b2443cf55ed9d4e67e38b">coevent_snapshot</a> (const <a class="el" href="structCoEvent.html">CoEvent</a> *evt)</td></tr>
+<tr class="memitem:a1d14effa162b2443cf55ed9d4e67e38b" id="r_a1d14effa162b2443cf55ed9d4e67e38b"><td class="memItemLeft"><a class="el" href="struct_co_event_snapshot.html">CoEventSnapshot</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1d14effa162b2443cf55ed9d4e67e38b">coevent_snapshot</a> (const <a class="el" href="struct_co_event.html">CoEvent</a> *evt)</td></tr>
 <tr class="memdesc:a1d14effa162b2443cf55ed9d4e67e38b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prend une "photo" de l'événement.  <br /></td></tr>
-<tr class="memitem:acc9b1b27fdc65f749100ef93438fee25" id="r_acc9b1b27fdc65f749100ef93438fee25"><td class="memItemLeft"><a class="el" href="#a29c4fef75f569bdcc3bf4bdd9dc5dcfa">CoEventStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#acc9b1b27fdc65f749100ef93438fee25">coevent_poll</a> (const <a class="el" href="structCoEvent.html">CoEvent</a> *evt, const <a class="el" href="structCoEventSnapshot.html">CoEventSnapshot</a> *snap)</td></tr>
+<tr class="memitem:acc9b1b27fdc65f749100ef93438fee25" id="r_acc9b1b27fdc65f749100ef93438fee25"><td class="memItemLeft"><a class="el" href="#a29c4fef75f569bdcc3bf4bdd9dc5dcfa">CoEventStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#acc9b1b27fdc65f749100ef93438fee25">coevent_poll</a> (const <a class="el" href="struct_co_event.html">CoEvent</a> *evt, const <a class="el" href="struct_co_event_snapshot.html">CoEventSnapshot</a> *snap)</td></tr>
 <tr class="memdesc:acc9b1b27fdc65f749100ef93438fee25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'état de l'evenement par rapport a un snapshot.  <br /></td></tr>
-<tr class="memitem:ad26c72bef228c3adfe0bd3c23b5ecdd2" id="r_ad26c72bef228c3adfe0bd3c23b5ecdd2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad26c72bef228c3adfe0bd3c23b5ecdd2">coevent_cleanup_subscribers</a> (<a class="el" href="structCoEvent.html">CoEvent</a> *evt)</td></tr>
+<tr class="memitem:ad26c72bef228c3adfe0bd3c23b5ecdd2" id="r_ad26c72bef228c3adfe0bd3c23b5ecdd2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad26c72bef228c3adfe0bd3c23b5ecdd2">coevent_cleanup_subscribers</a> (<a class="el" href="struct_co_event.html">CoEvent</a> *evt)</td></tr>
 <tr class="memdesc:ad26c72bef228c3adfe0bd3c23b5ecdd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nettoie l'evenement en ne gardant dans ses subscribers bien ceux qui le reference correctement.  <br /></td></tr>
-<tr class="memitem:a4ee35d5506f0483847637dd368735024" id="r_a4ee35d5506f0483847637dd368735024"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4ee35d5506f0483847637dd368735024">coevent_add_subscriber</a> (<a class="el" href="structCoEvent.html">CoEvent</a> *evt, <a class="el" href="structCoTask.html">CoTask</a> *task)</td></tr>
+<tr class="memitem:a4ee35d5506f0483847637dd368735024" id="r_a4ee35d5506f0483847637dd368735024"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4ee35d5506f0483847637dd368735024">coevent_add_subscriber</a> (<a class="el" href="struct_co_event.html">CoEvent</a> *evt, <a class="el" href="struct_co_task.html">CoTask</a> *task)</td></tr>
 <tr class="memdesc:a4ee35d5506f0483847637dd368735024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute task en subscriber de l'evenement.  <br /></td></tr>
-<tr class="memitem:ae1df6957e23328cd0c82413c198af042" id="r_ae1df6957e23328cd0c82413c198af042"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae1df6957e23328cd0c82413c198af042">coevent_signal_once</a> (<a class="el" href="structCoEvent.html">CoEvent</a> *evt)</td></tr>
+<tr class="memitem:ae1df6957e23328cd0c82413c198af042" id="r_ae1df6957e23328cd0c82413c198af042"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae1df6957e23328cd0c82413c198af042">coevent_signal_once</a> (<a class="el" href="struct_co_event.html">CoEvent</a> *evt)</td></tr>
 <tr class="memdesc:ae1df6957e23328cd0c82413c198af042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signale l'evenement ssi il n'a jamais ete signale avant.  <br /></td></tr>
-<tr class="memitem:ad4d119ba61c68148cf9e8390938f9b91" id="r_ad4d119ba61c68148cf9e8390938f9b91"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad4d119ba61c68148cf9e8390938f9b91">coevent_cancel</a> (<a class="el" href="structCoEvent.html">CoEvent</a> *evt)</td></tr>
+<tr class="memitem:ad4d119ba61c68148cf9e8390938f9b91" id="r_ad4d119ba61c68148cf9e8390938f9b91"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad4d119ba61c68148cf9e8390938f9b91">coevent_cancel</a> (<a class="el" href="struct_co_event.html">CoEvent</a> *evt)</td></tr>
 <tr class="memdesc:ad4d119ba61c68148cf9e8390938f9b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">annule un event et reveille tous ses enfants  <br /></td></tr>
-<tr class="memitem:ad0639f65d5f32010501259a7296f6f5b" id="r_ad0639f65d5f32010501259a7296f6f5b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad0639f65d5f32010501259a7296f6f5b">_coevent_array_action</a> (unsigned int num, <a class="el" href="structCoEvent.html">CoEvent</a> *events, void(*func)(<a class="el" href="structCoEvent.html">CoEvent</a> *))</td></tr>
+<tr class="memitem:ad0639f65d5f32010501259a7296f6f5b" id="r_ad0639f65d5f32010501259a7296f6f5b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad0639f65d5f32010501259a7296f6f5b">_coevent_array_action</a> (unsigned int num, <a class="el" href="struct_co_event.html">CoEvent</a> *events, void(*func)(<a class="el" href="struct_co_event.html">CoEvent</a> *))</td></tr>
 <tr class="memdesc:ad0639f65d5f32010501259a7296f6f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute func sur chaque evenement d'un tableau de num coevent.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
@@ -164,9 +164,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">(<a class="code hl_function" href="coevent_8c.html#ad0639f65d5f32010501259a7296f6f5b">_coevent_array_action</a>(<span class="keyword">sizeof</span>(array)/<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structCoEvent.html">CoEvent</a>), &amp;((array)._first_event_), func))</div>
+<b>Value:</b><div class="fragment"><div class="line">(<a class="code hl_function" href="coevent_8c.html#ad0639f65d5f32010501259a7296f6f5b">_coevent_array_action</a>(<span class="keyword">sizeof</span>(array)/<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_co_event.html">CoEvent</a>), &amp;((array)._first_event_), func))</div>
 <div class="ttc" id="acoevent_8c_html_ad0639f65d5f32010501259a7296f6f5b"><div class="ttname"><a href="coevent_8c.html#ad0639f65d5f32010501259a7296f6f5b">_coevent_array_action</a></div><div class="ttdeci">void _coevent_array_action(unsigned int num, CoEvent *events, void(*func)(CoEvent *))</div><div class="ttdoc">Execute func sur chaque evenement d&#39;un tableau de num coevent.</div><div class="ttdef"><b>Definition</b> coevent.c:97</div></div>
-<div class="ttc" id="astructCoEvent_html"><div class="ttname"><a href="structCoEvent.html">CoEvent</a></div><div class="ttdef"><b>Definition</b> coevent.h:14</div></div>
+<div class="ttc" id="astruct_co_event_html"><div class="ttname"><a href="struct_co_event.html">CoEvent</a></div><div class="ttdef"><b>Definition</b> coevent.h:14</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -224,8 +224,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><span class="keyword">union </span>{ \</div>
-<div class="line">    <a class="code hl_struct" href="structCoEvent.html">CoEvent</a> _first_event_; \</div>
-<div class="line">    <span class="keyword">struct </span>{ <a class="code hl_struct" href="structCoEvent.html">CoEvent</a> __VA_ARGS__; }; \</div>
+<div class="line">    <a class="code hl_struct" href="struct_co_event.html">CoEvent</a> _first_event_; \</div>
+<div class="line">    <span class="keyword">struct </span>{ <a class="code hl_struct" href="struct_co_event.html">CoEvent</a> __VA_ARGS__; }; \</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 </div>
@@ -322,12 +322,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>events</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>events</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*</td>          <td class="paramname"><span class="paramname"><em>func&#160;</em></span>)(<a class="el" href="structCoEvent.html">CoEvent</a> *)&#160;)</td>
+          <td class="paramtype">void(*</td>          <td class="paramname"><span class="paramname"><em>func&#160;</em></span>)(<a class="el" href="struct_co_event.html">CoEvent</a> *)&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -353,12 +353,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void coevent_add_subscriber </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structCoTask.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="struct_co_task.html">CoTask</a> *</td>          <td class="paramname"><span class="paramname"><em>task</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -383,7 +383,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void coevent_cancel </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -408,7 +408,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void coevent_cleanup_subscribers </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -433,7 +433,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void coevent_init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -458,12 +458,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="#a29c4fef75f569bdcc3bf4bdd9dc5dcfa">CoEventStatus</a> coevent_poll </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structCoEventSnapshot.html">CoEventSnapshot</a> *</td>          <td class="paramname"><span class="paramname"><em>snap</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="struct_co_event_snapshot.html">CoEventSnapshot</a> *</td>          <td class="paramname"><span class="paramname"><em>snap</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -490,7 +490,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void coevent_signal </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -515,7 +515,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void coevent_signal_once </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -538,9 +538,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCoEventSnapshot.html">CoEventSnapshot</a> coevent_snapshot </td>
+          <td class="memname"><a class="el" href="struct_co_event_snapshot.html">CoEventSnapshot</a> coevent_snapshot </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structCoEvent.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="struct_co_event.html">CoEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>evt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -553,7 +553,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structCoEventSnapshot.html">CoEventSnapshot</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_co_event_snapshot.html">CoEventSnapshot</a> </dd></dl>
 
 </div>
 </div>

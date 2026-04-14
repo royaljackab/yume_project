@@ -100,8 +100,18 @@ $(function(){initNavTree('hud_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a14a4c10fbf2c95d18a342061aaab3a24" id="r_a14a4c10fbf2c95d18a342061aaab3a24"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a14a4c10fbf2c95d18a342061aaab3a24">HUD_draw</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx, const char *stage_name)</td></tr>
-<tr class="memdesc:a14a4c10fbf2c95d18a342061aaab3a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le HUD.  <br /></td></tr>
+<tr class="memitem:a461caf0e581fa25d3cb0ae021cc5970b" id="r_a461caf0e581fa25d3cb0ae021cc5970b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a461caf0e581fa25d3cb0ae021cc5970b">HUD_draw_background</a> (void)</td></tr>
+<tr class="memitem:a40f4b18b5cd6d2c5ba342cb016819cc2" id="r_a40f4b18b5cd6d2c5ba342cb016819cc2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a40f4b18b5cd6d2c5ba342cb016819cc2">HUD_draw_foreground</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx, const char *stage_name)</td></tr>
+<tr class="memdesc:a40f4b18b5cd6d2c5ba342cb016819cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le HUD.  <br /></td></tr>
+<tr class="memitem:a78fcf1497196bf392ea7c079c350a256" id="r_a78fcf1497196bf392ea7c079c350a256"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a78fcf1497196bf392ea7c079c350a256">HUD_clear_spellcard</a> (void)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aa41e28459825405fe9a26e3490e94bab" id="r_aa41e28459825405fe9a26e3490e94bab"><td class="memItemLeft">char&#160;</td><td class="memItemRight"><a class="el" href="#aa41e28459825405fe9a26e3490e94bab">hud_spell_name</a> [128]</td></tr>
+<tr class="memitem:aba5e9567ce490b5a4a527747e6f0cb15" id="r_aba5e9567ce490b5a4a527747e6f0cb15"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aba5e9567ce490b5a4a527747e6f0cb15">hud_spell_x</a></td></tr>
+<tr class="memitem:a0b91b67da6040d5a3a39141c088b5e7f" id="r_a0b91b67da6040d5a3a39141c088b5e7f"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a0b91b67da6040d5a3a39141c088b5e7f">hud_spell_y</a></td></tr>
+<tr class="memitem:ab99ef8902e007ccabad21f038f4de3b4" id="r_ab99ef8902e007ccabad21f038f4de3b4"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ab99ef8902e007ccabad21f038f4de3b4">hud_spell_alpha</a></td></tr>
+<tr class="memitem:abd4a9d24e2f19c35d9e3ee5ae427cf6c" id="r_abd4a9d24e2f19c35d9e3ee5ae427cf6c"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#abd4a9d24e2f19c35d9e3ee5ae427cf6c">hud_spell_scale</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Système d'affichage du HUD (Heads-Up Display). </p>
@@ -114,8 +124,25 @@ Functions</h2></td></tr>
 <p>Le HUD est dessiné à droite de la zone de jeu (PANEL_RIGHT)</p>
 <dl class="section author"><dt>Author</dt><dd>@amyelalem </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a14a4c10fbf2c95d18a342061aaab3a24" name="a14a4c10fbf2c95d18a342061aaab3a24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14a4c10fbf2c95d18a342061aaab3a24">&#9670;&#160;</a></span>HUD_draw()</h2>
+<a id="a78fcf1497196bf392ea7c079c350a256" name="a78fcf1497196bf392ea7c079c350a256"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78fcf1497196bf392ea7c079c350a256">&#9670;&#160;</a></span>HUD_clear_spellcard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HUD_clear_spellcard </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a461caf0e581fa25d3cb0ae021cc5970b" name="a461caf0e581fa25d3cb0ae021cc5970b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a461caf0e581fa25d3cb0ae021cc5970b">&#9670;&#160;</a></span>HUD_draw_background()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,9 +151,35 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void HUD_draw </td>
+          <td class="memname">void HUD_draw_background </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Dessine l'arrière-plan du HUD</p>
+
+</div>
+</div>
+<a id="a40f4b18b5cd6d2c5ba342cb016819cc2" name="a40f4b18b5cd6d2c5ba342cb016819cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40f4b18b5cd6d2c5ba342cb016819cc2">&#9670;&#160;</a></span>HUD_draw_foreground()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HUD_draw_foreground </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -149,6 +202,124 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<p>Dessine le premier plan du HUD (éléments de jeu (pv...), score, etc.) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Le contexte du jeu </td></tr>
+    <tr><td class="paramname">stage_name</td><td>Le nom du stage actuel</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="ab99ef8902e007ccabad21f038f4de3b4" name="ab99ef8902e007ccabad21f038f4de3b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab99ef8902e007ccabad21f038f4de3b4">&#9670;&#160;</a></span>hud_spell_alpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hud_spell_alpha</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa41e28459825405fe9a26e3490e94bab" name="aa41e28459825405fe9a26e3490e94bab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa41e28459825405fe9a26e3490e94bab">&#9670;&#160;</a></span>hud_spell_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char hud_spell_name[128]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd4a9d24e2f19c35d9e3ee5ae427cf6c" name="abd4a9d24e2f19c35d9e3ee5ae427cf6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd4a9d24e2f19c35d9e3ee5ae427cf6c">&#9670;&#160;</a></span>hud_spell_scale</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float hud_spell_scale</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba5e9567ce490b5a4a527747e6f0cb15" name="aba5e9567ce490b5a4a527747e6f0cb15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba5e9567ce490b5a4a527747e6f0cb15">&#9670;&#160;</a></span>hud_spell_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float hud_spell_x</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b91b67da6040d5a3a39141c088b5e7f" name="a0b91b67da6040d5a3a39141c088b5e7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b91b67da6040d5a3a39141c088b5e7f">&#9670;&#160;</a></span>hud_spell_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float hud_spell_y</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

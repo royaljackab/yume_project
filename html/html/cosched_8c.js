@@ -1,6 +1,6 @@
 var cosched_8c =
 [
-    [ "CoEventSnapshotRef", "structCoEventSnapshotRef.html", "structCoEventSnapshotRef" ],
+    [ "CoEventSnapshotRef", "struct_co_event_snapshot_ref.html", "struct_co_event_snapshot_ref" ],
     [ "_cosched_new_task", "cosched_8c.html#ab03644ab8ed790c55a40ea70b0bab8dd", null ],
     [ "cancel_blocking_events", "cosched_8c.html#a5eaf7f1094cb27b8ff7200795dd9eada", null ],
     [ "cosched_finish", "cosched_8c.html#a164d20b46820f467ce67cf78f0e8a530", null ],

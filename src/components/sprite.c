@@ -36,10 +36,6 @@ void Sprite_set_texture(Sprite *sprite, int renderPriority, int textureID) {
 }
 
 void Sprite_set_animation(Sprite *sprite, int frameCount, int delay) {
-/*
-Crée l'animation pour un spritesheet de type sprite.
-Prend le nombre de frame de l'animation et le delai en frame de jeu entre chaque frame de l'animation 
-*/
   sprite->isAnimated = true;
   sprite->animFrameCount = frameCount;
   sprite->srcRect.width = sprite->srcRect.width / frameCount;

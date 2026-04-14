@@ -5,6 +5,7 @@
  * Ce module définit les composants de base partagés par la majorité des entités :
  * - Position : coordonnées 2D et angle de direction
  * - Tag : type de l'entité (joueur, ennemi, bullet...)
+ * - Owner : Une entité qui possède un owner copie sa position à chaque frame, puis meurt quand l'owner meurt
  *
  * Il fournit aussi les utilitaires de vérification des limites du cadre de jeu.
  */
@@ -58,10 +59,7 @@ DECLARE_SETTER_GETTER(Position, float, angle)
 
 
 // ------------ component owner ------------
-#define MAX_SERVANTS 200
-
 typedef Entity Owner;
-typedef Entity* Servants;
 
 //Note: Pour avoir un owner, il faut que celui-ci ait une position et que l'entitée possédée ait une position (dans l'ECS);
 DEFINE_COMPONENT_MANAGER(Owner, MAX_ENTITIES)
@@ -75,8 +73,7 @@ DEFINE_COMPONENT_MANAGER(Uid, MAX_ENTITIES);
  * Il est aussi bounded par les macros BOUND_[X/Y] définies dans components/common.h
  *
  * @param pos Composant Position à vérifier
- * @return true 
- * @return false 
+ * @return true si la position est hors du cadre, faux sinon
  */
 extern bool Position_is_out_of_bounds(Position * pos);
 
@@ -88,7 +85,32 @@ extern bool Position_is_out_of_bounds(Position * pos);
  * @param y coordonnée y
  */
 extern void Position_set_position(Position * pos, float x, float y);
+
+/**
+ * @brief Crée une entité avec une position
+ * 
+ * @param p pool courante (toutes les données de l'ECS)
+ * @param x coordonnée x de l'entité à créer
+ * @param y coordonnée y de l'entité à créer
+ * @param angle l'angle de l'entité à créer
+ * @return l'id de l'entité qui vient d'être créée
+ */
 extern Entity Position_create(Pool *p, float x, float y, float angle);
-void Owner_bind(Pool *p, Entity PositionId, Entity ParticleId);
+
+
+/**
+ * @brief Ajoute un owner à une entité
+ * 
+ * @param p pool courante (toutes les données de l'ECS)
+ * @param PositionId l'id de l'entité qui deviendra owner
+ * @param ParticleId l'id de l'entité soumise à l'owner
+ */
+extern void Owner_bind(Pool *p, Entity PositionId, Entity ParticleId);
+
+/**
+ * @brief Met à jour la position de toutes les entitées qui ont un owner en copiant celle de leur owner.
+ * 
+ * @param p pool courante (toutes les données de l'ECS)
+ */
 void Owner_update(Pool *p);
 bool Tag_in_array(Tag tag, Tag * array, int size);

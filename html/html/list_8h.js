@@ -1,10 +1,10 @@
 var list_8h =
 [
-    [ "ListInterface", "structListInterface.html", "structListInterface" ],
-    [ "List", "structList.html", "structList" ],
-    [ "ListAnchorInterface", "structListAnchorInterface.html", "structListAnchorInterface" ],
-    [ "ListAnchor", "structListAnchor.html", "structListAnchor" ],
-    [ "ListContainer", "structListContainer.html", "structListContainer" ],
+    [ "ListInterface", "struct_list_interface.html", "struct_list_interface" ],
+    [ "List", "struct_list.html", "struct_list" ],
+    [ "ListAnchorInterface", "struct_list_anchor_interface.html", "struct_list_anchor_interface" ],
+    [ "ListAnchor", "struct_list_anchor.html", "struct_list_anchor" ],
+    [ "ListContainer", "struct_list_container.html", "struct_list_container" ],
     [ "alist_append", "list_8h.html#ac246e5123e86cc67927783a45be671d7", null ],
     [ "alist_insert", "list_8h.html#a3402232a5edbde038adf36b25f9dc494", null ],
     [ "alist_merge_tail", "list_8h.html#abe26464d09544e90b691296f505f4bf6", null ],

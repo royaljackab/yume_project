@@ -1,7 +1,7 @@
 var cotask_8h =
 [
-    [ "BoxedTask", "structBoxedTask.html", "structBoxedTask" ],
-    [ "CoWaitResult", "structCoWaitResult.html", "structCoWaitResult" ],
+    [ "BoxedTask", "struct_boxed_task.html", "struct_boxed_task" ],
+    [ "CoWaitResult", "struct_co_wait_result.html", "struct_co_wait_result" ],
     [ "BoxedTask", "cotask_8h.html#a8cacd68c7efbc5d334a3185a45517f9f", null ],
     [ "CoStatus", "cotask_8h.html#a4d9ab5785d4dc62ded44b443411cd5ba", null ],
     [ "CoTask", "cotask_8h.html#ab70cb86d9578d7067b101bc87aa9441f", null ],
@@ -30,7 +30,7 @@ var cotask_8h =
     [ "cotask_wait_event", "cotask_8h.html#af3d6a29a0f31fcaafed6a53862e67541", null ],
     [ "cotask_wait_event_once", "cotask_8h.html#a11b0103d2f02f7188c8d3c4f48b38158", null ],
     [ "cotask_wait_event_or_die", "cotask_8h.html#a564390051d3fb04a804a1ea38e2e5a36", null ],
-    [ "cotask_wait_substasks", "cotask_8h.html#a4c7c61b0b8b16557857ad402ac78ea35", null ],
+    [ "cotask_wait_subtasks", "cotask_8h.html#a44ad09aa4fed2cc8ed70934c434540fa", null ],
     [ "cotask_yield", "cotask_8h.html#ae3be74ea97d59211d95a8b70daacd7f7", null ],
     [ "LIST_ANCHOR", "cotask_8h.html#a66c8b59cc96fd288b8d7d958723cc3bc", null ]
 ];

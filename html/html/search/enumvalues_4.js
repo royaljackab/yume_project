@@ -32,6 +32,5 @@ var searchData=
   ['dark_5fpetal_5fred_29',['DARK_PETAL_RED',['../assets_8h.html#a458291307eae5dfdecda616d636894f3a6a8f96d19227f308caf14362d1319c0a',1,'assets.h']]],
   ['dark_5fpetal_5fwhite_30',['DARK_PETAL_WHITE',['../assets_8h.html#a458291307eae5dfdecda616d636894f3a6b2d4cccf8069b54610d57755cccd89c',1,'assets.h']]],
   ['dark_5fpetal_5fyellow_31',['DARK_PETAL_YELLOW',['../assets_8h.html#a458291307eae5dfdecda616d636894f3a50550c13877bf4905111f94ac91ac13a',1,'assets.h']]],
-  ['default_5fpattern_32',['DEFAULT_PATTERN',['../player_8h.html#a351dc5aa88481a949638aeb6cc5e6754aa5fa8b6cfea2927933b29962a3bd7b3b',1,'player.h']]],
-  ['done_33',['DONE',['../keybinds_8c.html#a3f6362ca8e18c2972b96153a21f2ccdca9c954bcf443428c80b0f107b3bc48749',1,'keybinds.c']]]
+  ['default_5fpattern_32',['DEFAULT_PATTERN',['../player_8h.html#a351dc5aa88481a949638aeb6cc5e6754aa5fa8b6cfea2927933b29962a3bd7b3b',1,'player.h']]]
 ];

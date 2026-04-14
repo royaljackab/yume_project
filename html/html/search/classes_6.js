@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keystate_0',['KeyState',['../structKeyState.html',1,'']]]
+  ['keystate_0',['KeyState',['../struct_key_state.html',1,'']]]
 ];

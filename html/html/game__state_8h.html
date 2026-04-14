@@ -95,14 +95,16 @@ $(function(){initNavTree('game__state_8h.html','',''); });
 <code>#include &quot;<a class="el" href="cosched_8h_source.html">coroutine/cosched.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pool_8h_source.html">ecs/pool.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="button_8h_source.html">systems/button.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="score_8h_source.html">systems/score.h</a>&quot;</code><br />
 <code>#include &lt;raylib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="screen_8h_source.html">../systems/screen.h</a>&quot;</code><br />
 </div>
 <p><a href="game__state_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:GameState" id="r_GameState"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structGameState.html">GameState</a></td></tr>
-<tr class="memitem:GameContext" id="r_GameContext"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structGameContext.html">GameContext</a></td></tr>
+<tr class="memitem:GameState" id="r_GameState"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_game_state.html">GameState</a></td></tr>
+<tr class="memitem:GameContext" id="r_GameContext"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_game_context.html">GameContext</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -120,26 +122,31 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0">STATE_MENU_KEYBINDS</a>
 , <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549">__END_MENU__</a>
 , <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497">STATE_MOONLIGHT</a>
-, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673">STATE_TEST</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a0f76ed984e8b06e62cddac03843a9544">STATE_GAME_OVER</a>
 , <br />
-&#160;&#160;<a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04">STATE_EXTRA</a>
+&#160;&#160;<a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a45b6e987a799cd66b28f371b03fa34a9">STATE_VICTORY</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673">STATE_TEST</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04">STATE_EXTRA</a>
 <br />
  }</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a88738fcfe8f3e35e6614b506da928c22" id="r_a88738fcfe8f3e35e6614b506da928c22"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a88738fcfe8f3e35e6614b506da928c22">gamestate_initialize</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> state)</td></tr>
-<tr class="memitem:a483bfca2f161f59662568e594d468325" id="r_a483bfca2f161f59662568e594d468325"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a483bfca2f161f59662568e594d468325">gamestate_update</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx)</td></tr>
-<tr class="memitem:a3cee3db5b6cfb26e58c34deb17a8470c" id="r_a3cee3db5b6cfb26e58c34deb17a8470c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3cee3db5b6cfb26e58c34deb17a8470c">pauseListener</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx)</td></tr>
-<tr class="memitem:acfb13375e4f3f035d25c89875838d25f" id="r_acfb13375e4f3f035d25c89875838d25f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acfb13375e4f3f035d25c89875838d25f">pauseMenu</a> ()</td></tr>
-<tr class="memitem:acbfa62a5a5f262c34c8c03645e6b13e0" id="r_acbfa62a5a5f262c34c8c03645e6b13e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acbfa62a5a5f262c34c8c03645e6b13e0">gamestate_change_state</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> stateID)</td></tr>
+<tr class="memitem:a88738fcfe8f3e35e6614b506da928c22" id="r_a88738fcfe8f3e35e6614b506da928c22"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a88738fcfe8f3e35e6614b506da928c22">gamestate_initialize</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> state)</td></tr>
+<tr class="memitem:a483bfca2f161f59662568e594d468325" id="r_a483bfca2f161f59662568e594d468325"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a483bfca2f161f59662568e594d468325">gamestate_update</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
+<tr class="memitem:a3cee3db5b6cfb26e58c34deb17a8470c" id="r_a3cee3db5b6cfb26e58c34deb17a8470c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3cee3db5b6cfb26e58c34deb17a8470c">pauseListener</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
+<tr class="memitem:aa70a704c265736f396a96b7280dcf2eb" id="r_aa70a704c265736f396a96b7280dcf2eb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa70a704c265736f396a96b7280dcf2eb">pauseMenu</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
+<tr class="memitem:acbfa62a5a5f262c34c8c03645e6b13e0" id="r_acbfa62a5a5f262c34c8c03645e6b13e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acbfa62a5a5f262c34c8c03645e6b13e0">gamestate_change_state</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> stateID)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a7da518c69adccea1c6b3a9885fae38bd" id="r_a7da518c69adccea1c6b3a9885fae38bd"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7da518c69adccea1c6b3a9885fae38bd">state_menu_title</a></td></tr>
-<tr class="memitem:a090feb230d4ba62abfeb441a52996355" id="r_a090feb230d4ba62abfeb441a52996355"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a090feb230d4ba62abfeb441a52996355">state_menu_keybinds</a></td></tr>
-<tr class="memitem:a339bd2d8215508219fd2b6bbd267be6c" id="r_a339bd2d8215508219fd2b6bbd267be6c"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a339bd2d8215508219fd2b6bbd267be6c">state_test</a></td></tr>
-<tr class="memitem:a3b8b93e232e5560bbada628cf50813c1" id="r_a3b8b93e232e5560bbada628cf50813c1"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3b8b93e232e5560bbada628cf50813c1">state_moonlight</a></td></tr>
+<tr class="memitem:a7da518c69adccea1c6b3a9885fae38bd" id="r_a7da518c69adccea1c6b3a9885fae38bd"><td class="memItemLeft"><a class="el" href="struct_game_state.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7da518c69adccea1c6b3a9885fae38bd">state_menu_title</a></td></tr>
+<tr class="memitem:a090feb230d4ba62abfeb441a52996355" id="r_a090feb230d4ba62abfeb441a52996355"><td class="memItemLeft"><a class="el" href="struct_game_state.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a090feb230d4ba62abfeb441a52996355">state_menu_keybinds</a></td></tr>
+<tr class="memitem:a339bd2d8215508219fd2b6bbd267be6c" id="r_a339bd2d8215508219fd2b6bbd267be6c"><td class="memItemLeft"><a class="el" href="struct_game_state.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a339bd2d8215508219fd2b6bbd267be6c">state_test</a></td></tr>
+<tr class="memitem:a3b8b93e232e5560bbada628cf50813c1" id="r_a3b8b93e232e5560bbada628cf50813c1"><td class="memItemLeft"><a class="el" href="struct_game_state.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3b8b93e232e5560bbada628cf50813c1">state_moonlight</a></td></tr>
+<tr class="memitem:a48caf8ef73f9044617ef349cb638b6cb" id="r_a48caf8ef73f9044617ef349cb638b6cb"><td class="memItemLeft"><a class="el" href="struct_game_state.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a48caf8ef73f9044617ef349cb638b6cb">state_menu_settings</a></td></tr>
+<tr class="memitem:aa955d6b984f8086734635c723732b5e4" id="r_aa955d6b984f8086734635c723732b5e4"><td class="memItemLeft"><a class="el" href="struct_game_state.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa955d6b984f8086734635c723732b5e4">state_game_over</a></td></tr>
+<tr class="memitem:aa421d156490917a3f6408d824d010d67" id="r_aa421d156490917a3f6408d824d010d67"><td class="memItemLeft"><a class="el" href="struct_game_state.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa421d156490917a3f6408d824d010d67">state_victory</a></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="ad74d0fae2a41b21724fe224cf3ec6e13" name="ad74d0fae2a41b21724fe224cf3ec6e13"></a>
@@ -190,6 +197,8 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0" name="a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0"></a>STATE_MENU_KEYBINDS&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549" name="a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549"></a>__END_MENU__&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497" name="a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497"></a>STATE_MOONLIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a0f76ed984e8b06e62cddac03843a9544" name="a2c309f64131cbfdae6d95e6591f208e6a0f76ed984e8b06e62cddac03843a9544"></a>STATE_GAME_OVER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a45b6e987a799cd66b28f371b03fa34a9" name="a2c309f64131cbfdae6d95e6591f208e6a45b6e987a799cd66b28f371b03fa34a9"></a>STATE_VICTORY&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673" name="a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673"></a>STATE_TEST&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04" name="a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04"></a>STATE_EXTRA&#160;</td><td class="fielddoc"></td></tr>
 </table>
@@ -209,7 +218,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void gamestate_change_state </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -238,7 +247,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void gamestate_initialize </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -267,7 +276,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void gamestate_update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -289,7 +298,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void pauseListener </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -297,8 +306,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="acfb13375e4f3f035d25c89875838d25f" name="acfb13375e4f3f035d25c89875838d25f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfb13375e4f3f035d25c89875838d25f">&#9670;&#160;</a></span>pauseMenu()</h2>
+<a id="aa70a704c265736f396a96b7280dcf2eb" name="aa70a704c265736f396a96b7280dcf2eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70a704c265736f396a96b7280dcf2eb">&#9670;&#160;</a></span>pauseMenu()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,7 +315,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void pauseMenu </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -315,6 +324,28 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="aa955d6b984f8086734635c723732b5e4" name="aa955d6b984f8086734635c723732b5e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa955d6b984f8086734635c723732b5e4">&#9670;&#160;</a></span>state_game_over</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_game_state.html">GameState</a> state_game_over</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a090feb230d4ba62abfeb441a52996355" name="a090feb230d4ba62abfeb441a52996355"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a090feb230d4ba62abfeb441a52996355">&#9670;&#160;</a></span>state_menu_keybinds</h2>
 
@@ -325,7 +356,29 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_menu_keybinds</td>
+          <td class="memname"><a class="el" href="struct_game_state.html">GameState</a> state_menu_keybinds</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48caf8ef73f9044617ef349cb638b6cb" name="a48caf8ef73f9044617ef349cb638b6cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48caf8ef73f9044617ef349cb638b6cb">&#9670;&#160;</a></span>state_menu_settings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_game_state.html">GameState</a> state_menu_settings</td>
         </tr>
       </table>
   </td>
@@ -347,7 +400,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_menu_title</td>
+          <td class="memname"><a class="el" href="struct_game_state.html">GameState</a> state_menu_title</td>
         </tr>
       </table>
   </td>
@@ -369,7 +422,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_moonlight</td>
+          <td class="memname"><a class="el" href="struct_game_state.html">GameState</a> state_moonlight</td>
         </tr>
       </table>
   </td>
@@ -391,7 +444,29 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_test</td>
+          <td class="memname"><a class="el" href="struct_game_state.html">GameState</a> state_test</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa421d156490917a3f6408d824d010d67" name="aa421d156490917a3f6408d824d010d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa421d156490917a3f6408d824d010d67">&#9670;&#160;</a></span>state_victory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_game_state.html">GameState</a> state_victory</td>
         </tr>
       </table>
   </td>

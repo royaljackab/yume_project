@@ -170,13 +170,13 @@ Macros</h2></td></tr>
 <tr class="memitem:adf02dc25ea022f05a8297fb981d1d9cc" id="r_adf02dc25ea022f05a8297fb981d1d9cc"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#adf02dc25ea022f05a8297fb981d1d9cc">WAIT_EVENT_OR_DIE</a>(e)</td></tr>
 <tr class="memitem:a7c9d39efcd47aab2755b9273a47ec707" id="r_a7c9d39efcd47aab2755b9273a47ec707"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7c9d39efcd47aab2755b9273a47ec707">WAIT_EVENT_ONCE</a>(e)</td></tr>
 <tr class="memitem:a3aa7719fb2873dda604214f401fd5dd0" id="r_a3aa7719fb2873dda604214f401fd5dd0"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3aa7719fb2873dda604214f401fd5dd0">STALL</a>&#160;&#160;&#160;<a class="el" href="cotask_8c.html#a5adeebe30d573cab597985f358d5652d">cotask_wait</a>(INT_MAX)</td></tr>
-<tr class="memitem:a9cd47016a47cf2f62fe0b35505365a1b" id="r_a9cd47016a47cf2f62fe0b35505365a1b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a9cd47016a47cf2f62fe0b35505365a1b">AWAIT_SUBTASKS</a>&#160;&#160;&#160;<a class="el" href="cotask_8h.html#a4c7c61b0b8b16557857ad402ac78ea35">cotask_wait_substasks</a>()</td></tr>
+<tr class="memitem:a9cd47016a47cf2f62fe0b35505365a1b" id="r_a9cd47016a47cf2f62fe0b35505365a1b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a9cd47016a47cf2f62fe0b35505365a1b">AWAIT_SUBTASKS</a>&#160;&#160;&#160;cotask_wait_substasks()</td></tr>
 <tr class="memitem:ac4bab140546f6fa3564866fec1cbb6f5" id="r_ac4bab140546f6fa3564866fec1cbb6f5"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac4bab140546f6fa3564866fec1cbb6f5">NOT_NULL_OR_DIE</a>(expr)</td></tr>
 <tr class="memitem:ac893543f5cae90f50d077ad35ced8837" id="r_ac893543f5cae90f50d077ad35ced8837"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac893543f5cae90f50d077ad35ced8837">TASK_BIND</a>(ent)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac7f6498f234daa94be296220b9c4d78e" id="r_ac7f6498f234daa94be296220b9c4d78e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac7f6498f234daa94be296220b9c4d78e">DECLARE_EXTERN_TASK</a> (_cancel_task_helper, { <a class="el" href="structBoxedTask.html">BoxedTask</a> task;})</td></tr>
+<tr class="memitem:ac7f6498f234daa94be296220b9c4d78e" id="r_ac7f6498f234daa94be296220b9c4d78e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac7f6498f234daa94be296220b9c4d78e">DECLARE_EXTERN_TASK</a> (_cancel_task_helper, { <a class="el" href="struct_boxed_task.html">BoxedTask</a> task;})</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a52f1dfa91ab8acd584e2470eb6681687" name="a52f1dfa91ab8acd584e2470eb6681687"></a>
@@ -345,7 +345,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AWAIT_SUBTASKS&#160;&#160;&#160;<a class="el" href="cotask_8h.html#a4c7c61b0b8b16557857ad402ac78ea35">cotask_wait_substasks</a>()</td>
+          <td class="memname">#define AWAIT_SUBTASKS&#160;&#160;&#160;cotask_wait_substasks()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1479,14 +1479,14 @@ Functions</h2></td></tr>
 <div class="line">    TASK_ARGS_TYPE(name) real_args; \</div>
 <div class="line">}; \</div>
 <div class="line"><span class="keyword">struct </span>TASK_ARGSCOND_NAME(name) { \</div>
-<div class="line">    <a class="code hl_struct" href="structCoEvent.html">CoEvent</a> *event; \</div>
+<div class="line">    <a class="code hl_struct" href="struct_co_event.html">CoEvent</a> *event; \</div>
 <div class="line">    <span class="keywordtype">bool</span> unconditional; \</div>
 <div class="line">    TASK_ARGS_TYPE(name) real_args; \</div>
 <div class="line">}; \</div>
 <div class="line">linkage <span class="keywordtype">void</span> *COTASKTHUNK_##name(<span class="keywordtype">void</span> *arg, <span class="keywordtype">size_t</span> arg_size); \</div>
 <div class="line">linkage <span class="keywordtype">void</span> *COTASKTHUNK_DELAYED_##name(<span class="keywordtype">void</span> *arg, <span class="keywordtype">size_t</span> arg_size); \</div>
 <div class="line">linkage <span class="keywordtype">void</span> *COTASKTHUNK_COND_##name(<span class="keywordtype">void</span> *arg, <span class="keywordtype">size_t</span> arg_size) \</div>
-<div class="ttc" id="astructCoEvent_html"><div class="ttname"><a href="structCoEvent.html">CoEvent</a></div><div class="ttdef"><b>Definition</b> coevent.h:14</div></div>
+<div class="ttc" id="astruct_co_event_html"><div class="ttname"><a href="struct_co_event.html">CoEvent</a></div><div class="ttdef"><b>Definition</b> coevent.h:14</div></div>
 <div class="ttc" id="atasks_8h_html_ad089641fb8e4d3b43c67e8ae413adbef"><div class="ttname"><a href="#ad089641fb8e4d3b43c67e8ae413adbef">TASK_INDIRECT_TYPE_ALIAS</a></div><div class="ttdeci">#define TASK_INDIRECT_TYPE_ALIAS(task)</div><div class="ttdef"><b>Definition</b> tasks.h:62</div></div>
 </div><!-- fragment -->
 </div>
@@ -1607,7 +1607,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    ({ \</div>
 <div class="line">    (events_array) = cotask_malloc(<a class="code hl_function" href="cotask_8c.html#a2b3d02877fb7fc509d6145e755cb08f7">cotask_active</a>(), <span class="keyword">sizeof</span>(*(events_array))); \</div>
-<div class="line">    cotask_host_events(<a class="code hl_function" href="cotask_8c.html#a2b3d02877fb7fc509d6145e755cb08f7">cotask_active</a>(), <span class="keyword">sizeof</span>(*events_array)/<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structCoEvent.html">CoEvent</a>), &amp;((events_array)-&gt;_first_event_)); \</div>
+<div class="line">    cotask_host_events(<a class="code hl_function" href="cotask_8c.html#a2b3d02877fb7fc509d6145e755cb08f7">cotask_active</a>(), <span class="keyword">sizeof</span>(*events_array)/<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_co_event.html">CoEvent</a>), &amp;((events_array)-&gt;_first_event_)); \</div>
 <div class="line">})</div>
 </div><!-- fragment -->
 </div>
@@ -1955,7 +1955,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">{ <a class="el" href="structBoxedTask.html">BoxedTask</a> task;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+          <td class="paramtype">{ <a class="el" href="struct_boxed_task.html">BoxedTask</a> task;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

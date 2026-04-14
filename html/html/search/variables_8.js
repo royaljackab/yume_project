@@ -1,7 +1,19 @@
 var searchData=
 [
-  ['keybinds_0',['keybinds',['../structInputSystem.html#a74fc39a89edf58d9432172815279ddee',1,'InputSystem']]],
-  ['kill_5fcount_1',['kill_count',['../structPool.html#a0f00b94536e5fc916678a2c489d59875',1,'Pool']]],
-  ['kill_5fqueue_2',['kill_queue',['../structPool.html#a6ae96ac7dd62919e305a345a4e4c70db',1,'Pool']]],
-  ['ko_3',['ko',['../structCoTask.html#a2c486519aef42fec83509d5814757245',1,'CoTask']]]
+  ['id_0',['id',['../struct_boxed_entity.html#aead26eec79b4456e168ef58af5c3e1b3',1,'BoxedEntity']]],
+  ['in_5ftransition_1',['in_transition',['../moonlight__bg_8c.html#a2678c40f30531e3f56f78bdbab3c6861',1,'moonlight_bg.c']]],
+  ['init_2',['init',['../struct_game_state.html#a646629fecaa25df3f70a56ee0d8b53d6',1,'GameState']]],
+  ['input_3',['input',['../struct_game_context.html#adbf41746c46dce56827fc5bbe803ade0',1,'GameContext']]],
+  ['intersectionwidth_4',['intersectionWidth',['../struct_straight__laser.html#a07c0bdacd6dcf2b855cc5e2d77ec4d02',1,'Straight_laser']]],
+  ['inv_5fcenters_5floc_5',['inv_centers_loc',['../moonlight_8c.html#a5adefbcc2baedd2802555bb48e73f507',1,'moonlight.c']]],
+  ['inv_5fradius_5floc_6',['inv_radius_loc',['../moonlight_8c.html#a80a8944705c3ad7c96e5879c99509981',1,'moonlight.c']]],
+  ['invert_5fcenters_7',['invert_centers',['../screen__effects_8c.html#aabb3b87a0f48366d72f453cfa4b84877',1,'invert_centers:&#160;screen_effects.c'],['../screen__effects_8h.html#aabb3b87a0f48366d72f453cfa4b84877',1,'invert_centers:&#160;screen_effects.c']]],
+  ['invert_5fradius_8',['invert_radius',['../screen__effects_8c.html#ab1a77acd826c59775504e44797f8dd39',1,'invert_radius:&#160;screen_effects.c'],['../screen__effects_8h.html#ab1a77acd826c59775504e44797f8dd39',1,'invert_radius:&#160;screen_effects.c']]],
+  ['invert_5fshader_9',['invert_shader',['../moonlight_8c.html#a8fd59abc32dc9a465fc62c7415f51db3',1,'moonlight.c']]],
+  ['is_5finput_5flocked_10',['is_input_locked',['../player_8c.html#af5fa84238b1169708dc832436d2428be',1,'player.c']]],
+  ['isanimated_11',['isAnimated',['../struct_sprite.html#a6e70ddeb82dcbf4030ad83347ba5fc0e',1,'Sprite']]],
+  ['iscomboactive_12',['isComboActive',['../struct_score_system.html#a70dc4b1c17cf7aacd101294e0175b559',1,'ScoreSystem']]],
+  ['isdown_13',['isDown',['../struct_key_state.html#acbda6e006f8c713639379b1eb65f309b',1,'KeyState']]],
+  ['ispressed_14',['isPressed',['../struct_key_state.html#a56894d499e649be23799959f1d3f14f1',1,'KeyState']]],
+  ['isreleased_15',['isReleased',['../struct_key_state.html#a74de02611159b1d8572ea1deced25ad7',1,'KeyState']]]
 ];

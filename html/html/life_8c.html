@@ -92,15 +92,20 @@ $(function(){initNavTree('life_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="life_8h_source.html">components/life.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="score_8h_source.html">systems/score.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common_8h_source.html">components/common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pool_8h_source.html">pool.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afdbbc819c2d83b7d3bcae6ff97e04963" id="r_afdbbc819c2d83b7d3bcae6ff97e04963"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afdbbc819c2d83b7d3bcae6ff97e04963">Life_damage</a> (<a class="el" href="structLife.html">Life</a> *life, int damage)</td></tr>
+<tr class="memitem:afdbbc819c2d83b7d3bcae6ff97e04963" id="r_afdbbc819c2d83b7d3bcae6ff97e04963"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afdbbc819c2d83b7d3bcae6ff97e04963">Life_damage</a> (<a class="el" href="struct_life.html">Life</a> *life, int damage)</td></tr>
 <tr class="memdesc:afdbbc819c2d83b7d3bcae6ff97e04963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique des dégats.  <br /></td></tr>
-<tr class="memitem:a83f42f2392b612920ec4cc560c02704a" id="r_a83f42f2392b612920ec4cc560c02704a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a83f42f2392b612920ec4cc560c02704a">Life_heal</a> (<a class="el" href="structLife.html">Life</a> *life, int heal)</td></tr>
+<tr class="memitem:a83f42f2392b612920ec4cc560c02704a" id="r_a83f42f2392b612920ec4cc560c02704a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a83f42f2392b612920ec4cc560c02704a">Life_heal</a> (<a class="el" href="struct_life.html">Life</a> *life, int heal)</td></tr>
 <tr class="memdesc:a83f42f2392b612920ec4cc560c02704a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rajoute de l'HP.  <br /></td></tr>
-<tr class="memitem:abb8d00d9b0ab1094c8a96b60fd5c4471" id="r_abb8d00d9b0ab1094c8a96b60fd5c4471"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abb8d00d9b0ab1094c8a96b60fd5c4471">Life_is_dead</a> (<a class="el" href="structLife.html">Life</a> *life)</td></tr>
+<tr class="memitem:abb8d00d9b0ab1094c8a96b60fd5c4471" id="r_abb8d00d9b0ab1094c8a96b60fd5c4471"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abb8d00d9b0ab1094c8a96b60fd5c4471">Life_is_dead</a> (<a class="el" href="struct_life.html">Life</a> *life)</td></tr>
 <tr class="memdesc:abb8d00d9b0ab1094c8a96b60fd5c4471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie si l'objet est mort &lt;=&gt; HP &lt;= 0.  <br /></td></tr>
+<tr class="memitem:a7a9877877258ada3523df505057f605f" id="r_a7a9877877258ada3523df505057f605f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7a9877877258ada3523df505057f605f">Life_update_all</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="struct_score_system.html">ScoreSystem</a> *scoreS)</td></tr>
+<tr class="memdesc:a7a9877877258ada3523df505057f605f"><td class="mdescLeft">&#160;</td><td class="mdescRight">tue / effectue un traitement adapté à tout les objets ayant 0 HP  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="afdbbc819c2d83b7d3bcae6ff97e04963" name="afdbbc819c2d83b7d3bcae6ff97e04963"></a>
@@ -112,7 +117,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Life_damage </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structLife.html">Life</a> *</td>          <td class="paramname"><span class="paramname"><em>life</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_life.html">Life</a> *</td>          <td class="paramname"><span class="paramname"><em>life</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -142,7 +147,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Life_heal </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structLife.html">Life</a> *</td>          <td class="paramname"><span class="paramname"><em>life</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_life.html">Life</a> *</td>          <td class="paramname"><span class="paramname"><em>life</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -172,7 +177,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Life_is_dead </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structLife.html">Life</a> *</td>          <td class="paramname"><span class="paramname"><em>life</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_life.html">Life</a> *</td>          <td class="paramname"><span class="paramname"><em>life</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -186,6 +191,36 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true s'il est mort, false sinon </dd></dl>
+
+</div>
+</div>
+<a id="a7a9877877258ada3523df505057f605f" name="a7a9877877258ada3523df505057f605f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a9877877258ada3523df505057f605f">&#9670;&#160;</a></span>Life_update_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Life_update_all </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_score_system.html">ScoreSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>scoreS</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>tue / effectue un traitement adapté à tout les objets ayant 0 HP </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool </td></tr>
+    <tr><td class="paramname">scoreS</td><td>manager de score </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -25,11 +25,12 @@
 var NAVTREE =
 [
   [ "My Project", "index.html", [
+    [ "Todo List", "todo.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
@@ -43,7 +44,7 @@ var NAVTREE =
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
         [ "Enumerator", "globals_eval.html", "globals_eval" ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Macros", "globals_defs.html", "globals_defs" ]
       ] ]
     ] ]
   ] ]
@@ -52,12 +53,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"assets_8h.html#a458291307eae5dfdecda616d636894f3adcb7548166d6e40ed6df28aeaa71a53d",
-"cotask_8c.html#ab39051f11c4dbfa4183dbda196c3c315",
-"globals_func_s.html",
-"obj_8h.html#a3e94dff6b4ed80d063c8a5ad5281af19",
-"structEnemy.html#a51791619a70962355568fae00cb96cdb",
-"title__screen_8c.html"
+"assets_8h.html#a458291307eae5dfdecda616d636894f3ab233ba142e5991cbbf8543857b0bcb23",
+"coevent_8h.html#acc9b1b27fdc65f749100ef93438fee25",
+"dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c",
+"index.html",
+"obj_8c.html#a8d9a97aa790f27a1b8869c93f44e3218",
+"sprite_8h.html#a3f971f3fb07c8d6f0cdad1c07443f937",
+"struct_pool.html#a65f59e5bd943ae31fcc24be491935111"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

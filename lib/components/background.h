@@ -27,13 +27,13 @@ DECLARE_SETTER_GETTER(Background, float, scroll_speed_y)
 
 /**
  * @brief met à jour le sprite de tous les backgrounds selon leurs vitesses de défilement.
- * @param p la pool (toutes les données de l'ECS)
+ * @param p pool courante (toutes les données de l'ECS)
  */
 void Background_update_all(Pool *p);
 
 /**
  * @brief créé un background
- * @param p la pool (toutes les données de l'ECS)
+ * @param p pool courante (toutes les données de l'ECS)
  * @param bgId l'identifiant de la texture associée au background
  * @param scroll_speed_x vitesse de défilement horizontal du background (positif vers la droite, négatif vers la gauche)
  * @param scroll_speed_y vitesse de défilement vertical du background (positif vers le bas, négatif vers le haut)

@@ -1,5 +1,6 @@
 var dir_493ca209223fc47b4c316544d4be99c8 =
 [
+    [ "background.h", "background_8h.html", "background_8h" ],
     [ "boss.h", "boss_8h.html", "boss_8h" ],
     [ "bullet.h", "bullet_8h.html", "bullet_8h" ],
     [ "collision_circle.h", "collision__circle_8h.html", "collision__circle_8h" ],
@@ -9,7 +10,7 @@ var dir_493ca209223fc47b4c316544d4be99c8 =
     [ "enemy.h", "enemy_8h.html", "enemy_8h" ],
     [ "flags.h", "flags_8h.html", "flags_8h" ],
     [ "life.h", "life_8h.html", "life_8h" ],
-    [ "looseLaser.h", "looseLaser_8h.html", "looseLaser_8h" ],
+    [ "looseLaser.h", "loose_laser_8h.html", "loose_laser_8h" ],
     [ "particle.h", "particle_8h.html", "particle_8h" ],
     [ "physics.h", "physics_8h.html", "physics_8h" ],
     [ "player.h", "player_8h.html", "player_8h" ],

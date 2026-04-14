@@ -99,13 +99,17 @@ $(function(){initNavTree('common_8c.html','',''); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adf3de0b0bc88599b407635fe28bddcaf" id="r_adf3de0b0bc88599b407635fe28bddcaf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adf3de0b0bc88599b407635fe28bddcaf">Position_is_out_of_bounds</a> (<a class="el" href="structPosition.html">Position</a> *pos)</td></tr>
+<tr class="memitem:adf3de0b0bc88599b407635fe28bddcaf" id="r_adf3de0b0bc88599b407635fe28bddcaf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adf3de0b0bc88599b407635fe28bddcaf">Position_is_out_of_bounds</a> (<a class="el" href="struct_position.html">Position</a> *pos)</td></tr>
 <tr class="memdesc:adf3de0b0bc88599b407635fe28bddcaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie si la position est dans le cadre du jeu.  <br /></td></tr>
-<tr class="memitem:ad7a1a47cb20c277d94ba5b8f19df2e0e" id="r_ad7a1a47cb20c277d94ba5b8f19df2e0e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad7a1a47cb20c277d94ba5b8f19df2e0e">Position_set_position</a> (<a class="el" href="structPosition.html">Position</a> *pos, float x, float y)</td></tr>
+<tr class="memitem:ad7a1a47cb20c277d94ba5b8f19df2e0e" id="r_ad7a1a47cb20c277d94ba5b8f19df2e0e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad7a1a47cb20c277d94ba5b8f19df2e0e">Position_set_position</a> (<a class="el" href="struct_position.html">Position</a> *pos, float x, float y)</td></tr>
 <tr class="memdesc:ad7a1a47cb20c277d94ba5b8f19df2e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met une valeur de position.  <br /></td></tr>
 <tr class="memitem:a4e77ccb94a9f4083cf5257cc43caa888" id="r_a4e77ccb94a9f4083cf5257cc43caa888"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4e77ccb94a9f4083cf5257cc43caa888">Tag_in_array</a> (<a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">Tag</a> tag, <a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">Tag</a> *array, int size)</td></tr>
-<tr class="memitem:a919802632a79e785780f29236023d818" id="r_a919802632a79e785780f29236023d818"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a919802632a79e785780f29236023d818">Owner_bind</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> OwnerId, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> ServantId)</td></tr>
-<tr class="memitem:a6a140dd6ddb8eb10eb86163a6e592937" id="r_a6a140dd6ddb8eb10eb86163a6e592937"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6a140dd6ddb8eb10eb86163a6e592937">Owner_update</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
+<tr class="memitem:a919802632a79e785780f29236023d818" id="r_a919802632a79e785780f29236023d818"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a919802632a79e785780f29236023d818">Owner_bind</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> OwnerId, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> ServantId)</td></tr>
+<tr class="memdesc:a919802632a79e785780f29236023d818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un owner à une entité  <br /></td></tr>
+<tr class="memitem:a6a140dd6ddb8eb10eb86163a6e592937" id="r_a6a140dd6ddb8eb10eb86163a6e592937"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6a140dd6ddb8eb10eb86163a6e592937">Owner_update</a> (<a class="el" href="struct_pool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:a6a140dd6ddb8eb10eb86163a6e592937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour la position de toutes les entitées qui ont un owner en copiant celle de leur owner.  <br /></td></tr>
+<tr class="memitem:a0d89960e7b6932d9d319cc8854237fd3" id="r_a0d89960e7b6932d9d319cc8854237fd3"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0d89960e7b6932d9d319cc8854237fd3">Position_create</a> (<a class="el" href="struct_pool.html">Pool</a> *p, float x, float y, float angle)</td></tr>
+<tr class="memdesc:a0d89960e7b6932d9d319cc8854237fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une entité avec une position.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a919802632a79e785780f29236023d818" name="a919802632a79e785780f29236023d818"></a>
@@ -117,21 +121,30 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Owner_bind </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em>OwnerId</em></span>, </td>
+          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em>PositionId</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em>ServantId</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em>ParticleId</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Cette fonction permet d'ajouter un owner à une entité. Une entité servante copie la position de son owner.</p>
+
+<p>Ajoute un owner à une entité </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">PositionId</td><td>l'id de l'entité qui deviendra owner </td></tr>
+    <tr><td class="paramname">ParticleId</td><td>l'id de l'entité soumise à l'owner </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -144,12 +157,70 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Owner_update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Met à jour la position de toutes les entitées qui ont un owner en copiant celle de leur owner.</p>
+
+<p>Met à jour la position de toutes les entitées qui ont un owner en copiant celle de leur owner. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0d89960e7b6932d9d319cc8854237fd3" name="a0d89960e7b6932d9d319cc8854237fd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d89960e7b6932d9d319cc8854237fd3">&#9670;&#160;</a></span>Position_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> Position_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Crée une entité avec une position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">x</td><td>coordonnée x de l'entité à créer </td></tr>
+    <tr><td class="paramname">y</td><td>coordonnée y de l'entité à créer </td></tr>
+    <tr><td class="paramname">angle</td><td>l'angle de l'entité à créer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>l'id de l'entité qui vient d'être créée </dd></dl>
 
 </div>
 </div>
@@ -162,23 +233,21 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Position_is_out_of_bounds </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPosition.html">Position</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_position.html">Position</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Renvoie si la position est dans le cadre du jeu. </p>
-<p>Le cadre du jeu est délimité par les macros PANEL définies dans <a class="el" href="screen_8h.html">core/screen.h</a> Il est aussi bounded par les macros BOUND_[X/Y] définies dans <a class="el" href="common_8h.html" title="Composants communs à toutes les entités (Position, Tag).">components/common.h</a></p>
+<p>Le cadre du jeu est délimité par les macros PANEL définies dans core/screen.h Il est aussi bounded par les macros BOUND_[X/Y] définies dans <a class="el" href="common_8h.html" title="Composants communs à toutes les entités (Position, Tag).">components/common.h</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td>Composant <a class="el" href="structPosition.html">Position</a> à vérifier </td></tr>
+    <tr><td class="paramname">pos</td><td>Composant <a class="el" href="struct_position.html">Position</a> à vérifier </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true </dd>
-<dd>
-false </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true si la position est hors du cadre, faux sinon </dd></dl>
 
 </div>
 </div>
@@ -191,7 +260,7 @@ false </dd></dl>
         <tr>
           <td class="memname">void Position_set_position </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPosition.html">Position</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_position.html">Position</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -209,7 +278,7 @@ false </dd></dl>
 <p>Met une valeur de position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td>Composant <a class="el" href="structPosition.html">Position</a> à modifier </td></tr>
+    <tr><td class="paramname">pos</td><td>Composant <a class="el" href="struct_position.html">Position</a> à modifier </td></tr>
     <tr><td class="paramname">x</td><td>coordonnée x </td></tr>
     <tr><td class="paramname">y</td><td>coordonnée y </td></tr>
   </table>
