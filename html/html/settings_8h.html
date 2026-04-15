@@ -91,9 +91,6 @@ $(function(){initNavTree('settings_8h.html','',''); });
   <div class="headertitle"><div class="title">settings.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Fonctions de chargement, initialisation et sauvegarde des settings.  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="game__state_8h_source.html">core/game_state.h</a>&quot;</code><br />
 </div>
 <p><a href="settings_8h_source.html">Go to the source code of this file.</a></p>
@@ -101,15 +98,13 @@ $(function(){initNavTree('settings_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a2486b651a5a3eb8f1a8f9e15bdb6a64e" id="r_a2486b651a5a3eb8f1a8f9e15bdb6a64e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2486b651a5a3eb8f1a8f9e15bdb6a64e">load_settings</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
-<tr class="memdesc:a2486b651a5a3eb8f1a8f9e15bdb6a64e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les paramètres depuis le fichier settings.txt si présent.  <br /></td></tr>
+<tr class="memdesc:a2486b651a5a3eb8f1a8f9e15bdb6a64e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les paramètres depuis le fichier de configuration et les applique au contexte du jeu. Si le fichier de configuration n'existe pas, initialise les paramètres par défaut et crée le fichier avec init settings.  <br /></td></tr>
 <tr class="memitem:a36cc354075da8dad8046d310ad00496b" id="r_a36cc354075da8dad8046d310ad00496b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a36cc354075da8dad8046d310ad00496b">init_settings</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
-<tr class="memdesc:a36cc354075da8dad8046d310ad00496b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les paramètres par défaut lorsque aucun fichier n'existe.  <br /></td></tr>
+<tr class="memdesc:a36cc354075da8dad8046d310ad00496b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les paramètres du jeu avec des valeurs par défaut.  <br /></td></tr>
 <tr class="memitem:a05cda04071bdacd876761340f16c7f90" id="r_a05cda04071bdacd876761340f16c7f90"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a05cda04071bdacd876761340f16c7f90">saveSettings</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
-<tr class="memdesc:a05cda04071bdacd876761340f16c7f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les paramètres courants dans le fichier settings.txt.  <br /></td></tr>
+<tr class="memdesc:a05cda04071bdacd876761340f16c7f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistre les paramètres du jeu dans le fichier de configuration.  <br /></td></tr>
 </table>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Fonctions de chargement, initialisation et sauvegarde des settings. </p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a36cc354075da8dad8046d310ad00496b" name="a36cc354075da8dad8046d310ad00496b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36cc354075da8dad8046d310ad00496b">&#9670;&#160;</a></span>init_settings()</h2>
 
@@ -125,10 +120,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialise les paramètres par défaut lorsque aucun fichier n'existe. </p>
+<p>Initialise les paramètres du jeu avec des valeurs par défaut. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ctx</td><td>Contexte de jeu où initialiser les settings par défaut. </td></tr>
+    <tr><td class="paramname">ctx</td><td>Le contexte du jeu contenant les paramètres à initialiser </td></tr>
   </table>
   </dd>
 </dl>
@@ -150,10 +145,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Charge les paramètres depuis le fichier settings.txt si présent. </p>
+<p>Charge les paramètres depuis le fichier de configuration et les applique au contexte du jeu. Si le fichier de configuration n'existe pas, initialise les paramètres par défaut et crée le fichier avec init settings. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ctx</td><td>Contexte de jeu contenant les structures où stocker les settings. </td></tr>
+    <tr><td class="paramname">ctx</td><td>Le contexte du jeu contenant les paramètres à charger </td></tr>
   </table>
   </dd>
 </dl>
@@ -175,10 +170,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sauvegarde les paramètres courants dans le fichier settings.txt. </p>
+<p>Enregistre les paramètres du jeu dans le fichier de configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ctx</td><td>Contexte de jeu contenant les paramètres à écrire. </td></tr>
+    <tr><td class="paramname">ctx</td><td>Le contexte du jeu contenant les paramètres à enregistrer </td></tr>
   </table>
   </dd>
 </dl>

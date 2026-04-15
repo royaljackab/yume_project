@@ -1,7 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"struct_pool.html#a65f59e5bd943ae31fcc24be491935111":[1,0,33,2],
-"struct_pool.html#a6ae96ac7dd62919e305a345a4e4c70db":[1,0,33,9],
 "struct_pool.html#a784047c4dccd75e769a504a7210715a7":[1,0,33,17],
 "struct_pool.html#a9d9e1f68e50046946c03e5c1647ca6de":[1,0,33,4],
 "struct_pool.html#aa165cafbeb44ed040dd8e59c303bd717":[1,0,33,3],

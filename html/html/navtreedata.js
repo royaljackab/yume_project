@@ -58,8 +58,8 @@ var NAVTREEINDEX =
 "dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c",
 "index.html",
 "obj_8c.html#a8d9a97aa790f27a1b8869c93f44e3218",
-"sprite_8h.html#a3f971f3fb07c8d6f0cdad1c07443f937",
-"struct_pool.html#a65f59e5bd943ae31fcc24be491935111"
+"sprite_8h.html#a62161762a06d2538ff4c99d130fb62aa",
+"struct_pool.html#a784047c4dccd75e769a504a7210715a7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

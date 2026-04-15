@@ -105,8 +105,11 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ade97fe201f26b20498982c48bfebd5e4" id="r_ade97fe201f26b20498982c48bfebd5e4"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ade97fe201f26b20498982c48bfebd5e4">update_highscore</a> (unsigned int score)</td></tr>
+<tr class="memdesc:ade97fe201f26b20498982c48bfebd5e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le highscore si le score actuel est supérieur au highscore enregistré. Retourne 1 si le highscore a été mis à jour, sinon 0.  <br /></td></tr>
 <tr class="memitem:a1ae9919c75f7d0e202b672acb11fe834" id="r_a1ae9919c75f7d0e202b672acb11fe834"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a1ae9919c75f7d0e202b672acb11fe834">save_highscore</a> (unsigned int score)</td></tr>
+<tr class="memdesc:a1ae9919c75f7d0e202b672acb11fe834"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistre le score dans le fichier highscore.txt.  <br /></td></tr>
 <tr class="memitem:a74286a9ed2ad9338b1b80375aa9af96c" id="r_a74286a9ed2ad9338b1b80375aa9af96c"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a74286a9ed2ad9338b1b80375aa9af96c">get_highscore</a> ()</td></tr>
+<tr class="memdesc:a74286a9ed2ad9338b1b80375aa9af96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le score maximum atteint en lisant dans le fichier highscore.txt.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a8de29f7c8bbf1a81cc6e71ac602032d3" name="a8de29f7c8bbf1a81cc6e71ac602032d3"></a>
@@ -152,6 +155,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Récupère le score maximum atteint en lisant dans le fichier highscore.txt. </p>
+<dl class="section return"><dt>Returns</dt><dd>Le score maximum atteint </dd></dl>
 <p>Récupère le score highscore depuis un fichier texte. <br  />
  </p><dl class="section return"><dt>Returns</dt><dd>Retourne 0 si le fichier n'existe pas ou en cas d'erreur (réinitialisation/initialisation du score).</dd></dl>
 
@@ -171,6 +177,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enregistre le score dans le fichier highscore.txt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">score</td><td>Le score à enregistrer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 si l'enregistrement a réussi, 0 sinon </dd></dl>
 <p>Enregistre le score dans un fichier texte. Retourne 1 si l'enregistrement a réussi, sinon 0. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">score</td><td>Le score à enregistrer</td></tr>
@@ -194,6 +209,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Met à jour le highscore si le score actuel est supérieur au highscore enregistré. Retourne 1 si le highscore a été mis à jour, sinon 0. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">score</td><td>Le score à vérifier / enregistrer </td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Change le highscore si le score actuel est supérieur au highscore enregistré. Retourne 1 si le highscore a été mis à jour, sinon 0. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">score</td><td>Le score à vérifier / enregistrer</td></tr>

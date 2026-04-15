@@ -115,17 +115,29 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a3c575014e9b2676898b12056dd0846da" id="r_a3c575014e9b2676898b12056dd0846da"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3c575014e9b2676898b12056dd0846da">button_system_init</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem)</td></tr>
+<tr class="memdesc:a3c575014e9b2676898b12056dd0846da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le système de boutons.  <br /></td></tr>
 <tr class="memitem:aab065737ffbaac51c1312fb0c9007126" id="r_aab065737ffbaac51c1312fb0c9007126"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aab065737ffbaac51c1312fb0c9007126">button_update</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem, <a class="el" href="struct_input_system.html">InputSystem</a> *inputState)</td></tr>
+<tr class="memdesc:aab065737ffbaac51c1312fb0c9007126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le système de boutons en fonction de l'état des entrées.  <br /></td></tr>
 <tr class="memitem:a299eeb98ec2fd60305fee62bfeb14bb8" id="r_a299eeb98ec2fd60305fee62bfeb14bb8"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a299eeb98ec2fd60305fee62bfeb14bb8">button_is_validated</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem)</td></tr>
+<tr class="memdesc:a299eeb98ec2fd60305fee62bfeb14bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le bouton actif a été validé  <br /></td></tr>
 <tr class="memitem:a375dd94a5e5c63fcb291b6b097a07a2d" id="r_a375dd94a5e5c63fcb291b6b097a07a2d"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a375dd94a5e5c63fcb291b6b097a07a2d">button_is_button_validated</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem, int buttonID)</td></tr>
+<tr class="memdesc:a375dd94a5e5c63fcb291b6b097a07a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si un bouton spécifique a été validé  <br /></td></tr>
 <tr class="memitem:a71d3140e977771c90d8137a98c29b241" id="r_a71d3140e977771c90d8137a98c29b241"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a71d3140e977771c90d8137a98c29b241">button_create</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem, int x, int y)</td></tr>
+<tr class="memdesc:a71d3140e977771c90d8137a98c29b241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un nouveau bouton.  <br /></td></tr>
 <tr class="memitem:a899826f7d1cf010fd4bdaca652247bd1" id="r_a899826f7d1cf010fd4bdaca652247bd1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a899826f7d1cf010fd4bdaca652247bd1">button_create_ex</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem, int x, int y, int left, int right)</td></tr>
+<tr class="memdesc:a899826f7d1cf010fd4bdaca652247bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un nouveau bouton avec des touches spécifiques.  <br /></td></tr>
 <tr class="memitem:acd369326db7be8b8540db43ed5ca69b5" id="r_acd369326db7be8b8540db43ed5ca69b5"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#acd369326db7be8b8540db43ed5ca69b5">button_get_current_buttonID</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem)</td></tr>
+<tr class="memdesc:acd369326db7be8b8540db43ed5ca69b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère l'ID du bouton actuellement sélectionné  <br /></td></tr>
 <tr class="memitem:a3ff8b2f96ad4e580d2a74f6aa8ad96a1" id="r_a3ff8b2f96ad4e580d2a74f6aa8ad96a1"><td class="memItemLeft"><a class="el" href="struct_button.html">Button</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3ff8b2f96ad4e580d2a74f6aa8ad96a1">button_get_current_button</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem)</td></tr>
+<tr class="memdesc:a3ff8b2f96ad4e580d2a74f6aa8ad96a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le bouton actuellement sélectionné (retourne la structure complète du bouton).  <br /></td></tr>
 <tr class="memitem:a5e2f86177baf1c45df3f71621e9ac4a5" id="r_a5e2f86177baf1c45df3f71621e9ac4a5"><td class="memItemLeft">Vector2&#160;</td><td class="memItemRight"><a class="el" href="#a5e2f86177baf1c45df3f71621e9ac4a5">button_get_button_position</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem, int buttonID)</td></tr>
+<tr class="memdesc:a5e2f86177baf1c45df3f71621e9ac4a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la position d'un bouton spécifique.  <br /></td></tr>
 <tr class="memitem:a16cb10a894bca788bcb776c12faa3a3d" id="r_a16cb10a894bca788bcb776c12faa3a3d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a16cb10a894bca788bcb776c12faa3a3d">button_draw_button_text</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem, int buttonID, char *text, int fontSize, Color color)</td></tr>
+<tr class="memdesc:a16cb10a894bca788bcb776c12faa3a3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le texte d'un bouton spécifique.  <br /></td></tr>
 <tr class="memitem:a6f74bcf247362f6b65a85f1838b50ee8" id="r_a6f74bcf247362f6b65a85f1838b50ee8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6f74bcf247362f6b65a85f1838b50ee8">button_draw_button_text_touhou98</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem, int buttonID, char *text, int fontSize, Color color)</td></tr>
+<tr class="memdesc:a6f74bcf247362f6b65a85f1838b50ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le texte du sélecteur de bouton avec la police "Touhou98".  <br /></td></tr>
 <tr class="memitem:a04a3a93a81cb79a96330af3305b42af5" id="r_a04a3a93a81cb79a96330af3305b42af5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a04a3a93a81cb79a96330af3305b42af5">button_draw_selector_text</a> (<a class="el" href="struct_button_system.html">ButtonSystem</a> *buttonSystem, int x_offset, int y_offset, char *text, int fontSize, Color color)</td></tr>
+<tr class="memdesc:a04a3a93a81cb79a96330af3305b42af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le texte du sélecteur de bouton.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a8bb0c7f312bb8665c3377a061dae552c" name="a8bb0c7f312bb8665c3377a061dae552c"></a>
@@ -218,6 +230,16 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Crée un nouveau bouton. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">x</td><td>La position X du bouton </td></tr>
+    <tr><td class="paramname">y</td><td>La position Y du bouton </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a899826f7d1cf010fd4bdaca652247bd1" name="a899826f7d1cf010fd4bdaca652247bd1"></a>
@@ -261,6 +283,18 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Crée un nouveau bouton avec des touches spécifiques. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">x</td><td>La position X du bouton </td></tr>
+    <tr><td class="paramname">y</td><td>La position Y du bouton </td></tr>
+    <tr><td class="paramname">left</td><td>Le code de la touche de gauche </td></tr>
+    <tr><td class="paramname">right</td><td>Le code de la touche de droite </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -306,6 +340,18 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Dessine le texte d'un bouton spécifique. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">buttonID</td><td>L'ID du bouton dont on veut dessiner le texte </td></tr>
+    <tr><td class="paramname">text</td><td>Le texte à dessiner </td></tr>
+    <tr><td class="paramname">fontSize</td><td>La taille de la police </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur du texte </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a6f74bcf247362f6b65a85f1838b50ee8" name="a6f74bcf247362f6b65a85f1838b50ee8"></a>
@@ -349,6 +395,19 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Dessine le texte du sélecteur de bouton avec la police "Touhou98". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">x_offset</td><td>Le décalage X du texte du sélecteur </td></tr>
+    <tr><td class="paramname">y_offset</td><td>Le décalage Y du texte du sélecteur </td></tr>
+    <tr><td class="paramname">text</td><td>Le texte à dessiner </td></tr>
+    <tr><td class="paramname">fontSize</td><td>La taille de la police </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur du texte </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -399,6 +458,19 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Dessine le texte du sélecteur de bouton. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">x_offset</td><td>Le décalage X du texte du sélecteur </td></tr>
+    <tr><td class="paramname">y_offset</td><td>Le décalage Y du texte du sélecteur </td></tr>
+    <tr><td class="paramname">text</td><td>Le texte à dessiner </td></tr>
+    <tr><td class="paramname">fontSize</td><td>La taille de la police </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur du texte </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5e2f86177baf1c45df3f71621e9ac4a5" name="a5e2f86177baf1c45df3f71621e9ac4a5"></a>
@@ -428,6 +500,16 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Récupère la position d'un bouton spécifique. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">buttonID</td><td>L'ID du bouton dont on veut récupérer la position </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>La position du bouton spécifié </dd></dl>
+
 </div>
 </div>
 <a id="a3ff8b2f96ad4e580d2a74f6aa8ad96a1" name="a3ff8b2f96ad4e580d2a74f6aa8ad96a1"></a>
@@ -453,6 +535,15 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Récupère le bouton actuellement sélectionné (retourne la structure complète du bouton). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons à dessiner </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Le bouton actuellement sélectionné </dd></dl>
+
 </div>
 </div>
 <a id="acd369326db7be8b8540db43ed5ca69b5" name="acd369326db7be8b8540db43ed5ca69b5"></a>
@@ -477,6 +568,14 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Récupère l'ID du bouton actuellement sélectionné </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons à dessiner </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -507,6 +606,16 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Vérifie si un bouton spécifique a été validé </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">buttonID</td><td>L'ID du bouton à vérifier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 si le bouton a été validé, 0 sinon </dd></dl>
+
 </div>
 </div>
 <a id="a299eeb98ec2fd60305fee62bfeb14bb8" name="a299eeb98ec2fd60305fee62bfeb14bb8"></a>
@@ -532,6 +641,15 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Vérifie si le bouton actif a été validé </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 si le bouton actif a été validé, 0 sinon </dd></dl>
+
 </div>
 </div>
 <a id="a3c575014e9b2676898b12056dd0846da" name="a3c575014e9b2676898b12056dd0846da"></a>
@@ -556,6 +674,14 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initialise le système de boutons. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons à initialiser </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -585,6 +711,15 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Met à jour le système de boutons en fonction de l'état des entrées. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons à mettre à jour </td></tr>
+    <tr><td class="paramname">inputState</td><td>L'état des entrées à prendre en compte pour la mise à jour </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

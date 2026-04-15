@@ -106,13 +106,21 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a60b2bbb6965e3971ce05b27e93d10351" id="r_a60b2bbb6965e3971ce05b27e93d10351"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a60b2bbb6965e3971ce05b27e93d10351">score_system_init</a> (<a class="el" href="struct_score_system.html">ScoreSystem</a> *scoreSystem)</td></tr>
+<tr class="memdesc:a60b2bbb6965e3971ce05b27e93d10351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le système de score.  <br /></td></tr>
 <tr class="memitem:ac0cd3161ed15531db24964240d316686" id="r_ac0cd3161ed15531db24964240d316686"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac0cd3161ed15531db24964240d316686">score_increase</a> (<a class="el" href="struct_score_system.html">ScoreSystem</a> *scoreSystem, unsigned int amount)</td></tr>
+<tr class="memdesc:ac0cd3161ed15531db24964240d316686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Augmente le score du joueur.  <br /></td></tr>
 <tr class="memitem:a5032e255f576926684bc6a5f9592f8b7" id="r_a5032e255f576926684bc6a5f9592f8b7"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a5032e255f576926684bc6a5f9592f8b7">score_system_get_highscore</a> (<a class="el" href="struct_score_system.html">ScoreSystem</a> *score)</td></tr>
+<tr class="memdesc:a5032e255f576926684bc6a5f9592f8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le score actuel du joueur.  <br /></td></tr>
 <tr class="memitem:a7d872c7ae5a36b1ba617d8216877ba13" id="r_a7d872c7ae5a36b1ba617d8216877ba13"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a7d872c7ae5a36b1ba617d8216877ba13">score_system_is_new_highscore</a> (<a class="el" href="struct_score_system.html">ScoreSystem</a> *score)</td></tr>
+<tr class="memdesc:a7d872c7ae5a36b1ba617d8216877ba13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le score actuel est un nouveau record.  <br /></td></tr>
 <tr class="memitem:a904e459b262843c55c2dd09a88cf151e" id="r_a904e459b262843c55c2dd09a88cf151e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a904e459b262843c55c2dd09a88cf151e">update_combo</a> (<a class="el" href="struct_score_system.html">ScoreSystem</a> *scoreSystem)</td></tr>
+<tr class="memdesc:a904e459b262843c55c2dd09a88cf151e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le combo du joueur.  <br /></td></tr>
 <tr class="memitem:a744c699798b45ac93717772b9deb4d46" id="r_a744c699798b45ac93717772b9deb4d46"><td class="memItemLeft"><a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a>&#160;</td><td class="memItemRight"><a class="el" href="#a744c699798b45ac93717772b9deb4d46">get_combo_sprite</a> (<a class="el" href="struct_score_system.html">ScoreSystem</a> *scoreSystem)</td></tr>
+<tr class="memdesc:a744c699798b45ac93717772b9deb4d46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le sprite du combo.  <br /></td></tr>
 <tr class="memitem:aab92385e689664a98eb3e3475576d9d8" id="r_aab92385e689664a98eb3e3475576d9d8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aab92385e689664a98eb3e3475576d9d8">draw_combo_sprite</a> (<a class="el" href="struct_score_system.html">ScoreSystem</a> *scoreSystem, int x, int y)</td></tr>
+<tr class="memdesc:aab92385e689664a98eb3e3475576d9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le sprite du combo.  <br /></td></tr>
 <tr class="memitem:a6fe6aeaaff2d8920cf0b6081e0398a4c" id="r_a6fe6aeaaff2d8920cf0b6081e0398a4c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6fe6aeaaff2d8920cf0b6081e0398a4c">score_decrease</a> (<a class="el" href="struct_score_system.html">ScoreSystem</a> *scoreSystem, unsigned int amount)</td></tr>
+<tr class="memdesc:a6fe6aeaaff2d8920cf0b6081e0398a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diminue le score du joueur.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="a0e661e3da44edbefcba6925e6033382e" name="a0e661e3da44edbefcba6925e6033382e"></a>
@@ -153,6 +161,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Dessine le sprite du combo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à interroger </td></tr>
+    <tr><td class="paramname">x</td><td>La position X où dessiner le sprite </td></tr>
+    <tr><td class="paramname">y</td><td>La position Y où dessiner le sprite </td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Dessine le sprite de combo en le récuperant via get_combo_sprite(scoreSystem) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scoreSystem</td><td>Le système de score </td></tr>
@@ -178,6 +196,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Récupère le sprite du combo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à interroger </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>L'ID du sprite du combo </dd></dl>
 <p>Récupère le sprite de combo en fonction du niveau de combo dans le scoreSystem </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scoreSystem</td><td>Le système de score </td></tr>
@@ -214,6 +241,15 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Diminue le score du joueur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à mettre à jour </td></tr>
+    <tr><td class="paramname">amount</td><td>Le montant à soustraire du score </td></tr>
+  </table>
+  </dd>
+</dl>
 <p>enleve amount du score du joueur sans le descendre sous 0. (amount est positif) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scoreSystem</td><td>Le système de score </td></tr>
@@ -250,6 +286,15 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Augmente le score du joueur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à mettre à jour </td></tr>
+    <tr><td class="paramname">amount</td><td>Le montant à ajouter au score </td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Augmente le score du système de score </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scoreSystem</td><td>Le système de score </td></tr>
@@ -274,6 +319,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Récupère le score actuel du joueur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à interroger </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Le score actuel du joueur </dd></dl>
 <p>Récupère le highscore du système de score (prend en compte le cas ou le score &gt; last_high_score) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">score</td><td>Le système de score </td></tr>
@@ -307,6 +361,14 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Initialise le système de score. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à initialiser </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7d872c7ae5a36b1ba617d8216877ba13" name="a7d872c7ae5a36b1ba617d8216877ba13"></a>
@@ -323,6 +385,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Vérifie si le score actuel est un nouveau record. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à interroger </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 si c'est un nouveau record, 0 sinon </dd></dl>
 <p>Vérifie si le score actuel est un nouveau highscore (score &gt; last_high_score) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">score</td><td>Le système de score </td></tr>
@@ -347,6 +418,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Met à jour le combo du joueur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à mettre à jour </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 si le combo est actif, 0 sinon </dd></dl>
 <p>Met à jour le combo du système de score. Si le combo est actif, incrémente le combo et retourne 1. Sinon, active le combo, réinitialise le combo à 0 et retourne 0. Octroie les points du combo </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scoreSystem</td><td>Le système de score</td></tr>
