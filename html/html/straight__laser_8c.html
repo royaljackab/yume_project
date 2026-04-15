@@ -103,11 +103,17 @@ $(function(){initNavTree('straight__laser_8c.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a225ab06b345f206aa96cf022179ed6d4" id="r_a225ab06b345f206aa96cf022179ed6d4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a225ab06b345f206aa96cf022179ed6d4">straight_laser_update</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> laserID)</td></tr>
+<tr class="memdesc:a225ab06b345f206aa96cf022179ed6d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour un laser droit pour une frame.  <br /></td></tr>
 <tr class="memitem:a7fc50cd9a6d7034d57e8cff8386ae2a4" id="r_a7fc50cd9a6d7034d57e8cff8386ae2a4"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7fc50cd9a6d7034d57e8cff8386ae2a4">straight_laser_enemy_create</a> (<a class="el" href="struct_pool.html">Pool</a> *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memdesc:a7fc50cd9a6d7034d57e8cff8386ae2a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variante de création marquant le laser comme projectile ennemi.  <br /></td></tr>
 <tr class="memitem:a7e9eaea6ae5d926aa2623465de6ad36c" id="r_a7e9eaea6ae5d926aa2623465de6ad36c"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7e9eaea6ae5d926aa2623465de6ad36c">straight_laser_create</a> (<a class="el" href="struct_pool.html">Pool</a> *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memdesc:a7e9eaea6ae5d926aa2623465de6ad36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un laser droit et l'attache à une nouvelle entité.  <br /></td></tr>
 <tr class="memitem:ab1a8e789933e95245cd1a7f31992a12e" id="r_ab1a8e789933e95245cd1a7f31992a12e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab1a8e789933e95245cd1a7f31992a12e">straight_lasers_update_all</a> (<a class="el" href="struct_pool.html">Pool</a> *pool)</td></tr>
+<tr class="memdesc:ab1a8e789933e95245cd1a7f31992a12e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour tous les lasers droits présents dans la pool.  <br /></td></tr>
 <tr class="memitem:a3d7e6577e68266b254d71eec9a160422" id="r_a3d7e6577e68266b254d71eec9a160422"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3d7e6577e68266b254d71eec9a160422">straight_laser_draw</a> (<a class="el" href="struct_straight__laser.html">Straight_laser</a> *laser, <a class="el" href="struct_position.html">Position</a> *pos, <a class="el" href="struct_sprite.html">Sprite</a> *sprite)</td></tr>
+<tr class="memdesc:a3d7e6577e68266b254d71eec9a160422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine un laser droit.  <br /></td></tr>
 <tr class="memitem:a328f25021b1d62a50e80bb65d0112b45" id="r_a328f25021b1d62a50e80bb65d0112b45"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a328f25021b1d62a50e80bb65d0112b45">straight_lasers_draw_all</a> (Straight_laserManager *laserManager, PositionManager *positionManager, SpriteManager *spriteManager)</td></tr>
+<tr class="memdesc:a328f25021b1d62a50e80bb65d0112b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine tous les lasers droits actifs du manager.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a7e9eaea6ae5d926aa2623465de6ad36c" name="a7e9eaea6ae5d926aa2623465de6ad36c"></a>
@@ -169,6 +175,25 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Crée un laser droit et l'attache à une nouvelle entité. </p>
+<p>Paramètres temporels : warning, growing et duration sont des durées en frames utilisées pour initialiser le timer du composant.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pool</td><td>Pointeur vers la pool. </td></tr>
+    <tr><td class="paramname">x</td><td><a class="el" href="struct_position.html">Position</a> X initiale du laser. </td></tr>
+    <tr><td class="paramname">y</td><td><a class="el" href="struct_position.html">Position</a> Y initiale du laser. </td></tr>
+    <tr><td class="paramname">angle</td><td>Angle initial </td></tr>
+    <tr><td class="paramname">length</td><td>Longueur du laser. </td></tr>
+    <tr><td class="paramname">maxWidth</td><td>Largeur maximale du laser. </td></tr>
+    <tr><td class="paramname">warning</td><td>Durée avant la phase de croissance. </td></tr>
+    <tr><td class="paramname">growing</td><td>Durée de croissance pendant laquelle la largeur augmente. </td></tr>
+    <tr><td class="paramname">duration</td><td>Durée pendant laquelle la largeur reste maximale. </td></tr>
+    <tr><td class="paramname">graphic</td><td>ID du visuel à utiliser pour ce laser. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>L'identifiant de l'entité créée contenant le <a class="el" href="struct_straight__laser.html" title="composante laser droit dans la pool">Straight_laser</a>. </dd></dl>
+
 </div>
 </div>
 <a id="a3d7e6577e68266b254d71eec9a160422" name="a3d7e6577e68266b254d71eec9a160422"></a>
@@ -194,6 +219,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Dessine un laser droit. </p>
+<p>Le dessin utilise la longueur et la largeur du composant ainsi que la <a class="el" href="struct_position.html">Position</a> et le sprite fournis.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">laser</td><td>laser à afficher </td></tr>
+    <tr><td class="paramname">pos</td><td>position du laser </td></tr>
+    <tr><td class="paramname">sprite</td><td>sprite utilisé pour le rendu du laser </td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Affiche un laser droit selon sa largeur et sa longueur, à sa position et avec la couleur de son sprite</p>
 
 </div>
@@ -257,6 +293,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Variante de création marquant le laser comme projectile ennemi. </p>
+<p>Appelle straight_laser_create puis ajoute le flag FLAG_PROJECTILE_ENEMY à la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> de l'entité.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="straight__laser_8h.html#a7e9eaea6ae5d926aa2623465de6ad36c" title="Crée un laser droit et l&#39;attache à une nouvelle entité.">straight_laser_create</a> </dd></dl>
+
 </div>
 </div>
 <a id="a225ab06b345f206aa96cf022179ed6d4" name="a225ab06b345f206aa96cf022179ed6d4"></a>
@@ -277,6 +317,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Met à jour un laser droit pour une frame. </p>
+<p>Le laser évolue selon son timer interne. Il peut passer à l'état suivant si son heure d'activation ou de destruction est venue.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">laserID</td><td>id du laser à mettre à jour </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si le laser doit continuer d'exister, false s'il doit être supprimé. </dd></dl>
 
 </div>
 </div>
@@ -303,6 +354,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Dessine tous les lasers droits actifs du manager. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">laserManager</td><td>Straight_laserManager </td></tr>
+    <tr><td class="paramname">positionManager</td><td>PositionManager </td></tr>
+    <tr><td class="paramname">spriteManager</td><td>SpriteManager </td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Affiche tous les lasers droits actifs</p>
 
 </div>
@@ -321,6 +382,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Met à jour tous les lasers droits présents dans la pool. </p>
+<p>Parcourt le Straight_laserManager et appelle straight_laser_update pour chaque instance et marque les entités à supprimer si nécessaire.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pool</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

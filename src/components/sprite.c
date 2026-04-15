@@ -81,7 +81,7 @@ void Sprite_draw_sprite(Sprite *sprite, Position *pos, Tag *tag) {
 
   Vector2 scaled_center = {sprite->center.x * sprite->scale.x, sprite->center.y * sprite->scale.y};
 
-  // TODO: Tag pour enlever la rotation par défaut
+  // TODO: Flag pour enlever la rotation par défaut
   if ( tag == NULL || (*tag != ENT_ENEMY && *tag != ENT_BOSS) )
     sprite->rotation = pos->angle;
 
@@ -91,9 +91,8 @@ void Sprite_draw_sprite(Sprite *sprite, Position *pos, Tag *tag) {
 }
 
 static bool IsOutOfDrawBounds(Position pos, Sprite sprite) {
-  /***
-   * Retourne si le sprite au vector2 pos est hors de la fenêtre de dessin ou
-   * pas
+  /*
+   * Retourne si le sprite au vector2 pos est hors de la fenêtre de dessin ou pas
    */
 
   return (pos.pos.x + sprite.srcRect.width * sprite.scale.x < PANEL_LEFT ||

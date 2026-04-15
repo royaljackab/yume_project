@@ -91,6 +91,9 @@ $(function(){initNavTree('player_8h.html','',''); });
   <div class="headertitle"><div class="title">player.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Gestion du joueur : structures <a class="el" href="struct_player.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a>, <a class="el" href="struct_weapon.html" title="Composante weapon dans l&#39;ECS Contient les informations d&#39;une arme du joueur. Le joueur est la seule e...">Weapon</a>.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="component_8h_source.html">component.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="collision__circle_8h_source.html">collision_circle.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
@@ -101,7 +104,9 @@ $(function(){initNavTree('player_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Player" id="r_Player"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_player.html">Player</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composante <a class="el" href="struct_player.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a> dans l'ECS Représente l'état et les attributs d'un joueur. Le joueur est la seule entité a utiliser cette composante.  <a href="struct_player.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Weapon" id="r_Weapon"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_weapon.html">Weapon</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composante weapon dans l'ECS Contient les informations d'une arme du joueur. Le joueur est la seule entité a utiliser cette composante.  <a href="struct_weapon.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -111,12 +116,15 @@ Macros</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:af1d739a5886b399946180d0fcd08e95f" id="r_af1d739a5886b399946180d0fcd08e95f"><td class="memItemLeft">typedef struct GameContext&#160;</td><td class="memItemRight"><a class="el" href="#af1d739a5886b399946180d0fcd08e95f">GameContext</a></td></tr>
 <tr class="memitem:a480a040facb94f90060562cd65274385" id="r_a480a040facb94f90060562cd65274385"><td class="memItemLeft">typedef struct Player&#160;</td><td class="memItemRight"><a class="el" href="#a480a040facb94f90060562cd65274385">Player</a></td></tr>
+<tr class="memdesc:a480a040facb94f90060562cd65274385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composante <a class="el" href="struct_player.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a> dans l'ECS Représente l'état et les attributs d'un joueur. Le joueur est la seule entité a utiliser cette composante.  <br /></td></tr>
 <tr class="memitem:a289267d934011ba74f3f27f807e4841b" id="r_a289267d934011ba74f3f27f807e4841b"><td class="memItemLeft">typedef struct Weapon&#160;</td><td class="memItemRight"><a class="el" href="#a289267d934011ba74f3f27f807e4841b">Weapon</a></td></tr>
+<tr class="memdesc:a289267d934011ba74f3f27f807e4841b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composante weapon dans l'ECS Contient les informations d'une arme du joueur. Le joueur est la seule entité a utiliser cette composante.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a38bf1810175b6b82618b04b1ee0258da" id="r_a38bf1810175b6b82618b04b1ee0258da"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a38bf1810175b6b82618b04b1ee0258da">PlayerName</a> { <a class="el" href="#a38bf1810175b6b82618b04b1ee0258daa6e2ee4dee75afce64793191e70f8be0f">TEST_PLAYER</a>
  }</td></tr>
+<tr class="memdesc:a38bf1810175b6b82618b04b1ee0258da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiants de personnages jouables.  <a href="#a38bf1810175b6b82618b04b1ee0258da">More...</a><br /></td></tr>
 <tr class="memitem:a351dc5aa88481a949638aeb6cc5e6754" id="r_a351dc5aa88481a949638aeb6cc5e6754"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a351dc5aa88481a949638aeb6cc5e6754">PatternType</a> { <a class="el" href="#a351dc5aa88481a949638aeb6cc5e6754aa5fa8b6cfea2927933b29962a3bd7b3b">DEFAULT_PATTERN</a>
  }</td></tr>
 </table><table class="memberdecls">
@@ -132,14 +140,23 @@ Functions</h2></td></tr>
 <tr class="memitem:a241594d1093931449970e50fa4eb1c96" id="r_a241594d1093931449970e50fa4eb1c96"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a241594d1093931449970e50fa4eb1c96">DECLARE_SETTER_GETTER</a> (<a class="el" href="struct_player.html">Player</a>, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>, GrazeSpriteId)</td></tr>
 <tr class="memitem:af4c82734ec317847e9f94d0b84e450ad" id="r_af4c82734ec317847e9f94d0b84e450ad"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af4c82734ec317847e9f94d0b84e450ad">DECLARE_SETTER_GETTER</a> (<a class="el" href="struct_player.html">Player</a>, int, grazeRadius)</td></tr>
 <tr class="memitem:ad4c82be4eac1a155a2fb6b0472106f78" id="r_ad4c82be4eac1a155a2fb6b0472106f78"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad4c82be4eac1a155a2fb6b0472106f78">Player_start</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="#a38bf1810175b6b82618b04b1ee0258da">PlayerName</a> name, <a class="el" href="#a351dc5aa88481a949638aeb6cc5e6754">PatternType</a> type)</td></tr>
+<tr class="memdesc:ad4c82be4eac1a155a2fb6b0472106f78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise et crée l'entité joueur dans la pool.  <br /></td></tr>
 <tr class="memitem:afe1adaf296bb4b829c1a0a085ad61699" id="r_afe1adaf296bb4b829c1a0a085ad61699"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afe1adaf296bb4b829c1a0a085ad61699">Player_update</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
+<tr class="memdesc:afe1adaf296bb4b829c1a0a085ad61699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise à jour par frame du joueur (input, tir, focus, graze, dégâts...).  <br /></td></tr>
 <tr class="memitem:ae38a270aaf90552d3f47aeb8b4fdbe31" id="r_ae38a270aaf90552d3f47aeb8b4fdbe31"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae38a270aaf90552d3f47aeb8b4fdbe31">Player_get_playerID</a> (<a class="el" href="struct_pool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:ae38a270aaf90552d3f47aeb8b4fdbe31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère l'id du joueur. Il n'y a toujours qu'un seul joueur actif, on peut donc l'identifier.  <br /></td></tr>
 <tr class="memitem:aef18f2e7c4c7d33bede12f0fd2ba06b2" id="r_aef18f2e7c4c7d33bede12f0fd2ba06b2"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aef18f2e7c4c7d33bede12f0fd2ba06b2">Player_GetX</a> (<a class="el" href="struct_pool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:aef18f2e7c4c7d33bede12f0fd2ba06b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la position X du joueur.  <br /></td></tr>
 <tr class="memitem:a448838013ff8190de267e0d84610fd28" id="r_a448838013ff8190de267e0d84610fd28"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a448838013ff8190de267e0d84610fd28">Player_GetY</a> (<a class="el" href="struct_pool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:a448838013ff8190de267e0d84610fd28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la position Y du joueur.  <br /></td></tr>
 <tr class="memitem:a6a93cfba045e35803246c01ae38d703a" id="r_a6a93cfba045e35803246c01ae38d703a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6a93cfba045e35803246c01ae38d703a">teleport_to_player_spawn</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e)</td></tr>
+<tr class="memdesc:a6a93cfba045e35803246c01ae38d703a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Téléporte une entité vers le point de spawn du joueur.  <br /></td></tr>
 <tr class="memitem:a327db3e031672d43afcb06634e373d81" id="r_a327db3e031672d43afcb06634e373d81"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a327db3e031672d43afcb06634e373d81">Damage_player</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> player)</td></tr>
+<tr class="memdesc:a327db3e031672d43afcb06634e373d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inflige des dégâts au joueur et gère les conséquences (respawn, invincibilité, effets sonores... ).  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Gestion du joueur : structures <a class="el" href="struct_player.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a>, <a class="el" href="struct_weapon.html" title="Composante weapon dans l&#39;ECS Contient les informations d&#39;une arme du joueur. Le joueur est la seule e...">Weapon</a>. </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a48f47d55a7986f34564a7ea824306918" name="a48f47d55a7986f34564a7ea824306918"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a48f47d55a7986f34564a7ea824306918">&#9670;&#160;</a></span>INITIAL_PLAYER_LIVES</h2>
 
@@ -181,6 +198,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Composante <a class="el" href="struct_player.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a> dans l'ECS Représente l'état et les attributs d'un joueur. Le joueur est la seule entité a utiliser cette composante. </p>
+
 </div>
 </div>
 <a id="a289267d934011ba74f3f27f807e4841b" name="a289267d934011ba74f3f27f807e4841b"></a>
@@ -194,6 +213,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Composante weapon dans l'ECS Contient les informations d'une arme du joueur. Le joueur est la seule entité a utiliser cette composante. </p>
 
 </div>
 </div>
@@ -226,6 +247,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Identifiants de personnages jouables. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a38bf1810175b6b82618b04b1ee0258daa6e2ee4dee75afce64793191e70f8be0f" name="a38bf1810175b6b82618b04b1ee0258daa6e2ee4dee75afce64793191e70f8be0f"></a>TEST_PLAYER&#160;</td><td class="fielddoc"></td></tr>
 </table>
@@ -259,6 +282,16 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Inflige des dégâts au joueur et gère les conséquences (respawn, invincibilité, effets sonores... ). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="struct_game_context.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant (toutes les données du jeu) </td></tr>
+    <tr><td class="paramname">player</td><td>joueur à blesser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si l'opération a été effectuée sans erreur, false sinon. </dd></dl>
 <p>Inflige des dégâts au joueur, et gère les conséquences de ces dégâts (perte de vie, combo, invincibilité temporaire, effets...) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>Le contexte du jeu, utilisé pour accéder au pool et au système de score </td></tr>
@@ -516,6 +549,15 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Récupère l'id du joueur. Il n'y a toujours qu'un seul joueur actif, on peut donc l'identifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>id du joueur (index 0 du PlayerManager). </dd></dl>
+
 </div>
 </div>
 <a id="aef18f2e7c4c7d33bede12f0fd2ba06b2" name="aef18f2e7c4c7d33bede12f0fd2ba06b2"></a>
@@ -541,6 +583,15 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Récupère la position X du joueur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>coordonée X du joueur </dd></dl>
+
 </div>
 </div>
 <a id="a448838013ff8190de267e0d84610fd28" name="a448838013ff8190de267e0d84610fd28"></a>
@@ -565,6 +616,15 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Récupère la position Y du joueur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>coordonée Y du joueur </dd></dl>
 
 </div>
 </div>
@@ -600,6 +660,17 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Initialise et crée l'entité joueur dans la pool. </p>
+<p>Crée l'entité joueur, initialise ses composants: <a class="el" href="struct_player.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a>, <a class="el" href="struct_weapon.html" title="Composante weapon dans l&#39;ECS Contient les informations d&#39;une arme du joueur. Le joueur est la seule e...">Weapon</a>, <a class="el" href="struct_position.html">Position</a>, <a class="el" href="struct_sprite.html" title="Composante Sprite dans l&#39;ECS Cette composante sert à associer une texture à une Entité....">Sprite</a>, <a class="el" href="struct_collision__circle.html" title="composante collision circulaire dans l&#39;ECS">Collision_circle</a>, <a class="el" href="struct_life.html">Life</a>, etc.) et place le joueur au point de spawn.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS). </td></tr>
+    <tr><td class="paramname">name</td><td>Type de joueur à instancier. </td></tr>
+    <tr><td class="paramname">type</td><td>Type de pattern d'arme à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="afe1adaf296bb4b829c1a0a085ad61699" name="afe1adaf296bb4b829c1a0a085ad61699"></a>
@@ -624,6 +695,15 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Mise à jour par frame du joueur (input, tir, focus, graze, dégâts...). </p>
+<p>Appelée depuis la boucle principale pour traiter l'input et les actions du joueur.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="struct_game_context.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant (toutes les données du jeu) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -653,6 +733,16 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Téléporte une entité vers le point de spawn du joueur. </p>
+<p>Utilisé pour repositionner le joueur après qu'il ai subit des dégâts où au début du jeu.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">e</td><td>Entité à téléporter. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

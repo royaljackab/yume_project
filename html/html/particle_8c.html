@@ -100,7 +100,9 @@ $(function(){initNavTree('particle_8c.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae447686348c899aa1a61eb7dc5956088" id="r_ae447686348c899aa1a61eb7dc5956088"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae447686348c899aa1a61eb7dc5956088">particle_spawn</a> (<a class="el" href="struct_pool.html">Pool</a> *p, float x, float y, float speed, float angle, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memdesc:ae447686348c899aa1a61eb7dc5956088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une particule.  <br /></td></tr>
 <tr class="memitem:a8c8d50b84997529e311e4cef2f2bd28e" id="r_a8c8d50b84997529e311e4cef2f2bd28e"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a8c8d50b84997529e311e4cef2f2bd28e">particle_bound</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> owner)</td></tr>
+<tr class="memdesc:a8c8d50b84997529e311e4cef2f2bd28e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une particule à partir d'un sprite, puis la lie à une entité  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a8c8d50b84997529e311e4cef2f2bd28e" name="a8c8d50b84997529e311e4cef2f2bd28e"></a>
@@ -126,6 +128,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Crée une particule à partir d'un sprite, puis la lie à une entité </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">graphic</td><td>l'identifiant de la texture à utiliser </td></tr>
+    <tr><td class="paramname">owner</td><td>l'identifiant de l'entité qui devient owner de la particule </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>l'id de l'entité créée </dd></dl>
 
 </div>
 </div>
@@ -167,6 +180,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Crée une particule. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">x</td><td>coordonnée x initiale </td></tr>
+    <tr><td class="paramname">y</td><td>coordonnée y initiale </td></tr>
+    <tr><td class="paramname">speed</td><td>vitesse initiale </td></tr>
+    <tr><td class="paramname">angle</td><td>angle initial </td></tr>
+    <tr><td class="paramname">graphic</td><td>l'identifiant de la texture à utiliser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>l'id de l'entité créée </dd></dl>
 
 </div>
 </div>

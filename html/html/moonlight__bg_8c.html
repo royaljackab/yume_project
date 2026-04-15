@@ -102,9 +102,13 @@ $(function(){initNavTree('moonlight__bg_8c.html','',''); });
 Functions</h2></td></tr>
 <tr class="memitem:aa9be306a14e2fa7d761eb5393083c0d6" id="r_aa9be306a14e2fa7d761eb5393083c0d6"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aa9be306a14e2fa7d761eb5393083c0d6">DrawSprite3D</a> (Texture2D texture, Rectangle source, Vector3 position, float width, float height, Vector3 rotationAxis, float rotationAngle, Color color)</td></tr>
 <tr class="memitem:a470b515778def4a88b657014a7789f71" id="r_a470b515778def4a88b657014a7789f71"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a470b515778def4a88b657014a7789f71">moonlight_bg_init</a> ()</td></tr>
+<tr class="memdesc:a470b515778def4a88b657014a7789f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les ressources et l'état de l'arrière-plan Moonlight.  <br /></td></tr>
 <tr class="memitem:ad67daa9158e8745def9279d7fa4ad6fe" id="r_ad67daa9158e8745def9279d7fa4ad6fe"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad67daa9158e8745def9279d7fa4ad6fe">moonlight_bg_set_mode</a> (bool to_spellcard)</td></tr>
+<tr class="memdesc:ad67daa9158e8745def9279d7fa4ad6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le mode d'affichage de l'arrière-plan (vers/depuis spellcard).  <br /></td></tr>
 <tr class="memitem:a432ab6dbcbc483c681eaa288ec09239c" id="r_a432ab6dbcbc483c681eaa288ec09239c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a432ab6dbcbc483c681eaa288ec09239c">moonlight_bg_update</a> (int <a class="el" href="moonlight_8c.html#a61217d5bc9d5b446d9c08e7ca401b733">frames</a>)</td></tr>
+<tr class="memdesc:a432ab6dbcbc483c681eaa288ec09239c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour l'arrière-plan Moonlight.  <br /></td></tr>
 <tr class="memitem:a70ec950881307d6b45d7d5bd0d611d3c" id="r_a70ec950881307d6b45d7d5bd0d611d3c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a70ec950881307d6b45d7d5bd0d611d3c">moonlight_bg_draw</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
+<tr class="memdesc:a70ec950881307d6b45d7d5bd0d611d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine l'arrière-plan du stage Moonlight.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -192,6 +196,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Dessine l'arrière-plan du stage Moonlight. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Contexte de jeu contenant la pool et les systèmes nécessaires. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a470b515778def4a88b657014a7789f71" name="a470b515778def4a88b657014a7789f71"></a>
@@ -208,6 +220,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialise les ressources et l'état de l'arrière-plan Moonlight. </p>
 
 </div>
 </div>
@@ -226,6 +240,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Change le mode d'affichage de l'arrière-plan (vers/depuis spellcard). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">to_spellcard</td><td>true pour activer le mode spellcard, false pour revenir au mode normal. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a432ab6dbcbc483c681eaa288ec09239c" name="a432ab6dbcbc483c681eaa288ec09239c"></a>
@@ -242,6 +264,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Met à jour l'arrière-plan Moonlight. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="moonlight_8c.html#a61217d5bc9d5b446d9c08e7ca401b733">frames</a></td><td>Nombre de frames écoulées depuis le dernier appel (généralement 1). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

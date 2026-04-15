@@ -91,6 +91,9 @@ $(function(){initNavTree('assets_8h.html','',''); });
   <div class="headertitle"><div class="title">assets.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Chargement et références des assets (textures, sprites, audio, polices).  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;raylib.h&gt;</code><br />
 <code>#include &lt;raymath.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="sprite_8h_source.html">components/sprite.h</a>&quot;</code><br />
@@ -556,6 +559,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a5a7bed266706793f22e4c40f32ee53ae" id="r_a5a7bed266706793f22e4c40f32ee53ae"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5a7bed266706793f22e4c40f32ee53ae">EnemiesSpritesLoad</a> ()</td></tr>
 <tr class="memitem:a1b56d12785d114cf1fe9539435bc9f22" id="r_a1b56d12785d114cf1fe9539435bc9f22"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1b56d12785d114cf1fe9539435bc9f22">CombosSpritesLoad</a> ()</td></tr>
 <tr class="memitem:afa960179e47bf91a0c66e1ec966e296e" id="r_afa960179e47bf91a0c66e1ec966e296e"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#afa960179e47bf91a0c66e1ec966e296e">invoke_main_background</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="struct_screen_system.html">ScreenSystem</a> *screen)</td></tr>
+<tr class="memdesc:afa960179e47bf91a0c66e1ec966e296e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche l'arrière-plan du menu principal.  <br /></td></tr>
 <tr class="memitem:ae35ae6832f5c37441f2f91452cc18291" id="r_ae35ae6832f5c37441f2f91452cc18291"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae35ae6832f5c37441f2f91452cc18291">FontsLoad</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
@@ -566,7 +570,10 @@ Variables</h2></td></tr>
 <tr class="memitem:ab3f50a3673544c2460f41ec5c95ca735" id="r_ab3f50a3673544c2460f41ec5c95ca735"><td class="memItemLeft">Sound&#160;</td><td class="memItemRight"><a class="el" href="#ab3f50a3673544c2460f41ec5c95ca735">sfx</a> [<a class="el" href="#a34e9cff1b7a75a2c6744fadf0d600dbaaf98de20345e8a607f1c7dbccd7a61aa0">MAX_SFX</a>]</td></tr>
 <tr class="memitem:a81a49573bd2770402b3e65a7adfbdeda" id="r_a81a49573bd2770402b3e65a7adfbdeda"><td class="memItemLeft">Font&#160;</td><td class="memItemRight"><a class="el" href="#a81a49573bd2770402b3e65a7adfbdeda">fonts</a> [<a class="el" href="#aee0a12e803b6ab37905d9d3233f70d85a1b197344c290bb3eca0442a368d8b270">MAX_FONTS</a>]</td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Chargement et références des assets (textures, sprites, audio, polices). </p>
+<p>Déclare les identifiants (<a class="el" href="#aac8c8e4db184e4a83ec51cdec293c11d">TextureID</a>, <a class="el" href="#a458291307eae5dfdecda616d636894f3">SpriteID</a>, <a class="el" href="#ad7fdbac9c8d116d2048ea198ba0d909c">BGMId</a>, <a class="el" href="#a34e9cff1b7a75a2c6744fadf0d600dba">SFXID</a>, <a class="el" href="#aee0a12e803b6ab37905d9d3233f70d85">FontID</a>), les fonctions de chargement/déchargement et les tableaux externes exposant les ressources (textures, sprites, musiques, effets sonores, polices). </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a1ed6714185c01ce38a3db2d694fa9d64" name="a1ed6714185c01ce38a3db2d694fa9d64"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ed6714185c01ce38a3db2d694fa9d64">&#9670;&#160;</a></span>RENDER_PRIO_BG</h2>
 
@@ -1238,6 +1245,16 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Affiche l'arrière-plan du menu principal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante </td></tr>
+    <tr><td class="paramname">screen</td><td>systeme de screen. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>l'id de l'entité background créée. </dd></dl>
 
 </div>
 </div>

@@ -1,3 +1,12 @@
+#/**
+ * @file assets.h
+ * @brief Chargement et références des assets (textures, sprites, audio, polices)
+ *
+ * Déclare les identifiants (TextureID, SpriteID, BGMId, SFXID, FontID),
+ * les fonctions de chargement/déchargement et les tableaux externes exposant
+ * les ressources (textures, sprites, musiques, effets sonores, polices).
+ */
+
 #pragma once
 
 #include <raylib.h>
@@ -428,6 +437,14 @@ void EffectsLoad();
 extern void SpritesLoad();
 void EnemiesSpritesLoad();
 void CombosSpritesLoad();
+
+/**
+ * @brief Affiche l'arrière-plan du menu principal.
+ *
+ * @param p pool courante
+ * @param screen systeme de screen.
+ * @return l'id de l'entité background créée.
+ */
 extern Entity invoke_main_background(Pool *p, ScreenSystem *screen);
 void FontsLoad();
 

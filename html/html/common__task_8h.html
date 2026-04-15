@@ -91,6 +91,9 @@ $(function(){initNavTree('common__task_8h.html','',''); });
   <div class="headertitle"><div class="title">common_task.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Déclarations de tâches et macros réutilisables pour les scènes et boss.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="bullet_8h_source.html">bullet.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="tasks_8h_source.html">coroutine/tasks.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cotask_8h_source.html">cotask.h</a>&quot;</code><br />
@@ -123,7 +126,10 @@ Functions</h2></td></tr>
 <tr class="memitem:aad6fc7505d17bdd17b29e064f8c2d22d" id="r_aad6fc7505d17bdd17b29e064f8c2d22d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aad6fc7505d17bdd17b29e064f8c2d22d">DECLARE_EXTERN_TASK</a> (spellcard_bg_anim, {<a class="el" href="struct_pool.html">Pool</a> *pool;int duration;})</td></tr>
 <tr class="memitem:a1904530f9b3ff1ada1c81378ca5ee902" id="r_a1904530f9b3ff1ada1c81378ca5ee902"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1904530f9b3ff1ada1c81378ca5ee902">DECLARE_EXTERN_TASK</a> (start_spellcard_sequence, {<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;const char *spell_name;int duration;})</td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Déclarations de tâches et macros réutilisables pour les scènes et boss. </p>
+<p>Contient les déclarations <span class="tt"><a class="el" href="#a2b861079a8186d943db07f3cfc4312ad">DECLARE_EXTERN_TASK</a></span> pour les tâches fréquemment utilisées (timers, effets, mouvements d'objets, animations), ainsi que les macros d'orchestration RUN_SPELLCARD et RUN_NONSPELL employées par les scripts de stage/boss. </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="afc117cb4cbdc1aec225b7fd489ee230b" name="afc117cb4cbdc1aec225b7fd489ee230b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc117cb4cbdc1aec225b7fd489ee230b">&#9670;&#160;</a></span>RUN_NONSPELL</h2>
 
@@ -173,7 +179,7 @@ Functions</h2></td></tr>
 <div class="ttc" id="acotask_8c_html_a83e7f763cd720b4a97a707030da2a111"><div class="ttname"><a href="cotask_8c.html#a83e7f763cd720b4a97a707030da2a111">cotask_box</a></div><div class="ttdeci">BoxedTask cotask_box(CoTask *task)</div><div class="ttdoc">Emballer une task dans une boite (ref faible).</div><div class="ttdef"><b>Definition</b> cotask.c:39</div></div>
 <div class="ttc" id="aflags_8h_html_a829563b1e19fae59f905c1afb76fe4eba7ac8a80db3663d375a179db23605c6dd"><div class="ttname"><a href="flags_8h.html#a829563b1e19fae59f905c1afb76fe4eba7ac8a80db3663d375a179db23605c6dd">FLAG_INVINCIBLE</a></div><div class="ttdeci">@ FLAG_INVINCIBLE</div><div class="ttdef"><b>Definition</b> flags.h:29</div></div>
 <div class="ttc" id="amacro_8h_html_a6d2fd5d47b4a5858bc621cfc365ae54f"><div class="ttname"><a href="macro_8h.html#a6d2fd5d47b4a5858bc621cfc365ae54f">MACRO_CONCAT</a></div><div class="ttdeci">#define MACRO_CONCAT(a, b)</div><div class="ttdef"><b>Definition</b> macro.h:4</div></div>
-<div class="ttc" id="amoonlight__bg_8c_html_ad67daa9158e8745def9279d7fa4ad6fe"><div class="ttname"><a href="moonlight__bg_8c.html#ad67daa9158e8745def9279d7fa4ad6fe">moonlight_bg_set_mode</a></div><div class="ttdeci">void moonlight_bg_set_mode(bool to_spellcard)</div><div class="ttdef"><b>Definition</b> moonlight_bg.c:59</div></div>
+<div class="ttc" id="amoonlight__bg_8c_html_ad67daa9158e8745def9279d7fa4ad6fe"><div class="ttname"><a href="moonlight__bg_8c.html#ad67daa9158e8745def9279d7fa4ad6fe">moonlight_bg_set_mode</a></div><div class="ttdeci">void moonlight_bg_set_mode(bool to_spellcard)</div><div class="ttdoc">Change le mode d&#39;affichage de l&#39;arrière-plan (vers/depuis spellcard).</div><div class="ttdef"><b>Definition</b> moonlight_bg.c:59</div></div>
 <div class="ttc" id="aobj_8c_html_a25e9ac0faa8566ee0f2835a94e9af95a"><div class="ttname"><a href="obj_8c.html#a25e9ac0faa8566ee0f2835a94e9af95a">obj_IsDead</a></div><div class="ttdeci">bool obj_IsDead(Pool *p, Entity objId)</div><div class="ttdef"><b>Definition</b> obj.c:306</div></div>
 <div class="ttc" id="astruct_boxed_task_html"><div class="ttname"><a href="struct_boxed_task.html">BoxedTask</a></div><div class="ttdoc">Une BoxedTask est une référence faible a une task.</div><div class="ttdef"><b>Definition</b> cotask.h:25</div></div>
 <div class="ttc" id="astruct_co_task_html"><div class="ttname"><a href="struct_co_task.html">CoTask</a></div><div class="ttdef"><b>Definition</b> cotask_data.h:24</div></div>

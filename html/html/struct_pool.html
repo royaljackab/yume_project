@@ -92,6 +92,9 @@ $(function(){initNavTree('struct_pool.html','','struct_pool-members'); });
 </div><!--header-->
 <div class="contents">
 
+<p>La pool est la structure qui contient l'<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a> Component System Elle gêre les différentes composantes grâce à ses champs de type "manager" et assure la création d'Identifiants cohérents pour les nouvelles entités grâce au tableau "free_indices". Enfin, les entités à détruire son ajouté à sa kill_queue, qui est vidée à la fin de chaque frame.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="pool_8h_source.html">pool.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -118,7 +121,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a6ae96ac7dd62919e305a345a4e4c70db" id="r_a6ae96ac7dd62919e305a345a4e4c70db"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6ae96ac7dd62919e305a345a4e4c70db">kill_queue</a> [<a class="el" href="ecs_8h.html#a0b7e155f796ed5e7b49b0f44867135ee">MAX_ENTITIES</a>]</td></tr>
 <tr class="memitem:a0f00b94536e5fc916678a2c489d59875" id="r_a0f00b94536e5fc916678a2c489d59875"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a0f00b94536e5fc916678a2c489d59875">kill_count</a></td></tr>
 </table>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>La pool est la structure qui contient l'<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a> Component System Elle gêre les différentes composantes grâce à ses champs de type "manager" et assure la création d'Identifiants cohérents pour les nouvelles entités grâce au tableau "free_indices". Enfin, les entités à détruire son ajouté à sa kill_queue, qui est vidée à la fin de chaque frame. </p>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="a5fc879fdf2872df7929a7268ced22af2" name="a5fc879fdf2872df7929a7268ced22af2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fc879fdf2872df7929a7268ced22af2">&#9670;&#160;</a></span>background</h2>
 

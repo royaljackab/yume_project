@@ -91,6 +91,9 @@ $(function(){initNavTree('moonlight__bg_8h.html','',''); });
   <div class="headertitle"><div class="title">moonlight_bg.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Arrière-plan et effets pour le stage "moonlight".  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="game__state_8h_source.html">game_state.h</a>&quot;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 </div>
@@ -99,11 +102,18 @@ $(function(){initNavTree('moonlight__bg_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab80a5e5901e9c7b847f66b37561bb7cc" id="r_ab80a5e5901e9c7b847f66b37561bb7cc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab80a5e5901e9c7b847f66b37561bb7cc">moonlight_bg_init</a> (void)</td></tr>
+<tr class="memdesc:ab80a5e5901e9c7b847f66b37561bb7cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les ressources et l'état de l'arrière-plan Moonlight.  <br /></td></tr>
 <tr class="memitem:a432ab6dbcbc483c681eaa288ec09239c" id="r_a432ab6dbcbc483c681eaa288ec09239c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a432ab6dbcbc483c681eaa288ec09239c">moonlight_bg_update</a> (int <a class="el" href="moonlight_8c.html#a61217d5bc9d5b446d9c08e7ca401b733">frames</a>)</td></tr>
+<tr class="memdesc:a432ab6dbcbc483c681eaa288ec09239c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour l'arrière-plan Moonlight.  <br /></td></tr>
 <tr class="memitem:a70ec950881307d6b45d7d5bd0d611d3c" id="r_a70ec950881307d6b45d7d5bd0d611d3c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a70ec950881307d6b45d7d5bd0d611d3c">moonlight_bg_draw</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
+<tr class="memdesc:a70ec950881307d6b45d7d5bd0d611d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine l'arrière-plan du stage Moonlight.  <br /></td></tr>
 <tr class="memitem:ad67daa9158e8745def9279d7fa4ad6fe" id="r_ad67daa9158e8745def9279d7fa4ad6fe"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad67daa9158e8745def9279d7fa4ad6fe">moonlight_bg_set_mode</a> (bool to_spellcard)</td></tr>
+<tr class="memdesc:ad67daa9158e8745def9279d7fa4ad6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le mode d'affichage de l'arrière-plan (vers/depuis spellcard).  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Arrière-plan et effets pour le stage "moonlight". </p>
+<p>Gère l'initialisation, la mise à jour par frame, le rendu et le changement de mode (spellcard ou non) de l'arrière-plan du stage Moonlight. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a70ec950881307d6b45d7d5bd0d611d3c" name="a70ec950881307d6b45d7d5bd0d611d3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a70ec950881307d6b45d7d5bd0d611d3c">&#9670;&#160;</a></span>moonlight_bg_draw()</h2>
 
@@ -118,6 +128,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Dessine l'arrière-plan du stage Moonlight. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Contexte de jeu contenant la pool et les systèmes nécessaires. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -136,6 +154,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialise les ressources et l'état de l'arrière-plan Moonlight. </p>
+
 </div>
 </div>
 <a id="ad67daa9158e8745def9279d7fa4ad6fe" name="ad67daa9158e8745def9279d7fa4ad6fe"></a>
@@ -153,6 +173,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Change le mode d'affichage de l'arrière-plan (vers/depuis spellcard). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">to_spellcard</td><td>true pour activer le mode spellcard, false pour revenir au mode normal. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a432ab6dbcbc483c681eaa288ec09239c" name="a432ab6dbcbc483c681eaa288ec09239c"></a>
@@ -169,6 +197,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Met à jour l'arrière-plan Moonlight. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="moonlight_8c.html#a61217d5bc9d5b446d9c08e7ca401b733">frames</a></td><td>Nombre de frames écoulées depuis le dernier appel (généralement 1). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

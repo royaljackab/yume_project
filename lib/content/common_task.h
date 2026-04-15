@@ -1,3 +1,13 @@
+#/**
+ * @file common_task.h
+ * @brief Déclarations de tâches et macros réutilisables pour les scènes et boss
+ *
+ * Contient les déclarations `DECLARE_EXTERN_TASK` pour les tâches fréquemment
+ * utilisées (timers, effets, mouvements d'objets, animations), ainsi que les
+ * macros d'orchestration RUN_SPELLCARD et RUN_NONSPELL employées par les
+ * scripts de stage/boss.
+ */
+
 #pragma once
 
 #include "bullet.h"

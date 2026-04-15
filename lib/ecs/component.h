@@ -1,3 +1,8 @@
+/**
+ * @file component.h
+ * @brief Macros nécessaire à la création de nouvelles composantes de l'ECS
+ * 
+ */
 #pragma once
 
 #include "ecs.h"
@@ -7,11 +12,10 @@
 
 
 /** 
- * Créé un composant dans l'ECS.
- * Params:
- * * * Type   : Le nom de la composante à créer
- * * * Number : Doit être égal à MAX_ENTITIES (sauf si la composante est très lourde)
- * 
+ * @brief Créé un composant dans l'ECS.
+ * @param Type   : Le nom de la composante à créer
+ * @param Number : Doit être égal à MAX_ENTITIES (sauf si la composante est très lourde)
+ * @details
  * Ce composant est une structure contenant:
  * - tableau "dense"          : contenant toutes les instances du composant défini
  * - tableau "sparse"         : renvoie l'ID d'un élément dans le tableau sparse à partir de l'ID d'un élément dans le tableau dense 
@@ -24,38 +28,37 @@
  * Type##_init(Type##Manager *mgr):
  * s'utilise dans la fonction d'initialisation d'un gamestate
  * Params:
- * * * mgr  : le manager de la composante
+ * mgr  : le manager de la composante
  * 
  * 
  * Type##_add(Type##Manager *mgr, Entity e, Type data):
  * append une nouvelle instance du composant à "dense".
  * Params:
- * * * mgr  : le manager de la composante
- * * * e    : l'ID de l'instance à ajouter
- * * * data : Une instance de la composante, elle est mise dans dense
+ * mgr  : le manager de la composante
+ * e    : l'ID de l'instance à ajouter
+ * data : Une instance de la composante, elle est mise dans dense
  *            Ne doit PAS être déclaré dynamiquement
  * 
  * 
  * Type##_get(Type##Manager *mgr, Entity e):
  * return la valeur de la composante pour un ID
  * Params:
- * * * mgr  : le manager de la composante
- * * * e    : l'ID de l'instance dont on cherche la valeur de la composante Type
+ * mgr  : le manager de la composante
+ * e    : l'ID de l'instance dont on cherche la valeur de la composante Type
  * 
  * 
  * static inline void Type##_remove(Type##Manager *mgr, Entity e)
  * détruit une instance de la composante
  * Params:
- * * * mgr  : le manager de la composante
- * * * e    : l'ID de l'instance à détruire
+ * mgr  : le manager de la composante
+ * e    : l'ID de l'instance à détruire
  * 
  * static inline Entity Type##_get_entity(Type##Manager *mgr, int dense_id)
  * Renvoie l'entité correspondante a la donnée considérée
  * Params:
- * * * mgr  : le manager de la composante
- * * * dense_id    : l'emplacement dans le tableau dense de la donnée
+ * mgr  : le manager de la composante
+ * dense_id    : l'emplacement dans le tableau dense de la donnée
 */
-
 #define DEFINE_COMPONENT_MANAGER(Type, Number)                                 \
   typedef struct {                                                             \
     Type dense[Number];                                                        \

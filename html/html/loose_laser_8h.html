@@ -115,7 +115,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a7607e971f6ed952b9cc8a66a44a50742" id="r_a7607e971f6ed952b9cc8a66a44a50742"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7607e971f6ed952b9cc8a66a44a50742">loose_laser_update</a> (<a class="el" href="struct_pool.html">Pool</a> *pool, <a class="el" href="struct_loose__laser.html">Loose_laser</a> *laser)</td></tr>
 <tr class="memdesc:a7607e971f6ed952b9cc8a66a44a50742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour un loose laser pour une frame.  <br /></td></tr>
 <tr class="memitem:a03d0a5503014aa808277eeaec919b793" id="r_a03d0a5503014aa808277eeaec919b793"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a03d0a5503014aa808277eeaec919b793">loose_lasers_update_all</a> (<a class="el" href="struct_pool.html">Pool</a> *pool)</td></tr>
-<tr class="memdesc:a03d0a5503014aa808277eeaec919b793"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour tous les loose lasers de la <span class="tt"><a class="el" href="struct_pool.html">Pool</a></span>.  <br /></td></tr>
+<tr class="memdesc:a03d0a5503014aa808277eeaec919b793"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour tous les loose lasers de la <span class="tt"><a class="el" href="struct_pool.html" title="La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...">Pool</a></span>.  <br /></td></tr>
 <tr class="memitem:a360b5a5c6c766de37c58394f75ab3e67" id="r_a360b5a5c6c766de37c58394f75ab3e67"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a360b5a5c6c766de37c58394f75ab3e67">loose_laser_create</a> (<a class="el" href="struct_pool.html">Pool</a> *pool, int x, int y, float speed, float length, float width, int duration, Color color)</td></tr>
 <tr class="memdesc:a360b5a5c6c766de37c58394f75ab3e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée et attache un <span class="tt"><a class="el" href="struct_loose__laser.html" title="Représente un loose laser — un filament composé de plusieurs nodes.">Loose_laser</a></span> à une nouvelle entité.  <br /></td></tr>
 <tr class="memitem:a58990abea69007c210f3ccace93e09ac" id="r_a58990abea69007c210f3ccace93e09ac"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a58990abea69007c210f3ccace93e09ac">node_create</a> (<a class="el" href="struct_pool.html">Pool</a> *pool, float x, float y, float radius)</td></tr>
@@ -388,7 +388,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Met à jour tous les loose lasers de la <span class="tt"><a class="el" href="struct_pool.html">Pool</a></span>. </p>
+<p>Met à jour tous les loose lasers de la <span class="tt"><a class="el" href="struct_pool.html" title="La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...">Pool</a></span>. </p>
 <p>Parcourt le manager de <a class="el" href="struct_loose__laser.html" title="Représente un loose laser — un filament composé de plusieurs nodes.">Loose_laser</a>, appelle loose_laser_update pour chaque instance et marque les entités à supprimer si nécessaire.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
