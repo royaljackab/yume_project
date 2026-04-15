@@ -441,6 +441,7 @@ typedef enum {
     SFX_LAZER00,
     SFX_LAZER01,
     SFX_LAZER02,
+    SFX_BOMB, 
 
     MAX_SFX
 } SFXID;

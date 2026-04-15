@@ -16,8 +16,8 @@ typedef enum {
 
 typedef struct Player {
 
-    int nbBombs;
-    int bombs;
+    int nbBombs; // Nombre de bombs maximal
+    int bombs;  //nombre de bombe actuel
 
     float speed;
     float focusSpeed;
