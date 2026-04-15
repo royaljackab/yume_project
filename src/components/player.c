@@ -157,6 +157,7 @@ static void Player_bomb(InputSystem *input, Pool *p, Entity player) {
                 PlaySound(sfx[SFX_BOMB]);
             }
             Player_get(&p->player, player)->bombs--;
+            SCHED_INVOKE_TASK(orb_explosion, p, pos->pos.x, pos->pos.y);
         }
     }
 }
