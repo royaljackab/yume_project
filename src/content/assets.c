@@ -1016,6 +1016,13 @@ void BulletsSpritesLoad() {
 
     Sprite_set_texture(&sprites[BUBBLE_RED], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[BUBBLE_RED], 300, 1, 62, 62);
+
+    Sprite_set_texture(&sprites[ORB_BLACK], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[ORB_BLACK], 365, 3, 28, 28);
+
+    Sprite_set_texture(&sprites[BULLET_DESTROY], RENDER_PRIO_BULLET, BULLET_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[BULLET_DESTROY], 424, 532, 32, 9);
+    Sprite_set_animation(&sprites[BULLET_DESTROY], 4, 5);
   }
 
 

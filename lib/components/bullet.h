@@ -45,6 +45,40 @@ DEFINE_COMPONENT_MANAGER(Condensation, MAX_ENTITIES)
 Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                     SpriteID graphic);
 
+/**
+ * @brief Spawn bullet après un certain delay. Durant ce delay, le sprite est affiché en agrandissant le sprite de base
+ * 
+ * @param p 
+ * @param x 
+ * @param y 
+ * @param speed 
+ * @param angle 
+ * @param graphic 
+ * @param delay 
+ * @return Entity 
+ */
+Entity Bullet_enemy_spawn_delayed(Pool *p, float x, float y, float speed, float angle, SpriteID graphic, int delay);
+
+/**
+ * @brief Spawn une bullet à un rayon autour d'un point
+ * 
+ * @param p 
+ * @param x 
+ * @param y 
+ * @param speed 
+ * @param angle 
+ * @param radius 
+ * @param graphic 
+ * @return Entity 
+ */
+Entity Bullet_enemy_spawn_radius(Pool *p, float x, float y, float speed, float angle, float radius, SpriteID graphic);
+
+Entity Bullet_enemy_spawn_radius_delayed(Pool *p, float x, float y, float speed, float angle, float radius, SpriteID graphic, int delay);
+
+Entity Bullet_spawn_accelerate(Pool *p, float x, float y, float speed, float angle, SpriteID graphic, float accel, int accel_delay);
+
+Entity Bullet_spawn_radius_accelerate(Pool *p, float x, float y, float speed, float angle, float radius, SpriteID graphice, float accel, int accel_delay);
+
 
                     
 /**

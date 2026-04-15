@@ -218,7 +218,7 @@ void state_moonlight_update(GameContext *ctx) {
     Condensation_update_all(ctx->pool);
     Owner_update(ctx->pool);
     
-    Life_update_all(ctx->pool, &ctx->score);
+    Life_update_all(ctx, &ctx->score);
     Enemy_update_all(ctx->pool, &ctx->score);
     Background_update_all(ctx->pool);
 
@@ -261,7 +261,7 @@ void state_moonlight_draw(GameContext *ctx) {
     // =======================================================
     // ETAPE 3 : DESSIN FINAL SUR L'ÉCRAN PHYSIQUE
     // =======================================================
-    ClearBackground(BLACK); 
+    ClearBackground(BLANK); 
     HUD_draw_background();
     DrawRectangle(PANEL_LEFT, PANEL_UP, PANEL_WIDTH, PANEL_HEIGHT, BLACK); // Le cache pour les couleurs
 
@@ -286,6 +286,7 @@ void state_moonlight_draw(GameContext *ctx) {
 
 void state_moonlight_cleanup(GameContext *ctx) {
     StopMusicStream(playlist[BGM_FAST_DANGER]);
+    moonlight_bg_set_mode(false);
     cosched_finish(&ctx->sched);
     free(ctx->pool);
     UnloadRenderTexture(screen_target);

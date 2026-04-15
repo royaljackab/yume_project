@@ -6,7 +6,10 @@
 #include "sprite.h"
 #include "tasks.h"
 #include "life.h"
+#include "tasks.h"
+#include "common_task.h"
 
+#include <raylib.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -15,6 +18,34 @@ Entity Bullet_enemy_spawn(Pool *p, float x, float y, float speed, float angle,
   Entity e = Bullet_spawn(p, x, y, speed, angle, ENT_ENEMY_SHOT, graphic);
   flagList_attach_first_flag(p, e, FLAG_PROJECTILE_ENEMY);
   return e;
+}
+
+Entity Bullet_enemy_spawn_radius(Pool *p, float x, float y, float speed, float angle, float radius, SpriteID graphic) {
+  float rad_angle = angle * DEG2RAD;
+  float new_x = x + radius * cosf(rad_angle);
+  float new_y = y + radius * sinf(rad_angle);
+
+  return Bullet_enemy_spawn(p, new_x, new_y, speed, angle, graphic);
+}
+
+Entity Bullet_spawn_radius_accelerate(Pool *p, float x, float y, float speed, float angle, float radius, SpriteID graphic, float accel, int accel_delay) {
+  Entity bullet = Bullet_enemy_spawn_radius(p, x, y, speed, angle, radius, graphic);
+  INVOKE_TASK(Bullet_spawn_accel, p, bullet, speed, accel, accel_delay);
+  return bullet;
+}
+
+Entity Bullet_spawn_accelerate(Pool *p, float x, float y, float speed, float angle, SpriteID graphic, float accel, int accel_delay) {
+  Entity bullet = Bullet_enemy_spawn(p, x, y, speed, angle, graphic);
+  INVOKE_TASK(Bullet_spawn_accel, p, bullet, speed, accel, accel_delay);
+  return bullet;
+}
+
+Entity Bullet_enemy_spawn_radius_delayed(Pool *p, float x, float y, float speed, float angle, float radius, SpriteID graphic, int delay) {
+  float rad_angle = angle * DEG2RAD;
+  float new_x = x + radius * cosf(rad_angle);
+  float new_y = y + radius * sinf(rad_angle);
+
+  return Bullet_enemy_spawn_delayed(p, new_x, new_y, speed, angle, graphic, delay);
 }
 
 Entity Bullet_player_spawn(Pool *p, float x, float y, float speed, float angle,

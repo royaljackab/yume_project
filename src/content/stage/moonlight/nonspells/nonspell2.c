@@ -40,7 +40,8 @@ TASK(fat_rings, {Pool *pool; Entity boss; int nb_bullets; float speed; int perio
 
         float angle = GetRandomValue(0, 30);
         for (int i=0; i < ARGS.nb_bullets; ++i) {
-            Bullet_enemy_spawn_delayed(ARGS.pool, x, y, ARGS.speed, angle, BALL_L_BLACK, 5);
+            // Bullet_enemy_spawn_delayed(ARGS.pool, x, y, ARGS.speed, angle, BALL_L_YELLOW, 5);
+            Bullet_spawn_radius_accelerate(ARGS.pool, x, y, ARGS.speed, angle, 50, BALL_L_YELLOW, 30, 20);
             angle += 360.0 / ARGS.nb_bullets;
         }
         PlaySound(sfx[SFX_TAN00]);
