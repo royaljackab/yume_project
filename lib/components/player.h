@@ -28,8 +28,8 @@ typedef enum {
  */
 typedef struct Player {
 
-    int nbBombs;
-    int bombs;
+    int nbBombs; // Nombre de bombs maximal
+    int bombs;  //nombre de bombe actuel
 
     float speed;
     float focusSpeed;
@@ -140,3 +140,4 @@ extern void teleport_to_player_spawn(Pool *p, Entity e);
  * @return true si l'opération a été effectuée sans erreur, false sinon.
  */
 extern bool Damage_player(GameContext *ctx, Entity player);
+extern void Player_bomb(GameContext *ctx, Entity player);
