@@ -48,6 +48,7 @@ INCLUDES = -I$(SRC_DIR) \
            -I$(LIB_DIR)/ecs \
            -I$(LIB_DIR)/systems \
            -I$(LIB_DIR)/raylib/include \
+           -I$(LIB_DIR)/raylib/include/src \
            -I$(LIB_DIR)/koishi/include
 
 # ==========================================
