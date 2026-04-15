@@ -1,7 +1,15 @@
+/**
+ * @file collision_circle.h
+ * @brief collisions circulaires
+ */
+
 #pragma once
 
 #include "ecs/component.h"
 
+/**
+ * @brief composante collision circulaire dans l'ECS
+ */
 typedef struct {
   float radius;
 } Collision_circle;

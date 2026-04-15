@@ -275,6 +275,13 @@ void obj_SetSpeed(Pool *p, Entity objId, float speed) {
     phy->speed = speed;
 }
 
+float obj_GetSpeed(Pool *p, Entity objId) {
+    Physics *phy = Physics_get(&p->physics, objId);
+    if (!phy) return 0;
+
+    return phy->speed;
+}
+
 float obj_GetAngularSpeed(Pool *p, Entity objId) {
     Physics *phy = Physics_get(&p->physics, objId);
     if (!phy) return 0;
@@ -310,11 +317,11 @@ void obj_SetLife(Pool *p, Entity objId, int lif) {
     life->life = lif;
 }
 
-void obj_SetMaxlife(Pool *p, Entity objId, int maxLife) {
+void obj_SetMaxLife(Pool *p, Entity objId, int maxLife) {
     Life *life = Life_get(&p->life, objId);
     if (!life) return;
 
-    life->maxLife = maxLife; 
+    life->maxLife = maxLife;
 }
 
 Tag obj_GetTag(Pool *p, Entity objId) {

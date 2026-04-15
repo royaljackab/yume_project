@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['yield_0',['YIELD',['../tasks_8h.html#a50d551776c26c1579754521287f0b0f0',1,'tasks.h']]],
-  ['yield_1',['yield',['../task_8h.html#abaa9287233697b1cd0175180304c7e1d',1,'task.h']]]
+  ['wait_0',['WAIT',['../tasks_8h.html#a8a31fca28e892e37e1223ec69a3b4aba',1,'tasks.h']]],
+  ['wait_5fevent_1',['WAIT_EVENT',['../tasks_8h.html#a39e85c2dc317586e72d0cd4920bea22d',1,'tasks.h']]],
+  ['wait_5fevent_5fonce_2',['WAIT_EVENT_ONCE',['../tasks_8h.html#a7c9d39efcd47aab2755b9273a47ec707',1,'tasks.h']]],
+  ['wait_5fevent_5for_5fdie_3',['WAIT_EVENT_OR_DIE',['../tasks_8h.html#adf02dc25ea022f05a8297fb981d1d9cc',1,'tasks.h']]]
 ];

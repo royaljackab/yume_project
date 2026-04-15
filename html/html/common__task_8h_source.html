@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/content/common_task.h Source File</title>
+<title>Yume Project: lib/content/common_task.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -91,12 +91,88 @@ $(function(){initNavTree('common__task_8h_source.html','',''); });
   <div class="headertitle"><div class="title">common_task.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="common__task_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="tasks_8h.html">coroutine/tasks.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="common__task_8h.html#a2b861079a8186d943db07f3cfc4312ad">    5</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(phase_timer, { <a class="code hl_struct" href="structCoEvent.html">CoEvent</a> *event; <span class="keywordtype">int</span> duration; });</div>
-<div class="ttc" id="astructCoEvent_html"><div class="ttname"><a href="structCoEvent.html">CoEvent</a></div><div class="ttdef"><b>Definition</b> coevent.h:14</div></div>
+<a href="common__task_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="bullet_8h.html">bullet.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="tasks_8h.html">coroutine/tasks.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="cotask_8h.html">cotask.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="hud_8h.html">hud.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="moonlight__bg_8h.html">moonlight_bg.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="obj_8h.html">obj.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="player_8h.html">player.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="macro_8h.html">macro.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="game__state_8h.html">game_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="pool_8h.html">pool.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;raylib.h&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="common__task_8h.html#a2b861079a8186d943db07f3cfc4312ad">   25</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(phase_timer, { <a class="code hl_struct" href="struct_co_event.html">CoEvent</a> *event; <span class="keywordtype">int</span> duration; });</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="common__task_8h.html#a6777775e133741f9bba385a6dac4d061">   27</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(obj_GoTo, {<a class="code hl_struct" href="struct_pool.html">Pool</a> *pool; <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId; <span class="keywordtype">float</span> x; <span class="keywordtype">float</span> y; <span class="keywordtype">float</span> speed;});</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="common__task_8h.html#a59b27959ea5a5c4a32d77af136e6f0c9">   29</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(play_anim_once, {<a class="code hl_struct" href="struct_pool.html">Pool</a> *pool; <span class="keywordtype">float</span> x; <span class="keywordtype">float</span> y; <span class="keywordtype">int</span> sprite_id; });</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="common__task_8h.html#ade2cc488170b3e255bf9b0646666895a">   31</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(boss_orb_effect, {<a class="code hl_struct" href="struct_pool.html">Pool</a> *pool; <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss; });</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="common__task_8h.html#a8bc84036b33715fcd372b5016257d525">   32</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(boss_pentagram_effect, {<a class="code hl_struct" href="struct_pool.html">Pool</a> *pool; <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss; });</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="common__task_8h.html#adb26463bff4a7d5eaed7f05435092e73">   33</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(boss_particle_spawner, {<a class="code hl_struct" href="struct_pool.html">Pool</a> *pool; <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss; });</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="common__task_8h.html#ae193248380147d7167fcf9e3864a0ed6">   34</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(boss_distortion_effect, {<a class="code hl_struct" href="struct_pool.html">Pool</a> *pool; <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss; Vector2 *<a class="code hl_variable" href="moonlight_8c.html#ab1a1908c5b46b9575c7fda34a819003c">lens_center</a>; <span class="keywordtype">float</span> *<a class="code hl_variable" href="moonlight_8c.html#a5f0967d74b9f24b1a83b5bcba56673a2">lens_radius</a>; <span class="keywordtype">float</span> *<a class="code hl_variable" href="moonlight_8c.html#a930f3c461bd2050fed544b064f462726">lens_strength</a>;});</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="common__task_8h.html#aaf9281fca59814c3636be072cf426a14">   36</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(orb_explosion, {<a class="code hl_struct" href="struct_pool.html">Pool</a> *pool; <span class="keywordtype">float</span> x; <span class="keywordtype">float</span> y;});</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="common__task_8h.html#aad6fc7505d17bdd17b29e064f8c2d22d">   38</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(spellcard_bg_anim, {<a class="code hl_struct" href="struct_pool.html">Pool</a> *pool; <span class="keywordtype">int</span> duration; });</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="common__task_8h.html#a1904530f9b3ff1ada1c81378ca5ee902">   39</a></span><a class="code hl_define" href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a>(start_spellcard_sequence, {<a class="code hl_struct" href="struct_pool.html">Pool</a> *pool; <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss; <span class="keyword">const</span> <span class="keywordtype">char</span>* spell_name; <span class="keywordtype">int</span> duration; });</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="" data-end="">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="common__task_8h.html#a0479f1f6024dac9fc5fe3f31452dcd4e">   41</a></span><span class="preprocessor">#define RUN_SPELLCARD(pool, boss, spell, var, spell_name, life) \</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">    obj_SetMaxlife(pool, boss, life); \</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">    obj_SetLife(pool, boss, life); \</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">    INVOKE_SUBTASK(start_spellcard_sequence, pool, boss, spell_name, 120); \</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">    WAIT(120); \</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">    CoTask* MACRO_CONCAT(task_, var) = spell; \</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">    BoxedTask MACRO_CONCAT(box_, var) = cotask_box(MACRO_CONCAT(task_, var)); \</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">    \</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">    while(!obj_IsDead(pool, boss)) { \</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">        YIELD; \</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">    } \</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">\</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">    HUD_clear_spellcard(); \</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">    CANCEL_TASK(MACRO_CONCAT(box_, var)); \</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">    Bullet_clear_bullets(pool); \</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">    moonlight_bg_set_mode(false);</span></div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="" data-end="">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="common__task_8h.html#afc117cb4cbdc1aec225b7fd489ee230b">   58</a></span><span class="preprocessor">#define RUN_NONSPELL(pool, boss, nonspell, var, life) \</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">    moonlight_bg_set_mode(false); \</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">    obj_SetMaxlife(pool, boss, life); \</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">    obj_SetLife(pool, boss, life); \</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">    obj_AddFlag(pool, boss, FLAG_INVINCIBLE); \</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">    WAIT(120); \</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">    obj_RemoveFlag(pool, boss, FLAG_INVINCIBLE); \</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">    CoTask* MACRO_CONCAT(task_, var) = nonspell; \</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">    BoxedTask MACRO_CONCAT(box_, var) = cotask_box(MACRO_CONCAT(task_, var)); \</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">    while(!obj_IsDead(pool, boss)) { \</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">        YIELD; \</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">    } \</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">    CANCEL_TASK(MACRO_CONCAT(box_, var)); \</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">    Bullet_clear_bullets(pool);</span></div>
+</div>
+<div class="ttc" id="abullet_8h_html"><div class="ttname"><a href="bullet_8h.html">bullet.h</a></div><div class="ttdoc">Fonctions qui permettent de tirer des bullets de différentes manières.</div></div>
+<div class="ttc" id="acotask_8h_html"><div class="ttname"><a href="cotask_8h.html">cotask.h</a></div></div>
+<div class="ttc" id="aecs_8h_html_a7f551ae9f4fa7a7ff4d783e768fe1918"><div class="ttname"><a href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></div><div class="ttdeci">uint32_t Entity</div><div class="ttdoc">Une entité est un indice.</div><div class="ttdef"><b>Definition</b> ecs.h:20</div></div>
+<div class="ttc" id="agame__state_8h_html"><div class="ttname"><a href="game__state_8h.html">game_state.h</a></div><div class="ttdoc">Fonctions permettant de gêrer l&#39;état du programme.</div></div>
+<div class="ttc" id="ahud_8h_html"><div class="ttname"><a href="hud_8h.html">hud.h</a></div><div class="ttdoc">Système d&#39;affichage du HUD (Heads-Up Display).</div></div>
+<div class="ttc" id="amacro_8h_html"><div class="ttname"><a href="macro_8h.html">macro.h</a></div></div>
+<div class="ttc" id="amoonlight_8c_html_a5f0967d74b9f24b1a83b5bcba56673a2"><div class="ttname"><a href="moonlight_8c.html#a5f0967d74b9f24b1a83b5bcba56673a2">lens_radius</a></div><div class="ttdeci">static float lens_radius</div><div class="ttdef"><b>Definition</b> moonlight.c:46</div></div>
+<div class="ttc" id="amoonlight_8c_html_a930f3c461bd2050fed544b064f462726"><div class="ttname"><a href="moonlight_8c.html#a930f3c461bd2050fed544b064f462726">lens_strength</a></div><div class="ttdeci">static float lens_strength</div><div class="ttdef"><b>Definition</b> moonlight.c:47</div></div>
+<div class="ttc" id="amoonlight_8c_html_ab1a1908c5b46b9575c7fda34a819003c"><div class="ttname"><a href="moonlight_8c.html#ab1a1908c5b46b9575c7fda34a819003c">lens_center</a></div><div class="ttdeci">static Vector2 lens_center</div><div class="ttdef"><b>Definition</b> moonlight.c:45</div></div>
+<div class="ttc" id="amoonlight__bg_8h_html"><div class="ttname"><a href="moonlight__bg_8h.html">moonlight_bg.h</a></div><div class="ttdoc">Arrière-plan et effets pour le stage &quot;moonlight&quot;.</div></div>
+<div class="ttc" id="aobj_8h_html"><div class="ttname"><a href="obj_8h.html">obj.h</a></div></div>
+<div class="ttc" id="aplayer_8h_html"><div class="ttname"><a href="player_8h.html">player.h</a></div><div class="ttdoc">Gestion du joueur : structures Player, Weapon.</div></div>
+<div class="ttc" id="apool_8h_html"><div class="ttname"><a href="pool_8h.html">pool.h</a></div></div>
+<div class="ttc" id="astruct_co_event_html"><div class="ttname"><a href="struct_co_event.html">CoEvent</a></div><div class="ttdef"><b>Definition</b> coevent.h:14</div></div>
+<div class="ttc" id="astruct_pool_html"><div class="ttname"><a href="struct_pool.html">Pool</a></div><div class="ttdoc">La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...</div><div class="ttdef"><b>Definition</b> pool.h:42</div></div>
 <div class="ttc" id="atasks_8h_html"><div class="ttname"><a href="tasks_8h.html">tasks.h</a></div></div>
 <div class="ttc" id="atasks_8h_html_a42679cc359654f526369cbd037e77a27"><div class="ttname"><a href="tasks_8h.html#a42679cc359654f526369cbd037e77a27">DECLARE_EXTERN_TASK</a></div><div class="ttdeci">#define DECLARE_EXTERN_TASK(name,...)</div><div class="ttdef"><b>Definition</b> tasks.h:143</div></div>
 </div><!-- fragment --></div><!-- contents -->

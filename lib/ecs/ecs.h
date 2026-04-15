@@ -1,3 +1,8 @@
+/**
+ * @file ecs.h
+ * @brief Types et déclarations utilisés dans l'ECS
+ */
+
 #pragma once
 
 #include "raylib.h"
@@ -8,9 +13,16 @@
 
 #define MAX_ENTITIES 50000
 
-// Une entité est un indice
+/**
+ * @brief Une entité est un indice
+ * 
+ */
 typedef uint32_t Entity;
 
+/**
+ * @brief Référence unique pour identifier une entité même après qu'elle ai quitté l'ECS
+ * 
+ */
 typedef struct BoxedEntity {
     Entity id;
     uint32_t unique_id;

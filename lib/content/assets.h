@@ -1,3 +1,12 @@
+#/**
+ * @file assets.h
+ * @brief Chargement et références des assets (textures, sprites, audio, polices)
+ *
+ * Déclare les identifiants (TextureID, SpriteID, BGMId, SFXID, FontID),
+ * les fonctions de chargement/déchargement et les tableaux externes exposant
+ * les ressources (textures, sprites, musiques, effets sonores, polices).
+ */
+
 #pragma once
 
 #include <raylib.h>
@@ -64,6 +73,7 @@ typedef enum {
   REIMU_PINK_AMULET,
 
   HITBOX,
+  GRAZE,
   
   //COMBOS
   COMBO_1,
@@ -353,12 +363,18 @@ typedef enum {
   // ------ BALL L
   BALL_L_BLACK,
   BALL_L_RED,
-  BALL_RED_PURPLE,
+  BALL_L_PINK,
   BALL_L_BLUE,
   BALL_L_LIGHT_BLUE,
   BALL_L_GREEN,
   BALL_L_YELLOW,
   BALL_L_WHITE,
+
+  // ------ BUBBLE
+  BUBBLE_RED,
+  BUBBLE_BLUE,
+  BUBBLE_GREEN,
+  BUBBLE_YELLOW,
 
   // ------------ ENEMIES
 
@@ -421,6 +437,14 @@ void EffectsLoad();
 extern void SpritesLoad();
 void EnemiesSpritesLoad();
 void CombosSpritesLoad();
+
+/**
+ * @brief Affiche l'arrière-plan du menu principal.
+ *
+ * @param p pool courante
+ * @param screen systeme de screen.
+ * @return l'id de l'entité background créée.
+ */
 extern Entity invoke_main_background(Pool *p, ScreenSystem *screen);
 void FontsLoad();
 
@@ -442,6 +466,7 @@ typedef enum {
     SFX_LAZER01,
     SFX_LAZER02,
     SFX_BOMB, 
+    SFX_CAT00,
 
     MAX_SFX
 } SFXID;

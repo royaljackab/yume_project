@@ -3,7 +3,7 @@
 #include "bullet.h"
 #include "common.h"
 #include "coroutine/cosched.h"
-#include "cotask.h"
+#include "coroutine/cotask.h"
 #include "ecs.h"
 #include "content/assets.h"
 #include "enemy.h"
@@ -13,16 +13,20 @@
 #include "physics.h"
 #include "player.h"
 #include "pool.h"
+#include "score.h"
 #include "screen.h"
 #include "core/coroutine/tasks.h"
 #include "common_task.h"
+#include "sprite.h"
 #include "systems/hud.h"
 #include "boss.h"
 
 #include "nonspells/nonspell1.h"
 #include "nonspells/nonspell2.h"
+#include "nonspells/nonspell3.h"
 #include "spellcards/poincarre_recurrence.h"
 #include "spellcards/brouwer_fixed_point.h"
+#include "spellcards/axiom_of_choice.h"
 
 #include "moonlight_bg.h"
 #include "systems/screen_effects.h"
@@ -47,7 +51,6 @@ static RenderTexture2D game_target;
 static Shader invert_shader;
 static int inv_centers_loc, inv_radius_loc;
 
-
 static
 int frames = 0;
 
@@ -66,108 +69,91 @@ void invoke_spellcard_background(Pool *p) {
 }
 
 TASK(movement, {GameContext *ctx; Entity boss; }) {
-    float limit_down = PANEL_DOWN * 0.4;
+    Pool *p = ARGS.ctx->pool;
+    
+    // Définition des zones de sécurité
+    // limit_up : On ajoute une marge pour ne pas que le boss soit trop collé au haut
+    float limit_up = PANEL_UP + 60.0f; 
+    // limit_down : On garde ta logique de 40% de la hauteur du panel
+    float limit_down = PANEL_DOWN * 0.4f;
 
     while(true) {
-        float player_x = Player_GetX(ARGS.ctx->pool);
-        float boss_x = obj_GetX(ARGS.ctx->pool, ARGS.boss);
+        float player_x = Player_GetX(p);
+        float boss_x = obj_GetX(p, ARGS.boss);
+        float boss_y = obj_GetY(p, ARGS.boss);
 
         float angleT = 0;
 
-        if (boss_x <= player_x) {
-            angleT = GetRandomValue(-45, 45);
-        } else {
-            angleT = GetRandomValue(135,215);
+        if (boss_y < limit_up) {
+            angleT = (float)GetRandomValue(45, 135);
+        } 
+        else if (boss_y > limit_down) {
+            angleT = (float)GetRandomValue(225, 315);
+        } 
+        else {
+            if (boss_x <= player_x) {
+                angleT = (float)GetRandomValue(-45, 45);
+            } else {
+                angleT = (float)GetRandomValue(135, 225);
+            }
         }
 
-        obj_SetAngle(ARGS.ctx->pool, ARGS.boss, angleT);
-        obj_SetSpeed(ARGS.ctx->pool, ARGS.boss, 2);
+        obj_SetAngle(p, ARGS.boss, angleT);
+        obj_SetSpeed(p, ARGS.boss, 2.0f);
 
         WAIT(60);
-        obj_SetSpeed(ARGS.ctx->pool, ARGS.boss, 0);
+        
+        obj_SetSpeed(p, ARGS.boss, 0.0f);
         WAIT(120);
     }
 }
 
 TASK(main_attack, {GameContext *ctx;}) {
+    Pool *p = ARGS.ctx->pool;
+
     Entity boss = Boss_spawn(ARGS.ctx->pool, 10, 10, 200, 20, 200000, ENEMY_FAIRY_BIG_SUNFLOWER_IDLE);
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
+    WAIT(60);
 
-    WAIT(120);
     Boss_fight_begin(ARGS.ctx->pool, boss, &lens_center, &lens_radius, &lens_strength);
 
     invoke_spellcard_background(ARGS.ctx->pool);
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
 
-    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
-    obj_SetLife(ARGS.ctx->pool, boss, 500);
-
-    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
-    WAIT(60);
-
-    CoTask *attack_1 = INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss);
-    BoxedTask attack_1_box = cotask_box(attack_1);
-
-    while(!obj_IsDead(ARGS.ctx->pool, boss)) {
-        YIELD;
-    }
-    CANCEL_TASK(attack_1_box);
-    Bullet_clear_bullets(ARGS.ctx->pool);
-
-    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
-    obj_SetLife(ARGS.ctx->pool, boss, 500);
+    RUN_NONSPELL(ARGS.ctx->pool, boss, 
+        INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss), nonspell1, 400);
     
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
     update_combo(&ARGS.ctx->score);
+    RUN_SPELLCARD(ARGS.ctx->pool, boss, 
+        INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100), poincare,
+        "Theorem - Poincare Recurrence", 600);
+    
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
-    moonlight_bg_set_mode(true);
-    INVOKE_SUBTASK(spellcard_bg_anim, ARGS.ctx->pool, 120);
-    WAIT(120);
-
-    CoTask *spell_1 = INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100);
-    BoxedTask spell_1_box = cotask_box(spell_1);
-
-    while (!obj_IsDead(ARGS.ctx->pool, boss)) {
-        YIELD;
-    }
-    CANCEL_TASK(spell_1_box);
-    Bullet_clear_bullets(ARGS.ctx->pool);
-
-    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
-    obj_SetLife(ARGS.ctx->pool, boss, 500);
-
-    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 400, 5);
-    WAIT(60);
     update_combo(&ARGS.ctx->score);
-
-    moonlight_bg_set_mode(false);
-    CoTask *nonspell_2 = INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss);
-    BoxedTask nonspell_2_box = cotask_box(nonspell_2);
-
-    while(!obj_IsDead(ARGS.ctx->pool, boss)) {
-        YIELD;
-    }
-    CANCEL_TASK(nonspell_2_box);
-    Bullet_clear_bullets(ARGS.ctx->pool);
-
-    obj_SetMaxlife(ARGS.ctx->pool, boss, 500);
-    obj_SetLife(ARGS.ctx->pool, boss, 500);
+    RUN_NONSPELL(ARGS.ctx->pool, boss, 
+        INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss), nonspell2, 400);
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
-    WAIT(60);
+    
     update_combo(&ARGS.ctx->score);
+    RUN_SPELLCARD(ARGS.ctx->pool, boss, 
+        INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss), brouwer, "Theorem - Brouwer's fixed point", 750);
 
-    moonlight_bg_set_mode(true);
-    CoTask *spell_2 = INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss, 10, 3.5, 100);
-    BoxedTask spell_2_box = cotask_box(spell_2);
-
-    while (!obj_IsDead(ARGS.ctx->pool, boss)) {
-        YIELD;
-    }
-    CANCEL_TASK(spell_2_box);
-    Bullet_clear_bullets(ARGS.ctx->pool);
-
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
+    
+    update_combo(&ARGS.ctx->score);
+    RUN_NONSPELL(ARGS.ctx->pool, boss, 
+        INVOKE_SUBTASK(moriya_nonspell_3, ARGS.ctx->pool, boss), nonspell3, 400);
+    
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
+    
+    update_combo(&ARGS.ctx->score);
+    RUN_SPELLCARD(p, boss, 
+        INVOKE_SUBTASK(axiom_of_choice, p, boss), axiom_of_choice, "ZFC - Axiom of Choice", 500);
+    
     gamestate_change_state(ARGS.ctx, STATE_VICTORY);
     STALL;
 }
@@ -266,7 +252,7 @@ void state_moonlight_draw(GameContext *ctx) {
             Rectangle sourceRec1 = { 0.0f, 0.0f, (float)screen_target.texture.width, -(float)screen_target.texture.height };
             DrawTextureRec(screen_target.texture, sourceRec1, (Vector2){ 0, 0 }, WHITE);
         EndShaderMode();
-
+        
         Sprite_draw_range(ctx->pool, 0, 100);
         draw_all_loose_lasers(&ctx->pool->looseLaser, &ctx->pool->position); 
         straight_lasers_draw_all(&ctx->pool->straightLaser, &ctx->pool->position, &ctx->pool->sprite); 

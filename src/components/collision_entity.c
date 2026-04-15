@@ -91,17 +91,11 @@ static bool Entity_is_hit_by_rectangle(Pool *p, Entity entity, flagList * laserF
 
 
 extern bool Entity_is_hit(Pool *p, Entity entity, flagList * flags){
-    /**
-     * @brief Verifie si l'entité est touchée par une attaque d'un des types spécifiés dans flags
-     */
     return Entity_is_hit_by_rectangle(p, entity, flags, NULL, NULL) || Entity_is_hit_by_circle(p, entity, flags, NULL, NULL); 
 }
 
 
 extern bool Entity_find_hitters(Pool *p, Entity entity, flagList * flags, Entity foundCollisions[], int *nbCollisions){
-    /**
-     * @brief Rempli le tableau d'ID passé en paramètre avec les ID des entités ayant les flags spécifiés et en collision avec entity.
-     */
     Entity_is_hit_by_rectangle(p, entity, flags, foundCollisions, nbCollisions);
     Entity_is_hit_by_circle(p, entity, flags, foundCollisions, nbCollisions);
 }
@@ -109,9 +103,6 @@ extern bool Entity_find_hitters(Pool *p, Entity entity, flagList * flags, Entity
 
 
 extern bool Damage_entity_by_enemy_projectile(Pool *p, Entity entity){
-    /**
-     * @brief Verifie si l'entité est touchée par un projectile ennemi, et lui inflige des dégâts
-     */
     flagList bulletFlags = {.flags = (FlagType[]){FLAG_PROJECTILE_ENEMY}, .size = 1};
     if(Entity_is_hit(p, entity, &bulletFlags)){
         Life *life = Life_get(&p->life, entity);
@@ -138,7 +129,6 @@ extern bool Damage_player_by_enemy_projectile(GameContext *ctx, Entity player){
     Entity_find_hitters(p, player,&bulletFlags, foundCollisions, &nbCollisions);
     for(int i = 0; i < nbCollisions; i++){
         if(!Entity_has_flag(p, foundCollisions[i], FLAG_NO_DAMAGE_PLAYER)){
-            ctx->score.isComboActive = 0;
             Damage_player(ctx, player);
             return true;
         }
@@ -203,9 +193,6 @@ bool CheckCircleRotatedRect(Vector2 cPos, float radius, Vector2 rPos, float w, f
 
 
 extern bool collision_circle_add_scaled_with_sprite(Pool *p, Entity entity){
-    /**
-     * Ajoute une collision circulaire à une entité, avec un rayon basé sur la taille de son sprite
-     */
     Sprite *sprite = Sprite_get(&p->sprite, entity);
     if (!sprite) return false;
 

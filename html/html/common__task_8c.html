@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: src/content/common_task.c File Reference</title>
+<title>Yume Project: src/content/common_task.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -92,16 +92,142 @@ $(function(){initNavTree('common__task_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="common__task_8h_source.html">common_task.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="assets_8h_source.html">assets.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="coevent_8h_source.html">coevent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="flags_8h_source.html">flags.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hud_8h_source.html">hud.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="moonlight__bg_8h_source.html">moonlight_bg.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="screen_8h_source.html">screen.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obj_8h_source.html">systems/obj.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pool_8h_source.html">pool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="sprite_8h_source.html">sprite.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="tasks_8h_source.html">tasks.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;raylib.h&gt;</code><br />
+<code>#include &lt;raymath.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa2a637e74ad699ce751344ebb24f09c2" id="r_aa2a637e74ad699ce751344ebb24f09c2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa2a637e74ad699ce751344ebb24f09c2">DEFINE_EXTERN_TASK</a> (phase_timer)</td></tr>
+<tr class="memitem:a777e4c3e30fc5b4f55524cab9eda5596" id="r_a777e4c3e30fc5b4f55524cab9eda5596"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a777e4c3e30fc5b4f55524cab9eda5596">DEFINE_EXTERN_TASK</a> (obj_GoTo)</td></tr>
+<tr class="memitem:a26dc92bd02c818198c6d18c59a9c527d" id="r_a26dc92bd02c818198c6d18c59a9c527d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a26dc92bd02c818198c6d18c59a9c527d">DEFINE_EXTERN_TASK</a> (play_anim_once)</td></tr>
+<tr class="memitem:a0d70794d0b048d6cba414b49a9cc7eea" id="r_a0d70794d0b048d6cba414b49a9cc7eea"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0d70794d0b048d6cba414b49a9cc7eea">TASK</a> (boss_aura_particle, {<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;})</td></tr>
+<tr class="memitem:a90f858bcc820feb77f56de6082576ca1" id="r_a90f858bcc820feb77f56de6082576ca1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a90f858bcc820feb77f56de6082576ca1">DEFINE_EXTERN_TASK</a> (boss_particle_spawner)</td></tr>
+<tr class="memitem:af658ead22085e78f181a4642982d3521" id="r_af658ead22085e78f181a4642982d3521"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af658ead22085e78f181a4642982d3521">DEFINE_EXTERN_TASK</a> (boss_pentagram_effect)</td></tr>
+<tr class="memitem:a13d405759da6f30d48ce46411816e7fb" id="r_a13d405759da6f30d48ce46411816e7fb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a13d405759da6f30d48ce46411816e7fb">DEFINE_EXTERN_TASK</a> (boss_distortion_effect)</td></tr>
+<tr class="memitem:a8fde4d51820fb8385cc288a49a48c094" id="r_a8fde4d51820fb8385cc288a49a48c094"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8fde4d51820fb8385cc288a49a48c094">DEFINE_EXTERN_TASK</a> (boss_orb_effect)</td></tr>
+<tr class="memitem:a6d0c065fb25689f03d62e8415297bcb4" id="r_a6d0c065fb25689f03d62e8415297bcb4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6d0c065fb25689f03d62e8415297bcb4">DEFINE_EXTERN_TASK</a> (orb_explosion)</td></tr>
+<tr class="memitem:ad6c412d4a3586fa5c487af85976f7c1f" id="r_ad6c412d4a3586fa5c487af85976f7c1f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad6c412d4a3586fa5c487af85976f7c1f">DEFINE_EXTERN_TASK</a> (spellcard_bg_anim)</td></tr>
+<tr class="memitem:ac676e7d9177731201916c5a1de1879b7" id="r_ac676e7d9177731201916c5a1de1879b7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac676e7d9177731201916c5a1de1879b7">DEFINE_EXTERN_TASK</a> (start_spellcard_sequence)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a13d405759da6f30d48ce46411816e7fb" name="a13d405759da6f30d48ce46411816e7fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13d405759da6f30d48ce46411816e7fb">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK() <span class="overload">[1/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">boss_distortion_effect</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fde4d51820fb8385cc288a49a48c094" name="a8fde4d51820fb8385cc288a49a48c094"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fde4d51820fb8385cc288a49a48c094">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK() <span class="overload">[2/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">boss_orb_effect</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90f858bcc820feb77f56de6082576ca1" name="a90f858bcc820feb77f56de6082576ca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f858bcc820feb77f56de6082576ca1">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK() <span class="overload">[3/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">boss_particle_spawner</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af658ead22085e78f181a4642982d3521" name="af658ead22085e78f181a4642982d3521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af658ead22085e78f181a4642982d3521">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK() <span class="overload">[4/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">boss_pentagram_effect</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a777e4c3e30fc5b4f55524cab9eda5596" name="a777e4c3e30fc5b4f55524cab9eda5596"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a777e4c3e30fc5b4f55524cab9eda5596">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK() <span class="overload">[5/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">obj_GoTo</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d0c065fb25689f03d62e8415297bcb4" name="a6d0c065fb25689f03d62e8415297bcb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d0c065fb25689f03d62e8415297bcb4">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK() <span class="overload">[6/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">orb_explosion</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa2a637e74ad699ce751344ebb24f09c2" name="aa2a637e74ad699ce751344ebb24f09c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2a637e74ad699ce751344ebb24f09c2">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2a637e74ad699ce751344ebb24f09c2">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK() <span class="overload">[7/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -111,6 +237,78 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">phase_timer</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a26dc92bd02c818198c6d18c59a9c527d" name="a26dc92bd02c818198c6d18c59a9c527d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26dc92bd02c818198c6d18c59a9c527d">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">play_anim_once</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6c412d4a3586fa5c487af85976f7c1f" name="ad6c412d4a3586fa5c487af85976f7c1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6c412d4a3586fa5c487af85976f7c1f">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK() <span class="overload">[9/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">spellcard_bg_anim</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac676e7d9177731201916c5a1de1879b7" name="ac676e7d9177731201916c5a1de1879b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac676e7d9177731201916c5a1de1879b7">&#9670;&#160;</a></span>DEFINE_EXTERN_TASK() <span class="overload">[10/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">start_spellcard_sequence</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d70794d0b048d6cba414b49a9cc7eea" name="a0d70794d0b048d6cba414b49a9cc7eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d70794d0b048d6cba414b49a9cc7eea">&#9670;&#160;</a></span>TASK()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TASK </td>
+          <td>(</td>
+          <td class="paramtype">boss_aura_particle</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

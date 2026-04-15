@@ -1,6 +1,14 @@
+/**
+ * @file collision_rectangle.h
+ * @brief collisions rectangulaires
+ */
 #pragma once
 #include "ecs/component.h"
 
+/**
+ * @brief composante collision rectangulaire dans l'ECS
+ * 
+ */
 typedef struct {
   float width;
   float length;

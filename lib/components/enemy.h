@@ -18,7 +18,7 @@
 typedef struct Pool Pool;
 
 /**
- * @brief Composant ennemi
+ * @brief composante ennemi dans l'ECS
  *
  * Contient les informations spécifiques à un ennemi.
  * Les données de vie, hitbox et physique sont dans leurs composants respectifs.
@@ -35,15 +35,14 @@ DEFINE_COMPONENT_MANAGER(Enemy, MAX_ENTITIES)
  * Attache les composants Position, Physics, Sprite, Life,
  * Collision_circle, Tag et Enemy à une nouvelle entité.
  *
- * @param p Pool courante
- * @param x Position x initiale (en pixels)
- * @param y Position y initiale (en pixels)
- * @param speed Vitesse initiale (en pixels/frame)
- * @param angle Angle initial (en degrés)
+ * @param p pool courante (toutes les données de l'ECS)
+ * @param x Position x initiale
+ * @param y Position y initiale
+ * @param speed Vitesse initiale
+ * @param angle Angle initial
  * @param life Points de vie initiaux
- * @param hitboxRadius Rayon de la hitbox circulaire (en pixels)
- * @param type Type de l'ennemi (EnemyType)
- * @param graphic Sprite à utiliser (SpriteID défini dans assets.h)
+ * @param hitboxRadius Rayon de la hitbox circulaire
+ * @param graphic l'identifiant de la texture à utiliser
  * @return L'entité créée
  */
 extern Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
@@ -51,12 +50,27 @@ extern Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                           int score, SpriteID graphic);
 
 /**
- * @brief Met à jour tous les ennemis et supprime ceux à 0 PV
+ * @brief Met à jour tous les ennemis
  *
- * Parcourt tous les ennemis chaque frame.
- * Si un ennemi n'a plus de points de vie, il est ajouté à la kill queue.
+ * Parcourt tous les ennemis chaque frame. Détecte si l'ennemi doit:
+ * - attribuer du score à sa mort
+ * - subir des dégâts
  *
- * @param p Pool courante
+ * @param p pool courante (toutes les données de l'ECS)
  * @param scoreS Système de gestion du score
  */
 extern void Enemy_update_all(Pool *p, ScoreSystem *scoreS);
+
+
+/** @brief spawn un enemy qui a le flag qui fait perdre des points si il est tué 
+ * @param x Position x initiale
+ * @param y Position y initiale
+ * @param speed Vitesse initiale
+ * @param angle Angle initial
+ * @param life Points de vie initiaux
+ * @param hitboxRadius Rayon de la hitbox circulaire
+ * @param score Le score que fait perdre l'ennemi si il est tué
+ * @param graphic l'identifiant de la texture à utiliser
+ * @return L'entité créée
+ */
+Entity Enemy_spawn_score_decrease(Pool *p, float x, float y, float speed, float angle, float hitboxRadius, int score, SpriteID graphic);

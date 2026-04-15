@@ -1,4 +1,4 @@
 var player__bullet_8h =
 [
-    [ "PlayerBullet", "structPlayerBullet.html", "structPlayerBullet" ]
+    [ "PlayerBullet", "struct_player_bullet.html", "struct_player_bullet" ]
 ];

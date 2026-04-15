@@ -1,8 +1,22 @@
 var searchData=
 [
-  ['master_0',['master',['../structCoTaskData.html#a4ae95eaf612455f3dc153d9c8fe2c76a',1,'CoTaskData']]],
-  ['master_5ftask_5fdata_1',['master_task_data',['../structCoTaskInitData.html#adb940490b3fb06d975290821a2dfc8e4',1,'CoTaskInitData']]],
-  ['maxlife_2',['maxLife',['../structLife.html#a777fc787d92de09813c6cd98728d84ac',1,'Life']]],
-  ['maxspd_3',['maxSpd',['../structPhysics.html#a32f4b79ceccc68ed983d94029fe246c5',1,'Physics']]],
-  ['minspd_4',['minSpd',['../structPhysics.html#a5a942058787dd52ade1e0b2e08c5d696',1,'Physics']]]
+  ['laserlength_0',['laserLength',['../struct_straight__laser.html#a0fee82fe628970a24da7123aad3e1a2c',1,'Straight_laser']]],
+  ['lasermaxwidth_1',['laserMaxWidth',['../struct_straight__laser.html#aedc314287c755530557637fcc0a61992',1,'Straight_laser']]],
+  ['laserwidth_2',['laserWidth',['../struct_straight__laser.html#aea36a84750bb48c00919c8a8051760b3',1,'Straight_laser']]],
+  ['last_5fhigh_5fscore_3',['last_high_score',['../struct_score_system.html#a9d528a45d63a830acecee3f65110f0e1',1,'ScoreSystem']]],
+  ['left_4',['left',['../struct_input_config.html#a03b792359bbd45ddc7a65025a1b2901d',1,'InputConfig::left'],['../struct_input_system.html#a8db519393f016c0f395cde1863ef392b',1,'InputSystem::left']]],
+  ['length_5',['length',['../struct_collision__rectangle.html#ac877055eb4a4426536a27e6f8d86d70f',1,'Collision_rectangle']]],
+  ['lens_5fcenter_6',['lens_center',['../moonlight_8c.html#ab1a1908c5b46b9575c7fda34a819003c',1,'moonlight.c']]],
+  ['lens_5fradius_7',['lens_radius',['../moonlight_8c.html#a5f0967d74b9f24b1a83b5bcba56673a2',1,'moonlight.c']]],
+  ['lens_5fshader_8',['lens_shader',['../moonlight_8c.html#ab93d051135bd3cabb2cd39246fd7e4e1',1,'moonlight.c']]],
+  ['lens_5fstrength_9',['lens_strength',['../moonlight_8c.html#a930f3c461bd2050fed544b064f462726',1,'moonlight.c']]],
+  ['life_10',['life',['../struct_life.html#a14520ed7fd895d4366443b5cfe41880d',1,'Life::life'],['../struct_pool.html#abe7af6e27fc8325fd9b173144bb65ba6',1,'Pool::life']]],
+  ['look_5fat_5fx_11',['look_at_x',['../moonlight__bg_8c.html#a2d21a527eab5dfb77493299ae682fced',1,'moonlight_bg.c']]],
+  ['loosecolor_12',['looseColor',['../struct_loose__laser.html#a4b9011cf0e5ee78db88a98e9c681f915',1,'Loose_laser']]],
+  ['looselaser_13',['looseLaser',['../struct_pool.html#ab85dffd34413c6253e1cc6e03f1225d0',1,'Pool']]],
+  ['loosenodecount_14',['looseNodeCount',['../struct_loose__laser.html#a3537f2a5612e7db19e4cf707cf4d258c',1,'Loose_laser']]],
+  ['loosenodes_15',['looseNodes',['../struct_loose__laser.html#a303791ce7e0846d486fd09a4f24fe357',1,'Loose_laser']]],
+  ['loosetargetlength_16',['looseTargetLength',['../struct_loose__laser.html#a5dac8ae4d8d042193d42a837c1fb9cf7',1,'Loose_laser']]],
+  ['loosetimer_17',['looseTimer',['../struct_loose__laser.html#a184dc48d3133b93befe649ebfe9cd387',1,'Loose_laser']]],
+  ['loosewidth_18',['looseWidth',['../struct_loose__laser.html#a9693de799a5107c246be51bda86944f1',1,'Loose_laser']]]
 ];

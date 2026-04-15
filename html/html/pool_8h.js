@@ -1,6 +1,6 @@
 var pool_8h =
 [
-    [ "Pool", "structPool.html", "structPool" ],
+    [ "Pool", "struct_pool.html", "struct_pool" ],
     [ "Pool", "pool_8h.html#a667f1041ddc634d36522f92d1308a71e", null ],
     [ "entity_box", "pool_8h.html#a5d6320b48cf66b9e95b911a2ac7357b4", null ],
     [ "entity_unbox", "pool_8h.html#a524e3262be35dd78674fa8b2913aeefd", null ],

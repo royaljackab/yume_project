@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: src/components/bullet.c File Reference</title>
+<title>Yume Project: src/components/bullet.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -92,21 +92,57 @@ $(function(){initNavTree('bullet_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="bullet_8h_source.html">components/bullet.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="obj_8h_source.html">obj.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="physics_8h_source.html">physics.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pool_8h_source.html">pool.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="sprite_8h_source.html">sprite.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tasks_8h_source.html">tasks.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="life_8h_source.html">life.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa8171ab2c85a0bba48b2fe3245d19298" id="r_aa8171ab2c85a0bba48b2fe3245d19298"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa8171ab2c85a0bba48b2fe3245d19298">Bullet_enemy_spawn</a> (<a class="el" href="structPool.html">Pool</a> *p, float x, float y, float speed, float angle, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memitem:aa8171ab2c85a0bba48b2fe3245d19298" id="r_aa8171ab2c85a0bba48b2fe3245d19298"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa8171ab2c85a0bba48b2fe3245d19298">Bullet_enemy_spawn</a> (<a class="el" href="struct_pool.html">Pool</a> *p, float x, float y, float speed, float angle, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
 <tr class="memdesc:aa8171ab2c85a0bba48b2fe3245d19298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawn un bullet avec une position, un angle et une vitesse initiale.  <br /></td></tr>
-<tr class="memitem:af42001b9eec62f52c0c88c98d5d9b007" id="r_af42001b9eec62f52c0c88c98d5d9b007"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#af42001b9eec62f52c0c88c98d5d9b007">Bullet_player_spawn</a> (<a class="el" href="structPool.html">Pool</a> *p, float x, float y, float speed, float angle, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
-<tr class="memitem:aa2696b8f828eb6cdf0249cb3c1fe70af" id="r_aa2696b8f828eb6cdf0249cb3c1fe70af"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa2696b8f828eb6cdf0249cb3c1fe70af">Bullet_spawn</a> (<a class="el" href="structPool.html">Pool</a> *p, float x, float y, float speed, float angle, <a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">EntityType</a> tag, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memitem:af42001b9eec62f52c0c88c98d5d9b007" id="r_af42001b9eec62f52c0c88c98d5d9b007"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#af42001b9eec62f52c0c88c98d5d9b007">Bullet_player_spawn</a> (<a class="el" href="struct_pool.html">Pool</a> *p, float x, float y, float speed, float angle, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memdesc:af42001b9eec62f52c0c88c98d5d9b007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawn un bullet avec une position, un angle et une vitesse initiale.  <br /></td></tr>
+<tr class="memitem:aa2696b8f828eb6cdf0249cb3c1fe70af" id="r_aa2696b8f828eb6cdf0249cb3c1fe70af"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa2696b8f828eb6cdf0249cb3c1fe70af">Bullet_spawn</a> (<a class="el" href="struct_pool.html">Pool</a> *p, float x, float y, float speed, float angle, <a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">EntityType</a> tag, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memdesc:aa2696b8f828eb6cdf0249cb3c1fe70af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawn un bullet avec une position, un angle et une vitesse initiale.  <br /></td></tr>
+<tr class="memitem:a86005f59f15bed0d92926ce38c848450" id="r_a86005f59f15bed0d92926ce38c848450"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a86005f59f15bed0d92926ce38c848450">Bullet_enemy_spawn_delayed</a> (<a class="el" href="struct_pool.html">Pool</a> *p, float x, float y, float speed, float angle, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic, int delay)</td></tr>
+<tr class="memdesc:a86005f59f15bed0d92926ce38c848450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawn un bullet avec une position, un angle et une vitesse initiale. La bullet réalise une animation de condensation d'une durée spécifiée.  <br /></td></tr>
+<tr class="memitem:ae96e886a04b95981d1a9a761da94e2cc" id="r_ae96e886a04b95981d1a9a761da94e2cc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae96e886a04b95981d1a9a761da94e2cc">Condensation_update_all</a> (<a class="el" href="struct_pool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:ae96e886a04b95981d1a9a761da94e2cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la condensation de toutes les entitées, ou la supprime si elle a expiré  <br /></td></tr>
+<tr class="memitem:aa125382649fc21804ec9aea8c82fec32" id="r_aa125382649fc21804ec9aea8c82fec32"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa125382649fc21804ec9aea8c82fec32">Bullet_clear_bullets</a> (<a class="el" href="struct_pool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:aa125382649fc21804ec9aea8c82fec32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit toutes les bullets.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="aa125382649fc21804ec9aea8c82fec32" name="aa125382649fc21804ec9aea8c82fec32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa125382649fc21804ec9aea8c82fec32">&#9670;&#160;</a></span>Bullet_clear_bullets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bullet_clear_bullets </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit toutes les bullets. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa8171ab2c85a0bba48b2fe3245d19298" name="aa8171ab2c85a0bba48b2fe3245d19298"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8171ab2c85a0bba48b2fe3245d19298">&#9670;&#160;</a></span>Bullet_enemy_spawn()</h2>
 
@@ -116,7 +152,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> Bullet_enemy_spawn </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -147,17 +183,79 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Spawn un bullet avec une position, un angle et une vitesse initiale. </p>
+<p>La bullet dispose du tag ENT_ENEMY_SHOT et du flag FLAG_PROJECTILE_ENEMY</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>: <a class="el" href="structPool.html">Pool</a> courrante </td></tr>
-    <tr><td class="paramname">x</td><td>: Coord x initiale </td></tr>
-    <tr><td class="paramname">y</td><td>: Coord y initiale </td></tr>
-    <tr><td class="paramname">speed</td><td>: Vitesse initiale </td></tr>
-    <tr><td class="paramname">angle</td><td>: Angle init (en degré) </td></tr>
-    <tr><td class="paramname">texture</td><td>: Id de la texture a utiliser </td></tr>
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">x</td><td>Coord x initiale </td></tr>
+    <tr><td class="paramname">y</td><td>Coord y initiale </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse initiale </td></tr>
+    <tr><td class="paramname">angle</td><td>Angle init (en degré) </td></tr>
+    <tr><td class="paramname">texture</td><td>Id de la texture a utiliser </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a86005f59f15bed0d92926ce38c848450" name="a86005f59f15bed0d92926ce38c848450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86005f59f15bed0d92926ce38c848450">&#9670;&#160;</a></span>Bullet_enemy_spawn_delayed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> Bullet_enemy_spawn_delayed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a></td>          <td class="paramname"><span class="paramname"><em>graphic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>delay</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Spawn un bullet avec une position, un angle et une vitesse initiale. La bullet réalise une animation de condensation d'une durée spécifiée. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">x</td><td>Coord x initiale </td></tr>
+    <tr><td class="paramname">y</td><td>Coord y initiale </td></tr>
+    <tr><td class="paramname">speed</td><td></td></tr>
+    <tr><td class="paramname">angle</td><td></td></tr>
+    <tr><td class="paramname">graphic</td><td></td></tr>
+    <tr><td class="paramname">delay</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a> </dd></dl>
 
 </div>
 </div>
@@ -170,7 +268,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> Bullet_player_spawn </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -200,6 +298,20 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Spawn un bullet avec une position, un angle et une vitesse initiale. </p>
+<p>La bullet dispose du tag ENT_PLAYER_SHOT et des flag FLAG_BULLET_PLAYER et FLAG_PROJECTILE_PLAYER</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">x</td><td>Coord x initiale </td></tr>
+    <tr><td class="paramname">y</td><td>Coord y initiale </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse initiale </td></tr>
+    <tr><td class="paramname">angle</td><td>Angle init (en degré) </td></tr>
+    <tr><td class="paramname">texture</td><td>Id de la texture a utiliser </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa2696b8f828eb6cdf0249cb3c1fe70af" name="aa2696b8f828eb6cdf0249cb3c1fe70af"></a>
@@ -211,7 +323,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> Bullet_spawn </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -245,6 +357,44 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Spawn un bullet avec une position, un angle et une vitesse initiale. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">x</td><td>Coord x initiale </td></tr>
+    <tr><td class="paramname">y</td><td>Coord y initiale </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse initiale </td></tr>
+    <tr><td class="paramname">angle</td><td>Angle init (en degré) </td></tr>
+    <tr><td class="paramname">texture</td><td>Id de la texture a utiliser </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae96e886a04b95981d1a9a761da94e2cc" name="ae96e886a04b95981d1a9a761da94e2cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae96e886a04b95981d1a9a761da94e2cc">&#9670;&#160;</a></span>Condensation_update_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Condensation_update_all </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche la condensation de toutes les entitées, ou la supprime si elle a expiré </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

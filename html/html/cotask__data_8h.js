@@ -1,8 +1,8 @@
 var cotask__data_8h =
 [
-    [ "CoTask", "structCoTask.html", "structCoTask" ],
-    [ "CoTaskData", "structCoTaskData.html", "structCoTaskData" ],
-    [ "CoTaskInitData", "structCoTaskInitData.html", "structCoTaskInitData" ],
+    [ "CoTask", "struct_co_task.html", "struct_co_task" ],
+    [ "CoTaskData", "struct_co_task_data.html", "struct_co_task_data" ],
+    [ "CoTaskInitData", "struct_co_task_init_data.html", "struct_co_task_init_data" ],
     [ "CO_STACK_SIZE", "cotask__data_8h.html#a5bab9c949a75992de70a6c90f0e54579", null ],
     [ "CoTaskData", "cotask__data_8h.html#ae9a783c23e9662d227692c12cbf3c389", null ],
     [ "CoTaskInitData", "cotask__data_8h.html#a867a9a3e0085b4ba62025a3b0ed41795", null ],

@@ -1,3 +1,8 @@
+/**
+ * @file moonlight.h
+ * @brief fonctions décrivant le game state moonlight
+ * 
+ */
 #pragma once
 #include "core/game_state.h"
 

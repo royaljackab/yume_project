@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['id_0',['id',['../structBoxedEntity.html#aead26eec79b4456e168ef58af5c3e1b3',1,'BoxedEntity']]],
-  ['init_1',['init',['../structGameState.html#a646629fecaa25df3f70a56ee0d8b53d6',1,'GameState']]],
-  ['input_2',['input',['../structGameContext.html#adbf41746c46dce56827fc5bbe803ade0',1,'GameContext']]],
-  ['intersectionwidth_3',['intersectionWidth',['../structStraight__laser.html#a07c0bdacd6dcf2b855cc5e2d77ec4d02',1,'Straight_laser']]],
-  ['isanimated_4',['isAnimated',['../structSprite.html#a6e70ddeb82dcbf4030ad83347ba5fc0e',1,'Sprite']]],
-  ['isdown_5',['isDown',['../structKeyState.html#acbda6e006f8c713639379b1eb65f309b',1,'KeyState']]],
-  ['ispressed_6',['isPressed',['../structKeyState.html#a56894d499e649be23799959f1d3f14f1',1,'KeyState']]],
-  ['isreleased_7',['isReleased',['../structKeyState.html#a74de02611159b1d8572ea1deced25ad7',1,'KeyState']]]
+  ['hitboxspriteid_0',['hitboxSpriteId',['../struct_player.html#ad6cd0b7154c475cdb8a1ad10b4e81117',1,'Player']]],
+  ['hosted_1',['hosted',['../struct_co_task_data.html#adf51348555ed12e8f538df4b9b10b6e6',1,'CoTaskData']]],
+  ['hud_5fspell_5falpha_2',['hud_spell_alpha',['../hud_8c.html#ab99ef8902e007ccabad21f038f4de3b4',1,'hud_spell_alpha:&#160;hud.c'],['../hud_8h.html#ab99ef8902e007ccabad21f038f4de3b4',1,'hud_spell_alpha:&#160;hud.c']]],
+  ['hud_5fspell_5fname_3',['hud_spell_name',['../hud_8c.html#aa41e28459825405fe9a26e3490e94bab',1,'hud_spell_name:&#160;hud.c'],['../hud_8h.html#aa41e28459825405fe9a26e3490e94bab',1,'hud_spell_name:&#160;hud.c']]],
+  ['hud_5fspell_5fscale_4',['hud_spell_scale',['../hud_8c.html#abd4a9d24e2f19c35d9e3ee5ae427cf6c',1,'hud_spell_scale:&#160;hud.c'],['../hud_8h.html#abd4a9d24e2f19c35d9e3ee5ae427cf6c',1,'hud_spell_scale:&#160;hud.c']]],
+  ['hud_5fspell_5fx_5',['hud_spell_x',['../hud_8c.html#aba5e9567ce490b5a4a527747e6f0cb15',1,'hud_spell_x:&#160;hud.c'],['../hud_8h.html#aba5e9567ce490b5a4a527747e6f0cb15',1,'hud_spell_x:&#160;hud.c']]],
+  ['hud_5fspell_5fy_6',['hud_spell_y',['../hud_8c.html#a0b91b67da6040d5a3a39141c088b5e7f',1,'hud_spell_y:&#160;hud.c'],['../hud_8h.html#a0b91b67da6040d5a3a39141c088b5e7f',1,'hud_spell_y:&#160;hud.c']]]
 ];

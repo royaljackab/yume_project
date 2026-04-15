@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/components/sprite.h File Reference</title>
+<title>Yume Project: lib/components/sprite.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -103,26 +103,31 @@ $(function(){initNavTree('sprite_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Sprite" id="r_Sprite"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structSprite.html">Sprite</a></td></tr>
+<tr class="memitem:Sprite" id="r_Sprite"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_sprite.html">Sprite</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composante <a class="el" href="struct_sprite.html" title="Composante Sprite dans l&#39;ECS Cette composante sert à associer une texture à une Entité....">Sprite</a> dans l'ECS Cette composante sert à associer une texture à une Entité. Contient les informations d'affichage de la texture ainsi que de son animation.  <a href="struct_sprite.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a62161762a06d2538ff4c99d130fb62aa" id="r_a62161762a06d2538ff4c99d130fb62aa"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a62161762a06d2538ff4c99d130fb62aa">Sprite_set_texture</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite, int renderPriority, int textureID)</td></tr>
+<tr class="memitem:a62161762a06d2538ff4c99d130fb62aa" id="r_a62161762a06d2538ff4c99d130fb62aa"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a62161762a06d2538ff4c99d130fb62aa">Sprite_set_texture</a> (<a class="el" href="struct_sprite.html">Sprite</a> *sprite, int renderPriority, int textureID)</td></tr>
 <tr class="memdesc:a62161762a06d2538ff4c99d130fb62aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une texture avec les valeurs pas défauts.  <br /></td></tr>
-<tr class="memitem:add9c8e7d80512d918ec19660334640ef" id="r_add9c8e7d80512d918ec19660334640ef"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#add9c8e7d80512d918ec19660334640ef">Sprite_set_animation</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite, int frameCount, int delay)</td></tr>
-<tr class="memitem:a4cae9d43fd2cf473306be58d3cc7d670" id="r_a4cae9d43fd2cf473306be58d3cc7d670"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4cae9d43fd2cf473306be58d3cc7d670">Sprite_set_SourceRect</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite, float x, float y, float width, float height)</td></tr>
-<tr class="memitem:a3f971f3fb07c8d6f0cdad1c07443f937" id="r_a3f971f3fb07c8d6f0cdad1c07443f937"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3f971f3fb07c8d6f0cdad1c07443f937">UpdateAnimation</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite)</td></tr>
-<tr class="memitem:a2a87a61a675a2e3c11d3c2fe3d9fc515" id="r_a2a87a61a675a2e3c11d3c2fe3d9fc515"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2a87a61a675a2e3c11d3c2fe3d9fc515">Sprite_draw_sprite</a> (<a class="el" href="structSprite.html">Sprite</a> *sprite, <a class="el" href="structPosition.html">Position</a> *pos, <a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">Tag</a> *tag)</td></tr>
-<tr class="memitem:afea84dc9586ef7b6cffb182b3f4029ac" id="r_afea84dc9586ef7b6cffb182b3f4029ac"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afea84dc9586ef7b6cffb182b3f4029ac">Sprite_draw_all</a> (<a class="el" href="structPool.html">Pool</a> *pool)</td></tr>
+<tr class="memitem:add9c8e7d80512d918ec19660334640ef" id="r_add9c8e7d80512d918ec19660334640ef"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#add9c8e7d80512d918ec19660334640ef">Sprite_set_animation</a> (<a class="el" href="struct_sprite.html">Sprite</a> *sprite, int frameCount, int delay)</td></tr>
+<tr class="memdesc:add9c8e7d80512d918ec19660334640ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure l'animation d'un sprite.  <br /></td></tr>
+<tr class="memitem:a4cae9d43fd2cf473306be58d3cc7d670" id="r_a4cae9d43fd2cf473306be58d3cc7d670"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4cae9d43fd2cf473306be58d3cc7d670">Sprite_set_SourceRect</a> (<a class="el" href="struct_sprite.html">Sprite</a> *sprite, float x, float y, float width, float height)</td></tr>
+<tr class="memdesc:a4cae9d43fd2cf473306be58d3cc7d670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définit le rectangle source pour le sprite.  <br /></td></tr>
+<tr class="memitem:a3f971f3fb07c8d6f0cdad1c07443f937" id="r_a3f971f3fb07c8d6f0cdad1c07443f937"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3f971f3fb07c8d6f0cdad1c07443f937">UpdateAnimation</a> (<a class="el" href="struct_sprite.html">Sprite</a> *sprite)</td></tr>
+<tr class="memdesc:a3f971f3fb07c8d6f0cdad1c07443f937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour l'état d'animation interne d'un sprite.  <br /></td></tr>
+<tr class="memitem:a2a87a61a675a2e3c11d3c2fe3d9fc515" id="r_a2a87a61a675a2e3c11d3c2fe3d9fc515"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2a87a61a675a2e3c11d3c2fe3d9fc515">Sprite_draw_sprite</a> (<a class="el" href="struct_sprite.html">Sprite</a> *sprite, <a class="el" href="struct_position.html">Position</a> *pos, <a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">Tag</a> *tag)</td></tr>
+<tr class="memdesc:a2a87a61a675a2e3c11d3c2fe3d9fc515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine un sprite à la position donnée.  <br /></td></tr>
+<tr class="memitem:afea84dc9586ef7b6cffb182b3f4029ac" id="r_afea84dc9586ef7b6cffb182b3f4029ac"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afea84dc9586ef7b6cffb182b3f4029ac">Sprite_draw_all</a> (<a class="el" href="struct_pool.html">Pool</a> *pool)</td></tr>
+<tr class="memdesc:afea84dc9586ef7b6cffb182b3f4029ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine tous les sprites présents dans la pool.  <br /></td></tr>
+<tr class="memitem:a685c0772a093266b1e9dab12b70b9245" id="r_a685c0772a093266b1e9dab12b70b9245"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a685c0772a093266b1e9dab12b70b9245">Sprite_draw_range</a> (<a class="el" href="struct_pool.html">Pool</a> *p, int min_layer, int max_layer)</td></tr>
+<tr class="memdesc:a685c0772a093266b1e9dab12b70b9245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine les sprites dont la <span class="tt">renderPriority</span> est dans l'intervalle.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Composante du sprite. </p>
-<ul>
-<li></li>
-</ul>
-<p>Ce module gère l'affectation d'un sprite a un objet, et son affichage.</p>
+<p>Ce module gère l'affectation d'un sprite à une entité et son affichage.</p>
 <p>DONNÉES :</p><ul>
-<li>textureID : ID définies dans <a class="el" href="assets_8h.html">assets.h</a></li>
+<li>textureID : ID définies dans <a class="el" href="assets_8h.html" title="Chargement et références des assets (textures, sprites, audio, polices).">assets.h</a></li>
 <li>srcRect : Rectangle définissant le sprite</li>
 <li>center : Point du srcRect représentant son centre. (pour hitbox et la rotation)</li>
 <li>scale : Agrandissement de l'image</li>
@@ -143,7 +148,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Sprite_draw_all </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>pool</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>pool</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -153,7 +158,60 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Dessine tous les sprites présents dans la pool. </p>
+<p>Dessine les sprites selon leur renderPriority.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pool</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Dessine tous les sprites du spriteManager en parametre a la position donné par le positionManager en faisant attention à la couche dont il doit être dessiné. les sprites ne sont dessinés uniquement si ils doivent être afficher (sprite.display et DrawBounds).</p>
+
+</div>
+</div>
+<a id="a685c0772a093266b1e9dab12b70b9245" name="a685c0772a093266b1e9dab12b70b9245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a685c0772a093266b1e9dab12b70b9245">&#9670;&#160;</a></span>Sprite_draw_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sprite_draw_range </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>min_layer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>max_layer</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dessine les sprites dont la <span class="tt">renderPriority</span> est dans l'intervalle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Pointeur vers la <span class="tt"><a class="el" href="struct_pool.html" title="La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...">Pool</a></span>. </td></tr>
+    <tr><td class="paramname">min_layer</td><td>Couche minimale (inclusive). </td></tr>
+    <tr><td class="paramname">max_layer</td><td>Couche maximale (inclusive). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -162,16 +220,19 @@ Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Sprite_draw_sprite </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structSprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_sprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structPosition.html">Position</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_position.html">Position</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -179,7 +240,22 @@ Functions</h2></td></tr>
           <td class="paramtype"><a class="el" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">Tag</a> *</td>          <td class="paramname"><span class="paramname"><em>tag</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Dessine un sprite à la position donnée. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>sprite à dessiner </td></tr>
+    <tr><td class="paramname">pos</td><td>position à laquelle dessinner le sprite </td></tr>
+    <tr><td class="paramname">tag</td><td>Ce tag est utilisé pour savoir si l'entité doit ignorer la rotation ou non </td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Dessine un sprite a une position donnée en utilisant DrawTexturePro de raylib</p>
 
 </div>
@@ -196,7 +272,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Sprite_set_animation </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structSprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_sprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -216,6 +292,16 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Configure l'animation d'un sprite. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>sprite à configurer. </td></tr>
+    <tr><td class="paramname">frameCount</td><td>Nombre total de frames dans l'animation. </td></tr>
+    <tr><td class="paramname">delay</td><td>délai entre chaque frame de l'animation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4cae9d43fd2cf473306be58d3cc7d670" name="a4cae9d43fd2cf473306be58d3cc7d670"></a>
@@ -230,7 +316,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Sprite_set_SourceRect </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structSprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_sprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -260,6 +346,19 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Définit le rectangle source pour le sprite. </p>
+<p>Utilisé pour sélectionner une portion de la texture comme image du sprite.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>sprite à configurer. </td></tr>
+    <tr><td class="paramname">x</td><td>coordonnée X du coin supérieur gauche dans la texture. </td></tr>
+    <tr><td class="paramname">y</td><td>coordonnée Y du coin supérieur gauche dans la texture. </td></tr>
+    <tr><td class="paramname">width</td><td>largeur du rectangle source. </td></tr>
+    <tr><td class="paramname">height</td><td>hauteur du rectangle source. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a62161762a06d2538ff4c99d130fb62aa" name="a62161762a06d2538ff4c99d130fb62aa"></a>
@@ -274,7 +373,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Sprite_set_texture </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structSprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_sprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -299,7 +398,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">sprite</td><td>Composante du sprite </td></tr>
     <tr><td class="paramname">renderPriority</td><td>Layer a laquelle on affiche le sprite </td></tr>
-    <tr><td class="paramname">textureID</td><td>ID de la texture a utiliser (<a class="el" href="assets_8h.html">assets.h</a>)</td></tr>
+    <tr><td class="paramname">textureID</td><td>ID de la texture a utiliser (<a class="el" href="assets_8h.html" title="Chargement et références des assets (textures, sprites, audio, polices).">assets.h</a>)</td></tr>
   </table>
   </dd>
 </dl>
@@ -310,6 +409,14 @@ Functions</h2></td></tr>
 <li>rotation : 0</li>
 <li>non animé // TODO: faire un autre systeme? </li>
 </ul>
+<p>Définit la texture d'un sprite dans le tableau globale textures[] et initialise avec des valeurs par defaut les champs du sprite </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>Le sprite à modifier </td></tr>
+    <tr><td class="paramname">renderPriority</td><td>La priorité de rendu du sprite </td></tr>
+    <tr><td class="paramname">textureID</td><td>L'ID de la texture à appliquer</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -322,11 +429,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void UpdateAnimation </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structSprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_sprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Met à jour l'état d'animation interne d'un sprite. </p>
+<p>Incrémente le timer d'animation et change la texture actuellement affichée si nécessaire</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>Pointeur vers le <span class="tt"><a class="el" href="struct_sprite.html" title="Composante Sprite dans l&#39;ECS Cette composante sert à associer une texture à une Entité....">Sprite</a></span>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

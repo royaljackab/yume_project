@@ -1,8 +1,8 @@
 var input_8h =
 [
-    [ "InputConfig", "structInputConfig.html", "structInputConfig" ],
-    [ "KeyState", "structKeyState.html", "structKeyState" ],
-    [ "InputSystem", "structInputSystem.html", "structInputSystem" ],
+    [ "InputConfig", "struct_input_config.html", "struct_input_config" ],
+    [ "KeyState", "struct_key_state.html", "struct_key_state" ],
+    [ "InputSystem", "struct_input_system.html", "struct_input_system" ],
     [ "InputConfig", "input_8h.html#aea34ef574b3cf7509e579fcfe943fa42", null ],
     [ "InputSystem", "input_8h.html#aca783be07530351065cc4525856763fc", null ],
     [ "KeyState", "input_8h.html#aefbf4d1f84930cd53d69b13e54cc5949", null ],

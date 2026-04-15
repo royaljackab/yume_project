@@ -6,5 +6,7 @@ var searchData=
   ['panel_5fright_3',['PANEL_RIGHT',['../screen_8h.html#a606da246287d0a5e73a0fc2d7287c7f6',1,'screen.h']]],
   ['panel_5fup_4',['PANEL_UP',['../screen_8h.html#a216b23526a0353ef3c16994db505bceb',1,'screen.h']]],
   ['panel_5fwidth_5',['PANEL_WIDTH',['../screen_8h.html#a6ae393e0896d156a3697d7cbc944eb67',1,'screen.h']]],
-  ['params_6',['PARAMS',['../task_8h.html#abfff54b4a98f0695f8da3814e6838dfe',1,'task.h']]]
+  ['pas_5fvolume_6',['PAS_VOLUME',['../state__menu__settings_8c.html#a3c99939e4d2dd444a09f1abb40a344da',1,'state_menu_settings.c']]],
+  ['points_5fper_5fcombo_7',['POINTS_PER_COMBO',['../score_8c.html#a7be8e56b9fc9b74708351935af457531',1,'score.c']]],
+  ['prefix_8',['PREFIX',['../highscore_8c.html#add51b53e8b628f95078327028dccb20c',1,'highscore.c']]]
 ];

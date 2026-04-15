@@ -1,9 +1,21 @@
 var searchData=
 [
-  ['radius_0',['radius',['../structCollision__circle.html#a17ea3410138d5448f066488e092380a5',1,'Collision_circle']]],
-  ['remaining_1',['remaining',['../structCoTaskData.html#a5dc8f940a10734acb6530d9b99851c25',1,'CoTaskData']]],
-  ['renderpriority_2',['renderPriority',['../structSprite.html#a8bf52564c5006c5b76af059b09c1b5c1',1,'Sprite']]],
-  ['result_3',['result',['../structCoTaskData.html#abd68f13b476b5da15c504fa66441ecc6',1,'CoTaskData']]],
-  ['right_4',['right',['../structInputConfig.html#a922d9f3fdebed3f23f3318d9a66ca6e0',1,'InputConfig::right'],['../structInputSystem.html#ac335fc20f02045479893eec42445f522',1,'InputSystem::right']]],
-  ['rotation_5',['rotation',['../structSprite.html#abbfd24c96b5a86c441165624aec8a17c',1,'Sprite']]]
+  ['p_5fevent_0',['p_event',['../struct_co_event_snapshot_ref.html#a2d90db38a40728c892954b01494ea9ab',1,'CoEventSnapshotRef::p_event'],['../struct_co_task_data.html#a8613bfcd5c7fe49767f8cf563fe807b9',1,'CoTaskData::p_event']]],
+  ['panel_5fdown_1',['panel_down',['../struct_screen_system.html#ae30eaff21885457104bda0d9e2b9c592',1,'ScreenSystem']]],
+  ['panel_5fheight_2',['panel_height',['../struct_screen_system.html#ad0f935f0c0e753eecb8411f155d69af3',1,'ScreenSystem']]],
+  ['panel_5fleft_3',['panel_left',['../struct_screen_system.html#a0fb8b277f2061a1acbb4b792620a8acf',1,'ScreenSystem']]],
+  ['panel_5fright_4',['panel_right',['../struct_screen_system.html#a6783c315e5ba4f1164ac52bb3357dac1',1,'ScreenSystem']]],
+  ['panel_5fup_5',['panel_up',['../struct_screen_system.html#a919d76b971493fb497abc874f9198603',1,'ScreenSystem']]],
+  ['panel_5fwidth_6',['panel_width',['../struct_screen_system.html#a14c7752e9285622e13484d0844bcf634',1,'ScreenSystem']]],
+  ['pattern_7',['pattern',['../struct_weapon.html#a88eddb6186ea9165ef6f64de7a5f17b4',1,'Weapon']]],
+  ['pause_8',['pause',['../struct_game_context.html#a53de7c3fd40be2b32430174827bda0da',1,'GameContext::pause'],['../struct_input_config.html#ae5cfaf776a5562351a9b6e175ad5b9de',1,'InputConfig::pause'],['../struct_input_system.html#aa3df029eef6780c497b4380b313f66fa',1,'InputSystem::pause']]],
+  ['pause_5fselection_9',['pause_selection',['../game__state_8c.html#abc66e6edc168bf70177916735e9eb553',1,'game_state.c']]],
+  ['pending_5ftasks_10',['pending_tasks',['../struct_co_sched.html#afd64376f0b8f4fe10f3e4a69faf7f82d',1,'CoSched']]],
+  ['physics_11',['physics',['../struct_pool.html#aabebe0f0a5c1a02c09e5a9d8a124f9e9',1,'Pool']]],
+  ['player_12',['player',['../struct_pool.html#af8776343a380e77639cc580a150ab654',1,'Pool']]],
+  ['playlist_13',['playlist',['../assets_8c.html#a0060cf3ad78d1e210a9b4b5f6faa715b',1,'playlist:&#160;assets.c'],['../assets_8h.html#a0060cf3ad78d1e210a9b4b5f6faa715b',1,'playlist:&#160;assets.c']]],
+  ['pool_14',['pool',['../struct_co_sched.html#af73579a6180b4187b38382d3e0357433',1,'CoSched::pool'],['../struct_game_context.html#a1723e276337cea9d2837dc5fedee7d4d',1,'GameContext::pool']]],
+  ['pos_15',['pos',['../struct_position.html#a9db74e3b7030172abebc4f710f09d573',1,'Position::pos'],['../struct_button.html#a405c66ed819cac03a3a51aecabff1595',1,'Button::pos']]],
+  ['position_16',['position',['../struct_pool.html#a3faa7bba104ec1c2ad8e6b817a1d8b34',1,'Pool']]],
+  ['ptr_17',['ptr',['../struct_boxed_task.html#affd34170a1ebaaf09308d1c12f9538b7',1,'BoxedTask']]]
 ];

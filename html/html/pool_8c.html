@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: src/ecs/pool.c File Reference</title>
+<title>Yume Project: src/ecs/pool.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -92,6 +92,8 @@ $(function(){initNavTree('pool_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="pool_8h_source.html">ecs/pool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="background_8h_source.html">background.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bullet_8h_source.html">bullet.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="common_8h_source.html">components/common.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ecs_8h_source.html">ecs/ecs.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="life_8h_source.html">life.h</a>&quot;</code><br />
@@ -100,16 +102,21 @@ $(function(){initNavTree('pool_8c.html','',''); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a60ceabc44e88327ca668cca1f2773701" id="r_a60ceabc44e88327ca668cca1f2773701"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a60ceabc44e88327ca668cca1f2773701">pool_init</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
-<tr class="memitem:aeee323761ac029b995b05b3c99f6aa29" id="r_aeee323761ac029b995b05b3c99f6aa29"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#aeee323761ac029b995b05b3c99f6aa29">pool_create_entity</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
-<tr class="memitem:a27986cf4e2b23fac8a47afc57c88a7ab" id="r_a27986cf4e2b23fac8a47afc57c88a7ab"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a27986cf4e2b23fac8a47afc57c88a7ab">pool_kill_convicts</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
-<tr class="memitem:ad3ac59302ddb42f699a779a6babfd5e5" id="r_ad3ac59302ddb42f699a779a6babfd5e5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad3ac59302ddb42f699a779a6babfd5e5">pool_kill_entity</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e)</td></tr>
-<tr class="memitem:a5d6320b48cf66b9e95b911a2ac7357b4" id="r_a5d6320b48cf66b9e95b911a2ac7357b4"><td class="memItemLeft"><a class="el" href="structBoxedEntity.html">BoxedEntity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5d6320b48cf66b9e95b911a2ac7357b4">entity_box</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> ent)</td></tr>
-<tr class="memitem:a524e3262be35dd78674fa8b2913aeefd" id="r_a524e3262be35dd78674fa8b2913aeefd"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a524e3262be35dd78674fa8b2913aeefd">entity_unbox</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="structBoxedEntity.html">BoxedEntity</a> box)</td></tr>
+<tr class="memitem:a60ceabc44e88327ca668cca1f2773701" id="r_a60ceabc44e88327ca668cca1f2773701"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a60ceabc44e88327ca668cca1f2773701">pool_init</a> (<a class="el" href="struct_pool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:a60ceabc44e88327ca668cca1f2773701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la pool (ECS) et tous les managers de composants.  <br /></td></tr>
+<tr class="memitem:aeee323761ac029b995b05b3c99f6aa29" id="r_aeee323761ac029b995b05b3c99f6aa29"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#aeee323761ac029b995b05b3c99f6aa29">pool_create_entity</a> (<a class="el" href="struct_pool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:aeee323761ac029b995b05b3c99f6aa29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une nouvelle entité et retourne son identifiant.  <br /></td></tr>
+<tr class="memitem:a27986cf4e2b23fac8a47afc57c88a7ab" id="r_a27986cf4e2b23fac8a47afc57c88a7ab"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a27986cf4e2b23fac8a47afc57c88a7ab">pool_kill_convicts</a> (<a class="el" href="struct_pool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:a27986cf4e2b23fac8a47afc57c88a7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit toutes les entités présentes dans la kill_queue.  <br /></td></tr>
+<tr class="memitem:ad3ac59302ddb42f699a779a6babfd5e5" id="r_ad3ac59302ddb42f699a779a6babfd5e5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad3ac59302ddb42f699a779a6babfd5e5">pool_kill_entity</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e)</td></tr>
+<tr class="memdesc:ad3ac59302ddb42f699a779a6babfd5e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marque une entité pour destruction en fin de frame.  <br /></td></tr>
+<tr class="memitem:a5d6320b48cf66b9e95b911a2ac7357b4" id="r_a5d6320b48cf66b9e95b911a2ac7357b4"><td class="memItemLeft"><a class="el" href="struct_boxed_entity.html">BoxedEntity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5d6320b48cf66b9e95b911a2ac7357b4">entity_box</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> ent)</td></tr>
+<tr class="memdesc:a5d6320b48cf66b9e95b911a2ac7357b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encapsule une <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a> dans un <a class="el" href="struct_boxed_entity.html" title="Référence unique pour identifier une entité même après qu&#39;elle ai quitté l&#39;ECS.">BoxedEntity</a> contenant son UID.  <br /></td></tr>
+<tr class="memitem:a524e3262be35dd78674fa8b2913aeefd" id="r_a524e3262be35dd78674fa8b2913aeefd"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a524e3262be35dd78674fa8b2913aeefd">entity_unbox</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="struct_boxed_entity.html">BoxedEntity</a> box)</td></tr>
+<tr class="memdesc:a524e3262be35dd78674fa8b2913aeefd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère l'Id d'une entité à partir d'un <a class="el" href="struct_boxed_entity.html" title="Référence unique pour identifier une entité même après qu&#39;elle ai quitté l&#39;ECS.">BoxedEntity</a> si toujours valide.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a68d67d4db4b06c3f4cf3a0bb081d73e8" id="r_a68d67d4db4b06c3f4cf3a0bb081d73e8"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a68d67d4db4b06c3f4cf3a0bb081d73e8">entity_box_counter</a> = 0</td></tr>
 <tr class="memitem:a2139c8103a35305b3bf3dcf36faaa7d4" id="r_a2139c8103a35305b3bf3dcf36faaa7d4"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a2139c8103a35305b3bf3dcf36faaa7d4">uid_counter</a> = 0</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
@@ -120,9 +127,9 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structBoxedEntity.html">BoxedEntity</a> entity_box </td>
+          <td class="memname"><a class="el" href="struct_boxed_entity.html">BoxedEntity</a> entity_box </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -131,6 +138,17 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Encapsule une <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a> dans un <a class="el" href="struct_boxed_entity.html" title="Référence unique pour identifier une entité même après qu&#39;elle ai quitté l&#39;ECS.">BoxedEntity</a> contenant son UID. </p>
+<p>Utilisé pour transporter une référence sûre à une entité</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante </td></tr>
+    <tr><td class="paramname">ent</td><td>Entité à encapsuler. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_boxed_entity.html" title="Référence unique pour identifier une entité même après qu&#39;elle ai quitté l&#39;ECS.">BoxedEntity</a> Boîte contenant l'entité et son unique_id, ou une boîte nulle si invalide. </dd></dl>
 
 </div>
 </div>
@@ -143,15 +161,25 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity_unbox </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structBoxedEntity.html">BoxedEntity</a></td>          <td class="paramname"><span class="paramname"><em>box</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="struct_boxed_entity.html">BoxedEntity</a></td>          <td class="paramname"><span class="paramname"><em>box</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Récupère l'Id d'une entité à partir d'un <a class="el" href="struct_boxed_entity.html" title="Référence unique pour identifier une entité même après qu&#39;elle ai quitté l&#39;ECS.">BoxedEntity</a> si toujours valide. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante </td></tr>
+    <tr><td class="paramname">box</td><td>Boîte contenant l'entité à extraire. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a> L'Id de l'entité si valide, sinon NULL_INDEX. </dd></dl>
 
 </div>
 </div>
@@ -164,11 +192,21 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> pool_create_entity </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Crée une nouvelle entité et retourne son identifiant. </p>
+<p>Récupère un identifiant libre depuis free_indices et enregistre un <a class="el" href="struct_uid.html">Uid</a> unique</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool dans laquelle créé l'entité. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>l'Identifiant de la nouvelle entité ou <span class="tt"><a class="el" href="ecs_8h.html#a72706957be37594f74221ae1ebf9baf5">NULL_INDEX</a></span> si erreur. </dd></dl>
 
 </div>
 </div>
@@ -181,11 +219,20 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void pool_init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialise la pool (ECS) et tous les managers de composants. </p>
+<p>Initialise chaque ComponentManager présent dans la pool et prépare la pile free_indices contenant les identifiants libres.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool à initialiser </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -198,11 +245,20 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void pool_kill_convicts </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Détruit toutes les entités présentes dans la kill_queue. </p>
+<p>Parcourt kill_queue, retire chaque entité de tous les managers (components) et remet son identifiant dans la pile free_indices. Doit être appelé en fin de frame.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -215,7 +271,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void pool_kill_entity </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -225,31 +281,19 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Marque une entité pour destruction en fin de frame. </p>
+<p>L'entité est ajoutée à kill_queue et sera effectivement détruite par pool_kill_convicts lors du traitement en fin de frame. Si l'entité est déjà dans la file, la fonction ne fait rien.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante </td></tr>
+    <tr><td class="paramname">e</td><td>Identifiant de l'entité à détruire. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a68d67d4db4b06c3f4cf3a0bb081d73e8" name="a68d67d4db4b06c3f4cf3a0bb081d73e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68d67d4db4b06c3f4cf3a0bb081d73e8">&#9670;&#160;</a></span>entity_box_counter</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t entity_box_counter = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a2139c8103a35305b3bf3dcf36faaa7d4" name="a2139c8103a35305b3bf3dcf36faaa7d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2139c8103a35305b3bf3dcf36faaa7d4">&#9670;&#160;</a></span>uid_counter</h2>
 

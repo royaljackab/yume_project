@@ -26,17 +26,10 @@ bool Tag_in_array(Tag tag, Tag * array, int size) {
 }
 
 void Owner_bind(Pool *p, Entity OwnerId, Entity ServantId){
-    /**
-     * Cette fonction permet d'ajouter un owner à une entité. Une entité servante copie la position de son owner.
-     */
     Owner_add(&p->owner,ServantId,OwnerId);
 }
 
 void Owner_update(Pool *p){
-    /**
-     * @brief Met à jour la position de toutes les entitées qui ont un owner en copiant celle de leur owner.
-     * 
-     */
   for(int i=0; i< p->owner.count; i++){
     Entity ownedId = Owner_get_entity(&p->owner, i); //l'id de la propriété
     Entity ownerId = p->owner.dense[i]; //l'id du propriétaire
@@ -59,9 +52,7 @@ void Owner_update(Pool *p){
 }
 
 extern Entity Position_create(Pool *p, float x, float y, float angle){
-/**
- * Crée une entité de position et la renvoie
- */
+    //Crée une entité de position et la renvoie
     Entity e = pool_create_entity(p);
     Position pos = {{x, y}, angle};
     Position_add(&p->position, e, pos);

@@ -3,6 +3,7 @@ var button_8c =
     [ "button_create", "button_8c.html#a71d3140e977771c90d8137a98c29b241", null ],
     [ "button_create_ex", "button_8c.html#a899826f7d1cf010fd4bdaca652247bd1", null ],
     [ "button_draw_button_text", "button_8c.html#a16cb10a894bca788bcb776c12faa3a3d", null ],
+    [ "button_draw_button_text_touhou98", "button_8c.html#a6f74bcf247362f6b65a85f1838b50ee8", null ],
     [ "button_draw_selector_text", "button_8c.html#a04a3a93a81cb79a96330af3305b42af5", null ],
     [ "button_get_button_position", "button_8c.html#a5e2f86177baf1c45df3f71621e9ac4a5", null ],
     [ "button_get_current_button", "button_8c.html#a3ff8b2f96ad4e580d2a74f6aa8ad96a1", null ],

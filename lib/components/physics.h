@@ -39,6 +39,10 @@
 
 typedef struct Pool Pool;
 
+/**
+ * @brief composante physique dans l'ECS
+ * Cette composante ajoute les notions de vitesse, accélération, vélocité angulaire et force newtonienne à une entité.
+ */
 typedef struct Physics {
   /* Données */
   float speed;  // Vitesse, speed < 0 => angle *= -1

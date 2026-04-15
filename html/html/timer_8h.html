@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/systems/timer.h File Reference</title>
+<title>Yume Project: lib/systems/timer.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -98,7 +98,7 @@ $(function(){initNavTree('timer_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Timer" id="r_Timer"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structTimer.html">Timer</a></td></tr>
+<tr class="memitem:Timer" id="r_Timer"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_timer.html">Timer</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -106,10 +106,14 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a11b3f1b289b75398e02cfd8924148c89" id="r_a11b3f1b289b75398e02cfd8924148c89"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a11b3f1b289b75398e02cfd8924148c89">timer_add_time</a> (<a class="el" href="structTimer.html">Timer</a> *timer, int time)</td></tr>
-<tr class="memitem:ab6323cddfd396874690dd78197088a3e" id="r_ab6323cddfd396874690dd78197088a3e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ab6323cddfd396874690dd78197088a3e">timer_current_time</a> (<a class="el" href="structTimer.html">Timer</a> *timer)</td></tr>
-<tr class="memitem:aa0a708f6c6fb25ba4e7abbe95e737db4" id="r_aa0a708f6c6fb25ba4e7abbe95e737db4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa0a708f6c6fb25ba4e7abbe95e737db4">timer_loop</a> (<a class="el" href="structTimer.html">Timer</a> *timer, int max)</td></tr>
-<tr class="memitem:a68ac0b65a3d1dbd952d9c47a702b2b99" id="r_a68ac0b65a3d1dbd952d9c47a702b2b99"><td class="memItemLeft"><a class="el" href="structTimer.html">Timer</a>&#160;</td><td class="memItemRight"><a class="el" href="#a68ac0b65a3d1dbd952d9c47a702b2b99">timer_create</a> ()</td></tr>
+<tr class="memitem:a11b3f1b289b75398e02cfd8924148c89" id="r_a11b3f1b289b75398e02cfd8924148c89"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a11b3f1b289b75398e02cfd8924148c89">timer_add_time</a> (<a class="el" href="struct_timer.html">Timer</a> *<a class="el" href="state__game__over_8c.html#ae2c6087027bfdf561a2b766975b47ee8">timer</a>, int time)</td></tr>
+<tr class="memdesc:a11b3f1b289b75398e02cfd8924148c89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un temps au timer.  <br /></td></tr>
+<tr class="memitem:ab6323cddfd396874690dd78197088a3e" id="r_ab6323cddfd396874690dd78197088a3e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ab6323cddfd396874690dd78197088a3e">timer_current_time</a> (<a class="el" href="struct_timer.html">Timer</a> *<a class="el" href="state__game__over_8c.html#ae2c6087027bfdf561a2b766975b47ee8">timer</a>)</td></tr>
+<tr class="memdesc:ab6323cddfd396874690dd78197088a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le temps actuel du timer.  <br /></td></tr>
+<tr class="memitem:aa0a708f6c6fb25ba4e7abbe95e737db4" id="r_aa0a708f6c6fb25ba4e7abbe95e737db4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa0a708f6c6fb25ba4e7abbe95e737db4">timer_loop</a> (<a class="el" href="struct_timer.html">Timer</a> *<a class="el" href="state__game__over_8c.html#ae2c6087027bfdf561a2b766975b47ee8">timer</a>, int max)</td></tr>
+<tr class="memdesc:aa0a708f6c6fb25ba4e7abbe95e737db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le timer a atteint sa limite.  <br /></td></tr>
+<tr class="memitem:a68ac0b65a3d1dbd952d9c47a702b2b99" id="r_a68ac0b65a3d1dbd952d9c47a702b2b99"><td class="memItemLeft"><a class="el" href="struct_timer.html">Timer</a>&#160;</td><td class="memItemRight"><a class="el" href="#a68ac0b65a3d1dbd952d9c47a702b2b99">timer_create</a> ()</td></tr>
+<tr class="memdesc:a68ac0b65a3d1dbd952d9c47a702b2b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un nouveau timer.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a5683f832c24617e559f6695f5ffb4234" name="a5683f832c24617e559f6695f5ffb4234"></a>
@@ -136,7 +140,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void timer_add_time </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structTimer.html">Timer</a> *</td>          <td class="paramname"><span class="paramname"><em>timer</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_timer.html">Timer</a> *</td>          <td class="paramname"><span class="paramname"><em>timer</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -145,6 +149,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ajoute un temps au timer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="state__game__over_8c.html#ae2c6087027bfdf561a2b766975b47ee8">timer</a></td><td>Le timer à mettre à jour </td></tr>
+    <tr><td class="paramname">time</td><td>Le temps à ajouter </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -155,13 +168,16 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structTimer.html">Timer</a> timer_create </td>
+          <td class="memname"><a class="el" href="struct_timer.html">Timer</a> timer_create </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Crée un nouveau timer. </p>
+<dl class="section return"><dt>Returns</dt><dd>Le timer créé </dd></dl>
 
 </div>
 </div>
@@ -174,11 +190,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int timer_current_time </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structTimer.html">Timer</a> *</td>          <td class="paramname"><span class="paramname"><em>timer</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_timer.html">Timer</a> *</td>          <td class="paramname"><span class="paramname"><em>timer</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Récupère le temps actuel du timer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="state__game__over_8c.html#ae2c6087027bfdf561a2b766975b47ee8">timer</a></td><td>Le timer à interroger </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Le temps actuel du timer </dd></dl>
 
 </div>
 </div>
@@ -191,7 +216,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool timer_loop </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structTimer.html">Timer</a> *</td>          <td class="paramname"><span class="paramname"><em>timer</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_timer.html">Timer</a> *</td>          <td class="paramname"><span class="paramname"><em>timer</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -200,6 +225,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Vérifie si le timer a atteint sa limite. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="state__game__over_8c.html#ae2c6087027bfdf561a2b766975b47ee8">timer</a></td><td>Le timer à interroger </td></tr>
+    <tr><td class="paramname">max</td><td>La limite du timer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si le timer a atteint sa limite, false sinon </dd></dl>
 
 </div>
 </div>

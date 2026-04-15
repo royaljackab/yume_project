@@ -1,7 +1,7 @@
 var coevent_8h =
 [
-    [ "CoEvent", "structCoEvent.html", "structCoEvent" ],
-    [ "CoEventSnapshot", "structCoEventSnapshot.html", "structCoEventSnapshot" ],
+    [ "CoEvent", "struct_co_event.html", "struct_co_event" ],
+    [ "CoEventSnapshot", "struct_co_event_snapshot.html", "struct_co_event_snapshot" ],
     [ "COEVENT_ARRAY_ACTION", "coevent_8h.html#a19250ce3b0d934259bf9e257eaa6f37d", null ],
     [ "COEVENT_CANCEL_ARRAY", "coevent_8h.html#a74e044e28e42db5598763ef55d9cb564", null ],
     [ "COEVENT_INIT_ARRAY", "coevent_8h.html#ab165c1bc8977b04c551a06f98321fec2", null ],

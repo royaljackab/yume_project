@@ -1,4 +1,30 @@
 var searchData=
 [
-  ['update_5fkey_0',['UPDATE_KEY',['../input_8c.html#ab4c39e6ba4e9df2dc0081135cbce280d',1,'input.c']]]
+  ['task_0',['TASK',['../tasks_8h.html#a04e89880e3193178c6225464518f9642',1,'tasks.h']]],
+  ['task_5fargs_5fstruct_1',['TASK_ARGS_STRUCT',['../tasks_8h.html#ae8562c9201b1e5ea56fa750c54575f7a',1,'tasks.h']]],
+  ['task_5fargs_5ftype_2',['TASK_ARGS_TYPE',['../tasks_8h.html#ad34049c6e56b8dbcae470ef7cdbba066',1,'tasks.h']]],
+  ['task_5fargscond_3',['TASK_ARGSCOND',['../tasks_8h.html#a02aeb65ca78358874b560f0797a6468d',1,'tasks.h']]],
+  ['task_5fargscond_5fname_4',['TASK_ARGSCOND_NAME',['../tasks_8h.html#abb92682cb7bfef7b786feb783744b5b7',1,'tasks.h']]],
+  ['task_5fargsdelay_5',['TASK_ARGSDELAY',['../tasks_8h.html#abf79c30e98dc2637cbc2175f26ac14c0',1,'tasks.h']]],
+  ['task_5fargsdelay_5fname_6',['TASK_ARGSDELAY_NAME',['../tasks_8h.html#ad853ef1325957c2d763eeee6da6a2347',1,'tasks.h']]],
+  ['task_5fbind_7',['TASK_BIND',['../tasks_8h.html#ac893543f5cae90f50d077ad35ced8837',1,'tasks.h']]],
+  ['task_5fcommon_5fbegin_5fbody_5fdefinition_8',['TASK_COMMON_BEGIN_BODY_DEFINITION',['../tasks_8h.html#a969b06d367c5e89b8da113d3a3d69492',1,'tasks.h']]],
+  ['task_5fcommon_5fdeclarations_9',['TASK_COMMON_DECLARATIONS',['../tasks_8h.html#a69c48c09ec44e5106d45a02091a0cde1',1,'tasks.h']]],
+  ['task_5fcommon_5fprivate_5fdeclarations_10',['TASK_COMMON_PRIVATE_DECLARATIONS',['../tasks_8h.html#af8d88e3445986632b236c605249b1e05',1,'tasks.h']]],
+  ['task_5fcommon_5fthunk_5fdefinitions_11',['TASK_COMMON_THUNK_DEFINITIONS',['../tasks_8h.html#a0cb80b5a25ae6996dcdba7a48f2b23a4',1,'tasks.h']]],
+  ['task_5fevents_12',['TASK_EVENTS',['../tasks_8h.html#aea41f942eeafcfbe8ee83cb9e9868e68',1,'tasks.h']]],
+  ['task_5fhost_5fent_13',['TASK_HOST_ENT',['../tasks_8h.html#a65cbc1faae17daeef6d65c1d64c4c96b',1,'tasks.h']]],
+  ['task_5fhost_5fevents_14',['TASK_HOST_EVENTS',['../tasks_8h.html#aecf94c72a11378bf4fafe6b774938794',1,'tasks.h']]],
+  ['task_5fiface_5fargs_5fsized_5fptr_5ftype_15',['TASK_IFACE_ARGS_SIZED_PTR_TYPE',['../tasks_8h.html#a319e21e721e2134427e772da68a93f30',1,'tasks.h']]],
+  ['task_5fiface_5fargs_5ftype_16',['TASK_IFACE_ARGS_TYPE',['../tasks_8h.html#a1e0819b56d790167ef1e3b806ac4ea51',1,'tasks.h']]],
+  ['task_5fiface_5fname_17',['TASK_IFACE_NAME',['../tasks_8h.html#a4c3a6b5f5787ee618c24a5bf28c01704',1,'tasks.h']]],
+  ['task_5fiface_5fsargs_18',['TASK_IFACE_SARGS',['../tasks_8h.html#ac98feb4ecd073f053b3adcdf9bf87ac8',1,'tasks.h']]],
+  ['task_5findirect_19',['TASK_INDIRECT',['../tasks_8h.html#a4cc4be57ee8bf0942ab5df1653b11f8b',1,'tasks.h']]],
+  ['task_5findirect_5finit_20',['TASK_INDIRECT_INIT',['../tasks_8h.html#a8ad415c2b454230c4bc828ecfcaa5dbe',1,'tasks.h']]],
+  ['task_5findirect_5ftype_21',['TASK_INDIRECT_TYPE',['../tasks_8h.html#a948063020bca55abf4610f20e4d168df',1,'tasks.h']]],
+  ['task_5findirect_5ftype_5falias_22',['TASK_INDIRECT_TYPE_ALIAS',['../tasks_8h.html#ad089641fb8e4d3b43c67e8ae413adbef',1,'tasks.h']]],
+  ['task_5fmalloc_23',['TASK_MALLOC',['../tasks_8h.html#ae616d19805b9f259bbcf9d65045aa7cd',1,'tasks.h']]],
+  ['task_5fwith_5finterface_24',['TASK_WITH_INTERFACE',['../tasks_8h.html#a97062545469c099c2fb80374abdbbe98',1,'tasks.h']]],
+  ['this_5fsched_25',['THIS_SCHED',['../tasks_8h.html#abeca713539b4adcb75c2f54f99f831c7',1,'tasks.h']]],
+  ['this_5ftask_26',['THIS_TASK',['../tasks_8h.html#aadc62b6188b4cdd168ab096c6af40aae',1,'tasks.h']]]
 ];

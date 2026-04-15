@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/components/flags.h File Reference</title>
+<title>Yume Project: lib/components/flags.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -92,7 +92,7 @@ $(function(){initNavTree('flags_8h.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Composant Flag pour identifier le type d'une entité  
+<p>Les flags sont des critères qu'une entité peut avoir ou ne pas avoir. Chaque flag active un comportement particulier dans le jeu.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="component_8h_source.html">ecs/component.h</a>&quot;</code><br />
 </div>
@@ -100,7 +100,8 @@ $(function(){initNavTree('flags_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:flagList" id="r_flagList"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structflagList.html">flagList</a></td></tr>
+<tr class="memitem:flagList" id="r_flagList"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structflag_list.html">flagList</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">composante <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> dans l'ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans une flaglist  <a href="structflag_list.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -117,24 +118,37 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#a829563b1e19fae59f905c1afb76fe4eba49580dd670e81282092075ec9dd878fd">FLAG_BULLET_PLAYER</a>
 , <a class="el" href="#a829563b1e19fae59f905c1afb76fe4ebae5dfc22cefcd66dfc74864f53169b653">FLAG_PROJECTILE_PLAYER</a>
 , <a class="el" href="#a829563b1e19fae59f905c1afb76fe4ebaca407741dd7917b44d6ba259d8fe72d0">FLAG_PROJECTILE_ENEMY</a>
-, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4ebac174138c48a85cf3dee629bbd2cb1e32">FLAG_POWERUP</a>
+, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eba0c24a2facbf11c0b21d14d13eb1353f3">FLAG_NO_DAMAGE_PLAYER</a>
 , <br />
-&#160;&#160;<a class="el" href="#a829563b1e19fae59f905c1afb76fe4eba9baad3ad08c5ff1515378daab1e74e60">FLAG_WALL</a>
+&#160;&#160;<a class="el" href="#a829563b1e19fae59f905c1afb76fe4ebac174138c48a85cf3dee629bbd2cb1e32">FLAG_POWERUP</a>
+, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eba9baad3ad08c5ff1515378daab1e74e60">FLAG_WALL</a>
 , <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eba7ac8a80db3663d375a179db23605c6dd">FLAG_INVINCIBLE</a>
+, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eba1c5e4cbb659b9a61db38678c37b7faa2">FLAG_DECREASE_SCORE</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a829563b1e19fae59f905c1afb76fe4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identificateurs uniques de certaines propriétés.  <a href="#a829563b1e19fae59f905c1afb76fe4eb">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aac1e8107acb06567b81611118aea4922" id="r_aac1e8107acb06567b81611118aea4922"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aac1e8107acb06567b81611118aea4922">Flag_in_list</a> (<a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> type, <a class="el" href="structflagList.html">flagList</a> *list)</td></tr>
-<tr class="memitem:a5b6afbcdda064ac0c58601203cef3081" id="r_a5b6afbcdda064ac0c58601203cef3081"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5b6afbcdda064ac0c58601203cef3081">flagList_add_element</a> (<a class="el" href="structflagList.html">flagList</a> *list, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> type)</td></tr>
-<tr class="memitem:a1ed41a9385597efb8e6844458b36b271" id="r_a1ed41a9385597efb8e6844458b36b271"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1ed41a9385597efb8e6844458b36b271">Entity_has_flag_in_list</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="structflagList.html">flagList</a> *list)</td></tr>
-<tr class="memitem:ad480086adcb83232d6d21a10729201c8" id="r_ad480086adcb83232d6d21a10729201c8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad480086adcb83232d6d21a10729201c8">flagList_destroy</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e)</td></tr>
-<tr class="memitem:a75c5e339417c25a8b6939f2e6be8c774" id="r_a75c5e339417c25a8b6939f2e6be8c774"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a75c5e339417c25a8b6939f2e6be8c774">Entity_has_flag</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> flag)</td></tr>
-<tr class="memitem:aec1e17d7948ae0e24a28bfa4a6b33883" id="r_aec1e17d7948ae0e24a28bfa4a6b33883"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#aec1e17d7948ae0e24a28bfa4a6b33883">flagList_attach_first_flag</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> flag)</td></tr>
+<tr class="memitem:aac1e8107acb06567b81611118aea4922" id="r_aac1e8107acb06567b81611118aea4922"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aac1e8107acb06567b81611118aea4922">Flag_in_list</a> (<a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> type, <a class="el" href="structflag_list.html">flagList</a> *list)</td></tr>
+<tr class="memdesc:aac1e8107acb06567b81611118aea4922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si un <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> est présent dans une <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a>.  <br /></td></tr>
+<tr class="memitem:a5b6afbcdda064ac0c58601203cef3081" id="r_a5b6afbcdda064ac0c58601203cef3081"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5b6afbcdda064ac0c58601203cef3081">flagList_add_element</a> (<a class="el" href="structflag_list.html">flagList</a> *list, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> type)</td></tr>
+<tr class="memdesc:a5b6afbcdda064ac0c58601203cef3081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> à la fin d'une <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a>.  <br /></td></tr>
+<tr class="memitem:a0fb13d6e64a470f872a5608fb9194977" id="r_a0fb13d6e64a470f872a5608fb9194977"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0fb13d6e64a470f872a5608fb9194977">flagList_remove_element</a> (<a class="el" href="structflag_list.html">flagList</a> *list, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> type)</td></tr>
+<tr class="memdesc:a0fb13d6e64a470f872a5608fb9194977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime la première occurrence d'un <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> dans une <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a>.  <br /></td></tr>
+<tr class="memitem:a1ed41a9385597efb8e6844458b36b271" id="r_a1ed41a9385597efb8e6844458b36b271"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1ed41a9385597efb8e6844458b36b271">Entity_has_flag_in_list</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="structflag_list.html">flagList</a> *list)</td></tr>
+<tr class="memdesc:a1ed41a9385597efb8e6844458b36b271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une entité possède au moins un flag présent dans une <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> donnée.  <br /></td></tr>
+<tr class="memitem:ad480086adcb83232d6d21a10729201c8" id="r_ad480086adcb83232d6d21a10729201c8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad480086adcb83232d6d21a10729201c8">flagList_destroy</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e)</td></tr>
+<tr class="memdesc:ad480086adcb83232d6d21a10729201c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> attachée à une entité dans la <a class="el" href="struct_pool.html" title="La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...">Pool</a>.  <br /></td></tr>
+<tr class="memitem:a75c5e339417c25a8b6939f2e6be8c774" id="r_a75c5e339417c25a8b6939f2e6be8c774"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a75c5e339417c25a8b6939f2e6be8c774">Entity_has_flag</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> entity, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> flag)</td></tr>
+<tr class="memdesc:a75c5e339417c25a8b6939f2e6be8c774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une entité possède un flag précis.  <br /></td></tr>
+<tr class="memitem:aec1e17d7948ae0e24a28bfa4a6b33883" id="r_aec1e17d7948ae0e24a28bfa4a6b33883"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#aec1e17d7948ae0e24a28bfa4a6b33883">flagList_attach_first_flag</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e, <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> flag)</td></tr>
+<tr class="memdesc:aec1e17d7948ae0e24a28bfa4a6b33883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée et attache une nouvelle <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> initialisée avec un flag.  <br /></td></tr>
+<tr class="memitem:a48bb84023638ad1f0217e25f8b2070eb" id="r_a48bb84023638ad1f0217e25f8b2070eb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a48bb84023638ad1f0217e25f8b2070eb">Flag_display</a> (<a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> flag)</td></tr>
+<tr class="memdesc:a48bb84023638ad1f0217e25f8b2070eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le type de flag dans la console (debug).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Composant Flag pour identifier le type d'une entité </p>
+<div class="textblock"><p>Les flags sont des critères qu'une entité peut avoir ou ne pas avoir. Chaque flag active un comportement particulier dans le jeu. </p>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="aea77c3647896556fe9a577bab0092c12" name="aea77c3647896556fe9a577bab0092c12"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea77c3647896556fe9a577bab0092c12">&#9670;&#160;</a></span>MAX_FLAGS</h2>
@@ -162,6 +176,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Identificateurs uniques de certaines propriétés. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a829563b1e19fae59f905c1afb76fe4eba5928d275e9e42840d63ed0f5cf5c1e9b" name="a829563b1e19fae59f905c1afb76fe4eba5928d275e9e42840d63ed0f5cf5c1e9b"></a>FLAG_NONE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a829563b1e19fae59f905c1afb76fe4ebaeb4a30edd1affecd14d9ab06964235bf" name="a829563b1e19fae59f905c1afb76fe4ebaeb4a30edd1affecd14d9ab06964235bf"></a>FLAG_PLAYER&#160;</td><td class="fielddoc"></td></tr>
@@ -170,9 +186,11 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a829563b1e19fae59f905c1afb76fe4eba49580dd670e81282092075ec9dd878fd" name="a829563b1e19fae59f905c1afb76fe4eba49580dd670e81282092075ec9dd878fd"></a>FLAG_BULLET_PLAYER&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a829563b1e19fae59f905c1afb76fe4ebae5dfc22cefcd66dfc74864f53169b653" name="a829563b1e19fae59f905c1afb76fe4ebae5dfc22cefcd66dfc74864f53169b653"></a>FLAG_PROJECTILE_PLAYER&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a829563b1e19fae59f905c1afb76fe4ebaca407741dd7917b44d6ba259d8fe72d0" name="a829563b1e19fae59f905c1afb76fe4ebaca407741dd7917b44d6ba259d8fe72d0"></a>FLAG_PROJECTILE_ENEMY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a829563b1e19fae59f905c1afb76fe4eba0c24a2facbf11c0b21d14d13eb1353f3" name="a829563b1e19fae59f905c1afb76fe4eba0c24a2facbf11c0b21d14d13eb1353f3"></a>FLAG_NO_DAMAGE_PLAYER&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a829563b1e19fae59f905c1afb76fe4ebac174138c48a85cf3dee629bbd2cb1e32" name="a829563b1e19fae59f905c1afb76fe4ebac174138c48a85cf3dee629bbd2cb1e32"></a>FLAG_POWERUP&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a829563b1e19fae59f905c1afb76fe4eba9baad3ad08c5ff1515378daab1e74e60" name="a829563b1e19fae59f905c1afb76fe4eba9baad3ad08c5ff1515378daab1e74e60"></a>FLAG_WALL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a829563b1e19fae59f905c1afb76fe4eba7ac8a80db3663d375a179db23605c6dd" name="a829563b1e19fae59f905c1afb76fe4eba7ac8a80db3663d375a179db23605c6dd"></a>FLAG_INVINCIBLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a829563b1e19fae59f905c1afb76fe4eba1c5e4cbb659b9a61db38678c37b7faa2" name="a829563b1e19fae59f905c1afb76fe4eba1c5e4cbb659b9a61db38678c37b7faa2"></a>FLAG_DECREASE_SCORE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -187,7 +205,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Entity_has_flag </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -202,6 +220,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Vérifie si une entité possède un flag précis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">entity</td><td>Identifiant de l'entité à inspecter. </td></tr>
+    <tr><td class="paramname">flag</td><td>Le <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> recherché. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si l'entité possède <span class="tt">flag</span>, false sinon. </dd></dl>
+
 </div>
 </div>
 <a id="a1ed41a9385597efb8e6844458b36b271" name="a1ed41a9385597efb8e6844458b36b271"></a>
@@ -213,7 +242,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Entity_has_flag_in_list </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -223,10 +252,47 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structflagList.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>list</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="structflag_list.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>list</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Vérifie si une entité possède au moins un flag présent dans une <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> donnée. </p>
+<p>Récupère la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> de l'entité depuis la <span class="tt"><a class="el" href="struct_pool.html" title="La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...">Pool</a></span> et compare chaque flag avec les éléments de la liste fournie.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">entity</td><td>Identifiant de l'entité à vérifier. </td></tr>
+    <tr><td class="paramname">list</td><td>Pointeur vers la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> de référence. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si l'entité possède au moins un flag contenu dans <span class="tt">list</span>, false sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a48bb84023638ad1f0217e25f8b2070eb" name="a48bb84023638ad1f0217e25f8b2070eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48bb84023638ad1f0217e25f8b2070eb">&#9670;&#160;</a></span>Flag_display()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Flag_display </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a></td>          <td class="paramname"><span class="paramname"><em>flag</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le type de flag dans la console (debug). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flag</td><td>le flagType à afficher </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -244,10 +310,21 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structflagList.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>list</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="structflag_list.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>list</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Vérifie si un <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> est présent dans une <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a>. </p>
+<p>Parcourt le tableau de flags de la liste et retourne vrai si le type est trouvé.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>Le <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> recherché. </td></tr>
+    <tr><td class="paramname">list</td><td>Pointeur vers la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> à inspecter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si le flag est présent, false sinon. </dd></dl>
 
 </div>
 </div>
@@ -260,7 +337,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool flagList_add_element </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structflagList.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>list</em></span>, </td>
+          <td class="paramtype"><a class="el" href="structflag_list.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>list</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -269,6 +346,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ajoute un <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> à la fin d'une <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a>. </p>
+<p>Si la liste contient déjà <span class="tt"><a class="el" href="#aea77c3647896556fe9a577bab0092c12">MAX_FLAGS</a></span> éléments, l'ajout échoue.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>Pointeur vers la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> cible. </td></tr>
+    <tr><td class="paramname">type</td><td>Le <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> à ajouter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si l'ajout a réussi, false sinon. </dd></dl>
 <p>ajoute un flag a la fin de la liste et met a jour size</p>
 
 </div>
@@ -282,7 +370,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> flagList_attach_first_flag </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -296,7 +384,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Crée et attache une <a class="el" href="structflagList.html">flagList</a> avec un flag à une entité, attention overwrite toute <a class="el" href="structflagList.html">flagList</a> existante. Fait le malloc ici</p>
+
+<p>Crée et attache une nouvelle <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> initialisée avec un flag. </p>
+<p>Alloue un tableau de taille <span class="tt"><a class="el" href="#aea77c3647896556fe9a577bab0092c12">MAX_FLAGS</a></span>, crée une <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> et l'attache à l'entité. ATTENTION : écrase toute <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> existante pour cette entité.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">e</td><td>Identifiant de l'entité cible. </td></tr>
+    <tr><td class="paramname">flag</td><td>Le premier <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> à ajouter à la liste. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>L'entité passée en paramètre (utile pour chaînage). </dd></dl>
 
 </div>
 </div>
@@ -309,7 +408,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void flagList_destroy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -318,6 +417,48 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Détruit la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> attachée à une entité dans la <a class="el" href="struct_pool.html" title="La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...">Pool</a>. </p>
+<p>Libère la mémoire allouée pour le tableau de flags puis retire le composant de la <span class="tt"><a class="el" href="struct_pool.html" title="La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...">Pool</a></span>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">e</td><td>Identifiant de l'entité dont la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> doit être détruite. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0fb13d6e64a470f872a5608fb9194977" name="a0fb13d6e64a470f872a5608fb9194977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fb13d6e64a470f872a5608fb9194977">&#9670;&#160;</a></span>flagList_remove_element()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool flagList_remove_element </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structflag_list.html">flagList</a> *</td>          <td class="paramname"><span class="paramname"><em>list</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime la première occurrence d'un <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> dans une <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a>. </p>
+<p>Décale les éléments suivants pour combler le trou et décrémente <span class="tt">size</span>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>Pointeur vers la <a class="el" href="structflag_list.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a>. </td></tr>
+    <tr><td class="paramname">type</td><td>Le <a class="el" href="#a829563b1e19fae59f905c1afb76fe4eb" title="Identificateurs uniques de certaines propriétés.">FlagType</a> à supprimer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si un élément a été supprimé, false si le type n'a pas été trouvé. </dd></dl>
 
 </div>
 </div>
