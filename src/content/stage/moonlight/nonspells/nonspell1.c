@@ -34,7 +34,7 @@ TASK(slow_ring, {Pool *pool; Entity boss; int nb_bullets; float speed_slow; floa
         PlaySound(sfx[SFX_TAN00]);
 
         Entity id_laser = loose_laser_create(ARGS.pool, x, y, 2, 4, 2, 60, GREEN);
-        printf("SPEED LASER : %f | ANG SPEED : %f\n", obj_looseHead_GetAcceleration(ARGS.pool, id_laser));
+        printf("SPEED LASER : %f | ANG SPEED : %f\n", obj_looseHead_GetAngularSpeed(ARGS.pool, id_laser));
         if(timer>300){
             obj_looseHead_SetSpeed(ARGS.pool, id_laser, 10);
             obj_looseHead_SetAngularSpeed(ARGS.pool, id_laser, 60);
