@@ -153,7 +153,7 @@ extern void Player_bomb(GameContext *ctx, Entity player) {
     Position *pos = Position_get(&p->position, player);
     if (Player_get_bombs(Player_get(&p->player, player)) > 0) {
         if(input->bomb.isPressed) {
-            Bullet_clear_bullets(p); //supprime toutes les balles
+            Bullet_clear_bullets(ctx); //supprime toutes les balles
             // Son de la bombe
             if (!IsSoundPlaying(sfx[SFX_BOMB])) {
                 PlaySound(sfx[SFX_BOMB]);
