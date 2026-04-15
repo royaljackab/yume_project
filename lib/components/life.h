@@ -13,6 +13,7 @@
 #pragma once
 
 #include "ecs/component.h"
+#include "player.h"
 #include "systems/score.h"
 #include <stdbool.h>
 
@@ -54,4 +55,4 @@ extern bool Life_is_dead(Life *life);
  * @param p pool
  * @param scoreS manager de score
  */
-extern void Life_update_all(Pool * p, ScoreSystem * scoreS);
+extern void Life_update_all(GameContext *ctx, ScoreSystem * scoreS);

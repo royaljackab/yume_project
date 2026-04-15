@@ -1,5 +1,6 @@
 #pragma once
 
+#include "assets.h"
 #include "bullet.h"
 #include "coroutine/tasks.h"
 #include "cotask.h"
@@ -16,7 +17,7 @@ DECLARE_EXTERN_TASK(phase_timer, { CoEvent *event; int duration; });
 
 DECLARE_EXTERN_TASK(obj_GoTo, {Pool *pool; Entity objId; float x; float y; float speed;});
 
-DECLARE_EXTERN_TASK(play_anim_once, {Pool *pool; float x; float y; int sprite_id; });
+DECLARE_EXTERN_TASK(play_anim_once, {Pool *pool; float x; float y; float scaleX; float scaleY; int sprite_id; float alpha; });
 
 DECLARE_EXTERN_TASK(boss_orb_effect, {Pool *pool; Entity boss; });
 DECLARE_EXTERN_TASK(boss_pentagram_effect, {Pool *pool; Entity boss; });
@@ -59,3 +60,6 @@ DECLARE_EXTERN_TASK(start_spellcard_sequence, {Pool *pool; Entity boss; const ch
     } \
     CANCEL_TASK(MACRO_CONCAT(box_, var)); \
     Bullet_clear_bullets(pool);
+
+DECLARE_EXTERN_TASK(Bullet_spawn_accel, {Pool *p; Entity bullet; float speed;
+    float accel; int accel_delay;});

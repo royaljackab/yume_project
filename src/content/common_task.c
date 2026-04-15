@@ -1,10 +1,12 @@
 #include "common_task.h"
 #include "assets.h"
+#include "bullet.h"
 #include "coevent.h"
 #include "common.h"
 #include "flags.h"
 #include "hud.h"
 #include "moonlight_bg.h"
+#include "physics.h"
 #include "player.h"
 #include "screen.h"
 #include "systems/obj.h"
@@ -48,6 +50,8 @@ DEFINE_EXTERN_TASK(play_anim_once) {
 
     Sprite *spr = Sprite_get(&ARGS.pool->sprite, anim_entity);
     int duration_frames = 1;
+    obj_SetScale(ARGS.pool, anim_entity, ARGS.scaleX, ARGS.scaleY);
+    obj_SetAlpha(ARGS.pool, anim_entity, ARGS.alpha);
 
     if (spr && spr->isAnimated) {
         duration_frames = spr->animFrameCount * spr->animSpeed;
@@ -453,4 +457,16 @@ DEFINE_EXTERN_TASK(start_spellcard_sequence) {
 
     // 4 - FIN
     obj_RemoveFlag(p, boss, FLAG_INVINCIBLE);
+}
+
+DEFINE_EXTERN_TASK(Bullet_spawn_accel) {
+    Entity bullet = ARGS.bullet;
+    TASK_BIND(bullet);
+    obj_SetSpeed(ARGS.p, bullet, ARGS.accel);
+    obj_SetMinSpd(ARGS.p, bullet, ARGS.speed);
+    obj_SetAcceleration(ARGS.p, bullet, (ARGS.speed - ARGS.accel) / (float)ARGS.accel_delay );
+    WAIT(ARGS.accel_delay);
+    obj_SetSpeed(ARGS.p, bullet, ARGS.speed);
+    obj_SetMinSpd(ARGS.p, bullet, NO_MIN_SPEED);
+    obj_SetAcceleration(ARGS.p, bullet, 0);
 }
