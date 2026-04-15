@@ -147,7 +147,8 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
 }
 
 
-static void Player_bomb(InputSystem *input, Pool *p, Entity player) {
+extern void Player_bomb(InputSystem *input, GameContext *ctx, Entity player) {
+    Pool *p = &ctx->pool;
     Position *pos = Position_get(&p->position, player);
     if (Player_get_bombs(Player_get(&p->player, player)) > 0) {
         if(input->bomb.isPressed) {
@@ -157,7 +158,7 @@ static void Player_bomb(InputSystem *input, Pool *p, Entity player) {
                 PlaySound(sfx[SFX_BOMB]);
             }
             Player_get(&p->player, player)->bombs--;
-            SCHED_INVOKE_TASK(orb_explosion, p, pos->pos.x, pos->pos.y);
+            SCHED_INVOKE_TASK(&ctx->sched, orb_explosion, ctx->pool, pos->pos.x, pos->pos.y);
         }
     }
 }

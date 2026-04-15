@@ -65,3 +65,4 @@ extern float Player_GetY(Pool *p);
 
 extern void teleport_to_player_spawn(Pool *p, Entity e);
 extern bool Damage_player(GameContext *ctx, Entity player);
+extern void Player_bomb(InputSystem *input, Pool *p, Entity player);
