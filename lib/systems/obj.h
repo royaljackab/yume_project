@@ -351,3 +351,28 @@ void obj_AddFlag(Pool *p, Entity objId, FlagType flag);
  * @param flag Le drapeau à supprimer
  */
 void obj_RemoveFlag(Pool *p, Entity objId, FlagType flag);
+
+/*----------------------------------------------------*/
+void obj_looseHead_SetSpeed(Pool *p, Entity objId, float speed);
+void obj_looseHead_SetMaxSpd(Pool *p, Entity objId, float speed);
+void obj_looseHead_SetMinSpd(Pool *p, Entity objId, float speed);
+void obj_looseHead_UnsetMaxSpd(Pool *p, Entity objId);
+void obj_looseHead_UnsetMinSpd(Pool *p, Entity objId);
+void obj_looseHead_SetAcceleration(Pool *p, Entity objId, float accel);
+void obj_looseHead_SetAngularSpeed(Pool *p, Entity objId, float angularSpeed);
+void obj_looseHead_SetVelocity(Pool *p, Entity objId, Vector2 velocity);
+void obj_looseHead_SetForceX(Pool *p, Entity objId, float forceX);
+void obj_looseHead_ForceY(Pool *p, Entity objId, float forceY);
+void obj_looseHead_Force(Pool *p, Entity objId, Vector2 force);
+
+Entity obj_GetlooseHeadId(Pool * p, Entity objId);
+
+float obj_looseHead_GetSpeed(Pool *p, Entity objId);
+float obj_looseHead_GetMaxSpd(Pool *p, Entity objId);
+float obj_looseHead_GetMinSpd(Pool *p, Entity objId);
+float obj_looseHead_GetAcceleration(Pool *p, Entity objId);
+float obj_looseHead_GetAngularSpeed(Pool *p, Entity objId);
+Vector2 obj_looseHead_GetVelocity(Pool *p, Entity objId);
+float obj_looseHead_GetForceX(Pool *p, Entity objId);
+float obj_looseHead_GetForceY(Pool *p, Entity objId);
+Vector2 obj_looseHead_GetForce(Pool *p, Entity objId);
