@@ -17,4 +17,6 @@ DECLARE_EXTERN_TASK(boss_distortion_effect, {Pool *pool; Entity boss; Vector2 *l
 
 DECLARE_EXTERN_TASK(orb_explosion, {Pool *pool; float x; float y;});
 
+DECLARE_EXTERN_TASK(orb_explosion_big, {Pool *pool; float x; float y;});
+
 DECLARE_EXTERN_TASK(spellcard_bg_anim, {Pool *pool; int duration; });

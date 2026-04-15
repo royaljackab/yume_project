@@ -159,8 +159,7 @@ extern void Player_bomb(GameContext *ctx, Entity player) {
                 PlaySound(sfx[SFX_BOMB]);
             }
             Player_get(&p->player, player)->bombs--;
-            SCHED_INVOKE_TASK(&ctx->sched, player_hit_effect, ctx->pool, player);
-            SCHED_INVOKE_TASK(&ctx->sched, orb_explosion, ctx->pool, pos->pos.x, pos->pos.y);
+            SCHED_INVOKE_TASK(&ctx->sched, orb_explosion_big, ctx->pool, pos->pos.x, pos->pos.y);
         }
     }
 }
