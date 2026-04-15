@@ -6,6 +6,7 @@
 #include <raylib.h>
 
 TASK(slow_ring, {Pool *pool; Entity boss; int nb_bullets; float speed_slow; float speed_mid; float speed_fast; int periode; }) {
+    int timer = 0;
     while(true) {
         float x = obj_GetX(ARGS.pool, ARGS.boss);
         float y = obj_GetY(ARGS.pool, ARGS.boss);
@@ -32,6 +33,14 @@ TASK(slow_ring, {Pool *pool; Entity boss; int nb_bullets; float speed_slow; floa
         }
         PlaySound(sfx[SFX_TAN00]);
 
+        Entity id_laser = loose_laser_create(ARGS.pool, x, y, 2, 4, 2, 60, GREEN);
+        printf("SPEED LASER : %f | ANG SPEED : %f\n", obj_looseHead_GetAcceleration(ARGS.pool, id_laser));
+        if(timer>300){
+            obj_looseHead_SetSpeed(ARGS.pool, id_laser, 10);
+            obj_looseHead_SetAngularSpeed(ARGS.pool, id_laser, 60);
+        }
+        
+        timer++;
         WAIT(ARGS.periode);
     }
 }
@@ -64,6 +73,7 @@ TASK(fast_spiral, {Pool *pool; Entity boss; int nb_bullets; int nb_legs; float r
 DEFINE_EXTERN_TASK(moriya_nonspell_1) {
     INVOKE_SUBTASK(slow_ring, ARGS.pool, ARGS.boss, 60, 2, 4, 6, 60);
     INVOKE_SUBTASK(fast_spiral, ARGS.pool, ARGS.boss, 3, 3, 8, 4, 2.2, 5);
+
 
     STALL;
 }
