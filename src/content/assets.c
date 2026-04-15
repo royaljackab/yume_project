@@ -32,42 +32,42 @@ void FontsLoad(){
   /**
    * @brief 
    */
-  fonts[TOUHOU_98] = LoadFont("../Assets/Fonts/touhou98.ttf");
+  fonts[TOUHOU_98] = LoadFont("Assets/Fonts/touhou98.ttf");
 }
 
 void AssetsLoad() {
     // Chargement des Textures existantes
     textures[BULLET_SPRITESHEET] =
-      LoadTexture("../Assets/Sprites/bullet_spritesheet.png");
+      LoadTexture("Assets/Sprites/bullet_spritesheet.png");
   textures[ENEMY_SPRITESHEET] =
-      LoadTexture("../Assets/Sprites/enemies.png");
+      LoadTexture("Assets/Sprites/enemies.png");
     textures[BOSS_SPRITESHEET] =
-      LoadTexture("../Assets/Sprites/boss_spritesheet.png");
+      LoadTexture("Assets/Sprites/boss_spritesheet.png");
     textures[ANIM_TEST_SPRITESHEET] =
-      LoadTexture("../Assets/Sprites/anim_test.png");
+      LoadTexture("Assets/Sprites/anim_test.png");
     textures[REIMU_SPRITESHEET] =
-      LoadTexture("../Assets/Sprites/reimu_spritesheet.png");
+      LoadTexture("Assets/Sprites/reimu_spritesheet.png");
   textures[HITBOX_SPRITESHEET] = 
-      LoadTexture("../Assets/Sprites/hitbox.png");
-      textures[TH14_OTHER] = LoadTexture("../Assets/Sprites/th14_other_sprites.png");
+      LoadTexture("Assets/Sprites/hitbox.png");
+      textures[TH14_OTHER] = LoadTexture("Assets/Sprites/th14_other_sprites.png");
 
     //Combos
-    textures[COMBO_1_SHEET] = LoadTexture("../Assets/Sprites/combo/1.png");
-    textures[COMBO_2_SHEET] = LoadTexture("../Assets/Sprites/combo/2.png");
-    textures[COMBO_3_SHEET] = LoadTexture("../Assets/Sprites/combo/3.png");
-    textures[COMBO_4_SHEET] = LoadTexture("../Assets/Sprites/combo/4.png");
-    textures[COMBO_5_SHEET] = LoadTexture("../Assets/Sprites/combo/5.png");
+    textures[COMBO_1_SHEET] = LoadTexture("Assets/Sprites/combo/1.png");
+    textures[COMBO_2_SHEET] = LoadTexture("Assets/Sprites/combo/2.png");
+    textures[COMBO_3_SHEET] = LoadTexture("Assets/Sprites/combo/3.png");
+    textures[COMBO_4_SHEET] = LoadTexture("Assets/Sprites/combo/4.png");
+    textures[COMBO_5_SHEET] = LoadTexture("Assets/Sprites/combo/5.png");
 
-    textures[GREEN_ARROW_SPRITE] = LoadTexture("../Assets/Sprites/green_arrow.png");
+    textures[GREEN_ARROW_SPRITE] = LoadTexture("Assets/Sprites/green_arrow.png");
 
     // Backgrounds
-    textures[BG_SC_FLOWERS] = LoadTexture("../Assets/Sprites/bg/bg_touhou_flowers.png");
-    textures[BG_SC_OV_CIRCLES] = LoadTexture("../Assets/Sprites/bg/bg_touhou_gray_circles.png");
-    textures[BG_SC_MAIN] = LoadTexture("../Assets/Sprites/bg/bg_menu.png");
-    textures[BG_PANEL] = LoadTexture("../Assets/Sprites/bg/UI_game_full.jpg");
-    textures[TEX_BG_TORII] = LoadTexture("../Assets/Sprites/bg/bg_sc_torii.jpg");
-    textures[TEX_BG_MATH] = LoadTexture("../Assets/Sprites/bg/bg_sc_ov_math.png");
-    textures[TH14_STG4] = LoadTexture("../Assets/Sprites/bg/stg4_bg.png");
+    textures[BG_SC_FLOWERS] = LoadTexture("Assets/Sprites/bg/bg_touhou_flowers.png");
+    textures[BG_SC_OV_CIRCLES] = LoadTexture("Assets/Sprites/bg/bg_touhou_gray_circles.png");
+    textures[BG_SC_MAIN] = LoadTexture("Assets/Sprites/bg/bg_menu.png");
+    textures[BG_PANEL] = LoadTexture("Assets/Sprites/bg/UI_game_full.jpg");
+    textures[TEX_BG_TORII] = LoadTexture("Assets/Sprites/bg/bg_sc_torii.jpg");
+    textures[TEX_BG_MATH] = LoadTexture("Assets/Sprites/bg/bg_sc_ov_math.png");
+    textures[TH14_STG4] = LoadTexture("Assets/Sprites/bg/stg4_bg.png");
     
     SetTextureWrap(textures[TEX_BG_MATH], TEXTURE_WRAP_REPEAT);
     SetTextureWrap(textures[BG_SC_OV_CIRCLES], TEXTURE_WRAP_REPEAT);
@@ -75,33 +75,33 @@ void AssetsLoad() {
 
     // Chargement de la Musique
     playlist[BGM_FAST_DANGER] =
-      LoadMusicStream("../Assets/Audio/BGM/fast-danger.wav");
+      LoadMusicStream("Assets/Audio/BGM/fast-danger.wav");
     playlist[BGM_QUIRKY_GOOFY] =
-      LoadMusicStream("../Assets/Audio/BGM/quirky-goofy.wav");
+      LoadMusicStream("Assets/Audio/BGM/quirky-goofy.wav");
     playlist[BGM_TO_BE_NAMED] =
-      LoadMusicStream("../Assets/Audio/BGM/tobenamedlater.wav");
+      LoadMusicStream("Assets/Audio/BGM/tobenamedlater.wav");
     playlist[BGM_WAITING] =
-      LoadMusicStream("../Assets/Audio/BGM/waiting-settingstype.wav");
+      LoadMusicStream("Assets/Audio/BGM/waiting-settingstype.wav");
     playlist[BGM_MORIYA_THEME] =
-      LoadMusicStream("../Assets/Audio/BGM/moriya_theme.wav");
+      LoadMusicStream("Assets/Audio/BGM/moriya_theme.wav");
 
     // Chargement des effets sonores
-    sfx[SFX_SHOOT] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_plst00.wav");
-    sfx[SFX_ENEMY_DEATH] = LoadSound("../Assets/Audio/SFX/enemy_death.wav");
-    sfx[SFX_MENU_NAV] = LoadSound("../Assets/Audio/SFX/menu_nav.wav");
-    sfx[SFX_TAN00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_tan00.wav");
-    sfx[SFX_TAN01] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_tan01.wav");
-    sfx[SFX_TAN02] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_tan02.wav");
-    sfx[SFX_PLDEAD00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_pldead00.wav");
+    sfx[SFX_SHOOT] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_plst00.wav");
+    sfx[SFX_ENEMY_DEATH] = LoadSound("Assets/Audio/SFX/enemy_death.wav");
+    sfx[SFX_MENU_NAV] = LoadSound("Assets/Audio/SFX/menu_nav.wav");
+    sfx[SFX_TAN00] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_tan00.wav");
+    sfx[SFX_TAN01] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_tan01.wav");
+    sfx[SFX_TAN02] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_tan02.wav");
+    sfx[SFX_PLDEAD00] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_pldead00.wav");
 
-    sfx[SFX_LAZER00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_lazer00.wav");
-    sfx[SFX_LAZER01] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_lazer01.wav");
-    sfx[SFX_LAZER02] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_lazer02.wav");
-    sfx[SFX_CAT00] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_cat00.wav");
+    sfx[SFX_LAZER00] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_lazer00.wav");
+    sfx[SFX_LAZER01] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_lazer01.wav");
+    sfx[SFX_LAZER02] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_lazer02.wav");
+    sfx[SFX_CAT00] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_cat00.wav");
 
-    sfx[SFX_GRAZE] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_graze.wav");
+    sfx[SFX_GRAZE] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_graze.wav");
 
-    sfx[SFX_BOMB] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_enep02.wav");
+    sfx[SFX_BOMB] = LoadSound("Assets/Audio/SFX/touhou_sfx/se_enep02.wav");
     
     // Load dem enemies up
     EnemiesSpritesLoad();
