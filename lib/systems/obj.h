@@ -352,27 +352,126 @@ void obj_AddFlag(Pool *p, Entity objId, FlagType flag);
  */
 void obj_RemoveFlag(Pool *p, Entity objId, FlagType flag);
 
-/*----------------------------------------------------*/
-void obj_looseHead_SetSpeed(Pool *p, Entity objId, float speed);
-void obj_looseHead_SetMaxSpd(Pool *p, Entity objId, float speed);
-void obj_looseHead_SetMinSpd(Pool *p, Entity objId, float speed);
-void obj_looseHead_UnsetMaxSpd(Pool *p, Entity objId);
-void obj_looseHead_UnsetMinSpd(Pool *p, Entity objId);
-void obj_looseHead_SetAcceleration(Pool *p, Entity objId, float accel);
-void obj_looseHead_SetAngularSpeed(Pool *p, Entity objId, float angularSpeed);
-void obj_looseHead_SetVelocity(Pool *p, Entity objId, Vector2 velocity);
-void obj_looseHead_SetForceX(Pool *p, Entity objId, float forceX);
-void obj_looseHead_ForceY(Pool *p, Entity objId, float forceY);
-void obj_looseHead_Force(Pool *p, Entity objId, Vector2 force);
 
+
+/*----------------------------------------------------*/
+
+
+
+
+/** @brief Définit la vitesse d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @param speed La vitesse à définir
+ */
+void obj_looseHead_SetSpeed(Pool *p, Entity objId, float speed);
+
+/** @brief Définit la vitesse maximale d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @param speed La vitesse maximale à définir
+ */
+void obj_looseHead_SetMaxSpd(Pool *p, Entity objId, float speed);
+
+/** @brief Définit la vitesse minimale d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @param speed La vitesse minimale à définir
+ */
+void obj_looseHead_SetMinSpd(Pool *p, Entity objId, float speed);
+
+/** @brief Supprime la vitesse maximale d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ */
+void obj_looseHead_UnsetMaxSpd(Pool *p, Entity objId);
+
+/** @brief Supprime la vitesse minimale d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ */
+void obj_looseHead_UnsetMinSpd(Pool *p, Entity objId);
+
+/** @brief Définit l'accélération d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @param accel L'accélération à définir
+ */
+void obj_looseHead_SetAcceleration(Pool *p, Entity objId, float accel);
+
+/** @brief Définit la vitesse angulaire d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @param angularSpeed La vitesse angulaire à définir
+ */
+void obj_looseHead_SetAngularSpeed(Pool *p, Entity objId, float angularSpeed);
+
+/** @brief Définit la vitesse d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @param velocity La vitesse à définir
+ */
+void obj_looseHead_SetVelocity(Pool *p, Entity objId, Vector2 velocity);
+
+/** @brief Définit la force horizontale d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @param forceX La force horizontale à définir
+ */
+void obj_looseHead_SetForceX(Pool *p, Entity objId, float forceX);
+
+/** @brief Définit la force verticale d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @param forceY La force verticale à définir
+ */
+void obj_looseHead_SetForceY(Pool *p, Entity objId, float forceY);
+
+/** @brief Définit la force d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @param force La force à définir
+ */
+void obj_looseHead_SetForce(Pool *p, Entity objId, Vector2 force);
+
+/** @brief Récupère l'ID de l'objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @return L'ID de l'objet "loose head"
+ */
 Entity obj_GetlooseHeadId(Pool * p, Entity objId);
 
+/** @brief Récupère la vitesse d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @return La vitesse de l'objet "loose head"
+ */
 float obj_looseHead_GetSpeed(Pool *p, Entity objId);
+
+/** @brief Récupère la vitesse maximale d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @return La vitesse maximale de l'objet "loose head"
+ */
 float obj_looseHead_GetMaxSpd(Pool *p, Entity objId);
+
+/** @brief Récupère la vitesse minimale d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @return La vitesse minimale de l'objet "loose head"
+ */
 float obj_looseHead_GetMinSpd(Pool *p, Entity objId);
+
+/** @brief Récupère l'accélération d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @return L'accélération de l'objet "loose head"
+ */
 float obj_looseHead_GetAcceleration(Pool *p, Entity objId);
+
+/** @brief Récupère la vitesse angulaire d'un objet "loose head"
+ * @param p Le pool contenant les objets
+ * @param objId L'ID de l'objet
+ * @return La vitesse angulaire de l'objet "loose head"
+ */
 float obj_looseHead_GetAngularSpeed(Pool *p, Entity objId);
-Vector2 obj_looseHead_GetVelocity(Pool *p, Entity objId);
-float obj_looseHead_GetForceX(Pool *p, Entity objId);
-float obj_looseHead_GetForceY(Pool *p, Entity objId);
-Vector2 obj_looseHead_GetForce(Pool *p, Entity objId);

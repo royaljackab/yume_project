@@ -364,3 +364,91 @@ void obj_RemoveFlag(Pool *p, Entity objId, FlagType flag) {
     flagList_remove_element(flags, flag);
 }
 
+
+
+//Lose head / laser setter getter
+/* -------------------------------------------------------- */
+
+Entity obj_GetlooseHeadId(Pool * p, Entity objId){
+    return Loose_laser_get(p, objId)->looseNodes[0];
+}
+
+void obj_looseHead_SetSpeed(Pool *p, Entity objId, float speed){
+    obj_SetSpeed(p, obj_GetlooseHeadId(p, objId), speed);
+}
+
+void obj_looseHead_SetMaxSpd(Pool *p, Entity objId, float speed){
+    obj_SetMaxSpd(p, obj_GetlooseHeadId(p, objId), speed);
+}
+
+void obj_looseHead_SetMinSpd(Pool *p, Entity objId, float speed){
+    obj_SetMinSpd(p, obj_GetlooseHeadId(p, objId), speed);
+}
+
+
+void obj_looseHead_UnsetMaxSpd(Pool *p, Entity objId){
+    obj_UnsetMaxSpd(p, obj_GetlooseHeadId(p, objId));
+}
+
+void obj_looseHead_UnsetMinSpd(Pool *p, Entity objId){
+    obj_UnsetMinSpd(p, obj_GetlooseHeadId(p, objId));
+}
+
+
+void obj_looseHead_SetAcceleration(Pool *p, Entity objId, float accel){
+    obj_SetAcceleration(p, obj_GetlooseHeadId(p, objId), accel);
+}
+
+
+void obj_looseHead_SetAngularSpeed(Pool *p, Entity objId, float angularSpeed){
+    obj_SetAngularSpeed(p, obj_GetlooseHeadId(p, objId), angularSpeed);
+}
+
+
+void obj_looseHead_SetVelocity(Pool *p, Entity objId, Vector2 velocity){
+    obj_SetVelocity(p, obj_GetlooseHeadId(p, objId), velocity.x, velocity.y);
+}
+
+
+void obj_looseHead_SetForceX(Pool *p, Entity objId, float forceX){
+    obj_SetForceX(p, obj_GetlooseHeadId(p, objId), forceX);
+}
+
+
+void obj_looseHead_SetForceY(Pool *p, Entity objId, float forceY){
+    obj_SetForceY(p, obj_GetlooseHeadId(p, objId), forceY);
+}
+
+
+void obj_looseHead_SetForce(Pool *p, Entity objId, Vector2 force){
+    obj_SetForce(p, obj_GetlooseHeadId(p, objId), force.x, force.y);
+}
+
+
+
+
+
+float obj_looseHead_GetSpeed(Pool *p, Entity objId){
+    return obj_GetSpeed(p, obj_GetlooseHeadId(p, objId));
+}
+
+
+float obj_looseHead_GetMaxSpd(Pool *p, Entity objId){
+    return obj_GetMaxSpd(p, obj_GetlooseHeadId(p, objId));
+}
+
+
+float obj_looseHead_GetMinSpd(Pool *p, Entity objId){
+    return obj_GetMinSpd(p, obj_GetlooseHeadId(p, objId));
+}
+
+
+float obj_looseHead_GetAcceleration(Pool *p, Entity objId){
+    return obj_GetAcceleration(p, obj_GetlooseHeadId(p, objId));
+}
+
+
+float obj_looseHead_GetAngularSpeed(Pool *p, Entity objId){
+    return obj_GetAngularSpeed(p, obj_GetlooseHeadId(p, objId));
+}
+
