@@ -154,6 +154,11 @@ void SpritesLoad() {
     Sprite_set_texture(&sprites[SPELL_CARD_ATTACK], 90, BULLET_SPRITESHEET);
     Sprite_set_SourceRect(&sprites[SPELL_CARD_ATTACK], 337, 386, 98, 13);
 
+    Sprite_set_texture(&sprites[YIN_YANG_ORB_RED], RENDER_PRIO_PLAYER + 1, REIMU_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[YIN_YANG_ORB_RED], 82, 146, 15, 15);
+
+    Sprite_set_texture(&sprites[RED_STREAK], RENDER_PRIO_BULLET, REIMU_SPRITESHEET);
+    Sprite_set_SourceRect(&sprites[RED_STREAK], 82, 146, 15, 15);
 
     CombosSpritesLoad();
     BulletsSpritesLoad();

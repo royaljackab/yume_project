@@ -431,6 +431,8 @@ typedef enum {
   ORB_YELLOW,
   ORB_WHITE,
   BULLET_DESTROY,
+  YIN_YANG_ORB_RED,
+  RED_STREAK,
 
   MAX_SPRITES
 } SpriteID;
