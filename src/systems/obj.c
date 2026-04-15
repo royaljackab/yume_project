@@ -373,6 +373,7 @@ Entity obj_GetlooseHeadId(Pool * p, Entity objId){
     return Loose_laser_get(p, objId)->looseNodes[0];
 }
 
+//setter
 void obj_looseHead_SetSpeed(Pool *p, Entity objId, float speed){
     obj_SetSpeed(p, obj_GetlooseHeadId(p, objId), speed);
 }
@@ -426,7 +427,7 @@ void obj_looseHead_SetForce(Pool *p, Entity objId, Vector2 force){
 
 
 
-
+//getter
 
 float obj_looseHead_GetSpeed(Pool *p, Entity objId){
     return obj_GetSpeed(p, obj_GetlooseHeadId(p, objId));
