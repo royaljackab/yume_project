@@ -55,48 +55,36 @@ typedef struct InputSystem {
 
 /* Fonctions */
 
-/**
- * @brief Initialise un InputSystem avec des keybinds par défaut.
- *
- * @param input InputSystem à initialiser.
+/** @brief Initialise le système d'entrée
+ * @param input Le système d'entrée à initialiser
  */
 extern void input_initialize(InputSystem *input);
 
-/**
- * @brief Met à jour l'état de toutes les touches/actions (appelé chaque frame).
- *
- * @param input InputSystem à mettre à jour.
+/** @brief Met à jour le système d'entrée en fonction de l'état actuel des touches
+ * @param input Le système d'entrée à mettre à jour
  */
 extern void input_update(InputSystem *input);
 
-/**
- * @brief Indique si l'état key correspond à une pression sur cette frame.
- *
- * @param key État de l'action.
- * @return 1 si pressée cette frame, 0 sinon.
+/** @brief Vérifie si une touche est actuellement pressée
+ * @param key L'état de la touche à vérifier
+ * @return 1 si la touche est pressée, 0 sinon
  */
 extern int isPressed(KeyState key);
 
-/**
- * @brief Indique si l'état key correspond à une touche maintenue.
- *
- * @param key État de l'action.
- * @return 1 si maintenue, 0 sinon.
+/** @brief Vérifie si une touche est actuellement enfoncée
+ * @param key L'état de la touche à vérifier
+ * @return 1 si la touche est enfoncée, 0 sinon
  */
 extern int isDown(KeyState key);
 
-/**
- * @brief Indique si l'état key correspond à une relâche sur cette frame.
- *
- * @param key État de l'action.
- * @return 1 si relâchée cette frame, 0 sinon.
+/** @brief Vérifie si une touche vient d'être relâchée
+ * @param key L'état de la touche à vérifier
+ * @return 1 si la touche vient d'être relâchée, 0 sinon
  */
 extern int isReleased(KeyState key);
 
-/**
- * @brief Change une keybind à une nouvelle valeur.
- *
- * @param key Pointeur vers le KeyboardKey à modifier (ex: &input->keybinds.shoot).
- * @param new_key Nouvelle touche à affecter.
+/** @brief Modifie la touche associée à une action
+ * @param key La touche à modifier
+ * @param new_key La nouvelle touche
  */
 extern void input_change_keybind(KeyboardKey *key, KeyboardKey new_key);
