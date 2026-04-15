@@ -146,13 +146,13 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
     
 }
 
-static
-void Player_bomb(InputSystem *input, Pool *p, Entity player) {
+
+static void Player_bomb(InputSystem *input, Pool *p, Entity player) {
     Position *pos = Position_get(&p->position, player);
     if (Player_get_bombs(Player_get(&p->player, player)) > 0) {
         if(input->bomb.isPressed) {
-            Bullet_clear_bullets(p);
-            // Son de tir
+            Bullet_clear_bullets(p); //supprime toutes les balles
+            // Son de la bombe
             if (!IsSoundPlaying(sfx[SFX_BOMB])) {
                 PlaySound(sfx[SFX_BOMB]);
             }
@@ -163,8 +163,7 @@ void Player_bomb(InputSystem *input, Pool *p, Entity player) {
 
 
 
-static
-void Player_focus(InputSystem *input, Pool *p, Entity player) {
+static void Player_focus(InputSystem *input, Pool *p, Entity player) {
     Player *player_p = Player_get(&p->player, player);
     Sprite * hitboxSprite = Sprite_get(&p->sprite,player_p->hitboxSpriteId);
     if(input->focus.isPressed){
