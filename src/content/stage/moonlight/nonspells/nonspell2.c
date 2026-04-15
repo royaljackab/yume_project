@@ -19,7 +19,6 @@ TASK(fast_spiral, {Pool *pool; Entity boss; float offset_x; float offset_y; floa
             for (int i=0; i < ARGS.nb_bullets; ++i) {
                 Entity bullet = Bullet_enemy_spawn_delayed(ARGS.pool, x, y, ARGS.speed, angleT - angle_curr_offset, PETAL_LIGHT_BLUE, 10);
                 obj_SetRenderPriority(ARGS.pool, bullet, RENDER_PRIO_BULLET + 5);
-                printf("render prio : %d\n", obj_GetRenderPriority(ARGS.pool, bullet));
                 angle_curr_offset += ARGS.angle_offset;
             }
 
