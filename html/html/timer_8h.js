@@ -1,6 +1,6 @@
 var timer_8h =
 [
-    [ "Timer", "structTimer.html", "structTimer" ],
+    [ "Timer", "struct_timer.html", "struct_timer" ],
     [ "MAX_TIMES", "timer_8h.html#a5683f832c24617e559f6695f5ffb4234", null ],
     [ "timer_add_time", "timer_8h.html#a11b3f1b289b75398e02cfd8924148c89", null ],
     [ "timer_create", "timer_8h.html#a68ac0b65a3d1dbd952d9c47a702b2b99", null ],

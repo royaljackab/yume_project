@@ -1,3 +1,13 @@
+/**
+ * @file common_task.h
+ * @brief Déclarations de tâches et macros réutilisables pour les scènes et boss
+ *
+ * Contient les déclarations `DECLARE_EXTERN_TASK` pour les tâches fréquemment
+ * utilisées (timers, effets, mouvements d'objets, animations), ainsi que les
+ * macros d'orchestration RUN_SPELLCARD et RUN_NONSPELL employées par les
+ * scripts de stage/boss.
+ */
+
 #pragma once
 
 #include "assets.h"
@@ -26,11 +36,13 @@ DECLARE_EXTERN_TASK(boss_distortion_effect, {Pool *pool; Entity boss; Vector2 *l
 
 DECLARE_EXTERN_TASK(orb_explosion, {Pool *pool; float x; float y;});
 
+DECLARE_EXTERN_TASK(orb_explosion_big, {Pool *pool; float x; float y;});
+
 DECLARE_EXTERN_TASK(spellcard_bg_anim, {Pool *pool; int duration; });
 DECLARE_EXTERN_TASK(start_spellcard_sequence, {Pool *pool; Entity boss; const char* spell_name; int duration; });
 
 #define RUN_SPELLCARD(pool, boss, spell, var, spell_name, life) \
-    obj_SetMaxlife(pool, boss, life); \
+    obj_SetMaxLife(pool, boss, life); \
     obj_SetLife(pool, boss, life); \
     INVOKE_SUBTASK(start_spellcard_sequence, pool, boss, spell_name, 120); \
     WAIT(120); \
@@ -48,7 +60,7 @@ DECLARE_EXTERN_TASK(start_spellcard_sequence, {Pool *pool; Entity boss; const ch
 
 #define RUN_NONSPELL(pool, boss, nonspell, var, life) \
     moonlight_bg_set_mode(false); \
-    obj_SetMaxlife(pool, boss, life); \
+    obj_SetMaxLife(pool, boss, life); \
     obj_SetLife(pool, boss, life); \
     obj_AddFlag(pool, boss, FLAG_INVINCIBLE); \
     WAIT(120); \

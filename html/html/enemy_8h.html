@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/components/enemy.h File Reference</title>
+<title>Yume Project: lib/components/enemy.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -96,74 +96,33 @@ $(function(){initNavTree('enemy_8h.html','',''); });
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="component_8h_source.html">ecs/component.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="assets_8h_source.html">content/assets.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="score_8h_source.html">systems/score.h</a>&quot;</code><br />
 </div>
 <p><a href="enemy_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Enemy" id="r_Enemy"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structEnemy.html">Enemy</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composant ennemi.  <a href="structEnemy.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ac3e413a86119db4b031458c7259e268e" id="r_ac3e413a86119db4b031458c7259e268e"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#ac3e413a86119db4b031458c7259e268e">EnemyType</a> { <br />
-&#160;&#160;<a class="el" href="#ac3e413a86119db4b031458c7259e268eaedd5834c258c324d4c8fc666b4388aca">ENEMY_TYPE_BLUE_FAIRY</a>
-, <a class="el" href="#ac3e413a86119db4b031458c7259e268eaa7243cb4fcb6408af0f4f340e788c8f8">ENEMY_TYPE_RED_FAIRY</a>
-, <a class="el" href="#ac3e413a86119db4b031458c7259e268ea8f82edf67016ae88856302f250a7c3d4">ENEMY_TYPE_GREEN_FAIRY</a>
-, <a class="el" href="#ac3e413a86119db4b031458c7259e268eaa460faa3f99c0cd6e3843b01ed92b170">ENEMY_TYPE_BLACK_BLONDE_FAIRY</a>
-, <br />
-&#160;&#160;<a class="el" href="#ac3e413a86119db4b031458c7259e268eafb2be15d8ce84b40ecd1d351001bed5d">ENEMY_TYPE_PURPLE_FAIRY</a>
-, <a class="el" href="#ac3e413a86119db4b031458c7259e268eab1e56e318ee4df206d53c1a852ac77f7">ENEMY_TYPE_SUNFLOWER_FAIRY</a>
-, <a class="el" href="#ac3e413a86119db4b031458c7259e268ea1b10c36152956f39f4bdd3116bc8d497">ENEMY_TYPE_EVIL_FAIRY</a>
-<br />
- }</td></tr>
-<tr class="memdesc:ac3e413a86119db4b031458c7259e268e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type d'ennemi.  <a href="#ac3e413a86119db4b031458c7259e268e">More...</a><br /></td></tr>
+<tr class="memitem:Enemy" id="r_Enemy"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_enemy.html">Enemy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">composante ennemi dans l'ECS  <a href="struct_enemy.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af4edcfe5a8c3cd7eb258e52e3262fde6" id="r_af4edcfe5a8c3cd7eb258e52e3262fde6"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#af4edcfe5a8c3cd7eb258e52e3262fde6">Enemy_spawn</a> (<a class="el" href="structPool.html">Pool</a> *p, float x, float y, float speed, float angle, int life, float hitboxRadius, <a class="el" href="#ac3e413a86119db4b031458c7259e268e">EnemyType</a> type, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
-<tr class="memdesc:af4edcfe5a8c3cd7eb258e52e3262fde6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un ennemi dans la pool.  <br /></td></tr>
-<tr class="memitem:a2d7169ef83b17246827000fe6e0e0523" id="r_a2d7169ef83b17246827000fe6e0e0523"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2d7169ef83b17246827000fe6e0e0523">Enemy_update_all</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
-<tr class="memdesc:a2d7169ef83b17246827000fe6e0e0523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour tous les ennemis et supprime ceux à 0 PV.  <br /></td></tr>
+<tr class="memitem:a461d78eaa98a6bc3aa96e5f053c38793" id="r_a461d78eaa98a6bc3aa96e5f053c38793"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a461d78eaa98a6bc3aa96e5f053c38793">Enemy_spawn</a> (<a class="el" href="struct_pool.html">Pool</a> *p, float x, float y, float speed, float angle, int life, float hitboxRadius, int score, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memdesc:a461d78eaa98a6bc3aa96e5f053c38793"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un ennemi dans la pool.  <br /></td></tr>
+<tr class="memitem:ac72d34586032e81836fd5872e77445a7" id="r_ac72d34586032e81836fd5872e77445a7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac72d34586032e81836fd5872e77445a7">Enemy_update_all</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="struct_score_system.html">ScoreSystem</a> *scoreS)</td></tr>
+<tr class="memdesc:ac72d34586032e81836fd5872e77445a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour tous les ennemis.  <br /></td></tr>
+<tr class="memitem:a45339d4bf852fae3dbb0654829ee9a23" id="r_a45339d4bf852fae3dbb0654829ee9a23"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a45339d4bf852fae3dbb0654829ee9a23">Enemy_spawn_score_decrease</a> (<a class="el" href="struct_pool.html">Pool</a> *p, float x, float y, float speed, float angle, float hitboxRadius, int score, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memdesc:a45339d4bf852fae3dbb0654829ee9a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">spawn un enemy qui a le flag qui fait perdre des points si il est tué  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Composant et fonctions de gestion des ennemis. </p>
 <p>Ce module gère la création et la mise à jour des entités ennemies. Un ennemi est une entité ECS avec les composants suivants :</p><ul>
-<li><a class="el" href="structPosition.html">Position</a>, <a class="el" href="structPhysics.html">Physics</a>, <a class="el" href="structSprite.html">Sprite</a>, <a class="el" href="structLife.html">Life</a>, <a class="el" href="structCollision__circle.html">Collision_circle</a>, <a class="el" href="common_8h.html#aa8abe6290d14d2802544c2db7ee3dec2">Tag</a>, <a class="el" href="structEnemy.html" title="Composant ennemi.">Enemy</a></li>
+<li><a class="el" href="struct_position.html">Position</a>, <a class="el" href="struct_physics.html" title="composante physique dans l&#39;ECS Cette composante ajoute les notions de vitesse, accélération,...">Physics</a>, <a class="el" href="struct_sprite.html" title="Composante Sprite dans l&#39;ECS Cette composante sert à associer une texture à une Entité....">Sprite</a>, <a class="el" href="struct_life.html">Life</a>, <a class="el" href="struct_collision__circle.html" title="composante collision circulaire dans l&#39;ECS">Collision_circle</a>, <a class="el" href="common_8h.html#aa8abe6290d14d2802544c2db7ee3dec2">Tag</a>, <a class="el" href="struct_enemy.html" title="composante ennemi dans l&#39;ECS">Enemy</a></li>
 </ul>
 <dl class="section author"><dt>Author</dt><dd>@amyelalem </dd></dl>
-</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
-<a id="ac3e413a86119db4b031458c7259e268e" name="ac3e413a86119db4b031458c7259e268e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3e413a86119db4b031458c7259e268e">&#9670;&#160;</a></span>EnemyType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="#ac3e413a86119db4b031458c7259e268e">EnemyType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Type d'ennemi. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac3e413a86119db4b031458c7259e268eaedd5834c258c324d4c8fc666b4388aca" name="ac3e413a86119db4b031458c7259e268eaedd5834c258c324d4c8fc666b4388aca"></a>ENEMY_TYPE_BLUE_FAIRY&#160;</td><td class="fielddoc"><p>Petite fée </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ac3e413a86119db4b031458c7259e268eaa7243cb4fcb6408af0f4f340e788c8f8" name="ac3e413a86119db4b031458c7259e268eaa7243cb4fcb6408af0f4f340e788c8f8"></a>ENEMY_TYPE_RED_FAIRY&#160;</td><td class="fielddoc"><p>Papillon </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ac3e413a86119db4b031458c7259e268ea8f82edf67016ae88856302f250a7c3d4" name="ac3e413a86119db4b031458c7259e268ea8f82edf67016ae88856302f250a7c3d4"></a>ENEMY_TYPE_GREEN_FAIRY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ac3e413a86119db4b031458c7259e268eaa460faa3f99c0cd6e3843b01ed92b170" name="ac3e413a86119db4b031458c7259e268eaa460faa3f99c0cd6e3843b01ed92b170"></a>ENEMY_TYPE_BLACK_BLONDE_FAIRY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ac3e413a86119db4b031458c7259e268eafb2be15d8ce84b40ecd1d351001bed5d" name="ac3e413a86119db4b031458c7259e268eafb2be15d8ce84b40ecd1d351001bed5d"></a>ENEMY_TYPE_PURPLE_FAIRY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ac3e413a86119db4b031458c7259e268eab1e56e318ee4df206d53c1a852ac77f7" name="ac3e413a86119db4b031458c7259e268eab1e56e318ee4df206d53c1a852ac77f7"></a>ENEMY_TYPE_SUNFLOWER_FAIRY&#160;</td><td class="fielddoc"><p>Grande fée </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ac3e413a86119db4b031458c7259e268ea1b10c36152956f39f4bdd3116bc8d497" name="ac3e413a86119db4b031458c7259e268ea1b10c36152956f39f4bdd3116bc8d497"></a>ENEMY_TYPE_EVIL_FAIRY&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="af4edcfe5a8c3cd7eb258e52e3262fde6" name="af4edcfe5a8c3cd7eb258e52e3262fde6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4edcfe5a8c3cd7eb258e52e3262fde6">&#9670;&#160;</a></span>Enemy_spawn()</h2>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a461d78eaa98a6bc3aa96e5f053c38793" name="a461d78eaa98a6bc3aa96e5f053c38793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a461d78eaa98a6bc3aa96e5f053c38793">&#9670;&#160;</a></span>Enemy_spawn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +133,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> Enemy_spawn </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -209,7 +168,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#ac3e413a86119db4b031458c7259e268e">EnemyType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>score</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -225,18 +184,17 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Crée un ennemi dans la pool. </p>
-<p>Attache les composants <a class="el" href="structPosition.html">Position</a>, <a class="el" href="structPhysics.html">Physics</a>, <a class="el" href="structSprite.html">Sprite</a>, <a class="el" href="structLife.html">Life</a>, <a class="el" href="structCollision__circle.html">Collision_circle</a>, <a class="el" href="common_8h.html#aa8abe6290d14d2802544c2db7ee3dec2">Tag</a> et <a class="el" href="structEnemy.html" title="Composant ennemi.">Enemy</a> à une nouvelle entité.</p>
+<p>Attache les composants <a class="el" href="struct_position.html">Position</a>, <a class="el" href="struct_physics.html" title="composante physique dans l&#39;ECS Cette composante ajoute les notions de vitesse, accélération,...">Physics</a>, <a class="el" href="struct_sprite.html" title="Composante Sprite dans l&#39;ECS Cette composante sert à associer une texture à une Entité....">Sprite</a>, <a class="el" href="struct_life.html">Life</a>, <a class="el" href="struct_collision__circle.html" title="composante collision circulaire dans l&#39;ECS">Collision_circle</a>, <a class="el" href="common_8h.html#aa8abe6290d14d2802544c2db7ee3dec2">Tag</a> et <a class="el" href="struct_enemy.html" title="composante ennemi dans l&#39;ECS">Enemy</a> à une nouvelle entité.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td><a class="el" href="structPool.html">Pool</a> courante </td></tr>
-    <tr><td class="paramname">x</td><td><a class="el" href="structPosition.html">Position</a> x initiale (en pixels) </td></tr>
-    <tr><td class="paramname">y</td><td><a class="el" href="structPosition.html">Position</a> y initiale (en pixels) </td></tr>
-    <tr><td class="paramname">speed</td><td>Vitesse initiale (en pixels/frame) </td></tr>
-    <tr><td class="paramname">angle</td><td>Angle initial (en degrés) </td></tr>
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">x</td><td><a class="el" href="struct_position.html">Position</a> x initiale </td></tr>
+    <tr><td class="paramname">y</td><td><a class="el" href="struct_position.html">Position</a> y initiale </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse initiale </td></tr>
+    <tr><td class="paramname">angle</td><td>Angle initial </td></tr>
     <tr><td class="paramname">life</td><td>Points de vie initiaux </td></tr>
-    <tr><td class="paramname">hitboxRadius</td><td>Rayon de la hitbox circulaire (en pixels) </td></tr>
-    <tr><td class="paramname">type</td><td>Type de l'ennemi (<a class="el" href="#ac3e413a86119db4b031458c7259e268e" title="Type d&#39;ennemi.">EnemyType</a>) </td></tr>
-    <tr><td class="paramname">graphic</td><td><a class="el" href="structSprite.html">Sprite</a> à utiliser (<a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> défini dans <a class="el" href="assets_8h.html">assets.h</a>) </td></tr>
+    <tr><td class="paramname">hitboxRadius</td><td>Rayon de la hitbox circulaire </td></tr>
+    <tr><td class="paramname">graphic</td><td>l'identifiant de la texture à utiliser </td></tr>
   </table>
   </dd>
 </dl>
@@ -244,8 +202,89 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2d7169ef83b17246827000fe6e0e0523" name="a2d7169ef83b17246827000fe6e0e0523"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d7169ef83b17246827000fe6e0e0523">&#9670;&#160;</a></span>Enemy_update_all()</h2>
+<a id="a45339d4bf852fae3dbb0654829ee9a23" name="a45339d4bf852fae3dbb0654829ee9a23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45339d4bf852fae3dbb0654829ee9a23">&#9670;&#160;</a></span>Enemy_spawn_score_decrease()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> Enemy_spawn_score_decrease </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>hitboxRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>score</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a></td>          <td class="paramname"><span class="paramname"><em>graphic</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>spawn un enemy qui a le flag qui fait perdre des points si il est tué </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td><a class="el" href="struct_position.html">Position</a> x initiale </td></tr>
+    <tr><td class="paramname">y</td><td><a class="el" href="struct_position.html">Position</a> y initiale </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse initiale </td></tr>
+    <tr><td class="paramname">angle</td><td>Angle initial </td></tr>
+    <tr><td class="paramname">life</td><td>Points de vie initiaux </td></tr>
+    <tr><td class="paramname">hitboxRadius</td><td>Rayon de la hitbox circulaire </td></tr>
+    <tr><td class="paramname">score</td><td>Le score que fait perdre l'ennemi si il est tué </td></tr>
+    <tr><td class="paramname">graphic</td><td>l'identifiant de la texture à utiliser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>L'entité créée </dd></dl>
+<p>spawn un enemy qui a le flag qui fait perdre des points si il est tué </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Le pool d'entités </td></tr>
+    <tr><td class="paramname">x</td><td>La position x de l'ennemi </td></tr>
+    <tr><td class="paramname">y</td><td>La position y de l'ennemi </td></tr>
+    <tr><td class="paramname">speed</td><td>La vitesse de l'ennemi </td></tr>
+    <tr><td class="paramname">angle</td><td>L'angle de l'ennemi </td></tr>
+    <tr><td class="paramname">hitboxRadius</td><td>Le rayon de la hitbox de l'ennemi </td></tr>
+    <tr><td class="paramname">score</td><td>Le score que fait perdre l'ennemi si il est tué </td></tr>
+    <tr><td class="paramname">graphic</td><td>L'ID du sprite de l'ennemi </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>L'entité de l'ennemi spawné</dd></dl>
+
+</div>
+</div>
+<a id="ac72d34586032e81836fd5872e77445a7" name="ac72d34586032e81836fd5872e77445a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac72d34586032e81836fd5872e77445a7">&#9670;&#160;</a></span>Enemy_update_all()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,8 +295,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void Enemy_update_all </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="struct_score_system.html">ScoreSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>scoreS</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -267,18 +310,18 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Met à jour tous les ennemis et supprime ceux à 0 PV. </p>
-<p>Parcourt tous les ennemis chaque frame. Si un ennemi n'a plus de points de vie, il est ajouté à la kill queue.</p>
+<p>Met à jour tous les ennemis. </p>
+<p>Parcourt tous les ennemis chaque frame. Détecte si l'ennemi doit:</p><ul>
+<li>attribuer du score à sa mort</li>
+<li>subir des dégâts</li>
+</ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td><a class="el" href="structPool.html">Pool</a> courante </td></tr>
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">scoreS</td><td>Système de gestion du score </td></tr>
   </table>
   </dd>
 </dl>
-<p>Parcourt tous les ennemis.</p><ul>
-<li>les tue s'ils n'ont plus de vie</li>
-<li>leur inflige des dégats s'ils sont en collision avec une balle du joueur</li>
-</ul>
 
 </div>
 </div>

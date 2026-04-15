@@ -3,10 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/**
- * @brief Affiche le type de flag dans la console (debug)
- * @param flag Pointeur vers le composant Flag
- */
 void Flag_display(FlagType flag) {
     if (!flag) {
         printf("Flag: NULL\n");
@@ -72,9 +68,6 @@ bool flagList_add_element(flagList *list, FlagType type){
 }
 
 bool flagList_remove_element(flagList *list, FlagType type){
-/**
- *trouve le type passé en paramètre, et supprime sa première occurrence de la liste en mettant a jour size
- */
     int index = -1;
     //trouve l'index du type a supprimer
     for (int i = 0; i < list->size; i++) {
@@ -96,10 +89,6 @@ bool flagList_remove_element(flagList *list, FlagType type){
 }
 
 void flagList_destroy(Pool *pool, Entity id){
-    /***
-     * Détruit une flaglist dans la pool (y compris on libérant tout ce qui le compose, contrairement à flagList_remove)
-     */
-
     flagList * list = flagList_get(&pool->flagList, id);
 
     if(!list){
@@ -112,9 +101,6 @@ void flagList_destroy(Pool *pool, Entity id){
 }
 
 Entity flagList_attach_first_flag(Pool *p, Entity e, FlagType flag){
-/**
- * Crée et attache une flagList avec un flag à une entité, attention overwrite toute flagList existante. Fait le malloc ici
- */
   FlagType * flagTypeList = malloc(sizeof(FlagType) * MAX_FLAGS);
   
   flagList flagList = {.flags = flagTypeList, .size = 0};

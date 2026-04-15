@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: src/core/game_state.c File Reference</title>
+<title>Yume Project: src/core/game_state.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -93,19 +93,32 @@ $(function(){initNavTree('game__state_8c.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="game__state_8h_source.html">core/game_state.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="input_8h_source.html">core/input.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="screen_8h_source.html">core/screen.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="screen_8h_source.html">screen.h</a>&quot;</code><br />
 <code>#include &lt;raylib.h&gt;</code><br />
+<code>#include &lt;raymath.h&gt;</code><br />
 <code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="state__menu__settings_8h_source.html">content/ui/state_menu_settings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="state__game__over_8h_source.html">content/ui/state_game_over.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="state__victory_8h_source.html">content/ui/state_victory.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aaa996f0da88781df9f1a45e113176ea5" id="r_aaa996f0da88781df9f1a45e113176ea5"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aaa996f0da88781df9f1a45e113176ea5">get_state_pointer</a> (<a class="el" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> state)</td></tr>
-<tr class="memitem:a8ac7ed6f267827c5ee452a799a3a6f11" id="r_a8ac7ed6f267827c5ee452a799a3a6f11"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8ac7ed6f267827c5ee452a799a3a6f11">gamestate_initialize</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx, <a class="el" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> init_state)</td></tr>
-<tr class="memitem:a483bfca2f161f59662568e594d468325" id="r_a483bfca2f161f59662568e594d468325"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a483bfca2f161f59662568e594d468325">gamestate_update</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx)</td></tr>
-<tr class="memitem:acbfa62a5a5f262c34c8c03645e6b13e0" id="r_acbfa62a5a5f262c34c8c03645e6b13e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acbfa62a5a5f262c34c8c03645e6b13e0">gamestate_change_state</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx, <a class="el" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> stateID)</td></tr>
-<tr class="memitem:a3cee3db5b6cfb26e58c34deb17a8470c" id="r_a3cee3db5b6cfb26e58c34deb17a8470c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3cee3db5b6cfb26e58c34deb17a8470c">pauseListener</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx)</td></tr>
-<tr class="memitem:acfb13375e4f3f035d25c89875838d25f" id="r_acfb13375e4f3f035d25c89875838d25f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acfb13375e4f3f035d25c89875838d25f">pauseMenu</a> ()</td></tr>
+<tr class="memitem:aaa996f0da88781df9f1a45e113176ea5" id="r_aaa996f0da88781df9f1a45e113176ea5"><td class="memItemLeft"><a class="el" href="struct_game_state.html">GameState</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aaa996f0da88781df9f1a45e113176ea5">get_state_pointer</a> (<a class="el" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> state)</td></tr>
+<tr class="memitem:a8ac7ed6f267827c5ee452a799a3a6f11" id="r_a8ac7ed6f267827c5ee452a799a3a6f11"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8ac7ed6f267827c5ee452a799a3a6f11">gamestate_initialize</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx, <a class="el" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> init_state)</td></tr>
+<tr class="memdesc:a8ac7ed6f267827c5ee452a799a3a6f11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le système d'états et bascule vers l'état demandé.  <br /></td></tr>
+<tr class="memitem:a483bfca2f161f59662568e594d468325" id="r_a483bfca2f161f59662568e594d468325"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a483bfca2f161f59662568e594d468325">gamestate_update</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
+<tr class="memdesc:a483bfca2f161f59662568e594d468325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelée chaque frame pour mettre à jour l'état courant.  <br /></td></tr>
+<tr class="memitem:acbfa62a5a5f262c34c8c03645e6b13e0" id="r_acbfa62a5a5f262c34c8c03645e6b13e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acbfa62a5a5f262c34c8c03645e6b13e0">gamestate_change_state</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx, <a class="el" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> stateID)</td></tr>
+<tr class="memdesc:acbfa62a5a5f262c34c8c03645e6b13e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demande une transition vers un autre état de jeu.  <br /></td></tr>
+<tr class="memitem:a3cee3db5b6cfb26e58c34deb17a8470c" id="r_a3cee3db5b6cfb26e58c34deb17a8470c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3cee3db5b6cfb26e58c34deb17a8470c">pauseListener</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
+<tr class="memdesc:a3cee3db5b6cfb26e58c34deb17a8470c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détecte si le menu pause doit être activé et si oui gêre sa logique. Cette fonction doit être appellée à chaque frame.  <br /></td></tr>
+<tr class="memitem:aa70a704c265736f396a96b7280dcf2eb" id="r_aa70a704c265736f396a96b7280dcf2eb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa70a704c265736f396a96b7280dcf2eb">pauseMenu</a> (<a class="el" href="struct_game_context.html">GameContext</a> *ctx)</td></tr>
+<tr class="memdesc:aa70a704c265736f396a96b7280dcf2eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche et le menu de pause.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:abc66e6edc168bf70177916735e9eb553" id="r_abc66e6edc168bf70177916735e9eb553"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#abc66e6edc168bf70177916735e9eb553">pause_selection</a> = 0</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="acbfa62a5a5f262c34c8c03645e6b13e0" name="acbfa62a5a5f262c34c8c03645e6b13e0"></a>
@@ -117,7 +130,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void gamestate_change_state </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -126,6 +139,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Demande une transition vers un autre état de jeu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="struct_game_context.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant </td></tr>
+    <tr><td class="paramname">stateID</td><td>Identifiant de l'état cible. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -138,15 +160,25 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void gamestate_initialize </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a></td>          <td class="paramname"><span class="paramname"><em>init_state</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a></td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialise le système d'états et bascule vers l'état demandé. </p>
+<p>Initialise les structures internes du <a class="el" href="struct_game_context.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> puis effectue la transition vers state (appel de la fonction init associée à l'état).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>ctx à initialiser </td></tr>
+    <tr><td class="paramname">state</td><td>id de l'état initial à activer </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -159,11 +191,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void gamestate_update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Appelée chaque frame pour mettre à jour l'état courant. </p>
+<p>Appelle la fonction update du <a class="el" href="struct_game_state.html" title="Un GameState représente un état du jeu. Chaque GameState dispose de 4 fonctions, passée par pointeurs...">GameState</a> actif et gère la transition d'état si nextStateID diffère de currentStateID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="struct_game_context.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -174,7 +215,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structGameState.html">GameState</a> * get_state_pointer </td>
+          <td class="memname"><a class="el" href="struct_game_state.html">GameState</a> * get_state_pointer </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a></td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -193,16 +234,24 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void pauseListener </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Détecte si le menu pause doit être activé et si oui gêre sa logique. Cette fonction doit être appellée à chaque frame. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="struct_game_context.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="acfb13375e4f3f035d25c89875838d25f" name="acfb13375e4f3f035d25c89875838d25f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfb13375e4f3f035d25c89875838d25f">&#9670;&#160;</a></span>pauseMenu()</h2>
+<a id="aa70a704c265736f396a96b7280dcf2eb" name="aa70a704c265736f396a96b7280dcf2eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70a704c265736f396a96b7280dcf2eb">&#9670;&#160;</a></span>pauseMenu()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,10 +259,42 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void pauseMenu </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_game_context.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+<p>Affiche et le menu de pause. </p>
+<p>Doit être appelé uniquement lorsque le jeu est en état de pause.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="struct_game_context.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="abc66e6edc168bf70177916735e9eb553" name="abc66e6edc168bf70177916735e9eb553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc66e6edc168bf70177916735e9eb553">&#9670;&#160;</a></span>pause_selection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int pause_selection = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

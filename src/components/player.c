@@ -146,8 +146,27 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
     
 }
 
-static
-void Player_focus(InputSystem *input, Pool *p, Entity player) {
+
+extern void Player_bomb(GameContext *ctx, Entity player) {
+    InputSystem *input = &ctx->input;
+    Pool *p = ctx->pool;
+    Position *pos = Position_get(&p->position, player);
+    if (Player_get_bombs(Player_get(&p->player, player)) > 0) {
+        if(input->bomb.isPressed) {
+            Bullet_clear_bullets(p); //supprime toutes les balles
+            // Son de la bombe
+            if (!IsSoundPlaying(sfx[SFX_BOMB])) {
+                PlaySound(sfx[SFX_BOMB]);
+            }
+            Player_get(&p->player, player)->bombs--;
+            SCHED_INVOKE_TASK(&ctx->sched, orb_explosion_big, ctx->pool, pos->pos.x, pos->pos.y);
+        }
+    }
+}
+
+
+
+static void Player_focus(InputSystem *input, Pool *p, Entity player) {
     Player *player_p = Player_get(&p->player, player);
     Sprite * hitboxSprite = Sprite_get(&p->sprite,player_p->hitboxSpriteId);
     if(input->focus.isPressed){
@@ -255,6 +274,7 @@ void Player_update(GameContext *ctx) {
     if (!is_input_locked) {
         Player_move(input, p, player);
         Player_shoot(input, p, player);
+        Player_bomb(ctx, player);
         Player_focus(input, p, player);
     }
 
@@ -358,9 +378,6 @@ extern bool Damage_player(GameContext *ctx, Entity player){
 
     if (life->life > 0){
         SCHED_INVOKE_TASK(&ctx->sched, player_respawn_sequence, p, player);
-        //teleport_to_player_spawn(p, player);
-        //make_player_incinvible(p, player);
-        //clear_screan_projectiles(p); 
     }
     return true;
 }

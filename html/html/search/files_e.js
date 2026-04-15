@@ -7,6 +7,8 @@ var searchData=
   ['player_2ec_4',['player.c',['../player_8c.html',1,'']]],
   ['player_2eh_5',['player.h',['../player_8h.html',1,'']]],
   ['player_5fbullet_2eh_6',['player_bullet.h',['../player__bullet_8h.html',1,'']]],
-  ['pool_2ec_7',['pool.c',['../pool_8c.html',1,'']]],
-  ['pool_2eh_8',['pool.h',['../pool_8h.html',1,'']]]
+  ['poincarre_5frecurrence_2ec_7',['poincarre_recurrence.c',['../poincarre__recurrence_8c.html',1,'']]],
+  ['poincarre_5frecurrence_2eh_8',['poincarre_recurrence.h',['../poincarre__recurrence_8h.html',1,'']]],
+  ['pool_2ec_9',['pool.c',['../pool_8c.html',1,'']]],
+  ['pool_2eh_10',['pool.h',['../pool_8h.html',1,'']]]
 ];

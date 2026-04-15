@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/content/common_task.h File Reference</title>
+<title>Yume Project: lib/content/common_task.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -91,17 +91,288 @@ $(function(){initNavTree('common__task_8h.html','',''); });
   <div class="headertitle"><div class="title">common_task.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="tasks_8h_source.html">coroutine/tasks.h</a>&quot;</code><br />
+
+<p>Déclarations de tâches et macros réutilisables pour les scènes et boss.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="bullet_8h_source.html">bullet.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tasks_8h_source.html">coroutine/tasks.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cotask_8h_source.html">cotask.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hud_8h_source.html">hud.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="moonlight__bg_8h_source.html">moonlight_bg.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obj_8h_source.html">obj.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="macro_8h_source.html">macro.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="game__state_8h_source.html">game_state.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pool_8h_source.html">pool.h</a>&quot;</code><br />
+<code>#include &lt;raylib.h&gt;</code><br />
 </div>
 <p><a href="common__task_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a0479f1f6024dac9fc5fe3f31452dcd4e" id="r_a0479f1f6024dac9fc5fe3f31452dcd4e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0479f1f6024dac9fc5fe3f31452dcd4e">RUN_SPELLCARD</a>(pool,  boss,  spell,  var,  spell_name,  life)</td></tr>
+<tr class="memitem:afc117cb4cbdc1aec225b7fd489ee230b" id="r_afc117cb4cbdc1aec225b7fd489ee230b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afc117cb4cbdc1aec225b7fd489ee230b">RUN_NONSPELL</a>(pool,  boss,  nonspell,  var,  life)</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2b861079a8186d943db07f3cfc4312ad" id="r_a2b861079a8186d943db07f3cfc4312ad"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2b861079a8186d943db07f3cfc4312ad">DECLARE_EXTERN_TASK</a> (phase_timer, { <a class="el" href="structCoEvent.html">CoEvent</a> *event;int duration;})</td></tr>
+<tr class="memitem:a2b861079a8186d943db07f3cfc4312ad" id="r_a2b861079a8186d943db07f3cfc4312ad"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2b861079a8186d943db07f3cfc4312ad">DECLARE_EXTERN_TASK</a> (phase_timer, { <a class="el" href="struct_co_event.html">CoEvent</a> *event;int duration;})</td></tr>
+<tr class="memitem:a6777775e133741f9bba385a6dac4d061" id="r_a6777775e133741f9bba385a6dac4d061"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6777775e133741f9bba385a6dac4d061">DECLARE_EXTERN_TASK</a> (obj_GoTo, {<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId;float x;float y;float speed;})</td></tr>
+<tr class="memitem:a59b27959ea5a5c4a32d77af136e6f0c9" id="r_a59b27959ea5a5c4a32d77af136e6f0c9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a59b27959ea5a5c4a32d77af136e6f0c9">DECLARE_EXTERN_TASK</a> (play_anim_once, {<a class="el" href="struct_pool.html">Pool</a> *pool;float x;float y;int sprite_id;})</td></tr>
+<tr class="memitem:ade2cc488170b3e255bf9b0646666895a" id="r_ade2cc488170b3e255bf9b0646666895a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ade2cc488170b3e255bf9b0646666895a">DECLARE_EXTERN_TASK</a> (boss_orb_effect, {<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;})</td></tr>
+<tr class="memitem:a8bc84036b33715fcd372b5016257d525" id="r_a8bc84036b33715fcd372b5016257d525"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8bc84036b33715fcd372b5016257d525">DECLARE_EXTERN_TASK</a> (boss_pentagram_effect, {<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;})</td></tr>
+<tr class="memitem:adb26463bff4a7d5eaed7f05435092e73" id="r_adb26463bff4a7d5eaed7f05435092e73"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#adb26463bff4a7d5eaed7f05435092e73">DECLARE_EXTERN_TASK</a> (boss_particle_spawner, {<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;})</td></tr>
+<tr class="memitem:ae193248380147d7167fcf9e3864a0ed6" id="r_ae193248380147d7167fcf9e3864a0ed6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae193248380147d7167fcf9e3864a0ed6">DECLARE_EXTERN_TASK</a> (boss_distortion_effect, {<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;Vector2 *<a class="el" href="moonlight_8c.html#ab1a1908c5b46b9575c7fda34a819003c">lens_center</a>;float *<a class="el" href="moonlight_8c.html#a5f0967d74b9f24b1a83b5bcba56673a2">lens_radius</a>;float *<a class="el" href="moonlight_8c.html#a930f3c461bd2050fed544b064f462726">lens_strength</a>;})</td></tr>
+<tr class="memitem:aaf9281fca59814c3636be072cf426a14" id="r_aaf9281fca59814c3636be072cf426a14"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aaf9281fca59814c3636be072cf426a14">DECLARE_EXTERN_TASK</a> (orb_explosion, {<a class="el" href="struct_pool.html">Pool</a> *pool;float x;float y;})</td></tr>
+<tr class="memitem:aad6fc7505d17bdd17b29e064f8c2d22d" id="r_aad6fc7505d17bdd17b29e064f8c2d22d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aad6fc7505d17bdd17b29e064f8c2d22d">DECLARE_EXTERN_TASK</a> (spellcard_bg_anim, {<a class="el" href="struct_pool.html">Pool</a> *pool;int duration;})</td></tr>
+<tr class="memitem:a1904530f9b3ff1ada1c81378ca5ee902" id="r_a1904530f9b3ff1ada1c81378ca5ee902"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1904530f9b3ff1ada1c81378ca5ee902">DECLARE_EXTERN_TASK</a> (start_spellcard_sequence, {<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;const char *spell_name;int duration;})</td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Déclarations de tâches et macros réutilisables pour les scènes et boss. </p>
+<p>Contient les déclarations <span class="tt"><a class="el" href="#a2b861079a8186d943db07f3cfc4312ad">DECLARE_EXTERN_TASK</a></span> pour les tâches fréquemment utilisées (timers, effets, mouvements d'objets, animations), ainsi que les macros d'orchestration RUN_SPELLCARD et RUN_NONSPELL employées par les scripts de stage/boss. </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="afc117cb4cbdc1aec225b7fd489ee230b" name="afc117cb4cbdc1aec225b7fd489ee230b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc117cb4cbdc1aec225b7fd489ee230b">&#9670;&#160;</a></span>RUN_NONSPELL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_NONSPELL</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pool</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>boss</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>nonspell</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>var</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>life</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="moonlight__bg_8c.html#ad67daa9158e8745def9279d7fa4ad6fe">moonlight_bg_set_mode</a>(<span class="keyword">false</span>); \</div>
+<div class="line">obj_SetMaxlife(pool, boss, life); \</div>
+<div class="line">obj_SetLife(pool, boss, life); \</div>
+<div class="line">obj_AddFlag(pool, boss, <a class="code hl_enumvalue" href="flags_8h.html#a829563b1e19fae59f905c1afb76fe4eba7ac8a80db3663d375a179db23605c6dd">FLAG_INVINCIBLE</a>); \</div>
+<div class="line">WAIT(120); \</div>
+<div class="line">obj_RemoveFlag(pool, boss, <a class="code hl_enumvalue" href="flags_8h.html#a829563b1e19fae59f905c1afb76fe4eba7ac8a80db3663d375a179db23605c6dd">FLAG_INVINCIBLE</a>); \</div>
+<div class="line"><a class="code hl_struct" href="struct_co_task.html">CoTask</a>* <a class="code hl_define" href="macro_8h.html#a6d2fd5d47b4a5858bc621cfc365ae54f">MACRO_CONCAT</a>(task_, var) = nonspell; \</div>
+<div class="line"><a class="code hl_struct" href="struct_boxed_task.html">BoxedTask</a> <a class="code hl_define" href="macro_8h.html#a6d2fd5d47b4a5858bc621cfc365ae54f">MACRO_CONCAT</a>(box_, var) = <a class="code hl_function" href="cotask_8c.html#a83e7f763cd720b4a97a707030da2a111">cotask_box</a>(<a class="code hl_define" href="macro_8h.html#a6d2fd5d47b4a5858bc621cfc365ae54f">MACRO_CONCAT</a>(task_, var)); \</div>
+<div class="line">while(!<a class="code hl_function" href="obj_8c.html#a25e9ac0faa8566ee0f2835a94e9af95a">obj_IsDead</a>(pool, boss)) { \</div>
+<div class="line">    <a class="code hl_define" href="tasks_8h.html#a50d551776c26c1579754521287f0b0f0">YIELD</a>; \</div>
+<div class="line">} \</div>
+<div class="line">CANCEL_TASK(<a class="code hl_define" href="macro_8h.html#a6d2fd5d47b4a5858bc621cfc365ae54f">MACRO_CONCAT</a>(box_, var)); \</div>
+<div class="line">Bullet_clear_bullets(pool);</div>
+<div class="ttc" id="acotask_8c_html_a83e7f763cd720b4a97a707030da2a111"><div class="ttname"><a href="cotask_8c.html#a83e7f763cd720b4a97a707030da2a111">cotask_box</a></div><div class="ttdeci">BoxedTask cotask_box(CoTask *task)</div><div class="ttdoc">Emballer une task dans une boite (ref faible).</div><div class="ttdef"><b>Definition</b> cotask.c:39</div></div>
+<div class="ttc" id="aflags_8h_html_a829563b1e19fae59f905c1afb76fe4eba7ac8a80db3663d375a179db23605c6dd"><div class="ttname"><a href="flags_8h.html#a829563b1e19fae59f905c1afb76fe4eba7ac8a80db3663d375a179db23605c6dd">FLAG_INVINCIBLE</a></div><div class="ttdeci">@ FLAG_INVINCIBLE</div><div class="ttdef"><b>Definition</b> flags.h:29</div></div>
+<div class="ttc" id="amacro_8h_html_a6d2fd5d47b4a5858bc621cfc365ae54f"><div class="ttname"><a href="macro_8h.html#a6d2fd5d47b4a5858bc621cfc365ae54f">MACRO_CONCAT</a></div><div class="ttdeci">#define MACRO_CONCAT(a, b)</div><div class="ttdef"><b>Definition</b> macro.h:4</div></div>
+<div class="ttc" id="amoonlight__bg_8c_html_ad67daa9158e8745def9279d7fa4ad6fe"><div class="ttname"><a href="moonlight__bg_8c.html#ad67daa9158e8745def9279d7fa4ad6fe">moonlight_bg_set_mode</a></div><div class="ttdeci">void moonlight_bg_set_mode(bool to_spellcard)</div><div class="ttdoc">Change le mode d&#39;affichage de l&#39;arrière-plan (vers/depuis spellcard).</div><div class="ttdef"><b>Definition</b> moonlight_bg.c:59</div></div>
+<div class="ttc" id="aobj_8c_html_a25e9ac0faa8566ee0f2835a94e9af95a"><div class="ttname"><a href="obj_8c.html#a25e9ac0faa8566ee0f2835a94e9af95a">obj_IsDead</a></div><div class="ttdeci">bool obj_IsDead(Pool *p, Entity objId)</div><div class="ttdoc">Vérifie si un objet est mort.</div><div class="ttdef"><b>Definition</b> obj.c:306</div></div>
+<div class="ttc" id="astruct_boxed_task_html"><div class="ttname"><a href="struct_boxed_task.html">BoxedTask</a></div><div class="ttdoc">Une BoxedTask est une référence faible a une task.</div><div class="ttdef"><b>Definition</b> cotask.h:25</div></div>
+<div class="ttc" id="astruct_co_task_html"><div class="ttname"><a href="struct_co_task.html">CoTask</a></div><div class="ttdef"><b>Definition</b> cotask_data.h:24</div></div>
+<div class="ttc" id="atasks_8h_html_a50d551776c26c1579754521287f0b0f0"><div class="ttname"><a href="tasks_8h.html#a50d551776c26c1579754521287f0b0f0">YIELD</a></div><div class="ttdeci">#define YIELD</div><div class="ttdef"><b>Definition</b> tasks.h:266</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0479f1f6024dac9fc5fe3f31452dcd4e" name="a0479f1f6024dac9fc5fe3f31452dcd4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0479f1f6024dac9fc5fe3f31452dcd4e">&#9670;&#160;</a></span>RUN_SPELLCARD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SPELLCARD</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pool</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>boss</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>spell</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>var</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>spell_name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>life</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="obj_8c.html#a42a4274907f0ad1ee13bf954cd19e06a">obj_SetMaxlife</a>(pool, boss, life); \</div>
+<div class="line">obj_SetLife(pool, boss, life); \</div>
+<div class="line">INVOKE_SUBTASK(start_spellcard_sequence, pool, boss, spell_name, 120); \</div>
+<div class="line">WAIT(120); \</div>
+<div class="line"><a class="code hl_struct" href="struct_co_task.html">CoTask</a>* <a class="code hl_define" href="macro_8h.html#a6d2fd5d47b4a5858bc621cfc365ae54f">MACRO_CONCAT</a>(task_, var) = spell; \</div>
+<div class="line"><a class="code hl_struct" href="struct_boxed_task.html">BoxedTask</a> <a class="code hl_define" href="macro_8h.html#a6d2fd5d47b4a5858bc621cfc365ae54f">MACRO_CONCAT</a>(box_, var) = <a class="code hl_function" href="cotask_8c.html#a83e7f763cd720b4a97a707030da2a111">cotask_box</a>(<a class="code hl_define" href="macro_8h.html#a6d2fd5d47b4a5858bc621cfc365ae54f">MACRO_CONCAT</a>(task_, var)); \</div>
+<div class="line">\</div>
+<div class="line">while(!<a class="code hl_function" href="obj_8c.html#a25e9ac0faa8566ee0f2835a94e9af95a">obj_IsDead</a>(pool, boss)) { \</div>
+<div class="line">    <a class="code hl_define" href="tasks_8h.html#a50d551776c26c1579754521287f0b0f0">YIELD</a>; \</div>
+<div class="line">} \</div>
+<div class="line">\</div>
+<div class="line">HUD_clear_spellcard(); \</div>
+<div class="line">CANCEL_TASK(<a class="code hl_define" href="macro_8h.html#a6d2fd5d47b4a5858bc621cfc365ae54f">MACRO_CONCAT</a>(box_, var)); \</div>
+<div class="line">Bullet_clear_bullets(pool); \</div>
+<div class="line">moonlight_bg_set_mode(<span class="keyword">false</span>);</div>
+<div class="ttc" id="aobj_8c_html_a42a4274907f0ad1ee13bf954cd19e06a"><div class="ttname"><a href="obj_8c.html#a42a4274907f0ad1ee13bf954cd19e06a">obj_SetMaxlife</a></div><div class="ttdeci">void obj_SetMaxlife(Pool *p, Entity objId, int maxLife)</div><div class="ttdef"><b>Definition</b> obj.c:320</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="ae193248380147d7167fcf9e3864a0ed6" name="ae193248380147d7167fcf9e3864a0ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae193248380147d7167fcf9e3864a0ed6">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK() <span class="overload">[1/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">boss_distortion_effect</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;Vector2 *<a class="el" href="moonlight_8c.html#ab1a1908c5b46b9575c7fda34a819003c">lens_center</a>;float *<a class="el" href="moonlight_8c.html#a5f0967d74b9f24b1a83b5bcba56673a2">lens_radius</a>;float *<a class="el" href="moonlight_8c.html#a930f3c461bd2050fed544b064f462726">lens_strength</a>;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade2cc488170b3e255bf9b0646666895a" name="ade2cc488170b3e255bf9b0646666895a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade2cc488170b3e255bf9b0646666895a">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK() <span class="overload">[2/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">boss_orb_effect</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb26463bff4a7d5eaed7f05435092e73" name="adb26463bff4a7d5eaed7f05435092e73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb26463bff4a7d5eaed7f05435092e73">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK() <span class="overload">[3/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">boss_particle_spawner</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8bc84036b33715fcd372b5016257d525" name="a8bc84036b33715fcd372b5016257d525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bc84036b33715fcd372b5016257d525">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK() <span class="overload">[4/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">boss_pentagram_effect</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6777775e133741f9bba385a6dac4d061" name="a6777775e133741f9bba385a6dac4d061"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6777775e133741f9bba385a6dac4d061">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK() <span class="overload">[5/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">obj_GoTo</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId;float x;float y;float speed;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf9281fca59814c3636be072cf426a14" name="aaf9281fca59814c3636be072cf426a14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9281fca59814c3636be072cf426a14">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK() <span class="overload">[6/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">orb_explosion</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="struct_pool.html">Pool</a> *pool;float x;float y;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a2b861079a8186d943db07f3cfc4312ad" name="a2b861079a8186d943db07f3cfc4312ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b861079a8186d943db07f3cfc4312ad">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b861079a8186d943db07f3cfc4312ad">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK() <span class="overload">[7/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -114,7 +385,70 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">{ <a class="el" href="structCoEvent.html">CoEvent</a> *event;int duration;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+          <td class="paramtype">{ <a class="el" href="struct_co_event.html">CoEvent</a> *event;int duration;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59b27959ea5a5c4a32d77af136e6f0c9" name="a59b27959ea5a5c4a32d77af136e6f0c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b27959ea5a5c4a32d77af136e6f0c9">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">play_anim_once</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="struct_pool.html">Pool</a> *pool;float x;float y;int sprite_id;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad6fc7505d17bdd17b29e064f8c2d22d" name="aad6fc7505d17bdd17b29e064f8c2d22d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad6fc7505d17bdd17b29e064f8c2d22d">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK() <span class="overload">[9/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">spellcard_bg_anim</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="struct_pool.html">Pool</a> *pool;int duration;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1904530f9b3ff1ada1c81378ca5ee902" name="a1904530f9b3ff1ada1c81378ca5ee902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1904530f9b3ff1ada1c81378ca5ee902">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK() <span class="overload">[10/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">start_spellcard_sequence</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="struct_pool.html">Pool</a> *pool;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> boss;const char *spell_name;int duration;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

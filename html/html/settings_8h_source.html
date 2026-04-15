@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/core/settings.h Source File</title>
+<title>Yume Project: lib/core/settings.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -92,16 +92,19 @@ $(function(){initNavTree('settings_8h_source.html','',''); });
 </div><!--header-->
 <div class="contents">
 <a href="settings_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="game__state_8h.html">core/game_state.h</a>&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a2486b651a5a3eb8f1a8f9e15bdb6a64e">load_settings</a>(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx);</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a36cc354075da8dad8046d310ad00496b">init_settings</a>(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx);</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a05cda04071bdacd876761340f16c7f90">saveSettings</a>(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx);</div>
-<div class="ttc" id="agame__state_8h_html"><div class="ttname"><a href="game__state_8h.html">game_state.h</a></div></div>
-<div class="ttc" id="asettings_8h_html_a05cda04071bdacd876761340f16c7f90"><div class="ttname"><a href="settings_8h.html#a05cda04071bdacd876761340f16c7f90">saveSettings</a></div><div class="ttdeci">void saveSettings(GameContext *ctx)</div><div class="ttdef"><b>Definition</b> settings.c:94</div></div>
-<div class="ttc" id="asettings_8h_html_a2486b651a5a3eb8f1a8f9e15bdb6a64e"><div class="ttname"><a href="settings_8h.html#a2486b651a5a3eb8f1a8f9e15bdb6a64e">load_settings</a></div><div class="ttdeci">void load_settings(GameContext *ctx)</div><div class="ttdef"><b>Definition</b> settings.c:47</div></div>
-<div class="ttc" id="asettings_8h_html_a36cc354075da8dad8046d310ad00496b"><div class="ttname"><a href="settings_8h.html#a36cc354075da8dad8046d310ad00496b">init_settings</a></div><div class="ttdeci">void init_settings(GameContext *ctx)</div><div class="ttdef"><b>Definition</b> settings.c:11</div></div>
-<div class="ttc" id="astructGameContext_html"><div class="ttname"><a href="structGameContext.html">GameContext</a></div><div class="ttdef"><b>Definition</b> game_state.h:34</div></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="game__state_8h.html">core/game_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a2486b651a5a3eb8f1a8f9e15bdb6a64e">load_settings</a>(<a class="code hl_struct" href="struct_game_context.html">GameContext</a> *ctx);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a36cc354075da8dad8046d310ad00496b">init_settings</a>(<a class="code hl_struct" href="struct_game_context.html">GameContext</a> *ctx);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a05cda04071bdacd876761340f16c7f90">saveSettings</a>(<a class="code hl_struct" href="struct_game_context.html">GameContext</a> *ctx);</div>
+<div class="ttc" id="agame__state_8h_html"><div class="ttname"><a href="game__state_8h.html">game_state.h</a></div><div class="ttdoc">Fonctions permettant de gêrer l&#39;état du programme.</div></div>
+<div class="ttc" id="asettings_8h_html_a05cda04071bdacd876761340f16c7f90"><div class="ttname"><a href="settings_8h.html#a05cda04071bdacd876761340f16c7f90">saveSettings</a></div><div class="ttdeci">void saveSettings(GameContext *ctx)</div><div class="ttdoc">Enregistre les paramètres du jeu dans le fichier de configuration.</div><div class="ttdef"><b>Definition</b> settings.c:96</div></div>
+<div class="ttc" id="asettings_8h_html_a2486b651a5a3eb8f1a8f9e15bdb6a64e"><div class="ttname"><a href="settings_8h.html#a2486b651a5a3eb8f1a8f9e15bdb6a64e">load_settings</a></div><div class="ttdeci">void load_settings(GameContext *ctx)</div><div class="ttdoc">Charge les paramètres depuis le fichier de configuration et les applique au contexte du jeu....</div><div class="ttdef"><b>Definition</b> settings.c:51</div></div>
+<div class="ttc" id="asettings_8h_html_a36cc354075da8dad8046d310ad00496b"><div class="ttname"><a href="settings_8h.html#a36cc354075da8dad8046d310ad00496b">init_settings</a></div><div class="ttdeci">void init_settings(GameContext *ctx)</div><div class="ttdoc">Initialise les paramètres du jeu avec des valeurs par défaut.</div><div class="ttdef"><b>Definition</b> settings.c:6</div></div>
+<div class="ttc" id="astruct_game_context_html"><div class="ttname"><a href="struct_game_context.html">GameContext</a></div><div class="ttdoc">Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....</div><div class="ttdef"><b>Definition</b> game_state.h:64</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

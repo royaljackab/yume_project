@@ -16,5 +16,10 @@ var searchData=
   ['talisman_5fred_13',['TALISMAN_RED',['../assets_8h.html#a458291307eae5dfdecda616d636894f3aa819ebdf941056d32eed64ac39bb6537',1,'assets.h']]],
   ['talisman_5fwhite_14',['TALISMAN_WHITE',['../assets_8h.html#a458291307eae5dfdecda616d636894f3a24a6a316d2c186dd5528f5db9f59b464',1,'assets.h']]],
   ['talisman_5fyellow_15',['TALISMAN_YELLOW',['../assets_8h.html#a458291307eae5dfdecda616d636894f3a66b419ddeccc19292e702700a467d88a',1,'assets.h']]],
-  ['test_5fplayer_16',['TEST_PLAYER',['../player_8h.html#a38bf1810175b6b82618b04b1ee0258daa6e2ee4dee75afce64793191e70f8be0f',1,'player.h']]]
+  ['test_5fplayer_16',['TEST_PLAYER',['../player_8h.html#a38bf1810175b6b82618b04b1ee0258daa6e2ee4dee75afce64793191e70f8be0f',1,'player.h']]],
+  ['tex_5fbg_5fmath_17',['TEX_BG_MATH',['../assets_8h.html#aac8c8e4db184e4a83ec51cdec293c11dadb75212ebc81c6eeae1fd12e8384bbb5',1,'assets.h']]],
+  ['tex_5fbg_5ftorii_18',['TEX_BG_TORII',['../assets_8h.html#aac8c8e4db184e4a83ec51cdec293c11da30a1ffb9683dc7e718ec0248208c7860',1,'assets.h']]],
+  ['th14_5fother_19',['TH14_OTHER',['../assets_8h.html#aac8c8e4db184e4a83ec51cdec293c11da09aef3eae9d27095d146dc6312729468',1,'assets.h']]],
+  ['th14_5fstg4_20',['TH14_STG4',['../assets_8h.html#aac8c8e4db184e4a83ec51cdec293c11dab10a3e46086de2074022b840133c6d7f',1,'assets.h']]],
+  ['touhou_5f98_21',['TOUHOU_98',['../assets_8h.html#aee0a12e803b6ab37905d9d3233f70d85a615ef035b9cac19f018ff3aec89a8bfd',1,'assets.h']]]
 ];

@@ -1,7 +1,7 @@
 var button_8h =
 [
-    [ "Button", "structButton.html", "structButton" ],
-    [ "ButtonSystem", "structButtonSystem.html", "structButtonSystem" ],
+    [ "Button", "struct_button.html", "struct_button" ],
+    [ "ButtonSystem", "struct_button_system.html", "struct_button_system" ],
     [ "MAX_BUTTONS", "button_8h.html#a8bb0c7f312bb8665c3377a061dae552c", null ],
     [ "NO_BUTTON", "button_8h.html#adb8526f5c97746625152403b857b0b11", null ],
     [ "Button", "button_8h.html#aabbec029df4131b530b45fc227cfddcc", null ],
@@ -9,6 +9,7 @@ var button_8h =
     [ "button_create", "button_8h.html#a71d3140e977771c90d8137a98c29b241", null ],
     [ "button_create_ex", "button_8h.html#a899826f7d1cf010fd4bdaca652247bd1", null ],
     [ "button_draw_button_text", "button_8h.html#a16cb10a894bca788bcb776c12faa3a3d", null ],
+    [ "button_draw_button_text_touhou98", "button_8h.html#a6f74bcf247362f6b65a85f1838b50ee8", null ],
     [ "button_draw_selector_text", "button_8h.html#a04a3a93a81cb79a96330af3305b42af5", null ],
     [ "button_get_button_position", "button_8h.html#a5e2f86177baf1c45df3f71621e9ac4a5", null ],
     [ "button_get_current_button", "button_8h.html#a3ff8b2f96ad4e580d2a74f6aa8ad96a1", null ],

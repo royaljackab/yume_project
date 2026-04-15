@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/core/screen.h File Reference</title>
+<title>Yume Project: lib/systems/screen.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -94,17 +94,33 @@ $(function(){initNavTree('screen_8h.html','',''); });
 
 <p><a href="screen_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:ScreenSystem" id="r_ScreenSystem"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_screen_system.html">ScreenSystem</a></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad77852c9ed05a6d2d0dc929e12474474" id="r_ad77852c9ed05a6d2d0dc929e12474474"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad77852c9ed05a6d2d0dc929e12474474">DRAW_MARGIN</a>&#160;&#160;&#160;500</td></tr>
-<tr class="memitem:a2cd109632a6dcccaa80b43561b1ab700" id="r_a2cd109632a6dcccaa80b43561b1ab700"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2cd109632a6dcccaa80b43561b1ab700">SCREEN_WIDTH</a>&#160;&#160;&#160;1920</td></tr>
-<tr class="memitem:a6974d08a74da681b3957b2fead2608b8" id="r_a6974d08a74da681b3957b2fead2608b8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6974d08a74da681b3957b2fead2608b8">SCREEN_HEIGHT</a>&#160;&#160;&#160;1080</td></tr>
-<tr class="memitem:a8178aba12c2aecd043139959f5f37cab" id="r_a8178aba12c2aecd043139959f5f37cab"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8178aba12c2aecd043139959f5f37cab">PANEL_LEFT</a>&#160;&#160;&#160;<a class="el" href="#a2cd109632a6dcccaa80b43561b1ab700">SCREEN_WIDTH</a> / 64</td></tr>
-<tr class="memitem:a6ae393e0896d156a3697d7cbc944eb67" id="r_a6ae393e0896d156a3697d7cbc944eb67"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6ae393e0896d156a3697d7cbc944eb67">PANEL_WIDTH</a>&#160;&#160;&#160;<a class="el" href="#a2cd109632a6dcccaa80b43561b1ab700">SCREEN_WIDTH</a> / 2</td></tr>
-<tr class="memitem:a216b23526a0353ef3c16994db505bceb" id="r_a216b23526a0353ef3c16994db505bceb"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a216b23526a0353ef3c16994db505bceb">PANEL_UP</a>&#160;&#160;&#160;<a class="el" href="#a6974d08a74da681b3957b2fead2608b8">SCREEN_HEIGHT</a> / 45</td></tr>
-<tr class="memitem:ad94f97286bd6f40f75df2736a63ac899" id="r_ad94f97286bd6f40f75df2736a63ac899"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad94f97286bd6f40f75df2736a63ac899">PANEL_HEIGHT</a>&#160;&#160;&#160;<a class="el" href="#a6974d08a74da681b3957b2fead2608b8">SCREEN_HEIGHT</a> * 0.95</td></tr>
-<tr class="memitem:a606da246287d0a5e73a0fc2d7287c7f6" id="r_a606da246287d0a5e73a0fc2d7287c7f6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a606da246287d0a5e73a0fc2d7287c7f6">PANEL_RIGHT</a>&#160;&#160;&#160;<a class="el" href="#a8178aba12c2aecd043139959f5f37cab">PANEL_LEFT</a> + <a class="el" href="#a6ae393e0896d156a3697d7cbc944eb67">PANEL_WIDTH</a></td></tr>
-<tr class="memitem:a45234f6358a11cd5c7a407d863ef32c5" id="r_a45234f6358a11cd5c7a407d863ef32c5"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a45234f6358a11cd5c7a407d863ef32c5">PANEL_DOWN</a>&#160;&#160;&#160;<a class="el" href="#a216b23526a0353ef3c16994db505bceb">PANEL_UP</a> + <a class="el" href="#ad94f97286bd6f40f75df2736a63ac899">PANEL_HEIGHT</a></td></tr>
+<tr class="memitem:ad77852c9ed05a6d2d0dc929e12474474" id="r_ad77852c9ed05a6d2d0dc929e12474474"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad77852c9ed05a6d2d0dc929e12474474">DRAW_MARGIN</a>&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;draw_margin)</td></tr>
+<tr class="memitem:a2cd109632a6dcccaa80b43561b1ab700" id="r_a2cd109632a6dcccaa80b43561b1ab700"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2cd109632a6dcccaa80b43561b1ab700">SCREEN_WIDTH</a>&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;screen_width)</td></tr>
+<tr class="memitem:a6974d08a74da681b3957b2fead2608b8" id="r_a6974d08a74da681b3957b2fead2608b8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6974d08a74da681b3957b2fead2608b8">SCREEN_HEIGHT</a>&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;screen_height)</td></tr>
+<tr class="memitem:a8178aba12c2aecd043139959f5f37cab" id="r_a8178aba12c2aecd043139959f5f37cab"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8178aba12c2aecd043139959f5f37cab">PANEL_LEFT</a>&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_left)</td></tr>
+<tr class="memitem:a6ae393e0896d156a3697d7cbc944eb67" id="r_a6ae393e0896d156a3697d7cbc944eb67"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6ae393e0896d156a3697d7cbc944eb67">PANEL_WIDTH</a>&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_width)</td></tr>
+<tr class="memitem:a216b23526a0353ef3c16994db505bceb" id="r_a216b23526a0353ef3c16994db505bceb"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a216b23526a0353ef3c16994db505bceb">PANEL_UP</a>&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_up)</td></tr>
+<tr class="memitem:ad94f97286bd6f40f75df2736a63ac899" id="r_ad94f97286bd6f40f75df2736a63ac899"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad94f97286bd6f40f75df2736a63ac899">PANEL_HEIGHT</a>&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_height)</td></tr>
+<tr class="memitem:a606da246287d0a5e73a0fc2d7287c7f6" id="r_a606da246287d0a5e73a0fc2d7287c7f6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a606da246287d0a5e73a0fc2d7287c7f6">PANEL_RIGHT</a>&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_right)</td></tr>
+<tr class="memitem:a45234f6358a11cd5c7a407d863ef32c5" id="r_a45234f6358a11cd5c7a407d863ef32c5"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a45234f6358a11cd5c7a407d863ef32c5">PANEL_DOWN</a>&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_down)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a30a3440e290d01c5128d2262ae85482b" id="r_a30a3440e290d01c5128d2262ae85482b"><td class="memItemLeft">typedef struct ScreenSystem&#160;</td><td class="memItemRight"><a class="el" href="#a30a3440e290d01c5128d2262ae85482b">ScreenSystem</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a30ef638ba8260372634c89fc9af94381" id="r_a30ef638ba8260372634c89fc9af94381"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a30ef638ba8260372634c89fc9af94381">screen_system_init</a> (<a class="el" href="struct_screen_system.html">ScreenSystem</a> *screen)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ab07b3a7ce1586d9e19fa9d1a797c2325" id="r_ab07b3a7ce1586d9e19fa9d1a797c2325"><td class="memItemLeft"><a class="el" href="struct_screen_system.html">ScreenSystem</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="ad77852c9ed05a6d2d0dc929e12474474" name="ad77852c9ed05a6d2d0dc929e12474474"></a>
@@ -114,7 +130,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DRAW_MARGIN&#160;&#160;&#160;500</td>
+          <td class="memname">#define DRAW_MARGIN&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;draw_margin)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -128,7 +144,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PANEL_DOWN&#160;&#160;&#160;<a class="el" href="#a216b23526a0353ef3c16994db505bceb">PANEL_UP</a> + <a class="el" href="#ad94f97286bd6f40f75df2736a63ac899">PANEL_HEIGHT</a></td>
+          <td class="memname">#define PANEL_DOWN&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_down)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -142,7 +158,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PANEL_HEIGHT&#160;&#160;&#160;<a class="el" href="#a6974d08a74da681b3957b2fead2608b8">SCREEN_HEIGHT</a> * 0.95</td>
+          <td class="memname">#define PANEL_HEIGHT&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_height)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -156,7 +172,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PANEL_LEFT&#160;&#160;&#160;<a class="el" href="#a2cd109632a6dcccaa80b43561b1ab700">SCREEN_WIDTH</a> / 64</td>
+          <td class="memname">#define PANEL_LEFT&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_left)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -170,7 +186,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PANEL_RIGHT&#160;&#160;&#160;<a class="el" href="#a8178aba12c2aecd043139959f5f37cab">PANEL_LEFT</a> + <a class="el" href="#a6ae393e0896d156a3697d7cbc944eb67">PANEL_WIDTH</a></td>
+          <td class="memname">#define PANEL_RIGHT&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_right)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -184,7 +200,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PANEL_UP&#160;&#160;&#160;<a class="el" href="#a6974d08a74da681b3957b2fead2608b8">SCREEN_HEIGHT</a> / 45</td>
+          <td class="memname">#define PANEL_UP&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_up)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -198,7 +214,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PANEL_WIDTH&#160;&#160;&#160;<a class="el" href="#a2cd109632a6dcccaa80b43561b1ab700">SCREEN_WIDTH</a> / 2</td>
+          <td class="memname">#define PANEL_WIDTH&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;panel_width)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -212,7 +228,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SCREEN_HEIGHT&#160;&#160;&#160;1080</td>
+          <td class="memname">#define SCREEN_HEIGHT&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;screen_height)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -226,9 +242,73 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SCREEN_WIDTH&#160;&#160;&#160;1920</td>
+          <td class="memname">#define SCREEN_WIDTH&#160;&#160;&#160;(<a class="el" href="#ab07b3a7ce1586d9e19fa9d1a797c2325">g_screen</a>-&gt;screen_width)</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a id="a30a3440e290d01c5128d2262ae85482b" name="a30a3440e290d01c5128d2262ae85482b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30a3440e290d01c5128d2262ae85482b">&#9670;&#160;</a></span>ScreenSystem</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct ScreenSystem ScreenSystem</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a30ef638ba8260372634c89fc9af94381" name="a30ef638ba8260372634c89fc9af94381"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30ef638ba8260372634c89fc9af94381">&#9670;&#160;</a></span>screen_system_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void screen_system_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_screen_system.html">ScreenSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>screen</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="ab07b3a7ce1586d9e19fa9d1a797c2325" name="ab07b3a7ce1586d9e19fa9d1a797c2325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab07b3a7ce1586d9e19fa9d1a797c2325">&#9670;&#160;</a></span>g_screen</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_screen_system.html">ScreenSystem</a>* g_screen</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -246,7 +326,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_a2d5e495f4b604d04f57d90095a59dd6.html">core</a></li><li class="navelem"><a href="screen_8h.html">screen.h</a></li>
+    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_290a704ccc2804c85549707df241ef68.html">systems</a></li><li class="navelem"><a href="screen_8h.html">screen.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

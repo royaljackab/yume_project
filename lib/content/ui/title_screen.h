@@ -1,3 +1,8 @@
+/**
+ * @file title_screen.h
+ * @brief Écran titre / menu principal
+ */
+
 #pragma once
 
 #include "core/game_state.h"

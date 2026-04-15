@@ -8,13 +8,7 @@
 #include "stdio.h"
 #include <stdlib.h>
 
-///TODO: ajouter des hitbox aux nodes
-
 bool loose_laser_update(Pool *pool, Loose_laser *laser){
-    /***
-    * Update d'un loose laser sur 1 frame 
-    * @return true si le laser doit continuer à exister, false s'il doit être supprimé
-    */
     PositionManager * positionManager = &(pool->position);
 
     if (laser->looseNodeCount < MAX_LOOSE_NODES) {
@@ -51,7 +45,6 @@ bool loose_laser_update(Pool *pool, Loose_laser *laser){
     }
 
     //mise a jour du timer
-    ///TODO: Je ne sais pas comment gêrer les loops
     laser->looseTimer.chrono++;
 
 
@@ -66,9 +59,6 @@ bool loose_laser_update(Pool *pool, Loose_laser *laser){
 
 
 void loose_lasers_update_all(Pool *pool){
-    /***
-     * Met à jour tout les loose lasers et les ajoute à la kill queue s'ils sont finis
-     */
     Loose_laser *laser;
 
     Loose_laserManager * laserManager = &(pool->looseLaser);
@@ -84,9 +74,6 @@ void loose_lasers_update_all(Pool *pool){
 }
 
 Entity loose_laser_create(Pool * pool, int x, int y, float speed, float length, float width, int duration, Color color) {
-    /***
-     * Créé un loose laser dans la pool
-     */
     Entity id = pool_create_entity(pool);
     Timer timer;
     Entity * nodes = malloc(sizeof(Entity) * MAX_LOOSE_NODES);
@@ -117,9 +104,6 @@ Entity loose_laser_create(Pool * pool, int x, int y, float speed, float length, 
 
 
 Entity node_create(Pool * pool, float x, float y, float radius) {
-    /***
-     * Créé un node de loose laser dans la pool
-     */
     Entity id = pool_create_entity(pool);
     Vector2 vect = {x, y};
     Position pos = {.pos = vect, .angle = 0};
@@ -130,11 +114,6 @@ Entity node_create(Pool * pool, float x, float y, float radius) {
 }
 
 void Loose_laser_destroy(Pool * pool, Entity id){
-    /***
-     * Détruit un loose_laser dans la pool (y compris on libérant tout ce qui le compose, contrairement à loose_laser_remove)
-     */
-
-
     Loose_laser * laser = Loose_laser_get(&pool->looseLaser,id);
 
     if(!laser){
@@ -149,9 +128,6 @@ void Loose_laser_destroy(Pool * pool, Entity id){
 }
 
 void draw_loose_laser(Loose_laser *laser, PositionManager *positionManager){
-    /***
-     * Affiche un loose laser
-     */
     if (laser->looseNodeCount < 2) return;
 
     // On a besoin de 2 sommets par noeud (gauche et droite)
@@ -189,9 +165,6 @@ void draw_loose_laser(Loose_laser *laser, PositionManager *positionManager){
 }
 
 void draw_all_loose_lasers(Loose_laserManager *looseManager, PositionManager * positionManager) {
-  /**
-   * Affiche tous les loose lasers actifs
-   */
   Loose_laser *laser;
   for (int i=0; i < looseManager->count; i++) {
       laser = &looseManager->dense[i];

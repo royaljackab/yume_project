@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/core/input.h File Reference</title>
+<title>Yume Project: lib/core/input.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -91,32 +91,50 @@ $(function(){initNavTree('input_8h.html','',''); });
   <div class="headertitle"><div class="title">input.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Système d'entrée : keybinds et états des actions joueur.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;raylib.h&gt;</code><br />
 </div>
 <p><a href="input_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:InputConfig" id="r_InputConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structInputConfig.html">InputConfig</a></td></tr>
-<tr class="memitem:KeyState" id="r_KeyState"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structKeyState.html">KeyState</a></td></tr>
-<tr class="memitem:InputSystem" id="r_InputSystem"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structInputSystem.html">InputSystem</a></td></tr>
+<tr class="memitem:InputConfig" id="r_InputConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_input_config.html">InputConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration des keybinds, modifiable dans les settings.  <a href="struct_input_config.html#details">More...</a><br /></td></tr>
+<tr class="memitem:KeyState" id="r_KeyState"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_key_state.html">KeyState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">État d'une touche/action (remplace les appels à IsKeyDown/IsKeyPressed/IsKeyReleased).  <a href="struct_key_state.html#details">More...</a><br /></td></tr>
+<tr class="memitem:InputSystem" id="r_InputSystem"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_input_system.html">InputSystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Système d'entrée complet contenant keybinds et états courants des touches.  <a href="struct_input_system.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:aea34ef574b3cf7509e579fcfe943fa42" id="r_aea34ef574b3cf7509e579fcfe943fa42"><td class="memItemLeft">typedef struct InputConfig&#160;</td><td class="memItemRight"><a class="el" href="#aea34ef574b3cf7509e579fcfe943fa42">InputConfig</a></td></tr>
+<tr class="memdesc:aea34ef574b3cf7509e579fcfe943fa42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration des keybinds, modifiable dans les settings.  <br /></td></tr>
 <tr class="memitem:aefbf4d1f84930cd53d69b13e54cc5949" id="r_aefbf4d1f84930cd53d69b13e54cc5949"><td class="memItemLeft">typedef struct KeyState&#160;</td><td class="memItemRight"><a class="el" href="#aefbf4d1f84930cd53d69b13e54cc5949">KeyState</a></td></tr>
+<tr class="memdesc:aefbf4d1f84930cd53d69b13e54cc5949"><td class="mdescLeft">&#160;</td><td class="mdescRight">État d'une touche/action (remplace les appels à IsKeyDown/IsKeyPressed/IsKeyReleased).  <br /></td></tr>
 <tr class="memitem:aca783be07530351065cc4525856763fc" id="r_aca783be07530351065cc4525856763fc"><td class="memItemLeft">typedef struct InputSystem&#160;</td><td class="memItemRight"><a class="el" href="#aca783be07530351065cc4525856763fc">InputSystem</a></td></tr>
+<tr class="memdesc:aca783be07530351065cc4525856763fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Système d'entrée complet contenant keybinds et états courants des touches.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a176893df30d00f9d2c17de1b4df52375" id="r_a176893df30d00f9d2c17de1b4df52375"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a176893df30d00f9d2c17de1b4df52375">input_initialize</a> (<a class="el" href="structInputSystem.html">InputSystem</a> *input)</td></tr>
-<tr class="memitem:ad0b687ae0f9c197a8fa8e8dd7816a165" id="r_ad0b687ae0f9c197a8fa8e8dd7816a165"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad0b687ae0f9c197a8fa8e8dd7816a165">input_update</a> (<a class="el" href="structInputSystem.html">InputSystem</a> *input)</td></tr>
-<tr class="memitem:aa13662122eb28ebbb8a34fdeda3f0a74" id="r_aa13662122eb28ebbb8a34fdeda3f0a74"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aa13662122eb28ebbb8a34fdeda3f0a74">isPressed</a> (<a class="el" href="structKeyState.html">KeyState</a> key)</td></tr>
-<tr class="memitem:a67e4837b7e606d1d62732bb1a38fff9d" id="r_a67e4837b7e606d1d62732bb1a38fff9d"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a67e4837b7e606d1d62732bb1a38fff9d">isDown</a> (<a class="el" href="structKeyState.html">KeyState</a> key)</td></tr>
-<tr class="memitem:a8a04298d96702f1448f453a030a48713" id="r_a8a04298d96702f1448f453a030a48713"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a8a04298d96702f1448f453a030a48713">isReleased</a> (<a class="el" href="structKeyState.html">KeyState</a> key)</td></tr>
+<tr class="memitem:a176893df30d00f9d2c17de1b4df52375" id="r_a176893df30d00f9d2c17de1b4df52375"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a176893df30d00f9d2c17de1b4df52375">input_initialize</a> (<a class="el" href="struct_input_system.html">InputSystem</a> *input)</td></tr>
+<tr class="memdesc:a176893df30d00f9d2c17de1b4df52375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le système d'entrée.  <br /></td></tr>
+<tr class="memitem:ad0b687ae0f9c197a8fa8e8dd7816a165" id="r_ad0b687ae0f9c197a8fa8e8dd7816a165"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad0b687ae0f9c197a8fa8e8dd7816a165">input_update</a> (<a class="el" href="struct_input_system.html">InputSystem</a> *input)</td></tr>
+<tr class="memdesc:ad0b687ae0f9c197a8fa8e8dd7816a165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le système d'entrée en fonction de l'état actuel des touches.  <br /></td></tr>
+<tr class="memitem:aa13662122eb28ebbb8a34fdeda3f0a74" id="r_aa13662122eb28ebbb8a34fdeda3f0a74"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aa13662122eb28ebbb8a34fdeda3f0a74">isPressed</a> (<a class="el" href="struct_key_state.html">KeyState</a> key)</td></tr>
+<tr class="memdesc:aa13662122eb28ebbb8a34fdeda3f0a74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une touche est actuellement pressée.  <br /></td></tr>
+<tr class="memitem:a67e4837b7e606d1d62732bb1a38fff9d" id="r_a67e4837b7e606d1d62732bb1a38fff9d"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a67e4837b7e606d1d62732bb1a38fff9d">isDown</a> (<a class="el" href="struct_key_state.html">KeyState</a> key)</td></tr>
+<tr class="memdesc:a67e4837b7e606d1d62732bb1a38fff9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une touche est actuellement enfoncée.  <br /></td></tr>
+<tr class="memitem:a8a04298d96702f1448f453a030a48713" id="r_a8a04298d96702f1448f453a030a48713"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a8a04298d96702f1448f453a030a48713">isReleased</a> (<a class="el" href="struct_key_state.html">KeyState</a> key)</td></tr>
+<tr class="memdesc:a8a04298d96702f1448f453a030a48713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une touche vient d'être relâchée.  <br /></td></tr>
 <tr class="memitem:af9bc7f674343681b4723180bbc30addb" id="r_af9bc7f674343681b4723180bbc30addb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af9bc7f674343681b4723180bbc30addb">input_change_keybind</a> (KeyboardKey *key, KeyboardKey new_key)</td></tr>
+<tr class="memdesc:af9bc7f674343681b4723180bbc30addb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la touche associée à une action.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Système d'entrée : keybinds et états des actions joueur. </p>
+<p>Fournit les structures et fonctions pour gérer les keybinds et l'état des touches/actions (pressé / maintenu / relâché). </p>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="aea34ef574b3cf7509e579fcfe943fa42" name="aea34ef574b3cf7509e579fcfe943fa42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea34ef574b3cf7509e579fcfe943fa42">&#9670;&#160;</a></span>InputConfig</h2>
 
@@ -128,6 +146,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Configuration des keybinds, modifiable dans les settings. </p>
+<dl class="section note"><dt>Note</dt><dd>Garder les mêmes noms de champs pour <span class="tt"><a class="el" href="struct_input_config.html" title="Configuration des keybinds, modifiable dans les settings.">InputConfig</a></span> et <span class="tt"><a class="el" href="struct_input_system.html" title="Système d&#39;entrée complet contenant keybinds et états courants des touches.">InputSystem</a></span>. </dd></dl>
 
 </div>
 </div>
@@ -143,6 +164,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Système d'entrée complet contenant keybinds et états courants des touches. </p>
+<p>Contient une <a class="el" href="struct_input_config.html" title="Configuration des keybinds, modifiable dans les settings.">InputConfig</a> (keybinds) et un <a class="el" href="struct_key_state.html" title="État d&#39;une touche/action (remplace les appels à IsKeyDown/IsKeyPressed/IsKeyReleased).">KeyState</a> par action. </p>
+
 </div>
 </div>
 <a id="aefbf4d1f84930cd53d69b13e54cc5949" name="aefbf4d1f84930cd53d69b13e54cc5949"></a>
@@ -156,6 +180,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>État d'une touche/action (remplace les appels à IsKeyDown/IsKeyPressed/IsKeyReleased). </p>
 
 </div>
 </div>
@@ -187,6 +213,15 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Modifie la touche associée à une action. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>La touche à modifier </td></tr>
+    <tr><td class="paramname">new_key</td><td>La nouvelle touche </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a176893df30d00f9d2c17de1b4df52375" name="a176893df30d00f9d2c17de1b4df52375"></a>
@@ -201,7 +236,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void input_initialize </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structInputSystem.html">InputSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_input_system.html">InputSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -211,6 +246,14 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initialise le système d'entrée. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Le système d'entrée à initialiser </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -226,7 +269,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void input_update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structInputSystem.html">InputSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_input_system.html">InputSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -236,6 +279,14 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Met à jour le système d'entrée en fonction de l'état actuel des touches. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Le système d'entrée à mettre à jour </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -251,7 +302,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int isDown </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structKeyState.html">KeyState</a></td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_key_state.html">KeyState</a></td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -261,6 +312,15 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Vérifie si une touche est actuellement enfoncée. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>L'état de la touche à vérifier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 si la touche est enfoncée, 0 sinon </dd></dl>
 
 </div>
 </div>
@@ -276,7 +336,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int isPressed </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structKeyState.html">KeyState</a></td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_key_state.html">KeyState</a></td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -286,6 +346,15 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Vérifie si une touche est actuellement pressée. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>L'état de la touche à vérifier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 si la touche est pressée, 0 sinon </dd></dl>
 
 </div>
 </div>
@@ -301,7 +370,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int isReleased </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structKeyState.html">KeyState</a></td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_key_state.html">KeyState</a></td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -311,6 +380,15 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Vérifie si une touche vient d'être relâchée. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>L'état de la touche à vérifier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 si la touche vient d'être relâchée, 0 sinon </dd></dl>
 
 </div>
 </div>

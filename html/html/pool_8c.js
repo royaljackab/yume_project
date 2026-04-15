@@ -6,6 +6,5 @@ var pool_8c =
     [ "pool_init", "pool_8c.html#a60ceabc44e88327ca668cca1f2773701", null ],
     [ "pool_kill_convicts", "pool_8c.html#a27986cf4e2b23fac8a47afc57c88a7ab", null ],
     [ "pool_kill_entity", "pool_8c.html#ad3ac59302ddb42f699a779a6babfd5e5", null ],
-    [ "entity_box_counter", "pool_8c.html#a68d67d4db4b06c3f4cf3a0bb081d73e8", null ],
     [ "uid_counter", "pool_8c.html#a2139c8103a35305b3bf3dcf36faaa7d4", null ]
 ];

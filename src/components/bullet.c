@@ -133,7 +133,7 @@ void Bullet_clear_bullets(Pool *p) {
     Entity e = Tag_get_entity(&p->tag, i);
     Tag tag = p->tag.dense[i];
 
-    if (tag == ENT_ENEMY_SHOT || tag == ENT_ENEMY_LASER) {
+    if (tag == ENT_ENEMY_SHOT || tag == ENT_ENEMY_LASER || tag == ENT_LOOSE_LASER) {
       pool_kill_entity(p, e);
     }
   }

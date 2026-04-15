@@ -1,3 +1,8 @@
+/**
+ * @file keybinds.h
+ * @brief Écran de configuration des touches (keybinds)
+ */
+
 #pragma once
 
 #include "core/game_state.h"

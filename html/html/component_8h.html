@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/ecs/component.h File Reference</title>
+<title>Yume Project: lib/ecs/component.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -91,6 +91,9 @@ $(function(){initNavTree('component_8h.html','',''); });
   <div class="headertitle"><div class="title">component.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Macros nécessaire à la création de nouvelles composantes de l'ECS.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="ecs_8h_source.html">ecs.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -100,11 +103,14 @@ $(function(){initNavTree('component_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ad846ec829d26b00e7cb1e617a5f197c3" id="r_ad846ec829d26b00e7cb1e617a5f197c3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad846ec829d26b00e7cb1e617a5f197c3">DEFINE_COMPONENT_MANAGER</a>(Type,  Number)</td></tr>
+<tr class="memdesc:ad846ec829d26b00e7cb1e617a5f197c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créé un composant dans l'ECS.  <br /></td></tr>
 <tr class="memitem:a4500130e62f48bdc86940b366df20999" id="r_a4500130e62f48bdc86940b366df20999"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a4500130e62f48bdc86940b366df20999">DECLARE_GETTER</a>(Component,  type,  champ)</td></tr>
 <tr class="memitem:a73e7da277986cf970a55af6aaa03f68e" id="r_a73e7da277986cf970a55af6aaa03f68e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a73e7da277986cf970a55af6aaa03f68e">DECLARE_SETTER</a>(Component,  type,  champ)</td></tr>
 <tr class="memitem:aeabad4d08cf984e0d901d1fc63a27dcc" id="r_aeabad4d08cf984e0d901d1fc63a27dcc"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aeabad4d08cf984e0d901d1fc63a27dcc">DECLARE_SETTER_GETTER</a>(Component,  type,  champ)</td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Macros nécessaire à la création de nouvelles composantes de l'ECS. </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a4500130e62f48bdc86940b366df20999" name="a4500130e62f48bdc86940b366df20999"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4500130e62f48bdc86940b366df20999">&#9670;&#160;</a></span>DECLARE_GETTER</h2>
 
@@ -186,7 +192,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a73e7da277986cf970a55af6aaa03f68e">DECLARE_SETTER</a>(Component, type, champ)                                       \</div>
 <div class="line">DECLARE_GETTER(Component, type, champ)</div>
-<div class="ttc" id="acomponent_8h_html_a73e7da277986cf970a55af6aaa03f68e"><div class="ttname"><a href="#a73e7da277986cf970a55af6aaa03f68e">DECLARE_SETTER</a></div><div class="ttdeci">#define DECLARE_SETTER(Component, type, champ)</div><div class="ttdef"><b>Definition</b> component.h:112</div></div>
+<div class="ttc" id="acomponent_8h_html_a73e7da277986cf970a55af6aaa03f68e"><div class="ttname"><a href="#a73e7da277986cf970a55af6aaa03f68e">DECLARE_SETTER</a></div><div class="ttdeci">#define DECLARE_SETTER(Component, type, champ)</div><div class="ttdef"><b>Definition</b> component.h:115</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -208,37 +214,27 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Créé un composant dans l'ECS. Params:</p><ul>
-<li>* Type : Le nom de la composante à créer</li>
-<li>* Number : Doit être égal à MAX_ENTITIES (sauf si la composante est très lourde)</li>
-</ul>
+
+<p>Créé un composant dans l'ECS. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Type</td><td>: Le nom de la composante à créer </td></tr>
+    <tr><td class="paramname">Number</td><td>: Doit être égal à MAX_ENTITIES (sauf si la composante est très lourde)</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Ce composant est une structure contenant:</p><ul>
 <li>tableau "dense" : contenant toutes les instances du composant défini</li>
 <li>tableau "sparse" : renvoie l'ID d'un élément dans le tableau sparse à partir de l'ID d'un élément dans le tableau dense (en pratique on le l'utilise pas directement, privilégier get)</li>
 <li>tableau "entity_lookup" : renvoie l'ID d'un élément dans le tableau dense à partir de l'ID d'un élément dans le tableau <br  />
- (c'est une <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>.)</li>
+ (c'est une <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a>.)</li>
 <li>count : Le nombre d'éléments actuels du composant</li>
 </ul>
-<p>Ce composant dispose de 4 fonctions: Type##_init(Type##Manager *mgr): s'utilise dans la fonction d'initialisation d'un gamestate Params:</p><ul>
-<li>* mgr : le manager de la composante</li>
-</ul>
-<p>Type##_add(Type##Manager *mgr, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e, Type data): append une nouvelle instance du composant à "dense". Params:</p><ul>
-<li>* mgr : le manager de la composante</li>
-<li>* e : l'ID de l'instance à ajouter</li>
-<li>* data : Une instance de la composante, elle est mise dans dense Ne doit PAS être déclaré dynamiquement</li>
-</ul>
-<p>Type##_get(Type##Manager *mgr, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e): return la valeur de la composante pour un ID Params:</p><ul>
-<li>* mgr : le manager de la composante</li>
-<li>* e : l'ID de l'instance dont on cherche la valeur de la composante Type</li>
-</ul>
-<p>static inline void Type##_remove(Type##Manager *mgr, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e) détruit une instance de la composante Params:</p><ul>
-<li>* mgr : le manager de la composante</li>
-<li>* e : l'ID de l'instance à détruire</li>
-</ul>
-<p>static inline <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> Type##_get_entity(Type##Manager *mgr, int dense_id) Renvoie l'entité correspondante a la donnée considérée Params:</p><ul>
-<li>* mgr : le manager de la composante</li>
-<li>* dense_id : l'emplacement dans le tableau dense de la donnée </li>
-</ul>
+<p>Ce composant dispose de 4 fonctions: Type##_init(Type##Manager *mgr): s'utilise dans la fonction d'initialisation d'un gamestate Params: mgr : le manager de la composante</p>
+<p>Type##_add(Type##Manager *mgr, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a> e, Type data): append une nouvelle instance du composant à "dense". Params: mgr : le manager de la composante e : l'ID de l'instance à ajouter data : Une instance de la composante, elle est mise dans dense Ne doit PAS être déclaré dynamiquement</p>
+<p>Type##_get(Type##Manager *mgr, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a> e): return la valeur de la composante pour un ID Params: mgr : le manager de la composante e : l'ID de l'instance dont on cherche la valeur de la composante Type</p>
+<p>static inline void Type##_remove(Type##Manager *mgr, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a> e) détruit une instance de la composante Params: mgr : le manager de la composante e : l'ID de l'instance à détruire</p>
+<p>static inline <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918" title="Une entité est un indice.">Entity</a> Type##_get_entity(Type##Manager *mgr, int dense_id) Renvoie l'entité correspondante a la donnée considérée Params: mgr : le manager de la composante dense_id : l'emplacement dans le tableau dense de la donnée </p>
 
 </div>
 </div>

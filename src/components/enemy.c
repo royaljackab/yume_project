@@ -23,17 +23,6 @@
 Entity Enemy_spawn(Pool *p, float x, float y, float speed, float angle,
                    int life, float hitboxRadius,
                    int score, SpriteID graphic) {
-/** @brief spawn une nouvelle entité
- * @param p Le pool d'entités
- * @param x La position x de l'ennemi
- * @param y La position y de l'ennemi
- * @param speed La vitesse de l'ennemi
- * @param angle L'angle de l'ennemi
- * @param hitboxRadius Le rayon de la hitbox de l'ennemi
- * @param score Le score que fait perdre l'ennemi si il est tué
- * @param graphic L'ID du sprite de l'ennemi
- * @return L'entité de l'ennemi spawné
- */
     Entity e = pool_create_entity(p);
 
     Position pos = {{x, y}, angle};
@@ -75,16 +64,6 @@ Entity Enemy_spawn_score_decrease(Pool *p, float x, float y, float speed, float 
 
 
 void Enemy_update_all(Pool *p, ScoreSystem *scoreS) {
-/** 
- * @brief Met à jour tous les ennemis du pool :P
-     * - Parcourt tous les ennemis.
-     * - les tue s'ils n'ont plus de vie
-     * - ajoute du score au joueur si c'est le cas
-     * - leur inflige des dégats s'ils sont en collision avec une balle du joueur
- * @param p Le pool d'entités
- * @param scoreS Le système de score
- */
-
     EnemyManager *em = &p->enemy;
     flagList projectileFlag = {.flags = (FlagType[]){FLAG_PROJECTILE_PLAYER}, .size = 1};
     

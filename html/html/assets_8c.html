@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: src/content/assets.c File Reference</title>
+<title>Yume Project: src/content/assets.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Yume Project
    </div>
   </td>
  </tr>
@@ -93,55 +93,36 @@ $(function(){initNavTree('assets_8c.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="assets_8h_source.html">content/assets.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="sprite_8h_source.html">sprite.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pool_8h_source.html">pool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obj_8h_source.html">obj.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="screen_8h_source.html">systems/screen.h</a>&quot;</code><br />
 <code>#include &lt;raylib.h&gt;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a50ee77142890469d49bb7868f66d34e3" id="r_a50ee77142890469d49bb7868f66d34e3"><td class="memItemLeft">enum &#160;</td><td class="memItemRight">{ <a class="el" href="#a50ee77142890469d49bb7868f66d34e3ab5e6f435db485e604c96288a5ea882c9">RENDER_PRIO_BULLET</a>
-, <a class="el" href="#a50ee77142890469d49bb7868f66d34e3a0d9badac8cef851d6b496ece0108e6f2">RENDER_PRIO_PLAYER</a>
-, <a class="el" href="#a50ee77142890469d49bb7868f66d34e3a7ad38ebdfb27385ad19d04b23337415d">RENDER_PRIO_HITBOX</a>
-, <a class="el" href="#a50ee77142890469d49bb7868f66d34e3ac4a38ea6243d572c306abfb6a4d37274">RENDER_PRIO_ENEMY</a>
- }</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:afa960179e47bf91a0c66e1ec966e296e" id="r_afa960179e47bf91a0c66e1ec966e296e"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#afa960179e47bf91a0c66e1ec966e296e">invoke_main_background</a> (<a class="el" href="struct_pool.html">Pool</a> *p, <a class="el" href="struct_screen_system.html">ScreenSystem</a> *screen)</td></tr>
+<tr class="memdesc:afa960179e47bf91a0c66e1ec966e296e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche l'arrière-plan du menu principal.  <br /></td></tr>
+<tr class="memitem:ae35ae6832f5c37441f2f91452cc18291" id="r_ae35ae6832f5c37441f2f91452cc18291"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae35ae6832f5c37441f2f91452cc18291">FontsLoad</a> ()</td></tr>
 <tr class="memitem:a7138dcb2d0610e4f7a20321cc8992a97" id="r_a7138dcb2d0610e4f7a20321cc8992a97"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7138dcb2d0610e4f7a20321cc8992a97">AssetsLoad</a> ()</td></tr>
 <tr class="memitem:a78c70adc6bee8fbfc70e4933be0e7c4f" id="r_a78c70adc6bee8fbfc70e4933be0e7c4f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a78c70adc6bee8fbfc70e4933be0e7c4f">SpritesLoad</a> ()</td></tr>
+<tr class="memitem:a1b56d12785d114cf1fe9539435bc9f22" id="r_a1b56d12785d114cf1fe9539435bc9f22"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1b56d12785d114cf1fe9539435bc9f22">CombosSpritesLoad</a> ()</td></tr>
+<tr class="memitem:ad356a4dbc4f6a60320e467d37854d6e3" id="r_ad356a4dbc4f6a60320e467d37854d6e3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad356a4dbc4f6a60320e467d37854d6e3">BgSpritesLoad</a> ()</td></tr>
+<tr class="memitem:a7fcb6d6b114d094bd2a76dec1eb284d7" id="r_a7fcb6d6b114d094bd2a76dec1eb284d7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7fcb6d6b114d094bd2a76dec1eb284d7">EffectsLoad</a> ()</td></tr>
 <tr class="memitem:aeb1d38cf71deda587fce2698d154e045" id="r_aeb1d38cf71deda587fce2698d154e045"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aeb1d38cf71deda587fce2698d154e045">BulletsSpritesLoad</a> ()</td></tr>
 <tr class="memitem:a5a7bed266706793f22e4c40f32ee53ae" id="r_a5a7bed266706793f22e4c40f32ee53ae"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5a7bed266706793f22e4c40f32ee53ae">EnemiesSpritesLoad</a> ()</td></tr>
 <tr class="memitem:a0be12c8f122eaebb8842f02c0234d952" id="r_a0be12c8f122eaebb8842f02c0234d952"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0be12c8f122eaebb8842f02c0234d952">AssetsUnload</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a73483cd2f7f2f594eb95acbe9b3f4f9f" id="r_a73483cd2f7f2f594eb95acbe9b3f4f9f"><td class="memItemLeft"><a class="el" href="structSprite.html">Sprite</a>&#160;</td><td class="memItemRight"><a class="el" href="#a73483cd2f7f2f594eb95acbe9b3f4f9f">sprites</a> [<a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3ad490ff3d99118488af58ed39ff1da3da">MAX_SPRITES</a>]</td></tr>
+<tr class="memitem:a73483cd2f7f2f594eb95acbe9b3f4f9f" id="r_a73483cd2f7f2f594eb95acbe9b3f4f9f"><td class="memItemLeft"><a class="el" href="struct_sprite.html">Sprite</a>&#160;</td><td class="memItemRight"><a class="el" href="#a73483cd2f7f2f594eb95acbe9b3f4f9f">sprites</a> [<a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3ad490ff3d99118488af58ed39ff1da3da">MAX_SPRITES</a>]</td></tr>
 <tr class="memitem:a6c36749609a005c6ac8178607de67fa3" id="r_a6c36749609a005c6ac8178607de67fa3"><td class="memItemLeft">Texture2D&#160;</td><td class="memItemRight"><a class="el" href="#a6c36749609a005c6ac8178607de67fa3">textures</a> [<a class="el" href="assets_8h.html#aac8c8e4db184e4a83ec51cdec293c11da16507bb6059237db935e951590235ddd">MAX_TEXTURES</a>]</td></tr>
 <tr class="memitem:a0060cf3ad78d1e210a9b4b5f6faa715b" id="r_a0060cf3ad78d1e210a9b4b5f6faa715b"><td class="memItemLeft">Music&#160;</td><td class="memItemRight"><a class="el" href="#a0060cf3ad78d1e210a9b4b5f6faa715b">playlist</a> [<a class="el" href="assets_8h.html#ad7fdbac9c8d116d2048ea198ba0d909ca788a39790068f70fbbad9361622d0e10">MAX_BGM</a>]</td></tr>
 <tr class="memitem:ab3f50a3673544c2460f41ec5c95ca735" id="r_ab3f50a3673544c2460f41ec5c95ca735"><td class="memItemLeft">Sound&#160;</td><td class="memItemRight"><a class="el" href="#ab3f50a3673544c2460f41ec5c95ca735">sfx</a> [<a class="el" href="assets_8h.html#a34e9cff1b7a75a2c6744fadf0d600dbaaf98de20345e8a607f1c7dbccd7a61aa0">MAX_SFX</a>]</td></tr>
+<tr class="memitem:a81a49573bd2770402b3e65a7adfbdeda" id="r_a81a49573bd2770402b3e65a7adfbdeda"><td class="memItemLeft">Font&#160;</td><td class="memItemRight"><a class="el" href="#a81a49573bd2770402b3e65a7adfbdeda">fonts</a> [<a class="el" href="assets_8h.html#aee0a12e803b6ab37905d9d3233f70d85a1b197344c290bb3eca0442a368d8b270">MAX_FONTS</a>]</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>jack abribat description blah blah </dd></dl>
-</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
-<a id="a50ee77142890469d49bb7868f66d34e3" name="a50ee77142890469d49bb7868f66d34e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50ee77142890469d49bb7868f66d34e3">&#9670;&#160;</a></span>anonymous enum</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">anonymous enum</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a50ee77142890469d49bb7868f66d34e3ab5e6f435db485e604c96288a5ea882c9" name="a50ee77142890469d49bb7868f66d34e3ab5e6f435db485e604c96288a5ea882c9"></a>RENDER_PRIO_BULLET&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a50ee77142890469d49bb7868f66d34e3a0d9badac8cef851d6b496ece0108e6f2" name="a50ee77142890469d49bb7868f66d34e3a0d9badac8cef851d6b496ece0108e6f2"></a>RENDER_PRIO_PLAYER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a50ee77142890469d49bb7868f66d34e3a7ad38ebdfb27385ad19d04b23337415d" name="a50ee77142890469d49bb7868f66d34e3a7ad38ebdfb27385ad19d04b23337415d"></a>RENDER_PRIO_HITBOX&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a50ee77142890469d49bb7868f66d34e3ac4a38ea6243d572c306abfb6a4d37274" name="a50ee77142890469d49bb7868f66d34e3ac4a38ea6243d572c306abfb6a4d37274"></a>RENDER_PRIO_ENEMY&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a7138dcb2d0610e4f7a20321cc8992a97" name="a7138dcb2d0610e4f7a20321cc8992a97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7138dcb2d0610e4f7a20321cc8992a97">&#9670;&#160;</a></span>AssetsLoad()</h2>
 
@@ -176,6 +157,23 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ad356a4dbc4f6a60320e467d37854d6e3" name="ad356a4dbc4f6a60320e467d37854d6e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad356a4dbc4f6a60320e467d37854d6e3">&#9670;&#160;</a></span>BgSpritesLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BgSpritesLoad </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aeb1d38cf71deda587fce2698d154e045" name="aeb1d38cf71deda587fce2698d154e045"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb1d38cf71deda587fce2698d154e045">&#9670;&#160;</a></span>BulletsSpritesLoad()</h2>
 
@@ -194,6 +192,40 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a1b56d12785d114cf1fe9539435bc9f22" name="a1b56d12785d114cf1fe9539435bc9f22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b56d12785d114cf1fe9539435bc9f22">&#9670;&#160;</a></span>CombosSpritesLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CombosSpritesLoad </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7fcb6d6b114d094bd2a76dec1eb284d7" name="a7fcb6d6b114d094bd2a76dec1eb284d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fcb6d6b114d094bd2a76dec1eb284d7">&#9670;&#160;</a></span>EffectsLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EffectsLoad </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5a7bed266706793f22e4c40f32ee53ae" name="a5a7bed266706793f22e4c40f32ee53ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a7bed266706793f22e4c40f32ee53ae">&#9670;&#160;</a></span>EnemiesSpritesLoad()</h2>
 
@@ -208,6 +240,62 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae35ae6832f5c37441f2f91452cc18291" name="ae35ae6832f5c37441f2f91452cc18291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae35ae6832f5c37441f2f91452cc18291">&#9670;&#160;</a></span>FontsLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FontsLoad </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa960179e47bf91a0c66e1ec966e296e" name="afa960179e47bf91a0c66e1ec966e296e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa960179e47bf91a0c66e1ec966e296e">&#9670;&#160;</a></span>invoke_main_background()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> invoke_main_background </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_screen_system.html">ScreenSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>screen</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Affiche l'arrière-plan du menu principal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante </td></tr>
+    <tr><td class="paramname">screen</td><td>systeme de screen. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>l'id de l'entité background créée. </dd></dl>
 
 </div>
 </div>
@@ -229,6 +317,20 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a81a49573bd2770402b3e65a7adfbdeda" name="a81a49573bd2770402b3e65a7adfbdeda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81a49573bd2770402b3e65a7adfbdeda">&#9670;&#160;</a></span>fonts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Font fonts[<a class="el" href="assets_8h.html#aee0a12e803b6ab37905d9d3233f70d85a1b197344c290bb3eca0442a368d8b270">MAX_FONTS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0060cf3ad78d1e210a9b4b5f6faa715b" name="a0060cf3ad78d1e210a9b4b5f6faa715b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0060cf3ad78d1e210a9b4b5f6faa715b">&#9670;&#160;</a></span>playlist</h2>
 
@@ -264,7 +366,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structSprite.html">Sprite</a> sprites[<a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3ad490ff3d99118488af58ed39ff1da3da">MAX_SPRITES</a>]</td>
+          <td class="memname"><a class="el" href="struct_sprite.html">Sprite</a> sprites[<a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3ad490ff3d99118488af58ed39ff1da3da">MAX_SPRITES</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">

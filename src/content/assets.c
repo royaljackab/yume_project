@@ -101,6 +101,8 @@ void AssetsLoad() {
 
     sfx[SFX_GRAZE] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_graze.wav");
 
+    sfx[SFX_BOMB] = LoadSound("../Assets/Audio/SFX/touhou_sfx/se_enep02.wav");
+    
     // Load dem enemies up
     EnemiesSpritesLoad();
 
