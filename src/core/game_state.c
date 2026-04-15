@@ -84,6 +84,9 @@ void pauseListener(GameContext *ctx) {
     if (pause_selection == 2 && IsKeyPressed(ctx->input.keybinds.validate)) {
       ctx->pause = 0;
       pause_selection = 0;
+      StopMusicStream(playlist[BGM_MORIYA_THEME]);
+      PlayMusicStream(playlist[BGM_WAITING]);
+
       gamestate_change_state(ctx, STATE_MENU_TITLE);
     }
   }
