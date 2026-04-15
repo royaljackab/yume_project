@@ -14,6 +14,7 @@ int main() {
 
   InitAudioDevice();
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Night of nights");
+  ToggleFullscreen();
   SetTargetFPS(60);
 
   AssetsLoad();

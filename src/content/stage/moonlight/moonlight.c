@@ -181,7 +181,7 @@ void state_moonlight_init(GameContext *ctx) {
 
     // Pour effet de distortion
     screen_target = LoadRenderTexture(GetScreenWidth(), GetScreenHeight());
-    lens_shader = LoadShader(0, "../Assets/Shaders/lens.fs");
+    lens_shader = LoadShader(0, "Assets/Shaders/lens.fs");
 
     center_loc = GetShaderLocation(lens_shader, "center");
     radius_loc = GetShaderLocation(lens_shader, "radius");
@@ -189,7 +189,7 @@ void state_moonlight_init(GameContext *ctx) {
 
     // Pour effet d'inversion
     game_target = LoadRenderTexture(GetScreenWidth(), GetScreenHeight());
-    invert_shader = LoadShader(0, "../Assets/Shaders/invert.fs");
+    invert_shader = LoadShader(0, "Assets/Shaders/invert.fs");
 
     inv_centers_loc = GetShaderLocation(invert_shader, "centers");
     inv_radius_loc = GetShaderLocation(invert_shader, "radius");
