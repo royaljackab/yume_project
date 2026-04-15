@@ -363,3 +363,4 @@ void obj_RemoveFlag(Pool *p, Entity objId, FlagType flag) {
 
     flagList_remove_element(flags, flag);
 }
+
