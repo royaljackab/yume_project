@@ -146,6 +146,25 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
     
 }
 
+TASK(player_bomb_inv, {Pool *pool; Entity player;}) {
+    Pool *p = ARGS.pool;
+    Entity player = ARGS.player;
+
+    obj_AddFlag(p, player, FLAG_INVINCIBLE);
+
+    const int invi_duration = 120;
+
+    for (int i=0; i<invi_duration; i++) {
+        if (i % 8 < 4) obj_SetVisible(p, player, false);
+        else obj_SetVisible(p, player, true);
+        YIELD;
+    }
+
+    obj_SetVisible(p, player, true);
+    obj_RemoveFlag(p, player, FLAG_INVINCIBLE);
+}
+
+
 extern void Player_bomb(GameContext *ctx, Entity player) {
     InputSystem *input = &ctx->input;
     Pool *p = ctx->pool;
@@ -158,6 +177,7 @@ extern void Player_bomb(GameContext *ctx, Entity player) {
                 PlaySound(sfx[SFX_BOMB]);
             }
             Player_get(&p->player, player)->bombs--;
+            SCHED_INVOKE_TASK(&ctx->sched, player_bomb_inv, ctx->pool, player);
             SCHED_INVOKE_TASK(&ctx->sched, orb_explosion_big, ctx->pool, pos->pos.x, pos->pos.y);
         }
     }
