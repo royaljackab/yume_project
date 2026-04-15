@@ -116,10 +116,12 @@ TASK(main_attack, {GameContext *ctx;}) {
     WAIT(60);
 
     Boss_fight_begin(ARGS.ctx->pool, boss, &lens_center, &lens_radius, &lens_strength);
-
-    invoke_spellcard_background(ARGS.ctx->pool);
+        
     INVOKE_SUBTASK(movement, ARGS.ctx, boss);
 
+    invoke_spellcard_background(ARGS.ctx->pool);
+
+    update_combo(&ARGS.ctx->score);
     RUN_NONSPELL(ARGS.ctx, boss,
         INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss), 400);
     
@@ -130,8 +132,6 @@ TASK(main_attack, {GameContext *ctx;}) {
         INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100),
         "Theorem - Poincare Recurrence", 600);
     
-    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
-
     update_combo(&ARGS.ctx->score);
     RUN_NONSPELL(ARGS.ctx, boss, 
         INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss), 400);
@@ -141,6 +141,8 @@ TASK(main_attack, {GameContext *ctx;}) {
     update_combo(&ARGS.ctx->score);
     RUN_SPELLCARD(ARGS.ctx, boss, 
         INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss), "Theorem - Brouwer's fixed point", 750);
+
+    INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     
@@ -155,6 +157,7 @@ TASK(main_attack, {GameContext *ctx;}) {
         INVOKE_SUBTASK(axiom_of_choice, p, boss), "ZFC - Axiom of Choice", 500);
     
     gamestate_change_state(ARGS.ctx, STATE_VICTORY);
+    
     STALL;
 }
 

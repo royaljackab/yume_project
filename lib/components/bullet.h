@@ -15,6 +15,7 @@
 #include "flags.h"
 
 typedef struct Pool Pool;
+typedef struct GameContext GameContext;
 
 /**
  * @brief composante condensation dans l'ECS

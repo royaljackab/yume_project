@@ -25,7 +25,8 @@ TASK(spiral_multi_shot, {Pool * pool; float spawn_x; float spawn_y; float speed;
     for(int j = 0; j < ARGS.nbWaves; j++){
         PlaySound(sfx[SFX_TAN00]);
         for(int i = 0; i < ARGS.nbBursts ; i++){
-            Bullet_enemy_spawn_delayed(ARGS.pool, ARGS.spawn_x, ARGS.spawn_y, ARGS.speed, ARGS.angle +(360/ARGS.nbBursts)*(i + ARGS.direction *j/ARGS.param_angle_variation ), BULLET_M_BLUE, 10);
+            Bullet_enemy_spawn_radius_delayed(ARGS.pool, ARGS.spawn_x, ARGS.spawn_y, ARGS.speed, ARGS.angle + (360/ARGS.nbBursts)*(i + ARGS.direction *j/ARGS.param_angle_variation ), 40, BULLET_M_BLUE, 10);
+            // Bullet_enemy_spawn_delayed(ARGS.pool, ARGS.spawn_x, ARGS.spawn_y, ARGS.speed, ARGS.angle +(360/ARGS.nbBursts)*(i + ARGS.direction *j/ARGS.param_angle_variation ), BULLET_M_BLUE, 10);
         }
         WAIT(3);  
     }

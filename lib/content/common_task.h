@@ -55,7 +55,7 @@ DECLARE_EXTERN_TASK(start_spellcard_sequence, {Pool *pool; Entity boss; const ch
 \
     HUD_clear_spellcard(); \
     CANCEL_TASK(MACRO_CONCAT(box_, var)); \
-    Bullet_clear_bullets(pool); \
+    Bullet_clear_bullets(ctx); \
     moonlight_bg_set_mode(false);
 #define RUN_SPELLCARD(ctx, boss, spell, spell_name, life) RUN_SPELLCARD_W(ctx, (ctx)->pool, boss, spell, MACRO_ADDLINENUM(boss), spell_name, life)
 

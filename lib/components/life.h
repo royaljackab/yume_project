@@ -51,8 +51,15 @@ extern void Life_heal(Life *life, int heal);
 extern bool Life_is_dead(Life *life);
 
 /**
- * @brief  tue / effectue un traitement adapté à tout les objets ayant 0 HP
+ * @brief Mets des dégâts a toute entité sauf au joueur
  * @param p pool
+ * @param damage dégats a infliger
+ */
+extern void Life_damage_all(Pool *p, int damage);
+
+/**
+ * @brief  tue / effectue un traitement adapté à tout les objets ayant 0 HP
+ * @param ctx gameContext
  * @param scoreS manager de score
  */
 extern void Life_update_all(GameContext *ctx, ScoreSystem * scoreS);

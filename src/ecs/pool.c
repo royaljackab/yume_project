@@ -91,7 +91,6 @@ void pool_kill_convicts(Pool *p) {
     //lasers
     Straight_laser_remove(&p->straightLaser, e);
     Loose_laser_destroy(p, e);
-    Life_remove(&p->life, e);
 
     Enemy_remove(&p->enemy, e);
     Background_remove(&p->background, e);
