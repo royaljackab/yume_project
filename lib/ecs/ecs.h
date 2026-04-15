@@ -11,7 +11,7 @@
 
 #define NULL_INDEX 0xFFFFFFFF
 
-#define MAX_ENTITIES 50000
+#define MAX_ENTITIES 100000
 
 /**
  * @brief Une entité est un indice

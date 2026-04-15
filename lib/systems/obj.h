@@ -5,6 +5,7 @@
 #include "flags.h"
 #include <stdbool.h>
 
+#define OBJ_POS(pool, entity) obj_GetX(pool, entity), obj_GetY(pool, entity)
 
 /** @brief Supprime un objet du pool
  * @param p Le pool contenant les objets

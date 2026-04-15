@@ -128,13 +128,21 @@ void Condensation_update_all(Pool *p) {
   }
 }
 
-void Bullet_clear_bullets(Pool *p) {
+void Bullet_kill(GameContext *ctx, Entity bullet) {
+  Pool *p = ctx->pool;
+  SCHED_INVOKE_TASK(&ctx->sched, play_anim_once, p, OBJ_POS(p, bullet), 2, 2, BULLET_DESTROY, 255);
+  pool_kill_entity(p, bullet);
+}
+
+void Bullet_clear_bullets(GameContext *ctx) {
+  Pool *p = ctx->pool;
+
   for (int i=0; i < p->tag.count; ++i) {
     Entity e = Tag_get_entity(&p->tag, i);
     Tag tag = p->tag.dense[i];
 
     if (tag == ENT_ENEMY_SHOT || tag == ENT_ENEMY_LASER || tag == ENT_LOOSE_LASER) {
-      pool_kill_entity(p, e);
+      Bullet_kill(ctx, e);
     }
   }
 }

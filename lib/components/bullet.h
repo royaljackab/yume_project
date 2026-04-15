@@ -15,6 +15,7 @@
 #include "flags.h"
 
 typedef struct Pool Pool;
+typedef struct GameContext GameContext;
 
 /**
  * @brief composante condensation dans l'ECS
@@ -133,8 +134,13 @@ Entity Bullet_enemy_spawn_delayed(Pool *p, float x, float y, float speed, float 
 void Condensation_update_all(Pool *p);
 
 /**
+ * @brief Détruit une bullet -> effet visuels
+ */
+void Bullet_kill(GameContext *ctx, Entity bullet);
+
+/**
  * @brief Détruit toutes les bullets
  * 
  * @param p pool courante (toutes les données de l'ECS)
  */
-void Bullet_clear_bullets(Pool *p);
+void Bullet_clear_bullets(GameContext *ctx);

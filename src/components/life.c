@@ -14,6 +14,18 @@ void Life_heal(Life *life, int heal) { life->life += heal; }
 
 bool Life_is_dead(Life *life) { return life->life <= 0; }
 
+void Life_damage_all(Pool *p, int damage) {
+    for (int i=0; i < p->life.count; i++) {
+        Entity e = Life_get_entity(&p->life, i);
+        Life *life = Life_get(&p->life, e);
+        Tag *tag = Tag_get(&p->tag, e);
+
+        if (*tag == ENT_PLAYER) continue;
+
+        Life_damage(life, damage);
+    }
+}
+
 void Life_update_all(GameContext *ctx, ScoreSystem * scoreS){
     Pool *p = ctx->pool;
 
@@ -29,12 +41,10 @@ void Life_update_all(GameContext *ctx, ScoreSystem * scoreS){
                     score_increase(scoreS, Enemy_get(&p->enemy, e)->score);
                     break;
                 case ENT_ENEMY_SHOT:
-                    pool_kill_entity(p, e);
-                    float shot_x = obj_GetX(p, e);
-                    float shot_y = obj_GetY(p, e);
-                    SCHED_INVOKE_TASK(&ctx->sched, play_anim_once, p, shot_x, shot_y, 4, 4, BULLET_DESTROY, 255);
+                    Bullet_kill(ctx, e);
                     break;
                 case ENT_BOSS:
+                    break;
                 case ENT_PLAYER:
                     break;
                 default:

@@ -98,6 +98,5 @@ $(BIN_DIR)/%.o: $(SRC_DIR)/%.c
 
 clean:
 	$(CLEAN_CMD)
-	@echo "Nettoyage termine (Dossier bin/ et executable supprimes)."
 
 .PHONY: all clean

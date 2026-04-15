@@ -41,7 +41,7 @@ DECLARE_EXTERN_TASK(orb_explosion_big, {Pool *pool; float x; float y;});
 DECLARE_EXTERN_TASK(spellcard_bg_anim, {Pool *pool; int duration; });
 DECLARE_EXTERN_TASK(start_spellcard_sequence, {Pool *pool; Entity boss; const char* spell_name; int duration; });
 
-#define RUN_SPELLCARD(pool, boss, spell, var, spell_name, life) \
+#define RUN_SPELLCARD_W(ctx, pool, boss, spell, var, spell_name, life) \
     obj_SetMaxLife(pool, boss, life); \
     obj_SetLife(pool, boss, life); \
     INVOKE_SUBTASK(start_spellcard_sequence, pool, boss, spell_name, 120); \
@@ -55,10 +55,11 @@ DECLARE_EXTERN_TASK(start_spellcard_sequence, {Pool *pool; Entity boss; const ch
 \
     HUD_clear_spellcard(); \
     CANCEL_TASK(MACRO_CONCAT(box_, var)); \
-    Bullet_clear_bullets(pool); \
+    Bullet_clear_bullets(ctx); \
     moonlight_bg_set_mode(false);
+#define RUN_SPELLCARD(ctx, boss, spell, spell_name, life) RUN_SPELLCARD_W(ctx, (ctx)->pool, boss, spell, MACRO_ADDLINENUM(boss), spell_name, life)
 
-#define RUN_NONSPELL(pool, boss, nonspell, var, life) \
+#define RUN_NONSPELL_W(ctx, pool, boss, nonspell, var, life) \
     moonlight_bg_set_mode(false); \
     obj_SetMaxLife(pool, boss, life); \
     obj_SetLife(pool, boss, life); \
@@ -71,7 +72,8 @@ DECLARE_EXTERN_TASK(start_spellcard_sequence, {Pool *pool; Entity boss; const ch
         YIELD; \
     } \
     CANCEL_TASK(MACRO_CONCAT(box_, var)); \
-    Bullet_clear_bullets(pool);
+    Bullet_clear_bullets(ctx);
+#define RUN_NONSPELL(ctx, boss, nonspell, life) RUN_NONSPELL_W(ctx, (ctx)->pool, boss, nonspell, MACRO_ADDLINENUM(boss), life)
 
 DECLARE_EXTERN_TASK(Bullet_spawn_accel, {Pool *p; Entity bullet; float speed;
-    float accel; int accel_delay;});
+    float accel; int accel_delay; });
