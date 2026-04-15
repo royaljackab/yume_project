@@ -1,4 +1,4 @@
-#/**
+/**
  * @file common_task.h
  * @brief Déclarations de tâches et macros réutilisables pour les scènes et boss
  *
@@ -39,7 +39,7 @@ DECLARE_EXTERN_TASK(spellcard_bg_anim, {Pool *pool; int duration; });
 DECLARE_EXTERN_TASK(start_spellcard_sequence, {Pool *pool; Entity boss; const char* spell_name; int duration; });
 
 #define RUN_SPELLCARD(pool, boss, spell, var, spell_name, life) \
-    obj_SetMaxlife(pool, boss, life); \
+    obj_SetMaxLife(pool, boss, life); \
     obj_SetLife(pool, boss, life); \
     INVOKE_SUBTASK(start_spellcard_sequence, pool, boss, spell_name, 120); \
     WAIT(120); \
@@ -57,7 +57,7 @@ DECLARE_EXTERN_TASK(start_spellcard_sequence, {Pool *pool; Entity boss; const ch
 
 #define RUN_NONSPELL(pool, boss, nonspell, var, life) \
     moonlight_bg_set_mode(false); \
-    obj_SetMaxlife(pool, boss, life); \
+    obj_SetMaxLife(pool, boss, life); \
     obj_SetLife(pool, boss, life); \
     obj_AddFlag(pool, boss, FLAG_INVINCIBLE); \
     WAIT(120); \
