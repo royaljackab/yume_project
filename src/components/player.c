@@ -147,7 +147,8 @@ void Player_shoot(InputSystem *input, Pool *p, Entity player) {
 }
 
 
-extern void Player_bomb(InputSystem *input, GameContext *ctx, Entity player) {
+extern void Player_bomb(GameContext *ctx, Entity player) {
+    InputSystem *input = &ctx->input;
     Pool *p = &ctx->pool;
     Position *pos = Position_get(&p->position, player);
     if (Player_get_bombs(Player_get(&p->player, player)) > 0) {
@@ -268,7 +269,7 @@ void Player_update(GameContext *ctx) {
     if (!is_input_locked) {
         Player_move(input, p, player);
         Player_shoot(input, p, player);
-        Player_bomb(input, p, player);
+        Player_bomb(ctx, player);
         Player_focus(input, p, player);
     }
 
