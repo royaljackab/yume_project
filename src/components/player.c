@@ -440,7 +440,7 @@ DEFINE_EXTERN_TASK(reimu_yinyang_orb) {
     Sprite_add(&p->sprite, orb, sprites[YIN_YANG_ORB_RED]);
 
     float current_angle = ARGS.angle_offset;
-    float current_radius = 100;
+    float current_radius = 130;
     int fire_timer = 0;
 
     while(true) {
@@ -451,7 +451,7 @@ DEFINE_EXTERN_TASK(reimu_yinyang_orb) {
         else obj_SetVisible(p, orb, true);
 
         bool is_focus = isDown(input->focus);
-        float target_radius = is_focus ? 35 : 100;
+        float target_radius = is_focus ? 40 : 130;
 
         current_radius += (target_radius - current_radius) * 0.15;
 
