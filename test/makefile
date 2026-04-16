@@ -1,28 +1,58 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -g -I../lib -I../lib/core -I../lib/components -I../lib/systems -I../lib/ecs -I/opt/homebrew/include -I../raylib/src -L/opt/homebrew/lib -lraylib
+CFLAGS = -std=gnu11 -g
 
-SRC_LIFE      = ../src/components/life.c
-SRC_PHYSICS   = ../src/components/physics.c ../src/components/common.c
-SRC_COLLISION = ../src/systems/collision_entity.c
+# On remonte d'un cran pour accéder aux dossiers src et lib
+INCLUDES = -I../src \
+           -I../lib \
+           -I../src/core/coroutine \
+           -I../lib/core/coroutine \
+           -I../lib/components \
+           -I../lib/content \
+           -I../lib/content/stage \
+           -I../lib/content/stage/moonlight \
+           -I../lib/content/stage/moonlight/nonspells \
+           -I../lib/content/stage/moonlight/spellcards \
+           -I../lib/content/ui \
+           -I../lib/core \
+           -I../lib/ecs \
+           -I../lib/systems \
+           -I../lib/raylib/include \
+           -I../lib/koishi/include
 
-all: test_life test_physics test_collision
+# Détection OS pour les libs (nécessaire si tes composants utilisent Vector2 de Raylib)
+ifeq ($(OS),Windows_NT)
+    LDFLAGS = -L../lib/raylib/windows -L../lib/koishi/windows
+    LIBS = -lcunit -lraylib -lkoishi -lopengl32 -lgdi32 -lwinmm
+else
+    UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S),Linux)
+        LDFLAGS = -L../lib/raylib/linux -L../lib/koishi/linux
+        LIBS = -lcunit -lraylib -lkoishi -lGL -lm -lpthread -ldl -lrt -lX11
+    endif
+endif
 
-test_life: test_life.c $(SRC_LIFE)
-	$(CC) $(CFLAGS) -o test_life test_life.c $(SRC_LIFE)
+SRC_DIR = ../src
 
-test_physics: test_physics.c
-	$(CC) $(CFLAGS) -o test_physics test_physics.c
+# 1. On récupère TOUS les fichiers .c
+ALL_SRCS = $(wildcard $(SRC_DIR)/*.c) \
+           $(wildcard $(SRC_DIR)/*/*.c) \
+           $(wildcard $(SRC_DIR)/*/*/*.c) \
+           $(wildcard $(SRC_DIR)/*/*/*/*.c) \
+           $(wildcard $(SRC_DIR)/*/*/*/*/*.c)
 
-test_collision: test_collision.c $(SRC_COLLISION)
-	$(CC) $(CFLAGS) -o test_collision test_collision.c $(SRC_COLLISION)
+# 2. On EXCLUT le main.c du jeu pour éviter le conflit avec test_main.c
+SRC_TO_TEST = $(filter-out $(SRC_DIR)/main.c, $(ALL_SRCS))
 
-run: all
-	@echo "=== Tests unitaires Moonlight ==="
-	@./test_life
-	@./test_physics
-	@./test_collision
-	@echo "=== Fin des tests ==="
+TEST_SRCS = test_main.c test_physics.c test_life.c
+TARGET = test_suite
+
+all: $(TARGET)
+	./$(TARGET)
+
+$(TARGET): $(TEST_SRCS)
+	$(CC) $(CFLAGS) $(INCLUDES) $^ $(SRC_TO_TEST) -o $@ $(LDFLAGS) $(LIBS)
 
 clean:
-	rm -f test_life test_physics test_collision
-	rm -rf *.dSYM
+	rm -f $(TARGET)
+
+.PHONY: all clean
