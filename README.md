@@ -32,7 +32,7 @@ Le projet utilise un ECS (Entity Component System) avec Sparse Set.
 |--------|--------|
 | Flèches | Déplacement |
 | Z | Tirer |
-| H | Bombe |
+| X | Bombe |
 | Shift | Focus |
 | P | Pause |
 | Espace | Valider |
