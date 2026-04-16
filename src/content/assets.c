@@ -158,7 +158,7 @@ void SpritesLoad() {
     Sprite_set_SourceRect(&sprites[YIN_YANG_ORB_RED], 82, 146, 15, 15);
 
     Sprite_set_texture(&sprites[RED_STREAK], RENDER_PRIO_BULLET, REIMU_SPRITESHEET);
-    Sprite_set_SourceRect(&sprites[RED_STREAK], 82, 146, 15, 15);
+    Sprite_set_SourceRect(&sprites[RED_STREAK], 68,185,57,8);
 
     CombosSpritesLoad();
     BulletsSpritesLoad();

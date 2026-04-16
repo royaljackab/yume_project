@@ -73,7 +73,7 @@ Weapon Weapon_create(PatternType type) {
     Weapon weapon;
     switch(type) {
         case DEFAULT_PATTERN:
-            weapon = (Weapon){2, 0, 1, DEFAULT_PATTERN};
+            weapon = (Weapon){2, 0, 5, DEFAULT_PATTERN};
             break;
         default: break;
     }
@@ -171,7 +171,7 @@ extern void Player_bomb(GameContext *ctx, Entity player) {
     Position *pos = Position_get(&p->position, player);
     if (Player_get_bombs(Player_get(&p->player, player)) > 0) {
         if(input->bomb.isPressed) {
-            Life_damage_all(p, 50);
+            Life_damage_all(p, 800);
             // Son de la bombe
             if (!IsSoundPlaying(sfx[SFX_BOMB])) {
                 PlaySound(sfx[SFX_BOMB]);
@@ -248,7 +248,9 @@ void Player_graze(Pool *p, ScoreSystem *scoreS, Entity player){
 }
 
 /* Extern functions */
-void Player_start(Pool *p, PlayerName name, PatternType type) {
+void Player_start(GameContext *ctx, PlayerName name, PatternType type) {
+    Pool *p = ctx->pool;
+
     Player player = Player_create(name);
     Weapon weapon = Weapon_create(type);
     Sprite sprite = sprites[REIMU_IDLE];
@@ -279,6 +281,11 @@ void Player_start(Pool *p, PlayerName name, PatternType type) {
 
 
     teleport_to_player_spawn(p, e);
+
+    SCHED_INVOKE_TASK(&ctx->sched, reimu_yinyang_orb, ctx, e, 0);
+    SCHED_INVOKE_TASK(&ctx->sched, reimu_yinyang_orb, ctx, e, 90);
+    SCHED_INVOKE_TASK(&ctx->sched, reimu_yinyang_orb, ctx, e, -90);
+    SCHED_INVOKE_TASK(&ctx->sched, reimu_yinyang_orb, ctx, e, 180);
 }
 
 
@@ -418,4 +425,57 @@ extern Collision_circle * Player_get_collision(Pool *p, Player player){
   Collision_circleManager *collision_circleManager = &p->collision_circle;
   int lookup = collision_circleManager->entity_lookup[0];
   return &collision_circleManager->dense[lookup];
+}
+
+DEFINE_EXTERN_TASK(reimu_yinyang_orb) {
+    Pool *p = ARGS.ctx->pool;
+    Entity player = ARGS.player;
+    InputSystem* input = &ARGS.ctx->input;
+
+    // Création de l'orbe
+    Entity orb = pool_create_entity(p);
+
+    Position pos = {{0,0}, 0};
+    Position_add(&p->position, orb, pos);
+    Sprite_add(&p->sprite, orb, sprites[YIN_YANG_ORB_RED]);
+
+    float current_angle = ARGS.angle_offset;
+    float current_radius = 100;
+    int fire_timer = 0;
+
+    while(true) {
+        Vector2 p_pos = obj_GetPosition(p, player);
+
+        bool player_is_visible = obj_IsVisible(p, player);
+        if (!player_is_visible) obj_SetVisible(p, orb, false);
+        else obj_SetVisible(p, orb, true);
+
+        bool is_focus = isDown(input->focus);
+        float target_radius = is_focus ? 35 : 100;
+
+        current_radius += (target_radius - current_radius) * 0.15;
+
+        current_angle += 7;
+
+        //TRIGOOO
+        float orb_x = p_pos.x + cosf(current_angle * DEG2RAD) * current_radius;
+        float orb_y = p_pos.y + sinf(current_angle * DEG2RAD) * current_radius;
+
+        obj_SetPosition(p, orb, orb_x, orb_y);
+        obj_SetAngle(p, orb, obj_GetAngle(p, orb) - 8);
+
+        // Quand le joueur tir
+        if (isDown(input->shoot) && player_is_visible) {
+            if (fire_timer % 3 == 0) {
+                Bullet_player_spawn(p, orb_x - 4, orb_y, 30, -90, RED_STREAK);
+                Bullet_player_spawn(p, orb_x + 4, orb_y, 30, -90, RED_STREAK);
+
+            }
+            fire_timer++;
+        } else {
+            fire_timer = 0;
+        }
+
+        YIELD;
+    }
 }

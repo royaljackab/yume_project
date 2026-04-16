@@ -26,6 +26,7 @@ typedef enum {
     FLAG_NO_DAMAGE_PLAYER, //n'inflige pas de dégat au joueur
     FLAG_POWERUP,
     FLAG_WALL,
+    FLAG_PLAYER_HIT,
     FLAG_INVINCIBLE, 
     FLAG_DECREASE_SCORE, //fait perdre des points au joueur s'il détruit l'entité (ex: certains ennemis)
 } FlagType;

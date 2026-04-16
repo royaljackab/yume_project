@@ -17,7 +17,7 @@ TASK(fast_spiral, {Pool *pool; Entity boss; float offset_x; float offset_y; floa
 
             float angle_curr_offset = ARGS.nb_bullets / 2 * (-ARGS.angle_offset);
             for (int i=0; i < ARGS.nb_bullets; ++i) {
-                Entity bullet = Bullet_enemy_spawn_delayed(ARGS.pool, x, y, ARGS.speed, angleT - angle_curr_offset, PETAL_LIGHT_BLUE, 10);
+                Entity bullet = Bullet_enemy_spawn_radius_delayed(ARGS.pool, x, y, ARGS.speed, angleT - angle_curr_offset, 30, PETAL_LIGHT_BLUE, 10);
                 obj_SetRenderPriority(ARGS.pool, bullet, RENDER_PRIO_BULLET + 5);
                 angle_curr_offset += ARGS.angle_offset;
             }

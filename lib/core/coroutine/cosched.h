@@ -1,9 +1,9 @@
 #pragma once
 
-#include "pool.h"
 #include "cotask.h"
 
 typedef struct CoSched CoSched;
+typedef struct Pool Pool;
 
 struct CoSched {
     CoTaskList tasks, pending_tasks;
