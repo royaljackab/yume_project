@@ -24,7 +24,7 @@ endif
 # ==========================================
 CC = gcc
 CFLAGS = -Wall -Wextra -std=gnu11 -O2
-TARGET = danmaku$(TARGET_EXT)
+TARGET = yume$(TARGET_EXT)
 
 # Dossiers principaux
 SRC_DIR = src
@@ -84,6 +84,9 @@ OBJS = $(patsubst $(SRC_DIR)/%.c, $(BIN_DIR)/%.o, $(SRCS))
 # ==========================================
 # 5. RÈGLES DE COMPILATION
 # ==========================================
+run: all
+	./$(TARGET)
+
 all: $(TARGET)
 	@echo "Compilation terminee pour $(PLATFORM)"
 

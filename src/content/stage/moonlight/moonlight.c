@@ -123,24 +123,24 @@ TASK(main_attack, {GameContext *ctx;}) {
 
     update_combo(&ARGS.ctx->score);
     RUN_NONSPELL(ARGS.ctx, boss,
-        INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss), 400);
+        INVOKE_SUBTASK(moriya_nonspell_1, ARGS.ctx->pool, boss), 7000);
     
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
     update_combo(&ARGS.ctx->score);
     RUN_SPELLCARD(ARGS.ctx, boss, 
         INVOKE_SUBTASK(poincarre_recurrence, ARGS.ctx->pool, boss, 10, 3.5, 100),
-        "Theorem - Poincare Recurrence", 600);
+        "Theorem - Poincare Recurrence", 10000);
     
     update_combo(&ARGS.ctx->score);
     RUN_NONSPELL(ARGS.ctx, boss, 
-        INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss), 400);
+        INVOKE_SUBTASK(moriya_nonspell_2, ARGS.ctx->pool, boss), 7000);
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     
     update_combo(&ARGS.ctx->score);
     RUN_SPELLCARD(ARGS.ctx, boss, 
-        INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss), "Theorem - Brouwer's fixed point", 750);
+        INVOKE_SUBTASK(brouwer_fixed_point, ARGS.ctx->pool, boss), "Theorem - Brouwer's fixed point", 10000);
 
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
 
@@ -148,13 +148,13 @@ TASK(main_attack, {GameContext *ctx;}) {
     
     update_combo(&ARGS.ctx->score);
     RUN_NONSPELL(ARGS.ctx, boss, 
-        INVOKE_SUBTASK(moriya_nonspell_3, ARGS.ctx->pool, boss), 400);
+        INVOKE_SUBTASK(moriya_nonspell_3, ARGS.ctx->pool, boss), 7000);
     
     INVOKE_SUBTASK(obj_GoTo, ARGS.ctx->pool, boss, 500, 200, 5);
     
     update_combo(&ARGS.ctx->score);
     RUN_SPELLCARD(ARGS.ctx, boss, 
-        INVOKE_SUBTASK(axiom_of_choice, p, boss), "ZFC - Axiom of Choice", 500);
+        INVOKE_SUBTASK(axiom_of_choice, p, boss), "ZFC - Axiom of Choice", 10000);
     
     gamestate_change_state(ARGS.ctx, STATE_VICTORY);
     
@@ -176,9 +176,10 @@ void state_moonlight_init(GameContext *ctx) {
 
     pool_init(ctx->pool);
     score_system_init(&ctx->score);
-    Player_start(ctx->pool, TEST_PLAYER, DEFAULT_PATTERN);
 
     cosched_init(&ctx->sched, ctx->pool);
+
+    Player_start(ctx, TEST_PLAYER, DEFAULT_PATTERN);
 
     SCHED_INVOKE_TASK(&ctx->sched, main_attack, ctx);
 

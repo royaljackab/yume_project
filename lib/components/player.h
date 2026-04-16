@@ -1,9 +1,8 @@
 #pragma once
 
 #include "component.h"
-#include "collision_circle.h"
 #include "common.h"
-#include "systems/score.h"
+#include "tasks.h"
 
 /**
  * @file player.h
@@ -80,11 +79,11 @@ DECLARE_SETTER_GETTER(Weapon, PatternType , pattern)
  * Position, Sprite, Collision_circle, Life, etc.) et place le joueur
  * au point de spawn.
  *
- * @param p pool courante (toutes les données de l'ECS).
+ * @param ctx Contexte de jeu
  * @param name Type de joueur à instancier.
  * @param type Type de pattern d'arme à utiliser.
  */
-extern void Player_start(Pool *p, PlayerName name, PatternType type);
+extern void Player_start(GameContext *ctx, PlayerName name, PatternType type);
 
 /**
  * @brief Mise à jour par frame du joueur (input, tir, focus, graze, dégâts...).
@@ -141,3 +140,5 @@ extern void teleport_to_player_spawn(Pool *p, Entity e);
  */
 extern bool Damage_player(GameContext *ctx, Entity player);
 extern void Player_bomb(GameContext *ctx, Entity player);
+
+DECLARE_EXTERN_TASK(reimu_yinyang_orb, {GameContext *ctx; Entity player; float angle_offset;});

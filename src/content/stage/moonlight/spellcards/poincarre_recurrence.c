@@ -3,6 +3,7 @@
 #include "bullet.h"
 #include "ecs.h"
 #include "obj.h"
+#include "pool.h"
 #include "screen.h"
 #include "tasks.h"
 #include "components/straight_laser.h"
@@ -81,8 +82,14 @@ TASK(slow_flower, {Pool *pool; Entity boss; float speed; float rotation; int dur
         float boss_y = obj_GetY(ARGS.pool, ARGS.boss);
 
         for (int i=0; i<ARGS.nb_legs; ++i) {
-            Bullet_enemy_spawn_delayed(ARGS.pool, boss_x, boss_y, ARGS.speed, angle, MISSILE_RED, 10);
-            Bullet_enemy_spawn_delayed(ARGS.pool, boss_x, boss_y, ARGS.speed, -angle, MISSILE_RED, 10);
+            Entity b = Bullet_enemy_spawn_radius_delayed(ARGS.pool, boss_x, boss_y, ARGS.speed, angle, 50, MISSILE_RED, 10);
+            Entity b1 = Bullet_enemy_spawn_radius_delayed(ARGS.pool, boss_x, boss_y, ARGS.speed, -angle, 50, MISSILE_RED, 10);
+
+            obj_SetAngularSpeed(ARGS.pool, b, 0.3);
+            obj_SetAngularSpeed(ARGS.pool, b1, -0.2);
+            obj_SetAcceleration(ARGS.pool, b, 0.02);
+            obj_SetAcceleration(ARGS.pool, b1, 0.02);
+
 
             angle += 360.0 / ARGS.nb_legs;
         }
@@ -114,7 +121,7 @@ DEFINE_EXTERN_TASK(poincarre_recurrence) {
         WAIT(5);
     }
     WAIT(30);
-    INVOKE_SUBTASK(slow_flower, ARGS.pool, ARGS.boss, 4, 17, 10, 4);
+    INVOKE_SUBTASK(slow_flower, ARGS.pool, ARGS.boss, 4, 17, 7, 4);
 
     STALL;
 }

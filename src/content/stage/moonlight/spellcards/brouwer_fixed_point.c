@@ -4,6 +4,7 @@
 #include "ecs.h"
 #include "systems/obj.h"
 #include "screen.h"
+#include "pool.h"
 #include "tasks.h"
 #include "common.h"
 #include <raylib.h>
