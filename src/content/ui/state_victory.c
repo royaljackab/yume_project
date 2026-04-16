@@ -6,7 +6,7 @@
 
 #include "content/ui/state_victory.h"
 #include "systems/screen.h"
-#include "../lib/systems/screen.h"
+#include "systems/screen.h"
 #include "core/input.h"
 #include "content/assets.h"
 #include "components/background.h"

@@ -1,0 +1,36 @@
+var cotask_8h =
+[
+    [ "BoxedTask", "structBoxedTask.html", "structBoxedTask" ],
+    [ "CoWaitResult", "structCoWaitResult.html", "structCoWaitResult" ],
+    [ "BoxedTask", "cotask_8h.html#a8cacd68c7efbc5d334a3185a45517f9f", null ],
+    [ "CoStatus", "cotask_8h.html#a4d9ab5785d4dc62ded44b443411cd5ba", null ],
+    [ "CoTask", "cotask_8h.html#ab70cb86d9578d7067b101bc87aa9441f", null ],
+    [ "CoTaskFunc", "cotask_8h.html#a1b363c4dfa62add234a8dd0bad08f624", null ],
+    [ "CoWaitResult", "cotask_8h.html#a4de87ef96ea4fe65b50e9eb9a10439a1", null ],
+    [ "CoStatus", "cotask_8h.html#ae1bbabd117619887606c151f625f933f", [
+      [ "CO_STATUS_SUSPENDED", "cotask_8h.html#ae1bbabd117619887606c151f625f933fa0de6074cbcd99a835ecaf43518ebd2d6", null ],
+      [ "CO_STATUS_RUNNING", "cotask_8h.html#ae1bbabd117619887606c151f625f933faa44cb7410e2a58793e03e810481d4087", null ],
+      [ "CO_STATUS_IDLE", "cotask_8h.html#ae1bbabd117619887606c151f625f933fafaf5fb987a95dc623b452da79f30c8a5", null ],
+      [ "CO_STATUS_DEAD", "cotask_8h.html#ae1bbabd117619887606c151f625f933fafada79baf172282b210027f854e0cf0f", null ]
+    ] ],
+    [ "cotask_active", "cotask_8h.html#a2b3d02877fb7fc509d6145e755cb08f7", null ],
+    [ "cotask_bind_to_entity", "cotask_8h.html#a6f470d4b885a58e272c091451f9d6ae9", null ],
+    [ "cotask_box", "cotask_8h.html#a83e7f763cd720b4a97a707030da2a111", null ],
+    [ "cotask_cancel", "cotask_8h.html#a5342389f4ea2ffe06304a4a4b1cd39d1", null ],
+    [ "cotask_force_finish", "cotask_8h.html#a93c2b687b99a93fcb5f396032752c22c", null ],
+    [ "cotask_free", "cotask_8h.html#af69847a7f99006622da2eb368a340bb2", null ],
+    [ "cotask_get_events", "cotask_8h.html#ae8f972c34fc9ff23cf2b53914e0edd5e", null ],
+    [ "cotask_get_sched", "cotask_8h.html#a17842bd60367ba493ee7650f197b0417", null ],
+    [ "cotask_host_entity", "cotask_8h.html#a4a2094a753cca975c8c2aa56f6b72078", null ],
+    [ "cotask_host_events", "cotask_8h.html#af072fdb97a4cd7f2ad2c06602a573c98", null ],
+    [ "cotask_resume", "cotask_8h.html#a2533cb4b10f14a1656d6ac618d926aab", null ],
+    [ "cotask_status", "cotask_8h.html#a68e07f34a0ac6abc0f25ac05a754ac0f", null ],
+    [ "cotask_unbox", "cotask_8h.html#a77ce99cb0ebe7b8fb50ef918396218b3", null ],
+    [ "cotask_wait", "cotask_8h.html#a5adeebe30d573cab597985f358d5652d", null ],
+    [ "cotask_wait_event", "cotask_8h.html#af3d6a29a0f31fcaafed6a53862e67541", null ],
+    [ "cotask_wait_event_once", "cotask_8h.html#a11b0103d2f02f7188c8d3c4f48b38158", null ],
+    [ "cotask_wait_event_or_die", "cotask_8h.html#a564390051d3fb04a804a1ea38e2e5a36", null ],
+    [ "cotask_wait_subtasks", "cotask_8h.html#a44ad09aa4fed2cc8ed70934c434540fa", null ],
+    [ "cotask_yield", "cotask_8h.html#ae3be74ea97d59211d95a8b70daacd7f7", null ],
+    [ "LIST_ANCHOR", "cotask_8h.html#a66c8b59cc96fd288b8d7d958723cc3bc", null ]
+];

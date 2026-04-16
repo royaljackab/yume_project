@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yume Project:  Fichier source de lib/internal/systems/obj.h</title>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Yume Project<span id="projectnumber">&#160;3.0</span>
+   </div>
+   <div id="projectbrief">Touhou-inspired Danmaku game made in C only</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('obj_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">obj.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="obj_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="ecs_8h.html">ecs.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="flags_8h.html">flags.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="obj_8h.html#a77b298268ac2e62a70e8e21d2b694a9e">    8</a></span><span class="preprocessor">#define OBJ_POS(pool, entity) obj_GetX(pool, entity), obj_GetY(pool, entity)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="obj_8h.html#a0d0471cf251954549324ed4d7ce0326c">   14</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a0d0471cf251954549324ed4d7ce0326c">obj_Delete</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="obj_8h.html#a121c81c6f182c150361522d57c67d2e8">   21</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a121c81c6f182c150361522d57c67d2e8">obj_SetVisible</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">bool</span> visible);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="obj_8h.html#a3be0018c90ffd38fd83b0850097ae8f5">   28</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="obj_8h.html#a3be0018c90ffd38fd83b0850097ae8f5">obj_IsVisible</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="obj_8h.html#a0b5efbfd0eb3d7126198b9b32528b1f5">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a0b5efbfd0eb3d7126198b9b32528b1f5">obj_SetRenderPriority</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">int</span> renderPriority);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="obj_8h.html#aa31c0eb1afafabdb94c4fb5abd3849a1">   42</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="obj_8h.html#aa31c0eb1afafabdb94c4fb5abd3849a1">obj_GetRenderPriority</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="obj_8h.html#af5ceebe0e850c03163cbcebd5a4fe922">   49</a></span><a class="code hl_enumeration" href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">EntityType</a> <a class="code hl_function" href="obj_8h.html#af5ceebe0e850c03163cbcebd5a4fe922">obj_GetType</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">/*----------------------------------------------------*/</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="obj_8h.html#a958960bf9ab029ce104b6e7153b74e80">   58</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a958960bf9ab029ce104b6e7153b74e80">obj_SetX</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> x);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="obj_8h.html#a8972c85f83db7b4d53d05f935b610d8d">   65</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a8972c85f83db7b4d53d05f935b610d8d">obj_SetY</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> y);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="obj_8h.html#a9b50e38e385827286f416360bfbb1b33">   73</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a9b50e38e385827286f416360bfbb1b33">obj_SetPosition</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="obj_8h.html#ab3b8feceb186bf4913e260a14a09d51f">   80</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#ab3b8feceb186bf4913e260a14a09d51f">obj_SetAngle</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> angle);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="obj_8h.html#a4701e2a4b564f63933baaa56883a705c">   88</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a4701e2a4b564f63933baaa56883a705c">obj_SetScaleX</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> scalex);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="obj_8h.html#afa41f3c93a0e1a01cdf43b61a05f3811">   95</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#afa41f3c93a0e1a01cdf43b61a05f3811">obj_SetScaleY</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> scaley);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="obj_8h.html#a9d8a09de4f29a0d099fbacb4c7538b5d">  103</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a9d8a09de4f29a0d099fbacb4c7538b5d">obj_SetScale</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> scalex, <span class="keywordtype">float</span> scaley);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="obj_8h.html#a215931eecdc06635fea6ef1d1f1f15bb">  112</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a215931eecdc06635fea6ef1d1f1f15bb">obj_SetColor</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> r, <span class="keywordtype">float</span> g, <span class="keywordtype">float</span> b);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="obj_8h.html#a8d9a97aa790f27a1b8869c93f44e3218">  119</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a8d9a97aa790f27a1b8869c93f44e3218">obj_SetAlpha</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> alpha);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="obj_8h.html#a7330ea93de4bddec7a599d48600ff170">  126</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="obj_8h.html#a7330ea93de4bddec7a599d48600ff170">obj_GetX</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="obj_8h.html#adcf29188d214c2fd4feb563ff71d7237">  133</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="obj_8h.html#adcf29188d214c2fd4feb563ff71d7237">obj_GetY</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="obj_8h.html#a0bbce2eac1454688047861ca91b826bf">  140</a></span>Vector2 <a class="code hl_function" href="obj_8h.html#a0bbce2eac1454688047861ca91b826bf">obj_GetPosition</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="obj_8h.html#a0d6b2af5dfce4a671db02004a1368639">  147</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="obj_8h.html#a0d6b2af5dfce4a671db02004a1368639">obj_GetAngle</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="obj_8h.html#a664ad138e6c5271e1aaa276ed8157488">  154</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="obj_8h.html#a664ad138e6c5271e1aaa276ed8157488">obj_GetScaleX</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="obj_8h.html#a6b4c08bb24c0629c37d38f2d50584222">  161</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="obj_8h.html#a6b4c08bb24c0629c37d38f2d50584222">obj_GetScaleY</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="obj_8h.html#aa51f84d291a23baf4e7c9077307d3c3c">  168</a></span>Vector2 <a class="code hl_function" href="obj_8h.html#aa51f84d291a23baf4e7c9077307d3c3c">obj_GetScale</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="obj_8h.html#a54ebc532999e6567c673de1256aba088">  175</a></span>Color <a class="code hl_function" href="obj_8h.html#a54ebc532999e6567c673de1256aba088">obj_GetColor</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="obj_8h.html#a1e5546448cf96984ac483c621e6d20e7">  182</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="obj_8h.html#a1e5546448cf96984ac483c621e6d20e7">obj_GetAlpha</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">/*----------------------------------------------------*/</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="obj_8h.html#a928aa1559df7f7d3b27bdcca97230455">  193</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a928aa1559df7f7d3b27bdcca97230455">obj_SetAcceleration</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> accel);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="obj_8h.html#a64cb654f98e87afb2cda871d98ffb0a7">  200</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a64cb654f98e87afb2cda871d98ffb0a7">obj_SetSpeed</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> speed);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="obj_8h.html#a241e47bc86a0a843bf948c1af1db748a">  207</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a241e47bc86a0a843bf948c1af1db748a">obj_SetAngularSpeed</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> angvel);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="obj_8h.html#a9700cb1c7248895b9fd548537934e561">  214</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a9700cb1c7248895b9fd548537934e561">obj_SetForceX</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> forcex);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="obj_8h.html#a912594811c317e73a5bd443eaffd77fc">  221</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a912594811c317e73a5bd443eaffd77fc">obj_SetForceY</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> forcey);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="obj_8h.html#afeb559e2e52ba5b14f68b4fdadd57e65">  229</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#afeb559e2e52ba5b14f68b4fdadd57e65">obj_SetForce</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> forcex, <span class="keywordtype">float</span> forcey);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="obj_8h.html#a0c760e947d5e66471aef8bb7309a729d">  237</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a0c760e947d5e66471aef8bb7309a729d">obj_SetVelocity</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> velX, <span class="keywordtype">float</span> velY);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="obj_8h.html#a75b08be53f292f8f6926381647321b9a">  244</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a75b08be53f292f8f6926381647321b9a">obj_SetMaxSpd</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> maxspd);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="obj_8h.html#a7ac2accc17efa903a96303cab9b2defc">  251</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a7ac2accc17efa903a96303cab9b2defc">obj_SetMinSpd</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">float</span> minspd);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="obj_8h.html#ac3d37a674a241e95ee48ad992be03a2d">  257</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#ac3d37a674a241e95ee48ad992be03a2d">obj_UnsetMaxSpd</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="obj_8h.html#a2e1cc04560b6e4b8ee0c6be95eca6e61">  263</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a2e1cc04560b6e4b8ee0c6be95eca6e61">obj_UnsetMinSpd</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="obj_8h.html#a05bc56db395130b3bfb0551ac4623d86">  270</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="obj_8h.html#a05bc56db395130b3bfb0551ac4623d86">obj_GetSpeed</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="obj_8h.html#a51fcee8d68e3a71337a170d124af0f78">  277</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="obj_8h.html#a51fcee8d68e3a71337a170d124af0f78">obj_GetAngularSpeed</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="comment">/*----------------------------------------------------*/</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno"><a class="line" href="obj_8h.html#ab7915d35454fa195d2892d7ed8485050">  286</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="obj_8h.html#ab7915d35454fa195d2892d7ed8485050">obj_GetLife</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno"><a class="line" href="obj_8h.html#adf8318c2dc7f18564f0b4a606839704b">  293</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="obj_8h.html#adf8318c2dc7f18564f0b4a606839704b">obj_GetMaxLife</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="obj_8h.html#a25e9ac0faa8566ee0f2835a94e9af95a">  300</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="obj_8h.html#a25e9ac0faa8566ee0f2835a94e9af95a">obj_IsDead</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="obj_8h.html#af3f81000bc41cfb1ec847fe5a3c04043">  308</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#af3f81000bc41cfb1ec847fe5a3c04043">obj_SetLife</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">int</span> life);</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno"><a class="line" href="obj_8h.html#aaffaee12f72dbd14acdc5fa8b247ab59">  315</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#aaffaee12f72dbd14acdc5fa8b247ab59">obj_SetMaxLife</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <span class="keywordtype">int</span> maxLife);</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="comment">/*----------------------------------------------------*/</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno"><a class="line" href="obj_8h.html#a3aa1470ff1d0529c6c173097b2258777">  324</a></span><a class="code hl_typedef" href="common_8h.html#aa8abe6290d14d2802544c2db7ee3dec2">Tag</a> <a class="code hl_function" href="obj_8h.html#a3aa1470ff1d0529c6c173097b2258777">obj_GetTag</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId);</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span></div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="obj_8h.html#a3e94dff6b4ed80d063c8a5ad5281af19">  331</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a3e94dff6b4ed80d063c8a5ad5281af19">obj_SetTag</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <a class="code hl_typedef" href="common_8h.html#aa8abe6290d14d2802544c2db7ee3dec2">Tag</a> tag);</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span></div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno"><a class="line" href="obj_8h.html#a8e55a77d9cb12e63466095599f8ba500">  338</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a8e55a77d9cb12e63466095599f8ba500">obj_SetHitboxRadius</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objID, <span class="keywordtype">float</span> radius);</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span><span class="comment">/*----------------------------------------------------*/</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span></div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno"><a class="line" href="obj_8h.html#a5da30e8b34e4b45733d13269841f9aa4">  347</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a5da30e8b34e4b45733d13269841f9aa4">obj_AddFlag</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <a class="code hl_enumeration" href="flags_8h.html#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> flag);</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span></div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno"><a class="line" href="obj_8h.html#a2e20dc64b22bc18111f45414de54abe2">  354</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obj_8h.html#a2e20dc64b22bc18111f45414de54abe2">obj_RemoveFlag</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> objId, <a class="code hl_enumeration" href="flags_8h.html#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a> flag);</div>
+<div class="ttc" id="acommon_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div><div class="ttdoc">Composants communs à toutes les entités (Position, Tag).</div></div>
+<div class="ttc" id="acommon_8h_html_aa8abe6290d14d2802544c2db7ee3dec2"><div class="ttname"><a href="common_8h.html#aa8abe6290d14d2802544c2db7ee3dec2">Tag</a></div><div class="ttdeci">EntityType Tag</div><div class="ttdef"><b>Definition</b> common.h:40</div></div>
+<div class="ttc" id="acommon_8h_html_ad79a57ed3105eb60d991a1aeb4a9dc44"><div class="ttname"><a href="common_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44">EntityType</a></div><div class="ttdeci">EntityType</div><div class="ttdef"><b>Definition</b> common.h:27</div></div>
+<div class="ttc" id="aecs_8h_html"><div class="ttname"><a href="ecs_8h.html">ecs.h</a></div><div class="ttdoc">Types et déclarations utilisés dans l&#39;ECS.</div></div>
+<div class="ttc" id="aecs_8h_html_a7f551ae9f4fa7a7ff4d783e768fe1918"><div class="ttname"><a href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></div><div class="ttdeci">uint32_t Entity</div><div class="ttdoc">Une entité est un indice.</div><div class="ttdef"><b>Definition</b> ecs.h:20</div></div>
+<div class="ttc" id="aflags_8h_html"><div class="ttname"><a href="flags_8h.html">flags.h</a></div><div class="ttdoc">Les flags sont des critères qu&#39;une entité peut avoir ou ne pas avoir. Chaque flag active un comportem...</div></div>
+<div class="ttc" id="aflags_8h_html_a829563b1e19fae59f905c1afb76fe4eb"><div class="ttname"><a href="flags_8h.html#a829563b1e19fae59f905c1afb76fe4eb">FlagType</a></div><div class="ttdeci">FlagType</div><div class="ttdoc">Identificateurs uniques de certaines propriétés.</div><div class="ttdef"><b>Definition</b> flags.h:18</div></div>
+<div class="ttc" id="aobj_8h_html_a05bc56db395130b3bfb0551ac4623d86"><div class="ttname"><a href="obj_8h.html#a05bc56db395130b3bfb0551ac4623d86">obj_GetSpeed</a></div><div class="ttdeci">float obj_GetSpeed(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la vitesse d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a0b5efbfd0eb3d7126198b9b32528b1f5"><div class="ttname"><a href="obj_8h.html#a0b5efbfd0eb3d7126198b9b32528b1f5">obj_SetRenderPriority</a></div><div class="ttdeci">void obj_SetRenderPriority(Pool *p, Entity objId, int renderPriority)</div><div class="ttdoc">Définit la priorité de rendu d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a0bbce2eac1454688047861ca91b826bf"><div class="ttname"><a href="obj_8h.html#a0bbce2eac1454688047861ca91b826bf">obj_GetPosition</a></div><div class="ttdeci">Vector2 obj_GetPosition(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la position d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a0c760e947d5e66471aef8bb7309a729d"><div class="ttname"><a href="obj_8h.html#a0c760e947d5e66471aef8bb7309a729d">obj_SetVelocity</a></div><div class="ttdeci">void obj_SetVelocity(Pool *p, Entity objId, float velX, float velY)</div><div class="ttdoc">Définit la vitesse de déplacement d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a0d0471cf251954549324ed4d7ce0326c"><div class="ttname"><a href="obj_8h.html#a0d0471cf251954549324ed4d7ce0326c">obj_Delete</a></div><div class="ttdeci">void obj_Delete(Pool *p, Entity objId)</div><div class="ttdoc">Supprime un objet du pool.</div></div>
+<div class="ttc" id="aobj_8h_html_a0d6b2af5dfce4a671db02004a1368639"><div class="ttname"><a href="obj_8h.html#a0d6b2af5dfce4a671db02004a1368639">obj_GetAngle</a></div><div class="ttdeci">float obj_GetAngle(Pool *p, Entity objId)</div><div class="ttdoc">Récupère l&#39;angle d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a121c81c6f182c150361522d57c67d2e8"><div class="ttname"><a href="obj_8h.html#a121c81c6f182c150361522d57c67d2e8">obj_SetVisible</a></div><div class="ttdeci">void obj_SetVisible(Pool *p, Entity objId, bool visible)</div><div class="ttdoc">Définit la visibilité d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a1e5546448cf96984ac483c621e6d20e7"><div class="ttname"><a href="obj_8h.html#a1e5546448cf96984ac483c621e6d20e7">obj_GetAlpha</a></div><div class="ttdeci">float obj_GetAlpha(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la transparence d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a215931eecdc06635fea6ef1d1f1f15bb"><div class="ttname"><a href="obj_8h.html#a215931eecdc06635fea6ef1d1f1f15bb">obj_SetColor</a></div><div class="ttdeci">void obj_SetColor(Pool *p, Entity objId, float r, float g, float b)</div><div class="ttdoc">Définit la couleur d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a241e47bc86a0a843bf948c1af1db748a"><div class="ttname"><a href="obj_8h.html#a241e47bc86a0a843bf948c1af1db748a">obj_SetAngularSpeed</a></div><div class="ttdeci">void obj_SetAngularSpeed(Pool *p, Entity objId, float angvel)</div><div class="ttdoc">Définit la vitesse angulaire d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a25e9ac0faa8566ee0f2835a94e9af95a"><div class="ttname"><a href="obj_8h.html#a25e9ac0faa8566ee0f2835a94e9af95a">obj_IsDead</a></div><div class="ttdeci">bool obj_IsDead(Pool *p, Entity objId)</div><div class="ttdoc">Vérifie si un objet est mort.</div></div>
+<div class="ttc" id="aobj_8h_html_a2e1cc04560b6e4b8ee0c6be95eca6e61"><div class="ttname"><a href="obj_8h.html#a2e1cc04560b6e4b8ee0c6be95eca6e61">obj_UnsetMinSpd</a></div><div class="ttdeci">void obj_UnsetMinSpd(Pool *p, Entity objId)</div><div class="ttdoc">Supprime la vitesse minimale d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a2e20dc64b22bc18111f45414de54abe2"><div class="ttname"><a href="obj_8h.html#a2e20dc64b22bc18111f45414de54abe2">obj_RemoveFlag</a></div><div class="ttdeci">void obj_RemoveFlag(Pool *p, Entity objId, FlagType flag)</div><div class="ttdoc">Supprime un drapeau d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a3aa1470ff1d0529c6c173097b2258777"><div class="ttname"><a href="obj_8h.html#a3aa1470ff1d0529c6c173097b2258777">obj_GetTag</a></div><div class="ttdeci">Tag obj_GetTag(Pool *p, Entity objId)</div><div class="ttdoc">Récupère le tag d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a3be0018c90ffd38fd83b0850097ae8f5"><div class="ttname"><a href="obj_8h.html#a3be0018c90ffd38fd83b0850097ae8f5">obj_IsVisible</a></div><div class="ttdeci">bool obj_IsVisible(Pool *p, Entity objId)</div><div class="ttdoc">Vérifie si un objet est visible.</div></div>
+<div class="ttc" id="aobj_8h_html_a3e94dff6b4ed80d063c8a5ad5281af19"><div class="ttname"><a href="obj_8h.html#a3e94dff6b4ed80d063c8a5ad5281af19">obj_SetTag</a></div><div class="ttdeci">void obj_SetTag(Pool *p, Entity objId, Tag tag)</div><div class="ttdoc">Définit le tag d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a4701e2a4b564f63933baaa56883a705c"><div class="ttname"><a href="obj_8h.html#a4701e2a4b564f63933baaa56883a705c">obj_SetScaleX</a></div><div class="ttdeci">void obj_SetScaleX(Pool *p, Entity objId, float scalex)</div><div class="ttdoc">Définit la taille d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a51fcee8d68e3a71337a170d124af0f78"><div class="ttname"><a href="obj_8h.html#a51fcee8d68e3a71337a170d124af0f78">obj_GetAngularSpeed</a></div><div class="ttdeci">float obj_GetAngularSpeed(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la vitesse angulaire d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a54ebc532999e6567c673de1256aba088"><div class="ttname"><a href="obj_8h.html#a54ebc532999e6567c673de1256aba088">obj_GetColor</a></div><div class="ttdeci">Color obj_GetColor(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la couleur d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a5da30e8b34e4b45733d13269841f9aa4"><div class="ttname"><a href="obj_8h.html#a5da30e8b34e4b45733d13269841f9aa4">obj_AddFlag</a></div><div class="ttdeci">void obj_AddFlag(Pool *p, Entity objId, FlagType flag)</div><div class="ttdoc">Ajoute un drapeau à un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a64cb654f98e87afb2cda871d98ffb0a7"><div class="ttname"><a href="obj_8h.html#a64cb654f98e87afb2cda871d98ffb0a7">obj_SetSpeed</a></div><div class="ttdeci">void obj_SetSpeed(Pool *p, Entity objId, float speed)</div><div class="ttdoc">Définit la vitesse d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a664ad138e6c5271e1aaa276ed8157488"><div class="ttname"><a href="obj_8h.html#a664ad138e6c5271e1aaa276ed8157488">obj_GetScaleX</a></div><div class="ttdeci">float obj_GetScaleX(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la taille X d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a6b4c08bb24c0629c37d38f2d50584222"><div class="ttname"><a href="obj_8h.html#a6b4c08bb24c0629c37d38f2d50584222">obj_GetScaleY</a></div><div class="ttdeci">float obj_GetScaleY(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la taille Y d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a7330ea93de4bddec7a599d48600ff170"><div class="ttname"><a href="obj_8h.html#a7330ea93de4bddec7a599d48600ff170">obj_GetX</a></div><div class="ttdeci">float obj_GetX(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la position X d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a75b08be53f292f8f6926381647321b9a"><div class="ttname"><a href="obj_8h.html#a75b08be53f292f8f6926381647321b9a">obj_SetMaxSpd</a></div><div class="ttdeci">void obj_SetMaxSpd(Pool *p, Entity objId, float maxspd)</div><div class="ttdoc">Définit la vitesse maximale d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a7ac2accc17efa903a96303cab9b2defc"><div class="ttname"><a href="obj_8h.html#a7ac2accc17efa903a96303cab9b2defc">obj_SetMinSpd</a></div><div class="ttdeci">void obj_SetMinSpd(Pool *p, Entity objId, float minspd)</div><div class="ttdoc">Définit la vitesse minimale d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a8972c85f83db7b4d53d05f935b610d8d"><div class="ttname"><a href="obj_8h.html#a8972c85f83db7b4d53d05f935b610d8d">obj_SetY</a></div><div class="ttdeci">void obj_SetY(Pool *p, Entity objId, float y)</div><div class="ttdoc">Définit la position Y d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a8d9a97aa790f27a1b8869c93f44e3218"><div class="ttname"><a href="obj_8h.html#a8d9a97aa790f27a1b8869c93f44e3218">obj_SetAlpha</a></div><div class="ttdeci">void obj_SetAlpha(Pool *p, Entity objId, float alpha)</div><div class="ttdoc">Définit la transparence d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a8e55a77d9cb12e63466095599f8ba500"><div class="ttname"><a href="obj_8h.html#a8e55a77d9cb12e63466095599f8ba500">obj_SetHitboxRadius</a></div><div class="ttdeci">void obj_SetHitboxRadius(Pool *p, Entity objID, float radius)</div><div class="ttdoc">Définit le rayon de la hitbox d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a912594811c317e73a5bd443eaffd77fc"><div class="ttname"><a href="obj_8h.html#a912594811c317e73a5bd443eaffd77fc">obj_SetForceY</a></div><div class="ttdeci">void obj_SetForceY(Pool *p, Entity objId, float forcey)</div><div class="ttdoc">Définit la force Y d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a928aa1559df7f7d3b27bdcca97230455"><div class="ttname"><a href="obj_8h.html#a928aa1559df7f7d3b27bdcca97230455">obj_SetAcceleration</a></div><div class="ttdeci">void obj_SetAcceleration(Pool *p, Entity objId, float accel)</div><div class="ttdoc">Définit l&#39;accélération d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a958960bf9ab029ce104b6e7153b74e80"><div class="ttname"><a href="obj_8h.html#a958960bf9ab029ce104b6e7153b74e80">obj_SetX</a></div><div class="ttdeci">void obj_SetX(Pool *p, Entity objId, float x)</div><div class="ttdoc">Définit la position X d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a9700cb1c7248895b9fd548537934e561"><div class="ttname"><a href="obj_8h.html#a9700cb1c7248895b9fd548537934e561">obj_SetForceX</a></div><div class="ttdeci">void obj_SetForceX(Pool *p, Entity objId, float forcex)</div><div class="ttdoc">Définit la force X d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a9b50e38e385827286f416360bfbb1b33"><div class="ttname"><a href="obj_8h.html#a9b50e38e385827286f416360bfbb1b33">obj_SetPosition</a></div><div class="ttdeci">void obj_SetPosition(Pool *p, Entity objId, float x, float y)</div><div class="ttdoc">Définit la position d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_a9d8a09de4f29a0d099fbacb4c7538b5d"><div class="ttname"><a href="obj_8h.html#a9d8a09de4f29a0d099fbacb4c7538b5d">obj_SetScale</a></div><div class="ttdeci">void obj_SetScale(Pool *p, Entity objId, float scalex, float scaley)</div><div class="ttdoc">Définit la taille d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_aa31c0eb1afafabdb94c4fb5abd3849a1"><div class="ttname"><a href="obj_8h.html#aa31c0eb1afafabdb94c4fb5abd3849a1">obj_GetRenderPriority</a></div><div class="ttdeci">int obj_GetRenderPriority(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la priorité de rendu d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_aa51f84d291a23baf4e7c9077307d3c3c"><div class="ttname"><a href="obj_8h.html#aa51f84d291a23baf4e7c9077307d3c3c">obj_GetScale</a></div><div class="ttdeci">Vector2 obj_GetScale(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la taille d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_aaffaee12f72dbd14acdc5fa8b247ab59"><div class="ttname"><a href="obj_8h.html#aaffaee12f72dbd14acdc5fa8b247ab59">obj_SetMaxLife</a></div><div class="ttdeci">void obj_SetMaxLife(Pool *p, Entity objId, int maxLife)</div><div class="ttdoc">Définit la vie maximale d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_ab3b8feceb186bf4913e260a14a09d51f"><div class="ttname"><a href="obj_8h.html#ab3b8feceb186bf4913e260a14a09d51f">obj_SetAngle</a></div><div class="ttdeci">void obj_SetAngle(Pool *p, Entity objId, float angle)</div><div class="ttdoc">Définit l&#39;angle d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_ab7915d35454fa195d2892d7ed8485050"><div class="ttname"><a href="obj_8h.html#ab7915d35454fa195d2892d7ed8485050">obj_GetLife</a></div><div class="ttdeci">int obj_GetLife(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la vie d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_ac3d37a674a241e95ee48ad992be03a2d"><div class="ttname"><a href="obj_8h.html#ac3d37a674a241e95ee48ad992be03a2d">obj_UnsetMaxSpd</a></div><div class="ttdeci">void obj_UnsetMaxSpd(Pool *p, Entity objId)</div><div class="ttdoc">Supprime la vitesse maximale d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_adcf29188d214c2fd4feb563ff71d7237"><div class="ttname"><a href="obj_8h.html#adcf29188d214c2fd4feb563ff71d7237">obj_GetY</a></div><div class="ttdeci">float obj_GetY(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la position Y d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_adf8318c2dc7f18564f0b4a606839704b"><div class="ttname"><a href="obj_8h.html#adf8318c2dc7f18564f0b4a606839704b">obj_GetMaxLife</a></div><div class="ttdeci">int obj_GetMaxLife(Pool *p, Entity objId)</div><div class="ttdoc">Récupère la vie maximale d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_af3f81000bc41cfb1ec847fe5a3c04043"><div class="ttname"><a href="obj_8h.html#af3f81000bc41cfb1ec847fe5a3c04043">obj_SetLife</a></div><div class="ttdeci">void obj_SetLife(Pool *p, Entity objId, int life)</div><div class="ttdoc">Définit la vie d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_af5ceebe0e850c03163cbcebd5a4fe922"><div class="ttname"><a href="obj_8h.html#af5ceebe0e850c03163cbcebd5a4fe922">obj_GetType</a></div><div class="ttdeci">EntityType obj_GetType(Pool *p, Entity objId)</div><div class="ttdoc">Récupère le type d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_afa41f3c93a0e1a01cdf43b61a05f3811"><div class="ttname"><a href="obj_8h.html#afa41f3c93a0e1a01cdf43b61a05f3811">obj_SetScaleY</a></div><div class="ttdeci">void obj_SetScaleY(Pool *p, Entity objId, float scaley)</div><div class="ttdoc">Définit la taille Y d&#39;un objet.</div></div>
+<div class="ttc" id="aobj_8h_html_afeb559e2e52ba5b14f68b4fdadd57e65"><div class="ttname"><a href="obj_8h.html#afeb559e2e52ba5b14f68b4fdadd57e65">obj_SetForce</a></div><div class="ttdeci">void obj_SetForce(Pool *p, Entity objId, float forcex, float forcey)</div><div class="ttdoc">Définit la force d&#39;un objet.</div></div>
+<div class="ttc" id="astructPool_html"><div class="ttname"><a href="structPool.html">Pool</a></div><div class="ttdoc">La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...</div><div class="ttdef"><b>Definition</b> pool.h:42</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_ce599cbe940e096f4daa174358342371.html">internal</a></li><li class="navelem"><a href="dir_ac39f7509a981fdd51dacf6c91c8b183.html">systems</a></li><li class="navelem"><a href="obj_8h.html">obj.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
