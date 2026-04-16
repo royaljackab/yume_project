@@ -20,7 +20,6 @@ Ce projet est librement inspiré de Touhou Project, un des titres les plus connu
 
 ## Compilation et lancement
 ```bash
-cd src
 make run
 ```
 
