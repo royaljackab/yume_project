@@ -1,58 +1,56 @@
-/**
- * @file test_physics.c
- * @brief Tests unitaires du composant Physics
- *
- * Teste uniquement Physics_create_speed de manière autonome,
- * sans dépendance à la pool ou à raylib.
- * 
- * @author @amyelalem
- */
-
-#include "test_utils.h"
+#include <CUnit/Basic.h>
+#include <CUnit/CUnit.h>
 #include <math.h>
+#include <raylib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "ecs/pool.h"
+#include "components/physics.h"
+#include "components/common.h"
+#include "obj.h"
+#include "systems/screen.h" // Nécessaire pour accéder à la structure Screen
 
-/* Redéfinition minimale pour les tests, sans dépendances externes */
-#define NO_MAX_SPEED 999999
-#define NO_MIN_SPEED -999999
+// On récupère la variable globale de ton moteur
+extern ScreenSystem *g_screen;
 
-typedef struct { float x, y; } Vector2;
+void test_physics_movement(void) {
+    ScreenSystem dummy_screen;
+    screen_system_init(&dummy_screen);
+    g_screen = &dummy_screen;
 
-typedef struct {
-    float speed;
-    float accel;
-    float maxSpd;
-    float minSpd;
-    float angVel;
-    Vector2 force;
-    Vector2 velocity;
-} Physics;
+    Pool *pool = malloc(sizeof(Pool));
+    CU_ASSERT_PTR_NOT_NULL_FATAL(pool); // Stoppe le test si la RAM est pleine
+    pool_init(pool);
 
-Physics Physics_create_speed(float speed) {
-    Physics phy = {speed, 0, NO_MAX_SPEED, NO_MIN_SPEED, 0, {0, 0}, {0, 0}};
-    return phy;
-}
+    Entity e = pool_create_entity(pool);
+    
+    Position pos = {{0.0f, 0.0f}, 0.0f};
+    Position_add(&pool->position, e, pos);
+    
+    Physics phys = Physics_create_speed(10);
+    Physics_add(&pool->physics, e, phys);
 
-void test_physics() {
-    TEST_SUITE("Physics");
+    Physics_update_all(pool);
 
-    Physics phy = Physics_create_speed(5.0f);
-    TEST("Physics_create_speed : speed initialisee correctement", phy.speed == 5.0f);
-    TEST("Physics_create_speed : accel a zero par defaut", phy.accel == 0.0f);
-    TEST("Physics_create_speed : angVel a zero par defaut", phy.angVel == 0.0f);
-    TEST("Physics_create_speed : maxSpd = NO_MAX_SPEED par defaut", phy.maxSpd == NO_MAX_SPEED);
-    TEST("Physics_create_speed : minSpd = NO_MIN_SPEED par defaut", phy.minSpd == NO_MIN_SPEED);
-    TEST("Physics_create_speed : velocity.x a zero avant le premier update", phy.velocity.x == 0.0f);
-    TEST("Physics_create_speed : velocity.y a zero avant le premier update", phy.velocity.y == 0.0f);
+    Position *new_pos = Position_get(&pool->position, e);
+    
+    // Vérification : l'objet a avancé vers la droite a une vitesse de 10
+    CU_ASSERT_DOUBLE_EQUAL(new_pos->pos.x, 10.0f, 0.0001);
+    CU_ASSERT_DOUBLE_EQUAL(new_pos->pos.y, 0.0f, 0.0001);
 
-    Physics phy2 = Physics_create_speed(0.0f);
-    TEST("Physics_create_speed : vitesse nulle acceptee", phy2.speed == 0.0f);
+    // revient a (0,0)
+    obj_SetPosition(pool, e, 0, 0);
+    obj_SetAngle(pool, e, 45);
+    obj_SetSpeed(pool, e, 5);
 
-    Physics phy3 = Physics_create_speed(-3.0f);
-    TEST("Physics_create_speed : vitesse negative acceptee", phy3.speed == -3.0f);
-}
+    Physics_update_all(pool);
 
-int main() {
-    test_physics();
-    printf("\n");
-    return 0;
+    new_pos = Position_get(&pool->position, e);
+
+    // Verif : l'objet a avancé dans la diagonale
+    CU_ASSERT_DOUBLE_EQUAL(new_pos->pos.x, 5 * cosf(45 * DEG2RAD), 0.0001);
+    CU_ASSERT_DOUBLE_EQUAL(new_pos->pos.y, 5 * sinf(45 * DEG2RAD), 0.0001);
+
+    // 3. Nettoyage
+    free(pool);
 }
