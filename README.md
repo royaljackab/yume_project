@@ -13,12 +13,9 @@ Ce projet est librement inspiré de Touhou Project, un des titres les plus connu
 
 ## Prérequis
 - GCC
-- Raylib 5.5
-- macOS : `brew install raylib`
-- Linux : `sudo apt install libraylib-dev`
-- Windows : bibliothèque incluse dans `raylib/`
 
 ## Compilation et lancement
+Cloner ce dépôt puis dans la racine du dossier :
 ```bash
 make run
 ```
@@ -54,3 +51,5 @@ La documentation technique est générée avec Doxygen.
 ```bash
 doxygen Doxyfile
 ```
+
+La documentation est disponible à : https://royaljackab.github.io/yume_project/
