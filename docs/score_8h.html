@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yume Project: Référence du fichier lib/internal/systems/score.h</title>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Yume Project<span id="projectnumber">&#160;3.0</span>
+   </div>
+   <div id="projectbrief">Touhou-inspired Danmaku game made in C only</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('score_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier score.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="assets_8h_source.html">content/assets.h</a>&quot;</code><br />
+</div>
+<p><a href="score_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:ScoreSystem" id="r_ScoreSystem"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structScoreSystem.html">ScoreSystem</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a0e661e3da44edbefcba6925e6033382e" id="r_a0e661e3da44edbefcba6925e6033382e"><td class="memItemLeft">typedef struct ScoreSystem&#160;</td><td class="memItemRight"><a class="el" href="#a0e661e3da44edbefcba6925e6033382e">ScoreSystem</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a60b2bbb6965e3971ce05b27e93d10351" id="r_a60b2bbb6965e3971ce05b27e93d10351"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a60b2bbb6965e3971ce05b27e93d10351">score_system_init</a> (<a class="el" href="structScoreSystem.html">ScoreSystem</a> *scoreSystem)</td></tr>
+<tr class="memdesc:a60b2bbb6965e3971ce05b27e93d10351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le système de score.  <br /></td></tr>
+<tr class="memitem:ac0cd3161ed15531db24964240d316686" id="r_ac0cd3161ed15531db24964240d316686"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac0cd3161ed15531db24964240d316686">score_increase</a> (<a class="el" href="structScoreSystem.html">ScoreSystem</a> *scoreSystem, unsigned int amount)</td></tr>
+<tr class="memdesc:ac0cd3161ed15531db24964240d316686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Augmente le score du joueur.  <br /></td></tr>
+<tr class="memitem:a5032e255f576926684bc6a5f9592f8b7" id="r_a5032e255f576926684bc6a5f9592f8b7"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a5032e255f576926684bc6a5f9592f8b7">score_system_get_highscore</a> (<a class="el" href="structScoreSystem.html">ScoreSystem</a> *score)</td></tr>
+<tr class="memdesc:a5032e255f576926684bc6a5f9592f8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le score actuel du joueur.  <br /></td></tr>
+<tr class="memitem:a7d872c7ae5a36b1ba617d8216877ba13" id="r_a7d872c7ae5a36b1ba617d8216877ba13"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a7d872c7ae5a36b1ba617d8216877ba13">score_system_is_new_highscore</a> (<a class="el" href="structScoreSystem.html">ScoreSystem</a> *score)</td></tr>
+<tr class="memdesc:a7d872c7ae5a36b1ba617d8216877ba13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le score actuel est un nouveau record.  <br /></td></tr>
+<tr class="memitem:a904e459b262843c55c2dd09a88cf151e" id="r_a904e459b262843c55c2dd09a88cf151e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a904e459b262843c55c2dd09a88cf151e">update_combo</a> (<a class="el" href="structScoreSystem.html">ScoreSystem</a> *scoreSystem)</td></tr>
+<tr class="memdesc:a904e459b262843c55c2dd09a88cf151e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le combo du joueur.  <br /></td></tr>
+<tr class="memitem:a744c699798b45ac93717772b9deb4d46" id="r_a744c699798b45ac93717772b9deb4d46"><td class="memItemLeft"><a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a>&#160;</td><td class="memItemRight"><a class="el" href="#a744c699798b45ac93717772b9deb4d46">get_combo_sprite</a> (<a class="el" href="structScoreSystem.html">ScoreSystem</a> *scoreSystem)</td></tr>
+<tr class="memdesc:a744c699798b45ac93717772b9deb4d46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le sprite du combo.  <br /></td></tr>
+<tr class="memitem:aab92385e689664a98eb3e3475576d9d8" id="r_aab92385e689664a98eb3e3475576d9d8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aab92385e689664a98eb3e3475576d9d8">draw_combo_sprite</a> (<a class="el" href="structScoreSystem.html">ScoreSystem</a> *scoreSystem, int x, int y)</td></tr>
+<tr class="memdesc:aab92385e689664a98eb3e3475576d9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le sprite du combo.  <br /></td></tr>
+<tr class="memitem:a6fe6aeaaff2d8920cf0b6081e0398a4c" id="r_a6fe6aeaaff2d8920cf0b6081e0398a4c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6fe6aeaaff2d8920cf0b6081e0398a4c">score_decrease</a> (<a class="el" href="structScoreSystem.html">ScoreSystem</a> *scoreSystem, unsigned int amount)</td></tr>
+<tr class="memdesc:a6fe6aeaaff2d8920cf0b6081e0398a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diminue le score du joueur.  <br /></td></tr>
+</table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Documentation des définitions de type</h2>
+<a id="a0e661e3da44edbefcba6925e6033382e" name="a0e661e3da44edbefcba6925e6033382e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e661e3da44edbefcba6925e6033382e">&#9670;&#160;</a></span>ScoreSystem</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct ScoreSystem ScoreSystem</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="aab92385e689664a98eb3e3475576d9d8" name="aab92385e689664a98eb3e3475576d9d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab92385e689664a98eb3e3475576d9d8">&#9670;&#160;</a></span>draw_combo_sprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void draw_combo_sprite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structScoreSystem.html">ScoreSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>scoreSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessine le sprite du combo. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à interroger </td></tr>
+    <tr><td class="paramname">x</td><td>La position X où dessiner le sprite </td></tr>
+    <tr><td class="paramname">y</td><td>La position Y où dessiner le sprite </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a744c699798b45ac93717772b9deb4d46" name="a744c699798b45ac93717772b9deb4d46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a744c699798b45ac93717772b9deb4d46">&#9670;&#160;</a></span>get_combo_sprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> get_combo_sprite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structScoreSystem.html">ScoreSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>scoreSystem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère le sprite du combo. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à interroger </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'ID du sprite du combo </dd></dl>
+
+</div>
+</div>
+<a id="a6fe6aeaaff2d8920cf0b6081e0398a4c" name="a6fe6aeaaff2d8920cf0b6081e0398a4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fe6aeaaff2d8920cf0b6081e0398a4c">&#9670;&#160;</a></span>score_decrease()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void score_decrease </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structScoreSystem.html">ScoreSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>scoreSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>amount</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Diminue le score du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à mettre à jour </td></tr>
+    <tr><td class="paramname">amount</td><td>Le montant à soustraire du score </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac0cd3161ed15531db24964240d316686" name="ac0cd3161ed15531db24964240d316686"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0cd3161ed15531db24964240d316686">&#9670;&#160;</a></span>score_increase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void score_increase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structScoreSystem.html">ScoreSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>scoreSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>amount</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Augmente le score du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à mettre à jour </td></tr>
+    <tr><td class="paramname">amount</td><td>Le montant à ajouter au score </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5032e255f576926684bc6a5f9592f8b7" name="a5032e255f576926684bc6a5f9592f8b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5032e255f576926684bc6a5f9592f8b7">&#9670;&#160;</a></span>score_system_get_highscore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int score_system_get_highscore </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structScoreSystem.html">ScoreSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>score</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère le score actuel du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à interroger </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le score actuel du joueur </dd></dl>
+
+</div>
+</div>
+<a id="a60b2bbb6965e3971ce05b27e93d10351" name="a60b2bbb6965e3971ce05b27e93d10351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60b2bbb6965e3971ce05b27e93d10351">&#9670;&#160;</a></span>score_system_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void score_system_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structScoreSystem.html">ScoreSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>scoreSystem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialise le système de score. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à initialiser </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7d872c7ae5a36b1ba617d8216877ba13" name="a7d872c7ae5a36b1ba617d8216877ba13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d872c7ae5a36b1ba617d8216877ba13">&#9670;&#160;</a></span>score_system_is_new_highscore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int score_system_is_new_highscore </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structScoreSystem.html">ScoreSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>score</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si le score actuel est un nouveau record. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à interroger </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si c'est un nouveau record, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a904e459b262843c55c2dd09a88cf151e" name="a904e459b262843c55c2dd09a88cf151e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a904e459b262843c55c2dd09a88cf151e">&#9670;&#160;</a></span>update_combo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int update_combo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structScoreSystem.html">ScoreSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>scoreSystem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jour le combo du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoreSystem</td><td>Le système de score à mettre à jour </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si le combo est actif, 0 sinon </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_ce599cbe940e096f4daa174358342371.html">internal</a></li><li class="navelem"><a href="dir_ac39f7509a981fdd51dacf6c91c8b183.html">systems</a></li><li class="navelem"><a href="score_8h.html">score.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

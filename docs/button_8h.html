@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yume Project: Référence du fichier lib/internal/systems/button.h</title>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Yume Project<span id="projectnumber">&#160;3.0</span>
+   </div>
+   <div id="projectbrief">Touhou-inspired Danmaku game made in C only</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('button_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier button.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="screen_8h_source.html">screen.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="input_8h_source.html">input.h</a>&quot;</code><br />
+<code>#include &lt;raylib.h&gt;</code><br />
+</div>
+<p><a href="button_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Button" id="r_Button"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structButton.html">Button</a></td></tr>
+<tr class="memitem:ButtonSystem" id="r_ButtonSystem"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structButtonSystem.html">ButtonSystem</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8bb0c7f312bb8665c3377a061dae552c" id="r_a8bb0c7f312bb8665c3377a061dae552c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8bb0c7f312bb8665c3377a061dae552c">MAX_BUTTONS</a>&#160;&#160;&#160;30</td></tr>
+<tr class="memitem:adb8526f5c97746625152403b857b0b11" id="r_adb8526f5c97746625152403b857b0b11"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#adb8526f5c97746625152403b857b0b11">NO_BUTTON</a>&#160;&#160;&#160;-1</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:aabbec029df4131b530b45fc227cfddcc" id="r_aabbec029df4131b530b45fc227cfddcc"><td class="memItemLeft">typedef struct Button&#160;</td><td class="memItemRight"><a class="el" href="#aabbec029df4131b530b45fc227cfddcc">Button</a></td></tr>
+<tr class="memitem:a823dea94ba37dba9d1456e4d45fc8d96" id="r_a823dea94ba37dba9d1456e4d45fc8d96"><td class="memItemLeft">typedef struct ButtonSystem&#160;</td><td class="memItemRight"><a class="el" href="#a823dea94ba37dba9d1456e4d45fc8d96">ButtonSystem</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a3c575014e9b2676898b12056dd0846da" id="r_a3c575014e9b2676898b12056dd0846da"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3c575014e9b2676898b12056dd0846da">button_system_init</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem)</td></tr>
+<tr class="memdesc:a3c575014e9b2676898b12056dd0846da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le système de boutons.  <br /></td></tr>
+<tr class="memitem:aab065737ffbaac51c1312fb0c9007126" id="r_aab065737ffbaac51c1312fb0c9007126"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aab065737ffbaac51c1312fb0c9007126">button_update</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem, <a class="el" href="structInputSystem.html">InputSystem</a> *inputState)</td></tr>
+<tr class="memdesc:aab065737ffbaac51c1312fb0c9007126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le système de boutons en fonction de l'état des entrées.  <br /></td></tr>
+<tr class="memitem:a299eeb98ec2fd60305fee62bfeb14bb8" id="r_a299eeb98ec2fd60305fee62bfeb14bb8"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a299eeb98ec2fd60305fee62bfeb14bb8">button_is_validated</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem)</td></tr>
+<tr class="memdesc:a299eeb98ec2fd60305fee62bfeb14bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le bouton actif a été validé  <br /></td></tr>
+<tr class="memitem:a375dd94a5e5c63fcb291b6b097a07a2d" id="r_a375dd94a5e5c63fcb291b6b097a07a2d"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a375dd94a5e5c63fcb291b6b097a07a2d">button_is_button_validated</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem, int buttonID)</td></tr>
+<tr class="memdesc:a375dd94a5e5c63fcb291b6b097a07a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si un bouton spécifique a été validé  <br /></td></tr>
+<tr class="memitem:a71d3140e977771c90d8137a98c29b241" id="r_a71d3140e977771c90d8137a98c29b241"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a71d3140e977771c90d8137a98c29b241">button_create</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem, int x, int y)</td></tr>
+<tr class="memdesc:a71d3140e977771c90d8137a98c29b241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un nouveau bouton.  <br /></td></tr>
+<tr class="memitem:a899826f7d1cf010fd4bdaca652247bd1" id="r_a899826f7d1cf010fd4bdaca652247bd1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a899826f7d1cf010fd4bdaca652247bd1">button_create_ex</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem, int x, int y, int left, int right)</td></tr>
+<tr class="memdesc:a899826f7d1cf010fd4bdaca652247bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un nouveau bouton avec des touches spécifiques.  <br /></td></tr>
+<tr class="memitem:acd369326db7be8b8540db43ed5ca69b5" id="r_acd369326db7be8b8540db43ed5ca69b5"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#acd369326db7be8b8540db43ed5ca69b5">button_get_current_buttonID</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem)</td></tr>
+<tr class="memdesc:acd369326db7be8b8540db43ed5ca69b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère l'ID du bouton actuellement sélectionné  <br /></td></tr>
+<tr class="memitem:a3ff8b2f96ad4e580d2a74f6aa8ad96a1" id="r_a3ff8b2f96ad4e580d2a74f6aa8ad96a1"><td class="memItemLeft"><a class="el" href="structButton.html">Button</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3ff8b2f96ad4e580d2a74f6aa8ad96a1">button_get_current_button</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem)</td></tr>
+<tr class="memdesc:a3ff8b2f96ad4e580d2a74f6aa8ad96a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le bouton actuellement sélectionné (retourne la structure complète du bouton).  <br /></td></tr>
+<tr class="memitem:a5e2f86177baf1c45df3f71621e9ac4a5" id="r_a5e2f86177baf1c45df3f71621e9ac4a5"><td class="memItemLeft">Vector2&#160;</td><td class="memItemRight"><a class="el" href="#a5e2f86177baf1c45df3f71621e9ac4a5">button_get_button_position</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem, int buttonID)</td></tr>
+<tr class="memdesc:a5e2f86177baf1c45df3f71621e9ac4a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la position d'un bouton spécifique.  <br /></td></tr>
+<tr class="memitem:a16cb10a894bca788bcb776c12faa3a3d" id="r_a16cb10a894bca788bcb776c12faa3a3d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a16cb10a894bca788bcb776c12faa3a3d">button_draw_button_text</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem, int buttonID, char *text, int fontSize, Color color)</td></tr>
+<tr class="memdesc:a16cb10a894bca788bcb776c12faa3a3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le texte d'un bouton spécifique.  <br /></td></tr>
+<tr class="memitem:a6f74bcf247362f6b65a85f1838b50ee8" id="r_a6f74bcf247362f6b65a85f1838b50ee8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6f74bcf247362f6b65a85f1838b50ee8">button_draw_button_text_touhou98</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem, int buttonID, char *text, int fontSize, Color color)</td></tr>
+<tr class="memdesc:a6f74bcf247362f6b65a85f1838b50ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le texte du sélecteur de bouton avec la police "Touhou98".  <br /></td></tr>
+<tr class="memitem:a04a3a93a81cb79a96330af3305b42af5" id="r_a04a3a93a81cb79a96330af3305b42af5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a04a3a93a81cb79a96330af3305b42af5">button_draw_selector_text</a> (<a class="el" href="structButtonSystem.html">ButtonSystem</a> *buttonSystem, int x_offset, int y_offset, char *text, int fontSize, Color color)</td></tr>
+<tr class="memdesc:a04a3a93a81cb79a96330af3305b42af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le texte du sélecteur de bouton.  <br /></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentation des macros</h2>
+<a id="a8bb0c7f312bb8665c3377a061dae552c" name="a8bb0c7f312bb8665c3377a061dae552c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bb0c7f312bb8665c3377a061dae552c">&#9670;&#160;</a></span>MAX_BUTTONS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_BUTTONS&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb8526f5c97746625152403b857b0b11" name="adb8526f5c97746625152403b857b0b11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb8526f5c97746625152403b857b0b11">&#9670;&#160;</a></span>NO_BUTTON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NO_BUTTON&#160;&#160;&#160;-1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Documentation des définitions de type</h2>
+<a id="aabbec029df4131b530b45fc227cfddcc" name="aabbec029df4131b530b45fc227cfddcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabbec029df4131b530b45fc227cfddcc">&#9670;&#160;</a></span>Button</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct Button Button</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a823dea94ba37dba9d1456e4d45fc8d96" name="a823dea94ba37dba9d1456e4d45fc8d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a823dea94ba37dba9d1456e4d45fc8d96">&#9670;&#160;</a></span>ButtonSystem</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct ButtonSystem ButtonSystem</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a71d3140e977771c90d8137a98c29b241" name="a71d3140e977771c90d8137a98c29b241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71d3140e977771c90d8137a98c29b241">&#9670;&#160;</a></span>button_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void button_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Crée un nouveau bouton. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">x</td><td>La position X du bouton </td></tr>
+    <tr><td class="paramname">y</td><td>La position Y du bouton </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a899826f7d1cf010fd4bdaca652247bd1" name="a899826f7d1cf010fd4bdaca652247bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a899826f7d1cf010fd4bdaca652247bd1">&#9670;&#160;</a></span>button_create_ex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void button_create_ex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Crée un nouveau bouton avec des touches spécifiques. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">x</td><td>La position X du bouton </td></tr>
+    <tr><td class="paramname">y</td><td>La position Y du bouton </td></tr>
+    <tr><td class="paramname">left</td><td>Le code de la touche de gauche </td></tr>
+    <tr><td class="paramname">right</td><td>Le code de la touche de droite </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a16cb10a894bca788bcb776c12faa3a3d" name="a16cb10a894bca788bcb776c12faa3a3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16cb10a894bca788bcb776c12faa3a3d">&#9670;&#160;</a></span>button_draw_button_text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void button_draw_button_text </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>buttonID</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fontSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dessine le texte d'un bouton spécifique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">buttonID</td><td>L'ID du bouton dont on veut dessiner le texte </td></tr>
+    <tr><td class="paramname">text</td><td>Le texte à dessiner </td></tr>
+    <tr><td class="paramname">fontSize</td><td>La taille de la police </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur du texte </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6f74bcf247362f6b65a85f1838b50ee8" name="a6f74bcf247362f6b65a85f1838b50ee8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f74bcf247362f6b65a85f1838b50ee8">&#9670;&#160;</a></span>button_draw_button_text_touhou98()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void button_draw_button_text_touhou98 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>buttonID</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fontSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dessine le texte du sélecteur de bouton avec la police "Touhou98". </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">x_offset</td><td>Le décalage X du texte du sélecteur </td></tr>
+    <tr><td class="paramname">y_offset</td><td>Le décalage Y du texte du sélecteur </td></tr>
+    <tr><td class="paramname">text</td><td>Le texte à dessiner </td></tr>
+    <tr><td class="paramname">fontSize</td><td>La taille de la police </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur du texte </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a04a3a93a81cb79a96330af3305b42af5" name="a04a3a93a81cb79a96330af3305b42af5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04a3a93a81cb79a96330af3305b42af5">&#9670;&#160;</a></span>button_draw_selector_text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void button_draw_selector_text </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x_offset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y_offset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fontSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dessine le texte du sélecteur de bouton. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">x_offset</td><td>Le décalage X du texte du sélecteur </td></tr>
+    <tr><td class="paramname">y_offset</td><td>Le décalage Y du texte du sélecteur </td></tr>
+    <tr><td class="paramname">text</td><td>Le texte à dessiner </td></tr>
+    <tr><td class="paramname">fontSize</td><td>La taille de la police </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur du texte </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5e2f86177baf1c45df3f71621e9ac4a5" name="a5e2f86177baf1c45df3f71621e9ac4a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e2f86177baf1c45df3f71621e9ac4a5">&#9670;&#160;</a></span>button_get_button_position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2 button_get_button_position </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>buttonID</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Récupère la position d'un bouton spécifique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">buttonID</td><td>L'ID du bouton dont on veut récupérer la position </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La position du bouton spécifié </dd></dl>
+
+</div>
+</div>
+<a id="a3ff8b2f96ad4e580d2a74f6aa8ad96a1" name="a3ff8b2f96ad4e580d2a74f6aa8ad96a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ff8b2f96ad4e580d2a74f6aa8ad96a1">&#9670;&#160;</a></span>button_get_current_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structButton.html">Button</a> button_get_current_button </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Récupère le bouton actuellement sélectionné (retourne la structure complète du bouton). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons à dessiner </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le bouton actuellement sélectionné </dd></dl>
+
+</div>
+</div>
+<a id="acd369326db7be8b8540db43ed5ca69b5" name="acd369326db7be8b8540db43ed5ca69b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd369326db7be8b8540db43ed5ca69b5">&#9670;&#160;</a></span>button_get_current_buttonID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int button_get_current_buttonID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Récupère l'ID du bouton actuellement sélectionné </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons à dessiner </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a375dd94a5e5c63fcb291b6b097a07a2d" name="a375dd94a5e5c63fcb291b6b097a07a2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a375dd94a5e5c63fcb291b6b097a07a2d">&#9670;&#160;</a></span>button_is_button_validated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int button_is_button_validated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>buttonID</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vérifie si un bouton spécifique a été validé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+    <tr><td class="paramname">buttonID</td><td>L'ID du bouton à vérifier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si le bouton a été validé, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a299eeb98ec2fd60305fee62bfeb14bb8" name="a299eeb98ec2fd60305fee62bfeb14bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a299eeb98ec2fd60305fee62bfeb14bb8">&#9670;&#160;</a></span>button_is_validated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int button_is_validated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vérifie si le bouton actif a été validé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si le bouton actif a été validé, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a3c575014e9b2676898b12056dd0846da" name="a3c575014e9b2676898b12056dd0846da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c575014e9b2676898b12056dd0846da">&#9670;&#160;</a></span>button_system_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void button_system_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialise le système de boutons. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons à initialiser </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aab065737ffbaac51c1312fb0c9007126" name="aab065737ffbaac51c1312fb0c9007126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab065737ffbaac51c1312fb0c9007126">&#9670;&#160;</a></span>button_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void button_update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonSystem.html">ButtonSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>buttonSystem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structInputSystem.html">InputSystem</a> *</td>          <td class="paramname"><span class="paramname"><em>inputState</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Met à jour le système de boutons en fonction de l'état des entrées. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buttonSystem</td><td>Le système de boutons à mettre à jour </td></tr>
+    <tr><td class="paramname">inputState</td><td>L'état des entrées à prendre en compte pour la mise à jour </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_ce599cbe940e096f4daa174358342371.html">internal</a></li><li class="navelem"><a href="dir_ac39f7509a981fdd51dacf6c91c8b183.html">systems</a></li><li class="navelem"><a href="button_8h.html">button.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

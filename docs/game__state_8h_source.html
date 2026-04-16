@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yume Project:  Fichier source de lib/internal/core/game_state.h</title>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Yume Project<span id="projectnumber">&#160;3.0</span>
+   </div>
+   <div id="projectbrief">Touhou-inspired Danmaku game made in C only</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('game__state_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">game_state.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="game__state_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="input_8h.html">core/input.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="cosched_8h.html">coroutine/cosched.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="pool_8h.html">ecs/pool.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="button_8h.html">systems/button.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="score_8h.html">systems/score.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;raylib.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="screen_8h.html">../systems/screen.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">   20</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6ac36e5c9ac597253191be83acf0b51d25">   21</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6ac36e5c9ac597253191be83acf0b51d25">STATE_NONE</a>,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a228e20d58fb15b663e6407c019dca2a7">   23</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a228e20d58fb15b663e6407c019dca2a7">__BEGIN_MENU__</a>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a119de5856cf31148d7ace8a328585555">   25</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a119de5856cf31148d7ace8a328585555">STATE_MENU_TITLE</a>,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a81d90e02886072a3d471e4c1b4c60be0">   26</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a81d90e02886072a3d471e4c1b4c60be0">STATE_MENU_SETTINGS</a>,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0">   27</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0">STATE_MENU_KEYBINDS</a>,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549">   29</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549">__END_MENU__</a>,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497">   31</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497">STATE_MOONLIGHT</a>,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a0f76ed984e8b06e62cddac03843a9544">   32</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a0f76ed984e8b06e62cddac03843a9544">STATE_GAME_OVER</a>,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a45b6e987a799cd66b28f371b03fa34a9">   33</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a45b6e987a799cd66b28f371b03fa34a9">STATE_VICTORY</a>,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673">   34</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673">STATE_TEST</a>,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04">   35</a></span>  <a class="code hl_enumvalue" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04">STATE_EXTRA</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="game__state_8h.html#a1e429b3df1f3ce68729ed6b71d8714a9">   36</a></span>} <a class="code hl_enumeration" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a>;</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structGameContext.html">GameContext</a> <a class="code hl_struct" href="structGameContext.html">GameContext</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structGameState.html">   49</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structGameState.html">GameState</a> {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structGameState.html#a646629fecaa25df3f70a56ee0d8b53d6">   50</a></span>  void (*<a class="code hl_variable" href="structGameState.html#a646629fecaa25df3f70a56ee0d8b53d6">init</a>)(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structGameState.html#a2fc37e5927ce93136c3ef7ba36cfac4d">   51</a></span>  void (*<a class="code hl_variable" href="structGameState.html#a2fc37e5927ce93136c3ef7ba36cfac4d">update</a>)(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structGameState.html#aacc978aa420b37f1214bc1ccd8d3b1af">   52</a></span>  void (*<a class="code hl_variable" href="structGameState.html#aacc978aa420b37f1214bc1ccd8d3b1af">draw</a>)(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structGameState.html#a8e3b759727a7d1d7c0ada0cd7a6bb422">   53</a></span>  void (*<a class="code hl_variable" href="structGameState.html#a8e3b759727a7d1d7c0ada0cd7a6bb422">cleanup</a>)(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="game__state_8h.html#ad74d0fae2a41b21724fe224cf3ec6e13">   54</a></span>} <a class="code hl_struct" href="structGameState.html">GameState</a>;</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structGameContext.html">   64</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structGameContext.html">GameContext</a> {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="structGameContext.html#ad07e0bc0b8401f711090da5cc6fcaf5e">   65</a></span>  <a class="code hl_enumeration" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> <a class="code hl_variable" href="structGameContext.html#ad07e0bc0b8401f711090da5cc6fcaf5e">currentStateID</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="structGameContext.html#ad2770bc186c7073a4e03f7dc5916aae8">   66</a></span>  <a class="code hl_enumeration" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> <a class="code hl_variable" href="structGameContext.html#ad2770bc186c7073a4e03f7dc5916aae8">nextStateID</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structGameContext.html#af9ad06bb99265eb18163690335746de6">   67</a></span>  <a class="code hl_struct" href="structGameState.html">GameState</a> *<a class="code hl_variable" href="structGameContext.html#af9ad06bb99265eb18163690335746de6">currentState</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="comment">/* Systemes */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structGameContext.html#adbf41746c46dce56827fc5bbe803ade0">   70</a></span>  <a class="code hl_struct" href="structInputSystem.html">InputSystem</a> <a class="code hl_variable" href="structGameContext.html#adbf41746c46dce56827fc5bbe803ade0">input</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structGameContext.html#a257c1a6d45238ec610d78b2d7ca91b05">   71</a></span>  <a class="code hl_struct" href="structButtonSystem.html">ButtonSystem</a> <a class="code hl_variable" href="structGameContext.html#a257c1a6d45238ec610d78b2d7ca91b05">button</a>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structGameContext.html#af6c59523fbb80ce342cbeebb9c6ee8cb">   72</a></span>  <a class="code hl_struct" href="structScoreSystem.html">ScoreSystem</a> <a class="code hl_variable" href="structGameContext.html#af6c59523fbb80ce342cbeebb9c6ee8cb">score</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structGameContext.html#a7cbeb4d212d41da329470e0f2380eb57">   73</a></span>  <a class="code hl_struct" href="structScreenSystem.html">ScreenSystem</a> <a class="code hl_variable" href="structGameContext.html#a7cbeb4d212d41da329470e0f2380eb57">screen</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structGameContext.html#a1723e276337cea9d2837dc5fedee7d4d">   75</a></span>  <a class="code hl_struct" href="structPool.html">Pool</a> * <a class="code hl_variable" href="structGameContext.html#a1723e276337cea9d2837dc5fedee7d4d">pool</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structGameContext.html#aecdfc8d77dd2a635f82fe82325e2b460">   77</a></span>  <a class="code hl_struct" href="structCoSched.html">CoSched</a> <a class="code hl_variable" href="structGameContext.html#aecdfc8d77dd2a635f82fe82325e2b460">sched</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="structGameContext.html#ab38766f1051b6cc993247c58c1398d1a">   79</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structGameContext.html#ab38766f1051b6cc993247c58c1398d1a">debug</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="structGameContext.html#a53de7c3fd40be2b32430174827bda0da">   80</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structGameContext.html#a53de7c3fd40be2b32430174827bda0da">pause</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="comment">/* Audio */</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="structGameContext.html#a0de924c5e035b2f0032a4677ecadbcc5">   83</a></span>  <span class="keywordtype">float</span> <a class="code hl_variable" href="structGameContext.html#a0de924c5e035b2f0032a4677ecadbcc5">volume_bgm</a>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structGameContext.html#a2a7c8fe327a25676d141ad1726fd7b5c">   84</a></span>  <span class="keywordtype">float</span> <a class="code hl_variable" href="structGameContext.html#a2a7c8fe327a25676d141ad1726fd7b5c">volume_sfx</a>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="game__state_8h.html#a88738fcfe8f3e35e6614b506da928c22">   97</a></span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="game__state_8h.html#a88738fcfe8f3e35e6614b506da928c22">gamestate_initialize</a>(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx, <a class="code hl_enumeration" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> state);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="game__state_8h.html#a483bfca2f161f59662568e594d468325">  107</a></span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="game__state_8h.html#a483bfca2f161f59662568e594d468325">gamestate_update</a>(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="game__state_8h.html#a3cee3db5b6cfb26e58c34deb17a8470c">  115</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="game__state_8h.html#a3cee3db5b6cfb26e58c34deb17a8470c">pauseListener</a>(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="game__state_8h.html#aa70a704c265736f396a96b7280dcf2eb">  124</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="game__state_8h.html#aa70a704c265736f396a96b7280dcf2eb">pauseMenu</a>(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="game__state_8h.html#acbfa62a5a5f262c34c8c03645e6b13e0">  133</a></span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="game__state_8h.html#acbfa62a5a5f262c34c8c03645e6b13e0">gamestate_change_state</a>(<a class="code hl_struct" href="structGameContext.html">GameContext</a> *ctx, <a class="code hl_enumeration" href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> stateID);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">extern</span> <a class="code hl_struct" href="structGameState.html">GameState</a> <a class="code hl_variable" href="game__state_8h.html#a7da518c69adccea1c6b3a9885fae38bd">state_menu_title</a>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keyword">extern</span> <a class="code hl_struct" href="structGameState.html">GameState</a> <a class="code hl_variable" href="game__state_8h.html#a090feb230d4ba62abfeb441a52996355">state_menu_keybinds</a>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keyword">extern</span> <a class="code hl_struct" href="structGameState.html">GameState</a> <a class="code hl_variable" href="game__state_8h.html#a339bd2d8215508219fd2b6bbd267be6c">state_test</a>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keyword">extern</span> <a class="code hl_struct" href="structGameState.html">GameState</a> <a class="code hl_variable" href="game__state_8h.html#a3b8b93e232e5560bbada628cf50813c1">state_moonlight</a>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keyword">extern</span> <a class="code hl_struct" href="structGameState.html">GameState</a> <a class="code hl_variable" href="game__state_8h.html#a48caf8ef73f9044617ef349cb638b6cb">state_menu_settings</a>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="keyword">extern</span> <a class="code hl_struct" href="structGameState.html">GameState</a> <a class="code hl_variable" href="state__game__over_8h.html#aa955d6b984f8086734635c723732b5e4">state_game_over</a>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keyword">extern</span> <a class="code hl_struct" href="structGameState.html">GameState</a> <a class="code hl_variable" href="state__victory_8h.html#aa421d156490917a3f6408d824d010d67">state_victory</a>;</div>
+<div class="ttc" id="abutton_8h_html"><div class="ttname"><a href="button_8h.html">button.h</a></div></div>
+<div class="ttc" id="acosched_8h_html"><div class="ttname"><a href="cosched_8h.html">cosched.h</a></div></div>
+<div class="ttc" id="agame__state_8h_html_a090feb230d4ba62abfeb441a52996355"><div class="ttname"><a href="game__state_8h.html#a090feb230d4ba62abfeb441a52996355">state_menu_keybinds</a></div><div class="ttdeci">GameState state_menu_keybinds</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6">StateID</a></div><div class="ttdeci">StateID</div><div class="ttdoc">Les différents états du programme On trouve les menus, le stage, les différentes pages de texte.</div><div class="ttdef"><b>Definition</b> game_state.h:20</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549">__END_MENU__</a></div><div class="ttdeci">@ __END_MENU__</div><div class="ttdef"><b>Definition</b> game_state.h:29</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6a0f76ed984e8b06e62cddac03843a9544"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a0f76ed984e8b06e62cddac03843a9544">STATE_GAME_OVER</a></div><div class="ttdeci">@ STATE_GAME_OVER</div><div class="ttdef"><b>Definition</b> game_state.h:32</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6a119de5856cf31148d7ace8a328585555"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a119de5856cf31148d7ace8a328585555">STATE_MENU_TITLE</a></div><div class="ttdeci">@ STATE_MENU_TITLE</div><div class="ttdef"><b>Definition</b> game_state.h:25</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497">STATE_MOONLIGHT</a></div><div class="ttdeci">@ STATE_MOONLIGHT</div><div class="ttdef"><b>Definition</b> game_state.h:31</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6a228e20d58fb15b663e6407c019dca2a7"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a228e20d58fb15b663e6407c019dca2a7">__BEGIN_MENU__</a></div><div class="ttdeci">@ __BEGIN_MENU__</div><div class="ttdef"><b>Definition</b> game_state.h:23</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6a45b6e987a799cd66b28f371b03fa34a9"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a45b6e987a799cd66b28f371b03fa34a9">STATE_VICTORY</a></div><div class="ttdeci">@ STATE_VICTORY</div><div class="ttdef"><b>Definition</b> game_state.h:33</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04">STATE_EXTRA</a></div><div class="ttdeci">@ STATE_EXTRA</div><div class="ttdef"><b>Definition</b> game_state.h:35</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6a81d90e02886072a3d471e4c1b4c60be0"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a81d90e02886072a3d471e4c1b4c60be0">STATE_MENU_SETTINGS</a></div><div class="ttdeci">@ STATE_MENU_SETTINGS</div><div class="ttdef"><b>Definition</b> game_state.h:26</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673">STATE_TEST</a></div><div class="ttdeci">@ STATE_TEST</div><div class="ttdef"><b>Definition</b> game_state.h:34</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0">STATE_MENU_KEYBINDS</a></div><div class="ttdeci">@ STATE_MENU_KEYBINDS</div><div class="ttdef"><b>Definition</b> game_state.h:27</div></div>
+<div class="ttc" id="agame__state_8h_html_a2c309f64131cbfdae6d95e6591f208e6ac36e5c9ac597253191be83acf0b51d25"><div class="ttname"><a href="game__state_8h.html#a2c309f64131cbfdae6d95e6591f208e6ac36e5c9ac597253191be83acf0b51d25">STATE_NONE</a></div><div class="ttdeci">@ STATE_NONE</div><div class="ttdef"><b>Definition</b> game_state.h:21</div></div>
+<div class="ttc" id="agame__state_8h_html_a339bd2d8215508219fd2b6bbd267be6c"><div class="ttname"><a href="game__state_8h.html#a339bd2d8215508219fd2b6bbd267be6c">state_test</a></div><div class="ttdeci">GameState state_test</div></div>
+<div class="ttc" id="agame__state_8h_html_a3b8b93e232e5560bbada628cf50813c1"><div class="ttname"><a href="game__state_8h.html#a3b8b93e232e5560bbada628cf50813c1">state_moonlight</a></div><div class="ttdeci">GameState state_moonlight</div></div>
+<div class="ttc" id="agame__state_8h_html_a3cee3db5b6cfb26e58c34deb17a8470c"><div class="ttname"><a href="game__state_8h.html#a3cee3db5b6cfb26e58c34deb17a8470c">pauseListener</a></div><div class="ttdeci">void pauseListener(GameContext *ctx)</div><div class="ttdoc">Détecte si le menu pause doit être activé et si oui gêre sa logique. Cette fonction doit être appellé...</div></div>
+<div class="ttc" id="agame__state_8h_html_a483bfca2f161f59662568e594d468325"><div class="ttname"><a href="game__state_8h.html#a483bfca2f161f59662568e594d468325">gamestate_update</a></div><div class="ttdeci">void gamestate_update(GameContext *ctx)</div><div class="ttdoc">Appelée chaque frame pour mettre à jour l&#39;état courant.</div></div>
+<div class="ttc" id="agame__state_8h_html_a48caf8ef73f9044617ef349cb638b6cb"><div class="ttname"><a href="game__state_8h.html#a48caf8ef73f9044617ef349cb638b6cb">state_menu_settings</a></div><div class="ttdeci">GameState state_menu_settings</div></div>
+<div class="ttc" id="agame__state_8h_html_a7da518c69adccea1c6b3a9885fae38bd"><div class="ttname"><a href="game__state_8h.html#a7da518c69adccea1c6b3a9885fae38bd">state_menu_title</a></div><div class="ttdeci">GameState state_menu_title</div></div>
+<div class="ttc" id="agame__state_8h_html_a88738fcfe8f3e35e6614b506da928c22"><div class="ttname"><a href="game__state_8h.html#a88738fcfe8f3e35e6614b506da928c22">gamestate_initialize</a></div><div class="ttdeci">void gamestate_initialize(GameContext *ctx, StateID state)</div><div class="ttdoc">Initialise le système d&#39;états et bascule vers l&#39;état demandé.</div></div>
+<div class="ttc" id="agame__state_8h_html_aa70a704c265736f396a96b7280dcf2eb"><div class="ttname"><a href="game__state_8h.html#aa70a704c265736f396a96b7280dcf2eb">pauseMenu</a></div><div class="ttdeci">void pauseMenu(GameContext *ctx)</div><div class="ttdoc">Affiche et le menu de pause.</div></div>
+<div class="ttc" id="agame__state_8h_html_acbfa62a5a5f262c34c8c03645e6b13e0"><div class="ttname"><a href="game__state_8h.html#acbfa62a5a5f262c34c8c03645e6b13e0">gamestate_change_state</a></div><div class="ttdeci">void gamestate_change_state(GameContext *ctx, StateID stateID)</div><div class="ttdoc">Demande une transition vers un autre état de jeu.</div></div>
+<div class="ttc" id="ainput_8h_html"><div class="ttname"><a href="input_8h.html">input.h</a></div></div>
+<div class="ttc" id="apool_8h_html"><div class="ttname"><a href="pool_8h.html">pool.h</a></div></div>
+<div class="ttc" id="ascore_8h_html"><div class="ttname"><a href="score_8h.html">score.h</a></div></div>
+<div class="ttc" id="ascreen_8h_html"><div class="ttname"><a href="screen_8h.html">screen.h</a></div></div>
+<div class="ttc" id="astate__game__over_8h_html_aa955d6b984f8086734635c723732b5e4"><div class="ttname"><a href="state__game__over_8h.html#aa955d6b984f8086734635c723732b5e4">state_game_over</a></div><div class="ttdeci">GameState state_game_over</div></div>
+<div class="ttc" id="astate__victory_8h_html_aa421d156490917a3f6408d824d010d67"><div class="ttname"><a href="state__victory_8h.html#aa421d156490917a3f6408d824d010d67">state_victory</a></div><div class="ttdeci">GameState state_victory</div></div>
+<div class="ttc" id="astructButtonSystem_html"><div class="ttname"><a href="structButtonSystem.html">ButtonSystem</a></div><div class="ttdef"><b>Definition</b> button.h:18</div></div>
+<div class="ttc" id="astructCoSched_html"><div class="ttname"><a href="structCoSched.html">CoSched</a></div><div class="ttdef"><b>Definition</b> cosched.h:8</div></div>
+<div class="ttc" id="astructGameContext_html"><div class="ttname"><a href="structGameContext.html">GameContext</a></div><div class="ttdoc">Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....</div><div class="ttdef"><b>Definition</b> game_state.h:64</div></div>
+<div class="ttc" id="astructGameContext_html_a0de924c5e035b2f0032a4677ecadbcc5"><div class="ttname"><a href="structGameContext.html#a0de924c5e035b2f0032a4677ecadbcc5">GameContext::volume_bgm</a></div><div class="ttdeci">float volume_bgm</div><div class="ttdef"><b>Definition</b> game_state.h:83</div></div>
+<div class="ttc" id="astructGameContext_html_a1723e276337cea9d2837dc5fedee7d4d"><div class="ttname"><a href="structGameContext.html#a1723e276337cea9d2837dc5fedee7d4d">GameContext::pool</a></div><div class="ttdeci">Pool * pool</div><div class="ttdef"><b>Definition</b> game_state.h:75</div></div>
+<div class="ttc" id="astructGameContext_html_a257c1a6d45238ec610d78b2d7ca91b05"><div class="ttname"><a href="structGameContext.html#a257c1a6d45238ec610d78b2d7ca91b05">GameContext::button</a></div><div class="ttdeci">ButtonSystem button</div><div class="ttdef"><b>Definition</b> game_state.h:71</div></div>
+<div class="ttc" id="astructGameContext_html_a2a7c8fe327a25676d141ad1726fd7b5c"><div class="ttname"><a href="structGameContext.html#a2a7c8fe327a25676d141ad1726fd7b5c">GameContext::volume_sfx</a></div><div class="ttdeci">float volume_sfx</div><div class="ttdef"><b>Definition</b> game_state.h:84</div></div>
+<div class="ttc" id="astructGameContext_html_a53de7c3fd40be2b32430174827bda0da"><div class="ttname"><a href="structGameContext.html#a53de7c3fd40be2b32430174827bda0da">GameContext::pause</a></div><div class="ttdeci">int pause</div><div class="ttdef"><b>Definition</b> game_state.h:80</div></div>
+<div class="ttc" id="astructGameContext_html_a7cbeb4d212d41da329470e0f2380eb57"><div class="ttname"><a href="structGameContext.html#a7cbeb4d212d41da329470e0f2380eb57">GameContext::screen</a></div><div class="ttdeci">ScreenSystem screen</div><div class="ttdef"><b>Definition</b> game_state.h:73</div></div>
+<div class="ttc" id="astructGameContext_html_ab38766f1051b6cc993247c58c1398d1a"><div class="ttname"><a href="structGameContext.html#ab38766f1051b6cc993247c58c1398d1a">GameContext::debug</a></div><div class="ttdeci">int debug</div><div class="ttdef"><b>Definition</b> game_state.h:79</div></div>
+<div class="ttc" id="astructGameContext_html_ad07e0bc0b8401f711090da5cc6fcaf5e"><div class="ttname"><a href="structGameContext.html#ad07e0bc0b8401f711090da5cc6fcaf5e">GameContext::currentStateID</a></div><div class="ttdeci">StateID currentStateID</div><div class="ttdef"><b>Definition</b> game_state.h:65</div></div>
+<div class="ttc" id="astructGameContext_html_ad2770bc186c7073a4e03f7dc5916aae8"><div class="ttname"><a href="structGameContext.html#ad2770bc186c7073a4e03f7dc5916aae8">GameContext::nextStateID</a></div><div class="ttdeci">StateID nextStateID</div><div class="ttdef"><b>Definition</b> game_state.h:66</div></div>
+<div class="ttc" id="astructGameContext_html_adbf41746c46dce56827fc5bbe803ade0"><div class="ttname"><a href="structGameContext.html#adbf41746c46dce56827fc5bbe803ade0">GameContext::input</a></div><div class="ttdeci">InputSystem input</div><div class="ttdef"><b>Definition</b> game_state.h:70</div></div>
+<div class="ttc" id="astructGameContext_html_aecdfc8d77dd2a635f82fe82325e2b460"><div class="ttname"><a href="structGameContext.html#aecdfc8d77dd2a635f82fe82325e2b460">GameContext::sched</a></div><div class="ttdeci">CoSched sched</div><div class="ttdef"><b>Definition</b> game_state.h:77</div></div>
+<div class="ttc" id="astructGameContext_html_af6c59523fbb80ce342cbeebb9c6ee8cb"><div class="ttname"><a href="structGameContext.html#af6c59523fbb80ce342cbeebb9c6ee8cb">GameContext::score</a></div><div class="ttdeci">ScoreSystem score</div><div class="ttdef"><b>Definition</b> game_state.h:72</div></div>
+<div class="ttc" id="astructGameContext_html_af9ad06bb99265eb18163690335746de6"><div class="ttname"><a href="structGameContext.html#af9ad06bb99265eb18163690335746de6">GameContext::currentState</a></div><div class="ttdeci">GameState * currentState</div><div class="ttdef"><b>Definition</b> game_state.h:67</div></div>
+<div class="ttc" id="astructGameState_html"><div class="ttname"><a href="structGameState.html">GameState</a></div><div class="ttdoc">Un GameState représente un état du jeu. Chaque GameState dispose de 4 fonctions, passée par pointeurs...</div><div class="ttdef"><b>Definition</b> game_state.h:49</div></div>
+<div class="ttc" id="astructGameState_html_a2fc37e5927ce93136c3ef7ba36cfac4d"><div class="ttname"><a href="structGameState.html#a2fc37e5927ce93136c3ef7ba36cfac4d">GameState::update</a></div><div class="ttdeci">void(* update)(GameContext *ctx)</div><div class="ttdef"><b>Definition</b> game_state.h:51</div></div>
+<div class="ttc" id="astructGameState_html_a646629fecaa25df3f70a56ee0d8b53d6"><div class="ttname"><a href="structGameState.html#a646629fecaa25df3f70a56ee0d8b53d6">GameState::init</a></div><div class="ttdeci">void(* init)(GameContext *ctx)</div><div class="ttdef"><b>Definition</b> game_state.h:50</div></div>
+<div class="ttc" id="astructGameState_html_a8e3b759727a7d1d7c0ada0cd7a6bb422"><div class="ttname"><a href="structGameState.html#a8e3b759727a7d1d7c0ada0cd7a6bb422">GameState::cleanup</a></div><div class="ttdeci">void(* cleanup)(GameContext *ctx)</div><div class="ttdef"><b>Definition</b> game_state.h:53</div></div>
+<div class="ttc" id="astructGameState_html_aacc978aa420b37f1214bc1ccd8d3b1af"><div class="ttname"><a href="structGameState.html#aacc978aa420b37f1214bc1ccd8d3b1af">GameState::draw</a></div><div class="ttdeci">void(* draw)(GameContext *ctx)</div><div class="ttdef"><b>Definition</b> game_state.h:52</div></div>
+<div class="ttc" id="astructInputSystem_html"><div class="ttname"><a href="structInputSystem.html">InputSystem</a></div><div class="ttdoc">Système d&#39;entrée complet contenant keybinds et états courants des touches.</div><div class="ttdef"><b>Definition</b> input.h:43</div></div>
+<div class="ttc" id="astructPool_html"><div class="ttname"><a href="structPool.html">Pool</a></div><div class="ttdoc">La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...</div><div class="ttdef"><b>Definition</b> pool.h:42</div></div>
+<div class="ttc" id="astructScoreSystem_html"><div class="ttname"><a href="structScoreSystem.html">ScoreSystem</a></div><div class="ttdef"><b>Definition</b> score.h:4</div></div>
+<div class="ttc" id="astructScreenSystem_html"><div class="ttname"><a href="structScreenSystem.html">ScreenSystem</a></div><div class="ttdef"><b>Definition</b> screen.h:3</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_ce599cbe940e096f4daa174358342371.html">internal</a></li><li class="navelem"><a href="dir_a2fe43eba82255245cff96de89984610.html">core</a></li><li class="navelem"><a href="game__state_8h.html">game_state.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

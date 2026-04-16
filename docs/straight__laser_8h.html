@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yume Project: Référence du fichier lib/internal/components/straight_laser.h</title>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Yume Project<span id="projectnumber">&#160;3.0</span>
+   </div>
+   <div id="projectbrief">Touhou-inspired Danmaku game made in C only</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('straight__laser_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier straight_laser.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fonctions permettant de créer et gêrer des lasers droits.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="timer_8h_source.html">systems/timer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="component_8h_source.html">component.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="assets_8h_source.html">assets.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="collision__rectangle_8h_source.html">components/collision_rectangle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common_8h_source.html">components/common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="sprite_8h_source.html">components/sprite.h</a>&quot;</code><br />
+</div>
+<p><a href="straight__laser_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Straight_5Flaser" id="r_Straight_5Flaser"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structStraight__laser.html">Straight_laser</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">composante laser droit dans la pool  <a href="structStraight__laser.html#details">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:afec2822fa334264211b5c6bb3c658e86" id="r_afec2822fa334264211b5c6bb3c658e86"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afec2822fa334264211b5c6bb3c658e86">LASER_STATE_WARNING</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memitem:a357aaff681897f8fa1a1c77e696de091" id="r_a357aaff681897f8fa1a1c77e696de091"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a357aaff681897f8fa1a1c77e696de091">LASER_STATE_GROWING</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:aaca33c7234e141df1ad4c06ab48ce9ba" id="r_aaca33c7234e141df1ad4c06ab48ce9ba"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aaca33c7234e141df1ad4c06ab48ce9ba">LASER_STATE_DURATION</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:a2444a13980fcd06320d6a14f157690f6" id="r_a2444a13980fcd06320d6a14f157690f6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2444a13980fcd06320d6a14f157690f6">LASER_STATE_DONE</a>&#160;&#160;&#160;2</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a225ab06b345f206aa96cf022179ed6d4" id="r_a225ab06b345f206aa96cf022179ed6d4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a225ab06b345f206aa96cf022179ed6d4">straight_laser_update</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> laserID)</td></tr>
+<tr class="memdesc:a225ab06b345f206aa96cf022179ed6d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour un laser droit pour une frame.  <br /></td></tr>
+<tr class="memitem:ab1a8e789933e95245cd1a7f31992a12e" id="r_ab1a8e789933e95245cd1a7f31992a12e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab1a8e789933e95245cd1a7f31992a12e">straight_lasers_update_all</a> (<a class="el" href="structPool.html">Pool</a> *pool)</td></tr>
+<tr class="memdesc:ab1a8e789933e95245cd1a7f31992a12e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour tous les lasers droits présents dans la pool.  <br /></td></tr>
+<tr class="memitem:a3d7e6577e68266b254d71eec9a160422" id="r_a3d7e6577e68266b254d71eec9a160422"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3d7e6577e68266b254d71eec9a160422">straight_laser_draw</a> (<a class="el" href="structStraight__laser.html">Straight_laser</a> *laser, <a class="el" href="structPosition.html">Position</a> *pos, <a class="el" href="structSprite.html">Sprite</a> *sprite)</td></tr>
+<tr class="memdesc:a3d7e6577e68266b254d71eec9a160422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine un laser droit.  <br /></td></tr>
+<tr class="memitem:a328f25021b1d62a50e80bb65d0112b45" id="r_a328f25021b1d62a50e80bb65d0112b45"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a328f25021b1d62a50e80bb65d0112b45">straight_lasers_draw_all</a> (Straight_laserManager *laserManager, PositionManager *positionManager, SpriteManager *spriteManager)</td></tr>
+<tr class="memdesc:a328f25021b1d62a50e80bb65d0112b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine tous les lasers droits actifs du manager.  <br /></td></tr>
+<tr class="memitem:a7e9eaea6ae5d926aa2623465de6ad36c" id="r_a7e9eaea6ae5d926aa2623465de6ad36c"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7e9eaea6ae5d926aa2623465de6ad36c">straight_laser_create</a> (<a class="el" href="structPool.html">Pool</a> *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memdesc:a7e9eaea6ae5d926aa2623465de6ad36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un laser droit et l'attache à une nouvelle entité.  <br /></td></tr>
+<tr class="memitem:a7fc50cd9a6d7034d57e8cff8386ae2a4" id="r_a7fc50cd9a6d7034d57e8cff8386ae2a4"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7fc50cd9a6d7034d57e8cff8386ae2a4">straight_laser_enemy_create</a> (<a class="el" href="structPool.html">Pool</a> *pool, int x, int y, int angle, int length, int maxWidth, int warning, int growing, int duration, <a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> graphic)</td></tr>
+<tr class="memdesc:a7fc50cd9a6d7034d57e8cff8386ae2a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variante de création marquant le laser comme projectile ennemi.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fonctions permettant de créer et gêrer des lasers droits. </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentation des macros</h2>
+<a id="a2444a13980fcd06320d6a14f157690f6" name="a2444a13980fcd06320d6a14f157690f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2444a13980fcd06320d6a14f157690f6">&#9670;&#160;</a></span>LASER_STATE_DONE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LASER_STATE_DONE&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaca33c7234e141df1ad4c06ab48ce9ba" name="aaca33c7234e141df1ad4c06ab48ce9ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaca33c7234e141df1ad4c06ab48ce9ba">&#9670;&#160;</a></span>LASER_STATE_DURATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LASER_STATE_DURATION&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a357aaff681897f8fa1a1c77e696de091" name="a357aaff681897f8fa1a1c77e696de091"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a357aaff681897f8fa1a1c77e696de091">&#9670;&#160;</a></span>LASER_STATE_GROWING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LASER_STATE_GROWING&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afec2822fa334264211b5c6bb3c658e86" name="afec2822fa334264211b5c6bb3c658e86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afec2822fa334264211b5c6bb3c658e86">&#9670;&#160;</a></span>LASER_STATE_WARNING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LASER_STATE_WARNING&#160;&#160;&#160;-1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a7e9eaea6ae5d926aa2623465de6ad36c" name="a7e9eaea6ae5d926aa2623465de6ad36c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e9eaea6ae5d926aa2623465de6ad36c">&#9670;&#160;</a></span>straight_laser_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> straight_laser_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>pool</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxWidth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>warning</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>growing</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a></td>          <td class="paramname"><span class="paramname"><em>graphic</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée un laser droit et l'attache à une nouvelle entité. </p>
+<p>Paramètres temporels : warning, growing et duration sont des durées en frames utilisées pour initialiser le timer du composant.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pool</td><td>Pointeur vers la pool. </td></tr>
+    <tr><td class="paramname">x</td><td><a class="el" href="structPosition.html">Position</a> X initiale du laser. </td></tr>
+    <tr><td class="paramname">y</td><td><a class="el" href="structPosition.html">Position</a> Y initiale du laser. </td></tr>
+    <tr><td class="paramname">angle</td><td>Angle initial </td></tr>
+    <tr><td class="paramname">length</td><td>Longueur du laser. </td></tr>
+    <tr><td class="paramname">maxWidth</td><td>Largeur maximale du laser. </td></tr>
+    <tr><td class="paramname">warning</td><td>Durée avant la phase de croissance. </td></tr>
+    <tr><td class="paramname">growing</td><td>Durée de croissance pendant laquelle la largeur augmente. </td></tr>
+    <tr><td class="paramname">duration</td><td>Durée pendant laquelle la largeur reste maximale. </td></tr>
+    <tr><td class="paramname">graphic</td><td>ID du visuel à utiliser pour ce laser. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'identifiant de l'entité créée contenant le <a class="el" href="structStraight__laser.html" title="composante laser droit dans la pool">Straight_laser</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a3d7e6577e68266b254d71eec9a160422" name="a3d7e6577e68266b254d71eec9a160422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7e6577e68266b254d71eec9a160422">&#9670;&#160;</a></span>straight_laser_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void straight_laser_draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStraight__laser.html">Straight_laser</a> *</td>          <td class="paramname"><span class="paramname"><em>laser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structPosition.html">Position</a> *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSprite.html">Sprite</a> *</td>          <td class="paramname"><span class="paramname"><em>sprite</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessine un laser droit. </p>
+<p>Le dessin utilise la longueur et la largeur du composant ainsi que la <a class="el" href="structPosition.html">Position</a> et le sprite fournis.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">laser</td><td>laser à afficher </td></tr>
+    <tr><td class="paramname">pos</td><td>position du laser </td></tr>
+    <tr><td class="paramname">sprite</td><td>sprite utilisé pour le rendu du laser </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7fc50cd9a6d7034d57e8cff8386ae2a4" name="a7fc50cd9a6d7034d57e8cff8386ae2a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc50cd9a6d7034d57e8cff8386ae2a4">&#9670;&#160;</a></span>straight_laser_enemy_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> straight_laser_enemy_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>pool</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxWidth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>warning</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>growing</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a></td>          <td class="paramname"><span class="paramname"><em>graphic</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variante de création marquant le laser comme projectile ennemi. </p>
+<p>Appelle straight_laser_create puis ajoute le flag FLAG_PROJECTILE_ENEMY à la <a class="el" href="structflagList.html" title="composante flagList dans l&#39;ECS Une entité peut disposer de plusieurs flags, qui sont contenus dans un...">flagList</a> de l'entité.</p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="#a7e9eaea6ae5d926aa2623465de6ad36c" title="Crée un laser droit et l&#39;attache à une nouvelle entité.">straight_laser_create</a> </dd></dl>
+
+</div>
+</div>
+<a id="a225ab06b345f206aa96cf022179ed6d4" name="a225ab06b345f206aa96cf022179ed6d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a225ab06b345f206aa96cf022179ed6d4">&#9670;&#160;</a></span>straight_laser_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool straight_laser_update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em>laserID</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jour un laser droit pour une frame. </p>
+<p>Le laser évolue selon son timer interne. Il peut passer à l'état suivant si son heure d'activation ou de destruction est venue.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">laserID</td><td>id du laser à mettre à jour </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si le laser doit continuer d'exister, false s'il doit être supprimé. </dd></dl>
+
+</div>
+</div>
+<a id="a328f25021b1d62a50e80bb65d0112b45" name="a328f25021b1d62a50e80bb65d0112b45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a328f25021b1d62a50e80bb65d0112b45">&#9670;&#160;</a></span>straight_lasers_draw_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void straight_lasers_draw_all </td>
+          <td>(</td>
+          <td class="paramtype">Straight_laserManager *</td>          <td class="paramname"><span class="paramname"><em>laserManager</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PositionManager *</td>          <td class="paramname"><span class="paramname"><em>positionManager</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SpriteManager *</td>          <td class="paramname"><span class="paramname"><em>spriteManager</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessine tous les lasers droits actifs du manager. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">laserManager</td><td>Straight_laserManager </td></tr>
+    <tr><td class="paramname">positionManager</td><td>PositionManager </td></tr>
+    <tr><td class="paramname">spriteManager</td><td>SpriteManager </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab1a8e789933e95245cd1a7f31992a12e" name="ab1a8e789933e95245cd1a7f31992a12e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1a8e789933e95245cd1a7f31992a12e">&#9670;&#160;</a></span>straight_lasers_update_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void straight_lasers_update_all </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>pool</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jour tous les lasers droits présents dans la pool. </p>
+<p>Parcourt le Straight_laserManager et appelle straight_laser_update pour chaque instance et marque les entités à supprimer si nécessaire.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pool</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_ce599cbe940e096f4daa174358342371.html">internal</a></li><li class="navelem"><a href="dir_067ccfef01406ba54d1f56d3f38190aa.html">components</a></li><li class="navelem"><a href="straight__laser_8h.html">straight_laser.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

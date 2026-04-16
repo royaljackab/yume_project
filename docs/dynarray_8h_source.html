@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yume Project:  Fichier source de lib/internal/systems/dynarray.h</title>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Yume Project<span id="projectnumber">&#160;3.0</span>
+   </div>
+   <div id="projectbrief">Touhou-inspired Danmaku game made in C only</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('dynarray_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">dynarray.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="dynarray_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="macro_8h.html">core/macro.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">   10</a></span><span class="keyword">typedef</span> uint32_t <a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a95d98a1a075325ccdc8164128f74b50f">   12</a></span><span class="preprocessor">#define auto __auto_type</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="foldopen" id="foldopen00021" data-start="" data-end="">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a463400034cdb0702a8e000d35096faf0">   21</a></span><span class="preprocessor">#define DYNAMIC_ARRAY_BASE(type_elem) struct { \</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">    type_elem *data; \</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">    dynarray_size_t num_elements; \</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">    dynarray_size_t capacity; \</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">}</span></div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="dynarray_8h.html#ae57fa86fbd413bf4f00c51773ea42eff">   32</a></span><span class="keyword">typedef</span> <a class="code hl_define" href="dynarray_8h.html#a463400034cdb0702a8e000d35096faf0">DYNAMIC_ARRAY_BASE</a>(<span class="keywordtype">void</span>) DynamicArray;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="foldopen" id="foldopen00040" data-start="" data-end="">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a041efecc512ca1b8214c24c43d8609a6">   40</a></span><span class="preprocessor">#define DYNAMIC_ARRAY(elem_type) union { \</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">    DYNAMIC_ARRAY_BASE(elem_type); \</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">    DynamicArray din_array; \</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">}</span></div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="dynarray_8h.html#af218360d85cd6383ee36ea5076bf609c">   48</a></span><span class="preprocessor">#define DYNARRAY_CAST_TO_BASE(darr) &amp;(darr)-&gt;din_array</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a660143a2149550f9fd4a0c798749d8da">   53</a></span><span class="preprocessor">#define DYNARRAY_ELEM_SIZE(darr) sizeof(*(darr)-&gt;data)</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="foldopen" id="foldopen00061" data-start="" data-end="">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a4745762bdb3d3aaed11f8e4292b52512">   61</a></span><span class="preprocessor">#define _dynarray_func(func, darr, ...) \</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">    _dynarray_##func(DYNARRAY_ELEM_SIZE(darr), DYNARRAY_CAST_TO_BASE(darr), __VA_ARGS__)</span></div>
+</div>
+<div class="foldopen" id="foldopen00063" data-start="" data-end="">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a16a537d132a2e692f0d28484ec6eef68">   63</a></span><span class="preprocessor">#define _dynarray_func_noargs(func, darr) \</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">    _dynarray_##func(DYNARRAY_ELEM_SIZE(darr), DYNARRAY_CAST_TO_BASE(darr))</span></div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="dynarray_8h.html#aa4a704da67e58682ed392d733194bf7f">   72</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="dynarray_8h.html#aa4a704da67e58682ed392d733194bf7f">_dynarray_free_data</a>(<a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a> sizeof_element, DynamicArray *darr);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a225aede0ab9c729389ffd3c08801e993">   73</a></span><span class="preprocessor">#define dynarray_free_data(darr) _dynarray_func_noargs(free_data, darr)</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a55464f2ef26b81f1d637373f4c69fb54">   82</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="dynarray_8h.html#a55464f2ef26b81f1d637373f4c69fb54">_dynarray_ensure_capacity</a>(<a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a> sizeof_element, DynamicArray *darr, <a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a> capacity);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="dynarray_8h.html#aedcd76727a8931729ca658c0391718f9">   83</a></span><span class="preprocessor">#define dynarray_ensure_capacity(darr, capacity) _dynarray_func(ensure_capacity, darr, capacity)</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a4f28ec76ad69fc33ce0ad5f2f56a0b13">   93</a></span><a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a> <a class="code hl_function" href="dynarray_8h.html#a4f28ec76ad69fc33ce0ad5f2f56a0b13">_dynarray_prepare_append_min_capacity</a>(<a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a> sizeof_element, DynamicArray *darr, <a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a> min_capacity);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
+<div class="foldopen" id="foldopen00098" data-start="" data-end="">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a4f10108a0b30c8ca0dcd845655332388">   98</a></span><span class="preprocessor">#define dynarray_get_ptr(darr, idx) ({ \</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">    (darr)-&gt;data + idx; \</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">})</span></div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="" data-end="">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a159de541efaaaf42f7c823790cc18292">  102</a></span><span class="preprocessor">#define _dynarray_append_min_capacity(darr, min_capacity, ...) ({ \</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">    auto elem_p = dynarray_get_ptr(darr, _dynarray_func(prepare_append_min_capacity, darr, min_capacity)); \</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">    __VA_OPT__(*elem_p = ((typeof(*elem_p)) __VA_ARGS__); ) \</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">    elem_p; \</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">})</span></div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00108" data-start="" data-end="">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a4c16e92b009df2f1dad899987d4abf58">  108</a></span><span class="preprocessor">#define dynarray_append(darr, ...) \</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">    _dynarray_append_min_capacity(darr, 2, ##__VA_ARGS__);</span></div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a010ac4827d2120c0b4167a0cf2c58188">  117</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="dynarray_8h.html#a010ac4827d2120c0b4167a0cf2c58188">_dynarray_compact</a>(<a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a> sizeof_element, DynamicArray *darr);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="dynarray_8h.html#ac53cfdb2d5ba62a3b3ecfebefed796c4">  118</a></span><span class="preprocessor">#define dynarray_compact(darr) _dynarray_func_noargs(compact, darr)</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span></div>
+<div class="foldopen" id="foldopen00123" data-start="" data-end="">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a89bc0562ff9beb84721300b87696eb20">  123</a></span><span class="preprocessor">#define dynarray_qsort(darr, compare_func) do { \</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="preprocessor">    DynamicArray *b_darr = DYNARRAY_CAST_TO_BASE(darr); \</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">    if (b_darr-&gt;data) { \</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">        qsort(b_darr-&gt;data, b_darr-&gt;num_elements, DYNARRAY_ELEM_SIZE(darr), (compare_func)); \</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">    } \</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">} while(0)</span></div>
+</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a62bc3f95f92a6b36d1462ea286b6d751">  133</a></span><span class="preprocessor">#define dynarray_get(darr, idx) (*dynarray_get_ptr(darr, idx))</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a876308adf6b7b538f648b752fd527357">  137</a></span><span class="preprocessor">#define dynarray_set(darr,idx,...) (*dynarray_get_ptr(darr, idx) = (__VA_ARGS__)) </span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="dynarray_8h.html#adcad7557be72883aec08b31f2aceded0">  147</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="dynarray_8h.html#adcad7557be72883aec08b31f2aceded0">_dynarray_set_elements</a>(<a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a> sizeof_element, DynamicArray *darr, <a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a> num_elements, <span class="keywordtype">void</span> *elements);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">// TODO: Failsafe si ce n&#39;est pas le bon type d&#39;éléments ? ou je vous fais confiance :)</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a2532d3a9e8e981402484170c71c286d2">  149</a></span><span class="preprocessor">#define dynarray_set_elements(darr, num_elements, elements) _dynarray_func(set_elements, darr, num_elements, elements)</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a1143ad942a2b88eb8018565b36e37d52">  154</a></span><span class="keyword">typedef</span> bool (*<a class="code hl_typedef" href="dynarray_8h.html#a1143ad942a2b88eb8018565b36e37d52">dynarray_filter_t</a>)(<span class="keyword">const</span> <span class="keywordtype">void</span> *elem_p, <span class="keywordtype">void</span> *userdata);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="dynarray_8h.html#afc6c8b99a111e997413360b1b4b35bd9">  164</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="dynarray_8h.html#afc6c8b99a111e997413360b1b4b35bd9">_dynarray_filter</a>(<a class="code hl_typedef" href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a> sizeof_element, DynamicArray *darr, <a class="code hl_typedef" href="dynarray_8h.html#a1143ad942a2b88eb8018565b36e37d52">dynarray_filter_t</a> predicate, <span class="keywordtype">void</span> *userdata);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="dynarray_8h.html#ac3d8da04f00e7a15878929a5f9ac05fd">  165</a></span><span class="preprocessor">#define dynarray_filter(darr, predicate, userdata) _dynarray_func(filter, darr, predicate, userdata)</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span></div>
+<div class="foldopen" id="foldopen00170" data-start="" data-end="">
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="dynarray_8h.html#ac8f394577b88fc60cf2f6a8de59460b0">  170</a></span><span class="preprocessor">#define dynarray_indexof(darr, elem_p) ({ \</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">    int idx = (int)(elem_p - darr-&gt;data;) \</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">    (dynarray_size_t)idx; \</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="preprocessor">})</span></div>
+</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="dynarray_8h.html#adaad4c571ae3a0b732a11c84086ad61a">  179</a></span><span class="preprocessor">#define _dynarray_foreach_iter MACRO_ADDLINENUM(dynarray_foreach_iter)</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="dynarray_8h.html#ad66b7666403723672b479f8769514d75">  180</a></span><span class="preprocessor">#define _dynarray_foreach_temp MACRO_ADDLINENUM(dynarray_foreach_temp)</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span></div>
+<div class="foldopen" id="foldopen00185" data-start="" data-end="">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="dynarray_8h.html#a0b4a7407341598c208cd61fa4a3b256b">  185</a></span><span class="preprocessor">#define dynarray_foreach(darr, var, elem_var, ...) do { \</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="preprocessor">    for (dynarray_size_t _dynarray_foreach_iter = 0; \</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="preprocessor">        _dynarray_foreach_iter &lt; (darr)-&gt;num_elements; _dynarray_foreach_iter++) { \</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">            dynarray_size_t var = _dynarray_foreach_iter; \</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="preprocessor">            elem_var = dynarray_get_ptr(darr, var); \</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">            __VA_ARGS__; \</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">        } \</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">} while(0)</span></div>
+</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span></div>
+<div class="foldopen" id="foldopen00197" data-start="" data-end="">
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="dynarray_8h.html#aff45a8048e0ae02d36bde50fe7f0dc48">  197</a></span><span class="preprocessor">#define dynarray_foreach_elem(darr, elem_var, ...) \</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="preprocessor">    dynarray_foreach(darr, \</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="preprocessor">        _dynarray_foreach_temp, \</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="preprocessor">        elem_var, \</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="preprocessor">        __VA_ARGS__ \</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="preprocessor">    )</span></div>
+</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span></div>
+<div class="foldopen" id="foldopen00207" data-start="" data-end="">
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="dynarray_8h.html#acfb476e4d39965eeb026bd778d17d292">  207</a></span><span class="preprocessor">#define dynarray_foreach_idx(darr, var, ...) \</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="preprocessor">    dynarray_foreach(darr, \</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="preprocessor">        var, \</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="preprocessor">        _dynarray_foreach_temp, \</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="preprocessor">        __VA_ARGS__ \</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="preprocessor">    )</span></div>
+</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="ttc" id="adynarray_8h_html_a010ac4827d2120c0b4167a0cf2c58188"><div class="ttname"><a href="dynarray_8h.html#a010ac4827d2120c0b4167a0cf2c58188">_dynarray_compact</a></div><div class="ttdeci">void _dynarray_compact(dynarray_size_t sizeof_element, DynamicArray *darr)</div><div class="ttdoc">Fait en sorte qu&#39;il n&#39;y ait pas de mémoire vide dans data.</div></div>
+<div class="ttc" id="adynarray_8h_html_a1143ad942a2b88eb8018565b36e37d52"><div class="ttname"><a href="dynarray_8h.html#a1143ad942a2b88eb8018565b36e37d52">dynarray_filter_t</a></div><div class="ttdeci">bool(* dynarray_filter_t)(const void *elem_p, void *userdata)</div><div class="ttdoc">Fonction qui filtre un tableau.</div><div class="ttdef"><b>Definition</b> dynarray.h:154</div></div>
+<div class="ttc" id="adynarray_8h_html_a463400034cdb0702a8e000d35096faf0"><div class="ttname"><a href="dynarray_8h.html#a463400034cdb0702a8e000d35096faf0">DYNAMIC_ARRAY_BASE</a></div><div class="ttdeci">#define DYNAMIC_ARRAY_BASE(type_elem)</div><div class="ttdoc">base d&#39;un tableau dynamique</div><div class="ttdef"><b>Definition</b> dynarray.h:21</div></div>
+<div class="ttc" id="adynarray_8h_html_a4f28ec76ad69fc33ce0ad5f2f56a0b13"><div class="ttname"><a href="dynarray_8h.html#a4f28ec76ad69fc33ce0ad5f2f56a0b13">_dynarray_prepare_append_min_capacity</a></div><div class="ttdeci">dynarray_size_t _dynarray_prepare_append_min_capacity(dynarray_size_t sizeof_element, DynamicArray *darr, dynarray_size_t min_capacity)</div><div class="ttdoc">Vérifie qu&#39;il y a la capacité nécessaire pour append et en alloue si besoin.</div></div>
+<div class="ttc" id="adynarray_8h_html_a55464f2ef26b81f1d637373f4c69fb54"><div class="ttname"><a href="dynarray_8h.html#a55464f2ef26b81f1d637373f4c69fb54">_dynarray_ensure_capacity</a></div><div class="ttdeci">void _dynarray_ensure_capacity(dynarray_size_t sizeof_element, DynamicArray *darr, dynarray_size_t capacity)</div><div class="ttdoc">Fait en sorte que la capacité du tableau soit au moins capacity.</div></div>
+<div class="ttc" id="adynarray_8h_html_aa4a704da67e58682ed392d733194bf7f"><div class="ttname"><a href="dynarray_8h.html#aa4a704da67e58682ed392d733194bf7f">_dynarray_free_data</a></div><div class="ttdeci">void _dynarray_free_data(dynarray_size_t sizeof_element, DynamicArray *darr)</div><div class="ttdoc">Libère la mémoire du data d&#39;un dynarray.</div></div>
+<div class="ttc" id="adynarray_8h_html_acf8d37b8dfb01a2479c84c82785c998c"><div class="ttname"><a href="dynarray_8h.html#acf8d37b8dfb01a2479c84c82785c998c">dynarray_size_t</a></div><div class="ttdeci">uint32_t dynarray_size_t</div><div class="ttdef"><b>Definition</b> dynarray.h:10</div></div>
+<div class="ttc" id="adynarray_8h_html_adcad7557be72883aec08b31f2aceded0"><div class="ttname"><a href="dynarray_8h.html#adcad7557be72883aec08b31f2aceded0">_dynarray_set_elements</a></div><div class="ttdeci">void _dynarray_set_elements(dynarray_size_t sizeof_element, DynamicArray *darr, dynarray_size_t num_elements, void *elements)</div><div class="ttdoc">Rentre un tableau d&#39;elements dans le tableau dynamique.</div></div>
+<div class="ttc" id="adynarray_8h_html_afc6c8b99a111e997413360b1b4b35bd9"><div class="ttname"><a href="dynarray_8h.html#afc6c8b99a111e997413360b1b4b35bd9">_dynarray_filter</a></div><div class="ttdeci">void _dynarray_filter(dynarray_size_t sizeof_element, DynamicArray *darr, dynarray_filter_t predicate, void *userdata)</div><div class="ttdoc">Modifie un tableau pour ne garder que les valeurs respectant le filtre.</div></div>
+<div class="ttc" id="amacro_8h_html"><div class="ttname"><a href="macro_8h.html">macro.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_ce599cbe940e096f4daa174358342371.html">internal</a></li><li class="navelem"><a href="dir_ac39f7509a981fdd51dacf6c91c8b183.html">systems</a></li><li class="navelem"><a href="dynarray_8h.html">dynarray.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

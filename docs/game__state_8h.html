@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yume Project: Référence du fichier lib/internal/core/game_state.h</title>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Yume Project<span id="projectnumber">&#160;3.0</span>
+   </div>
+   <div id="projectbrief">Touhou-inspired Danmaku game made in C only</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('game__state_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier game_state.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fonctions permettant de gêrer l'état du programme.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="input_8h_source.html">core/input.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cosched_8h_source.html">coroutine/cosched.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pool_8h_source.html">ecs/pool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="button_8h_source.html">systems/button.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="score_8h_source.html">systems/score.h</a>&quot;</code><br />
+<code>#include &lt;raylib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="screen_8h_source.html">../systems/screen.h</a>&quot;</code><br />
+</div>
+<p><a href="game__state_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:GameState" id="r_GameState"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structGameState.html">GameState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un <a class="el" href="structGameState.html" title="Un GameState représente un état du jeu. Chaque GameState dispose de 4 fonctions, passée par pointeurs...">GameState</a> représente un état du jeu. Chaque <a class="el" href="structGameState.html" title="Un GameState représente un état du jeu. Chaque GameState dispose de 4 fonctions, passée par pointeurs...">GameState</a> dispose de 4 fonctions, passée par pointeurs:  <a href="structGameState.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:GameContext" id="r_GameContext"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structGameContext.html">GameContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un <a class="el" href="structGameContext.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> contient l'ensemble des variables globales du jeu à un moment donné. IL est subdivisé en différents systèmes, dont en particulier la pool, ayant chacun leurs propres données. Il contient également les identifiants de l'état actuel du programme et de l'état suivant. L'état suivant ne prend en général sa valeur qu'au moment du changement d'état.  <a href="structGameContext.html#details">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a1e429b3df1f3ce68729ed6b71d8714a9" id="r_a1e429b3df1f3ce68729ed6b71d8714a9"><td class="memItemLeft">typedef enum <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1e429b3df1f3ce68729ed6b71d8714a9">StateID</a></td></tr>
+<tr class="memdesc:a1e429b3df1f3ce68729ed6b71d8714a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les différents états du programme On trouve les menus, le stage, les différentes pages de texte.  <br /></td></tr>
+<tr class="memitem:ad74d0fae2a41b21724fe224cf3ec6e13" id="r_ad74d0fae2a41b21724fe224cf3ec6e13"><td class="memItemLeft">typedef struct GameState&#160;</td><td class="memItemRight"><a class="el" href="#ad74d0fae2a41b21724fe224cf3ec6e13">GameState</a></td></tr>
+<tr class="memdesc:ad74d0fae2a41b21724fe224cf3ec6e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un <a class="el" href="structGameState.html" title="Un GameState représente un état du jeu. Chaque GameState dispose de 4 fonctions, passée par pointeurs...">GameState</a> représente un état du jeu. Chaque <a class="el" href="structGameState.html" title="Un GameState représente un état du jeu. Chaque GameState dispose de 4 fonctions, passée par pointeurs...">GameState</a> dispose de 4 fonctions, passée par pointeurs:  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a2c309f64131cbfdae6d95e6591f208e6" id="r_a2c309f64131cbfdae6d95e6591f208e6"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> { <br />
+&#160;&#160;<a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6ac36e5c9ac597253191be83acf0b51d25">STATE_NONE</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a228e20d58fb15b663e6407c019dca2a7">__BEGIN_MENU__</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a119de5856cf31148d7ace8a328585555">STATE_MENU_TITLE</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a81d90e02886072a3d471e4c1b4c60be0">STATE_MENU_SETTINGS</a>
+, <br />
+&#160;&#160;<a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0">STATE_MENU_KEYBINDS</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549">__END_MENU__</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497">STATE_MOONLIGHT</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a0f76ed984e8b06e62cddac03843a9544">STATE_GAME_OVER</a>
+, <br />
+&#160;&#160;<a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a45b6e987a799cd66b28f371b03fa34a9">STATE_VICTORY</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673">STATE_TEST</a>
+, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04">STATE_EXTRA</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a2c309f64131cbfdae6d95e6591f208e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les différents états du programme On trouve les menus, le stage, les différentes pages de texte.  <a href="#a2c309f64131cbfdae6d95e6591f208e6">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a88738fcfe8f3e35e6614b506da928c22" id="r_a88738fcfe8f3e35e6614b506da928c22"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a88738fcfe8f3e35e6614b506da928c22">gamestate_initialize</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> state)</td></tr>
+<tr class="memdesc:a88738fcfe8f3e35e6614b506da928c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le système d'états et bascule vers l'état demandé.  <br /></td></tr>
+<tr class="memitem:a483bfca2f161f59662568e594d468325" id="r_a483bfca2f161f59662568e594d468325"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a483bfca2f161f59662568e594d468325">gamestate_update</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx)</td></tr>
+<tr class="memdesc:a483bfca2f161f59662568e594d468325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelée chaque frame pour mettre à jour l'état courant.  <br /></td></tr>
+<tr class="memitem:a3cee3db5b6cfb26e58c34deb17a8470c" id="r_a3cee3db5b6cfb26e58c34deb17a8470c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3cee3db5b6cfb26e58c34deb17a8470c">pauseListener</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx)</td></tr>
+<tr class="memdesc:a3cee3db5b6cfb26e58c34deb17a8470c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détecte si le menu pause doit être activé et si oui gêre sa logique. Cette fonction doit être appellée à chaque frame.  <br /></td></tr>
+<tr class="memitem:aa70a704c265736f396a96b7280dcf2eb" id="r_aa70a704c265736f396a96b7280dcf2eb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa70a704c265736f396a96b7280dcf2eb">pauseMenu</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx)</td></tr>
+<tr class="memdesc:aa70a704c265736f396a96b7280dcf2eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche et le menu de pause.  <br /></td></tr>
+<tr class="memitem:acbfa62a5a5f262c34c8c03645e6b13e0" id="r_acbfa62a5a5f262c34c8c03645e6b13e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acbfa62a5a5f262c34c8c03645e6b13e0">gamestate_change_state</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx, <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> stateID)</td></tr>
+<tr class="memdesc:acbfa62a5a5f262c34c8c03645e6b13e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demande une transition vers un autre état de jeu.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a7da518c69adccea1c6b3a9885fae38bd" id="r_a7da518c69adccea1c6b3a9885fae38bd"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7da518c69adccea1c6b3a9885fae38bd">state_menu_title</a></td></tr>
+<tr class="memitem:a090feb230d4ba62abfeb441a52996355" id="r_a090feb230d4ba62abfeb441a52996355"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a090feb230d4ba62abfeb441a52996355">state_menu_keybinds</a></td></tr>
+<tr class="memitem:a339bd2d8215508219fd2b6bbd267be6c" id="r_a339bd2d8215508219fd2b6bbd267be6c"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a339bd2d8215508219fd2b6bbd267be6c">state_test</a></td></tr>
+<tr class="memitem:a3b8b93e232e5560bbada628cf50813c1" id="r_a3b8b93e232e5560bbada628cf50813c1"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3b8b93e232e5560bbada628cf50813c1">state_moonlight</a></td></tr>
+<tr class="memitem:a48caf8ef73f9044617ef349cb638b6cb" id="r_a48caf8ef73f9044617ef349cb638b6cb"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a48caf8ef73f9044617ef349cb638b6cb">state_menu_settings</a></td></tr>
+<tr class="memitem:aa955d6b984f8086734635c723732b5e4" id="r_aa955d6b984f8086734635c723732b5e4"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa955d6b984f8086734635c723732b5e4">state_game_over</a></td></tr>
+<tr class="memitem:aa421d156490917a3f6408d824d010d67" id="r_aa421d156490917a3f6408d824d010d67"><td class="memItemLeft"><a class="el" href="structGameState.html">GameState</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa421d156490917a3f6408d824d010d67">state_victory</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fonctions permettant de gêrer l'état du programme. </p>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Documentation des définitions de type</h2>
+<a id="ad74d0fae2a41b21724fe224cf3ec6e13" name="ad74d0fae2a41b21724fe224cf3ec6e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad74d0fae2a41b21724fe224cf3ec6e13">&#9670;&#160;</a></span>GameState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct GameState GameState</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Un <a class="el" href="structGameState.html" title="Un GameState représente un état du jeu. Chaque GameState dispose de 4 fonctions, passée par pointeurs...">GameState</a> représente un état du jeu. Chaque <a class="el" href="structGameState.html" title="Un GameState représente un état du jeu. Chaque GameState dispose de 4 fonctions, passée par pointeurs...">GameState</a> dispose de 4 fonctions, passée par pointeurs: </p>
+<ul>
+<li>init est appellée lorsque le programme bascule sur cet état</li>
+<li>update est appellée à chaque frame</li>
+<li>draw est appellée à chaque frame dans un beginDrawing() de raylib</li>
+<li>cleanup est appellée lorsque le programme quitte cet état </li>
+</ul>
+
+</div>
+</div>
+<a id="a1e429b3df1f3ce68729ed6b71d8714a9" name="a1e429b3df1f3ce68729ed6b71d8714a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e429b3df1f3ce68729ed6b71d8714a9">&#9670;&#160;</a></span>StateID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a> <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Les différents états du programme On trouve les menus, le stage, les différentes pages de texte. </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a2c309f64131cbfdae6d95e6591f208e6" name="a2c309f64131cbfdae6d95e6591f208e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c309f64131cbfdae6d95e6591f208e6">&#9670;&#160;</a></span>StateID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Les différents états du programme On trouve les menus, le stage, les différentes pages de texte. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6ac36e5c9ac597253191be83acf0b51d25" name="a2c309f64131cbfdae6d95e6591f208e6ac36e5c9ac597253191be83acf0b51d25"></a>STATE_NONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a228e20d58fb15b663e6407c019dca2a7" name="a2c309f64131cbfdae6d95e6591f208e6a228e20d58fb15b663e6407c019dca2a7"></a>__BEGIN_MENU__&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a119de5856cf31148d7ace8a328585555" name="a2c309f64131cbfdae6d95e6591f208e6a119de5856cf31148d7ace8a328585555"></a>STATE_MENU_TITLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a81d90e02886072a3d471e4c1b4c60be0" name="a2c309f64131cbfdae6d95e6591f208e6a81d90e02886072a3d471e4c1b4c60be0"></a>STATE_MENU_SETTINGS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0" name="a2c309f64131cbfdae6d95e6591f208e6a9064ca526ed25312a9b36f02dd11f1e0"></a>STATE_MENU_KEYBINDS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549" name="a2c309f64131cbfdae6d95e6591f208e6a0d542beef382724fc9e45e5e5f29e549"></a>__END_MENU__&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497" name="a2c309f64131cbfdae6d95e6591f208e6a159142e7a6638a3f2612a2773d2eb497"></a>STATE_MOONLIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a0f76ed984e8b06e62cddac03843a9544" name="a2c309f64131cbfdae6d95e6591f208e6a0f76ed984e8b06e62cddac03843a9544"></a>STATE_GAME_OVER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a45b6e987a799cd66b28f371b03fa34a9" name="a2c309f64131cbfdae6d95e6591f208e6a45b6e987a799cd66b28f371b03fa34a9"></a>STATE_VICTORY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673" name="a2c309f64131cbfdae6d95e6591f208e6a84fd2b37b66ba5cec715ffcd505d6673"></a>STATE_TEST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04" name="a2c309f64131cbfdae6d95e6591f208e6a72cd7883fb071073b6183e269eef0d04"></a>STATE_EXTRA&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="acbfa62a5a5f262c34c8c03645e6b13e0" name="acbfa62a5a5f262c34c8c03645e6b13e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbfa62a5a5f262c34c8c03645e6b13e0">&#9670;&#160;</a></span>gamestate_change_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gamestate_change_state </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a></td>          <td class="paramname"><span class="paramname"><em>stateID</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Demande une transition vers un autre état de jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="structGameContext.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant </td></tr>
+    <tr><td class="paramname">stateID</td><td>Identifiant de l'état cible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a88738fcfe8f3e35e6614b506da928c22" name="a88738fcfe8f3e35e6614b506da928c22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88738fcfe8f3e35e6614b506da928c22">&#9670;&#160;</a></span>gamestate_initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gamestate_initialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a2c309f64131cbfdae6d95e6591f208e6">StateID</a></td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialise le système d'états et bascule vers l'état demandé. </p>
+<p>Initialise les structures internes du <a class="el" href="structGameContext.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> puis effectue la transition vers state (appel de la fonction init associée à l'état).</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>ctx à initialiser </td></tr>
+    <tr><td class="paramname">state</td><td>id de l'état initial à activer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a483bfca2f161f59662568e594d468325" name="a483bfca2f161f59662568e594d468325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a483bfca2f161f59662568e594d468325">&#9670;&#160;</a></span>gamestate_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gamestate_update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Appelée chaque frame pour mettre à jour l'état courant. </p>
+<p>Appelle la fonction update du <a class="el" href="structGameState.html" title="Un GameState représente un état du jeu. Chaque GameState dispose de 4 fonctions, passée par pointeurs...">GameState</a> actif et gère la transition d'état si nextStateID diffère de currentStateID.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="structGameContext.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3cee3db5b6cfb26e58c34deb17a8470c" name="a3cee3db5b6cfb26e58c34deb17a8470c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cee3db5b6cfb26e58c34deb17a8470c">&#9670;&#160;</a></span>pauseListener()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pauseListener </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détecte si le menu pause doit être activé et si oui gêre sa logique. Cette fonction doit être appellée à chaque frame. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="structGameContext.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa70a704c265736f396a96b7280dcf2eb" name="aa70a704c265736f396a96b7280dcf2eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70a704c265736f396a96b7280dcf2eb">&#9670;&#160;</a></span>pauseMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pauseMenu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche et le menu de pause. </p>
+<p>Doit être appelé uniquement lorsque le jeu est en état de pause.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="structGameContext.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="aa955d6b984f8086734635c723732b5e4" name="aa955d6b984f8086734635c723732b5e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa955d6b984f8086734635c723732b5e4">&#9670;&#160;</a></span>state_game_over</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_game_over</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a090feb230d4ba62abfeb441a52996355" name="a090feb230d4ba62abfeb441a52996355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a090feb230d4ba62abfeb441a52996355">&#9670;&#160;</a></span>state_menu_keybinds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_menu_keybinds</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48caf8ef73f9044617ef349cb638b6cb" name="a48caf8ef73f9044617ef349cb638b6cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48caf8ef73f9044617ef349cb638b6cb">&#9670;&#160;</a></span>state_menu_settings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_menu_settings</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7da518c69adccea1c6b3a9885fae38bd" name="a7da518c69adccea1c6b3a9885fae38bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7da518c69adccea1c6b3a9885fae38bd">&#9670;&#160;</a></span>state_menu_title</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_menu_title</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b8b93e232e5560bbada628cf50813c1" name="a3b8b93e232e5560bbada628cf50813c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b8b93e232e5560bbada628cf50813c1">&#9670;&#160;</a></span>state_moonlight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_moonlight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a339bd2d8215508219fd2b6bbd267be6c" name="a339bd2d8215508219fd2b6bbd267be6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a339bd2d8215508219fd2b6bbd267be6c">&#9670;&#160;</a></span>state_test</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_test</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa421d156490917a3f6408d824d010d67" name="aa421d156490917a3f6408d824d010d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa421d156490917a3f6408d824d010d67">&#9670;&#160;</a></span>state_victory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGameState.html">GameState</a> state_victory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_ce599cbe940e096f4daa174358342371.html">internal</a></li><li class="navelem"><a href="dir_a2fe43eba82255245cff96de89984610.html">core</a></li><li class="navelem"><a href="game__state_8h.html">game_state.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

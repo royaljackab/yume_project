@@ -3,19 +3,19 @@ CFLAGS = -std=gnu11 -g
 
 # On remonte d'un cran pour accéder aux dossiers src et lib
 INCLUDES = -I../src \
-           -I../lib \
+           -I../lib/internal \
            -I../src/core/coroutine \
-           -I../lib/core/coroutine \
-           -I../lib/components \
-           -I../lib/content \
-           -I../lib/content/stage \
-           -I../lib/content/stage/moonlight \
-           -I../lib/content/stage/moonlight/nonspells \
-           -I../lib/content/stage/moonlight/spellcards \
-           -I../lib/content/ui \
-           -I../lib/core \
-           -I../lib/ecs \
-           -I../lib/systems \
+           -I../lib/internal/core/coroutine \
+           -I../lib/internal/components \
+           -I../lib/internal/content \
+           -I../lib/internal/content/stage \
+           -I../lib/internal/content/stage/moonlight \
+           -I../lib/internal/content/stage/moonlight/nonspells \
+           -I../lib/internal/content/stage/moonlight/spellcards \
+           -I../lib/internal/content/ui \
+           -I../lib/internal/core \
+           -I../lib/internal/ecs \
+           -I../lib/internal/systems \
            -I../lib/raylib/include \
            -I../lib/koishi/include
 

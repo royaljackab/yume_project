@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yume Project:  Fichier source de lib/internal/components/background.h</title>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Yume Project<span id="projectnumber">&#160;3.0</span>
+   </div>
+   <div id="projectbrief">Touhou-inspired Danmaku game made in C only</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('background_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">background.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="background_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="component_8h.html">component.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="assets_8h.html">assets.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="background_8h.html#ab0e60210d9d96ef98d88b7d7c590c605">   11</a></span><span class="preprocessor">#define MAX_BACKGROUNDS 100</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="background_8h.html#a667f1041ddc634d36522f92d1308a71e">   13</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structPool.html">Pool</a> <a class="code hl_struct" href="structPool.html">Pool</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span></div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structBackground.html">   18</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structBackground.html">Background</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structBackground.html#a40daf2ba905eb252d7ad09658017c05a">   19</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structBackground.html#a40daf2ba905eb252d7ad09658017c05a">scroll_speed_x</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structBackground.html#af32388624c73543f30b2b3223c8c99a1">   20</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structBackground.html#af32388624c73543f30b2b3223c8c99a1">scroll_speed_y</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="background_8h.html#add827aeea72432201c9e671c74d7b4dd">   21</a></span>} <a class="code hl_struct" href="structBackground.html">Background</a>;</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><a class="code hl_define" href="component_8h.html#ad846ec829d26b00e7cb1e617a5f197c3">DEFINE_COMPONENT_MANAGER</a>(<a class="code hl_struct" href="structBackground.html">Background</a>, <a class="code hl_define" href="background_8h.html#ab0e60210d9d96ef98d88b7d7c590c605">MAX_BACKGROUNDS</a>)</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><a class="code hl_define" href="component_8h.html#aeabad4d08cf984e0d901d1fc63a27dcc">DECLARE_SETTER_GETTER</a>(<a class="code hl_struct" href="structBackground.html">Background</a>, <span class="keywordtype">float</span>, scroll_speed_x)</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><a class="code hl_define" href="component_8h.html#aeabad4d08cf984e0d901d1fc63a27dcc">DECLARE_SETTER_GETTER</a>(<a class="code hl_struct" href="structBackground.html">Background</a>, <span class="keywordtype">float</span>, scroll_speed_y)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="background_8h.html#aed0468368fa08767f12759c479fd758e">   32</a></span>void <a class="code hl_function" href="background_8h.html#aed0468368fa08767f12759c479fd758e">Background_update_all</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="background_8h.html#ac14cf9b45568e890d7c039beeeda4d31">   42</a></span><a class="code hl_typedef" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> <a class="code hl_function" href="background_8h.html#ac14cf9b45568e890d7c039beeeda4d31">Background_create</a>(<a class="code hl_struct" href="structPool.html">Pool</a> *p, <a class="code hl_enumeration" href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a> bgId, <span class="keywordtype">float</span> scroll_speed_x, <span class="keywordtype">float</span> scroll_speed_y);</div>
+<div class="ttc" id="aassets_8h_html"><div class="ttname"><a href="assets_8h.html">assets.h</a></div><div class="ttdoc">Chargement et références des assets (textures, sprites, audio, polices).</div></div>
+<div class="ttc" id="aassets_8h_html_a458291307eae5dfdecda616d636894f3"><div class="ttname"><a href="assets_8h.html#a458291307eae5dfdecda616d636894f3">SpriteID</a></div><div class="ttdeci">SpriteID</div><div class="ttdef"><b>Definition</b> assets.h:63</div></div>
+<div class="ttc" id="abackground_8h_html_ab0e60210d9d96ef98d88b7d7c590c605"><div class="ttname"><a href="background_8h.html#ab0e60210d9d96ef98d88b7d7c590c605">MAX_BACKGROUNDS</a></div><div class="ttdeci">#define MAX_BACKGROUNDS</div><div class="ttdef"><b>Definition</b> background.h:11</div></div>
+<div class="ttc" id="abackground_8h_html_ac14cf9b45568e890d7c039beeeda4d31"><div class="ttname"><a href="background_8h.html#ac14cf9b45568e890d7c039beeeda4d31">Background_create</a></div><div class="ttdeci">Entity Background_create(Pool *p, SpriteID bgId, float scroll_speed_x, float scroll_speed_y)</div><div class="ttdoc">créé un background</div></div>
+<div class="ttc" id="abackground_8h_html_aed0468368fa08767f12759c479fd758e"><div class="ttname"><a href="background_8h.html#aed0468368fa08767f12759c479fd758e">Background_update_all</a></div><div class="ttdeci">void Background_update_all(Pool *p)</div><div class="ttdoc">met à jour le sprite de tous les backgrounds selon leurs vitesses de défilement.</div></div>
+<div class="ttc" id="acomponent_8h_html"><div class="ttname"><a href="component_8h.html">component.h</a></div><div class="ttdoc">Macros nécessaire à la création de nouvelles composantes de l&#39;ECS.</div></div>
+<div class="ttc" id="acomponent_8h_html_ad846ec829d26b00e7cb1e617a5f197c3"><div class="ttname"><a href="component_8h.html#ad846ec829d26b00e7cb1e617a5f197c3">DEFINE_COMPONENT_MANAGER</a></div><div class="ttdeci">#define DEFINE_COMPONENT_MANAGER(Type, Number)</div><div class="ttdoc">Créé un composant dans l&#39;ECS.</div><div class="ttdef"><b>Definition</b> component.h:62</div></div>
+<div class="ttc" id="acomponent_8h_html_aeabad4d08cf984e0d901d1fc63a27dcc"><div class="ttname"><a href="component_8h.html#aeabad4d08cf984e0d901d1fc63a27dcc">DECLARE_SETTER_GETTER</a></div><div class="ttdeci">#define DECLARE_SETTER_GETTER(Component, type, champ)</div><div class="ttdef"><b>Definition</b> component.h:121</div></div>
+<div class="ttc" id="aecs_8h_html_a7f551ae9f4fa7a7ff4d783e768fe1918"><div class="ttname"><a href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></div><div class="ttdeci">uint32_t Entity</div><div class="ttdoc">Une entité est un indice.</div><div class="ttdef"><b>Definition</b> ecs.h:20</div></div>
+<div class="ttc" id="astructBackground_html"><div class="ttname"><a href="structBackground.html">Background</a></div><div class="ttdoc">Composante fond d&#39;écran 2D.</div><div class="ttdef"><b>Definition</b> background.h:18</div></div>
+<div class="ttc" id="astructBackground_html_a40daf2ba905eb252d7ad09658017c05a"><div class="ttname"><a href="structBackground.html#a40daf2ba905eb252d7ad09658017c05a">Background::scroll_speed_x</a></div><div class="ttdeci">float scroll_speed_x</div><div class="ttdef"><b>Definition</b> background.h:19</div></div>
+<div class="ttc" id="astructBackground_html_af32388624c73543f30b2b3223c8c99a1"><div class="ttname"><a href="structBackground.html#af32388624c73543f30b2b3223c8c99a1">Background::scroll_speed_y</a></div><div class="ttdeci">float scroll_speed_y</div><div class="ttdef"><b>Definition</b> background.h:20</div></div>
+<div class="ttc" id="astructPool_html"><div class="ttname"><a href="structPool.html">Pool</a></div><div class="ttdoc">La pool est la structure qui contient l&#39;Entity Component System Elle gêre les différentes composantes...</div><div class="ttdef"><b>Definition</b> pool.h:42</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_ce599cbe940e096f4daa174358342371.html">internal</a></li><li class="navelem"><a href="dir_067ccfef01406ba54d1f56d3f38190aa.html">components</a></li><li class="navelem"><a href="background_8h.html">background.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

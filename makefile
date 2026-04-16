@@ -29,6 +29,7 @@ TARGET = yume$(TARGET_EXT)
 # Dossiers principaux
 SRC_DIR = src
 LIB_DIR = lib
+LIB_DIR_INTERN = $(LIB_DIR)/internal
 BIN_DIR = bin
 
 # Chemins des bibliothèques
@@ -38,15 +39,16 @@ KOISHI_PATH = $(LIB_DIR)/koishi/$(OS_DIR)
 # Inclusion des headers (Couvre l'arborescence symétrique lib/)
 INCLUDES = -I$(SRC_DIR) \
            -I$(LIB_DIR) \
-           -I$(LIB_DIR)/components \
-           -I$(LIB_DIR)/content \
-           -I$(LIB_DIR)/content/ui \
-           -I$(LIB_DIR)/content/stage \
-           -I$(LIB_DIR)/content/stage/moonlight \
-           -I$(LIB_DIR)/core \
-           -I$(LIB_DIR)/core/coroutine \
-           -I$(LIB_DIR)/ecs \
-           -I$(LIB_DIR)/systems \
+           -I$(LIB_DIR_INTERN) \
+           -I$(LIB_DIR_INTERN)/components \
+           -I$(LIB_DIR_INTERN)/content \
+           -I$(LIB_DIR_INTERN)/content/ui \
+           -I$(LIB_DIR_INTERN)/content/stage \
+           -I$(LIB_DIR_INTERN)/content/stage/moonlight \
+           -I$(LIB_DIR_INTERN)/core \
+           -I$(LIB_DIR_INTERN)/core/coroutine \
+           -I$(LIB_DIR_INTERN)/ecs \
+           -I$(LIB_DIR_INTERN)/systems \
            -I$(LIB_DIR)/raylib/include \
            -I$(LIB_DIR)/raylib/include/src \
            -I$(LIB_DIR)/koishi/include

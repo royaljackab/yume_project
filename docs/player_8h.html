@@ -1,0 +1,799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yume Project: Référence du fichier lib/internal/components/player.h</title>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Yume Project<span id="projectnumber">&#160;3.0</span>
+   </div>
+   <div id="projectbrief">Touhou-inspired Danmaku game made in C only</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('player_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier player.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Gestion du joueur : structures <a class="el" href="structPlayer.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a>, <a class="el" href="structWeapon.html" title="Composante weapon dans l&#39;ECS Contient les informations d&#39;une arme du joueur. Le joueur est la seule e...">Weapon</a>.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="component_8h_source.html">component.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tasks_8h_source.html">tasks.h</a>&quot;</code><br />
+</div>
+<p><a href="player_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Player" id="r_Player"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structPlayer.html">Player</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composante <a class="el" href="structPlayer.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a> dans l'ECS Représente l'état et les attributs d'un joueur. Le joueur est la seule entité a utiliser cette composante.  <a href="structPlayer.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:Weapon" id="r_Weapon"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWeapon.html">Weapon</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composante weapon dans l'ECS Contient les informations d'une arme du joueur. Le joueur est la seule entité a utiliser cette composante.  <a href="structWeapon.html#details">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a48f47d55a7986f34564a7ea824306918" id="r_a48f47d55a7986f34564a7ea824306918"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a48f47d55a7986f34564a7ea824306918">INITIAL_PLAYER_LIVES</a>&#160;&#160;&#160;3</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a480a040facb94f90060562cd65274385" id="r_a480a040facb94f90060562cd65274385"><td class="memItemLeft">typedef struct Player&#160;</td><td class="memItemRight"><a class="el" href="#a480a040facb94f90060562cd65274385">Player</a></td></tr>
+<tr class="memdesc:a480a040facb94f90060562cd65274385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composante <a class="el" href="structPlayer.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a> dans l'ECS Représente l'état et les attributs d'un joueur. Le joueur est la seule entité a utiliser cette composante.  <br /></td></tr>
+<tr class="memitem:a289267d934011ba74f3f27f807e4841b" id="r_a289267d934011ba74f3f27f807e4841b"><td class="memItemLeft">typedef struct Weapon&#160;</td><td class="memItemRight"><a class="el" href="#a289267d934011ba74f3f27f807e4841b">Weapon</a></td></tr>
+<tr class="memdesc:a289267d934011ba74f3f27f807e4841b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composante weapon dans l'ECS Contient les informations d'une arme du joueur. Le joueur est la seule entité a utiliser cette composante.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a38bf1810175b6b82618b04b1ee0258da" id="r_a38bf1810175b6b82618b04b1ee0258da"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a38bf1810175b6b82618b04b1ee0258da">PlayerName</a> { <a class="el" href="#a38bf1810175b6b82618b04b1ee0258daa6e2ee4dee75afce64793191e70f8be0f">TEST_PLAYER</a>
+ }</td></tr>
+<tr class="memdesc:a38bf1810175b6b82618b04b1ee0258da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiants de personnages jouables.  <a href="#a38bf1810175b6b82618b04b1ee0258da">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a351dc5aa88481a949638aeb6cc5e6754" id="r_a351dc5aa88481a949638aeb6cc5e6754"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a351dc5aa88481a949638aeb6cc5e6754">PatternType</a> { <a class="el" href="#a351dc5aa88481a949638aeb6cc5e6754aa5fa8b6cfea2927933b29962a3bd7b3b">DEFAULT_PATTERN</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ab439416ee11d2f5c9f3ac32fb6afddb7" id="r_ab439416ee11d2f5c9f3ac32fb6afddb7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab439416ee11d2f5c9f3ac32fb6afddb7">DEFINE_COMPONENT_MANAGER</a> (<a class="el" href="structPlayer.html">Player</a>, 1)</td></tr>
+<tr class="memitem:a4348a155b40d82a9a181d30e0a8c9fb0" id="r_a4348a155b40d82a9a181d30e0a8c9fb0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4348a155b40d82a9a181d30e0a8c9fb0">DEFINE_COMPONENT_MANAGER</a> (<a class="el" href="structWeapon.html">Weapon</a>, 1)</td></tr>
+<tr class="memitem:a4499b58014afeace02a77160ff7ceb07" id="r_a4499b58014afeace02a77160ff7ceb07"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4499b58014afeace02a77160ff7ceb07">DECLARE_SETTER_GETTER</a> (<a class="el" href="structPlayer.html">Player</a>, int, nbBombs)</td></tr>
+<tr class="memitem:ae454ba032d9e637c27577eb51ac691a2" id="r_ae454ba032d9e637c27577eb51ac691a2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae454ba032d9e637c27577eb51ac691a2">DECLARE_SETTER_GETTER</a> (<a class="el" href="structPlayer.html">Player</a>, int, bombs)</td></tr>
+<tr class="memitem:a1ae0cb5f1524b2467d423002dce0af9a" id="r_a1ae0cb5f1524b2467d423002dce0af9a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1ae0cb5f1524b2467d423002dce0af9a">DECLARE_SETTER_GETTER</a> (<a class="el" href="structPlayer.html">Player</a>, float, speed)</td></tr>
+<tr class="memitem:a4808a3cd1c12fa419e95a40f48447c39" id="r_a4808a3cd1c12fa419e95a40f48447c39"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4808a3cd1c12fa419e95a40f48447c39">DECLARE_SETTER_GETTER</a> (<a class="el" href="structPlayer.html">Player</a>, float, focusSpeed)</td></tr>
+<tr class="memitem:a0e6945135871ef8a3a58467755db99f9" id="r_a0e6945135871ef8a3a58467755db99f9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0e6945135871ef8a3a58467755db99f9">DECLARE_SETTER_GETTER</a> (<a class="el" href="structPlayer.html">Player</a>, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>, hitboxSpriteId)</td></tr>
+<tr class="memitem:a241594d1093931449970e50fa4eb1c96" id="r_a241594d1093931449970e50fa4eb1c96"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a241594d1093931449970e50fa4eb1c96">DECLARE_SETTER_GETTER</a> (<a class="el" href="structPlayer.html">Player</a>, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>, GrazeSpriteId)</td></tr>
+<tr class="memitem:af4c82734ec317847e9f94d0b84e450ad" id="r_af4c82734ec317847e9f94d0b84e450ad"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af4c82734ec317847e9f94d0b84e450ad">DECLARE_SETTER_GETTER</a> (<a class="el" href="structPlayer.html">Player</a>, int, grazeRadius)</td></tr>
+<tr class="memitem:a54722425c0ee85f2d56f33f603c6efd3" id="r_a54722425c0ee85f2d56f33f603c6efd3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a54722425c0ee85f2d56f33f603c6efd3">Player_start</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx, <a class="el" href="#a38bf1810175b6b82618b04b1ee0258da">PlayerName</a> name, <a class="el" href="#a351dc5aa88481a949638aeb6cc5e6754">PatternType</a> type)</td></tr>
+<tr class="memdesc:a54722425c0ee85f2d56f33f603c6efd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise et crée l'entité joueur dans la pool.  <br /></td></tr>
+<tr class="memitem:afe1adaf296bb4b829c1a0a085ad61699" id="r_afe1adaf296bb4b829c1a0a085ad61699"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afe1adaf296bb4b829c1a0a085ad61699">Player_update</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx)</td></tr>
+<tr class="memdesc:afe1adaf296bb4b829c1a0a085ad61699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise à jour par frame du joueur (input, tir, focus, graze, dégâts...).  <br /></td></tr>
+<tr class="memitem:ae38a270aaf90552d3f47aeb8b4fdbe31" id="r_ae38a270aaf90552d3f47aeb8b4fdbe31"><td class="memItemLeft"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae38a270aaf90552d3f47aeb8b4fdbe31">Player_get_playerID</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:ae38a270aaf90552d3f47aeb8b4fdbe31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère l'id du joueur. Il n'y a toujours qu'un seul joueur actif, on peut donc l'identifier.  <br /></td></tr>
+<tr class="memitem:aef18f2e7c4c7d33bede12f0fd2ba06b2" id="r_aef18f2e7c4c7d33bede12f0fd2ba06b2"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aef18f2e7c4c7d33bede12f0fd2ba06b2">Player_GetX</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:aef18f2e7c4c7d33bede12f0fd2ba06b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la position X du joueur.  <br /></td></tr>
+<tr class="memitem:a448838013ff8190de267e0d84610fd28" id="r_a448838013ff8190de267e0d84610fd28"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a448838013ff8190de267e0d84610fd28">Player_GetY</a> (<a class="el" href="structPool.html">Pool</a> *p)</td></tr>
+<tr class="memdesc:a448838013ff8190de267e0d84610fd28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la position Y du joueur.  <br /></td></tr>
+<tr class="memitem:a6a93cfba045e35803246c01ae38d703a" id="r_a6a93cfba045e35803246c01ae38d703a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6a93cfba045e35803246c01ae38d703a">teleport_to_player_spawn</a> (<a class="el" href="structPool.html">Pool</a> *p, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> e)</td></tr>
+<tr class="memdesc:a6a93cfba045e35803246c01ae38d703a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Téléporte une entité vers le point de spawn du joueur.  <br /></td></tr>
+<tr class="memitem:a327db3e031672d43afcb06634e373d81" id="r_a327db3e031672d43afcb06634e373d81"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a327db3e031672d43afcb06634e373d81">Damage_player</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> player)</td></tr>
+<tr class="memdesc:a327db3e031672d43afcb06634e373d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inflige des dégâts au joueur et gère les conséquences (respawn, invincibilité, effets sonores... ).  <br /></td></tr>
+<tr class="memitem:a7db565bfe2f7127dff48ca15210a9a50" id="r_a7db565bfe2f7127dff48ca15210a9a50"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7db565bfe2f7127dff48ca15210a9a50">Player_bomb</a> (<a class="el" href="structGameContext.html">GameContext</a> *ctx, <a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> player)</td></tr>
+<tr class="memitem:a8580e6c0bd32900868966acd27ace3c5" id="r_a8580e6c0bd32900868966acd27ace3c5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8580e6c0bd32900868966acd27ace3c5">DECLARE_EXTERN_TASK</a> (reimu_yinyang_orb, {<a class="el" href="structGameContext.html">GameContext</a> *ctx;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> player;float angle_offset;})</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Gestion du joueur : structures <a class="el" href="structPlayer.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a>, <a class="el" href="structWeapon.html" title="Composante weapon dans l&#39;ECS Contient les informations d&#39;une arme du joueur. Le joueur est la seule e...">Weapon</a>. </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentation des macros</h2>
+<a id="a48f47d55a7986f34564a7ea824306918" name="a48f47d55a7986f34564a7ea824306918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f47d55a7986f34564a7ea824306918">&#9670;&#160;</a></span>INITIAL_PLAYER_LIVES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INITIAL_PLAYER_LIVES&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Documentation des définitions de type</h2>
+<a id="a480a040facb94f90060562cd65274385" name="a480a040facb94f90060562cd65274385"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a480a040facb94f90060562cd65274385">&#9670;&#160;</a></span>Player</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct Player Player</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Composante <a class="el" href="structPlayer.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a> dans l'ECS Représente l'état et les attributs d'un joueur. Le joueur est la seule entité a utiliser cette composante. </p>
+
+</div>
+</div>
+<a id="a289267d934011ba74f3f27f807e4841b" name="a289267d934011ba74f3f27f807e4841b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a289267d934011ba74f3f27f807e4841b">&#9670;&#160;</a></span>Weapon</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct Weapon Weapon</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Composante weapon dans l'ECS Contient les informations d'une arme du joueur. Le joueur est la seule entité a utiliser cette composante. </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a351dc5aa88481a949638aeb6cc5e6754" name="a351dc5aa88481a949638aeb6cc5e6754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a351dc5aa88481a949638aeb6cc5e6754">&#9670;&#160;</a></span>PatternType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a351dc5aa88481a949638aeb6cc5e6754">PatternType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a351dc5aa88481a949638aeb6cc5e6754aa5fa8b6cfea2927933b29962a3bd7b3b" name="a351dc5aa88481a949638aeb6cc5e6754aa5fa8b6cfea2927933b29962a3bd7b3b"></a>DEFAULT_PATTERN&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a38bf1810175b6b82618b04b1ee0258da" name="a38bf1810175b6b82618b04b1ee0258da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38bf1810175b6b82618b04b1ee0258da">&#9670;&#160;</a></span>PlayerName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a38bf1810175b6b82618b04b1ee0258da">PlayerName</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Identifiants de personnages jouables. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a38bf1810175b6b82618b04b1ee0258daa6e2ee4dee75afce64793191e70f8be0f" name="a38bf1810175b6b82618b04b1ee0258daa6e2ee4dee75afce64793191e70f8be0f"></a>TEST_PLAYER&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a327db3e031672d43afcb06634e373d81" name="a327db3e031672d43afcb06634e373d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a327db3e031672d43afcb06634e373d81">&#9670;&#160;</a></span>Damage_player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Damage_player </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em>player</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inflige des dégâts au joueur et gère les conséquences (respawn, invincibilité, effets sonores... ). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="structGameContext.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant (toutes les données du jeu) </td></tr>
+    <tr><td class="paramname">player</td><td>joueur à blesser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si l'opération a été effectuée sans erreur, false sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a8580e6c0bd32900868966acd27ace3c5" name="a8580e6c0bd32900868966acd27ace3c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8580e6c0bd32900868966acd27ace3c5">&#9670;&#160;</a></span>DECLARE_EXTERN_TASK()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_EXTERN_TASK </td>
+          <td>(</td>
+          <td class="paramtype">reimu_yinyang_orb</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{<a class="el" href="structGameContext.html">GameContext</a> *ctx;<a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> player;float angle_offset;}</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a241594d1093931449970e50fa4eb1c96" name="a241594d1093931449970e50fa4eb1c96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a241594d1093931449970e50fa4eb1c96">&#9670;&#160;</a></span>DECLARE_SETTER_GETTER() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_SETTER_GETTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPlayer.html">Player</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GrazeSpriteId</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e6945135871ef8a3a58467755db99f9" name="a0e6945135871ef8a3a58467755db99f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e6945135871ef8a3a58467755db99f9">&#9670;&#160;</a></span>DECLARE_SETTER_GETTER() <span class="overload">[2/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_SETTER_GETTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPlayer.html">Player</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">hitboxSpriteId</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4808a3cd1c12fa419e95a40f48447c39" name="a4808a3cd1c12fa419e95a40f48447c39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4808a3cd1c12fa419e95a40f48447c39">&#9670;&#160;</a></span>DECLARE_SETTER_GETTER() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_SETTER_GETTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPlayer.html">Player</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">focusSpeed</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ae0cb5f1524b2467d423002dce0af9a" name="a1ae0cb5f1524b2467d423002dce0af9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ae0cb5f1524b2467d423002dce0af9a">&#9670;&#160;</a></span>DECLARE_SETTER_GETTER() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_SETTER_GETTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPlayer.html">Player</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">speed</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae454ba032d9e637c27577eb51ac691a2" name="ae454ba032d9e637c27577eb51ac691a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae454ba032d9e637c27577eb51ac691a2">&#9670;&#160;</a></span>DECLARE_SETTER_GETTER() <span class="overload">[5/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_SETTER_GETTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPlayer.html">Player</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bombs</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4c82734ec317847e9f94d0b84e450ad" name="af4c82734ec317847e9f94d0b84e450ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4c82734ec317847e9f94d0b84e450ad">&#9670;&#160;</a></span>DECLARE_SETTER_GETTER() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_SETTER_GETTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPlayer.html">Player</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">grazeRadius</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4499b58014afeace02a77160ff7ceb07" name="a4499b58014afeace02a77160ff7ceb07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4499b58014afeace02a77160ff7ceb07">&#9670;&#160;</a></span>DECLARE_SETTER_GETTER() <span class="overload">[7/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_SETTER_GETTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPlayer.html">Player</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">nbBombs</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab439416ee11d2f5c9f3ac32fb6afddb7" name="ab439416ee11d2f5c9f3ac32fb6afddb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab439416ee11d2f5c9f3ac32fb6afddb7">&#9670;&#160;</a></span>DEFINE_COMPONENT_MANAGER() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_COMPONENT_MANAGER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPlayer.html">Player</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4348a155b40d82a9a181d30e0a8c9fb0" name="a4348a155b40d82a9a181d30e0a8c9fb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4348a155b40d82a9a181d30e0a8c9fb0">&#9670;&#160;</a></span>DEFINE_COMPONENT_MANAGER() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFINE_COMPONENT_MANAGER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structWeapon.html">Weapon</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7db565bfe2f7127dff48ca15210a9a50" name="a7db565bfe2f7127dff48ca15210a9a50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7db565bfe2f7127dff48ca15210a9a50">&#9670;&#160;</a></span>Player_bomb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player_bomb </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em>player</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae38a270aaf90552d3f47aeb8b4fdbe31" name="ae38a270aaf90552d3f47aeb8b4fdbe31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae38a270aaf90552d3f47aeb8b4fdbe31">&#9670;&#160;</a></span>Player_get_playerID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a> Player_get_playerID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Récupère l'id du joueur. Il n'y a toujours qu'un seul joueur actif, on peut donc l'identifier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>id du joueur (index 0 du PlayerManager). </dd></dl>
+
+</div>
+</div>
+<a id="aef18f2e7c4c7d33bede12f0fd2ba06b2" name="aef18f2e7c4c7d33bede12f0fd2ba06b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef18f2e7c4c7d33bede12f0fd2ba06b2">&#9670;&#160;</a></span>Player_GetX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Player_GetX </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Récupère la position X du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>coordonée X du joueur </dd></dl>
+
+</div>
+</div>
+<a id="a448838013ff8190de267e0d84610fd28" name="a448838013ff8190de267e0d84610fd28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a448838013ff8190de267e0d84610fd28">&#9670;&#160;</a></span>Player_GetY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Player_GetY </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Récupère la position Y du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>coordonée Y du joueur </dd></dl>
+
+</div>
+</div>
+<a id="a54722425c0ee85f2d56f33f603c6efd3" name="a54722425c0ee85f2d56f33f603c6efd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54722425c0ee85f2d56f33f603c6efd3">&#9670;&#160;</a></span>Player_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player_start </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a38bf1810175b6b82618b04b1ee0258da">PlayerName</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a351dc5aa88481a949638aeb6cc5e6754">PatternType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialise et crée l'entité joueur dans la pool. </p>
+<p>Crée l'entité joueur, initialise ses composants: <a class="el" href="structPlayer.html" title="Composante Player dans l&#39;ECS Représente l&#39;état et les attributs d&#39;un joueur. Le joueur est la seule e...">Player</a>, <a class="el" href="structWeapon.html" title="Composante weapon dans l&#39;ECS Contient les informations d&#39;une arme du joueur. Le joueur est la seule e...">Weapon</a>, <a class="el" href="structPosition.html">Position</a>, <a class="el" href="structSprite.html" title="Composante Sprite dans l&#39;ECS Cette composante sert à associer une texture à une Entité....">Sprite</a>, <a class="el" href="structCollision__circle.html" title="composante collision circulaire dans l&#39;ECS">Collision_circle</a>, <a class="el" href="structLife.html">Life</a>, etc.) et place le joueur au point de spawn.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Contexte de jeu </td></tr>
+    <tr><td class="paramname">name</td><td>Type de joueur à instancier. </td></tr>
+    <tr><td class="paramname">type</td><td>Type de pattern d'arme à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afe1adaf296bb4b829c1a0a085ad61699" name="afe1adaf296bb4b829c1a0a085ad61699"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe1adaf296bb4b829c1a0a085ad61699">&#9670;&#160;</a></span>Player_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player_update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameContext.html">GameContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mise à jour par frame du joueur (input, tir, focus, graze, dégâts...). </p>
+<p>Appelée depuis la boucle principale pour traiter l'input et les actions du joueur.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td><a class="el" href="structGameContext.html" title="Un GameContext contient l&#39;ensemble des variables globales du jeu à un moment donné....">GameContext</a> courant (toutes les données du jeu) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6a93cfba045e35803246c01ae38d703a" name="a6a93cfba045e35803246c01ae38d703a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a93cfba045e35803246c01ae38d703a">&#9670;&#160;</a></span>teleport_to_player_spawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void teleport_to_player_spawn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPool.html">Pool</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ecs_8h.html#a7f551ae9f4fa7a7ff4d783e768fe1918">Entity</a></td>          <td class="paramname"><span class="paramname"><em>e</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Téléporte une entité vers le point de spawn du joueur. </p>
+<p>Utilisé pour repositionner le joueur après qu'il ai subit des dégâts où au début du jeu.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pool courante (toutes les données de l'ECS) </td></tr>
+    <tr><td class="paramname">e</td><td>Entité à téléporter. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a href="dir_ce599cbe940e096f4daa174358342371.html">internal</a></li><li class="navelem"><a href="dir_067ccfef01406ba54d1f56d3f38190aa.html">components</a></li><li class="navelem"><a href="player_8h.html">player.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
